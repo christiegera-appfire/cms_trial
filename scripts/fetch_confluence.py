@@ -28,6 +28,15 @@ import requests
 
 API_VERSION = "v2"
 
+MEDIA_TYPE_EXT = {
+    "image/png": ".png",
+    "image/jpeg": ".jpg",
+    "image/gif": ".gif",
+    "image/svg+xml": ".svg",
+    "image/webp": ".webp",
+    "application/pdf": ".pdf",
+}
+
 
 def get_auth():
     email = os.environ.get("CONFLUENCE_EMAIL")
@@ -98,11 +107,99 @@ def normalize_page(raw_page):
     }
 
 
+def get_attachments_for_page(base_url, page_id, auth):
+    """List a page's attachments via the classic REST v1 endpoint, expanding
+    extensions.fileId — this is the field that (per Atlassian's docs) matches
+    the `id` referenced by ADF media nodes. Untested against a real space
+    until the first live run; if fileId doesn't come back or doesn't match,
+    that'll show up as images staying on placeholders rather than a crash."""
+    attachments = []
+    url = f"{base_url}/wiki/rest/api/content/{page_id}/child/attachment"
+    params = {"limit": 200, "expand": "extensions.fileId,metadata.mediaType"}
+    while url:
+        resp = requests.get(url, params=params, auth=auth, timeout=30)
+        if resp.status_code == 429:
+            wait = int(resp.headers.get("Retry-After", "5"))
+            time.sleep(wait)
+            continue
+        if resp.status_code == 404:
+            return []  # page has no attachments endpoint content, not fatal
+        resp.raise_for_status()
+        data = resp.json()
+        attachments.extend(data.get("results", []))
+        next_link = data.get("_links", {}).get("next")
+        if next_link:
+            url = base_url + "/wiki" + next_link if not next_link.startswith("http") else next_link
+            params = {}
+        else:
+            url = None
+    return attachments
+
+
+def download_attachments(base_url, auth, pages, assets_dir):
+    """Downloads every attachment referenced by the fetched pages into
+    assets_dir, keyed by the ADF media fileId so generate_site.py can look
+    up a local path for each <img>. Skips re-downloading files that already
+    exist locally, since most images don't change between runs."""
+    os.makedirs(assets_dir, exist_ok=True)
+    media_map = {}
+    total_pages = len(pages)
+
+    for i, p in enumerate(pages, 1):
+        page_id = p["id"]
+        try:
+            attachments = get_attachments_for_page(base_url, page_id, auth)
+        except requests.RequestException as e:
+            print(f"WARNING: could not list attachments for page {page_id}: {e}", file=sys.stderr)
+            continue
+
+        for att in attachments:
+            file_id = att.get("extensions", {}).get("fileId")
+            if not file_id:
+                continue  # can't match this attachment to an ADF media node without it
+
+            download_path = att.get("_links", {}).get("download")
+            if not download_path:
+                continue
+
+            title = att.get("title", file_id)
+            ext = os.path.splitext(title)[1]
+            if not ext:
+                media_type = att.get("metadata", {}).get("mediaType", "")
+                ext = MEDIA_TYPE_EXT.get(media_type, "")
+
+            local_name = f"{file_id}{ext}"
+            local_path = os.path.join(assets_dir, local_name)
+
+            if not os.path.exists(local_path):
+                full_url = download_path if download_path.startswith("http") else f"{base_url}/wiki{download_path}"
+                try:
+                    img_resp = requests.get(full_url, auth=auth, timeout=60)
+                    if img_resp.status_code == 200:
+                        with open(local_path, "wb") as f:
+                            f.write(img_resp.content)
+                    else:
+                        print(f"WARNING: attachment download failed ({img_resp.status_code}): {title}", file=sys.stderr)
+                        continue
+                except requests.RequestException as e:
+                    print(f"WARNING: attachment download error for {title}: {e}", file=sys.stderr)
+                    continue
+
+            media_map[file_id] = f"assets/{local_name}"
+
+        if i % 10 == 0 or i == total_pages:
+            print(f"  attachments: processed {i}/{total_pages} pages, {len(media_map)} images mapped so far")
+
+    return media_map
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--space", required=True, help="Confluence space key, e.g. FOX")
     parser.add_argument("--site", required=True, help="e.g. appfire.atlassian.net")
     parser.add_argument("--out", default="data/pages.json")
+    parser.add_argument("--assets-dir", default="assets", help="Where downloaded images are saved")
+    parser.add_argument("--skip-images", action="store_true", help="Skip attachment download (faster, for debugging)")
     args = parser.parse_args()
 
     base_url = f"https://{args.site}"
@@ -121,9 +218,22 @@ def main():
     if failed:
         print(f"WARNING: {len(failed)} pages had no usable ADF body: {failed}", file=sys.stderr)
 
+    media_map = {}
+    if not args.skip_images:
+        print("Downloading images (skips files already on disk)...")
+        media_map = download_attachments(base_url, auth, normalized, args.assets_dir)
+        print(f"Mapped {len(media_map)} images to local files.")
+    else:
+        print("--skip-images set, leaving all images as placeholders.")
+
     os.makedirs(os.path.dirname(args.out) or ".", exist_ok=True)
     with open(args.out, "w") as f:
-        json.dump({"space_key": args.space, "space_id": space_id, "pages": normalized}, f, indent=2)
+        json.dump({
+            "space_key": args.space,
+            "space_id": space_id,
+            "pages": normalized,
+            "media": media_map,
+        }, f, indent=2)
 
     print(f"Wrote {args.out}")
 
