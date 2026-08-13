@@ -1,0 +1,52 @@
+name: Rebuild Foxly docs from Confluence
+
+on:
+  workflow_dispatch: {}      # manual "Run workflow" button in the Actions tab
+  schedule:
+    - cron: "0 */6 * * *"    # every 6 hours — adjust to taste once this is trusted
+
+permissions:
+  contents: write            # needed to commit the rebuilt HTML back to main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install requests beautifulsoup4
+
+      - name: Fetch pages from Confluence
+        env:
+          CONFLUENCE_EMAIL: ${{ secrets.CONFLUENCE_EMAIL }}
+          CONFLUENCE_API_TOKEN: ${{ secrets.CONFLUENCE_API_TOKEN }}
+        run: |
+          python3 scripts/fetch_confluence.py \
+            --space FOX \
+            --site appfire.atlassian.net \
+            --out data/pages.json
+
+      - name: Build static site
+        run: |
+          python3 scripts/generate_site.py \
+            --data data/pages.json \
+            --out .
+
+      - name: Commit and push if anything changed
+        run: |
+          git config user.name "foxly-docs-bot"
+          git config user.email "actions@github.com"
+          git add -A -- '*.html' 'data/pages.json'
+          if git diff --cached --quiet; then
+            echo "No content changes — skipping commit."
+          else
+            git commit -m "Rebuild from Confluence ($(date -u +%Y-%m-%dT%H:%M:%SZ))"
+            git push
+          fi
