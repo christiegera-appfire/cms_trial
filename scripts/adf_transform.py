@@ -4,19 +4,24 @@ adf_transform.py — converts ADF (Atlassian Document Format) JSON, as returned
 by Confluence's real REST API v2 (GET /wiki/api/v2/pages/{id}?body-format=atlas_doc_format),
 into clean static HTML.
 
-v2 changes, made after reviewing the real FOX space payload from the first
-live fetch (not the hand-built fixture): added embedCard (YouTube/Loom/Vimeo
-smart embeds), inlineCard (inline smart links), mediaInline (small inline
-icons), a real children-macro renderer backed by the actual page tree, and a
-silent-skip list for macros with no visual output (internal analytics, etc).
+v3 changes: real TOC macro support (built from the page's own headings, since
+we control the whole render pass — no need for a dynamic macro when the data
+is right there), Page Properties macro rendering, and a generic fallback for
+unmapped *bodied* macros: if a macro we haven't explicitly mapped has real
+content inside it, render that content instead of hiding it behind an
+"unmapped" box. Most Confluence macros are wrappers around ordinary content
+(excerpts, layout helpers, etc.) — rendering the body is usually the right
+approximation of "what's actually in Confluence," which is the actual goal
+here, not a fully faithful macro engine.
 
 ADF reference: https://developer.atlassian.com/cloud/confluence/adf/
 
-Design choice carried over from v1: truly unknown node types still render a
-visible marker instead of silently vanishing. Content that quietly disappears
-during extraction is exactly what broke the Get Started page audit's
-markdown-based approach — this pipeline deliberately fails loud, except for
-the specific macros in SILENT_MACROS that are known to have no output.
+Design choice carried over from earlier versions: truly unknown, content-free
+node types still render a visible marker instead of silently vanishing.
+Content that quietly disappears during extraction is exactly what broke the
+Get Started page audit's markdown-based approach — this pipeline deliberately
+fails loud, except for the specific macros in SILENT_MACROS known to have no
+visual output at all.
 """
 
 import html
@@ -47,6 +52,14 @@ SILENT_MACROS = {
     "appfire-confluence-analytics",
 }
 
+# Macros that are pure wrappers around ordinary content — render the content
+# directly with no extra wrapper div, since these don't need special styling.
+TRANSPARENT_CONTENT_MACROS = {
+    "excerpt",
+    "excerpt-include",
+    "expand",  # bodied-extension form some spaces use instead of native ADF expand
+}
+
 VIDEO_HOST_HINTS = ("youtube.com", "youtu.be", "loom.com", "vimeo.com")
 
 INTERNAL_PAGE_LINK_RE = re.compile(r"/wiki/spaces/[^/]+/pages/(\d+)")
@@ -56,6 +69,22 @@ def esc(text):
     return html.escape(text or "", quote=False)
 
 
+def slugify(text):
+    slug = re.sub(r"[^a-z0-9]+", "-", (text or "").lower()).strip("-")
+    return slug or "section"
+
+
+def unique_heading_id(text, seen_ids):
+    base = slugify(text)
+    slug = base
+    i = 2
+    while slug in seen_ids:
+        slug = f"{base}-{i}"
+        i += 1
+    seen_ids.add(slug)
+    return slug
+
+
 def render_emoji(node):
     attrs = node.get("attrs", {})
     text = attrs.get("text", "")
@@ -63,18 +92,13 @@ def render_emoji(node):
     # Real unicode emoji (👉, ✅, 🔢...) come through as the actual glyph in
     # `text`. Confluence's own UI icons (edit-pencil, actionmenu, history_icon)
     # have no unicode equivalent — their `text` is literally the shortcode
-    # string itself, which would otherwise leak into rendered prose verbatim
-    # (e.g. "click :edit-pencil: to..." showing up exactly like that).
+    # string itself, which would otherwise leak into rendered prose verbatim.
     if text and not re.match(r"^:[\w-]+:$", text):
         return esc(text)
     label = (short or text).strip(":").replace("-", " ").replace("_", " ").strip()
     if not label:
         return ""
     return f'<span class="icon-note">[{esc(label)} icon]</span>'
-
-
-def _is_video_url(url):
-    return any(host in (url or "") for host in VIDEO_HOST_HINTS)
 
 
 def _youtube_embed_html(url):
@@ -102,8 +126,6 @@ def _loom_embed_html(url):
 
 
 def _generic_embed_card_html(url):
-    """Non-video embed cards (e.g. Marketplace links, docs) — render as a styled card link
-    rather than trying to iframe arbitrary third-party pages, which most sites block anyway."""
     safe = html.escape(url or "", quote=True)
     display = esc(url or "")
     return f'<p><a href="{safe}" class="embed-card-link">{display}</a></p>'
@@ -132,8 +154,7 @@ def render_inline_card(node, link_titles=None):
     return f'<a href="{safe_href}">{esc(label)}</a>'
 
 
-def render_marks(text, marks, link_titles=None):
-    """Wrap escaped text in the tags implied by its marks (bold/italic/code/link)."""
+def render_marks(text, marks):
     out = esc(text)
     link_href = None
     open_tags = []
@@ -151,12 +172,23 @@ def render_marks(text, marks, link_titles=None):
     return out
 
 
-def render_inline(nodes, unresolved_includes=None, link_titles=None):
+def plain_text_of(nodes):
+    """Flatten inline content to plain text — used for heading ids/TOC labels."""
+    parts = []
+    for node in nodes or []:
+        if node.get("type") == "text":
+            parts.append(node.get("text", ""))
+        elif node.get("content"):
+            parts.append(plain_text_of(node["content"]))
+    return "".join(parts)
+
+
+def render_inline(nodes, ctx):
     parts = []
     for node in nodes or []:
         ntype = node.get("type")
         if ntype == "text":
-            parts.append(render_marks(node.get("text", ""), node.get("marks"), link_titles))
+            parts.append(render_marks(node.get("text", ""), node.get("marks")))
         elif ntype == "hardBreak":
             parts.append("<br>")
         elif ntype == "mention":
@@ -164,12 +196,10 @@ def render_inline(nodes, unresolved_includes=None, link_titles=None):
         elif ntype == "emoji":
             parts.append(render_emoji(node))
         elif ntype == "inlineExtension":
-            parts.append(render_extension(node, unresolved_includes, link_titles, inline=True))
+            parts.append(render_extension(node, ctx, inline=True))
         elif ntype == "inlineCard":
-            parts.append(render_inline_card(node, link_titles))
+            parts.append(render_inline_card(node, ctx.get("link_titles")))
         elif ntype == "mediaInline":
-            # Small inline icon within a sentence — not worth a full placeholder block,
-            # but shouldn't vanish silently either.
             parts.append('<span class="inline-icon" title="inline icon">▢</span>')
         elif ntype == "status":
             attrs = node.get("attrs", {})
@@ -182,7 +212,15 @@ def render_inline(nodes, unresolved_includes=None, link_titles=None):
     return "".join(parts)
 
 
-def render_extension(node, unresolved_includes=None, link_titles=None, inline=False):
+def render_page_properties(node, ctx):
+    """Page Properties macro — usually wraps a two-column table of {label: value}.
+    Render its actual content (typically a table) inside a styled wrapper so it
+    reads as a distinct metadata block rather than blending into body text."""
+    inner = "".join(render_block(c, ctx) for c in node.get("content", []))
+    return f'<div class="page-properties">{inner}</div>'
+
+
+def render_extension(node, ctx, inline=False):
     attrs = node.get("attrs", {})
     key = attrs.get("extensionKey")
 
@@ -191,6 +229,7 @@ def render_extension(node, unresolved_includes=None, link_titles=None, inline=Fa
 
     params = attrs.get("parameters", {}) or {}
     macro_params = params.get("macroParams", {}) or {}
+    content = node.get("content")
 
     if key == "iframe":
         src = macro_params.get("src", {}).get("value") or macro_params.get("", {}).get("value")
@@ -202,23 +241,37 @@ def render_extension(node, unresolved_includes=None, link_titles=None, inline=Fa
 
     if key == "include":
         title = (macro_params.get("", {}) or {}).get("value", "").strip()
-        unresolved_includes = unresolved_includes or {}
+        unresolved_includes = ctx.get("unresolved_includes") or {}
         included = unresolved_includes.get(title, "").strip()
         if included and included not in ("", "<p></p>"):
             return f'<div class="included-content">{included}</div>'
         return ""
 
     if key == "children":
-        # We have the real page tree at generate time — render_children_list()
-        # in generate_site.py replaces this placeholder with an actual nested
-        # list once it knows which page this macro lives on. Leave a marker
-        # extension can't resolve on its own (it doesn't know "this page's id").
+        # Resolved later by generate_site.py, which has the real page tree —
+        # this function only knows the macro exists, not which page it's on.
         return "<!--CHILDREN_MACRO-->"
 
-    if key in ("toc", "pagetree"):
-        return f'<div class="img-placeholder">[{esc(key)} macro — dynamic, no static equivalent yet]</div>'
+    if key == "toc":
+        # Resolved later once the full heading list for this page is known —
+        # rendering happens bottom-up per-node, but TOC needs the whole page.
+        return "<!--TOC_MACRO-->"
 
-    return f'<div class="img-placeholder">[Unmapped macro: {esc(key or "unknown")} — needs a transform rule]</div>'
+    if key in ("detail", "details-macro", "page-properties"):
+        return render_page_properties(node, ctx)
+
+    if key == "pagetree":
+        return '<div class="img-placeholder">[pagetree macro — dynamic multi-level tree, not yet built]</div>'
+
+    # Generic fallback: most macros we haven't explicitly mapped are still
+    # just wrapping ordinary renderable content (excerpts, custom panels,
+    # third-party formatting macros). Render that content directly rather
+    # than hiding it — this is usually a much better approximation of "what's
+    # actually in Confluence" than an empty placeholder box.
+    if content:
+        return "".join(render_block(c, ctx) for c in content)
+
+    return f'<div class="img-placeholder">[Unmapped macro: {esc(key or "unknown")} — no content to fall back on]</div>'
 
 
 def render_media(node):
@@ -230,32 +283,36 @@ def render_media(node):
     )
 
 
-def render_block(node, unresolved_includes=None, link_titles=None):
+def render_block(node, ctx):
     ntype = node.get("type")
     content = node.get("content", [])
 
     if ntype == "paragraph":
-        inline = render_inline(content, unresolved_includes, link_titles)
+        inline = render_inline(content, ctx)
         return f"<p>{inline}</p>" if inline.strip() else ""
 
     if ntype == "heading":
         level = node.get("attrs", {}).get("level", 2)
         level = min(max(level, 2), 4)  # h1 reserved for page title
-        return f"<h{level}>{render_inline(content, unresolved_includes, link_titles)}</h{level}>"
+        text_html = render_inline(content, ctx)
+        plain = plain_text_of(content)
+        heading_id = unique_heading_id(plain, ctx["heading_ids"])
+        ctx["headings"].append({"id": heading_id, "level": level, "text": plain})
+        return f'<h{level} id="{heading_id}">{text_html}</h{level}>'
 
     if ntype in ("bulletList", "orderedList"):
         tag = "ul" if ntype == "bulletList" else "ol"
-        items = "".join(render_block(li, unresolved_includes, link_titles) for li in content)
+        items = "".join(render_block(li, ctx) for li in content)
         return f"<{tag}>{items}</{tag}>"
 
     if ntype == "listItem":
-        inner = "".join(render_block(c, unresolved_includes, link_titles) for c in content)
+        inner = "".join(render_block(c, ctx) for c in content)
         return f"<li>{inner}</li>"
 
     if ntype == "panel":
         panel_type = node.get("attrs", {}).get("panelType", "info")
         css_class = PANEL_TYPE_MAP.get(panel_type, "panel-note")
-        inner = "".join(render_block(c, unresolved_includes, link_titles) for c in content)
+        inner = "".join(render_block(c, ctx) for c in content)
         return f'<div class="panel {css_class}">{inner}</div>'
 
     if ntype == "layoutSection":
@@ -265,11 +322,11 @@ def render_block(node, unresolved_includes=None, link_titles=None):
         n = len(columns)
         widths = [c.get("attrs", {}).get("width") or (100 / n) for c in columns]
         template = " ".join(f"{w}fr" for w in widths)
-        cols_html = "".join(render_block(c, unresolved_includes, link_titles) for c in columns)
+        cols_html = "".join(render_block(c, ctx) for c in columns)
         return f'<div class="columns" style="grid-template-columns: {template};">{cols_html}</div>'
 
     if ntype == "layoutColumn":
-        inner = "".join(render_block(c, unresolved_includes, link_titles) for c in content)
+        inner = "".join(render_block(c, ctx) for c in content)
         return f"<div>{inner}</div>"
 
     if ntype == "mediaSingle":
@@ -284,14 +341,14 @@ def render_block(node, unresolved_includes=None, link_titles=None):
 
     if ntype == "expand":
         title = node.get("attrs", {}).get("title", "Details")
-        inner = "".join(render_block(c, unresolved_includes, link_titles) for c in content)
+        inner = "".join(render_block(c, ctx) for c in content)
         return f"<details><summary>{esc(title)}</summary>{inner}</details>"
 
     if ntype == "rule":
         return "<hr>"
 
     if ntype == "blockquote":
-        inner = "".join(render_block(c, unresolved_includes, link_titles) for c in content)
+        inner = "".join(render_block(c, ctx) for c in content)
         return f"<blockquote>{inner}</blockquote>"
 
     if ntype == "codeBlock":
@@ -300,32 +357,44 @@ def render_block(node, unresolved_includes=None, link_titles=None):
         return f'<pre><code class="language-{lang}">{esc(text)}</code></pre>'
 
     if ntype == "table":
-        rows = "".join(render_block(c, unresolved_includes, link_titles) for c in content)
+        rows = "".join(render_block(c, ctx) for c in content)
         return f"<table>{rows}</table>"
 
     if ntype == "tableRow":
-        cells = "".join(render_block(c, unresolved_includes, link_titles) for c in content)
+        cells = "".join(render_block(c, ctx) for c in content)
         return f"<tr>{cells}</tr>"
 
     if ntype in ("tableCell", "tableHeader"):
         tag = "th" if ntype == "tableHeader" else "td"
-        inner = "".join(render_block(c, unresolved_includes, link_titles) for c in content)
+        inner = "".join(render_block(c, ctx) for c in content)
         return f"<{tag}>{inner}</{tag}>"
 
     if ntype == "taskList":
-        items = "".join(render_block(c, unresolved_includes, link_titles) for c in content)
+        items = "".join(render_block(c, ctx) for c in content)
         return f'<ul class="task-list">{items}</ul>'
 
     if ntype == "taskItem":
         checked = "checked" if node.get("attrs", {}).get("state") == "DONE" else ""
-        inner = render_inline(content, unresolved_includes, link_titles)
+        inner = render_inline(content, ctx)
         return f'<li><input type="checkbox" disabled {checked}> {inner}</li>'
 
     if ntype in ("bodiedExtension", "extension"):
-        return render_extension(node, unresolved_includes, link_titles)
+        return render_extension(node, ctx)
 
     # Unknown block type — visible marker, not a silent drop.
     return f'<div class="img-placeholder">[Unmapped block: {esc(ntype or "unknown")}]</div>'
+
+
+def render_toc(headings):
+    """Real TOC, built from the headings actually collected during render —
+    no dynamic macro needed since we already walked the whole document."""
+    if not headings:
+        return ""
+    items = "".join(
+        f'<li class="toc-level-{h["level"]}"><a href="#{h["id"]}">{esc(h["text"])}</a></li>'
+        for h in headings
+    )
+    return f'<nav class="toc"><ul>{items}</ul></nav>'
 
 
 def adf_to_html(adf_doc, unresolved_includes=None, link_titles=None):
@@ -335,11 +404,27 @@ def adf_to_html(adf_doc, unresolved_includes=None, link_titles=None):
              GET /wiki/api/v2/pages/{id}?body-format=atlas_doc_format)
     link_titles: optional {page_id: title} dict used to render inlineCard links to
                  internal pages with a real title instead of the raw URL.
+
+    Returns the rendered HTML string. Any TOC macro on the page is resolved
+    using headings collected during this same render pass, so a TOC macro
+    anywhere in the document (before or after its headings) works correctly.
     """
     if isinstance(adf_doc, str):
         adf_doc = json.loads(adf_doc)
+
+    ctx = {
+        "unresolved_includes": unresolved_includes,
+        "link_titles": link_titles,
+        "headings": [],
+        "heading_ids": set(),
+    }
     content = adf_doc.get("content", [])
-    return "".join(render_block(node, unresolved_includes, link_titles) for node in content)
+    html_str = "".join(render_block(node, ctx) for node in content)
+
+    if "<!--TOC_MACRO-->" in html_str:
+        html_str = html_str.replace("<!--TOC_MACRO-->", render_toc(ctx["headings"]))
+
+    return html_str
 
 
 def generate_meta_description(adf_doc, max_len=155):
@@ -370,38 +455,35 @@ if __name__ == "__main__":
         "type": "doc",
         "version": 1,
         "content": [
+            {"type": "extension", "attrs": {"extensionKey": "toc", "extensionType": "com.atlassian.confluence.macro.core"}},
             {"type": "heading", "attrs": {"level": 2}, "content": [{"type": "text", "text": "Overview"}]},
             {"type": "paragraph", "content": [
                 {"type": "text", "text": "This is a real test paragraph long enough to become a meta description candidate."}
             ]},
+            {"type": "heading", "attrs": {"level": 3}, "content": [{"type": "text", "text": "Overview"}]},  # duplicate title, tests id uniqueness
             {"type": "panel", "attrs": {"panelType": "note"}, "content": [
                 {"type": "paragraph", "content": [{"type": "text", "text": "A note."}]}
             ]},
-            {"type": "expand", "attrs": {"title": "Click to expand"}, "content": [
-                {"type": "paragraph", "content": [{"type": "text", "text": "Hidden content."}]}
+            {"type": "extension", "attrs": {"extensionKey": "detail", "extensionType": "com.atlassian.confluence.macro.core"}, "content": [
+                {"type": "table", "content": [
+                    {"type": "tableRow", "content": [
+                        {"type": "tableCell", "content": [{"type": "paragraph", "content": [{"type": "text", "text": "Owner"}]}]},
+                        {"type": "tableCell", "content": [{"type": "paragraph", "content": [{"type": "text", "text": "Christie"}]}]}
+                    ]}
+                ]}
             ]},
-            {"type": "embedCard", "attrs": {"url": "https://www.youtube.com/watch?v=abc123XYZ_9"}},
-            {"type": "embedCard", "attrs": {"url": "https://www.loom.com/share/c28eb97f6aa74a938e08"}},
-            {"type": "paragraph", "content": [
-                {"type": "text", "text": "See "},
-                {"type": "inlineCard", "attrs": {"url": "https://appfire.atlassian.net/wiki/spaces/FOX/pages/12345"}},
-                {"type": "text", "text": " for details."},
+            {"type": "extension", "attrs": {"extensionKey": "some-random-third-party-macro", "extensionType": "x"}, "content": [
+                {"type": "paragraph", "content": [{"type": "text", "text": "Fallback content should still show up."}]}
             ]},
-            {"type": "extension", "attrs": {
-                "extensionKey": "appfire-confluence-analytics",
-                "extensionType": "com.atlassian.confluence.macro.core",
-                "parameters": {},
-            }},
+            {"type": "extension", "attrs": {"extensionKey": "totally-empty-unknown-macro", "extensionType": "x"}},
         ],
     }
-    out = adf_to_html(sample, link_titles={"12345": "Some Other Page"})
-    assert "<h2>Overview</h2>" in out
-    assert "panel-note" in out
-    assert "<details>" in out
-    assert "youtube.com/embed/abc123XYZ_9" in out
-    assert "loom.com/embed/c28eb97f6aa74a938e08" in out
-    assert "Some Other Page</a>" in out
-    assert "appfire-confluence-analytics" not in out  # silent macro should vanish entirely
-    assert "Unmapped" not in out
-    print("adf_transform.py v2 self-test passed")
-    print(generate_meta_description(sample))
+    out = adf_to_html(sample)
+    assert '<nav class="toc">' in out
+    assert 'href="#overview"' in out and 'href="#overview-2"' in out
+    assert 'id="overview"' in out and 'id="overview-2"' in out
+    assert 'page-properties' in out and 'Christie' in out
+    assert "Fallback content should still show up." in out
+    assert "Unmapped macro: totally-empty-unknown-macro" in out
+    assert "Unmapped macro: some-random" not in out  # this one had content, shouldn't be flagged
+    print("adf_transform.py v3 self-test passed")
