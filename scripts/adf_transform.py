@@ -85,10 +85,31 @@ def unique_heading_id(text, seen_ids):
     return slug
 
 
+# Confluence sometimes sends the literal shortcode as `text` even for very
+# common, universally-recognized emoji (check_mark, cross_mark) rather than a
+# real glyph. Unlike genuinely custom UI icons (edit-pencil, actionmenu),
+# these have an obvious, standard visual equivalent — worth mapping directly
+# rather than spelling out "[check mark icon]" every time, especially in
+# tables like a permissions matrix where that repeats dozens of times.
+KNOWN_EMOJI_GLYPHS = {
+    "check_mark": "✅",
+    "cross_mark": "❌",
+    "white_check_mark": "✅",
+    "heavy_check_mark": "✔️",
+    "warning": "⚠️",
+    "bulb": "💡",
+    "point_right": "👉",
+    "info": "ℹ️",
+}
+
+
 def render_emoji(node):
     attrs = node.get("attrs", {})
     text = attrs.get("text", "")
     short = attrs.get("shortName", "")
+    short_key = short.strip(":") if short else ""
+    if short_key in KNOWN_EMOJI_GLYPHS:
+        return KNOWN_EMOJI_GLYPHS[short_key]
     # Real unicode emoji (👉, ✅, 🔢...) come through as the actual glyph in
     # `text`. Confluence's own UI icons (edit-pencil, actionmenu, history_icon)
     # have no unicode equivalent — their `text` is literally the shortcode
@@ -274,9 +295,16 @@ def render_extension(node, ctx, inline=False):
     return f'<div class="img-placeholder">[Unmapped macro: {esc(key or "unknown")} — no content to fall back on]</div>'
 
 
-def render_media(node):
+def render_media(node, ctx):
     attrs = node.get("attrs", {})
+    media_id = attrs.get("id")
     alt = attrs.get("alt") or attrs.get("collection") or "Image"
+    media_map = (ctx or {}).get("media_map") or {}
+
+    local_path = media_map.get(media_id)
+    if local_path:
+        return f'<img src="{html.escape(local_path, quote=True)}" alt="{esc(alt)}" loading="lazy" class="doc-image">'
+
     return (
         f'<div class="img-placeholder"><span class="tag">Image — asset pipeline pending</span>'
         f'<br>{esc(alt)}</div>'
@@ -331,10 +359,10 @@ def render_block(node, ctx):
 
     if ntype == "mediaSingle":
         media_nodes = [c for c in content if c.get("type") == "media"]
-        return "".join(render_media(m) for m in media_nodes) if media_nodes else ""
+        return "".join(render_media(m, ctx) for m in media_nodes) if media_nodes else ""
 
     if ntype == "mediaGroup":
-        return "".join(render_media(m) for m in content if m.get("type") == "media")
+        return "".join(render_media(m, ctx) for m in content if m.get("type") == "media")
 
     if ntype == "embedCard":
         return render_embed_card(node)
@@ -397,13 +425,16 @@ def render_toc(headings):
     return f'<nav class="toc"><ul>{items}</ul></nav>'
 
 
-def adf_to_html(adf_doc, unresolved_includes=None, link_titles=None):
+def adf_to_html(adf_doc, unresolved_includes=None, link_titles=None, media_map=None):
     """
     adf_doc: parsed JSON dict with {"type": "doc", "version": 1, "content": [...]}
              (i.e. the `body.atlas_doc_format.value`, already json.loads()'d, from
              GET /wiki/api/v2/pages/{id}?body-format=atlas_doc_format)
     link_titles: optional {page_id: title} dict used to render inlineCard links to
                  internal pages with a real title instead of the raw URL.
+    media_map: optional {media_id: local_asset_path} dict, produced by
+               fetch_confluence.py's attachment downloader — when a media node's
+               id is found here, a real <img> renders instead of a placeholder.
 
     Returns the rendered HTML string. Any TOC macro on the page is resolved
     using headings collected during this same render pass, so a TOC macro
@@ -415,6 +446,7 @@ def adf_to_html(adf_doc, unresolved_includes=None, link_titles=None):
     ctx = {
         "unresolved_includes": unresolved_includes,
         "link_titles": link_titles,
+        "media_map": media_map,
         "headings": [],
         "heading_ids": set(),
     }
