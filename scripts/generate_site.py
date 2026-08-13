@@ -179,7 +179,12 @@ def build_all(data_path=DATA_FILE, out_dir=OUT_DIR):
 
     built = []
     for p in pages:
-        body_html = adf_to_html(p["adf"], unresolved_includes=includes, link_titles=titles)
+        body_html = adf_to_html(
+            p["adf"],
+            unresolved_includes=includes,
+            link_titles=titles,
+            media_map=data.get("media", {}),
+        )
         if "<!--CHILDREN_MACRO-->" in body_html:
             children_html = render_children_list(p["id"], pages_by_parent, slugs, titles)
             body_html = body_html.replace("<!--CHILDREN_MACRO-->", children_html)
