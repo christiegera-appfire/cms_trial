@@ -1,21 +1,55 @@
-/* Foxly static docs pilot — shared styles
-   Palette matches the existing Appfire SEO tooling: black / electric blue / DM Sans + Syne */
+/* Foxly static docs pilot — v2
+   Tokens pulled directly from the real support.appfire.com custom CSS/HTML
+   (css.txt, proddir.txt, search.txt), not guessed. Source values:
+     --af-bg-page: #0b0f16       --af-accent: #397bff
+     --af-bg-card: rgba(12,17,28,.9)   --af-chrome-14: rgba(215,222,234,.14)
+     font: "area" via Typekit (use.typekit.net/eah5sfj.css)
+   Typekit note: Adobe Fonts kits can be domain-restricted. If "area" doesn't
+   load on a github.io domain, the fallback stack below (system-ui etc.)
+   is what you'll actually see — that's expected, not a bug.
+*/
 
-@import url('https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@400;500;700&display=swap');
+@import url('https://use.typekit.net/eah5sfj.css');
 
 :root {
-  --ink: #0B0C10;
-  --paper: #FAFAFA;
-  --card: #FFFFFF;
-  --electric: #2447FF;
-  --electric-soft: #EEF1FF;
-  --line: #E4E4E7;
-  --text: #1B1D22;
-  --text-mute: #5B5F6B;
-  --success: #0E9F6E;
-  --success-bg: #EAFBF3;
-  --note: #B87A00;
-  --note-bg: #FFF7E6;
+  --font: "area-normal", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  --bg-page:      #0b0f16;
+  --bg-page-2:    #0a0d13;
+  --bg-card:      rgba(12, 17, 28, 0.9);
+  --bg-card-hover:rgba(12, 17, 28, 0.95);
+  --bg-surface:   rgba(12, 17, 28, 0.6);
+  --bg-surface-lo:rgba(12, 17, 28, 0.4);
+  --bg-footer:    #000000;
+
+  --chrome-06: rgba(215, 222, 234, 0.06);
+  --chrome-10: rgba(215, 222, 234, 0.10);
+  --chrome-14: rgba(215, 222, 234, 0.14);
+  --chrome-20: rgba(215, 222, 234, 0.20);
+  --chrome-26: rgba(215, 222, 234, 0.26);
+
+  --text-primary: #ffffff;
+  --text-high:    rgba(255, 255, 255, 0.92);
+  --text-body:    rgba(255, 255, 255, 0.85);
+  --text-mid:     rgba(255, 255, 255, 0.60);
+  --text-muted:   rgba(255, 255, 255, 0.50);
+  --text-dim:     rgba(255, 255, 255, 0.35);
+
+  --accent:        #397bff;
+  --accent-hover:  #2d6ae0;
+  --accent-faint:  rgba(57, 123, 255, 0.10);
+  --accent-subtle: rgba(57, 123, 255, 0.15);
+  --accent-border: rgba(57, 123, 255, 0.25);
+  --accent-text:   #7eb3ff;
+
+  --ok-bg: rgba(26, 122, 74, 0.15);   --ok-border: rgba(26, 122, 74, 0.25);   --ok-text: #5ecc8e;
+  --warn-bg: rgba(184, 110, 0, 0.15); --warn-border: rgba(184, 110, 0, 0.25); --warn-text: #ffc970;
+  --bad-bg: rgba(192, 57, 43, 0.15);  --bad-border: rgba(192, 57, 43, 0.25);  --bad-text: #ff8f7e;
+
+  --radius: 18px;
+  --radius-sm: 10px;
+  --shadow-sm: 0 2px 8px rgba(0,0,0,.18);
+  --shadow-md: 0 8px 28px rgba(0,0,0,.35);
 }
 
 * { box-sizing: border-box; }
@@ -23,9 +57,9 @@
 html, body {
   margin: 0;
   padding: 0;
-  background: var(--paper);
-  color: var(--text);
-  font-family: 'DM Sans', system-ui, sans-serif;
+  background: var(--bg-page);
+  color: var(--text-body);
+  font-family: var(--font);
   font-size: 16px;
   line-height: 1.6;
 }
@@ -39,8 +73,9 @@ html, body {
 .sidebar {
   width: 280px;
   flex-shrink: 0;
-  background: var(--ink);
-  color: #E7E8EC;
+  background: var(--bg-page-2);
+  border-right: 1px solid var(--chrome-14);
+  color: var(--text-body);
   padding: 28px 22px 40px;
 }
 
@@ -52,24 +87,23 @@ html, body {
 }
 
 .sidebar .brand-mark {
-  font-family: 'Syne', sans-serif;
   font-weight: 800;
   font-size: 20px;
-  color: #fff;
-  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  letter-spacing: -0.01em;
 }
 
 .sidebar .brand-tag {
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--electric);
+  color: var(--accent-text);
   font-weight: 700;
 }
 
 .sidebar .pilot-note {
   font-size: 12px;
-  color: #8A8D98;
+  color: var(--text-dim);
   margin: 4px 0 28px;
   line-height: 1.5;
 }
@@ -84,7 +118,7 @@ html, body {
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: #6D707C;
+  color: var(--text-dim);
   font-weight: 700;
   margin: 20px 0 8px;
 }
@@ -93,49 +127,30 @@ html, body {
 
 .sidebar nav a {
   display: block;
-  color: #C9CBD3;
+  color: var(--text-mid);
   text-decoration: none;
   font-size: 14px;
   padding: 7px 10px;
-  border-radius: 6px;
+  border-radius: 8px;
   transition: background 0.15s, color 0.15s;
 }
 
 .sidebar nav a:hover {
-  background: rgba(36, 71, 255, 0.18);
-  color: #fff;
+  background: var(--accent-faint);
+  color: var(--text-high);
 }
 
 .sidebar nav a.active {
-  background: var(--electric);
-  color: #fff;
-  font-weight: 500;
-}
-
-.sidebar nav .disabled {
-  display: block;
-  font-size: 14px;
-  padding: 7px 10px;
-  color: #565963;
-  cursor: default;
-}
-
-.sidebar nav .disabled::after {
-  content: " (not built in pilot)";
-  font-size: 11px;
-  color: #45474F;
-}
-
-.sidebar .sub {
-  margin-left: 14px;
-  border-left: 1px solid #2A2C36;
-  padding-left: 10px;
+  background: var(--accent-subtle);
+  border: 1px solid var(--accent-border);
+  color: var(--text-primary);
+  font-weight: 600;
 }
 
 .sidebar .more-note {
   margin-left: 14px;
   font-size: 12px;
-  color: #565963;
+  color: var(--text-dim);
   padding: 4px 10px;
 }
 
@@ -146,43 +161,32 @@ html, body {
   max-width: 800px;
 }
 
-.breadcrumb {
-  font-size: 13px;
-  color: var(--text-mute);
-  margin-bottom: 18px;
-}
-
-.breadcrumb a { color: var(--electric); text-decoration: none; }
-.breadcrumb a:hover { text-decoration: underline; }
-
 h1 {
-  font-family: 'Syne', sans-serif;
   font-weight: 800;
   font-size: 34px;
   letter-spacing: -0.01em;
   margin: 0 0 22px;
-  color: var(--ink);
+  color: var(--text-primary);
 }
 
 h2 {
-  font-family: 'Syne', sans-serif;
   font-weight: 700;
   font-size: 22px;
   margin: 34px 0 12px;
-  color: var(--ink);
+  color: var(--text-high);
 }
 
 h3 {
-  font-family: 'Syne', sans-serif;
   font-weight: 600;
   font-size: 17px;
   margin: 24px 0 8px;
-  color: var(--ink);
+  color: var(--text-high);
 }
 
-p { margin: 0 0 14px; }
+p { margin: 0 0 14px; color: var(--text-body); }
 
-a { color: var(--electric); }
+a { color: var(--accent-text); text-decoration: none; }
+a:hover { text-decoration: underline; color: var(--accent); }
 
 .columns {
   display: grid;
@@ -199,28 +203,33 @@ a { color: var(--electric); }
 }
 
 ol, ul { padding-left: 22px; }
-li { margin-bottom: 6px; }
+li { margin-bottom: 6px; color: var(--text-body); }
+
+strong { color: var(--text-high); }
 
 .panel {
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   padding: 14px 16px;
   margin: 14px 0;
   font-size: 14.5px;
-  border-left: 4px solid;
+  border: 1px solid;
+  background: var(--bg-surface);
 }
 
-.panel-note { background: var(--note-bg); border-color: var(--note); }
-.panel-success { background: var(--success-bg); border-color: var(--success); }
+.panel-note    { border-color: var(--warn-border); background: var(--warn-bg); color: var(--warn-text); }
+.panel-success { border-color: var(--ok-border);   background: var(--ok-bg);   color: var(--ok-text); }
+.panel-warning { border-color: var(--bad-border);  background: var(--bad-bg);  color: var(--bad-text); }
 
-.panel p:last-child { margin-bottom: 0; }
+.panel p { color: inherit; margin: 0; }
+.panel a { color: inherit; text-decoration: underline; }
 
 .img-placeholder {
-  border: 1.5px dashed #C6C9D6;
-  background: #F4F5FA;
-  border-radius: 10px;
+  border: 1.5px dashed var(--chrome-26);
+  background: var(--bg-surface-lo);
+  border-radius: var(--radius-sm);
   padding: 34px 18px;
   text-align: center;
-  color: var(--text-mute);
+  color: var(--text-muted);
   font-size: 13px;
   margin: 16px 0;
 }
@@ -230,7 +239,7 @@ li { margin-bottom: 6px; }
   font-size: 10.5px;
   text-transform: uppercase;
   letter-spacing: 0.06em;
-  color: var(--electric);
+  color: var(--accent-text);
   font-weight: 700;
   margin-bottom: 6px;
 }
@@ -239,10 +248,11 @@ li { margin-bottom: 6px; }
   position: relative;
   width: 100%;
   aspect-ratio: 16/9;
-  border-radius: 10px;
+  border-radius: var(--radius-sm);
   overflow: hidden;
   margin: 16px 0;
   background: #000;
+  border: 1px solid var(--chrome-14);
 }
 
 .video-embed iframe {
@@ -251,37 +261,41 @@ li { margin-bottom: 6px; }
   border: 0;
 }
 
-/* FAQ accordion — native <details>, styled */
+/* FAQ accordion — native <details>, styled to match card language */
 details {
-  border: 1px solid var(--line);
-  border-radius: 8px;
+  border: 1px solid var(--chrome-14);
+  border-radius: var(--radius-sm);
   padding: 12px 16px;
   margin-bottom: 8px;
-  background: var(--card);
+  background: var(--bg-card);
+  transition: background 0.15s, border-color 0.15s;
 }
 
-details[open] { border-color: var(--electric); }
+details:hover { background: var(--bg-card-hover); }
+details[open] { border-color: var(--accent-border); background: var(--accent-faint); }
 
 summary {
-  font-weight: 500;
+  font-weight: 600;
   cursor: pointer;
   font-size: 15px;
-  color: var(--ink);
+  color: var(--text-high);
   list-style: none;
   display: flex;
   align-items: center;
   gap: 8px;
 }
 
+summary::-webkit-details-marker { display: none; }
+
 summary::before {
   content: "+";
-  color: var(--electric);
+  color: var(--accent-text);
   font-weight: 700;
   font-size: 16px;
   width: 16px;
 }
 
-details[open] summary::before { content: "–"; }
+details[open] summary::before { content: "\2212"; }
 
 details p, details ul, details ol { margin-top: 10px; }
 
@@ -289,18 +303,20 @@ details p, details ul, details ol { margin-top: 10px; }
 .seo-strip {
   margin-top: 46px;
   padding: 16px 18px;
-  border-radius: 10px;
-  background: var(--electric-soft);
-  border: 1px solid #C9D3FF;
+  border-radius: var(--radius-sm);
+  background: var(--accent-faint);
+  border: 1px solid var(--accent-border);
   font-size: 13px;
-  color: #1D2B78;
+  color: var(--text-body);
 }
 
-.seo-strip strong { color: var(--electric); }
+.seo-strip strong { color: var(--accent-text); }
 
 code {
-  background: #EFEFF3;
+  background: var(--chrome-10);
+  color: var(--text-high);
   padding: 2px 6px;
   border-radius: 4px;
   font-size: 13px;
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace;
 }
