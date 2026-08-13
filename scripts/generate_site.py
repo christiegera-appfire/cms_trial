@@ -117,6 +117,27 @@ def load_includes(pages):
     return includes
 
 
+def render_children_list(parent_id, pages_by_parent, slugs, titles, depth=2):
+    """Real replacement for Confluence's 'children' macro, built from the actual
+    page tree instead of leaving an 'unmapped macro' box — we have this data anyway."""
+    children = pages_by_parent.get(parent_id, [])
+    if not children:
+        return ""
+    items = []
+    for child_id in children:
+        slug = slugs.get(child_id)
+        title = titles.get(child_id, "Untitled")
+        if not slug:
+            continue
+        sub = ""
+        if depth > 1:
+            sub = render_children_list(child_id, pages_by_parent, slugs, titles, depth=depth - 1)
+        items.append(f'<li><a href="{slug}.html">{title}</a>{sub}</li>')
+    if not items:
+        return ""
+    return f"<ul class='children-list'>{''.join(items)}</ul>"
+
+
 def build_all(data_path=DATA_FILE, out_dir=OUT_DIR):
     with open(data_path) as f:
         data = json.load(f)
@@ -124,11 +145,21 @@ def build_all(data_path=DATA_FILE, out_dir=OUT_DIR):
     pages = [p for p in data["pages"] if p.get("adf") and not (p["title"] or "").startswith("_")]
     pages_by_id = {p["id"]: p for p in pages}
     slugs = {p["id"]: slugify(p["title"]) for p in pages}
+    titles = {p["id"]: p["title"] for p in pages}
     includes = load_includes(data["pages"])
+
+    pages_by_parent = {}
+    for p in data["pages"]:
+        parent = p.get("parent_id")
+        if parent:
+            pages_by_parent.setdefault(parent, []).append(p["id"])
 
     built = []
     for p in pages:
-        body_html = adf_to_html(p["adf"], unresolved_includes=includes)
+        body_html = adf_to_html(p["adf"], unresolved_includes=includes, link_titles=titles)
+        if "<!--CHILDREN_MACRO-->" in body_html:
+            children_html = render_children_list(p["id"], pages_by_parent, slugs, titles)
+            body_html = body_html.replace("<!--CHILDREN_MACRO-->", children_html)
         body_html = rewrite_internal_links(body_html, slugs)
         meta_desc = generate_meta_description(p["adf"])
         faq_schema = build_faq_schema(body_html)
