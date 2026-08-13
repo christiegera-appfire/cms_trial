@@ -1,0 +1,306 @@
+/* Foxly static docs pilot — shared styles
+   Palette matches the existing Appfire SEO tooling: black / electric blue / DM Sans + Syne */
+
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@400;500;700&display=swap');
+
+:root {
+  --ink: #0B0C10;
+  --paper: #FAFAFA;
+  --card: #FFFFFF;
+  --electric: #2447FF;
+  --electric-soft: #EEF1FF;
+  --line: #E4E4E7;
+  --text: #1B1D22;
+  --text-mute: #5B5F6B;
+  --success: #0E9F6E;
+  --success-bg: #EAFBF3;
+  --note: #B87A00;
+  --note-bg: #FFF7E6;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--paper);
+  color: var(--text);
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.shell {
+  display: flex;
+  min-height: 100vh;
+}
+
+/* ---------- Sidebar ---------- */
+.sidebar {
+  width: 280px;
+  flex-shrink: 0;
+  background: var(--ink);
+  color: #E7E8EC;
+  padding: 28px 22px 40px;
+}
+
+.sidebar .brand {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.sidebar .brand-mark {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 20px;
+  color: #fff;
+  letter-spacing: -0.02em;
+}
+
+.sidebar .brand-tag {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--electric);
+  font-weight: 700;
+}
+
+.sidebar .pilot-note {
+  font-size: 12px;
+  color: #8A8D98;
+  margin: 4px 0 28px;
+  line-height: 1.5;
+}
+
+.sidebar nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar nav .group-label {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6D707C;
+  font-weight: 700;
+  margin: 20px 0 8px;
+}
+
+.sidebar nav li { margin: 2px 0; }
+
+.sidebar nav a {
+  display: block;
+  color: #C9CBD3;
+  text-decoration: none;
+  font-size: 14px;
+  padding: 7px 10px;
+  border-radius: 6px;
+  transition: background 0.15s, color 0.15s;
+}
+
+.sidebar nav a:hover {
+  background: rgba(36, 71, 255, 0.18);
+  color: #fff;
+}
+
+.sidebar nav a.active {
+  background: var(--electric);
+  color: #fff;
+  font-weight: 500;
+}
+
+.sidebar nav .disabled {
+  display: block;
+  font-size: 14px;
+  padding: 7px 10px;
+  color: #565963;
+  cursor: default;
+}
+
+.sidebar nav .disabled::after {
+  content: " (not built in pilot)";
+  font-size: 11px;
+  color: #45474F;
+}
+
+.sidebar .sub {
+  margin-left: 14px;
+  border-left: 1px solid #2A2C36;
+  padding-left: 10px;
+}
+
+.sidebar .more-note {
+  margin-left: 14px;
+  font-size: 12px;
+  color: #565963;
+  padding: 4px 10px;
+}
+
+/* ---------- Content ---------- */
+.content {
+  flex: 1;
+  padding: 48px 56px 80px;
+  max-width: 800px;
+}
+
+.breadcrumb {
+  font-size: 13px;
+  color: var(--text-mute);
+  margin-bottom: 18px;
+}
+
+.breadcrumb a { color: var(--electric); text-decoration: none; }
+.breadcrumb a:hover { text-decoration: underline; }
+
+h1 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 800;
+  font-size: 34px;
+  letter-spacing: -0.01em;
+  margin: 0 0 22px;
+  color: var(--ink);
+}
+
+h2 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 22px;
+  margin: 34px 0 12px;
+  color: var(--ink);
+}
+
+h3 {
+  font-family: 'Syne', sans-serif;
+  font-weight: 600;
+  font-size: 17px;
+  margin: 24px 0 8px;
+  color: var(--ink);
+}
+
+p { margin: 0 0 14px; }
+
+a { color: var(--electric); }
+
+.columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  align-items: start;
+  margin: 8px 0;
+}
+
+@media (max-width: 640px) {
+  .columns { grid-template-columns: 1fr; }
+  .content { padding: 32px 20px 60px; }
+  .sidebar { display: none; }
+}
+
+ol, ul { padding-left: 22px; }
+li { margin-bottom: 6px; }
+
+.panel {
+  border-radius: 8px;
+  padding: 14px 16px;
+  margin: 14px 0;
+  font-size: 14.5px;
+  border-left: 4px solid;
+}
+
+.panel-note { background: var(--note-bg); border-color: var(--note); }
+.panel-success { background: var(--success-bg); border-color: var(--success); }
+
+.panel p:last-child { margin-bottom: 0; }
+
+.img-placeholder {
+  border: 1.5px dashed #C6C9D6;
+  background: #F4F5FA;
+  border-radius: 10px;
+  padding: 34px 18px;
+  text-align: center;
+  color: var(--text-mute);
+  font-size: 13px;
+  margin: 16px 0;
+}
+
+.img-placeholder .tag {
+  display: inline-block;
+  font-size: 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--electric);
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.video-embed {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16/9;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 16px 0;
+  background: #000;
+}
+
+.video-embed iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* FAQ accordion — native <details>, styled */
+details {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 8px;
+  background: var(--card);
+}
+
+details[open] { border-color: var(--electric); }
+
+summary {
+  font-weight: 500;
+  cursor: pointer;
+  font-size: 15px;
+  color: var(--ink);
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+summary::before {
+  content: "+";
+  color: var(--electric);
+  font-weight: 700;
+  font-size: 16px;
+  width: 16px;
+}
+
+details[open] summary::before { content: "–"; }
+
+details p, details ul, details ol { margin-top: 10px; }
+
+/* SEO proof strip */
+.seo-strip {
+  margin-top: 46px;
+  padding: 16px 18px;
+  border-radius: 10px;
+  background: var(--electric-soft);
+  border: 1px solid #C9D3FF;
+  font-size: 13px;
+  color: #1D2B78;
+}
+
+.seo-strip strong { color: var(--electric); }
+
+code {
+  background: #EFEFF3;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 13px;
+}
