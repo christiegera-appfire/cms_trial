@@ -27,30 +27,45 @@ def slugify(title):
     return slug or "untitled"
 
 
-NAV_TREE_TEMPLATE = """
+NAV_SHELL_TEMPLATE = """
 <div class="brand"><span class="brand-mark">Foxly</span></div>
 <div class="brand-tag">Docs — Live Pilot</div>
 <p class="pilot-note">{count} pages, fetched live from Confluence via API.</p>
-<nav><ul>
-    {nav_items}
-</ul></nav>
+<nav>{nav_items}</nav>
 """
 
 
-def build_nav(pages_by_id, slugs, active_id):
+def build_nav_tree(parent_id, pages_by_parent, slugs, titles, active_id, valid_ids, depth=0, max_depth=4):
+    """Build nested <ul> nav matching the real Confluence page hierarchy,
+    instead of one flat list of every page. Stops nesting past max_depth as
+    a safety valve — the real tree here only goes 2-3 levels deep anyway."""
+    child_ids = [c for c in pages_by_parent.get(parent_id, []) if c in valid_ids]
+    if not child_ids or depth > max_depth:
+        return ""
     items = []
-    for pid, page in pages_by_id.items():
-        cls = ' class="active"' if pid == active_id else ""
-        items.append(f'<li><a href="{slugs[pid]}.html"{cls}>{page["title"]}</a></li>')
-    return "\n    ".join(items)
+    for cid in child_ids:
+        cls = ' class="active"' if cid == active_id else ""
+        sub = build_nav_tree(cid, pages_by_parent, slugs, titles, active_id, valid_ids, depth + 1, max_depth)
+        items.append(f'<li><a href="{slugs[cid]}.html"{cls}>{titles[cid]}</a>{sub}</li>')
+    return f"<ul>{''.join(items)}</ul>"
 
 
-def page_shell(title, meta_description, active_id, pages_by_id, slugs, body_html, extra_head=""):
-    nav_html = NAV_TREE_TEMPLATE.format(
-        count=len(pages_by_id),
-        nav_items=build_nav(pages_by_id, slugs, active_id),
-    )
+def build_nav(pages_by_parent, slugs, titles, valid_ids, roots, active_id):
+    top_items = []
+    for rid in roots:
+        cls = ' class="active"' if rid == active_id else ""
+        sub = build_nav_tree(rid, pages_by_parent, slugs, titles, active_id, valid_ids)
+        top_items.append(f'<li><a href="{slugs[rid]}.html"{cls}>{titles[rid]}</a>{sub}</li>')
+    return f"<ul>{''.join(top_items)}</ul>"
+
+
+def page_shell(title, meta_description, nav_html, page_count, body_html, extra_head=""):
     safe_desc = (meta_description or "").replace('"', "&quot;")
+    nav_shell = NAV_SHELL_TEMPLATE.format(count=page_count, nav_items=nav_html)
+    # Main content comes BEFORE the sidebar in the HTML source — a crawler or
+    # someone reading View Source sees the actual article first, not 40+
+    # lines of nav links. CSS `order` puts the sidebar back on the left
+    # visually; nothing changes for a human looking at the rendered page.
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -63,11 +78,11 @@ def page_shell(title, meta_description, active_id, pages_by_id, slugs, body_html
 </head>
 <body>
 <div class="shell">
-  <aside class="sidebar">{nav_html}</aside>
   <main class="content">
     <h1>{title}</h1>
     {body_html}
   </main>
+  <aside class="sidebar">{nav_shell}</aside>
 </div>
 </body>
 </html>
@@ -154,6 +169,14 @@ def build_all(data_path=DATA_FILE, out_dir=OUT_DIR):
         if parent:
             pages_by_parent.setdefault(parent, []).append(p["id"])
 
+    valid_ids = set(slugs.keys())
+    # Roots = pages with no parent, or whose parent wasn't fetched (orphans
+    # still need a way into the nav rather than becoming unreachable).
+    roots = [
+        p["id"] for p in data["pages"]
+        if p["id"] in valid_ids and (p.get("parent_id") not in valid_ids)
+    ]
+
     built = []
     for p in pages:
         body_html = adf_to_html(p["adf"], unresolved_includes=includes, link_titles=titles)
@@ -164,12 +187,13 @@ def build_all(data_path=DATA_FILE, out_dir=OUT_DIR):
         meta_desc = generate_meta_description(p["adf"])
         faq_schema = build_faq_schema(body_html)
 
+        nav_html = build_nav(pages_by_parent, slugs, titles, valid_ids, roots, p["id"])
+
         html_out = page_shell(
             title=p["title"],
             meta_description=meta_desc,
-            active_id=p["id"],
-            pages_by_id=pages_by_id,
-            slugs=slugs,
+            nav_html=nav_html,
+            page_count=len(pages),
             body_html=body_html,
             extra_head=faq_schema,
         )
