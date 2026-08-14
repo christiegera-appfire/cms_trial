@@ -35,11 +35,19 @@ module.exports = async (req, res) => {
   const nonce = Math.random().toString(36).slice(2);
   const state = Buffer.from(JSON.stringify({ returnTo, nonce })).toString("base64url");
 
-  // Listing service desks/request types (needed before we can create a
-  // request) and actually creating one are DIFFERENT operations with
-  // DIFFERENT scopes — confirmed the hard way against a real 401. Both are
-  // needed together.
-  const scope = ["read:servicedesk-request", "write:request:jira-service-management", "offline_access"].join(" ");
+  // A JSM "request" is a real Jira issue underneath (each request type maps
+  // to an issue type) — trying Jira Platform-level scopes alongside the
+  // JSM-specific ones, since JSM-only scope combinations haven't resolved
+  // the "scope does not match" error on the create call specifically.
+  // Honest caveat: not yet confirmed this is the actual fix, just the next
+  // reasonable thing to try.
+  const scope = [
+    "read:servicedesk-request",
+    "write:servicedesk-request",
+    "read:jira-work",
+    "write:jira-work",
+    "offline_access",
+  ].join(" ");
 
   const authorizeUrl =
     "https://auth.atlassian.com/authorize" +
