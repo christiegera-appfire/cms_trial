@@ -27,8 +27,12 @@
 
 <script>
 (function () {
-  // Docs site and JSM functions are on the same Netlify host, so these are
-  // same-origin calls — no CORS complications.
+  // Docs site (GitHub Pages) and JSM functions (Netlify) are on DIFFERENT
+  // origins again — this is a genuine cross-origin call. The Netlify
+  // functions site's DOCS_SITE_ORIGIN environment variable needs to match
+  // wherever this page is actually served from (e.g.
+  // https://christiegera-appfire.github.io), or the CORS check in
+  // submit-request.js will reject the request.
   var OAUTH_START_URL = "https://cmstrial.netlify.app/.netlify/functions/oauth-start";
   var SUBMIT_URL = "https://cmstrial.netlify.app/.netlify/functions/submit-request";
   // Replaced per-space by generate_site.py — each space can route to its own
