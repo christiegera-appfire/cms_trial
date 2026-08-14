@@ -224,6 +224,7 @@ def fetch_one_space(site, space_key, out_path, assets_dir, auth, skip_images=Fal
     with open(out_path, "w") as f:
         json.dump({
             "space_key": space_key,
+            "space_name": space_name,
             "space_id": space_id,
             "pages": normalized,
             "media": media_map,
