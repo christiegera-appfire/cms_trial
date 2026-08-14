@@ -259,6 +259,69 @@ def render_page_properties(node, ctx):
     return f'<div class="page-properties">{inner}</div>'
 
 
+def decode_aura_params(raw_value):
+    """Aura macros store their visual config as base64(urlencode(JSON)) in a
+    'params' macroParam — confirmed against real data (Aura Panel, Button,
+    Tab Group all use this exact encoding). Returns {} on any failure,
+    since this is styling config, not content — losing it should degrade
+    gracefully to plain default styling, never break the page."""
+    try:
+        import base64
+        from urllib.parse import unquote
+        decoded = base64.b64decode(raw_value).decode("utf-8")
+        return json.loads(unquote(decoded))
+    except Exception:
+        return {}
+
+
+def render_aura_tab_group(node, ctx):
+    """Aura's tab structure (confirmed against real data) is NOT nested —
+    each tab is a plain, content-free 'aura-tab' extension marker holding
+    only a title, and everything that follows it (until the next marker)
+    is that tab's actual content, all sitting flat inside the parent
+    'aura-tab-collection'. This walks that flat sequence and groups it
+    into real tabs."""
+    content = node.get("content", []) or []
+    tabs = []
+    current_title = None
+    current_nodes = []
+    for child in content:
+        child_attrs = child.get("attrs", {}) or {}
+        if child.get("type") == "extension" and child_attrs.get("extensionKey") == "aura-tab":
+            if current_title is not None:
+                tabs.append((current_title, current_nodes))
+            child_params = (child_attrs.get("parameters", {}) or {}).get("macroParams", {}) or {}
+            current_title = (child_params.get("summary", {}) or {}).get("value", "").strip() or f"Tab {len(tabs) + 1}"
+            current_nodes = []
+        elif current_title is not None:
+            current_nodes.append(child)
+        # Content appearing before any tab marker shouldn't happen in
+        # practice, and is dropped rather than guessed at.
+    if current_title is not None:
+        tabs.append((current_title, current_nodes))
+
+    if not tabs:
+        return ""
+
+    ctx["tab_group_count"] = ctx.get("tab_group_count", 0) + 1
+    group_id = f"aura-tabs-{ctx['tab_group_count']}"
+
+    buttons, panels = [], []
+    for i, (title, nodes) in enumerate(tabs):
+        active = " active" if i == 0 else ""
+        panel_id = f"{group_id}-panel-{i}"
+        buttons.append(f'<button type="button" class="aura-tab-btn{active}" data-target="{panel_id}">{esc(title)}</button>')
+        panel_html = "".join(render_block(c, ctx) for c in nodes)
+        panels.append(f'<div class="aura-tab-panel{active}" id="{panel_id}">{panel_html}</div>')
+
+    return (
+        f'<div class="aura-tab-group" id="{group_id}">'
+        f'<div class="aura-tab-buttons">{"".join(buttons)}</div>'
+        f'<div class="aura-tab-panels">{"".join(panels)}</div>'
+        f"</div>"
+    )
+
+
 def render_extension(node, ctx, inline=False):
     attrs = node.get("attrs", {})
     key = attrs.get("extensionKey")
@@ -295,6 +358,37 @@ def render_extension(node, ctx, inline=False):
         # Resolved later once the full heading list for this page is known —
         # rendering happens bottom-up per-node, but TOC needs the whole page.
         return "<!--TOC_MACRO-->"
+
+    # Aura (a third-party formatting suite, not an Appfire product) uses
+    # short native-style extensionKeys under extensionType
+    # "com.atlassian.confluence.macro.core" — unlike the Forge-based
+    # ecosystem apps (Table Plus, MultiExcerpt) which use long UUID paths
+    # and guestParams. Aura's visual config lives in a base64+URL-encoded
+    # "params" macroParam; confirmed against real data.
+    if key == "aura-panel":
+        title = (macro_params.get("summary", {}) or {}).get("value", "").strip()
+        inner = "".join(render_block(c, ctx) for c in (content or []))
+        title_html = f'<div class="aura-panel-title">{esc(title)}</div>' if title else ""
+        return f'<div class="aura-panel">{title_html}{inner}</div>'
+
+    if key in ("aura-inline-button", "aura-button"):
+        label = (macro_params.get("summary", {}) or {}).get("value", "").strip() or "Button"
+        params_raw = (macro_params.get("params", {}) or {}).get("value", "")
+        config = decode_aura_params(params_raw)
+        # No URL field observed in real test data (the button had no
+        # destination configured) — checked defensively anyway, since a
+        # real linked button presumably has one under one of these names.
+        url = config.get("url") or config.get("href") or config.get("link")
+        bg_color = ((config.get("states", {}) or {}).get("idle", {}) or {}).get("colors", {}).get("background", {})
+        bg = bg_color.get("light") if isinstance(bg_color, dict) else None
+        style = f' style="background-color:{esc(bg)}"' if bg else ""
+        if url:
+            safe_url = html.escape(url, quote=True)
+            return f'<a class="aura-button" href="{safe_url}"{style}>{esc(label)}</a>'
+        return f'<span class="aura-button aura-button-static"{style}>{esc(label)}</span>'
+
+    if key == "aura-tab-collection":
+        return render_aura_tab_group(node, ctx)
 
     # MultiExcerpt is a Forge/ecosystem app, not a native Confluence macro —
     # its extensionKey is a long, installation-specific path
