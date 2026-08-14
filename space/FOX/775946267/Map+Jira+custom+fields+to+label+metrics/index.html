@@ -57,14 +57,16 @@
 
 <script>
 (function () {
-  // Docs site (GitHub Pages) and JSM functions (Netlify) are on DIFFERENT
-  // origins again — this is a genuine cross-origin call. The Netlify
-  // functions site's DOCS_SITE_ORIGIN environment variable needs to match
-  // wherever this page is actually served from (e.g.
-  // https://christiegera-appfire.github.io), or the CORS check in
-  // submit-request.js will reject the request.
-  var OAUTH_START_URL = "https://cmstrial.netlify.app/.netlify/functions/oauth-start";
-  var SUBMIT_URL = "https://cmstrial.netlify.app/.netlify/functions/submit-request";
+  // Docs site (GitHub Pages) and JSM functions (Vercel) are on DIFFERENT
+  // origins — this is a genuine cross-origin call. The Vercel project's
+  // DOCS_SITE_ORIGIN environment variable needs to match wherever this page
+  // is actually served from (e.g. https://christiegera-appfire.github.io),
+  // or the CORS check in api/submit-request.js will reject the request.
+  //
+  // Update these two URLs once you know your actual Vercel deployment URL —
+  // it'll look like https://your-project-name.vercel.app.
+  var OAUTH_START_URL = "https://cms-trial-omega.vercel.app/api/oauth-start";
+  var SUBMIT_URL = "https://cms-trial-omega.vercel.app/api/submit-request";
   // Replaced per-space by generate_site.py — each space can route to its own
   // JSM project. Falls back to the backend's default env var if empty.
   var JSM_PROJECT_KEY = "TJ";
