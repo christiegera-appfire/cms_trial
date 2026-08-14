@@ -152,7 +152,11 @@
           statusEl.textContent = "Submitted — ticket " + result.data.issueKey + " created.";
           form.reset();
         } else {
-          statusEl.textContent = "Something went wrong: " + (result.data.error || "unknown error");
+          var msg = "Something went wrong: " + (result.data.error || "unknown error");
+          if (result.data.details) msg += "\nDetails: " + result.data.details;
+          if (result.data.debug) msg += "\nDebug: " + JSON.stringify(result.data.debug);
+          statusEl.textContent = msg;
+          statusEl.style.whiteSpace = "pre-wrap";
         }
       })
       .catch(function (err) {
