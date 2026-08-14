@@ -41,6 +41,10 @@ _ADV_TABLES_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "adv
 with open(_ADV_TABLES_PATH) as _f:
     ADVANCED_TABLES_SCRIPT = _f.read()
 
+_AURA_TABS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "aura_tabs_widget.html")
+with open(_AURA_TABS_PATH) as _f:
+    AURA_TABS_SCRIPT = _f.read()
+
 
 def confluence_style_path_segment(title):
     """Mirrors Confluence's own URL style: spaces become a literal '+',
@@ -135,6 +139,7 @@ def page_shell(title, meta_description, nav_html, page_count, body_html, brand, 
 </div>
 {widget_html}
 {ADVANCED_TABLES_SCRIPT}
+{AURA_TABS_SCRIPT}
 </body>
 </html>
 """
