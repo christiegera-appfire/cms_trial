@@ -35,7 +35,11 @@ module.exports = async (req, res) => {
   const nonce = Math.random().toString(36).slice(2);
   const state = Buffer.from(JSON.stringify({ returnTo, nonce })).toString("base64url");
 
-  const scope = ["write:request:jira-service-management", "offline_access"].join(" ");
+  // Listing service desks/request types (needed before we can create a
+  // request) and actually creating one are DIFFERENT operations with
+  // DIFFERENT scopes — confirmed the hard way against a real 401. Both are
+  // needed together.
+  const scope = ["read:servicedesk-request", "write:request:jira-service-management", "offline_access"].join(" ");
 
   const authorizeUrl =
     "https://auth.atlassian.com/authorize" +
