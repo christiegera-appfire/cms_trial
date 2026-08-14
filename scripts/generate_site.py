@@ -18,6 +18,7 @@ service desks.
 import json
 import os
 import re
+import shutil
 import sys
 from urllib.parse import quote
 
@@ -78,7 +79,7 @@ def build_nav(pages_by_parent, space_key, titles, valid_ids, roots, active_id):
     return f"<ul>{''.join(top_items)}</ul>"
 
 
-def page_shell(title, meta_description, nav_html, page_count, body_html, brand, widget_html, extra_head=""):
+def page_shell(title, meta_description, nav_html, page_count, body_html, brand, widget_html, canonical_url, extra_head=""):
     safe_desc = (meta_description or "").replace('"', "&quot;")
     nav_shell = NAV_SHELL_TEMPLATE.format(
         brand_name=brand.get("name", "Docs"),
@@ -86,6 +87,12 @@ def page_shell(title, meta_description, nav_html, page_count, body_html, brand, 
         count=page_count,
         nav_items=nav_html,
     )
+    # Self-referential canonical tag — every real content page declares
+    # itself as the authoritative source. This matters even more once the
+    # old Confluence-hosted copy is de-indexed (via turning off anonymous
+    # access there), since it removes any residual ambiguity for Google
+    # about which URL is correct.
+    canonical_tag = f'<link rel="canonical" href="{canonical_url}">' if canonical_url else ""
     return f"""<!doctype html>
 <html lang="en">
 <head>
@@ -94,6 +101,7 @@ def page_shell(title, meta_description, nav_html, page_count, body_html, brand, 
 <meta name="description" content="{safe_desc}">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/styles.css">
+{canonical_tag}
 {extra_head}
 </head>
 <body>
@@ -168,7 +176,7 @@ def render_children_list(parent_id, pages_by_parent, space_key, titles, valid_id
     return f"<ul class='children-list'>{''.join(items)}</ul>"
 
 
-def build_space(data_path, out_dir, brand, jsm_project_key=None, jsm_request_type_id=None):
+def build_space(data_path, out_dir, brand, base_url="", jsm_project_key=None, jsm_request_type_id=None):
     """Builds one space's pages. Returns (space_key, roots, titles, built_list) —
     the caller needs space_key/roots/titles to build the top-level home page
     once it knows about every space, not just this one."""
@@ -213,6 +221,8 @@ def build_space(data_path, out_dir, brand, jsm_project_key=None, jsm_request_typ
         faq_schema = build_faq_schema(body_html)
 
         nav_html = build_nav(pages_by_parent, space_key, titles, valid_ids, roots, p["id"])
+        url_path = page_url(p["id"], space_key, titles)
+        canonical_url = f"{base_url.rstrip('/')}{url_path}" if base_url else ""
 
         html_out = page_shell(
             title=p["title"],
@@ -222,10 +232,10 @@ def build_space(data_path, out_dir, brand, jsm_project_key=None, jsm_request_typ
             body_html=body_html,
             brand=brand,
             widget_html=widget_html,
+            canonical_url=canonical_url,
             extra_head=faq_schema,
         )
 
-        url_path = page_url(p["id"], space_key, titles)
         out_path = os.path.join(out_dir, url_path.strip("/"), "index.html")
         os.makedirs(os.path.dirname(out_path), exist_ok=True)
         with open(out_path, "w") as f:
@@ -279,11 +289,76 @@ def write_space_picker(out_dir, spaces_info, brand):
         f.write(html_out)
 
 
+def write_sitemap(out_dir, base_url, all_built):
+    """Real sitemap.xml listing every page — helps Google discover and
+    prioritize the new site efficiently, which matters more once the old
+    Confluence-hosted copy stops being crawlable and this becomes the only
+    source Google has to work from."""
+    if not base_url:
+        print("WARNING: no base_url configured — skipping sitemap.xml (canonical tags were also skipped).")
+        return
+    urls = "".join(
+        f"<url><loc>{base_url.rstrip('/')}{url_path}</loc></url>"
+        for url_path, _title, _has_schema in all_built
+    )
+    sitemap = (
+        '<?xml version="1.0" encoding="UTF-8"?>'
+        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">'
+        f"{urls}"
+        "</urlset>"
+    )
+    with open(os.path.join(out_dir, "sitemap.xml"), "w") as f:
+        f.write(sitemap)
+
+
+def write_robots_txt(out_dir, base_url):
+    """Explicitly allows crawling here — the contrast matters: this is the
+    site we WANT indexed, unlike the old Confluence-hosted copy, which needs
+    Anonymous Access turned off on the Confluence side (not something this
+    script can control) to stop being crawlable at all."""
+    lines = ["User-agent: *", "Allow: /"]
+    if base_url:
+        lines.append(f"Sitemap: {base_url.rstrip('/')}/sitemap.xml")
+    with open(os.path.join(out_dir, "robots.txt"), "w") as f:
+        f.write("\n".join(lines) + "\n")
+
+
+def clean_output_dir(out_dir):
+    """Removes generated output from previous builds before writing new
+    output. Without this, old artifacts never get cleaned up — every
+    pipeline version's output just accumulates in the repo forever, since
+    generate_site.py only ever writes new files, never deletes stale ones.
+
+    This specifically targets:
+      - the entire space/ tree (everything this pipeline generates lives there)
+      - any *.html file sitting directly at the output root that ISN'T
+        index.html — those are leftovers from the earlier flat-file naming
+        scheme (overview.html, foxly-faq.html, etc.) that this version of
+        the pipeline never writes and has no other way of knowing to remove.
+
+    Deliberately does NOT touch scripts/, netlify/, data/, sites.json,
+    styles.css, .github/, or anything else outside what this script owns.
+    """
+    space_dir = os.path.join(out_dir, "space")
+    if os.path.isdir(space_dir):
+        shutil.rmtree(space_dir)
+
+    if os.path.isdir(out_dir):
+        for name in os.listdir(out_dir):
+            if name.endswith(".html") and name != "index.html":
+                path = os.path.join(out_dir, name)
+                if os.path.isfile(path):
+                    os.remove(path)
+
+
 def build_from_config(config_path=CONFIG_FILE, data_dir=DATA_DIR, out_dir=OUT_DIR):
     with open(config_path) as f:
         config = json.load(f)
 
+    clean_output_dir(out_dir)
+
     brand = config.get("brand", {})
+    base_url = config.get("base_url", "")
     spaces_cfg = config["spaces"]
 
     all_built = []
@@ -298,6 +373,7 @@ def build_from_config(config_path=CONFIG_FILE, data_dir=DATA_DIR, out_dir=OUT_DI
             data_path,
             out_dir,
             brand,
+            base_url=base_url,
             jsm_project_key=space_cfg.get("jsm_project_key"),
             jsm_request_type_id=space_cfg.get("jsm_request_type_id"),
         )
@@ -310,6 +386,9 @@ def build_from_config(config_path=CONFIG_FILE, data_dir=DATA_DIR, out_dir=OUT_DI
             write_redirect(out_dir, page_url(roots[0], sk, titles), titles.get(roots[0], brand.get("name", "Docs")), brand)
     elif len(spaces_info) > 1:
         write_space_picker(out_dir, spaces_info, brand)
+
+    write_sitemap(out_dir, base_url, all_built)
+    write_robots_txt(out_dir, base_url)
 
     return all_built
 
