@@ -1,4 +1,4 @@
-name: Rebuild Foxly docs from Confluence
+name: Rebuild docs from Confluence
 
 on:
   workflow_dispatch: {}      # manual "Run workflow" button in the Actions tab
@@ -23,27 +23,22 @@ jobs:
       - name: Install dependencies
         run: pip install requests beautifulsoup4
 
-      - name: Fetch pages from Confluence
+      - name: Fetch every configured space from Confluence
         env:
           CONFLUENCE_EMAIL: ${{ secrets.CONFLUENCE_EMAIL }}
           CONFLUENCE_API_TOKEN: ${{ secrets.CONFLUENCE_API_TOKEN }}
         run: |
-          python3 scripts/fetch_confluence.py \
-            --space FOX \
-            --site appfire.atlassian.net \
-            --out data/pages.json
+          python3 scripts/fetch_confluence.py --config sites.json
 
-      - name: Build static site
+      - name: Build static site (all spaces)
         run: |
-          python3 scripts/generate_site.py \
-            --data data/pages.json \
-            --out .
+          python3 scripts/generate_site.py --config sites.json --out .
 
       - name: Commit and push if anything changed
         run: |
-          git config user.name "foxly-docs-bot"
+          git config user.name "docs-bot"
           git config user.email "actions@github.com"
-          git add -A -- '*.html' 'data/pages.json' 'assets'
+          git add -A -- '*.html' 'data' 'assets'
           if git diff --cached --quiet; then
             echo "No content changes — skipping commit."
           else
