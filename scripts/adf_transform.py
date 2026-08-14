@@ -278,6 +278,44 @@ def render_extension(node, ctx, inline=False):
         # rendering happens bottom-up per-node, but TOC needs the whole page.
         return "<!--TOC_MACRO-->"
 
+    if key == "multiexcerpt":
+        # Defines a named, reusable snippet. The defining page still shows
+        # the content normally, in place. Cross-page lookup is handled
+        # separately: generate_site.py pre-scans every page's RAW ADF
+        # (before any rendering) to build a {(page_id, name): raw_content}
+        # registry — this matters because a multiexcerpt-include could be
+        # processed before its source page in this per-page rendering pass
+        # otherwise, and pre-scanning raw ADF (rather than pre-rendering to
+        # HTML) means the included content still resolves media/links using
+        # whichever page's context actually includes it, not a separate,
+        # incomplete one built just for the scan.
+        return "".join(render_block(c, ctx) for c in (content or []))
+
+    if key == "multiexcerpt-include":
+        # References a named excerpt defined on (possibly) another page.
+        # Exact macroParams key names for the source page id and excerpt
+        # name are a best guess pending a real example — check both common
+        # variants rather than assuming one.
+        excerpt_name = (
+            (macro_params.get("MultiExcerptName", {}) or {}).get("value")
+            or (macro_params.get("name", {}) or {}).get("value")
+            or ""
+        ).strip()
+        source_page_id = (
+            (macro_params.get("MultiExcerptPageId", {}) or {}).get("value")
+            or (macro_params.get("page", {}) or {}).get("value")
+            or ""
+        ).strip()
+        registry = ctx.get("multiexcerpt_registry") or {}
+        raw_content = registry.get((str(source_page_id), excerpt_name))
+        if raw_content is not None:
+            return "".join(render_block(c, ctx) for c in raw_content)
+        return (
+            f'<div class="img-placeholder">[MultiExcerpt "{esc(excerpt_name)}" from page '
+            f'{esc(source_page_id)} — not found. If this shows up on real content, the '
+            f'macroParams key names need adjusting to match the real payload.]</div>'
+        )
+
     if key in ("detail", "details-macro", "page-properties"):
         return render_page_properties(node, ctx)
 
@@ -425,7 +463,49 @@ def render_toc(headings):
     return f'<nav class="toc"><ul>{items}</ul></nav>'
 
 
-def adf_to_html(adf_doc, unresolved_includes=None, link_titles=None, media_map=None):
+def build_multiexcerpt_registry(pages):
+    """Pre-scans every page's RAW ADF (before any rendering) for
+    multiexcerpt definitions, building a {(page_id, excerpt_name): raw_adf_content}
+    registry. Storing raw ADF rather than pre-rendered HTML means an
+    included excerpt still resolves media/links using whichever page's
+    context actually includes it, and page processing order never matters —
+    the whole registry exists before any page starts rendering.
+
+    `pages` is the list of page dicts as produced by fetch_confluence.py
+    (each with "id" and "adf" keys) — can span multiple spaces if a
+    multiexcerpt-include is expected to work across space boundaries.
+    """
+    registry = {}
+
+    def walk(node, page_id):
+        if not isinstance(node, dict):
+            return
+        if node.get("type") in ("extension", "bodiedExtension"):
+            attrs = node.get("attrs", {})
+            if attrs.get("extensionKey") == "multiexcerpt":
+                params = attrs.get("parameters", {}) or {}
+                macro_params = params.get("macroParams", {}) or {}
+                excerpt_name = (
+                    (macro_params.get("name", {}) or {}).get("value")
+                    or (macro_params.get("", {}) or {}).get("value")
+                    or ""
+                ).strip()
+                if excerpt_name:
+                    registry[(str(page_id), excerpt_name)] = node.get("content", [])
+        for child in (node.get("content") or []):
+            walk(child, page_id)
+
+    for p in pages:
+        adf = p.get("adf")
+        if not adf:
+            continue
+        for node in adf.get("content", []):
+            walk(node, p.get("id"))
+
+    return registry
+
+
+def adf_to_html(adf_doc, unresolved_includes=None, link_titles=None, media_map=None, multiexcerpt_registry=None):
     """
     adf_doc: parsed JSON dict with {"type": "doc", "version": 1, "content": [...]}
              (i.e. the `body.atlas_doc_format.value`, already json.loads()'d, from
@@ -435,6 +515,10 @@ def adf_to_html(adf_doc, unresolved_includes=None, link_titles=None, media_map=N
     media_map: optional {media_id: local_asset_path} dict, produced by
                fetch_confluence.py's attachment downloader — when a media node's
                id is found here, a real <img> renders instead of a placeholder.
+    multiexcerpt_registry: optional {(page_id, excerpt_name): raw_adf_content}
+               dict, produced by build_multiexcerpt_registry() ahead of time
+               across every page — lets a multiexcerpt-include macro pull in
+               content defined on any other page, regardless of build order.
 
     Returns the rendered HTML string. Any TOC macro on the page is resolved
     using headings collected during this same render pass, so a TOC macro
@@ -447,6 +531,7 @@ def adf_to_html(adf_doc, unresolved_includes=None, link_titles=None, media_map=N
         "unresolved_includes": unresolved_includes,
         "link_titles": link_titles,
         "media_map": media_map,
+        "multiexcerpt_registry": multiexcerpt_registry or {},
         "headings": [],
         "heading_ids": set(),
     }
