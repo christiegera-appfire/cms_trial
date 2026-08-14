@@ -20,6 +20,18 @@ ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # repo root
 DATA_FILE = os.path.join(ROOT, "data", "pages.json")
 OUT_DIR = ROOT
 
+# JSM Help Center widget for the TJ project — a live third-party script, unlike
+# everything else on this site which is pure static HTML with zero JS
+# dependency. It loads client-side, after the page renders, so it doesn't
+# affect what crawlers see or how fast the actual content shows up. Site-wide
+# by default; scope this to specific pages instead by only injecting it in
+# page_shell() when the page's slug is in an allowlist, if that's preferred.
+JSM_WIDGET_SNIPPET = (
+    '<script data-jsd-embedded data-key="91fdc865-2fd9-4b1f-bc07-b8240bd6d0fe" '
+    'data-base-url="https://jsd-widget.atlassian.com" '
+    'src="https://jsd-widget.atlassian.com/assets/embed.js"></script>'
+)
+
 
 def slugify(title):
     slug = (title or "untitled").lower()
@@ -84,6 +96,7 @@ def page_shell(title, meta_description, nav_html, page_count, body_html, extra_h
   </main>
   <aside class="sidebar">{nav_shell}</aside>
 </div>
+{JSM_WIDGET_SNIPPET}
 </body>
 </html>
 """
