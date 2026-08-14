@@ -338,6 +338,30 @@ def render_extension(node, ctx, inline=False):
             f'{esc(source_page_id)} — not found.]</div>'
         )
 
+    if key_str.endswith("/static/table-plus") or key_str.endswith("/static/csv-table") or key_str.endswith("/static/json-table") or key_str.endswith("/static/attachment-table"):
+        # Advanced Tables (Table Plus and siblings) — the real table data is
+        # always present as literal nested content (confirmed against real
+        # data), but the interactive behavior (sort, computed totals,
+        # highlight) is normally rendered by the macro's own script and
+        # isn't stored anywhere to extract. Reconstructing it as real
+        # client-side JS instead of losing it: wrap the table with the
+        # actual guestParams config as data-attributes, and a shared script
+        # (embedded once per page) does the sorting/totals/highlighting.
+        table_html = "".join(render_block(c, ctx) for c in (content or []))
+        ctx["advanced_table_count"] = ctx.get("advanced_table_count", 0) + 1
+        table_id = f"adv-table-{ctx['advanced_table_count']}"
+        enable_sorting = "true" if guest_params.get("enableSorting") else "false"
+        auto_total = "true" if guest_params.get("autoTotal") else "false"
+        enable_highlighting = "true" if guest_params.get("enableHighlighting") else "false"
+        highlight_color = esc(guest_params.get("highlightColor", "") or "")
+        return (
+            f'<div class="advanced-table" id="{table_id}" '
+            f'data-enable-sorting="{enable_sorting}" '
+            f'data-auto-total="{auto_total}" '
+            f'data-enable-highlighting="{enable_highlighting}" '
+            f'data-highlight-color="{highlight_color}">{table_html}</div>'
+        )
+
     if key in ("detail", "details-macro", "page-properties"):
         return render_page_properties(node, ctx)
 
