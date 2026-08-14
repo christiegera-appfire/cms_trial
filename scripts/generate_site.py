@@ -37,6 +37,10 @@ _WIDGET_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "get_hel
 with open(_WIDGET_PATH) as _f:
     GET_HELP_WIDGET_TEMPLATE = _f.read()
 
+_ADV_TABLES_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "advanced_tables_widget.html")
+with open(_ADV_TABLES_PATH) as _f:
+    ADVANCED_TABLES_SCRIPT = _f.read()
+
 
 def confluence_style_path_segment(title):
     """Mirrors Confluence's own URL style: spaces become a literal '+',
@@ -130,6 +134,7 @@ def page_shell(title, meta_description, nav_html, page_count, body_html, brand, 
   <aside class="sidebar">{nav_shell}</aside>
 </div>
 {widget_html}
+{ADVANCED_TABLES_SCRIPT}
 </body>
 </html>
 """
