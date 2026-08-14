@@ -24,6 +24,7 @@ fails loud, except for the specific macros in SILENT_MACROS known to have no
 visual output at all.
 """
 
+import datetime
 import html
 import json
 import re
@@ -63,6 +64,24 @@ TRANSPARENT_CONTENT_MACROS = {
 VIDEO_HOST_HINTS = ("youtube.com", "youtu.be", "loom.com", "vimeo.com")
 
 INTERNAL_PAGE_LINK_RE = re.compile(r"/wiki/spaces/[^/]+/pages/(\d+)")
+
+
+def render_date(node):
+    """ADF date nodes store a millisecond-epoch timestamp as a string
+    (e.g. "1745280000000") — displaying that raw number, as the previous
+    version did, is unreadable. Converts to a real date, with a proper
+    machine-readable datetime attribute for accessibility/semantics."""
+    ts_raw = node.get("attrs", {}).get("timestamp")
+    try:
+        ts_seconds = int(ts_raw) / 1000
+        dt = datetime.datetime.fromtimestamp(ts_seconds, tz=datetime.timezone.utc)
+        display = dt.strftime("%B %-d, %Y") if hasattr(dt, "strftime") else str(ts_raw)
+        iso = dt.strftime("%Y-%m-%d")
+        return f'<time datetime="{iso}">{esc(display)}</time>'
+    except (TypeError, ValueError, OSError):
+        # Fails closed to showing *something* recognizable rather than
+        # crashing the whole page over one malformed timestamp.
+        return f'<time>{esc(str(ts_raw))}</time>'
 
 
 def esc(text):
@@ -226,8 +245,7 @@ def render_inline(nodes, ctx):
             attrs = node.get("attrs", {})
             parts.append(f'<span class="status-lozenge">{esc(attrs.get("text",""))}</span>')
         elif ntype == "date":
-            ts = node.get("attrs", {}).get("timestamp")
-            parts.append(f'<time>{esc(str(ts))}</time>')
+            parts.append(render_date(node))
         else:
             parts.append(f'<span class="img-placeholder" style="display:inline">[unmapped inline: {esc(ntype or "?")}]</span>')
     return "".join(parts)
@@ -278,42 +296,46 @@ def render_extension(node, ctx, inline=False):
         # rendering happens bottom-up per-node, but TOC needs the whole page.
         return "<!--TOC_MACRO-->"
 
-    if key == "multiexcerpt":
-        # Defines a named, reusable snippet. The defining page still shows
-        # the content normally, in place. Cross-page lookup is handled
-        # separately: generate_site.py pre-scans every page's RAW ADF
-        # (before any rendering) to build a {(page_id, name): raw_content}
-        # registry — this matters because a multiexcerpt-include could be
-        # processed before its source page in this per-page rendering pass
-        # otherwise, and pre-scanning raw ADF (rather than pre-rendering to
-        # HTML) means the included content still resolves media/links using
-        # whichever page's context actually includes it, not a separate,
-        # incomplete one built just for the scan.
+    # MultiExcerpt is a Forge/ecosystem app, not a native Confluence macro —
+    # its extensionKey is a long, installation-specific path
+    # (e.g. "47fa61b6-.../4d8fa66b-.../static/multiexcerpt-fast-inline-macro")
+    # rather than a short fixed string, and its own parameters live under
+    # "guestParams" as plain values, not "macroParams" wrapped in {"value": ...}
+    # like native macros use. Confirmed against a real page — this isn't a guess.
+    key_str = key or ""
+    guest_params = params.get("guestParams", {}) or {}
+
+    if key_str.endswith("/static/multiexcerpt-fast-inline-macro") or key_str.endswith("/static/multiexcerpt"):
+        # Defines a named, reusable snippet. Registered ahead of time by
+        # generate_site.py's pre-scan (by both the macro's own localId and
+        # by (page_id, name), since the real include macro references its
+        # source primarily by exact UUID — confirmed from a real payload
+        # where the include's `macro_uuid` matched the definer's `localId`
+        # precisely). If the author checked "hidden" (a real MultiExcerpt
+        # option — don't show this excerpt where it's defined, only where
+        # it's included), respect that and render nothing here.
+        features = guest_params.get("features") or []
+        if "hidden" in features:
+            return ""
         return "".join(render_block(c, ctx) for c in (content or []))
 
-    if key == "multiexcerpt-include":
-        # References a named excerpt defined on (possibly) another page.
-        # Exact macroParams key names for the source page id and excerpt
-        # name are a best guess pending a real example — check both common
-        # variants rather than assuming one.
-        excerpt_name = (
-            (macro_params.get("MultiExcerptName", {}) or {}).get("value")
-            or (macro_params.get("name", {}) or {}).get("value")
-            or ""
-        ).strip()
-        source_page_id = (
-            (macro_params.get("MultiExcerptPageId", {}) or {}).get("value")
-            or (macro_params.get("page", {}) or {}).get("value")
-            or ""
-        ).strip()
+    if key_str.endswith("/static/multiexcerpt-include-macro"):
+        macro_uuid = guest_params.get("macro_uuid")
+        excerpt_name = (guest_params.get("name") or "").strip()
+        source_page_id = str(guest_params.get("pageId") or "").strip()
         registry = ctx.get("multiexcerpt_registry") or {}
-        raw_content = registry.get((str(source_page_id), excerpt_name))
+
+        raw_content = None
+        if macro_uuid:
+            raw_content = registry.get("by_uuid", {}).get(macro_uuid)
+        if raw_content is None and source_page_id and excerpt_name:
+            raw_content = registry.get("by_name", {}).get((source_page_id, excerpt_name))
+
         if raw_content is not None:
             return "".join(render_block(c, ctx) for c in raw_content)
         return (
             f'<div class="img-placeholder">[MultiExcerpt "{esc(excerpt_name)}" from page '
-            f'{esc(source_page_id)} — not found. If this shows up on real content, the '
-            f'macroParams key names need adjusting to match the real payload.]</div>'
+            f'{esc(source_page_id)} — not found.]</div>'
         )
 
     if key in ("detail", "details-macro", "page-properties"):
@@ -324,9 +346,11 @@ def render_extension(node, ctx, inline=False):
 
     # Generic fallback: most macros we haven't explicitly mapped are still
     # just wrapping ordinary renderable content (excerpts, custom panels,
-    # third-party formatting macros). Render that content directly rather
-    # than hiding it — this is usually a much better approximation of "what's
-    # actually in Confluence" than an empty placeholder box.
+    # third-party formatting macros — this is also how Table Plus and
+    # similar Advanced Tables macros work: the real table is stored as
+    # literal nested content, so this fallback already renders it correctly
+    # with zero special-case code, confirmed against real data). Render
+    # that content directly rather than hiding it.
     if content:
         return "".join(render_block(c, ctx) for c in content)
 
@@ -465,33 +489,42 @@ def render_toc(headings):
 
 def build_multiexcerpt_registry(pages):
     """Pre-scans every page's RAW ADF (before any rendering) for
-    multiexcerpt definitions, building a {(page_id, excerpt_name): raw_adf_content}
-    registry. Storing raw ADF rather than pre-rendered HTML means an
-    included excerpt still resolves media/links using whichever page's
-    context actually includes it, and page processing order never matters —
-    the whole registry exists before any page starts rendering.
+    MultiExcerpt definitions, building two lookup indexes:
+      - by_uuid: {localId: raw_adf_content} — the primary, precise lookup,
+        since a real MultiExcerpt Include references its source by exact
+        macro UUID (confirmed against real data: the include's guestParams
+        "macro_uuid" matches the definer's own "localId" attribute exactly).
+      - by_name: {(page_id, excerpt_name): raw_adf_content} — fallback for
+        cases where the UUID isn't available for some reason.
+
+    Storing raw ADF rather than pre-rendered HTML means an included excerpt
+    still resolves media/links using whichever page's context actually
+    includes it, and page/space processing order never matters — the whole
+    registry exists before any page starts rendering.
 
     `pages` is the list of page dicts as produced by fetch_confluence.py
-    (each with "id" and "adf" keys) — can span multiple spaces if a
-    multiexcerpt-include is expected to work across space boundaries.
+    (each with "id" and "adf" keys) — can span multiple spaces, since a
+    MultiExcerpt Include isn't guaranteed to stay within one space.
     """
-    registry = {}
+    by_uuid = {}
+    by_name = {}
 
     def walk(node, page_id):
         if not isinstance(node, dict):
             return
-        if node.get("type") in ("extension", "bodiedExtension"):
+        if node.get("type") == "bodiedExtension":
             attrs = node.get("attrs", {})
-            if attrs.get("extensionKey") == "multiexcerpt":
+            key = attrs.get("extensionKey", "") or ""
+            if key.endswith("/static/multiexcerpt-fast-inline-macro") or key.endswith("/static/multiexcerpt"):
                 params = attrs.get("parameters", {}) or {}
-                macro_params = params.get("macroParams", {}) or {}
-                excerpt_name = (
-                    (macro_params.get("name", {}) or {}).get("value")
-                    or (macro_params.get("", {}) or {}).get("value")
-                    or ""
-                ).strip()
+                guest_params = params.get("guestParams", {}) or {}
+                excerpt_name = (guest_params.get("name") or "").strip()
+                local_id = attrs.get("localId")
+                excerpt_content = node.get("content", [])
+                if local_id:
+                    by_uuid[local_id] = excerpt_content
                 if excerpt_name:
-                    registry[(str(page_id), excerpt_name)] = node.get("content", [])
+                    by_name[(str(page_id), excerpt_name)] = excerpt_content
         for child in (node.get("content") or []):
             walk(child, page_id)
 
@@ -502,7 +535,7 @@ def build_multiexcerpt_registry(pages):
         for node in adf.get("content", []):
             walk(node, p.get("id"))
 
-    return registry
+    return {"by_uuid": by_uuid, "by_name": by_name}
 
 
 def adf_to_html(adf_doc, unresolved_includes=None, link_titles=None, media_map=None, multiexcerpt_registry=None):
