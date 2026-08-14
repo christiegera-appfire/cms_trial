@@ -15,6 +15,7 @@ different spaces may belong to different products/teams with different
 service desks.
 """
 
+import html
 import json
 import os
 import re
@@ -66,7 +67,7 @@ def build_nav_tree(parent_id, pages_by_parent, space_key, titles, active_id, val
     for cid in child_ids:
         cls = ' class="active"' if cid == active_id else ""
         sub = build_nav_tree(cid, pages_by_parent, space_key, titles, active_id, valid_ids, depth + 1, max_depth)
-        items.append(f'<li><a href="{page_url(cid, space_key, titles)}"{cls}>{titles[cid]}</a>{sub}</li>')
+        items.append(f'<li><a href="{page_url(cid, space_key, titles)}"{cls}>{html.escape(titles[cid], quote=False)}</a>{sub}</li>')
     return f"<ul>{''.join(items)}</ul>"
 
 
@@ -75,15 +76,17 @@ def build_nav(pages_by_parent, space_key, titles, valid_ids, roots, active_id):
     for rid in roots:
         cls = ' class="active"' if rid == active_id else ""
         sub = build_nav_tree(rid, pages_by_parent, space_key, titles, active_id, valid_ids)
-        top_items.append(f'<li><a href="{page_url(rid, space_key, titles)}"{cls}>{titles[rid]}</a>{sub}</li>')
+        top_items.append(f'<li><a href="{page_url(rid, space_key, titles)}"{cls}>{html.escape(titles[rid], quote=False)}</a>{sub}</li>')
     return f"<ul>{''.join(top_items)}</ul>"
 
 
 def page_shell(title, meta_description, nav_html, page_count, body_html, brand, widget_html, canonical_url, noindex=False, extra_head=""):
-    safe_desc = (meta_description or "").replace('"', "&quot;")
+    safe_title = html.escape(title or "", quote=False)
+    safe_brand_name = html.escape(brand.get("name", "Docs"), quote=False)
+    safe_desc = html.escape(meta_description or "", quote=True)
     nav_shell = NAV_SHELL_TEMPLATE.format(
-        brand_name=brand.get("name", "Docs"),
-        tagline=brand.get("tagline", "Live docs, fetched from Confluence via API."),
+        brand_name=safe_brand_name,
+        tagline=html.escape(brand.get("tagline", "Live docs, fetched from Confluence via API."), quote=False),
         count=page_count,
         nav_items=nav_html,
     )
@@ -102,7 +105,7 @@ def page_shell(title, meta_description, nav_html, page_count, body_html, brand, 
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>{title} | {brand.get("name", "Docs")}</title>
+<title>{safe_title} | {safe_brand_name}</title>
 <meta name="description" content="{safe_desc}">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/styles.css">
@@ -113,7 +116,7 @@ def page_shell(title, meta_description, nav_html, page_count, body_html, brand, 
 <body>
 <div class="shell">
   <main class="content">
-    <h1>{title}</h1>
+    <h1>{safe_title}</h1>
     {body_html}
   </main>
   <aside class="sidebar">{nav_shell}</aside>
@@ -176,7 +179,7 @@ def render_children_list(parent_id, pages_by_parent, space_key, titles, valid_id
         sub = ""
         if depth > 1:
             sub = render_children_list(child_id, pages_by_parent, space_key, titles, valid_ids, depth=depth - 1)
-        items.append(f'<li><a href="{page_url(child_id, space_key, titles)}">{title}</a>{sub}</li>')
+        items.append(f'<li><a href="{page_url(child_id, space_key, titles)}">{html.escape(title, quote=False)}</a>{sub}</li>')
     if not items:
         return ""
     return f"<ul class='children-list'>{''.join(items)}</ul>"
@@ -190,6 +193,7 @@ def build_space(data_path, out_dir, brand, base_url="", jsm_project_key=None, js
         data = json.load(f)
 
     space_key = data.get("space_key", "SPACE")
+    space_name = data.get("space_name", space_key)
 
     pages = [p for p in data["pages"] if p.get("adf") and not (p["title"] or "").startswith("_")]
     titles = {p["id"]: p["title"] for p in pages}
@@ -249,7 +253,7 @@ def build_space(data_path, out_dir, brand, base_url="", jsm_project_key=None, js
             f.write(html_out)
         built.append((url_path, p["title"], bool(faq_schema)))
 
-    return space_key, roots, titles, built
+    return space_key, space_name, roots, titles, len(pages), built
 
 
 def write_redirect(out_dir, target_url, title, brand):
@@ -262,7 +266,7 @@ def write_redirect(out_dir, target_url, title, brand):
 <title>{brand.get("name", "Docs")}</title>
 </head>
 <body>
-<p>Redirecting to <a href="{target_url}">{title}</a>…</p>
+<p>Redirecting to <a href="{target_url}">{html.escape(title, quote=False)}</a>…</p>
 </body>
 </html>
 """
@@ -271,14 +275,24 @@ def write_redirect(out_dir, target_url, title, brand):
 
 
 def write_space_picker(out_dir, spaces_info, brand):
-    """Home page listing every configured space, used once there's more than
-    one — a single-space redirect no longer makes sense when there's a real
-    choice to present."""
-    items = []
-    for space_key, roots, titles in spaces_info:
+    """Real landing page listing every configured space as a card, used once
+    there's more than one — a single-space redirect no longer makes sense
+    once there's an actual choice to present. This is the page that makes
+    "platform" visible rather than implied."""
+    cards = []
+    for space_key, space_name, roots, titles, page_count in spaces_info:
         home = page_url(roots[0], space_key, titles) if roots else f"/space/{space_key}/"
-        items.append(f'<li><a href="{home}"><strong>{space_key}</strong></a></li>')
-    body = f"<h1>{brand.get('name', 'Docs')}</h1><ul>{''.join(items)}</ul>"
+        cards.append(f"""
+<a class="space-card" href="{home}">
+  <div class="space-card-key">{space_key}</div>
+  <h2>{html.escape(space_name, quote=False)}</h2>
+  <p>{page_count} pages</p>
+</a>""")
+    body = f"""
+<h1>{brand.get('name', 'Docs')}</h1>
+<p class="space-picker-intro">{brand.get('tagline', '')}</p>
+<div class="space-grid">{''.join(cards)}</div>
+"""
     html_out = f"""<!doctype html>
 <html lang="en">
 <head>
@@ -288,7 +302,7 @@ def write_space_picker(out_dir, spaces_info, brand):
 <link rel="stylesheet" href="/styles.css">
 </head>
 <body>
-<div class="shell"><main class="content">{body}</main></div>
+<div class="shell shell-full"><main class="content content-full">{body}</main></div>
 </body>
 </html>
 """
@@ -385,7 +399,7 @@ def build_from_config(config_path=CONFIG_FILE, data_dir=DATA_DIR, out_dir=OUT_DI
         if not os.path.exists(data_path):
             print(f"WARNING: {data_path} not found — has fetch_confluence.py run for this space yet? Skipping.")
             continue
-        sk, roots, titles, built = build_space(
+        sk, space_name, roots, titles, page_count, built = build_space(
             data_path,
             out_dir,
             brand,
@@ -395,10 +409,10 @@ def build_from_config(config_path=CONFIG_FILE, data_dir=DATA_DIR, out_dir=OUT_DI
             noindex=noindex,
         )
         all_built.extend(built)
-        spaces_info.append((sk, roots, titles))
+        spaces_info.append((sk, space_name, roots, titles, page_count))
 
     if len(spaces_info) == 1:
-        sk, roots, titles = spaces_info[0]
+        sk, space_name, roots, titles, page_count = spaces_info[0]
         if roots:
             write_redirect(out_dir, page_url(roots[0], sk, titles), titles.get(roots[0], brand.get("name", "Docs")), brand)
     elif len(spaces_info) > 1:
