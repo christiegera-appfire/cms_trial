@@ -487,6 +487,16 @@ th {
   justify-content: center;
 }
 
+/* Without this, the [hidden] attribute never actually hides the modal —
+   our own `display: flex` rule above (an author style) takes precedence
+   over the browser's default `[hidden] { display: none }` UA rule,
+   regardless of the hidden attribute being set. This is what made the
+   modal impossible to close: the JS was correctly setting `hidden = true`,
+   but nothing in the CSS was actually honoring it. */
+.get-help-modal[hidden] {
+  display: none;
+}
+
 .get-help-modal-inner {
   background: var(--bg-page-2);
   border: 1px solid var(--chrome-14);
