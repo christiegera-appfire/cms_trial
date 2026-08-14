@@ -1,0 +1,89 @@
+<!-- Advanced Tables (Table Plus, etc.) enhancement — reconstructs the parts
+     of the macro's real behavior that aren't stored as static content:
+     click-to-sort columns, computed numeric totals, and hover highlighting.
+     Harmless to include on every page — it does nothing if no
+     .advanced-table elements are present. -->
+<script>
+(function () {
+  document.querySelectorAll(".advanced-table").forEach(function (container) {
+    var table = container.querySelector("table");
+    if (!table) return;
+
+    var enableSorting = container.dataset.enableSorting === "true";
+    var autoTotal = container.dataset.autoTotal === "true";
+    var enableHighlighting = container.dataset.enableHighlighting === "true";
+    var highlightColor = container.dataset.highlightColor || "";
+
+    var headerRow = table.rows[0];
+    var tbody = table.tBodies[0] || table;
+
+    // Highlighting: toggle a background color on row hover, matching the
+    // macro's own configured highlight color rather than a fixed one.
+    if (enableHighlighting && highlightColor && headerRow) {
+      Array.prototype.slice.call(tbody.rows).forEach(function (row) {
+        if (row === headerRow) return;
+        row.addEventListener("mouseenter", function () { row.style.backgroundColor = highlightColor; });
+        row.addEventListener("mouseleave", function () { row.style.backgroundColor = ""; });
+      });
+    }
+
+    // Sorting: click a header cell to sort by that column. Numeric-aware —
+    // compares as numbers when both values parse as one, falls back to
+    // string comparison otherwise. Repeated clicks toggle ascending/descending.
+    if (enableSorting && headerRow) {
+      Array.prototype.forEach.call(headerRow.cells, function (cell, colIndex) {
+        cell.classList.add("sortable-col");
+        cell.title = "Click to sort";
+        var ascending = true;
+        cell.addEventListener("click", function () {
+          var rows = Array.prototype.slice.call(tbody.rows).filter(function (r) { return r !== headerRow; });
+          rows.sort(function (a, b) {
+            var av = (a.cells[colIndex] ? a.cells[colIndex].textContent : "").trim();
+            var bv = (b.cells[colIndex] ? b.cells[colIndex].textContent : "").trim();
+            var an = parseFloat(av), bn = parseFloat(bv);
+            var cmp = (!isNaN(an) && !isNaN(bn)) ? (an - bn) : av.localeCompare(bv);
+            return ascending ? cmp : -cmp;
+          });
+          rows.forEach(function (row) { tbody.appendChild(row); });
+          ascending = !ascending;
+        });
+      });
+    }
+
+    // Computed totals: sum any column where every non-empty cell parses as
+    // a number, appended as a footer row. This approximates the common
+    // case (a numeric sum) — the real macro lets authors choose different
+    // calculation types per column (min, max, average...), which isn't
+    // reconstructed here.
+    if (autoTotal && headerRow) {
+      var dataRows = Array.prototype.slice.call(tbody.rows).filter(function (r) { return r !== headerRow; });
+      var totals = [];
+      for (var c = 0; c < headerRow.cells.length; c++) {
+        (function (colIndex) {
+          var allNumeric = true, sum = 0, sawAny = false;
+          dataRows.forEach(function (row) {
+            var cell = row.cells[colIndex];
+            var text = cell ? cell.textContent.trim() : "";
+            if (text === "") return;
+            var n = parseFloat(text);
+            if (isNaN(n)) { allNumeric = false; return; }
+            sum += n;
+            sawAny = true;
+          });
+          totals.push(allNumeric && sawAny ? sum : null);
+        })(c);
+      }
+      if (totals.some(function (t) { return t !== null; })) {
+        var footRow = document.createElement("tr");
+        footRow.className = "advanced-table-total-row";
+        totals.forEach(function (t) {
+          var td = document.createElement("td");
+          td.textContent = t !== null ? String(t) : "";
+          footRow.appendChild(td);
+        });
+        tbody.appendChild(footRow);
+      }
+    }
+  });
+})();
+</script>
