@@ -45,10 +45,18 @@ def confluence_style_path_segment(title):
     return quote(with_plus, safe="+()")
 
 
-def page_url(page_id, space_key, titles):
-    """Root-absolute URL for a page: /space/{KEY}/{pageId}/{Title+With+Plus}/"""
+def page_url(page_id, space_key, titles, path_prefix=""):
+    """URL for a page: {path_prefix}/space/{KEY}/{pageId}/{Title+With+Plus}/
+
+    path_prefix is empty for root-domain hosting (Netlify's cmstrial.netlify.app,
+    or a real custom domain like support.appfire.com). It's needed for GitHub
+    Pages on a normal project repo, which serves under a subpath
+    (https://username.github.io/repo-name/) rather than at the domain root —
+    without this, every link on the site would be missing that subpath and
+    resolve to the wrong place.
+    """
     title_segment = confluence_style_path_segment(titles.get(page_id, "untitled"))
-    return f"/space/{space_key}/{page_id}/{title_segment}/"
+    return f"{path_prefix}/space/{space_key}/{page_id}/{title_segment}/"
 
 
 NAV_SHELL_TEMPLATE = """
@@ -59,28 +67,28 @@ NAV_SHELL_TEMPLATE = """
 """
 
 
-def build_nav_tree(parent_id, pages_by_parent, space_key, titles, active_id, valid_ids, depth=0, max_depth=4):
+def build_nav_tree(parent_id, pages_by_parent, space_key, titles, active_id, valid_ids, path_prefix="", depth=0, max_depth=4):
     child_ids = [c for c in pages_by_parent.get(parent_id, []) if c in valid_ids]
     if not child_ids or depth > max_depth:
         return ""
     items = []
     for cid in child_ids:
         cls = ' class="active"' if cid == active_id else ""
-        sub = build_nav_tree(cid, pages_by_parent, space_key, titles, active_id, valid_ids, depth + 1, max_depth)
-        items.append(f'<li><a href="{page_url(cid, space_key, titles)}"{cls}>{html.escape(titles[cid], quote=False)}</a>{sub}</li>')
+        sub = build_nav_tree(cid, pages_by_parent, space_key, titles, active_id, valid_ids, path_prefix, depth + 1, max_depth)
+        items.append(f'<li><a href="{page_url(cid, space_key, titles, path_prefix)}"{cls}>{html.escape(titles[cid], quote=False)}</a>{sub}</li>')
     return f"<ul>{''.join(items)}</ul>"
 
 
-def build_nav(pages_by_parent, space_key, titles, valid_ids, roots, active_id):
+def build_nav(pages_by_parent, space_key, titles, valid_ids, roots, active_id, path_prefix=""):
     top_items = []
     for rid in roots:
         cls = ' class="active"' if rid == active_id else ""
-        sub = build_nav_tree(rid, pages_by_parent, space_key, titles, active_id, valid_ids)
-        top_items.append(f'<li><a href="{page_url(rid, space_key, titles)}"{cls}>{html.escape(titles[rid], quote=False)}</a>{sub}</li>')
+        sub = build_nav_tree(rid, pages_by_parent, space_key, titles, active_id, valid_ids, path_prefix)
+        top_items.append(f'<li><a href="{page_url(rid, space_key, titles, path_prefix)}"{cls}>{html.escape(titles[rid], quote=False)}</a>{sub}</li>')
     return f"<ul>{''.join(top_items)}</ul>"
 
 
-def page_shell(title, meta_description, nav_html, page_count, body_html, brand, widget_html, canonical_url, noindex=False, extra_head=""):
+def page_shell(title, meta_description, nav_html, page_count, body_html, brand, widget_html, canonical_url, path_prefix="", noindex=False, extra_head=""):
     safe_title = html.escape(title or "", quote=False)
     safe_brand_name = html.escape(brand.get("name", "Docs"), quote=False)
     safe_desc = html.escape(meta_description or "", quote=True)
@@ -108,7 +116,7 @@ def page_shell(title, meta_description, nav_html, page_count, body_html, brand, 
 <title>{safe_title} | {safe_brand_name}</title>
 <meta name="description" content="{safe_desc}">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="{path_prefix}/styles.css">
 {robots_tag}
 {canonical_tag}
 {extra_head}
@@ -152,12 +160,12 @@ def build_faq_schema(body_html):
     return f'<script type="application/ld+json">\n{json.dumps(schema, indent=2)}\n</script>'
 
 
-def rewrite_internal_links(body_html, space_key, titles, valid_ids):
+def rewrite_internal_links(body_html, space_key, titles, valid_ids, path_prefix=""):
     soup = BeautifulSoup(body_html, "html.parser")
     for a in soup.find_all("a", href=True):
         m = re.search(r"/pages/(\d+)", a["href"])
         if m and m.group(1) in valid_ids:
-            a["href"] = page_url(m.group(1), space_key, titles)
+            a["href"] = page_url(m.group(1), space_key, titles, path_prefix)
     return str(soup)
 
 
@@ -169,7 +177,7 @@ def load_includes(pages):
     return includes
 
 
-def render_children_list(parent_id, pages_by_parent, space_key, titles, valid_ids, depth=2):
+def render_children_list(parent_id, pages_by_parent, space_key, titles, valid_ids, path_prefix="", depth=2):
     children = [c for c in pages_by_parent.get(parent_id, []) if c in valid_ids]
     if not children:
         return ""
@@ -178,17 +186,25 @@ def render_children_list(parent_id, pages_by_parent, space_key, titles, valid_id
         title = titles.get(child_id, "Untitled")
         sub = ""
         if depth > 1:
-            sub = render_children_list(child_id, pages_by_parent, space_key, titles, valid_ids, depth=depth - 1)
-        items.append(f'<li><a href="{page_url(child_id, space_key, titles)}">{html.escape(title, quote=False)}</a>{sub}</li>')
+            sub = render_children_list(child_id, pages_by_parent, space_key, titles, valid_ids, path_prefix, depth=depth - 1)
+        items.append(f'<li><a href="{page_url(child_id, space_key, titles, path_prefix)}">{html.escape(title, quote=False)}</a>{sub}</li>')
     if not items:
         return ""
     return f"<ul class='children-list'>{''.join(items)}</ul>"
 
 
-def build_space(data_path, out_dir, brand, base_url="", jsm_project_key=None, jsm_request_type_id=None, noindex=False, multiexcerpt_registry=None):
+def build_space(data_path, out_dir, brand, base_url="", path_prefix="", jsm_project_key=None, jsm_request_type_id=None, noindex=False, multiexcerpt_registry=None):
     """Builds one space's pages. Returns (space_key, roots, titles, built_list) —
     the caller needs space_key/roots/titles to build the top-level home page
-    once it knows about every space, not just this one."""
+    once it knows about every space, not just this one.
+
+    path_prefix matters for GitHub Pages project repos (served under
+    /repo-name/, not domain root) — see page_url()'s docstring. It's used
+    for every link WRITTEN INTO the HTML (nav, images, stylesheet,
+    canonical), but never for where files actually live on disk: GitHub
+    adds that prefix automatically at serving time based on the repo name,
+    so baking it into the output directory structure would be wrong.
+    """
     with open(data_path) as f:
         data = json.load(f)
 
@@ -200,7 +216,7 @@ def build_space(data_path, out_dir, brand, base_url="", jsm_project_key=None, js
     valid_ids = set(titles.keys())
     includes = load_includes(data["pages"])
 
-    media_map = {k: f"/{v}" for k, v in data.get("media", {}).items()}
+    media_map = {k: f"{path_prefix}/{v}" for k, v in data.get("media", {}).items()}
 
     pages_by_parent = {}
     for p in data["pages"]:
@@ -225,15 +241,22 @@ def build_space(data_path, out_dir, brand, base_url="", jsm_project_key=None, js
             multiexcerpt_registry=multiexcerpt_registry,
         )
         if "<!--CHILDREN_MACRO-->" in body_html:
-            children_html = render_children_list(p["id"], pages_by_parent, space_key, titles, valid_ids)
+            children_html = render_children_list(p["id"], pages_by_parent, space_key, titles, valid_ids, path_prefix)
             body_html = body_html.replace("<!--CHILDREN_MACRO-->", children_html)
-        body_html = rewrite_internal_links(body_html, space_key, titles, valid_ids)
+        body_html = rewrite_internal_links(body_html, space_key, titles, valid_ids, path_prefix)
         meta_desc = generate_meta_description(p["adf"])
         faq_schema = build_faq_schema(body_html)
 
-        nav_html = build_nav(pages_by_parent, space_key, titles, valid_ids, roots, p["id"])
+        nav_html = build_nav(pages_by_parent, space_key, titles, valid_ids, roots, p["id"], path_prefix)
+        # url_path is the CLEAN path — used for the on-disk output location,
+        # since GitHub Pages adds the /repo-name/ prefix automatically at
+        # serving time and baking it into the file layout would double it up.
         url_path = page_url(p["id"], space_key, titles)
-        canonical_url = f"{base_url.rstrip('/')}{url_path}" if base_url else ""
+        # href_path is what actually gets written into the HTML as this
+        # page's own canonical URL — it needs the prefix, since that's the
+        # real, publicly reachable address.
+        href_path = page_url(p["id"], space_key, titles, path_prefix)
+        canonical_url = f"{base_url.rstrip('/')}{href_path}" if base_url else ""
 
         html_out = page_shell(
             title=p["title"],
@@ -244,6 +267,7 @@ def build_space(data_path, out_dir, brand, base_url="", jsm_project_key=None, js
             brand=brand,
             widget_html=widget_html,
             canonical_url=canonical_url,
+            path_prefix=path_prefix,
             noindex=noindex,
             extra_head=faq_schema,
         )
@@ -252,7 +276,7 @@ def build_space(data_path, out_dir, brand, base_url="", jsm_project_key=None, js
         os.makedirs(os.path.dirname(out_path), exist_ok=True)
         with open(out_path, "w") as f:
             f.write(html_out)
-        built.append((url_path, p["title"], bool(faq_schema)))
+        built.append((href_path, p["title"], bool(faq_schema)))
 
     return space_key, space_name, roots, titles, len(pages), built
 
@@ -275,14 +299,14 @@ def write_redirect(out_dir, target_url, title, brand):
         f.write(redirect_html)
 
 
-def write_space_picker(out_dir, spaces_info, brand):
+def write_space_picker(out_dir, spaces_info, brand, path_prefix=""):
     """Real landing page listing every configured space as a card, used once
     there's more than one — a single-space redirect no longer makes sense
     once there's an actual choice to present. This is the page that makes
     "platform" visible rather than implied."""
     cards = []
     for space_key, space_name, roots, titles, page_count in spaces_info:
-        home = page_url(roots[0], space_key, titles) if roots else f"/space/{space_key}/"
+        home = page_url(roots[0], space_key, titles, path_prefix) if roots else f"{path_prefix}/space/{space_key}/"
         cards.append(f"""
 <a class="space-card" href="{home}">
   <div class="space-card-key">{space_key}</div>
@@ -300,7 +324,7 @@ def write_space_picker(out_dir, spaces_info, brand):
 <meta charset="utf-8">
 <title>{brand.get("name", "Docs")}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="/styles.css">
+<link rel="stylesheet" href="{path_prefix}/styles.css">
 </head>
 <body>
 <div class="shell shell-full"><main class="content content-full">{body}</main></div>
@@ -333,7 +357,7 @@ def write_sitemap(out_dir, base_url, all_built):
         f.write(sitemap)
 
 
-def write_robots_txt(out_dir, base_url, noindex=False):
+def write_robots_txt(out_dir, base_url, path_prefix="", noindex=False):
     if noindex:
         # Trial mode: block everything. No point pointing crawlers at a
         # sitemap for content you don't want indexed — that's a mixed
@@ -346,7 +370,7 @@ def write_robots_txt(out_dir, base_url, noindex=False):
         # crawlable at all.
         lines = ["User-agent: *", "Allow: /"]
         if base_url:
-            lines.append(f"Sitemap: {base_url.rstrip('/')}/sitemap.xml")
+            lines.append(f"Sitemap: {base_url.rstrip('/')}{path_prefix}/sitemap.xml")
     with open(os.path.join(out_dir, "robots.txt"), "w") as f:
         f.write("\n".join(lines) + "\n")
 
@@ -387,9 +411,12 @@ def build_from_config(config_path=CONFIG_FILE, data_dir=DATA_DIR, out_dir=OUT_DI
 
     brand = config.get("brand", {})
     base_url = config.get("base_url", "")
+    path_prefix = config.get("path_prefix", "").rstrip("/")
     noindex = config.get("noindex", False)
     if noindex:
         print("noindex mode is ON — every page gets a noindex meta tag, robots.txt disallows everything, no sitemap.xml is written.")
+    if path_prefix:
+        print(f"path_prefix is set to '{path_prefix}' — every link/asset path will include this (GitHub Pages project-repo subpath mode).")
     spaces_cfg = config["spaces"]
 
     # Load every space's raw pages up front (before any rendering) so a
@@ -422,6 +449,7 @@ def build_from_config(config_path=CONFIG_FILE, data_dir=DATA_DIR, out_dir=OUT_DI
             out_dir,
             brand,
             base_url=base_url,
+            path_prefix=path_prefix,
             jsm_project_key=space_cfg.get("jsm_project_key"),
             jsm_request_type_id=space_cfg.get("jsm_request_type_id"),
             noindex=noindex,
@@ -433,13 +461,22 @@ def build_from_config(config_path=CONFIG_FILE, data_dir=DATA_DIR, out_dir=OUT_DI
     if len(spaces_info) == 1:
         sk, space_name, roots, titles, page_count = spaces_info[0]
         if roots:
-            write_redirect(out_dir, page_url(roots[0], sk, titles), titles.get(roots[0], brand.get("name", "Docs")), brand)
+            write_redirect(
+                out_dir,
+                page_url(roots[0], sk, titles, path_prefix),
+                titles.get(roots[0], brand.get("name", "Docs")),
+                brand,
+            )
     elif len(spaces_info) > 1:
-        write_space_picker(out_dir, spaces_info, brand)
+        write_space_picker(out_dir, spaces_info, brand, path_prefix)
 
+    # all_built's paths already include path_prefix (built by build_space),
+    # so base_url here must stay a BARE origin (no subpath) — combining
+    # base_url + href_path gives the correct full public URL without
+    # double-counting the prefix.
     if not noindex:
         write_sitemap(out_dir, base_url, all_built)
-    write_robots_txt(out_dir, base_url, noindex=noindex)
+    write_robots_txt(out_dir, base_url, path_prefix, noindex=noindex)
 
     return all_built
 
