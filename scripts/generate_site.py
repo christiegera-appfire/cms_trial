@@ -26,7 +26,7 @@ from urllib.parse import quote
 from bs4 import BeautifulSoup
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from adf_transform import adf_to_html, generate_meta_description
+from adf_transform import adf_to_html, generate_meta_description, build_multiexcerpt_registry
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # repo root
 CONFIG_FILE = os.path.join(ROOT, "sites.json")
@@ -185,7 +185,7 @@ def render_children_list(parent_id, pages_by_parent, space_key, titles, valid_id
     return f"<ul class='children-list'>{''.join(items)}</ul>"
 
 
-def build_space(data_path, out_dir, brand, base_url="", jsm_project_key=None, jsm_request_type_id=None, noindex=False):
+def build_space(data_path, out_dir, brand, base_url="", jsm_project_key=None, jsm_request_type_id=None, noindex=False, multiexcerpt_registry=None):
     """Builds one space's pages. Returns (space_key, roots, titles, built_list) —
     the caller needs space_key/roots/titles to build the top-level home page
     once it knows about every space, not just this one."""
@@ -222,6 +222,7 @@ def build_space(data_path, out_dir, brand, base_url="", jsm_project_key=None, js
             unresolved_includes=includes,
             link_titles=titles,
             media_map=media_map,
+            multiexcerpt_registry=multiexcerpt_registry,
         )
         if "<!--CHILDREN_MACRO-->" in body_html:
             children_html = render_children_list(p["id"], pages_by_parent, space_key, titles, valid_ids)
@@ -391,13 +392,30 @@ def build_from_config(config_path=CONFIG_FILE, data_dir=DATA_DIR, out_dir=OUT_DI
         print("noindex mode is ON — every page gets a noindex meta tag, robots.txt disallows everything, no sitemap.xml is written.")
     spaces_cfg = config["spaces"]
 
-    all_built = []
-    spaces_info = []
+    # Load every space's raw pages up front (before any rendering) so a
+    # multiexcerpt-include can resolve a source excerpt regardless of which
+    # space or page order it's defined in relative to where it's used.
+    all_raw_pages = []
+    space_data_paths = {}
     for space_cfg in spaces_cfg:
         space_key = space_cfg["space_key"]
         data_path = os.path.join(data_dir, space_key, "pages.json")
         if not os.path.exists(data_path):
             print(f"WARNING: {data_path} not found — has fetch_confluence.py run for this space yet? Skipping.")
+            continue
+        space_data_paths[space_key] = data_path
+        with open(data_path) as f:
+            space_data = json.load(f)
+        all_raw_pages.extend(space_data.get("pages", []))
+
+    multiexcerpt_registry = build_multiexcerpt_registry(all_raw_pages)
+
+    all_built = []
+    spaces_info = []
+    for space_cfg in spaces_cfg:
+        space_key = space_cfg["space_key"]
+        data_path = space_data_paths.get(space_key)
+        if not data_path:
             continue
         sk, space_name, roots, titles, page_count, built = build_space(
             data_path,
@@ -407,6 +425,7 @@ def build_from_config(config_path=CONFIG_FILE, data_dir=DATA_DIR, out_dir=OUT_DI
             jsm_project_key=space_cfg.get("jsm_project_key"),
             jsm_request_type_id=space_cfg.get("jsm_request_type_id"),
             noindex=noindex,
+            multiexcerpt_registry=multiexcerpt_registry,
         )
         all_built.extend(built)
         spaces_info.append((sk, space_name, roots, titles, page_count))
