@@ -193,20 +193,14 @@ def download_attachments(base_url, auth, pages, assets_dir):
     return media_map
 
 
-def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument("--space", required=True, help="Confluence space key, e.g. FOX")
-    parser.add_argument("--site", required=True, help="e.g. appfire.atlassian.net")
-    parser.add_argument("--out", default="data/pages.json")
-    parser.add_argument("--assets-dir", default="assets", help="Where downloaded images are saved")
-    parser.add_argument("--skip-images", action="store_true", help="Skip attachment download (faster, for debugging)")
-    args = parser.parse_args()
+def fetch_one_space(site, space_key, out_path, assets_dir, auth, skip_images=False):
+    """Fetches one space end-to-end: pages + attachments, writes pages.json.
+    This is the same logic that used to live directly in main() — pulled out
+    so --config mode can call it once per space without duplicating it."""
+    base_url = f"https://{site}"
 
-    base_url = f"https://{args.site}"
-    auth = get_auth()
-
-    print(f"Looking up space '{args.space}' on {args.site}...")
-    space_id, space_name = get_space_id(base_url, args.space, auth)
+    print(f"Looking up space '{space_key}' on {site}...")
+    space_id, space_name = get_space_id(base_url, space_key, auth)
     print(f"Found space: {space_name} (id={space_id})")
 
     print("Fetching pages (this paginates, may take a moment for large spaces)...")
@@ -219,23 +213,53 @@ def main():
         print(f"WARNING: {len(failed)} pages had no usable ADF body: {failed}", file=sys.stderr)
 
     media_map = {}
-    if not args.skip_images:
+    if not skip_images:
         print("Downloading images (skips files already on disk)...")
-        media_map = download_attachments(base_url, auth, normalized, args.assets_dir)
+        media_map = download_attachments(base_url, auth, normalized, assets_dir)
         print(f"Mapped {len(media_map)} images to local files.")
     else:
         print("--skip-images set, leaving all images as placeholders.")
 
-    os.makedirs(os.path.dirname(args.out) or ".", exist_ok=True)
-    with open(args.out, "w") as f:
+    os.makedirs(os.path.dirname(out_path) or ".", exist_ok=True)
+    with open(out_path, "w") as f:
         json.dump({
-            "space_key": args.space,
+            "space_key": space_key,
             "space_id": space_id,
             "pages": normalized,
             "media": media_map,
         }, f, indent=2)
 
-    print(f"Wrote {args.out}")
+    print(f"Wrote {out_path}")
+
+
+def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--config", help="Path to sites.json — fetches every space listed in it")
+    parser.add_argument("--space", help="Single-space mode: Confluence space key, e.g. FOX")
+    parser.add_argument("--site", help="Single-space mode: e.g. appfire.atlassian.net")
+    parser.add_argument("--out", default="data/pages.json", help="Single-space mode: output path")
+    parser.add_argument("--data-dir", default="data", help="Config mode: base dir; writes {data-dir}/{space_key}/pages.json")
+    parser.add_argument("--assets-dir", default="assets", help="Where downloaded images are saved (shared across spaces — fileIds are globally unique, so no collision risk)")
+    parser.add_argument("--skip-images", action="store_true", help="Skip attachment download (faster, for debugging)")
+    args = parser.parse_args()
+
+    auth = get_auth()
+
+    if args.config:
+        with open(args.config) as f:
+            config = json.load(f)
+        site = config["confluence_site"]
+        spaces = config["spaces"]
+        print(f"Config mode: fetching {len(spaces)} space(s) from {site}")
+        for space_cfg in spaces:
+            space_key = space_cfg["space_key"]
+            out_path = os.path.join(args.data_dir, space_key, "pages.json")
+            fetch_one_space(site, space_key, out_path, args.assets_dir, auth, args.skip_images)
+            print()
+    else:
+        if not args.space or not args.site:
+            sys.exit("Either --config sites.json, or both --space and --site, are required.")
+        fetch_one_space(args.site, args.space, args.out, args.assets_dir, auth, args.skip_images)
 
 
 if __name__ == "__main__":
