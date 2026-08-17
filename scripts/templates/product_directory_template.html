@@ -1,0 +1,813 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>App Directory — Appfire</title>
+<link rel="stylesheet" href="https://use.typekit.net/eah5sfj.css">
+  <style>
+    :root {
+      --font: "area", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      --bg:            #0b0f16;
+      --bg-2:          #0a0d13;
+      --border:        rgba(215,222,234,.14);
+      --border-strong: rgba(215,222,234,.26);
+      --text:          #ffffff;
+      --text-muted:    rgba(255,255,255,.5);
+      --shadow-sm:     0 2px 8px rgba(0,0,0,.18);
+      --shadow-md:     0 8px 28px rgba(0,0,0,.35);
+      --radius:        18px;
+      --primary-soft:  rgba(47,107,255,.18);
+      --color-ac:  #397BFF;
+      --color-adc: #A78BFA;
+      --color-ms:  #FF8A5B;
+      --color-sf:  #63E6E2;
+      --color-sl:  #FFE08A;
+      --color-mo:  #6875f5;
+      --color-sei: #22C55E;
+      --color-nt:  rgba(215,222,234,.16);
+    }
+
+    body, .card p, .card h3, .kb-card p, .kb-card h3,
+.card-excerpt, .results-count, .meta-space,
+.sidebar-heading, .space-name, .card-title,
+.hint, .meta, .name {
+  font-weight: 700 !important;
+}
+
+.name { font-size: .9rem !important; }
+    
+    *, *::before, *::after { box-sizing: border-box; }
+    html, body { height: 100%; min-height: 100vh; margin: 0; }
+    body { font-family: var(--font); color: #fff; background-color: var(--bg); }
+    a { color: inherit; text-decoration: none; }
+    #appfire-directory { font-family: var(--font); }
+    .wrap { max-width: 1400px; margin: 0 auto; padding: 0 20px 80px; }
+    .controls {
+      background-color: #090a0f;
+      border-radius: 24px;
+      padding-bottom: 24px; box-shadow: var(--shadow-sm); backdrop-filter: blur(6px);
+    }
+    .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; justify-content: space-between; }
+    .search {
+      flex: 1 1 340px; display: flex; gap: 10px; align-items: center;
+      background: rgba(9,10,15,1); border-radius: 500px; padding: 10px 12px;
+      border: 1px solid #fff;
+    }
+    .search input {
+      width: 100%; border: none; outline: none; font-size: 14px;
+      background: transparent; color: #fff; font-family: var(--font);
+    }
+    .search input::placeholder { color: rgba(255,255,255,.5); }
+    .btn {
+      border: 1px solid var(--border); background: rgba(215,222,234,.08); color: #fff;
+      border-radius: 999px; padding: 8px 12px; font-size: 13px; font-weight: 600;
+      font-family: var(--font); cursor: pointer;
+      transition: transform .12s ease, background .15s ease; white-space: nowrap;
+    }
+    .btn:hover { background: rgba(215,222,234,.12); transform: translateY(-1px); }
+    .toggle { display: flex; gap: 10px; align-items: center; flex: 0 0 auto; color: rgba(255,255,255,.6); font-size: 13px; }
+    .toggle strong { color: #fff; }
+    .toggle .pill {
+      display: inline-flex; border: 1px solid var(--border); border-radius: 999px;
+      overflow: hidden; background: rgba(12,19,32,.55);
+    }
+    .toggle button {
+      border: none; background: transparent; padding: 9px 12px; cursor: pointer;
+      font-weight: 700; font-size: 12px; font-family: var(--font);
+      color: #fff; transition: background .18s ease, color .18s ease;
+    }
+    .toggle button.is-active { background: #336fe6; color: #fff; }
+    .filters { margin-top: 14px; display: flex; gap: 8px 24px; flex-wrap: wrap; align-items: center; }
+    .chip {
+      display: inline-flex; align-items: center; gap: 9px;
+      cursor: pointer; user-select: none; color: #fff;
+    }
+    .chip input { display: none; }
+    .chip .check {
+      width: 14px; height: 14px; min-width: 14px; flex-shrink: 0;
+      border-radius: 2px; border: 1px solid #4466FF;
+      background: transparent; display: inline-flex; align-items: center; justify-content: center;
+      transition: background .15s ease;
+    }
+    .chip input:checked ~ .check {
+      background: #4466FF;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 10 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 4l3 3 5-6' stroke='%23fff' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: center; background-size: 9px 7px;
+    }
+    .chip .label-text { font-size: 13px; font-weight: 400; color: #fff; }
+    .chip:hover .label-text { color: #fff; }
+    .chip input:checked ~ .label-text { color: #fff; }
+    .meta { margin-top: 12px; display: flex; gap: 12px; flex-wrap: wrap; align-items: center; color: rgba(255,255,255,.6) !important; font-size: 13px; }
+    .meta strong { color: #fff !important; }
+    .grid { margin-top: 8px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    @media (max-width: 980px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 620px) { .grid { grid-template-columns: 1fr; } }
+
+    .card {
+      display: flex; flex-direction: column; background: #121213;
+      border: 1px solid #5c5b5e; border-radius: 20px; overflow: hidden;
+      box-shadow: var(--shadow-sm); backdrop-filter: blur(6px);
+    }
+    .card-body { flex: 1; padding: 18px 18px 18px; }
+    .name { margin: 0; font-size: 15px; font-weight: 700; letter-spacing: -0.01em; line-height: 1.3; color: #fff !important; font-family: var(--font) !important; }
+    .tags { margin-top: 12px; display: flex; gap: 6px; flex-wrap: wrap; }
+
+    .tag {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 11px; font-weight: 600; font-family: var(--font) !important;
+      border-radius: 0; padding: 3px 9px;
+      background: transparent; letter-spacing: .01em;
+      border: 1px solid rgba(215,222,234,.18); color: #ffffff;
+      text-decoration: none;
+      transition: background .15s ease, border-color .15s ease, transform .15s ease;
+    }
+    .tag[href="#"], .tag:not([href]) { cursor: default; pointer-events: none; }
+
+    .tag .tag-arrow {
+      width: 9px; height: 9px; flex-shrink: 0; opacity: 0;
+      transition: opacity .15s ease, transform .15s ease;
+    }
+    .tag:hover .tag-arrow { opacity: 1; transform: translateX(2px); }
+
+    .tag.p-ac  { border-color: var(--color-ac);  color: #fff; }
+    .tag.p-adc { border-color: var(--color-adc); color: #fff; }
+    .tag.p-ms  { border-color: var(--color-ms);  color: #fff; }
+    .tag.p-sf  { border-color: var(--color-sf);  color: #fff; }
+    .tag.p-sl  { border-color: var(--color-sl);  color: #fff; }
+    .tag.p-mo  { border-color: var(--color-mo);  color: #fff; }
+    .tag.p-sei { border-color: var(--color-sei); color: #fff; }
+    .tag.p-nt  { border-color: var(--color-nt); }
+
+    .tag.p-ac:hover  { background: rgba(57,123,255,0.28);  border-color: #6b9fff; color: #fff; transform: translateY(-2px); }
+    .tag.p-adc:hover { background: rgba(167,139,250,0.28); border-color: #c4b0fd; color: #fff; transform: translateY(-2px); }
+    .tag.p-ms:hover  { background: rgba(255,138,91,0.28);  border-color: #ffaa80; color: #fff; transform: translateY(-2px); }
+    .tag.p-sf:hover  { background: rgba(99,230,226,0.28);  border-color: #8eecea; color: #fff; transform: translateY(-2px); }
+    .tag.p-sl:hover  { background: rgba(255,224,138,0.28); border-color: #ffe9a0; color: #fff; transform: translateY(-2px); }
+    .tag.p-mo:hover  { background: rgba(104,117,245,0.28); border-color: #9099f7; color: #fff; transform: translateY(-2px); }
+    .tag.p-sei:hover { background: rgba(34,197,94,0.28);   border-color: #4ade80; color: #fff; transform: translateY(-2px); }
+
+    .empty { margin-top: 20px; font-size: 18px; color: #fff; }
+    .hint { margin: 10px 0 30px; font-size: 13px; color: rgba(255,255,255,.55) !important; line-height: 1.5; }
+
+    
+  </style>
+</head>
+<body>
+<div id="appfire-directory">
+  <div class="wrap">
+    <div class="controls">
+      <div class="row">
+        <div class="search" role="search">
+          <input id="afd-q" type="search" placeholder="Filter apps…" autocomplete="off" />
+          <button class="btn" id="afd-clear">Clear</button>
+        </div>
+        <div class="toggle" aria-label="Match mode">
+          <strong>Match:</strong>
+          <div class="pill" role="group">
+            <button type="button" id="afd-modeAnd" class="is-active">AND</button>
+            <button type="button" id="afd-modeOr">OR</button>
+          </div>
+        </div>
+      </div>
+      <div class="filters" aria-label="Platform filters">
+        <label class="chip"><input type="checkbox" class="afd-filter" value="atlassian-cloud" /><span class="check"></span><span class="label-text">Atlassian Cloud</span></label>
+        <label class="chip"><input type="checkbox" class="afd-filter" value="atlassian-dc" /><span class="check"></span><span class="label-text">Atlassian Data Center</span></label>
+        <label class="chip"><input type="checkbox" class="afd-filter" value="microsoft" /><span class="check"></span><span class="label-text">Microsoft</span></label>
+        <label class="chip"><input type="checkbox" class="afd-filter" value="salesforce" /><span class="check"></span><span class="label-text">Salesforce</span></label>
+        <label class="chip"><input type="checkbox" class="afd-filter" value="slack" /><span class="check"></span><span class="label-text">Slack</span></label>
+        <label class="chip"><input type="checkbox" class="afd-filter" value="monday" /><span class="check"></span><span class="label-text">monday.com</span></label>
+        <label class="chip"><input type="checkbox" class="afd-filter" value="SEI" /><span class="check"></span><span class="label-text">Software Engineering Intelligence</span></label>
+      </div>
+      <div class="meta">
+        <div><strong id="afd-shown">0</strong> shown / <span id="afd-total">0</span> total</div>
+      </div>
+    </div>
+    <p class="hint" id="afd-hint">Filter by platform or search by app name, feature, or space key. Click a platform badge to go directly to that app's documentation.</p>
+    <div id="afd-grid" class="grid" aria-label="Apps"></div>
+    <div id="afd-empty" class="empty" hidden>No matches. Try clearing filters or changing OR/AND.</div>
+  </div>
+</div>
+
+<script>
+(function () {
+
+  // Hardcoded Get Started URLs — no JS redirect needed
+  var GS = {
+    "7TFA":        "https://support.appfire.com/space/7TFA/1253540271/Get+started",
+    "7TFJ":        "https://support.appfire.com/space/7TFJ/1821540369/get-started",
+    "7TFM":        "https://support.appfire.com/space/7TFM/2152595625/get-started",
+    "477986818":   "https://support.appfire.com/space/477986818/2560819229/get-started",
+    "DHDC":        "https://support.appfire.com/space/DHDC/2802647240/get-started",
+    "ABTB":        "https://support.appfire.com/space/ABTB/2996469763/get-started",
+    "ACLI":        "https://support.appfire.com/space/ACLI/1930002644/get-started",
+    "AHP":         "https://support.appfire.com/space/AHP/649856333/get-started",
+    "AIP":         "https://support.appfire.com/space/AIP/842268816/get-started",
+    "AIPC":        "https://support.appfire.com/space/AIPC/190808205/get-started",
+    "ANNOUNCE":    "https://support.appfire.com/space/ANNOUNCE/2996862979/get-started",
+    "APBCFJ":      "https://support.appfire.com/space/APBCFJ/578520373/get-started",
+    "ART":         "https://support.appfire.com/space/ART/1582006444/get-started",
+    "ATCFJ":       "https://support.appfire.com/space/ATCFJ/1038155841/get-started",
+    "AW":          "https://support.appfire.com/space/AW/1927807281/get-started",
+    "BCCLI":       "https://support.appfire.com/space/BCCLI/3012198407/get-started",
+    "C4J":         "https://support.appfire.com/space/C4J/646578541/get-started",
+    "CACHE":       "https://support.appfire.com/space/CACHE/66586100/get-started",
+    "CBCCL":       "https://support.appfire.com/space/CBCCL/642486984/get-started",
+    "CBCSL":       "https://support.appfire.com/space/CBCSL/641996375/get-started",
+    "CCLI":        "https://support.appfire.com/space/CCLI/66715767/get-started",
+    "CCSFCONFC":   "https://support.appfire.com/space/CCSFCONFC/470090671/get-started",
+    "CDACL":       "https://support.appfire.com/space/CDACL/629575049/get-started",
+    "CDALS":       "https://support.appfire.com/space/CDALS/2344419443/get-started",
+    "CDCCL":       "https://support.appfire.com/space/CDCCL/631113831/get-started",
+    "CDMC":        "https://support.appfire.com/space/CDMC/2192838067/get-started",
+    "CDML":        "https://support.appfire.com/space/CDML/650248263/get-started",
+    "CFGDCS":      "https://support.appfire.com/space/CFGDCS/470286924/get-started",
+    "CHAT":        "https://support.appfire.com/space/CHAT/57212929/get-started",
+    "CLSL":        "https://support.appfire.com/space/CLSL/656675787/get-started",
+    "CMJ":         "https://support.appfire.com/space/CMJ/198279169/get-started",
+    "CMJC":        "https://support.appfire.com/space/CMJC/193921273/get-started",
+    "CMSP":        "https://support.appfire.com/space/CMSP/3034939450/get-started",
+    "COMALACDCLS": "https://support.appfire.com/space/COMALACDCLS/2351202512/get-started",
+    "COMALACM":    "https://support.appfire.com/space/COMALACM/655889135/get-started",
+    "COPYSP":      "https://support.appfire.com/space/COPYSP/587890715/get-started",
+    "CPCL":        "https://support.appfire.com/space/CPCL/646251524/get-started",
+    "CPT":         "https://support.appfire.com/space/CPT/3028451344/get-started",
+    "CR":          "https://support.appfire.com/space/CR/140804319/get-started",
+    "CRCCL":       "https://support.appfire.com/space/CRCCL/3025764418/get-started",
+    "CRU":         "https://support.appfire.com/space/CRU/149389339/get-started",
+    "CSFJIRA":     "https://support.appfire.com/space/CSFJIRA/1873739795/get-started",
+    "CSOAP":       "https://support.appfire.com/space/CSOAP/3024945212/get-started",
+    "CSOT":        "https://support.appfire.com/space/CSOT/3029368855/get-started",
+    "CT":          "https://support.appfire.com/space/CT/147914994/get-started",
+    "CTFCC":       "https://support.appfire.com/space/CTFCC/1974665443/get-started",
+    "CTFCSM":      "https://support.appfire.com/space/CTFCSM/3025076285/get-started",
+    "CVP":         "https://support.appfire.com/space/CVP/69174051/get-started",
+    "CW":          "https://support.appfire.com/space/CW/3011837953/get-started",
+    "DADMIN":      "https://support.appfire.com/space/DADMIN/3028287552/get-started",
+    "DELGROUPS":   "https://support.appfire.com/space/DELGROUPS/3028385916/get-started",
+    "DLP":         "https://support.appfire.com/space/DLP/2211351022/get-started",
+    "EASYF":       "https://support.appfire.com/space/EASYF/388202529/get-started",
+    "EI4J":        "https://support.appfire.com/space/EI4J/1204650430/get-started",
+    "EIFJC":       "https://support.appfire.com/space/EIFJC/10125331/get-started",
+    "ENH":         "https://support.appfire.com/space/ENH/2029126133/get-started",
+    "FOX":         "https://support.appfire.com/space/FOX/602538315/get-started",
+    "GCC":         "https://support.appfire.com/space/GCC/1038221383/get-started",
+    "GFJ":         "https://support.appfire.com/space/GFJ/3030122537/get-started",
+    "GMFC":        "https://support.appfire.com/space/GMFC/2029420778/get-started",
+    "GVIZ":        "https://support.appfire.com/space/GVIZ/3028517023/get-started",
+    "HFMT":        "https://support.appfire.com/space/HFMT/721225335/get-started",
+    "HFS":         "https://support.appfire.com/space/HFS/2211747485/get-started",
+    "HTML":        "https://support.appfire.com/space/HTML/1833861447/get-started",
+    "HTMLM":       "https://support.appfire.com/space/HTMLM/358318161/get-started",
+    "IC":          "https://support.appfire.com/space/IC/18677984/get-started",
+    "ICJ":         "https://support.appfire.com/space/ICJ/197827402/get-started",
+    "ILV":         "https://support.appfire.com/space/ILV/197957239/get-started",
+    "IMC":         "https://support.appfire.com/space/IMC/228426206/get-started",
+    "IMG":         "https://support.appfire.com/space/IMG/1993474138/get-started",
+    "JCLI":        "https://support.appfire.com/space/JCLI/3028811884/get-started",
+    "JCLIP":       "https://support.appfire.com/space/JCLIP/71139657/get-started",
+    "JCPP":        "https://support.appfire.com/space/JCPP/1614250212/get-started",
+    "JENK":        "https://support.appfire.com/space/JENK/1868956040/get-started",
+    "JEP":         "https://support.appfire.com/space/JEP/1871675486/get-started",
+    "JEPC":        "https://support.appfire.com/space/JEPC/379814001/get-started",
+    "JIFMT":       "https://support.appfire.com/space/JIFMT/734921248/get-started",
+    "JIFS":        "https://support.appfire.com/space/JIFS/683967250/get-started",
+    "JMCF":        "https://support.appfire.com/space/JMCF/465340331/get-started",
+    "JMCFC":       "https://support.appfire.com/space/JMCFC/465829931/get-started",
+  "JMWE":       "https://appfire.atlassian.net/wiki/spaces/JMWE/pages/461471862/Get+started",
+    "JMWEC":       "https://support.appfire.com/space/JMWEC/466288774/get-started",
+    "JPP":         "https://support.appfire.com/space/JPP/383321024/get-started",
+    "JQLSEARCH":   "https://support.appfire.com/space/JQLSEARCH/604209802/get-started",
+    "JSUCLOUD":    "https://support.appfire.com/space/JSUCLOUD/12518219/get-started",
+    "LF":          "https://support.appfire.com/space/LF/1498513955/get-started",
+    "LINC":        "https://support.appfire.com/space/LINC/2137096339/get-started",
+    "LINS":        "https://support.appfire.com/space/LINS/3034906640/get-started",
+    "LM":          "https://support.appfire.com/space/LM/343541211/get-started",
+        "LML":          "https://support.appfire.com/space/LML/77168712/Get+started",
+    "MARK":        "https://support.appfire.com/space/MARK/822542432/get-started",
+    "MARKDOWN":    "https://support.appfire.com/space/MARKDOWN/1860403613/get-started",
+    "ME":          "https://support.appfire.com/space/ME/1803157948/get-started",
+    "NC":          "https://support.appfire.com/space/NC/2029125992/get-started",
+    "NEWS":        "https://support.appfire.com/space/NEWS/232620132/get-started",
+    "NH":          "https://support.appfire.com/space/NH/1812496615/get-started",
+    "OCTO":        "https://support.appfire.com/space/OCTO/602996985/get-started",
+    "OFJ":         "https://support.appfire.com/space/OFJ/603652396/get-started",
+    "PA":          "https://support.appfire.com/space/PA/252412753/get-started",
+    "PAFC":        "https://support.appfire.com/space/PAFC/2182578177/get-started",
+    "PAFS":        "https://support.appfire.com/space/PAFS/2214528268/get-started",
+    "PAGE":        "https://support.appfire.com/space/PAGE/1852047585/get-started",
+    "PCFC":        "https://support.appfire.com/space/PCFC/3086942215/get-started",
+    "PCFJ":        "https://support.appfire.com/space/PCFJ/3028615238/get-started",
+    "POKERADO":    "https://support.appfire.com/space/POKERADO/3008299028/get-started",
+    "POLL":        "https://support.appfire.com/space/POLL/228263674/get-started",
+    "PP":          "https://support.appfire.com/space/PP/9568480/get-started",
+    "PSCONF":      "https://support.appfire.com/space/PSCONF/15304263/get-started",
+    "PSJ":         "https://support.appfire.com/space/PSJ/1910571529/get-started",
+    "PSJC":        "https://support.appfire.com/space/PSJC/490995713/get-started",
+    "RDD":         "https://support.appfire.com/space/RDD/146309347/get-started",
+    "REPS":        "https://support.appfire.com/space/REPS/472915848/get-started",
+    "RFC":         "https://support.appfire.com/space/RFC/477333097/get-started",
+    "RFCDOC":      "https://support.appfire.com/space/RFCDOC/783942462/get-started",
+    "RFP":         "https://support.appfire.com/space/RFP/803406470/get-started",
+    "RFPDF":       "https://support.appfire.com/space/RFPDF/3035201576/get-started",
+    "RFSD":        "https://support.appfire.com/space/RFSD/3035037741/get-started",
+    "RFTT":        "https://support.appfire.com/space/RFTT/3035299885/get-started",
+    "RUN":         "https://support.appfire.com/space/RUN/73074959/get-started",
+    "SCAFC":       "https://support.appfire.com/space/SCAFC/477463757/get-started",
+    "SCAFS":       "https://support.appfire.com/space/SCAFS/477599770/get-started",
+    "SCRP":        "https://support.appfire.com/space/SCRP/3036774401/get-started",
+    "SECC":        "https://support.appfire.com/space/SECC/3036905476/get-started",
+    "SECS":        "https://support.appfire.com/space/SECS/3036872706/get-started",
+    "SFJSDC":      "https://support.appfire.com/space/SFJSDC/477987007/get-started",
+    "SFPUBC":      "https://support.appfire.com/space/SFPUBC/478118740/get-started",
+    "SNIP":        "https://support.appfire.com/space/SNIP/1856340436/get-started",
+    "SOURCE":      "https://support.appfire.com/space/SOURCE/1812463991/get-started",
+    "SPACE":       "https://support.appfire.com/space/SPACE/152666142/get-started",
+    "SPM":         "https://support.appfire.com/space/SPM/1918796796/get-started",
+    "SQL":         "https://support.appfire.com/space/SQL/74322835/get-started",
+    "SRTFJ":       "https://support.appfire.com/space/SRTFJ/603258995/get-started",
+    "SRV":         "https://support.appfire.com/space/SRV/3012296705/get-started",
+    "SURVOTE":     "https://support.appfire.com/space/SURVOTE/382140420/get-started",
+    "ScrumPrint":  "https://support.appfire.com/space/ScrumPrint/1875476870/get-started",
+    "TBL":         "https://support.appfire.com/space/TBL/74813990/get-started",
+    "TFS4JIRA":    "https://support.appfire.com/space/TFS4JIRA/1841954951/get-started",
+    "TJC":         "https://support.appfire.com/space/TJC/815137665/get-started",
+    "TTS":         "https://support.appfire.com/space/TTS/43778134/get-started",
+    "TTSC":        "https://support.appfire.com/space/TTSC/35456108/get-started",
+    "VISC":        "https://support.appfire.com/space/VISC/3011477512/get-started",
+    "VISS":        "https://support.appfire.com/space/VISS/3011477505/get-started",
+    "XL":          "https://support.appfire.com/space/XL/76613721/get-started",
+    "YACC":        "https://support.appfire.com/space/YACC/1869316479/get-started",
+    "atdc":        "https://support.appfire.com/space/atdc/2911469576/get-started",
+    "dataplane":   "https://support.appfire.com/space/dataplane/455967260/get-started",
+    "ADEFJC":      "https://support.appfire.com/space/ADEFJC/65044633/get-started",
+    "HED":         "https://support.appfire.com/space/HED/602865819/get-started",
+    "UTIL":        "https://support.appfire.com/space/UTIL/3035955231/get-started",
+    "E2F":         "https://support.appfire.com/space/E2F/3034972437/get-started",
+    "ESF":         "https://support.appfire.com/space/ESF/3029238332/get-started",
+    "SSO":         "https://support.appfire.com/space/SSO/3028910166/get-started",
+    "CDS":         "https://support.appfire.com/space/CDS/3024781333/get-started",
+    "SCC":         "https://support.appfire.com/space/SCC/2034171961/get-started",
+    "FB":          "https://support.appfire.com/space/FB/2029322583/get-started",
+    "CMT":         "https://support.appfire.com/space/CMT/197824515/get-started",
+    "PC":          "https://support.appfire.com/space/PC/1922371926/get-started",
+    "EDITOR":      "https://support.appfire.com/space/EDITOR/149979250/get-started",
+    "PE":          "https://support.appfire.com/space/PE/14680310/get-started",
+    "FD":          "https://support.appfire.com/space/FD/1802108929/Flow",
+    "JSU":         "https://support.appfire.com/space/JSU/12682561/Overview",
+  };
+
+  // Spaces actually migrated to the new platform route here instead of the
+  // old support.appfire.com — populated at build time from the real
+  // sites.json config, so this stays accurate automatically as more spaces
+  // get migrated, without ever needing to hand-edit this file.
+  var LOCAL_SPACES = __LOCAL_SPACES_JSON__;
+
+  function gsUrl(key) {
+    if (LOCAL_SPACES[key]) return LOCAL_SPACES[key];
+    return GS[key] || ("https://support.appfire.com/space/" + key);
+  }
+
+  var APPS = [
+    { name: "7pace Timetracker", platforms: [
+        { id: "atlassian-cloud", spaceKey: "7TFJ",  label: "Jira Cloud" },
+        { id: "microsoft",       spaceKey: "7TFA",  label: "Azure DevOps" },
+        { id: "monday",          spaceKey: "7TFM",  label: "monday.com" }
+      ], keywords: "7pace timetracker jira azure devops monday"
+    },
+    { name: "Advanced Tables for Confluence", platforms: [
+        { id: "atlassian-cloud", spaceKey: "TBL" },
+        { id: "atlassian-dc",    spaceKey: "atdc" }
+      ]
+    },
+    { name: "Agile Board Template Builder for Jira", spaceKey: "ABTB", platforms: ["atlassian-dc"] },
+    { name: "Agile Cards – Print Issues from Jira", spaceKey: "ScrumPrint", platforms: ["atlassian-cloud", "atlassian-dc"] },
+    { name: "Agile Poker for Jira", spaceKey: "JPP", platforms: ["atlassian-cloud", "atlassian-dc"] },
+    { name: "Announcer Apps", spaceKey: "ANNOUNCE", platforms: ["atlassian-cloud", "atlassian-dc"] },
+    { name: "Appfire Command Line Interface (CLI)", spaceKey: "ACLI", platforms: ["atlassian-cloud"] },
+    { name: "Assets and Inventory Plugin for Jira", platforms: [
+        { id: "atlassian-cloud", spaceKey: "AIPC" },
+        { id: "atlassian-dc",    spaceKey: "AIP" }
+      ]
+    },
+    { name: "Autowatch for Jira", spaceKey: "AW", platforms: ["atlassian-cloud"] },
+    { name: "BigGantt – Gantt Chart for Jira", spaceKey: "DLP", platforms: ["atlassian-cloud"], keywords: "biggantt gantt chart roadmap" },
+    { name: "BigPicture – Project Management & PPM", spaceKey: "DLP", platforms: ["atlassian-cloud"] },
+    { name: "BigPicture Enterprise", platforms: [
+        { id: "atlassian-cloud", spaceKey: "SPM" },
+        { id: "atlassian-dc",    spaceKey: "DLP" }
+      ], keywords: "BigPicture Enterprise"
+    },
+    { name: "BigTemplate – Export to PDF, Word, Excel", spaceKey: "DLP", platforms: ["atlassian-cloud"] },
+    { name: "Bitbucket Cloud Command Line Interface (CLI)", spaceKey: "BCCLI", platforms: ["atlassian-cloud"] },
+    { name: "Cache for Confluence", spaceKey: "CACHE", platforms: ["atlassian-dc"] },
+    { name: "Canned Responses Pro Templates for Jira", platforms: [
+        { id: "atlassian-cloud", spaceKey: "CR" },
+        { id: "atlassian-dc",    spaceKey: "CT" }
+      ], keywords: "canned responses"
+    },
+    { name: "Charts & Graphs for Bitbucket", spaceKey: "GRAPH", platforms: ["atlassian-dc"] },
+    { name: "Chat for Jira Service Management", spaceKey: "CHAT", platforms: ["atlassian-cloud", "atlassian-dc"] },
+    { name: "Clone Plus for Jira", spaceKey: "JCPP", platforms: ["atlassian-cloud", "atlassian-dc"] },
+    { name: "Collapsible Dashboard Sidebar", spaceKey: "CDS", platforms: ["atlassian-dc"] },
+    { name: "Comala Boards for Confluence", platforms: [
+        { id: "atlassian-cloud", spaceKey: "CBCCL" },
+        { id: "atlassian-dc",    spaceKey: "CBCSL" }
+      ], keywords: "comala boards kanban task board confluence"
+    },
+    { name: "Comala Canvas for Jira", spaceKey: "C4J", platforms: ["atlassian-cloud", "atlassian-dc"],
+      keywords: "comala canvas whiteboard visual planning jira"
+    },
+    { name: "Comala Document Approval", platforms: [
+        { id: "atlassian-cloud", spaceKey: "CDACL" },
+        { id: "atlassian-dc",    spaceKey: "CDALS" }
+      ], keywords: "comala document approval workflow review sign off approve reject confluence"
+    },
+    { name: "Comala Document Control", platforms: [
+        { id: "atlassian-cloud", spaceKey: "CDCCL" },
+        { id: "atlassian-dc",    spaceKey: "COMALACDCLS" }
+      ], keywords: "comala document control compliance version lifecycle policy procedure confluence"
+    },
+    { name: "Comala Document Management", platforms: [
+        { id: "atlassian-cloud", spaceKey: "CDMC" },
+        { id: "atlassian-dc",    spaceKey: "CDML" }
+      ], keywords: "comala document management workflow status review publish archive confluence"
+    },
+    { name: "Comala Lists", spaceKey: "CLSL", platforms: ["atlassian-dc"],
+      keywords: "comala lists structured data confluence"
+    },
+    { name: "Comala Metadata", spaceKey: "COMALACM", platforms: ["atlassian-dc"],
+      keywords: "comala metadata custom fields properties confluence"
+    },
+    { name: "Comala Publishing", platforms: [
+        { id: "atlassian-cloud", spaceKey: "CPCL" },
+        { id: "atlassian-dc",    spaceKey: "AHP" }
+      ], keywords: "comala publishing publish draft live space confluence"
+    },
+    { name: "Comala Read Confirmations", spaceKey: "CRCCL", platforms: ["atlassian-cloud"],
+      keywords: "comala read confirmations acknowledged policy training confluence"
+    },
+    { name: "Composition Tabs for Confluence", platforms: [
+        { id: "atlassian-cloud", spaceKey: "CTFCC" },
+        { id: "atlassian-dc",    spaceKey: "CTFCSM" }
+      ]
+    },
+    { name: "Configuration Manager for Jira (CMJ)", platforms: [
+        { id: "atlassian-cloud", spaceKey: "CMJC" },
+        { id: "atlassian-dc",    spaceKey: "CMJ" }
+      ], keywords: "CMJ migration"
+    },
+    { name: "Configuration Manager Cloud Migration Tool", spaceKey: "CMT", platforms: ["atlassian-cloud"], keywords: "CMJ migration" },
+    { name: "Confluence Command Line Interface (CLI)", spaceKey: "CSOAP", platforms: ["atlassian-cloud", "atlassian-dc"] },
+    { name: "Connector for Google Drive & Confluence", spaceKey: "CFGDCS", platforms: ["atlassian-dc"], keywords: "google drive confluence" },
+    { name: "Connector for Salesforce & Confluence", spaceKey: "CCSFCONFC", platforms: ["atlassian-cloud", "salesforce"] },
+    { name: "Connector for Salesforce & Jira", platforms: [
+        { id: "atlassian-cloud", spaceKey: "CSFJIRA" },
+        { id: "atlassian-dc",    spaceKey: "477986818" },
+        { id: "salesforce",      spaceKey: "CSFJIRA" }
+      ]
+    },
+    { name: "Contact Views for Salesforce & JSM", spaceKey: "SFJSDC", platforms: ["salesforce", "atlassian-cloud"] },
+    { name: "Copy Page Tree", spaceKey: "CPT", platforms: ["atlassian-cloud", "atlassian-dc"] },
+    { name: "Copy Space for Confluence", spaceKey: "COPYSP", platforms: ["atlassian-cloud"] },
+    { name: "Create on Transition for Jira", spaceKey: "CSOT", platforms: ["atlassian-cloud", "atlassian-dc"] },
+    { name: "Crucible Review Hook for Bitbucket", spaceKey: "CRU", platforms: ["atlassian-dc"] },
+    { name: "Dashboard Hub", platforms: [
+        { id: "atlassian-cloud", spaceKey: "RDD" },
+        { id: "atlassian-dc",    spaceKey: "DHDC" }
+      ], keywords: "dashboard hub"
+    },
+    { name: "Database Exporter for Jira Cloud", spaceKey: "ADEFJC", platforms: ["atlassian-cloud"] },
+    { name: "Dataplane Reports for Jira", spaceKey: "dataplane", platforms: ["atlassian-dc"] },
+    { name: "Delegated Group Management", spaceKey: "DELGROUPS", platforms: ["atlassian-dc"] },
+    { name: "Delegated Group Management for Confluence", spaceKey: "DELGROUPS", platforms: ["atlassian-dc"] },
+    { name: "Delegated Project Admin Pro for Jira", spaceKey: "DADMIN", platforms: ["atlassian-dc"] },
+    { name: "Delegated Project Creator", spaceKey: "PCFJ", platforms: ["atlassian-cloud", "atlassian-dc"] },
+    { name: "Easy Forms for Confluence", spaceKey: "EASYF", platforms: ["atlassian-dc"] },
+    { name: "Easy Integrations for Jira", platforms: [
+        { id: "atlassian-cloud", spaceKey: "EIFJC" },
+        { id: "atlassian-dc",    spaceKey: "EI4J" }
+      ]
+    },
+    { name: "Easy Numbered Headings", spaceKey: "ENH", platforms: ["atlassian-cloud", "atlassian-dc"] },
+    { name: "Electronic Signatures", spaceKey: "ESF", platforms: ["atlassian-cloud", "atlassian-dc"] },
+    { name: "Enhancer Plugin for Jira", platforms: [
+        { id: "atlassian-cloud", spaceKey: "JEPC" },
+        { id: "atlassian-dc",    spaceKey: "JEP" }
+      ]
+    },
+    { name: "Excel for Confluence", spaceKey: "XL", platforms: ["atlassian-cloud", "atlassian-dc"] },
+    { name: "Flow", spaceKey: "FD", platforms: ["SEI"] },
+    { name: "Flow Board", spaceKey: "FB", platforms: ["atlassian-dc"] },
+    { name: "Foxly Project Prioritization", spaceKey: "FOX", platforms: ["atlassian-cloud"], keywords: "foxly" },
+    { name: "Gaia for Jira – Project Template Manager", spaceKey: "GFJ", platforms: ["atlassian-dc"], keywords: "gaia project template" },
+    { name: "Github Macros for Confluence", spaceKey: "GMFC", platforms: ["atlassian-cloud", "atlassian-dc"] },
+    { name: "Global SSO", spaceKey: "SSO", platforms: ["atlassian-dc"], keywords: "SSO SAML" },
+    { name: "Graphviz Diagrams for Confluence", spaceKey: "GVIZ", platforms: ["atlassian-cloud", "atlassian-dc"] },
+    { name: "Hedge", spaceKey: "HED", platforms: ["atlassian-cloud"], keywords: "risk management risk register risk matrix" },
+    { name: "HelpDesk+ for Slack", spaceKey: "HFS", platforms: ["atlassian-cloud", "atlassian-dc", "slack"], keywords: "helpdesk slack" },
+    { name: "HelpDesk+ for Microsoft Teams", spaceKey: "HFMT", platforms: ["atlassian-cloud", "atlassian-dc", "microsoft"], keywords: "helpdesk teams" },
+    { name: "HTML for Confluence", spaceKey: "HTML", platforms: ["atlassian-cloud", "atlassian-dc"] },
+    { name: "HTML Macro for Confluence Cloud", spaceKey: "HTMLM", platforms: ["atlassian-cloud"] },
+    { name: "Image Slider for Confluence", spaceKey: "IMG", platforms: ["atlassian-cloud", "atlassian-dc"] },
+    { name: "Integration+ for Slack", spaceKey: "JIFS", platforms: ["atlassian-cloud", "atlassian-dc", "slack"], keywords: "jira slack integration" },
+    { name: "Integration+ for Microsoft Teams", spaceKey: "JIFMT", platforms: ["atlassian-cloud", "atlassian-dc", "microsoft"], keywords: "jira teams integration" },
+    { name: "Integrity Check for Jira", spaceKey: "ICJ", platforms: ["atlassian-dc"], keywords: "integrity check jira" },
+    { name: "Issue History Collector – See History", spaceKey: "IC", platforms: ["atlassian-cloud", "atlassian-dc"], keywords: "issue history" },
+    { name: "Issue Matrix for Jira", platforms: [
+        { id: "atlassian-cloud", spaceKey: "IMC" },
+        { id: "atlassian-dc",    spaceKey: "ILV" }
+      ]
+    },
+    { name: "Issue Events: Google Calendar integration for Jira", spaceKey: "GCC", platforms: ["atlassian-cloud"], keywords: "google calendar jira" },
+    { name: "Jira Command Line Interface (CLI)", spaceKey: "JCLI", platforms: ["atlassian-cloud", "atlassian-dc"], keywords: "jira CLI" },
+    { name: "Jira Misc Custom Fields (JMCF)", platforms: [
+        { id: "atlassian-cloud", spaceKey: "JMCFC" },
+        { id: "atlassian-dc",    spaceKey: "JMCF" }
+      ], keywords: "JMCF custom fields"
+    },
+    { name: "Jira Misc Workflow Extensions (JMWE)", platforms: [
+        { id: "atlassian-cloud", spaceKey: "JMWEC" },
+        { id: "atlassian-dc",    spaceKey: "JMWE" }
+      ], keywords: "JMWE workflow"
+    },
+    { name: "JQL Search Extensions for Jira", spaceKey: "JQLSEARCH", platforms: ["atlassian-cloud", "atlassian-dc"], keywords: "JQL" },
+    { name: "JSU Automation Suite for Jira Workflows", platforms: [
+        { id: "atlassian-cloud", spaceKey: "JSUCLOUD" },
+        { id: "atlassian-dc",    spaceKey: "JSU" }
+      ], keywords: "JSU automation"
+    },
+    { name: "JXL", platforms: [
+        { id: "atlassian-cloud", externalUrl: "https://jxl.app/docs/" },
+        { id: "atlassian-dc",    externalUrl: "https://jxl.app/docs/" }
+      ], keywords: "jxl spreadsheet issue editor"
+    },
+    { name: "LaTeX Math", spaceKey: "LM", platforms: ["atlassian-cloud", "atlassian-dc"], keywords: "latex math" },
+        { name: "LaTeX Math Lite", spaceKey: "LML", platforms: ["atlassian-cloud"], keywords: "latex math lite" },
+    { name: "Linking for Confluence", platforms: [
+        { id: "atlassian-cloud", spaceKey: "LINC" },
+        { id: "atlassian-dc",    spaceKey: "LINS" }
+      ]
+    },
+    { name: "Live Fields for Jira Cloud", spaceKey: "LF", platforms: ["atlassian-cloud"] },
+    { name: "Macro Security for Confluence", spaceKey: "CMSP", platforms: ["atlassian-dc"] },
+    { name: "Markdown Extensions for Confluence", spaceKey: "MARK", platforms: ["atlassian-cloud", "atlassian-dc"], keywords: "markdown" },
+    { name: "Markdown for Confluence", spaceKey: "MARKDOWN", platforms: ["atlassian-cloud", "atlassian-dc"], keywords: "markdown" },
+    { name: "MultiExcerpt", spaceKey: "ME", platforms: ["atlassian-cloud", "atlassian-dc"] },
+    { name: "News Teaser for Confluence", spaceKey: "NEWS", platforms: ["atlassian-cloud", "atlassian-dc"] },
+    { name: "Numbered Captions", spaceKey: "NC", platforms: ["atlassian-cloud", "atlassian-dc"] },
+    { name: "Numbered Headings", spaceKey: "NH", platforms: ["atlassian-cloud", "atlassian-dc"] },
+    { name: "Octo", spaceKey: "OCTO", platforms: ["atlassian-cloud"] },
+    { name: "OKR for Jira", spaceKey: "OFJ", platforms: ["atlassian-cloud"], keywords: "OKR goals" },
+    { name: "Page Approval for Confluence", platforms: [
+        { id: "atlassian-cloud", spaceKey: "PAFC" },
+        { id: "atlassian-dc",    spaceKey: "PAFS" }
+      ], keywords: "page approval"
+    },
+    { name: "Pages for Bitbucket", spaceKey: "PAGE", platforms: ["atlassian-dc"] },
+    { name: "Planning Poker", platforms: [
+        { id: "atlassian-cloud", spaceKey: "PP",       label: "Jira Cloud" },
+        { id: "atlassian-dc",    spaceKey: "PP",       label: "Jira DC" },
+        { id: "microsoft",       spaceKey: "POKERADO", label: "Azure DevOps" }
+      ], keywords: "planning poker estimation"
+    },
+    { name: "Polls for Confluence", spaceKey: "POLL", platforms: ["atlassian-cloud", "atlassian-dc"] },
+    { name: "Power Actions - Custom Forms and Wizards", externalUrl: "https://support.appfire.com/space/PSJ/15486910/get-started", platforms: ["atlassian-dc"], keywords: "power suite SIL forms wizards" },
+    { name: "Power Admin", spaceKey: "PA", platforms: ["atlassian-dc"], keywords: "power admin jira" },
+    { name: "Power BI Jira Connector", spaceKey: "APBCFJ", platforms: ["atlassian-cloud", "atlassian-dc", "microsoft"], keywords: "power bi" },
+    { name: "Power Custom Fields", spaceKey: "PCFC", platforms: ["atlassian-cloud"], keywords: "power custom fields" },
+    { name: "Power Dashboards, Reports & Gadgets", externalUrl: "https://support.appfire.com/space/PSJ/15482030/get-started", platforms: ["atlassian-dc"], keywords: "power suite SIL dashboards reports gadgets" },
+    { name: "Power Editor for Bitbucket", spaceKey: "EDITOR", platforms: ["atlassian-dc"] },
+    { name: "Power Scripts for Confluence", spaceKey: "PSCONF", platforms: ["atlassian-dc"], keywords: "power scripts SIL" },
+    { name: "Power Scripts for Jira", platforms: [
+        { id: "atlassian-cloud", spaceKey: "PSJC" },
+        { id: "atlassian-dc",    spaceKey: "PSJ" }
+      ], keywords: "power scripts SIL power actions forms custom fields dashboards database"
+    },
+    { name: "Power Salesforce Connector for Jira", externalUrl: "https://support.appfire.com/space/PSJ/15482832/get-started", platforms: ["atlassian-dc"], keywords: "power suite SIL salesforce connector" },
+    { name: "Power Utilities for Jira", spaceKey: "UTIL", platforms: ["atlassian-dc"] },
+    { name: "Project Configurator for Jira", spaceKey: "PC", platforms: ["atlassian-dc"] },
+    { name: "Prometheus Exporter", spaceKey: "PE", platforms: ["atlassian-dc"], keywords: "prometheus metrics" },
+    { name: "Publisher for Confluence Cloud to Salesforce", spaceKey: "SFPUBC", platforms: ["atlassian-cloud", "salesforce"], keywords: "salesforce confluence publisher" },
+    { name: "Reporting for Confluence", platforms: [
+        { id: "atlassian-cloud", spaceKey: "RFC" },
+        { id: "atlassian-dc",    spaceKey: "REPS" }
+      ], keywords: "reporting confluence"
+    },
+    { name: "Reports and Timesheets for Jira", spaceKey: "ART", platforms: ["atlassian-cloud", "atlassian-dc"], keywords: "timesheets reports" },
+    { name: "Rich Filters for Jira Dashboards", platforms: [
+        { id: "atlassian-cloud", spaceKey: "RFCDOC" },
+        { id: "atlassian-dc",    spaceKey: "RFP" }
+      ], keywords: "rich filters dashboard"
+    },
+    { name: "Rich Filters::PDF Reports for Jira", spaceKey: "RFPDF", platforms: ["atlassian-dc"], keywords: "rich filters PDF" },
+    { name: "Rich Filters::Service Management Dashboards", spaceKey: "RFSD", platforms: ["atlassian-dc"], keywords: "rich filters service management" },
+    { name: "Rich Filters::Time Tracking Dashboards", spaceKey: "RFTT", platforms: ["atlassian-dc"], keywords: "rich filters time tracking" },
+    { name: "Run CLI Actions in Confluence", spaceKey: "CCLI", platforms: ["atlassian-dc"], keywords: "CLI confluence" },
+    { name: "Run CLI Actions in Jira", spaceKey: "JCLIP", platforms: ["atlassian-dc"], keywords: "CLI jira" },
+    { name: "Run Self-Service Reports for Confluence", spaceKey: "RUN", platforms: ["atlassian-dc"], keywords: "self-service reports" },
+    { name: "SAFe EPIC to Feature Translator for Jira", spaceKey: "E2F", platforms: ["atlassian-dc"], keywords: "SAFe agile" },
+    { name: "Scaffolding Forms & Templates for Confluence", platforms: [
+        { id: "atlassian-cloud", spaceKey: "SCAFC" },
+        { id: "atlassian-dc",    spaceKey: "SCAFS" }
+      ], keywords: "scaffolding forms templates"
+    },
+    { name: "Scripting for Confluence", spaceKey: "SCRP", platforms: ["atlassian-dc"], keywords: "scripting confluence" },
+    { name: "Secure Content for Confluence", spaceKey: "SCC", platforms: ["atlassian-dc"], keywords: "secure content" },
+    { name: "Security and Encryption for Confluence", platforms: [
+        { id: "atlassian-cloud", spaceKey: "SECC" },
+        { id: "atlassian-dc",    spaceKey: "SECS" }
+      ], keywords: "security encryption"
+    },
+    { name: "SIL Engine for Power Suite", externalUrl: "https://support.appfire.com/space/PSJ/15486337/get-started", platforms: ["atlassian-dc"], keywords: "power suite SIL engine" },
+    { name: "SIL Excel Connector", externalUrl: "https://support.appfire.com/space/PSJ/15485071/get-started", platforms: ["atlassian-dc"], keywords: "power suite SIL excel" },
+    { name: "SIL Groovy Connector", externalUrl: "https://support.appfire.com/space/PSJ/15486863/get-started", platforms: ["atlassian-dc"], keywords: "power suite SIL groovy" },
+    { name: "SIL Insight Connector", externalUrl: "https://support.appfire.com/space/PSJ/15487261/get-started", platforms: ["atlassian-dc"], keywords: "power suite SIL insight" },
+    { name: "SIL Tempo Connector", externalUrl: "https://support.appfire.com/space/PSJ/15486620/get-started", platforms: ["atlassian-dc"], keywords: "power suite SIL tempo" },
+    { name: "Snippets for Bitbucket", spaceKey: "SNIP", platforms: ["atlassian-dc"] },
+    { name: "Source Editor for Confluence", spaceKey: "SOURCE", platforms: ["atlassian-cloud", "atlassian-dc"] },
+    { name: "Spacetree for Confluence", spaceKey: "SPACE", platforms: ["atlassian-dc"] },
+    { name: "SQL for Confluence (Pro Edition)", spaceKey: "SQL", platforms: ["atlassian-cloud", "atlassian-dc"], keywords: "SQL confluence" },
+    { name: "Survey and Vote Macros", spaceKey: "SURVOTE", platforms: ["atlassian-dc"], keywords: "survey vote" },
+    { name: "Surveys for Jira – Jira Customer Surveys", spaceKey: "SRV", platforms: ["atlassian-cloud", "atlassian-dc"], keywords: "surveys jira" },
+    { name: "Swanly: Portfolio Roadmaps Structure Gantt, Release Timeline", spaceKey: "SRTFJ", platforms: ["atlassian-cloud"], keywords: "swanly roadmap gantt" },
+    { name: "Tableau Connector Pro for Jira", spaceKey: "ATCFJ", platforms: ["atlassian-cloud", "atlassian-dc"], keywords: "tableau connector" },
+    { name: "TFS4JIRA Azure DevOps integration", spaceKey: "TFS4JIRA", platforms: ["atlassian-cloud", "atlassian-dc", "microsoft"], keywords: "TFS azure devops" },
+    { name: "Time to SLA for Jira", platforms: [
+        { id: "atlassian-cloud", spaceKey: "TTSC" },
+        { id: "atlassian-dc",    spaceKey: "TTS" }
+      ], keywords: "SLA time"
+    },
+    { name: "Timesheets for Jira", spaceKey: "ART", platforms: ["atlassian-cloud", "atlassian-dc"], keywords: "timesheets" },
+    { name: "Toggl Integration for Jira", spaceKey: "TJC", platforms: ["atlassian-cloud"], keywords: "toggl time tracking" },
+    { name: "Update on Transition for Jira", spaceKey: "CW", platforms: ["atlassian-dc"] },
+    { name: "Visibility for Confluence", platforms: [
+        { id: "atlassian-cloud", spaceKey: "VISC" },
+        { id: "atlassian-dc",    spaceKey: "VISS" }
+      ], keywords: "visibility confluence"
+    },
+    { name: "Visio for Confluence", spaceKey: "CVP", platforms: ["atlassian-dc", "microsoft"], keywords: "visio confluence" },
+    { name: "Webhook to Jenkins for Bitbucket", spaceKey: "JENK", platforms: ["atlassian-dc"], keywords: "webhook jenkins bitbucket" },
+    { name: "Yet Another Commit Checker", spaceKey: "YACC", platforms: ["atlassian-dc"], keywords: "YACC commit checker bitbucket" },
+  ];
+
+  var PLATFORM_LABELS = {
+    "atlassian-cloud": { label: "Atlassian Cloud", cls: "p-ac"  },
+    "atlassian-dc":    { label: "Atlassian DC",    cls: "p-adc" },
+    "microsoft":       { label: "Microsoft",       cls: "p-ms"  },
+    "salesforce":      { label: "Salesforce",      cls: "p-sf"  },
+    "slack":           { label: "Slack",           cls: "p-sl"  },
+    "monday":          { label: "monday.com",      cls: "p-mo"  },
+    "SEI":             { label: "Software Engineering Intelligence", cls: "p-sei" },
+    "needs-tagging":   { label: "Needs tagging",   cls: "p-nt"  },
+  };
+
+  var PLATFORM_ORDER = ["atlassian-cloud","atlassian-dc","microsoft","monday","salesforce","slack","SEI","needs-tagging"];
+
+  var ARROW_SVG = '<svg class="tag-arrow" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2 5h6M5 2l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+
+  var matchMode = "AND";
+
+  function esc(s) {
+    return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+  }
+
+  function normalisePlatforms(app) {
+    return (app.platforms && app.platforms.length ? app.platforms : ["needs-tagging"])
+      .map(function(p) {
+        if (typeof p === "string") return { id: p };
+        return p;
+      });
+  }
+
+  function resolveUrl(entry, app) {
+    if (entry.externalUrl) return entry.externalUrl;
+    if (app.externalUrl)   return app.externalUrl;
+    var key = entry.spaceKey || app.spaceKey;
+    if (key) return gsUrl(key);
+    return null;
+  }
+
+  function getPlatformIds(app) {
+    return normalisePlatforms(app).map(function(p) { return p.id; });
+  }
+
+  function getFilters() {
+    return Array.from(document.querySelectorAll(".afd-filter:checked")).map(function(i){ return i.value; });
+  }
+
+  function matches(app, filters, query) {
+    var q = query.trim().toLowerCase();
+    if (q) {
+      var searchText = [
+        app.name,
+        app.spaceKey || "",
+        app.keywords || "",
+        normalisePlatforms(app).map(function(p){ return p.spaceKey || ""; }).join(" ")
+      ].join(" ").toLowerCase();
+      if (searchText.indexOf(q) === -1) return false;
+    }
+    if (!filters.length) return true;
+    var plats = getPlatformIds(app);
+    if (matchMode === "OR")  return filters.some(function(f){ return plats.indexOf(f) !== -1; });
+    if (matchMode === "AND") return filters.every(function(f){ return plats.indexOf(f) !== -1; });
+    return true;
+  }
+
+  function render() {
+    var grid  = document.getElementById("afd-grid");
+    var empty = document.getElementById("afd-empty");
+    var qEl   = document.getElementById("afd-q");
+    var shown = document.getElementById("afd-shown");
+    var total = document.getElementById("afd-total");
+    if (!grid || !qEl) return;
+
+    var filters = getFilters();
+    var query   = qEl.value || "";
+    var visible = APPS.filter(function(app){ return matches(app, filters, query); });
+
+    grid.innerHTML = visible.map(function(app) {
+      var entries = normalisePlatforms(app).slice().sort(function(a, b) {
+        return PLATFORM_ORDER.indexOf(a.id) - PLATFORM_ORDER.indexOf(b.id);
+      });
+
+      var tags = entries.map(function(entry) {
+        var meta  = PLATFORM_LABELS[entry.id] || { label: entry.id, cls: "" };
+        var label = entry.label || meta.label;
+        var url   = resolveUrl(entry, app);
+        if (url) {
+          return '<a class="tag ' + meta.cls + '" href="' + esc(url) + '" target="_top">'
+               + esc(label) + ARROW_SVG + '</a>';
+        } else {
+          return '<span class="tag ' + meta.cls + '">' + esc(label) + '</span>';
+        }
+      }).join("");
+
+      return '<div class="card">'
+           + '<div class="card-body">'
+           + '<h3 class="name">' + esc(app.name) + '</h3>'
+           + '<div class="tags">' + tags + '</div>'
+           + '</div>'
+           + '</div>';
+    }).join("");
+
+    if (total) total.textContent = String(APPS.length);
+    if (shown) shown.textContent = String(visible.length);
+    if (empty) empty.hidden = visible.length > 0;
+  }
+
+  function setMode(mode) {
+    matchMode = mode;
+    var orBtn  = document.getElementById("afd-modeOr");
+    var andBtn = document.getElementById("afd-modeAnd");
+    if (orBtn)  orBtn.classList.toggle("is-active",  mode === "OR");
+    if (andBtn) andBtn.classList.toggle("is-active", mode === "AND");
+    render();
+  }
+
+  if (!window.__afdListeners) {
+    window.__afdListeners = true;
+    document.addEventListener("input", function(e) {
+      if (e.target && e.target.id === "afd-q") render();
+    });
+    document.addEventListener("change", function(e) {
+      if (e.target && e.target.classList.contains("afd-filter")) render();
+    });
+    document.addEventListener("click", function(e) {
+      if (!e.target) return;
+      var id = e.target.id;
+      if (id === "afd-clear") {
+        var qEl = document.getElementById("afd-q");
+        if (qEl) { qEl.value = ""; qEl.focus(); }
+        render();
+      }
+      if (id === "afd-modeOr")  setMode("OR");
+      if (id === "afd-modeAnd") setMode("AND");
+    });
+  }
+
+  function watchGrid() {
+    var g = document.getElementById("afd-grid");
+    if (!g) return;
+    var obs = new MutationObserver(function() {
+      if (g.children.length === 0) {
+        obs.disconnect();
+        render();
+        watchGrid();
+      }
+    });
+    obs.observe(g, { childList: true });
+  }
+  watchGrid();
+  render();
+
+  (function() {
+    var DARK = "#0b0f16";
+    document.documentElement.style.setProperty("background-color", DARK, "important");
+    document.body.style.setProperty("background-color", DARK, "important");
+  }());
+
+})();
+</script>
+</body>
+</html>
