@@ -45,6 +45,10 @@ _AURA_TABS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "aura
 with open(_AURA_TABS_PATH) as _f:
     AURA_TABS_SCRIPT = _f.read()
 
+_PRODUCT_DIR_TEMPLATE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "templates", "product_directory_template.html")
+with open(_PRODUCT_DIR_TEMPLATE_PATH) as _f:
+    PRODUCT_DIRECTORY_TEMPLATE = _f.read()
+
 
 def confluence_style_path_segment(title):
     """Mirrors Confluence's own URL style: spaces become a literal '+',
@@ -70,6 +74,7 @@ def page_url(page_id, space_key, titles, path_prefix=""):
 NAV_SHELL_TEMPLATE = """
 <div class="brand"><span class="brand-mark">{brand_name}</span></div>
 <div class="brand-tag">{tagline}</div>
+<a class="product-directory-link" href="{path_prefix}/product-directory/">Product directory</a>
 <p class="pilot-note">{count} pages in this space, fetched live from Confluence via API.</p>
 <nav>{nav_items}</nav>
 """
@@ -105,6 +110,7 @@ def page_shell(title, meta_description, nav_html, page_count, body_html, brand, 
         tagline=html.escape(brand.get("tagline", "Live docs, fetched from Confluence via API."), quote=False),
         count=page_count,
         nav_items=nav_html,
+        path_prefix=path_prefix,
     )
     if noindex:
         # Explicit "don't index this" beats silence. A missing sitemap or
@@ -203,7 +209,7 @@ def render_children_list(parent_id, pages_by_parent, space_key, titles, valid_id
     return f"<ul class='children-list'>{''.join(items)}</ul>"
 
 
-def build_space(data_path, out_dir, brand, base_url="", path_prefix="", jsm_project_key=None, jsm_request_type_id=None, noindex=False, multiexcerpt_registry=None):
+def build_space(data_path, out_dir, brand, base_url="", path_prefix="", support_portal_url=None, noindex=False, multiexcerpt_registry=None):
     """Builds one space's pages. Returns (space_key, roots, titles, built_list) —
     the caller needs space_key/roots/titles to build the top-level home page
     once it knows about every space, not just this one.
@@ -239,7 +245,10 @@ def build_space(data_path, out_dir, brand, base_url="", path_prefix="", jsm_proj
         if p["id"] in valid_ids and (p.get("parent_id") not in valid_ids)
     ]
 
-    widget_html = GET_HELP_WIDGET_TEMPLATE.replace("__JSM_PROJECT_KEY__", jsm_project_key or "")
+    widget_html = GET_HELP_WIDGET_TEMPLATE.replace(
+        "__SUPPORT_PORTAL_URL__",
+        html.escape(support_portal_url or "https://support.appfire.com/page/support", quote=True),
+    )
 
     built = []
     for p in pages:
@@ -326,6 +335,7 @@ def write_space_picker(out_dir, spaces_info, brand, path_prefix=""):
     body = f"""
 <h1>{brand.get('name', 'Docs')}</h1>
 <p class="space-picker-intro">{brand.get('tagline', '')}</p>
+<a class="product-directory-cta" href="{path_prefix}/product-directory/">Browse the full Appfire app directory →</a>
 <div class="space-grid">{''.join(cards)}</div>
 """
     html_out = f"""<!doctype html>
@@ -342,6 +352,43 @@ def write_space_picker(out_dir, spaces_info, brand, path_prefix=""):
 </html>
 """
     with open(os.path.join(out_dir, "index.html"), "w") as f:
+        f.write(html_out)
+
+
+def write_product_directory(out_dir, spaces_info, path_prefix="", base_url="", noindex=False):
+    """Writes the app directory page (originally a standalone Refined-hosted
+    page) at /product-directory/. The one real enhancement over the
+    original: apps whose space has actually been migrated to this pipeline
+    route to their real new URL here instead of the old
+    support.appfire.com — computed fresh at build time from real data, so
+    it stays accurate automatically as more spaces get added rather than
+    needing this file hand-edited each time."""
+    local_spaces = {}
+    for space_key, space_name, roots, titles, page_count in spaces_info:
+        if roots:
+            local_spaces[space_key] = page_url(roots[0], space_key, titles, path_prefix)
+
+    html_out = PRODUCT_DIRECTORY_TEMPLATE.replace(
+        "__LOCAL_SPACES_JSON__", json.dumps(local_spaces)
+    )
+
+    if noindex:
+        html_out = html_out.replace(
+            "<head>",
+            '<head>\n<meta name="robots" content="noindex, nofollow">',
+            1,
+        )
+    elif base_url:
+        canonical = f"{base_url.rstrip('/')}{path_prefix}/product-directory/"
+        html_out = html_out.replace(
+            "<head>",
+            f'<head>\n<link rel="canonical" href="{canonical}">',
+            1,
+        )
+
+    out_path = os.path.join(out_dir, "product-directory", "index.html")
+    os.makedirs(os.path.dirname(out_path), exist_ok=True)
+    with open(out_path, "w") as f:
         f.write(html_out)
 
 
@@ -460,8 +507,7 @@ def build_from_config(config_path=CONFIG_FILE, data_dir=DATA_DIR, out_dir=OUT_DI
             brand,
             base_url=base_url,
             path_prefix=path_prefix,
-            jsm_project_key=space_cfg.get("jsm_project_key"),
-            jsm_request_type_id=space_cfg.get("jsm_request_type_id"),
+            support_portal_url=space_cfg.get("support_portal_url"),
             noindex=noindex,
             multiexcerpt_registry=multiexcerpt_registry,
         )
@@ -479,6 +525,8 @@ def build_from_config(config_path=CONFIG_FILE, data_dir=DATA_DIR, out_dir=OUT_DI
             )
     elif len(spaces_info) > 1:
         write_space_picker(out_dir, spaces_info, brand, path_prefix)
+
+    write_product_directory(out_dir, spaces_info, path_prefix, base_url, noindex)
 
     # all_built's paths already include path_prefix (built by build_space),
     # so base_url here must stay a BARE origin (no subpath) — combining
