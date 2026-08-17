@@ -19,147 +19,22 @@
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
+<a class="product-directory-link" href="/cms_trial/product-directory/">Product directory</a>
 <p class="pilot-note">21 pages in this space, fetched live from Confluence via API.</p>
 <nav><ul><li><a href="/cms_trial/space/HED/602865666/Hedge/">Hedge</a><ul><li><a href="/cms_trial/space/HED/602865785/Tutorials/">Tutorials</a><ul><li><a href="/cms_trial/space/HED/602865672/Customize+the+risk+register/">Customize the risk register</a></li><li><a href="/cms_trial/space/HED/602865678/Hedge+permissions/">Hedge permissions</a></li><li><a href="/cms_trial/space/HED/602865689/Risk+reports/">Risk reports</a></li><li><a href="/cms_trial/space/HED/602865793/Create+a+new+risk/">Create a new risk</a></li><li><a href="/cms_trial/space/HED/602865854/Add+columns+to+the+risk+register/">Add columns to the risk register</a></li><li><a href="/cms_trial/space/HED/637272077/Edit+the+risk+name/">Edit the risk name</a></li><li><a href="/cms_trial/space/HED/638255252/Edit+risk+register+names/">Edit risk register names</a></li></ul></li><li><a href="/cms_trial/space/HED/602865819/Get+started+with+Hedge/">Get started with Hedge</a><ul><li><a href="/cms_trial/space/HED/792428571/View+a+drill+down+of+specific+issues+in+the+risk+matrix+and+risk+levels/" class="active">View a drill down of specific issues in the risk matrix and risk levels</a></li><li><a href="/cms_trial/space/HED/792756225/Make+imported+risks+visible/">Make imported risks visible</a></li><li><a href="/cms_trial/space/HED/2239692808/Hedge+in+action/">Hedge in action</a><ul><li><a href="/cms_trial/space/HED/2291663290/Flexible+risk+scoring/">Flexible risk scoring</a></li><li><a href="/cms_trial/space/HED/2291761542/Hedge%27s+reports/">Hedge's reports</a></li><li><a href="/cms_trial/space/HED/2292023540/Customize+risk+register/">Customize risk register</a></li><li><a href="/cms_trial/space/HED/2292088952/Create+risk+register/">Create risk register</a></li></ul></li></ul></li><li><a href="/cms_trial/space/HED/2141127327/Installation/">Installation</a></li><li><a href="/cms_trial/space/HED/2141291485/Help+and+support/">Help and support</a><ul><li><a href="/cms_trial/space/HED/792199215/Hedge+FAQ/">Hedge FAQ</a></li></ul></li><li><a href="/cms_trial/space/HED/3545006114/Release+notes+8.0.0/">Release notes 8.0.0</a></li></ul></li></ul></nav>
 </aside>
 </div>
-<!-- JSM "Get Help" widget — real OAuth 2.0 (3LO) flow against the TJ service desk.
-     Styled to match the rest of the site; no third-party embed script involved
-     (that path is blocked — see SETUP_JSM.md for why). -->
-<button id="get-help-btn" class="get-help-btn" type="button">Get Help</button>
-
-<div id="get-help-modal" class="get-help-modal" hidden>
-  <div class="get-help-modal-inner">
-    <button id="get-help-close" class="get-help-close" type="button" aria-label="Close">&times;</button>
-
-    <div id="get-help-step-auth">
-      <h2>Get Help</h2>
-      <p>Submitting a request uses your real Atlassian account — if you're already logged in, this is usually a single click.</p>
-      <button id="get-help-authorize" class="get-help-primary-btn" type="button">Continue with Atlassian</button>
-    </div>
-
-    <form id="get-help-form" hidden>
-      <h2>Submit a request</h2>
-      <label for="get-help-summary">Summary</label>
-      <input id="get-help-summary" name="summary" type="text" required maxlength="255">
-      <label for="get-help-description">Description</label>
-      <textarea id="get-help-description" name="description" rows="5" required></textarea>
-      <button type="submit" class="get-help-primary-btn">Submit request</button>
-      <p id="get-help-status" class="get-help-status" role="status"></p>
-    </form>
-  </div>
-</div>
-
-<script>
-(function () {
-  // Docs site (GitHub Pages) and JSM functions (Vercel) are on DIFFERENT
-  // origins — this is a genuine cross-origin call. The Vercel project's
-  // DOCS_SITE_ORIGIN environment variable needs to match wherever this page
-  // is actually served from (e.g. https://christiegera-appfire.github.io),
-  // or the CORS check in api/submit-request.js will reject the request.
-  //
-  // Update these two URLs once you know your actual Vercel deployment URL —
-  // it'll look like https://your-project-name.vercel.app.
-  var OAUTH_START_URL = "https://cms-trial-omega.vercel.app/api/oauth-start";
-  var SUBMIT_URL = "https://cms-trial-omega.vercel.app/api/submit-request";
-  // Replaced per-space by generate_site.py — each space can route to its own
-  // JSM project. Falls back to the backend's default env var if empty.
-  var JSM_PROJECT_KEY = "TJ";
-
-  var btn = document.getElementById("get-help-btn");
-  var modal = document.getElementById("get-help-modal");
-  var closeBtn = document.getElementById("get-help-close");
-  var authStep = document.getElementById("get-help-step-auth");
-  var authorizeBtn = document.getElementById("get-help-authorize");
-  var form = document.getElementById("get-help-form");
-  var statusEl = document.getElementById("get-help-status");
-
-  var accessToken = null;
-
-  // If we just came back from Atlassian, the token is sitting in the URL
-  // fragment. Grab it once, then scrub the URL bar so it doesn't linger
-  // in the address bar or browser history any longer than necessary.
-  (function consumeTokenFromFragment() {
-    var match = /[#&]access_token=([^&]+)/.exec(window.location.hash);
-    if (match) {
-      accessToken = decodeURIComponent(match[1]);
-      history.replaceState(null, "", window.location.pathname + window.location.search);
-      openModal();
-      showForm();
-    }
-  })();
-
-  function openModal() {
-    modal.hidden = false;
-  }
-  function closeModal() {
-    modal.hidden = true;
-  }
-  function showForm() {
-    authStep.hidden = true;
-    form.hidden = false;
-  }
-  function showAuth() {
-    authStep.hidden = false;
-    form.hidden = true;
-  }
-
-  btn.addEventListener("click", function () {
-    openModal();
-    if (accessToken) {
-      showForm();
-    } else {
-      showAuth();
-    }
-  });
-
-  closeBtn.addEventListener("click", closeModal);
-  modal.addEventListener("click", function (e) {
-    if (e.target === modal) closeModal();
-  });
-
-  authorizeBtn.addEventListener("click", function () {
-    var returnTo = window.location.href.split("#")[0];
-    window.location.href = OAUTH_START_URL + "?return_to=" + encodeURIComponent(returnTo);
-  });
-
-  form.addEventListener("submit", function (e) {
-    e.preventDefault();
-    if (!accessToken) {
-      showAuth();
-      return;
-    }
-    var summary = document.getElementById("get-help-summary").value;
-    var description = document.getElementById("get-help-description").value;
-
-    statusEl.textContent = "Submitting…";
-    fetch(SUBMIT_URL, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: "Bearer " + accessToken,
-      },
-      body: JSON.stringify({ summary: summary, description: description, projectKey: JSM_PROJECT_KEY || undefined }),
-    })
-      .then(function (r) { return r.json().then(function (data) { return { ok: r.ok, data: data }; }); })
-      .then(function (result) {
-        if (result.ok && result.data.success) {
-          statusEl.textContent = "Submitted — ticket " + result.data.issueKey + " created.";
-          form.reset();
-        } else {
-          var msg = "Something went wrong: " + (result.data.error || "unknown error");
-          if (result.data.details) msg += "\nDetails: " + result.data.details;
-          if (result.data.debug) msg += "\nDebug: " + JSON.stringify(result.data.debug);
-          statusEl.textContent = msg;
-          statusEl.style.whiteSpace = "pre-wrap";
-        }
-      })
-      .catch(function (err) {
-        statusEl.textContent = "Network error: " + err.message;
-      });
-  });
-})();
-</script>
+<!-- "Get Help" — a plain link to the real, already-working Refined JSM
+     portal, at a different path on the SAME domain. No custom OAuth
+     backend needed for this: Refined's own JSM integration already
+     correctly handles brand-new, first-time visitors in production today,
+     which is exactly the case our earlier OAuth-based attempt structurally
+     couldn't solve (Atlassian's own consent screen blocks anyone with zero
+     prior relationship to the site, before ever reaching JSM). Styled to
+     match the rest of the site and left as a same-tab navigation (not
+     target="_blank") so clicking it feels like moving to another page on
+     one continuous site, not popping open a separate system. -->
+<a class="get-help-btn" href="https://support.appfire.com/page/support">Get Help</a>
 
 <!-- Advanced Tables (Table Plus, etc.) enhancement — reconstructs the parts
      of the macro's real behavior that aren't stored as static content:
