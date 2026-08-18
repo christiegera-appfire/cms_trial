@@ -64,6 +64,14 @@ jobs:
           git config user.name "docs-bot"
           git config user.email "actions@github.com"
           git add -A -- '*.html' 'data' 'assets'
+          # These are root-level generated files that don't always exist —
+          # sitemap.xml specifically only gets written when noindex is off.
+          # Adding a named file that doesn't exist anywhere is a fatal git
+          # error (confirmed the hard way), unlike a directory pathspec with
+          # nothing new in it, so each one needs an existence check first.
+          [ -f search-index.json ] && git add search-index.json
+          [ -f robots.txt ] && git add robots.txt
+          [ -f sitemap.xml ] && git add sitemap.xml
           if git diff --cached --quiet; then
             echo "No content changes — skipping commit."
           else
