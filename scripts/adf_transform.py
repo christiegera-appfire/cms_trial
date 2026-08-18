@@ -678,9 +678,11 @@ def adf_to_html(adf_doc, unresolved_includes=None, link_titles=None, media_map=N
                across every page — lets a multiexcerpt-include macro pull in
                content defined on any other page, regardless of build order.
 
-    Returns the rendered HTML string. Any TOC macro on the page is resolved
-    using headings collected during this same render pass, so a TOC macro
-    anywhere in the document (before or after its headings) works correctly.
+    Returns (html_str, headings) — headings is the list of {id, level, text}
+    dicts collected during this render, used both for any inline TOC macro
+    on the page AND to build a real, always-present "On this page" panel
+    that doesn't depend on whether the Confluence author happened to
+    insert a {toc} macro at all.
     """
     if isinstance(adf_doc, str):
         adf_doc = json.loads(adf_doc)
@@ -699,7 +701,7 @@ def adf_to_html(adf_doc, unresolved_includes=None, link_titles=None, media_map=N
     if "<!--TOC_MACRO-->" in html_str:
         html_str = html_str.replace("<!--TOC_MACRO-->", render_toc(ctx["headings"]))
 
-    return html_str
+    return html_str, ctx["headings"]
 
 
 def generate_meta_description(adf_doc, max_len=155):
@@ -753,7 +755,7 @@ if __name__ == "__main__":
             {"type": "extension", "attrs": {"extensionKey": "totally-empty-unknown-macro", "extensionType": "x"}},
         ],
     }
-    out = adf_to_html(sample)
+    out, _headings = adf_to_html(sample)
     assert '<nav class="toc">' in out
     assert 'href="#overview"' in out and 'href="#overview-2"' in out
     assert 'id="overview"' in out and 'id="overview-2"' in out
