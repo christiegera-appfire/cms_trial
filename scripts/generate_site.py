@@ -21,6 +21,7 @@ import os
 import re
 import shutil
 import sys
+import traceback
 from urllib.parse import quote
 
 from bs4 import BeautifulSoup
@@ -252,21 +253,6 @@ def build_space(data_path, out_dir, brand, base_url="", path_prefix="", support_
 
     built = []
     for p in pages:
-        body_html = adf_to_html(
-            p["adf"],
-            unresolved_includes=includes,
-            link_titles=titles,
-            media_map=media_map,
-            multiexcerpt_registry=multiexcerpt_registry,
-        )
-        if "<!--CHILDREN_MACRO-->" in body_html:
-            children_html = render_children_list(p["id"], pages_by_parent, space_key, titles, valid_ids, path_prefix)
-            body_html = body_html.replace("<!--CHILDREN_MACRO-->", children_html)
-        body_html = rewrite_internal_links(body_html, space_key, titles, valid_ids, path_prefix)
-        meta_desc = generate_meta_description(p["adf"])
-        faq_schema = build_faq_schema(body_html)
-
-        nav_html = build_nav(pages_by_parent, space_key, titles, valid_ids, roots, p["id"], path_prefix)
         # url_path is the CLEAN path — used for the on-disk output location,
         # since GitHub Pages adds the /repo-name/ prefix automatically at
         # serving time and baking it into the file layout would double it up.
@@ -275,27 +261,79 @@ def build_space(data_path, out_dir, brand, base_url="", path_prefix="", support_
         # page's own canonical URL — it needs the prefix, since that's the
         # real, publicly reachable address.
         href_path = page_url(p["id"], space_key, titles, path_prefix)
-        canonical_url = f"{base_url.rstrip('/')}{href_path}" if base_url else ""
-
-        html_out = page_shell(
-            title=p["title"],
-            meta_description=meta_desc,
-            nav_html=nav_html,
-            page_count=len(pages),
-            body_html=body_html,
-            brand=brand,
-            widget_html=widget_html,
-            canonical_url=canonical_url,
-            path_prefix=path_prefix,
-            noindex=noindex,
-            extra_head=faq_schema,
-        )
-
         out_path = os.path.join(out_dir, url_path.strip("/"), "index.html")
+
+        try:
+            body_html = adf_to_html(
+                p["adf"],
+                unresolved_includes=includes,
+                link_titles=titles,
+                media_map=media_map,
+                multiexcerpt_registry=multiexcerpt_registry,
+            )
+            if "<!--CHILDREN_MACRO-->" in body_html:
+                children_html = render_children_list(p["id"], pages_by_parent, space_key, titles, valid_ids, path_prefix)
+                body_html = body_html.replace("<!--CHILDREN_MACRO-->", children_html)
+            body_html = rewrite_internal_links(body_html, space_key, titles, valid_ids, path_prefix)
+            meta_desc = generate_meta_description(p["adf"])
+            faq_schema = build_faq_schema(body_html)
+
+            nav_html = build_nav(pages_by_parent, space_key, titles, valid_ids, roots, p["id"], path_prefix)
+            canonical_url = f"{base_url.rstrip('/')}{href_path}" if base_url else ""
+
+            html_out = page_shell(
+                title=p["title"],
+                meta_description=meta_desc,
+                nav_html=nav_html,
+                page_count=len(pages),
+                body_html=body_html,
+                brand=brand,
+                widget_html=widget_html,
+                canonical_url=canonical_url,
+                path_prefix=path_prefix,
+                noindex=noindex,
+                extra_head=faq_schema,
+            )
+            has_schema = bool(faq_schema)
+        except Exception as e:
+            # A single page's rendering bug used to crash the ENTIRE
+            # multi-space build — confirmed the hard way when one Aura
+            # Button on one page in one of 18 spaces took down the whole
+            # site after a long, otherwise-successful fetch. That's no
+            # longer acceptable: this page becomes a clearly-labeled error
+            # page instead, and every other page — this space's and every
+            # other space's — still builds normally.
+            print(
+                f"ERROR: page '{p.get('title', '?')}' (id={p.get('id', '?')}) in space "
+                f"{space_key} failed to render — writing an error placeholder instead of "
+                f"crashing the whole build.\n{traceback.format_exc()}",
+                file=sys.stderr,
+            )
+            safe_title = html.escape(p.get("title", "Untitled"), quote=False)
+            html_out = f"""<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{safe_title} | {html.escape(brand.get("name", "Docs"), quote=False)}</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="{path_prefix}/styles.css">
+</head>
+<body>
+<div class="shell">
+  <main class="content">
+    <h1>{safe_title}</h1>
+    <div class="img-placeholder">[This page failed to build — {html.escape(str(e), quote=False)}. Everything else on the site built normally; this one page needs a fix.]</div>
+  </main>
+</div>
+</body>
+</html>
+"""
+            has_schema = False
+
         os.makedirs(os.path.dirname(out_path), exist_ok=True)
         with open(out_path, "w") as f:
             f.write(html_out)
-        built.append((href_path, p["title"], bool(faq_schema)))
+        built.append((href_path, p["title"], has_schema))
 
     return space_key, space_name, roots, titles, len(pages), built
 
@@ -318,7 +356,7 @@ def write_redirect(out_dir, target_url, title, brand):
         f.write(redirect_html)
 
 
-def write_space_picker(out_dir, spaces_info, brand, path_prefix=""):
+def write_space_picker(out_dir, spaces_info, brand, path_prefix="", base_url="", noindex=False):
     """Real landing page listing every configured space as a card, used once
     there's more than one — a single-space redirect no longer makes sense
     once there's an actual choice to present. This is the page that makes
@@ -338,6 +376,17 @@ def write_space_picker(out_dir, spaces_info, brand, path_prefix=""):
 <a class="product-directory-cta" href="{path_prefix}/product-directory/">Browse the full Appfire app directory →</a>
 <div class="space-grid">{''.join(cards)}</div>
 """
+    # Same noindex/canonical handling as every other page on the site — this
+    # was missing here specifically, a real gap given this page lists every
+    # real product name and would otherwise be the one page NOT protected
+    # during the trial phase while everything else correctly was.
+    if noindex:
+        extra_head = '<meta name="robots" content="noindex, nofollow">'
+    elif base_url:
+        extra_head = f'<link rel="canonical" href="{base_url.rstrip("/")}{path_prefix}/">'
+    else:
+        extra_head = ""
+
     html_out = f"""<!doctype html>
 <html lang="en">
 <head>
@@ -345,6 +394,7 @@ def write_space_picker(out_dir, spaces_info, brand, path_prefix=""):
 <title>{brand.get("name", "Docs")}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="{path_prefix}/styles.css">
+{extra_head}
 </head>
 <body>
 <div class="shell shell-full"><main class="content content-full">{body}</main></div>
@@ -524,7 +574,7 @@ def build_from_config(config_path=CONFIG_FILE, data_dir=DATA_DIR, out_dir=OUT_DI
                 brand,
             )
     elif len(spaces_info) > 1:
-        write_space_picker(out_dir, spaces_info, brand, path_prefix)
+        write_space_picker(out_dir, spaces_info, brand, path_prefix, base_url, noindex)
 
     write_product_directory(out_dir, spaces_info, path_prefix, base_url, noindex)
 
