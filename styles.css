@@ -642,6 +642,92 @@ mark {
   padding: 0 2px;
 }
 
+/* Right-side "On this page" TOC panel */
+.page-toc-rail {
+  width: 220px;
+  flex-shrink: 0;
+  padding: 28px 22px 40px;
+}
+.page-toc {
+  position: sticky;
+  top: 28px;
+}
+.page-toc-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--text-dim);
+  margin-bottom: 10px;
+}
+.page-toc ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.page-toc li a {
+  display: block;
+  font-size: 13px;
+  color: var(--text-mid);
+  text-decoration: none;
+  padding: 4px 0;
+  border-left: 2px solid transparent;
+  padding-left: 10px;
+}
+.page-toc li a:hover {
+  color: var(--text-primary);
+  border-left-color: var(--accent);
+}
+.page-toc .toc-level-3 a { padding-left: 22px; font-size: 12px; }
+.page-toc .toc-level-4 a { padding-left: 34px; font-size: 12px; }
+
+/* Collapsible sidebar nav — native <details>/<summary>, no JS needed.
+   Only the active page's ancestor path is open by default; this is what
+   actually makes navigation usable at real scale (one space alone has
+   1,145 pages) instead of rendering every branch expanded on every load. */
+.sidebar nav details {
+  margin: 2px 0;
+}
+.sidebar nav details > ul {
+  margin-left: 14px;
+  border-left: 1px solid var(--chrome-14);
+  padding-left: 4px;
+}
+.sidebar nav summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.sidebar nav summary::-webkit-details-marker {
+  display: none;
+}
+.sidebar nav summary::before {
+  content: "▸";
+  display: inline-block;
+  width: 14px;
+  color: var(--text-dim);
+  font-size: 10px;
+  transition: transform 0.1s;
+}
+.sidebar nav details[open] > summary::before {
+  transform: rotate(90deg);
+}
+.sidebar nav summary a,
+.sidebar nav li > a {
+  color: var(--text-mid);
+  text-decoration: none;
+  font-size: 13px;
+  padding: 3px 0;
+  display: inline-block;
+}
+.sidebar nav a.active {
+  color: var(--accent-text, var(--accent));
+  font-weight: 600;
+}
+.sidebar nav a:hover {
+  color: var(--text-primary);
+}
+
 /* Product directory links */
 .product-directory-link {
   display: block;
