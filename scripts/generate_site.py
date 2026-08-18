@@ -15,6 +15,7 @@ different spaces may belong to different products/teams with different
 service desks.
 """
 
+import datetime
 import html
 import json
 import os
@@ -83,7 +84,7 @@ def page_url(page_id, space_key, titles, path_prefix=""):
 TOP_NAV_TEMPLATE = """
 <header class="top-nav">
   <div class="top-nav-inner">
-    <a class="top-nav-brand" href="{path_prefix}/">{brand_name}</a>
+    <a class="top-nav-brand" href="{path_prefix}/">{logo_html}{brand_name}</a>
     <nav class="top-nav-links">
       <a href="{path_prefix}/product-directory/">Product directory</a>
       <a href="{path_prefix}/search/">Search <kbd>⌘K</kbd></a>
@@ -156,9 +157,13 @@ def build_nav(pages_by_parent, space_key, titles, valid_ids, roots, active_id, p
 
 
 def render_top_nav(brand, path_prefix=""):
+    logo_html = ""
+    if os.path.exists(os.path.join("product-icons", "appfire-logo.svg")):
+        logo_html = f'<img class="top-nav-logo" src="{path_prefix}/product-icons/appfire-logo.svg" alt="" loading="lazy"> '
     return TOP_NAV_TEMPLATE.format(
         brand_name=html.escape(brand.get("name", "Docs"), quote=False),
         path_prefix=path_prefix,
+        logo_html=logo_html,
     )
 
 
@@ -509,7 +514,17 @@ def find_recent_release_notes(all_built, limit=12):
     possible (e.g. "Release notes April 2025"), and returns the most
     recent ones sorted chronologically — without needing any new fetch
     data, since the date is already sitting in the title as text. Falls
-    back to placing undated matches at the end rather than guessing."""
+    back to placing undated matches at the end rather than guessing.
+
+    Real content typo confirmed the hard way: a page titled "Release notes
+    10 July 3024" (almost certainly meant 2024) got trusted at face value
+    and sorted as the most-future date, bumping it above every real 2026
+    entry. A parsed year outside a plausible range is now treated the same
+    as no date at all, rather than trusted blindly."""
+    current_year = datetime.datetime.now().year
+    min_plausible_year = 2015
+    max_plausible_year = current_year + 1
+
     pattern = re.compile(r"\b(" + "|".join(_MONTH_NAMES.keys()) + r")\s+(\d{4})\b", re.IGNORECASE)
     candidates = []
     for url_path, title, _has_schema, space_key, space_name, _snippet in all_built:
@@ -519,7 +534,10 @@ def find_recent_release_notes(all_built, limit=12):
         if match:
             month_num = _MONTH_NAMES[match.group(1).lower()]
             year_num = int(match.group(2))
-            sort_key = (year_num, month_num)
+            if min_plausible_year <= year_num <= max_plausible_year:
+                sort_key = (year_num, month_num)
+            else:
+                sort_key = (0, 0)  # implausible year (likely a typo) — don't trust it
         else:
             sort_key = (0, 0)  # undated matches sort to the end, not guessed at
         candidates.append((sort_key, title, url_path, space_key, space_name))
@@ -534,12 +552,34 @@ def render_whats_new_section(all_built, path_prefix=""):
         return ""
     items = "".join(
         f'<a class="whats-new-item" href="{url_path}">'
+        f'<div class="whats-new-header">'
+        f'{get_product_icon_html(space_key, path_prefix, "whats-new-icon", space_name)}'
         f'<span class="whats-new-space">{html.escape(space_name, quote=False)}</span>'
+        f'</div>'
         f'<span class="whats-new-title">{html.escape(title, quote=False)}</span>'
         f"</a>"
         for _sort_key, title, url_path, space_key, space_name in entries
     )
     return f'<section class="whats-new"><h2>What\'s New Across Appfire Products</h2><div class="whats-new-list">{items}</div></section>'
+
+
+def get_product_icon_html(space_key, path_prefix="", css_class="", alt_text=""):
+    """Checks for a real icon at product-icons/{space_key}.svg or .png,
+    relative to wherever the build actually runs from (the repo root
+    during a real CI build, since generate_site.py is invoked with
+    --out . from there). SVG is preferred when both exist, since it
+    scales cleanly, but PNG is a real fallback — not every icon asset
+    arrives as SVG. Returns an <img> tag if either exists, or an empty
+    string if neither does — this means new icons get picked up
+    automatically the moment they're added to the repo, with zero code
+    changes needed, and spaces without an icon yet degrade gracefully to
+    the existing text-only treatment rather than showing a broken image."""
+    for ext in ("svg", "png"):
+        if os.path.exists(os.path.join("product-icons", f"{space_key}.{ext}")):
+            safe_alt = html.escape(alt_text or space_key, quote=True)
+            cls = f' class="{css_class}"' if css_class else ""
+            return f'<img{cls} src="{path_prefix}/product-icons/{space_key}.{ext}" alt="{safe_alt}" loading="lazy">'
+    return ""
 
 
 def write_space_picker(out_dir, spaces_info, brand, path_prefix="", base_url="", noindex=False, all_built=None):
@@ -550,9 +590,11 @@ def write_space_picker(out_dir, spaces_info, brand, path_prefix="", base_url="",
     cards = []
     for space_key, space_name, roots, titles, page_count in spaces_info:
         home = page_url(roots[0], space_key, titles, path_prefix) if roots else f"{path_prefix}/space/{space_key}/"
+        icon_html = get_product_icon_html(space_key, path_prefix, "space-card-icon", space_name)
+        key_or_icon = icon_html if icon_html else f'<div class="space-card-key">{space_key}</div>'
         cards.append(f"""
 <a class="space-card" href="{home}">
-  <div class="space-card-key">{space_key}</div>
+  {key_or_icon}
   <h2>{html.escape(space_name, quote=False)}</h2>
   <p>{page_count} pages</p>
 </a>""")
