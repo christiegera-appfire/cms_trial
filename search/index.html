@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Search | Appfire Docs</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/cms_trial/styles.css">
+</head>
+<body>
+
+<header class="top-nav">
+  <div class="top-nav-inner">
+    <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
+    <nav class="top-nav-links">
+      <a href="/cms_trial/product-directory/">Product directory</a>
+      <a href="/cms_trial/search/">Search</a>
+    </nav>
+  </div>
+</header>
+
+<div class="shell shell-full">
+<main class="content content-full">
+<h1>Search Appfire Docs</h1>
+<form id="search-form" class="search-bar">
+  <input type="search" id="search-input" placeholder="Search by title or content...">
+</form>
+<div class="search-layout">
+  <aside class="search-filters">
+    <div class="search-filters-title">SPACE</div>
+    <div id="space-filter-list"></div>
+  </aside>
+  <div class="search-results-area">
+    <p id="search-count" class="search-count"></p>
+    <div id="search-results"></div>
+  </div>
+</div>
+</main>
+</div>
+<script>
+(function () {
+  var INDEX_URL = "/cms_trial/search-index.json";
+  var input = document.getElementById("search-input");
+  var resultsEl = document.getElementById("search-results");
+  var countEl = document.getElementById("search-count");
+  var spaceFilterList = document.getElementById("space-filter-list");
+  var allPages = [];
+  var activeSpaces = {};
+
+  function highlight(text, term) {
+    if (!term) return escapeHtml(text);
+    var idx = text.toLowerCase().indexOf(term.toLowerCase());
+    if (idx === -1) return escapeHtml(text);
+    return escapeHtml(text.slice(0, idx)) + "<mark>" + escapeHtml(text.slice(idx, idx + term.length)) + "</mark>" + escapeHtml(text.slice(idx + term.length));
+  }
+  function escapeHtml(s) {
+    var div = document.createElement("div");
+    div.textContent = s;
+    return div.innerHTML;
+  }
+
+  function render() {
+    var term = input.value.trim();
+    var anySpaceFilterActive = Object.keys(activeSpaces).some(function (k) { return activeSpaces[k]; });
+    var matches = allPages.filter(function (p) {
+      var matchesTerm = !term || p.title.toLowerCase().indexOf(term.toLowerCase()) !== -1 || p.snippet.toLowerCase().indexOf(term.toLowerCase()) !== -1;
+      var matchesSpace = !anySpaceFilterActive || activeSpaces[p.space_key];
+      return matchesTerm && matchesSpace;
+    });
+    countEl.textContent = "Showing " + Math.min(matches.length, 50) + " of " + matches.length + " results";
+    resultsEl.innerHTML = matches.slice(0, 50).map(function (p) {
+      return '<a class="search-result-card" href="' + p.url + '">' +
+        '<h3>' + highlight(p.title, term) + '</h3>' +
+        '<p>' + highlight(p.snippet, term) + '</p>' +
+        '<span class="search-result-badge">' + escapeHtml(p.space_name) + '</span>' +
+        '</a>';
+    }).join("");
+  }
+
+  function buildSpaceFilters() {
+    var spaces = {};
+    allPages.forEach(function (p) { spaces[p.space_key] = p.space_name; });
+    spaceFilterList.innerHTML = Object.keys(spaces).sort().map(function (key) {
+      return '<label class="search-filter-checkbox"><input type="checkbox" data-space="' + key + '"> ' + escapeHtml(spaces[key]) + '</label>';
+    }).join("");
+    spaceFilterList.querySelectorAll("input[type=checkbox]").forEach(function (cb) {
+      cb.addEventListener("change", function () {
+        activeSpaces[cb.dataset.space] = cb.checked;
+        render();
+      });
+    });
+  }
+
+  fetch(INDEX_URL)
+    .then(function (r) { return r.json(); })
+    .then(function (data) {
+      allPages = data;
+      buildSpaceFilters();
+      var params = new URLSearchParams(window.location.search);
+      var q = params.get("q");
+      if (q) input.value = q;
+      render();
+    });
+
+  input.addEventListener("input", render);
+  document.getElementById("search-form").addEventListener("submit", function (e) { e.preventDefault(); });
+})();
+</script>
+</body>
+</html>
