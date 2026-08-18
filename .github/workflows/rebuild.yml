@@ -1,9 +1,20 @@
 name: Rebuild docs from Confluence
 
 on:
-  workflow_dispatch: {}      # manual "Run workflow" button in the Actions tab
-  schedule:
-    - cron: "0 */6 * * *"    # every 6 hours — adjust to taste once this is trusted
+  workflow_dispatch:
+    inputs:
+      space_key:
+        description: 'Space key to rebuild (e.g. PSJC) — leave blank to rebuild everything'
+        required: false
+        default: ''
+  # Scheduled cron is OFF for now — during the trial phase, every rebuild
+  # redeploys the full site (including all downloaded screenshots) to
+  # Netlify, and automatic 6-hour rebuilds were burning through Netlify's
+  # usage allowance fast. Trigger manually via the Actions tab whenever you
+  # actually need fresh content; re-enable the schedule once this is live
+  # for real and the usage cost is a known, acceptable quantity.
+  # schedule:
+  #   - cron: "0 */6 * * *"
 
 permissions:
   contents: write            # needed to commit the rebuilt HTML back to main
@@ -23,14 +34,28 @@ jobs:
       - name: Install dependencies
         run: pip install requests beautifulsoup4
 
-      - name: Fetch every configured space from Confluence
+      - name: Configure git identity
+        run: |
+          git config user.name "docs-bot"
+          git config user.email "actions@github.com"
+
+      - name: Fetch from Confluence (one space if specified, else everything)
         env:
           CONFLUENCE_EMAIL: ${{ secrets.CONFLUENCE_EMAIL }}
           CONFLUENCE_API_TOKEN: ${{ secrets.CONFLUENCE_API_TOKEN }}
         run: |
-          python3 scripts/fetch_confluence.py --config sites.json
+          if [ -n "${{ github.event.inputs.space_key }}" ]; then
+            echo "Fetching only ${{ github.event.inputs.space_key }} — other spaces' cached data is untouched."
+            python3 scripts/fetch_confluence.py --config sites.json --only-space "${{ github.event.inputs.space_key }}" --commit-incrementally
+          else
+            python3 scripts/fetch_confluence.py --config sites.json --commit-incrementally
+          fi
 
-      - name: Build static site (all spaces)
+      # This step always rebuilds every configured space from whatever's
+      # cached in data/ — it's fast and purely local, no network calls, so
+      # it's safe to run in full even when only one space's data was just
+      # refreshed above by the fetch step.
+      - name: Build static site (all spaces, from cached data)
         run: |
           python3 scripts/generate_site.py --config sites.json --out .
 
