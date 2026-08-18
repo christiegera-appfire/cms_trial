@@ -438,7 +438,7 @@ def build_space(data_path, out_dir, brand, base_url="", path_prefix="", support_
                 confluence_edit_url=confluence_edit_url,
             )
             has_schema = bool(faq_schema)
-            snippet = BeautifulSoup(body_html, "html.parser").get_text(" ", strip=True)[:200]
+            snippet = BeautifulSoup(body_html, "html.parser").get_text(" ", strip=True)[:500]
         except Exception as e:
             # A single page's rendering bug used to crash the ENTIRE
             # multi-space build — confirmed the hard way when one Aura
@@ -508,6 +508,37 @@ _MONTH_NAMES = {
 }
 
 
+_RELEASE_BOILERPLATE_PATTERNS = [
+    re.compile(r"^Release date:\s*[^.]*\.\s*", re.IGNORECASE),
+    re.compile(r"^This page outlines the updates included in the latest release of [^.]*\.\s*", re.IGNORECASE),
+    re.compile(r"^Skip the reading and watch this quick[^.]*\.\s*", re.IGNORECASE),
+]
+
+
+def clean_release_summary(text, max_len=180):
+    """Real release notes pages consistently open with boilerplate
+    ("Release date: X. This page outlines the updates included in the
+    latest release of Foxly.") before the actually enticing content
+    starts. Confirmed against real pages across multiple products — this
+    strips that boilerplate (looping since patterns can appear in either
+    order) so what's shown is the real substance ("Foxly now offers data
+    residency options...") rather than filler. Falls back to the original
+    text untouched if none of the patterns match, since not every
+    product's release notes necessarily follow this exact template."""
+    for _ in range(len(_RELEASE_BOILERPLATE_PATTERNS)):
+        changed = False
+        for pattern in _RELEASE_BOILERPLATE_PATTERNS:
+            new_text = pattern.sub("", text).strip()
+            if new_text != text:
+                text = new_text
+                changed = True
+        if not changed:
+            break
+    if len(text) > max_len:
+        text = text[:max_len].rsplit(" ", 1)[0] + "…"
+    return text
+
+
 def find_recent_release_notes(all_built, limit=12):
     """Detects release-notes-style pages by title pattern across every
     space, parses a real (month, year) out of the title text itself where
@@ -527,7 +558,7 @@ def find_recent_release_notes(all_built, limit=12):
 
     pattern = re.compile(r"\b(" + "|".join(_MONTH_NAMES.keys()) + r")\s+(\d{4})\b", re.IGNORECASE)
     candidates = []
-    for url_path, title, _has_schema, space_key, space_name, _snippet in all_built:
+    for url_path, title, _has_schema, space_key, space_name, snippet in all_built:
         if "release notes" not in title.lower():
             continue
         match = pattern.search(title)
@@ -540,7 +571,8 @@ def find_recent_release_notes(all_built, limit=12):
                 sort_key = (0, 0)  # implausible year (likely a typo) — don't trust it
         else:
             sort_key = (0, 0)  # undated matches sort to the end, not guessed at
-        candidates.append((sort_key, title, url_path, space_key, space_name))
+        summary = clean_release_summary(snippet)
+        candidates.append((sort_key, title, url_path, space_key, space_name, summary))
 
     candidates.sort(key=lambda c: c[0], reverse=True)
     return candidates[:limit]
@@ -557,10 +589,11 @@ def render_whats_new_section(all_built, path_prefix=""):
         f'<span class="whats-new-space">{html.escape(space_name, quote=False)}</span>'
         f'</div>'
         f'<span class="whats-new-title">{html.escape(title, quote=False)}</span>'
+        f'<p class="whats-new-summary">{html.escape(summary, quote=False)}</p>'
         f"</a>"
-        for _sort_key, title, url_path, space_key, space_name in entries
+        for _sort_key, title, url_path, space_key, space_name, summary in entries
     )
-    return f'<section class="whats-new"><h2>What\'s New Across Appfire Products</h2><div class="whats-new-list">{items}</div></section>'
+    return f'<h2>What\'s New Across Appfire Products</h2><div class="whats-new-list">{items}</div>'
 
 
 def get_product_icon_html(space_key, path_prefix="", css_class="", alt_text=""):
@@ -582,22 +615,92 @@ def get_product_icon_html(space_key, path_prefix="", css_class="", alt_text=""):
     return ""
 
 
-def write_space_picker(out_dir, spaces_info, brand, path_prefix="", base_url="", noindex=False, all_built=None):
-    """Real landing page listing every configured space as a card, used once
-    there's more than one — a single-space redirect no longer makes sense
-    once there's an actual choice to present. This is the page that makes
-    "platform" visible rather than implied."""
-    cards = []
-    for space_key, space_name, roots, titles, page_count in spaces_info:
+def write_space_picker(out_dir, spaces_info, brand, path_prefix="", base_url="", noindex=False, all_built=None, featured_spaces=None, external_links=None):
+    """Real landing page listing every configured space, used once there's
+    more than one — a single-space redirect no longer makes sense once
+    there's an actual choice to present.
+
+    Layout: a 2/3-width main column (a handful of featured products as
+    larger cards, everyone else below in alphabetical order) alongside a
+    1/3-width right rail (recent release notes with real summaries, not
+    just titles). featured_spaces is an explicit editorial choice from
+    config — which 3 products get the spotlight isn't something to guess
+    at automatically (Refined's own "top products" picks aren't the 3
+    biggest by any objective metric either, they're curated) — but if
+    it's not set, falls back to the 3 largest by page count as a
+    reasonable default rather than leaving it empty.
+
+    external_links covers products whose documentation lives entirely
+    outside this pipeline (JXL's docs live at jxl.app, not in Confluence)
+    — these get a real card that just links out, rather than needing a
+    fake space with no actual content. They deliberately aren't part of
+    all_built, so they never show up in search or What's New, since
+    there's no real fetched content behind them to index."""
+    external_links = external_links or []
+    info_by_key = {s[0]: s for s in spaces_info}
+    external_by_key = {e["key"]: e for e in external_links}
+
+    if featured_spaces:
+        featured_keys = [k for k in featured_spaces if k in info_by_key or k in external_by_key]
+    else:
+        # Auto-default only ranks real spaces by page count — an external
+        # link has no page count to rank by, so it only gets featured if
+        # explicitly requested in config, never auto-selected.
+        featured_keys = [
+            s[0] for s in sorted(spaces_info, key=lambda s: s[4], reverse=True)[:3]
+        ]
+    featured_set = set(featured_keys)
+
+    def real_card_html(space_key, space_name, roots, titles, page_count, featured=False):
         home = page_url(roots[0], space_key, titles, path_prefix) if roots else f"{path_prefix}/space/{space_key}/"
-        icon_html = get_product_icon_html(space_key, path_prefix, "space-card-icon", space_name)
+        icon_size_class = "space-card-icon-lg" if featured else "space-card-icon"
+        icon_html = get_product_icon_html(space_key, path_prefix, icon_size_class, space_name)
         key_or_icon = icon_html if icon_html else f'<div class="space-card-key">{space_key}</div>'
-        cards.append(f"""
-<a class="space-card" href="{home}">
+        card_class = "space-card space-card-featured" if featured else "space-card"
+        return f"""
+<a class="{card_class}" href="{home}">
   {key_or_icon}
   <h2>{html.escape(space_name, quote=False)}</h2>
   <p>{page_count} pages</p>
-</a>""")
+</a>"""
+
+    def external_card_html(key, name, url, featured=False):
+        icon_size_class = "space-card-icon-lg" if featured else "space-card-icon"
+        icon_html = get_product_icon_html(key, path_prefix, icon_size_class, name)
+        key_or_icon = icon_html if icon_html else f'<div class="space-card-key">{key}</div>'
+        card_class = "space-card space-card-external"
+        if featured:
+            card_class += " space-card-featured"
+        safe_url = html.escape(url, quote=True)
+        # target="_blank" here deliberately, unlike internal links — this
+        # genuinely leaves the site for a separate product's own domain,
+        # not a same-ecosystem navigation the way Get Help does.
+        return f"""
+<a class="{card_class}" href="{safe_url}" target="_blank" rel="noopener">
+  {key_or_icon}
+  <h2>{html.escape(name, quote=False)}</h2>
+  <p class="space-card-external-label">External documentation ↗</p>
+</a>"""
+
+    featured_cards_html = []
+    for k in featured_keys:
+        if k in info_by_key:
+            featured_cards_html.append(real_card_html(*info_by_key[k], featured=True))
+        elif k in external_by_key:
+            e = external_by_key[k]
+            featured_cards_html.append(external_card_html(e["key"], e["name"], e["url"], featured=True))
+    featured_cards = "".join(featured_cards_html)
+
+    rest_items = []
+    for s in spaces_info:
+        if s[0] not in featured_set:
+            rest_items.append((s[1].lower(), real_card_html(*s)))
+    for e in external_links:
+        if e["key"] not in featured_set:
+            rest_items.append((e["name"].lower(), external_card_html(e["key"], e["name"], e["url"])))
+    rest_items.sort(key=lambda item: item[0])  # alphabetical by display name, real spaces and external links mixed together
+    rest_cards = "".join(html_str for _sort_key, html_str in rest_items)
+
     top_nav = render_top_nav(brand, path_prefix)
     whats_new_html = render_whats_new_section(all_built or [], path_prefix)
     body = f"""
@@ -607,12 +710,18 @@ def write_space_picker(out_dir, spaces_info, brand, path_prefix="", base_url="",
   <form class="hero-search" action="{path_prefix}/search/" method="get">
     <input type="search" name="q" placeholder="Search Appfire products...">
     <button type="submit">Search</button>
+
   </form>
 </section>
-<div class="picker-body">
-{whats_new_html}
-<a class="product-directory-cta" href="{path_prefix}/product-directory/">Browse the full Appfire app directory →</a>
-<div class="space-grid">{''.join(cards)}</div>
+<div class="picker-layout">
+  <div class="picker-main">
+    <a class="product-directory-cta" href="{path_prefix}/product-directory/">Browse the full Appfire app directory →</a>
+    <div class="space-grid space-grid-featured">{featured_cards}</div>
+    <div class="space-grid">{rest_cards}</div>
+  </div>
+  <aside class="picker-sidebar">
+    {whats_new_html}
+  </aside>
 </div>
 """
     # Same noindex/canonical handling as every other page on the site — this
@@ -890,6 +999,8 @@ def build_from_config(config_path=CONFIG_FILE, data_dir=DATA_DIR, out_dir=OUT_DI
     path_prefix = config.get("path_prefix", "").rstrip("/")
     noindex = config.get("noindex", False)
     confluence_site = config.get("confluence_site", "")
+    featured_spaces = config.get("featured_spaces")
+    external_links = config.get("external_links", [])
     if noindex:
         print("noindex mode is ON — every page gets a noindex meta tag, robots.txt disallows everything, no sitemap.xml is written.")
     if path_prefix:
@@ -945,7 +1056,7 @@ def build_from_config(config_path=CONFIG_FILE, data_dir=DATA_DIR, out_dir=OUT_DI
                 brand,
             )
     elif len(spaces_info) > 1:
-        write_space_picker(out_dir, spaces_info, brand, path_prefix, base_url, noindex, all_built)
+        write_space_picker(out_dir, spaces_info, brand, path_prefix, base_url, noindex, all_built, featured_spaces, external_links)
 
     write_product_directory(out_dir, spaces_info, brand, path_prefix, base_url, noindex)
 
