@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Context transformations | Appfire Docs</title>
+<meta name="description" content="When you create a custom field, Jira automatically generates context within the field. Contexts are configuration elements that only live within the…">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/cms_trial/styles.css">
+<meta name="robots" content="noindex, nofollow">
+
+
+</head>
+<body>
+<div class="shell">
+  <main class="content">
+    <h1>Context transformations</h1>
+    <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="what-are-custom-field-contexts">What are custom field contexts?</h2><p>When you create a custom field, Jira automatically generates <em>context </em>within the field. Contexts are configuration elements that only live within the custom field’s configuration. Learn more about contexts in Atlassians’ <a href="https://support.atlassian.com/jira-cloud-administration/docs/configure-custom-field-context/"><em>Configure custom field context</em></a><a href="https://confluence.atlassian.com/adminjiracloud/configuring-a-custom-field-776636423.html"> </a>document.</p><p>Contexts allow you to set combinations of projects and issue types where a custom field will be available. Moreover, you can specify default values and options for these combinations. With that, you can have different <em>default values</em> and <em>options</em> when using the custom field in <em>different projects</em> and<em> issue types</em>. You can achieve that by creating multiple custom field contexts to set your preferences.</p><p>It’s important to note that there are two types of contexts:</p><ul><li><p><em>Global contexts</em> - a custom field with such context appears in all projects on the Jira Cloud site.</p></li><li><p><em>Project-specific</em> <em>contexts</em> - the custom field is available only in the projects configured in the context.</p></li></ul><h2 id="apply-transformations-to-change-how-contexts-are-deployed">Apply transformations to change how contexts are deployed</h2><p>Managing contexts mid-deployment is vital to successfully deploying custom fields between Jira Cloud sites. For a seamlessly working destination site, it’s important to be able to fine-tune how the source custom fields’ contexts will be deployed.</p><p>CMJ Cloud looks for matches between source and destination contexts during deployment and creates the source context as new on the destination site if no match is found. However, if there is a match, the source and destination contexts will be linked (mapped). We call this event <em>default mapping</em>. As a result, the source context, its values, and options will be merged into the destination context it’s mapped to. <a href="#Rules-for-context-transformations">Learn more about the rules defining how this happens</a>.</p><p>The default mapping also indicates whether the source context will be created as new on the destination. We know that the default mapping of your contexts offered by CMJ Cloud might only meet some of your configuration needs. We’ve created the <strong>Bulk transformations</strong> feature to give you the flexibility to achieve your deployment goals. It gives you control over how projects, configuration elements, and users, including contexts, will be deployed to a destination Jira Cloud site. <a href="/cms_trial/space/CMJC/759824434/Download+and+customize+the+configuration+mapping/">Learn more about the Customize mapping feature.</a></p><p>This feature allows you to list and apply transformations to contexts with the help of a JSON file. The transformations you can apply are:</p><ul><li><p>Creating a source context as a new destination context.</p></li><li><p>Mapping a source context to a destination context of your choice.</p></li><li><p>Remapping an already mapped context to a different destination context.</p></li></ul><p><a href="#Use-cases-for-context-transformations">Learn more about the different context transformation use cases</a>.</p><h2 id="step-by-step-guide-to-transforming-custom-field-contexts">Step-by-step guide to transforming custom field contexts</h2><p><strong>To transform a custom field context during deployment:</strong></p><ol><li><p>Create a <a href="https://appfire.atlassian.net/wiki/spaces/CMJC/pages/193921424">deployment</a>.</p></li><li><p>On the <em>Analyze</em><strong> </strong>screen, click the <strong>Bulk transformations</strong><em> </em>button on the top right.</p></li><li><p>A new window will pop up where you can click the <strong>Download map</strong> button.<br/>ℹ️ You will get a JSON file with the default mapping for all projects, configuration elements (including contexts), and users in the deployment scope.</p><img alt="DownloadMapButton.png" class="doc-image" loading="lazy" src="/cms_trial/assets/72e6c113-0dab-4c1b-b4ff-69ea5bbb2548.png"/></li><li><p>Modify the JSON file to contain transformations of contexts. Check the guidelines about customizing contexts in the next section. Also, check the general syntax and rules for <a href="/cms_trial/space/CMJC/759988316/Guidelines+to+customize+the+configuration+mapping/">customizing mapping</a>.</p></li><li><p>Click <strong>Bulk transformations </strong>again<strong> </strong>to get the option to upload the JSON file with the changes.</p></li><li><p>Either drag and drop the modified JSON file or use the <strong>Click here to browse</strong> button to upload it manually.</p></li><li><p>Review the number of changed elements in the dialog. If there aren’t any problems with the elements, click <strong>Confirm </strong>to apply the transformations from the file.</p><img alt="video showing how to upload JSON file." class="doc-image" loading="lazy" src="/cms_trial/assets/0956eda3-1049-44d8-8dbe-dbf1d285bbbb.mp4"/></li></ol><div class="panel panel-note"><p>After <strong>confirmation</strong>, the CMJ Cloud reanalyzes the configuration and applies the transformations from the file.</p></div><h2 id="guidelines-for-creating-json-context-transformations">Guidelines for creating JSON context transformations</h2><p>As described in the <a href="#Step-by-step-guide-to-transforming-custom-field-contexts">Step-by-step guide</a> above, you can download a file that contains all custom field context details for a deployment. Customize this file or create your own, and make sure it's in <strong>JSON format</strong>. <a href="/cms_trial/space/CMJC/759988316/Guidelines+to+customize+the+configuration+mapping/">Refer to our guide for transformation listing requirements</a>.</p><p>Using transformations, you can map a source context to a selected destination one or create a mapped source context as a new one on the destination. <a href="#Apply-transformations-to-change-how-contexts-are-deployed">Read more about the context transformations you can perform.</a> This way, you can change existing context mappings, set a mapping for new contexts, or transform a mapped context to a new destination context. You can find information about the logic of what happens with the source and destination context configurations in the <a href="#Use-cases-for-context-transformations">Use cases for context transformations</a><strong> </strong>section.</p><div class="panel panel-note"><p><strong>Provide source context’s ID in the JSON file</strong></p><p>Source and destination contexts are matched by their IDs. Make sure you include the source context's ID in the JSON file to create or update a mapping.</p></div><p>The specific thing for contexts is that the transformation is always <strong>defined within a custom field record</strong> in the JSON file.</p><h3 id="required-json-records-to-transform-contexts">Required JSON records to transform contexts</h3><p>With the <strong>Bulk transformations</strong> option in the deployment wizard, you can apply two types of transformations to contexts:</p><ul><li><p>Mapping a source context to a selected destination context</p></li><li><p>Creating a new destination context</p></li></ul><p><strong>Map contexts by ID</strong></p><p>With this transformation, you can map a source context to an existing destination context. This includes remapping an already mapped source context or mapping new contexts to destination contexts. Simply provide the ID of an existing destination context in the following format:</p><pre><code class="language-json">"transformation": {
+    "id": "100123"
+}</code></pre><p><strong>Create a new context</strong></p><p>With this transformation, you can transform the mapped source contexts into a new destination context. You need to add the following record for a given context to the JSON file to achieve the transformation:</p><pre><code class="language-json">"transformation": {
+    "newObject": true
+}</code></pre><p>After that transformation, any existing mapping will be disregarded.</p><p><strong>Rename a context</strong></p><p>With this transformation, you can change the name of a destination context. You need to add the following record for a given context to the JSON file to achieve the transformation:</p><pre><code class="language-json">"transformation": {
+    "name": "new context name"
+}</code></pre><p>After that transformation, any existing mapping will be ignored.</p><h3 id="edit-a-context-in-a-downloaded-json-file">Edit a context in a downloaded JSON file</h3><p>You can apply the transformations above by <a href="/cms_trial/space/CMJC/759824434/Download+and+customize+the+configuration+mapping/">downloading the current mapping</a> file and editing it. This is the case when you only add a <code>transformation</code> record without changing the default <code>source</code> and <code>destination</code> context records in the downloaded file. For more details about editing or constructing a mapping file, check this <a href="/cms_trial/space/CMJC/759988316/Guidelines+to+customize+the+configuration+mapping/">guide</a>. To apply transformations to map or create new contexts using a downloaded JSON file, you need to insert a <code>transformation</code> record by following the syntax below:</p><p><em>Mapping a source context to a chosen destination context by ID</em></p><pre><code class="language-json">{
+    "source": {
+        "id": "customfield_10000",
+        "name": "Custom Field",
+        "type": "com.demo.text"
+    },
+    "children": [
+        {
+            "contexts": [
+                {
+                    "source": {
+                        "id": "10000",
+                        "name": "Name",
+                        "projectKeys": [
+                            "Demo",
+                            "Doc"
+                        ],
+                        "global": true
+                    },
+                    "destination": {
+                        "id": "10100"
+                    },
+                    "transformation": {
+                        "id": "10102"
+                    }
+                }
+            ]
+        }
+    ]
+}</code></pre><p><em>Creating a source context as new in the destination</em></p><pre><code class="language-json">{
+    "source": {
+        "id": "customfield_10000",
+        "name": "Custom Field",
+        "type": "com.demo.text"
+    },
+    "children": [
+        {
+            "contexts": [
+                {
+                    "source": {
+                        "id": "10000",
+                        "name": "Name",
+                        "projectKeys": [
+                            "Demo",
+                            "Doc"
+                        ],
+                        "global": true
+                    },
+                    "destination": {
+                        "id": "10100"
+                    },
+                    "transformation": {
+                        "newObject": true
+                    }
+                }
+            ]
+        }
+    ]
+}          </code></pre><h3 id="construct-a-json-file-with-context-transformations">Construct a JSON file with context transformations</h3><p>You can also apply context transformations by constructing your own JSON file. In this case, you again need to have a <code>transformation</code> record, but you don’t need a destination record. The source record for the custom field and its content can contain only the IDs of these elements. That’s the minimum source configuration required for a transformation. For more details about editing or constructing a mapping file, check this <a href="/cms_trial/space/CMJC/759988316/Guidelines+to+customize+the+configuration+mapping/">guide</a>. </p><p>To build a JSON file with a context transformation, you need to have a minimum set of data in the file. You still need a <code>transformation</code> record, but many of the records in a downloaded JSON file are not mandatory. The examples below list the minimum JSON records needed when mapping or creating new contexts in the destination.</p><p><em>Mapping a source context to a chosen destination context by ID</em></p><pre><code class="language-json">{
+    "source": {
+        "id": "customfield_10000"
+    },
+    "children": [
+        {
+            "contexts": [
+                {
+                    "source": {
+                        "id": "10000"
+                    },
+                    "transformation": {
+                        "id": "10102"
+                    }
+                }
+            ]
+        }
+    ]
+}</code></pre><p><em>Creating a source context as a new destination context</em></p><pre><code class="language-json">{
+    "source": {
+        "id": "customfield_10000"
+    },
+    "children": [
+        {
+            "contexts": [
+                {
+                    "source": {
+                        "id": "10000"
+                    },
+                    "transformation": {
+                        "newObject": true
+                    }
+                }
+            ]
+        }
+    ]
+}</code></pre><h2 id="rules-for-context-transformations">Rules for context transformations </h2><p>CMJ Cloud applies the following rules for context transformations:</p><ol><li><p>A <em>source context</em> can be mapped to only <em>one destination context</em> or created as a <em>new context</em> within a given custom field.</p></li><li><p>If a <em>source context</em> is mapped to a <em>chosen destination context</em>:</p><ol><li><p>The destination context’s options that don’t match any source context options will be deleted.</p></li><li><p>The source and destination contexts’ options that match (by name/label) won’t be modified.</p></li><li><p>The source context’s options that don’t match any of the destination context’s options will be added as new to that context.</p></li></ol></li><li><p>The source context’s projects will be assigned to the destination context. The added projects will, at the same time, be unassigned from any other contexts of the custom field.<br/> <span class="status-lozenge">contexts without projects</span> As a result of this logic, some contexts in the destination might lose all of their projects. CMJ Cloud, in this case, will remove such destination contexts. However, the context won’t be deleted if there are issues with option values. Instead, the deployment stops and an error appears after the configuration analysis finishes. In this case, you’ll be advised to visit <a href="/cms_trial/space/CMJC/193692433/Manage+custom+fields+contexts/">this document</a> for instructions on how to resolve the problem to be able to continue the deployment.</p></li><li><p>A project can be present in only one of the contexts of a custom field.</p></li></ol><h2 id="use-cases-for-context-transformations">Use cases for context transformations</h2><h3 id="project-specific-context-project-specific-context"><strong>Project-specific context → Project-specific context</strong></h3><p>If you map a <em>source project-specific</em> context to a <em>destination project-specific</em> context of your choice:</p><ul><li><p>The merge result will have the destination context’s name.</p></li><li><p>The projects from the source and destination context will be set in the merge result.</p></li><li><p>The source context’s projects will be removed from other destination contexts for the same custom field.<br/><span class="status-lozenge">Contexts without projects</span> A destination context might end up without any projects set during the deployment. As a result, CMJ Cloud will try to delete it. However, the context won’t be deleted if there are issues with option values. Instead, an error stopping the deployment will appear after the configuration analysis finishes. In this case, you’ll be advised to visit <a href="/cms_trial/space/CMJC/193692433/Manage+custom+fields+contexts/">this document</a> for instructions on how to resolve the problem to be able to continue the deployment.</p></li></ul><h3 id="project-specific-context-global-context"><strong>Project-specific context → Global context</strong></h3><p>If you map a <em>source project-specific</em> context to a <em>destination global </em>context:</p><ul><li><p>The merge result will have the destination context’s name.</p></li><li><p>The merge result will still be a <em>global context</em>.</p></li><li><p>The source context’s projects will be removed from other destination contexts of the same custom field.</p></li></ul><h3 id="global-context-project-specific-context"><strong>Global context → Project-specific context</strong></h3><p>If you map a <em>source global </em>context to a <em>destination project-specific</em> context:</p><ul><li><p>The merge result will have the destination context’s name.</p></li><li><p>The merged result will be a project-specific context (<em>not global</em>).</p></li><li><p>The global context will first be converted to a project-specific source context. All projects in the <strong>deployment scope </strong>will be set in this transformed context.</p></li><li><p>After the merge, the projects in the transformed source and destination context will be set in the merge result.</p></li><li><p>The source context’s projects will also be removed from other destination contexts for the given custom field.</p></li><li><p>As a result of such mapping, some destination contexts might end up without any projects. This situation will be reported on the <strong>Analyze</strong> page.</p></li></ul><h3 id="global-context-global-context"><strong>Global context → Global context</strong></h3><p>If you map a source <em>global</em> context to a destination <em>global </em>context:</p><ul><li><p>The merge result will have the destination context’s name.</p></li><li><p>The merge result will still be a <em>global context</em>.</p></li></ul><h3 id="project-specific-context-create-a-new-context"><strong>Project-specific context → Create a new context</strong></h3><p>With <em>Bulk transformations</em>, you can convert any mapped source project-specific context to a new destination context. Just keep in mind that the context’s projects will be removed from the other destination contexts of the same custom field.</p><p>By default, if no match is detected in the destination and there is no mapping, the source context gets created as a new one in the destination.</p><p><span class="status-lozenge">Global contexts</span> CMJ Cloud doesn’t allow transforming a source global context to a new one in the destination. If you upload a JSON file with such a transformation, an error will appear, stopping you from applying the transformation.</p>
+  </main>
+  <aside class="sidebar">
+<div class="brand"><span class="brand-mark">Appfire Docs</span></div>
+<div class="brand-tag">Live docs, fetched from Confluence via API.</div>
+<a class="product-directory-link" href="/cms_trial/product-directory/">Product directory</a>
+<p class="pilot-note">82 pages in this space, fetched live from Confluence via API.</p>
+<nav><ul><li><a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira (CMJ) Cloud</a><ul><li><a href="/cms_trial/space/CMJC/193725041/Overview/">Overview</a></li><li><a href="/cms_trial/space/CMJC/193823429/Features+and+options/">Features and options</a><ul><li><a href="/cms_trial/space/CMJC/193594026/Authorize+with+API+token/">Authorize with API token</a></li><li><a href="/cms_trial/space/CMJC/193659992/Manage+snapshot+deployments/">Manage snapshot deployments</a></li><li><a href="/cms_trial/space/CMJC/193855959/Supported+configuration+elements/">Supported configuration elements</a></li><li><a href="/cms_trial/space/CMJC/1160020327/Migrate+Service+Management+projects+to+the+Cloud/">Migrate Service Management projects to the Cloud</a></li><li><a href="/cms_trial/space/CMJC/2506391642/Upload+a+snapshot/">Upload a snapshot</a></li><li><a href="/cms_trial/space/CMJC/2506522887/Create+and+manage+snapshots/">Create and manage snapshots</a></li><li><a href="/cms_trial/space/CMJC/2507112493/Deploy+a+snapshot/">Deploy a snapshot</a><ul><li><a href="/cms_trial/space/CMJC/193626781/Analyze+changes/">Analyze changes</a></li><li><a href="/cms_trial/space/CMJC/193692433/Manage+custom+fields+contexts/">Manage custom fields contexts</a></li><li><a href="/cms_trial/space/CMJC/759595150/Transformations/">Transformations</a><ul><li><a href="/cms_trial/space/CMJC/759529597/Inline+transformations/">Inline transformations</a></li><li><a href="/cms_trial/space/CMJC/1129480719/Status+mapping/">Status mapping</a></li><li><a href="/cms_trial/space/CMJC/1851621940/Bulk+transformations/">Bulk transformations</a><ul><li><a href="/cms_trial/space/CMJC/759496822/Context+transformations/" class="active">Context transformations</a></li><li><a href="/cms_trial/space/CMJC/759496884/JSON+objects+for+configuration+element+transformations/">JSON objects for configuration element transformations</a></li><li><a href="/cms_trial/space/CMJC/759824434/Download+and+customize+the+configuration+mapping/">Download and customize the configuration mapping</a></li><li><a href="/cms_trial/space/CMJC/759988316/Guidelines+to+customize+the+configuration+mapping/">Guidelines to customize the configuration mapping</a></li><li><a href="/cms_trial/space/CMJC/760315914/User+transformations/">User transformations</a></li></ul></li></ul></li></ul></li><li><a href="/cms_trial/space/CMJC/3417473252/Compare+snapshots/">Compare snapshots</a></li></ul></li><li><a href="/cms_trial/space/CMJC/193921273/Get+started+with+Configuration+Manager+for+Jira+for+Cloud/">Get started with Configuration Manager for Jira for Cloud</a><ul><li><a href="/cms_trial/space/CMJC/193659801/Prerequisites/">Prerequisites</a></li><li><a href="/cms_trial/space/CMJC/194150417/Licensing/">Licensing</a></li><li><a href="/cms_trial/space/CMJC/194183182/Installation+guide/">Installation guide</a></li><li><a href="/cms_trial/space/CMJC/681903694/Differences+between+CMJ+Server%2FData+Center+and+CMJ+Cloud/">Differences between CMJ Server/Data Center and CMJ Cloud</a></li><li><a href="/cms_trial/space/CMJC/854753912/Security+whitepaper/">Security whitepaper</a></li></ul></li><li><a href="/cms_trial/space/CMJC/194117669/Release+Notes/">Release Notes</a><ul><li><a href="/cms_trial/space/CMJC/705495925/Release+notes+January+2024/">Release notes January 2024</a></li><li><a href="/cms_trial/space/CMJC/759791666/Release+notes+February+2024/">Release notes February 2024</a></li><li><a href="/cms_trial/space/CMJC/843972981/Release+Notes+March+2024/">Release Notes March 2024</a></li><li><a href="/cms_trial/space/CMJC/937361444/Release+Notes+April+2024/">Release Notes April 2024</a></li><li><a href="/cms_trial/space/CMJC/991658010/Release+notes+May+2024/">Release notes May 2024</a></li><li><a href="/cms_trial/space/CMJC/992673833/Archived+release+notes/">Archived release notes</a><ul><li><a href="/cms_trial/space/CMJC/193593962/Release+notes+11+October+2021/">Release notes 11 October 2021</a></li><li><a href="/cms_trial/space/CMJC/193855942/Release+notes+1+October+2021/">Release notes 1 October 2021</a></li><li><a href="/cms_trial/space/CMJC/258408524/Release+notes+10+April+2023/">Release notes 10 April 2023</a></li><li><a href="/cms_trial/space/CMJC/290357530/Release+notes+25+April+2023/">Release notes 25 April 2023</a></li><li><a href="/cms_trial/space/CMJC/380764524/Release+notes+22+June+2023/">Release notes 22 June 2023</a></li><li><a href="/cms_trial/space/CMJC/429491503/Release+notes+2+August+2023/">Release notes 2 August 2023</a></li><li><a href="/cms_trial/space/CMJC/503480776/Release+notes+18+September+2023/">Release notes 18 September 2023</a></li><li><a href="/cms_trial/space/CMJC/578060323/Release+notes+November+2023/">Release notes November 2023</a></li><li><a href="/cms_trial/space/CMJC/642187824/Release+notes+December+2023/">Release notes December 2023</a></li></ul></li><li><a href="/cms_trial/space/CMJC/1033863393/Release+notes+June+2024/">Release notes June 2024</a></li><li><a href="/cms_trial/space/CMJC/1132986520/Release+notes+17+July+2024/">Release notes 17 July 2024</a></li><li><a href="/cms_trial/space/CMJC/1150058608/Release+notes+24+July+2024/">Release notes 24 July 2024</a></li><li><a href="/cms_trial/space/CMJC/1213956239/Release+notes+August+2024/">Release notes August 2024</a></li><li><a href="/cms_trial/space/CMJC/1302561092/Release+notes+September+2024/">Release notes September 2024</a></li><li><a href="/cms_trial/space/CMJC/1375142580/Release+notes+October+2024/">Release notes October 2024</a></li><li><a href="/cms_trial/space/CMJC/1514897435/Release+notes+November+2024/">Release notes November 2024</a></li><li><a href="/cms_trial/space/CMJC/1567622126/Release+notes+December+2024/">Release notes December 2024</a></li><li><a href="/cms_trial/space/CMJC/1639743570/Release+notes+January+2025/">Release notes January 2025</a></li><li><a href="/cms_trial/space/CMJC/1751188366/Release+notes+February+2025/">Release notes February 2025</a></li><li><a href="/cms_trial/space/CMJC/1851949355/Release+notes+March+2025/">Release notes March 2025</a></li><li><a href="/cms_trial/space/CMJC/1985609831/Release+notes+April+2025/">Release notes April 2025</a></li><li><a href="/cms_trial/space/CMJC/2161082729/Release+notes+July+2025/">Release notes July 2025</a></li><li><a href="/cms_trial/space/CMJC/2250047502/Release+notes+4+August+2025/">Release notes 4 August 2025</a></li><li><a href="/cms_trial/space/CMJC/2306932831/Release+notes+25+August+2025/">Release notes 25 August 2025</a></li><li><a href="/cms_trial/space/CMJC/2426798089/Release+notes+October+2025/">Release notes October 2025</a></li><li><a href="/cms_trial/space/CMJC/2506031188/Release+notes+November+2025/">Release notes November 2025</a></li><li><a href="/cms_trial/space/CMJC/2623864835/Release+notes+December+2025/">Release notes December 2025</a></li><li><a href="/cms_trial/space/CMJC/2857566448/Release+notes+February+2026/">Release notes February 2026</a></li><li><a href="/cms_trial/space/CMJC/2980839433/Release+notes+March+2026/">Release notes March 2026</a></li><li><a href="/cms_trial/space/CMJC/3123709354/Release+notes+April+2026/">Release notes April 2026</a></li><li><a href="/cms_trial/space/CMJC/3301244947/Release+notes+May+2026/">Release notes May 2026</a></li><li><a href="/cms_trial/space/CMJC/3374187844/Release+notes+June+2026/">Release notes June 2026</a></li><li><a href="/cms_trial/space/CMJC/3416883522/Release+notes+July+2026/">Release notes July 2026</a></li><li><a href="/cms_trial/space/CMJC/3529801847/Release+notes+August+2026/">Release notes August 2026</a></li></ul></li><li><a href="/cms_trial/space/CMJC/194117717/Use+Cases/">Use Cases</a><ul><li><a href="/cms_trial/space/CMJC/258053021/Deploy+configuration+changes+from+Jira+Cloud+to+Cloud/">Deploy configuration changes from Jira Cloud to Cloud</a></li><li><a href="/cms_trial/space/CMJC/258085727/Migrate+projects+and+issues+from+Jira+Server%2FDC+to+Jira+Cloud/">Migrate projects and issues from Jira Server/DC to Jira Cloud</a></li><li><a href="/cms_trial/space/CMJC/2890924061/Test+and+deploy+Jira+configuration+changes+safely/">Test and deploy Jira configuration changes safely</a></li><li><a href="/cms_trial/space/CMJC/2936799239/Simplify+your+Cloud+migration+with+Configuration+Manager+for+Jira+(CMJ)/">Simplify your Cloud migration with Configuration Manager for Jira (CMJ)</a></li><li><a href="/cms_trial/space/CMJC/2981756935/Promote+JMWE+and+JSU+app+data+safely+with+CMJ+Cloud/">Promote JMWE and JSU app data safely with CMJ Cloud</a></li><li><a href="/cms_trial/space/CMJC/3504439478/Analyze+freely.+Deploy+precisely./">Analyze freely. Deploy precisely.</a></li></ul></li><li><a href="/cms_trial/space/CMJC/258053546/Help+and+support/">Help and support</a><ul><li><a href="/cms_trial/space/CMJC/642220408/Share+deployment+data+with+the+support+team/">Share deployment data with the support team</a></li><li><a href="/cms_trial/space/CMJC/2273706042/IP+allowlist+considerations+for+CMJ+Cloud+on+Premium+Jira+Cloud/">IP allowlist considerations for CMJ Cloud on Premium Jira Cloud</a></li></ul></li><li><a href="/cms_trial/space/CMJC/1922600795/Migration/">Migration</a><ul><li><a href="/cms_trial/space/CMJC/682131761/Migrating+from+Jira+Server+to+Cloud/">Migrating from Jira Server to Cloud</a></li></ul></li></ul></li><li><a href="/cms_trial/space/CMJC/443975880/Release+notes+11+August+2023/">Release notes 11 August 2023</a></li></ul></nav>
+</aside>
+</div>
+<!-- "Get Help" — a plain link to the real, already-working Refined JSM
+     portal, at a different path on the SAME domain. No custom OAuth
+     backend needed for this: Refined's own JSM integration already
+     correctly handles brand-new, first-time visitors in production today,
+     which is exactly the case our earlier OAuth-based attempt structurally
+     couldn't solve (Atlassian's own consent screen blocks anyone with zero
+     prior relationship to the site, before ever reaching JSM). Styled to
+     match the rest of the site and left as a same-tab navigation (not
+     target="_blank") so clicking it feels like moving to another page on
+     one continuous site, not popping open a separate system. -->
+<a class="get-help-btn" href="https://support.appfire.com/page/support">Get Help</a>
+
+<!-- Advanced Tables (Table Plus, etc.) enhancement — reconstructs the parts
+     of the macro's real behavior that aren't stored as static content:
+     click-to-sort columns, computed numeric totals, and hover highlighting.
+     Harmless to include on every page — it does nothing if no
+     .advanced-table elements are present. -->
+<script>
+(function () {
+  document.querySelectorAll(".advanced-table").forEach(function (container) {
+    var table = container.querySelector("table");
+    if (!table) return;
+
+    var enableSorting = container.dataset.enableSorting === "true";
+    var autoTotal = container.dataset.autoTotal === "true";
+    var enableHighlighting = container.dataset.enableHighlighting === "true";
+    var highlightColor = container.dataset.highlightColor || "";
+
+    var headerRow = table.rows[0];
+    var tbody = table.tBodies[0] || table;
+
+    // Highlighting: toggle a background color on row hover, matching the
+    // macro's own configured highlight color rather than a fixed one.
+    if (enableHighlighting && highlightColor && headerRow) {
+      Array.prototype.slice.call(tbody.rows).forEach(function (row) {
+        if (row === headerRow) return;
+        row.addEventListener("mouseenter", function () { row.style.backgroundColor = highlightColor; });
+        row.addEventListener("mouseleave", function () { row.style.backgroundColor = ""; });
+      });
+    }
+
+    // Sorting: click a header cell to sort by that column. Numeric-aware —
+    // compares as numbers when both values parse as one, falls back to
+    // string comparison otherwise. Repeated clicks toggle ascending/descending.
+    if (enableSorting && headerRow) {
+      Array.prototype.forEach.call(headerRow.cells, function (cell, colIndex) {
+        cell.classList.add("sortable-col");
+        cell.title = "Click to sort";
+        var ascending = true;
+        cell.addEventListener("click", function () {
+          var rows = Array.prototype.slice.call(tbody.rows).filter(function (r) { return r !== headerRow; });
+          rows.sort(function (a, b) {
+            var av = (a.cells[colIndex] ? a.cells[colIndex].textContent : "").trim();
+            var bv = (b.cells[colIndex] ? b.cells[colIndex].textContent : "").trim();
+            var an = parseFloat(av), bn = parseFloat(bv);
+            var cmp = (!isNaN(an) && !isNaN(bn)) ? (an - bn) : av.localeCompare(bv);
+            return ascending ? cmp : -cmp;
+          });
+          rows.forEach(function (row) { tbody.appendChild(row); });
+          ascending = !ascending;
+        });
+      });
+    }
+
+    // Computed totals: sum any column where every non-empty cell parses as
+    // a number, appended as a footer row. This approximates the common
+    // case (a numeric sum) — the real macro lets authors choose different
+    // calculation types per column (min, max, average...), which isn't
+    // reconstructed here.
+    if (autoTotal && headerRow) {
+      var dataRows = Array.prototype.slice.call(tbody.rows).filter(function (r) { return r !== headerRow; });
+      var totals = [];
+      for (var c = 0; c < headerRow.cells.length; c++) {
+        (function (colIndex) {
+          var allNumeric = true, sum = 0, sawAny = false;
+          dataRows.forEach(function (row) {
+            var cell = row.cells[colIndex];
+            var text = cell ? cell.textContent.trim() : "";
+            if (text === "") return;
+            var n = parseFloat(text);
+            if (isNaN(n)) { allNumeric = false; return; }
+            sum += n;
+            sawAny = true;
+          });
+          totals.push(allNumeric && sawAny ? sum : null);
+        })(c);
+      }
+      if (totals.some(function (t) { return t !== null; })) {
+        var footRow = document.createElement("tr");
+        footRow.className = "advanced-table-total-row";
+        totals.forEach(function (t) {
+          var td = document.createElement("td");
+          td.textContent = t !== null ? String(t) : "";
+          footRow.appendChild(td);
+        });
+        tbody.appendChild(footRow);
+      }
+    }
+  });
+})();
+</script>
+
+<!-- Aura Tab Group enhancement — click-to-switch tabs. Harmless to include
+     on every page; does nothing if no .aura-tab-group elements exist. -->
+<script>
+(function () {
+  document.querySelectorAll(".aura-tab-group").forEach(function (group) {
+    var buttons = group.querySelectorAll(".aura-tab-btn");
+    buttons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var targetId = btn.dataset.target;
+        group.querySelectorAll(".aura-tab-btn").forEach(function (b) { b.classList.remove("active"); });
+        group.querySelectorAll(".aura-tab-panel").forEach(function (p) { p.classList.remove("active"); });
+        btn.classList.add("active");
+        var panel = document.getElementById(targetId);
+        if (panel) panel.classList.add("active");
+      });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

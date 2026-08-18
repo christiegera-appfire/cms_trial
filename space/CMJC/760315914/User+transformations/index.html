@@ -1,0 +1,204 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>User transformations | Appfire Docs</title>
+<meta name="description" content="You can apply transformations to users the same way you do to the rest of the configuration in the deployment. Basically, you can overwrite user details…">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/cms_trial/styles.css">
+<meta name="robots" content="noindex, nofollow">
+
+
+</head>
+<body>
+<div class="shell">
+  <main class="content">
+    <h1>User transformations</h1>
+    <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="apply-transformations-to-users">Apply transformations to users</h2><p>You can apply transformations to users the same way you do to the rest of the configuration in the deployment. Basically, you can overwrite user details with the <strong>Bulk transformations</strong> button at the top right of the <em>Analyze</em> page in the deployment wizard. You can learn more about <a href="/cms_trial/space/CMJC/759824434/Download+and+customize+the+configuration+mapping/">customizing configuration mapping</a> and the <a href="/cms_trial/space/CMJC/759988316/Guidelines+to+customize+the+configuration+mapping/">mechanisms </a>to do it.</p><div class="panel panel-note"><p><strong>What is mapping or configuration mapping?</strong></p><p><em>Mapping </em>or <em>configuration mapping</em> is an extensive map formed during the analysis process. It holds information on how the configuration elements in the deployment scope will be moved to the cloud. </p><p>The elements will either be created as new ones or modified if there’s a match between the source and destination counterparts.</p></div><p><a href="/cms_trial/space/CMJC/759595150/Transformations/">Learn more about the transformations available in CMJ Cloud.</a></p><h3 id="user-transformation-use-cases">User transformation use cases</h3><p>You can use the <strong>Bulk transformations</strong> option to:</p><ul><li><p>Correct user problems<br/>The <em>Customize mapping</em> feature allows you to correct user problems, such as missing and invalid email addresses, when mapping users during a server-to-cloud deployment. You can also <em>remap server </em>and<em> cloud users</em> this way.</p></li><li><p>Merge user accounts<br/>You can also use the transformations to map multiple source users to a single Jira Cloud account. To achieve it, you need to change the email addresses of multiple Jira Server/Data Center user accounts to be the same. This way, the CMJ Cloud will map all of them to a single Jira Cloud account.</p></li><li><p>Map to a chosen destination user<br/>You can also apply a transformation to map a source user to a destination user of your choice. To do so, you just need to provide the destination user’s ID.</p></li></ul><h2 id="how-to-apply-transformations-to-users">How to apply transformations to users</h2><p>To address the use cases above, you just need to upload a file with the desired user transformations. For example, if an email address is missing, you’ll be able to prepare and apply a file with a corrected email for a particular user.</p><h3 id="download-and-upload-a-file-with-user-transformations">Download and upload a file with user transformations</h3><p><strong>To apply transformations to users:</strong></p><ol><li><p>Start a <a href="https://appfire.atlassian.net/wiki/spaces/CMJC/pages/193921424">deployment</a>.</p></li><li><p>On the <em>Analyze</em><strong> </strong>page, click the <strong>Bulk transformations</strong><em> </em>button on the top right.</p></li><li><p>To resolve problems with unknown users or to change the default user information, click the <strong>Download map</strong><em> </em>button at the top right. You will get a JSON file with the default mapping of all configuration elements in the deployment, including users.</p><img alt="DownloadMapButton.png" class="doc-image" loading="lazy" src="/cms_trial/assets/f547d8af-9657-4276-8ea0-7f5602131d7a.png"/></li><li><p>Modify the JSON file to correct missing or invalid email addresses. Also, to map several server users to a single Jira Cloud account, change their email addresses to match the email address of that Jira Cloud user. <a href="/cms_trial/space/CMJC/759988316/Guidelines+to+customize+the+configuration+mapping/">Check the guidelines about customizing mapping</a>.</p></li><li><p>Click <strong>Bulk transformations</strong>, upload the JSON file with the changes, and click <strong>Confirm</strong>.<br/>The video below shows how to upload and apply transformations from a JSON file.</p><img alt="UploadingJSON.mp4" class="doc-image" loading="lazy" src="/cms_trial/assets/eeae956d-9696-4ba5-9d9b-5410e38c8577.mp4"/></li><li><p>After you finish updating the user mapping, click <strong>Deploy</strong> to continue the deployment.</p></li></ol><div class="panel panel-note"><p>After you click <strong>Confirm </strong>on the <em>Bulk transformations</em> window, the CMJ Cloud performs a new analysis of the deployed configuration and applies the transformations from the file.</p></div><h2 id="guidelines-for-creating-json-user-transformations">Guidelines for creating JSON user transformations</h2><p>In the deployment wizard, you can download a file that contains all the information about the users and how they’ll be deployed to the cloud. Then, you can either make changes to that file to include your desired user transformations, or you can construct your own file and apply either of the files to the configuration.</p><p>The applied file must always be in JSON format. Also, there are some requirements on how to list the intended transformations in it. Check the <a href="/cms_trial/space/CMJC/759988316/Guidelines+to+customize+the+configuration+mapping/">guide</a> we’ve prepared to quickly get you started on building your transformations.</p><p>With the <strong>Bulk transformations</strong> option in the deployment wizard, you can apply two types of transformations to users being deployed:</p><ul><li><p>Change email address</p></li><li><p>Map to a destination user by ID</p></li></ul><p>By changing the email address, you can create new users, merge multiple users into a single account, and remap source and destination users.</p><p>The important thing to note is that we refer to source users by their names. This means that you always need to provide the source user’s name in the JSON file in order to apply a transformation to it.</p><p>Let’s look at the examples below to make it clearer.</p><h3 id="required-json-records-to-transform-users">Required JSON records to transform users</h3><p>You can construct your own JSON file with user transformations and apply it to the configuration you’re deploying. The examples below show you the records you need to have in the file to change a user’s email address or to map it to a destination user.</p><h4 id="required-json-records-to-change-the-user-s-email-address">Required JSON records to change the user’s email address</h4><p>The example below shows the specific records required to change a user’s email address.</p><pre><code class="language-json">{
+    "users": [
+        {
+            "source": {
+                "id": "5ed730807d0c0f0ab20920b8",
+            },
+            "transformation": {
+                "email": "validEmail@demo.com"
+            }
+        }
+    ]
+}         </code></pre><h4 id="required-json-records-to-map-a-source-user-to-a-destination-user-by-id">Required JSON records to map a source user to a destination user by ID</h4><p>The example below shows the specific records required to map a source user to a destination user by ID.</p><pre><code class="language-json">{
+    "users": [
+        {
+            "source": {
+                "id": "5ed730807d0c0f0ab20920b8",
+            },
+            "transformation": {
+                "id": "5da444878f33800c416f30ed"
+            }
+        }
+    ]
+}         </code></pre><h3 id="edit-a-user-in-a-downloaded-json-file">Edit a user in a downloaded JSON file</h3><p>You can apply the same transformations from above by <a href="/cms_trial/space/CMJC/759824434/Download+and+customize+the+configuration+mapping/">downloading and editing the current mapping</a> file. This <a href="/cms_trial/space/CMJC/759988316/Guidelines+to+customize+the+configuration+mapping/">guide</a> provides more details about editing or constructing a mapping file. The examples below show how the user records will look in the downloaded file and the additional <code>transformation</code> record you need to add.</p><h4 id="transformation-to-change-the-user-s-email-address">Transformation to change the user’s email address</h4><p>When you download a mapping file, the <code>source</code> and <code>destination</code> records for the user will look like the example below. You only need to add a <code>transformation</code> record with the new email address without changing the default <code>source</code> and <code>destination</code> user records. After applying the edited file, the user being deployed will have a new email address.</p><pre><code class="language-json">{
+    "users": [
+        {
+            "source": {
+                "id": "5ed730807d0c0f0ab20920b8",
+                "name": "usernameInvalidEmail",
+                "email": "invalidEmail@demo"
+            },
+            "destination": {
+                "newObject": true
+            },
+            "transformation": {
+                "email": "validEmail@demo.com"
+            }
+        }
+    ]
+}                    </code></pre><h4 id="transformation-to-map-a-source-user-to-a-destination-user-by-id">Transformation to map a source user to a destination user by ID</h4><p>When you download a mapping file, the <code>source</code> and <code>destination</code> records for the user will look like the example below. You only need to add a <code>transformation</code> record with the destination user’s ID without changing the default <code>source</code> and <code>destination</code> user records. After applying the edited file, the source user will be mapped to that destination user.</p><pre><code class="language-json">{
+    "users": [
+        {
+            "source": {
+                "id": "5ed730807d0c0f0ab20920b8",
+                "name": "sourceUser",
+                "email": "sourceUser@demo.com"
+            },
+            "destination": {
+                "newObject": true
+            },
+            "transformation": {
+                "id": "5da444878f33800c416f30ed"
+            }
+        }
+    ]
+}</code></pre>
+  </main>
+  <aside class="sidebar">
+<div class="brand"><span class="brand-mark">Appfire Docs</span></div>
+<div class="brand-tag">Live docs, fetched from Confluence via API.</div>
+<a class="product-directory-link" href="/cms_trial/product-directory/">Product directory</a>
+<p class="pilot-note">82 pages in this space, fetched live from Confluence via API.</p>
+<nav><ul><li><a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira (CMJ) Cloud</a><ul><li><a href="/cms_trial/space/CMJC/193725041/Overview/">Overview</a></li><li><a href="/cms_trial/space/CMJC/193823429/Features+and+options/">Features and options</a><ul><li><a href="/cms_trial/space/CMJC/193594026/Authorize+with+API+token/">Authorize with API token</a></li><li><a href="/cms_trial/space/CMJC/193659992/Manage+snapshot+deployments/">Manage snapshot deployments</a></li><li><a href="/cms_trial/space/CMJC/193855959/Supported+configuration+elements/">Supported configuration elements</a></li><li><a href="/cms_trial/space/CMJC/1160020327/Migrate+Service+Management+projects+to+the+Cloud/">Migrate Service Management projects to the Cloud</a></li><li><a href="/cms_trial/space/CMJC/2506391642/Upload+a+snapshot/">Upload a snapshot</a></li><li><a href="/cms_trial/space/CMJC/2506522887/Create+and+manage+snapshots/">Create and manage snapshots</a></li><li><a href="/cms_trial/space/CMJC/2507112493/Deploy+a+snapshot/">Deploy a snapshot</a><ul><li><a href="/cms_trial/space/CMJC/193626781/Analyze+changes/">Analyze changes</a></li><li><a href="/cms_trial/space/CMJC/193692433/Manage+custom+fields+contexts/">Manage custom fields contexts</a></li><li><a href="/cms_trial/space/CMJC/759595150/Transformations/">Transformations</a><ul><li><a href="/cms_trial/space/CMJC/759529597/Inline+transformations/">Inline transformations</a></li><li><a href="/cms_trial/space/CMJC/1129480719/Status+mapping/">Status mapping</a></li><li><a href="/cms_trial/space/CMJC/1851621940/Bulk+transformations/">Bulk transformations</a><ul><li><a href="/cms_trial/space/CMJC/759496822/Context+transformations/">Context transformations</a></li><li><a href="/cms_trial/space/CMJC/759496884/JSON+objects+for+configuration+element+transformations/">JSON objects for configuration element transformations</a></li><li><a href="/cms_trial/space/CMJC/759824434/Download+and+customize+the+configuration+mapping/">Download and customize the configuration mapping</a></li><li><a href="/cms_trial/space/CMJC/759988316/Guidelines+to+customize+the+configuration+mapping/">Guidelines to customize the configuration mapping</a></li><li><a href="/cms_trial/space/CMJC/760315914/User+transformations/" class="active">User transformations</a></li></ul></li></ul></li></ul></li><li><a href="/cms_trial/space/CMJC/3417473252/Compare+snapshots/">Compare snapshots</a></li></ul></li><li><a href="/cms_trial/space/CMJC/193921273/Get+started+with+Configuration+Manager+for+Jira+for+Cloud/">Get started with Configuration Manager for Jira for Cloud</a><ul><li><a href="/cms_trial/space/CMJC/193659801/Prerequisites/">Prerequisites</a></li><li><a href="/cms_trial/space/CMJC/194150417/Licensing/">Licensing</a></li><li><a href="/cms_trial/space/CMJC/194183182/Installation+guide/">Installation guide</a></li><li><a href="/cms_trial/space/CMJC/681903694/Differences+between+CMJ+Server%2FData+Center+and+CMJ+Cloud/">Differences between CMJ Server/Data Center and CMJ Cloud</a></li><li><a href="/cms_trial/space/CMJC/854753912/Security+whitepaper/">Security whitepaper</a></li></ul></li><li><a href="/cms_trial/space/CMJC/194117669/Release+Notes/">Release Notes</a><ul><li><a href="/cms_trial/space/CMJC/705495925/Release+notes+January+2024/">Release notes January 2024</a></li><li><a href="/cms_trial/space/CMJC/759791666/Release+notes+February+2024/">Release notes February 2024</a></li><li><a href="/cms_trial/space/CMJC/843972981/Release+Notes+March+2024/">Release Notes March 2024</a></li><li><a href="/cms_trial/space/CMJC/937361444/Release+Notes+April+2024/">Release Notes April 2024</a></li><li><a href="/cms_trial/space/CMJC/991658010/Release+notes+May+2024/">Release notes May 2024</a></li><li><a href="/cms_trial/space/CMJC/992673833/Archived+release+notes/">Archived release notes</a><ul><li><a href="/cms_trial/space/CMJC/193593962/Release+notes+11+October+2021/">Release notes 11 October 2021</a></li><li><a href="/cms_trial/space/CMJC/193855942/Release+notes+1+October+2021/">Release notes 1 October 2021</a></li><li><a href="/cms_trial/space/CMJC/258408524/Release+notes+10+April+2023/">Release notes 10 April 2023</a></li><li><a href="/cms_trial/space/CMJC/290357530/Release+notes+25+April+2023/">Release notes 25 April 2023</a></li><li><a href="/cms_trial/space/CMJC/380764524/Release+notes+22+June+2023/">Release notes 22 June 2023</a></li><li><a href="/cms_trial/space/CMJC/429491503/Release+notes+2+August+2023/">Release notes 2 August 2023</a></li><li><a href="/cms_trial/space/CMJC/503480776/Release+notes+18+September+2023/">Release notes 18 September 2023</a></li><li><a href="/cms_trial/space/CMJC/578060323/Release+notes+November+2023/">Release notes November 2023</a></li><li><a href="/cms_trial/space/CMJC/642187824/Release+notes+December+2023/">Release notes December 2023</a></li></ul></li><li><a href="/cms_trial/space/CMJC/1033863393/Release+notes+June+2024/">Release notes June 2024</a></li><li><a href="/cms_trial/space/CMJC/1132986520/Release+notes+17+July+2024/">Release notes 17 July 2024</a></li><li><a href="/cms_trial/space/CMJC/1150058608/Release+notes+24+July+2024/">Release notes 24 July 2024</a></li><li><a href="/cms_trial/space/CMJC/1213956239/Release+notes+August+2024/">Release notes August 2024</a></li><li><a href="/cms_trial/space/CMJC/1302561092/Release+notes+September+2024/">Release notes September 2024</a></li><li><a href="/cms_trial/space/CMJC/1375142580/Release+notes+October+2024/">Release notes October 2024</a></li><li><a href="/cms_trial/space/CMJC/1514897435/Release+notes+November+2024/">Release notes November 2024</a></li><li><a href="/cms_trial/space/CMJC/1567622126/Release+notes+December+2024/">Release notes December 2024</a></li><li><a href="/cms_trial/space/CMJC/1639743570/Release+notes+January+2025/">Release notes January 2025</a></li><li><a href="/cms_trial/space/CMJC/1751188366/Release+notes+February+2025/">Release notes February 2025</a></li><li><a href="/cms_trial/space/CMJC/1851949355/Release+notes+March+2025/">Release notes March 2025</a></li><li><a href="/cms_trial/space/CMJC/1985609831/Release+notes+April+2025/">Release notes April 2025</a></li><li><a href="/cms_trial/space/CMJC/2161082729/Release+notes+July+2025/">Release notes July 2025</a></li><li><a href="/cms_trial/space/CMJC/2250047502/Release+notes+4+August+2025/">Release notes 4 August 2025</a></li><li><a href="/cms_trial/space/CMJC/2306932831/Release+notes+25+August+2025/">Release notes 25 August 2025</a></li><li><a href="/cms_trial/space/CMJC/2426798089/Release+notes+October+2025/">Release notes October 2025</a></li><li><a href="/cms_trial/space/CMJC/2506031188/Release+notes+November+2025/">Release notes November 2025</a></li><li><a href="/cms_trial/space/CMJC/2623864835/Release+notes+December+2025/">Release notes December 2025</a></li><li><a href="/cms_trial/space/CMJC/2857566448/Release+notes+February+2026/">Release notes February 2026</a></li><li><a href="/cms_trial/space/CMJC/2980839433/Release+notes+March+2026/">Release notes March 2026</a></li><li><a href="/cms_trial/space/CMJC/3123709354/Release+notes+April+2026/">Release notes April 2026</a></li><li><a href="/cms_trial/space/CMJC/3301244947/Release+notes+May+2026/">Release notes May 2026</a></li><li><a href="/cms_trial/space/CMJC/3374187844/Release+notes+June+2026/">Release notes June 2026</a></li><li><a href="/cms_trial/space/CMJC/3416883522/Release+notes+July+2026/">Release notes July 2026</a></li><li><a href="/cms_trial/space/CMJC/3529801847/Release+notes+August+2026/">Release notes August 2026</a></li></ul></li><li><a href="/cms_trial/space/CMJC/194117717/Use+Cases/">Use Cases</a><ul><li><a href="/cms_trial/space/CMJC/258053021/Deploy+configuration+changes+from+Jira+Cloud+to+Cloud/">Deploy configuration changes from Jira Cloud to Cloud</a></li><li><a href="/cms_trial/space/CMJC/258085727/Migrate+projects+and+issues+from+Jira+Server%2FDC+to+Jira+Cloud/">Migrate projects and issues from Jira Server/DC to Jira Cloud</a></li><li><a href="/cms_trial/space/CMJC/2890924061/Test+and+deploy+Jira+configuration+changes+safely/">Test and deploy Jira configuration changes safely</a></li><li><a href="/cms_trial/space/CMJC/2936799239/Simplify+your+Cloud+migration+with+Configuration+Manager+for+Jira+(CMJ)/">Simplify your Cloud migration with Configuration Manager for Jira (CMJ)</a></li><li><a href="/cms_trial/space/CMJC/2981756935/Promote+JMWE+and+JSU+app+data+safely+with+CMJ+Cloud/">Promote JMWE and JSU app data safely with CMJ Cloud</a></li><li><a href="/cms_trial/space/CMJC/3504439478/Analyze+freely.+Deploy+precisely./">Analyze freely. Deploy precisely.</a></li></ul></li><li><a href="/cms_trial/space/CMJC/258053546/Help+and+support/">Help and support</a><ul><li><a href="/cms_trial/space/CMJC/642220408/Share+deployment+data+with+the+support+team/">Share deployment data with the support team</a></li><li><a href="/cms_trial/space/CMJC/2273706042/IP+allowlist+considerations+for+CMJ+Cloud+on+Premium+Jira+Cloud/">IP allowlist considerations for CMJ Cloud on Premium Jira Cloud</a></li></ul></li><li><a href="/cms_trial/space/CMJC/1922600795/Migration/">Migration</a><ul><li><a href="/cms_trial/space/CMJC/682131761/Migrating+from+Jira+Server+to+Cloud/">Migrating from Jira Server to Cloud</a></li></ul></li></ul></li><li><a href="/cms_trial/space/CMJC/443975880/Release+notes+11+August+2023/">Release notes 11 August 2023</a></li></ul></nav>
+</aside>
+</div>
+<!-- "Get Help" — a plain link to the real, already-working Refined JSM
+     portal, at a different path on the SAME domain. No custom OAuth
+     backend needed for this: Refined's own JSM integration already
+     correctly handles brand-new, first-time visitors in production today,
+     which is exactly the case our earlier OAuth-based attempt structurally
+     couldn't solve (Atlassian's own consent screen blocks anyone with zero
+     prior relationship to the site, before ever reaching JSM). Styled to
+     match the rest of the site and left as a same-tab navigation (not
+     target="_blank") so clicking it feels like moving to another page on
+     one continuous site, not popping open a separate system. -->
+<a class="get-help-btn" href="https://support.appfire.com/page/support">Get Help</a>
+
+<!-- Advanced Tables (Table Plus, etc.) enhancement — reconstructs the parts
+     of the macro's real behavior that aren't stored as static content:
+     click-to-sort columns, computed numeric totals, and hover highlighting.
+     Harmless to include on every page — it does nothing if no
+     .advanced-table elements are present. -->
+<script>
+(function () {
+  document.querySelectorAll(".advanced-table").forEach(function (container) {
+    var table = container.querySelector("table");
+    if (!table) return;
+
+    var enableSorting = container.dataset.enableSorting === "true";
+    var autoTotal = container.dataset.autoTotal === "true";
+    var enableHighlighting = container.dataset.enableHighlighting === "true";
+    var highlightColor = container.dataset.highlightColor || "";
+
+    var headerRow = table.rows[0];
+    var tbody = table.tBodies[0] || table;
+
+    // Highlighting: toggle a background color on row hover, matching the
+    // macro's own configured highlight color rather than a fixed one.
+    if (enableHighlighting && highlightColor && headerRow) {
+      Array.prototype.slice.call(tbody.rows).forEach(function (row) {
+        if (row === headerRow) return;
+        row.addEventListener("mouseenter", function () { row.style.backgroundColor = highlightColor; });
+        row.addEventListener("mouseleave", function () { row.style.backgroundColor = ""; });
+      });
+    }
+
+    // Sorting: click a header cell to sort by that column. Numeric-aware —
+    // compares as numbers when both values parse as one, falls back to
+    // string comparison otherwise. Repeated clicks toggle ascending/descending.
+    if (enableSorting && headerRow) {
+      Array.prototype.forEach.call(headerRow.cells, function (cell, colIndex) {
+        cell.classList.add("sortable-col");
+        cell.title = "Click to sort";
+        var ascending = true;
+        cell.addEventListener("click", function () {
+          var rows = Array.prototype.slice.call(tbody.rows).filter(function (r) { return r !== headerRow; });
+          rows.sort(function (a, b) {
+            var av = (a.cells[colIndex] ? a.cells[colIndex].textContent : "").trim();
+            var bv = (b.cells[colIndex] ? b.cells[colIndex].textContent : "").trim();
+            var an = parseFloat(av), bn = parseFloat(bv);
+            var cmp = (!isNaN(an) && !isNaN(bn)) ? (an - bn) : av.localeCompare(bv);
+            return ascending ? cmp : -cmp;
+          });
+          rows.forEach(function (row) { tbody.appendChild(row); });
+          ascending = !ascending;
+        });
+      });
+    }
+
+    // Computed totals: sum any column where every non-empty cell parses as
+    // a number, appended as a footer row. This approximates the common
+    // case (a numeric sum) — the real macro lets authors choose different
+    // calculation types per column (min, max, average...), which isn't
+    // reconstructed here.
+    if (autoTotal && headerRow) {
+      var dataRows = Array.prototype.slice.call(tbody.rows).filter(function (r) { return r !== headerRow; });
+      var totals = [];
+      for (var c = 0; c < headerRow.cells.length; c++) {
+        (function (colIndex) {
+          var allNumeric = true, sum = 0, sawAny = false;
+          dataRows.forEach(function (row) {
+            var cell = row.cells[colIndex];
+            var text = cell ? cell.textContent.trim() : "";
+            if (text === "") return;
+            var n = parseFloat(text);
+            if (isNaN(n)) { allNumeric = false; return; }
+            sum += n;
+            sawAny = true;
+          });
+          totals.push(allNumeric && sawAny ? sum : null);
+        })(c);
+      }
+      if (totals.some(function (t) { return t !== null; })) {
+        var footRow = document.createElement("tr");
+        footRow.className = "advanced-table-total-row";
+        totals.forEach(function (t) {
+          var td = document.createElement("td");
+          td.textContent = t !== null ? String(t) : "";
+          footRow.appendChild(td);
+        });
+        tbody.appendChild(footRow);
+      }
+    }
+  });
+})();
+</script>
+
+<!-- Aura Tab Group enhancement — click-to-switch tabs. Harmless to include
+     on every page; does nothing if no .aura-tab-group elements exist. -->
+<script>
+(function () {
+  document.querySelectorAll(".aura-tab-group").forEach(function (group) {
+    var buttons = group.querySelectorAll(".aura-tab-btn");
+    buttons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var targetId = btn.dataset.target;
+        group.querySelectorAll(".aura-tab-btn").forEach(function (b) { b.classList.remove("active"); });
+        group.querySelectorAll(".aura-tab-panel").forEach(function (p) { p.classList.remove("active"); });
+        btn.classList.add("active");
+        var panel = document.getElementById(targetId);
+        if (panel) panel.classList.add("active");
+      });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

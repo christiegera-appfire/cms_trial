@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Status mapping | Appfire Docs</title>
+<meta name="description" content="In Jira, you can’t delete a status from an active workflow before you remap it to another valid status. To accommodate this, Configuration Manager for…">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/cms_trial/styles.css">
+<meta name="robots" content="noindex, nofollow">
+
+
+</head>
+<body>
+<div class="shell">
+  <main class="content">
+    <h1>Status mapping</h1>
+    <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="what-is-a-status-mapping">What is a status mapping?</h2><p>In Jira, you can’t delete a status from an active workflow before you remap it to another valid status. To accommodate this, <strong>Configuration Manager for Jira (CMJ) Cloud</strong> provides a mapping process that allows you to select an alternative status during deployment. CMJ Cloud then applies the status mapping while updating the active workflow.</p><h2 id="when-is-status-mapping-required">When is status mapping required</h2><p>CMJ Cloud halts the deployment during the <em>Analyze</em> phase if it identifies a status scheduled for deletion from an active workflow. In such instances, you will encounter the following error:</p><div class="panel panel-warning"><p><strong>Status needs to be remapped</strong></p><p><em>The [statusname] status won’t be deployed in the current deployment configuration. It needs to be remapped to an active status to maintain workflow stability.</em></p></div><p>It requires you to map the status scheduled for deletion to another status. You can choose a status already in the destination or one that the deployment will create. For instructions on how to map statuses using a JSON file, please refer to <a href="#Guidelines-for-mapping-statuses-with-a-JSON-file">this section</a>.</p><h2 id="how-to-remap-statuses-with-inline-transformations">How to remap statuses with Inline transformations</h2><p>The easiest way can do status remaps is directly within the <strong>Detailed Analysis Info Screen</strong> by using inline transformations. This method allows users to manually adjust mappings without downloading or modifying a JSON file.</p><p><strong>Steps to remap a status with Inline transformations:</strong></p><ol><li><p>Open the <strong>Issue Migrations </strong>card by selecting it on the <em>Analyze</em> page.</p></li><li><p>This opens up the <strong>Status Mapping</strong> section.</p></li></ol><img alt="NEWStatusMapping.png" class="doc-image" loading="lazy" src="/cms_trial/assets/ef77e258-7134-408e-ad1f-d327fe13b77e.png"/><ol><li><p>Click the dropdown under <strong>New Status</strong> and select a new status to replace the one that’s going to be deleted.</p></li><li><p>The change will be marked as a <strong>Draft</strong>, indicating that the modification has been made but not yet finalized.</p></li><li><p>Click <strong>Analyze Changes</strong> to confirm and save the transformation.</p></li><li><p>Review the <strong>Changes Tab</strong> to verify the updated mapping before proceeding with deployment.</p></li></ol><h2 id="how-to-remap-statuses-with-bulk-transformations">How to remap statuses with Bulk transformations</h2><p>Bulk transformations provide a structured approach to map statuses using a JSON file. This method is useful for larger-scale deployments where multiple statuses need to be reassigned efficiently.</p><p><strong>Steps to remap a status with Bulk transformations:</strong></p><ol><li><p>Create a deployment.</p></li><li><p>During the Analyze Changes phase, click the <strong>Bulk Transformations</strong> button.</p><ul><li><p>This will allow you to download a JSON file containing the default mapping for all projects, configuration elements, and users in the deployment scope. The file will also include entries for statuses scheduled for deletion and a list of alternative statuses for mapping.</p></li></ul></li></ol><img alt="DownloadMapButton.png" class="doc-image" loading="lazy" src="/cms_trial/assets/76f86735-2fce-4241-abb9-a0d269ef881b.png"/><ol><li><p>Modify the JSON file.</p><ul><li><p>Enter alternative statuses for those scheduled for deletion. Follow the syntax guidelines outlined in the section <a href="/cms_trial/space/CMJC/759988316/Guidelines+to+customize+the+configuration+mapping/">Guidelines for Mapping Statuses with a JSON File</a>.</p></li></ul></li><li><p>Upload the updated JSON file via the <strong>Bulk Transformations</strong> button.</p></li></ol><img alt="UploadMapButton.png" class="doc-image" loading="lazy" src="/cms_trial/assets/dc4bc2f8-7aae-422c-b863-478cefb6717b.png"/><ol><li><p>Confirm the mapping.</p><ul><li><p>If no problems are detected, click <strong>Confirm</strong> to apply the status mapping. CMJ Cloud will reanalyze the configuration and finalize the mapping.</p></li></ul></li><li><p>Resolve any errors.</p><ul><li><p>If issues are reported, correct the JSON file and re-upload it. The deployment will not be able to proceed until all problems are resolved.</p></li></ul></li><li><p>Click <strong>Deploy</strong> to finalize the deployment.</p><ul><li><p>CMJ Cloud will apply the status mapping and update affected issues accordingly.</p></li></ul></li></ol><h2 id="guidelines-for-mapping-statuses-with-a-json-file">Guidelines for mapping statuses with a JSON file</h2><p>As mentioned above, you can download a JSON mapping file that describes how the source configuration elements will be transferred to the destination. If the deployment process involves deleting a status from an active workflow, the file will include a section for status mapping. In this section, you need to specify an alternative status from the list of mappable statuses to replace the one being deleted. After deployment, any issues associated with the deleted status will be reassigned to the new status.</p><p>To configure the status mapping, modify the downloaded mapping file or create your own. Make sure any file you generate is in JSON format. Refer to the <a href="/cms_trial/space/CMJC/759988316/Guidelines+to+customize+the+configuration+mapping/">Guidelines to customize the configuration mapping</a> document for additional instructions on using a JSON file.</p><h3 id="map-statuses-in-a-downloaded-json-file">Map statuses in a downloaded JSON file</h3><p>You can manage the mapping between statuses by downloading the current mapping file, modifying it, and then uploading it back. When the deployment includes deleting a status, the mapping file you download will include entries similar to the example below:</p><p><em>Status mapping records in a downloaded JSON file</em></p><pre><code class="language-json">"statusMapping" : {
+    "mappableStatuses" : [ "Build Broken", "To Do", "Done", "Review" ],
+    "statusMigrations" : [ {
+      "oldStatus" : "Completed"
+    } ]
+  }</code></pre><p>The <code>mappableStatuses</code> property enumerates all the statuses you can choose as alternatives to the status planned for deletion. You must select a status from this list to map any status scheduled to be deleted.</p><p><em>Records to map a status being deleted to another one</em></p><pre><code class="language-json">"statusMapping" : {
+    "mappableStatuses" : [ "Build Broken", "To Do", "Done", "Review" ],
+    "statusMigrations" : [ {
+      "oldStatus" : "Completed",
+      "newStatus" : "Done"
+    } ]
+  }</code></pre><h3 id="construct-a-json-file-with-status-mapping">Construct a JSON file with status mapping.</h3><p>You can construct your own JSON file with status mapping entries and apply it to the deployed configuration. The example below shows the records needed in the file to map one status to an alternative one.</p><pre><code class="language-json">"statusMapping" : {
+    "statusMigrations" : [ {
+      "oldStatus" : "In Progress",
+      "newStatus" : "Developing"
+    } ]
+  }</code></pre><h3 id="set-a-mapping-for-more-than-one-status">Set a mapping for more than one status</h3><p>You might need to set mappings for multiple statuses scheduled for deletion. The example below shows how to structure your JSON entries to accommodate mappings for several statuses.</p><pre><code class="language-json">{
+    "statusMapping": {
+        "statusMigrations":
+                "oldStatus": "TODO",
+                "newStatus": "&lt;NEW STATUS NAME&gt;"
+            },
+            {
+                "oldStatus": "PENDING",
+                "newStatus": "&lt;NEW STATUS NAME&gt;"
+            },
+            {
+                "oldStatus": "COMPLETED",
+                "newStatus": "&lt;NEW STATUS NAME&gt;"
+            }
+        ]
+    }
+}</code></pre><h3 id="how-cmj-cloud-determines-the-mappable-statuses">How CMJ Cloud determines the mappable statuses</h3><p>Cloud Migration Tool determines the mappable statuses by analyzing all source workflows included in the deployment and their statuses. It selects only the statuses common to all these workflows. This approach ensures that any status chosen for mapping is valid across all workflows in the deployment scope.</p><p>For example, consider two workflows in a deployment, WF1, and WF2, which require status mapping. Their statuses are <em>Status1</em>, <em>Status2</em> for WF1 and <em>Status2</em>,<em> Status3</em> for WF2. In this case, the <code>mappableStatuses</code> in the JSON file will only include <em>Status2</em>, the common status between the workflows.</p><h3 id="no-mappable-statuses">No mappable statuses</h3><p>You may encounter a scenario with no common statuses between the workflows in the deployment.</p><p>When a universal status mapping applicable to all workflows isn't feasible, we suggest the following strategies:</p><ul><li><p><strong>Split the projects into smaller deployments:</strong> This is particularly useful if workflows from different projects have no common statuses.</p></li><li><p><strong>Apply transformations:</strong> Specifically, consider renaming a workflow to add it as a new workflow to the destination. Post-deployment, you will have to assign the renamed workflow to the same scheme the original was assigned to. Then, the workflow must become active.</p></li><li><p><strong>Optimize workflows in the source Jira:</strong> Before the deployment, modify your projects and workflows in the source Jira for a smoother process.</p></li></ul>
+  </main>
+  <aside class="sidebar">
+<div class="brand"><span class="brand-mark">Appfire Docs</span></div>
+<div class="brand-tag">Live docs, fetched from Confluence via API.</div>
+<a class="product-directory-link" href="/cms_trial/product-directory/">Product directory</a>
+<p class="pilot-note">82 pages in this space, fetched live from Confluence via API.</p>
+<nav><ul><li><a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira (CMJ) Cloud</a><ul><li><a href="/cms_trial/space/CMJC/193725041/Overview/">Overview</a></li><li><a href="/cms_trial/space/CMJC/193823429/Features+and+options/">Features and options</a><ul><li><a href="/cms_trial/space/CMJC/193594026/Authorize+with+API+token/">Authorize with API token</a></li><li><a href="/cms_trial/space/CMJC/193659992/Manage+snapshot+deployments/">Manage snapshot deployments</a></li><li><a href="/cms_trial/space/CMJC/193855959/Supported+configuration+elements/">Supported configuration elements</a></li><li><a href="/cms_trial/space/CMJC/1160020327/Migrate+Service+Management+projects+to+the+Cloud/">Migrate Service Management projects to the Cloud</a></li><li><a href="/cms_trial/space/CMJC/2506391642/Upload+a+snapshot/">Upload a snapshot</a></li><li><a href="/cms_trial/space/CMJC/2506522887/Create+and+manage+snapshots/">Create and manage snapshots</a></li><li><a href="/cms_trial/space/CMJC/2507112493/Deploy+a+snapshot/">Deploy a snapshot</a><ul><li><a href="/cms_trial/space/CMJC/193626781/Analyze+changes/">Analyze changes</a></li><li><a href="/cms_trial/space/CMJC/193692433/Manage+custom+fields+contexts/">Manage custom fields contexts</a></li><li><a href="/cms_trial/space/CMJC/759595150/Transformations/">Transformations</a><ul><li><a href="/cms_trial/space/CMJC/759529597/Inline+transformations/">Inline transformations</a></li><li><a href="/cms_trial/space/CMJC/1129480719/Status+mapping/" class="active">Status mapping</a></li><li><a href="/cms_trial/space/CMJC/1851621940/Bulk+transformations/">Bulk transformations</a><ul><li><a href="/cms_trial/space/CMJC/759496822/Context+transformations/">Context transformations</a></li><li><a href="/cms_trial/space/CMJC/759496884/JSON+objects+for+configuration+element+transformations/">JSON objects for configuration element transformations</a></li><li><a href="/cms_trial/space/CMJC/759824434/Download+and+customize+the+configuration+mapping/">Download and customize the configuration mapping</a></li><li><a href="/cms_trial/space/CMJC/759988316/Guidelines+to+customize+the+configuration+mapping/">Guidelines to customize the configuration mapping</a></li><li><a href="/cms_trial/space/CMJC/760315914/User+transformations/">User transformations</a></li></ul></li></ul></li></ul></li><li><a href="/cms_trial/space/CMJC/3417473252/Compare+snapshots/">Compare snapshots</a></li></ul></li><li><a href="/cms_trial/space/CMJC/193921273/Get+started+with+Configuration+Manager+for+Jira+for+Cloud/">Get started with Configuration Manager for Jira for Cloud</a><ul><li><a href="/cms_trial/space/CMJC/193659801/Prerequisites/">Prerequisites</a></li><li><a href="/cms_trial/space/CMJC/194150417/Licensing/">Licensing</a></li><li><a href="/cms_trial/space/CMJC/194183182/Installation+guide/">Installation guide</a></li><li><a href="/cms_trial/space/CMJC/681903694/Differences+between+CMJ+Server%2FData+Center+and+CMJ+Cloud/">Differences between CMJ Server/Data Center and CMJ Cloud</a></li><li><a href="/cms_trial/space/CMJC/854753912/Security+whitepaper/">Security whitepaper</a></li></ul></li><li><a href="/cms_trial/space/CMJC/194117669/Release+Notes/">Release Notes</a><ul><li><a href="/cms_trial/space/CMJC/705495925/Release+notes+January+2024/">Release notes January 2024</a></li><li><a href="/cms_trial/space/CMJC/759791666/Release+notes+February+2024/">Release notes February 2024</a></li><li><a href="/cms_trial/space/CMJC/843972981/Release+Notes+March+2024/">Release Notes March 2024</a></li><li><a href="/cms_trial/space/CMJC/937361444/Release+Notes+April+2024/">Release Notes April 2024</a></li><li><a href="/cms_trial/space/CMJC/991658010/Release+notes+May+2024/">Release notes May 2024</a></li><li><a href="/cms_trial/space/CMJC/992673833/Archived+release+notes/">Archived release notes</a><ul><li><a href="/cms_trial/space/CMJC/193593962/Release+notes+11+October+2021/">Release notes 11 October 2021</a></li><li><a href="/cms_trial/space/CMJC/193855942/Release+notes+1+October+2021/">Release notes 1 October 2021</a></li><li><a href="/cms_trial/space/CMJC/258408524/Release+notes+10+April+2023/">Release notes 10 April 2023</a></li><li><a href="/cms_trial/space/CMJC/290357530/Release+notes+25+April+2023/">Release notes 25 April 2023</a></li><li><a href="/cms_trial/space/CMJC/380764524/Release+notes+22+June+2023/">Release notes 22 June 2023</a></li><li><a href="/cms_trial/space/CMJC/429491503/Release+notes+2+August+2023/">Release notes 2 August 2023</a></li><li><a href="/cms_trial/space/CMJC/503480776/Release+notes+18+September+2023/">Release notes 18 September 2023</a></li><li><a href="/cms_trial/space/CMJC/578060323/Release+notes+November+2023/">Release notes November 2023</a></li><li><a href="/cms_trial/space/CMJC/642187824/Release+notes+December+2023/">Release notes December 2023</a></li></ul></li><li><a href="/cms_trial/space/CMJC/1033863393/Release+notes+June+2024/">Release notes June 2024</a></li><li><a href="/cms_trial/space/CMJC/1132986520/Release+notes+17+July+2024/">Release notes 17 July 2024</a></li><li><a href="/cms_trial/space/CMJC/1150058608/Release+notes+24+July+2024/">Release notes 24 July 2024</a></li><li><a href="/cms_trial/space/CMJC/1213956239/Release+notes+August+2024/">Release notes August 2024</a></li><li><a href="/cms_trial/space/CMJC/1302561092/Release+notes+September+2024/">Release notes September 2024</a></li><li><a href="/cms_trial/space/CMJC/1375142580/Release+notes+October+2024/">Release notes October 2024</a></li><li><a href="/cms_trial/space/CMJC/1514897435/Release+notes+November+2024/">Release notes November 2024</a></li><li><a href="/cms_trial/space/CMJC/1567622126/Release+notes+December+2024/">Release notes December 2024</a></li><li><a href="/cms_trial/space/CMJC/1639743570/Release+notes+January+2025/">Release notes January 2025</a></li><li><a href="/cms_trial/space/CMJC/1751188366/Release+notes+February+2025/">Release notes February 2025</a></li><li><a href="/cms_trial/space/CMJC/1851949355/Release+notes+March+2025/">Release notes March 2025</a></li><li><a href="/cms_trial/space/CMJC/1985609831/Release+notes+April+2025/">Release notes April 2025</a></li><li><a href="/cms_trial/space/CMJC/2161082729/Release+notes+July+2025/">Release notes July 2025</a></li><li><a href="/cms_trial/space/CMJC/2250047502/Release+notes+4+August+2025/">Release notes 4 August 2025</a></li><li><a href="/cms_trial/space/CMJC/2306932831/Release+notes+25+August+2025/">Release notes 25 August 2025</a></li><li><a href="/cms_trial/space/CMJC/2426798089/Release+notes+October+2025/">Release notes October 2025</a></li><li><a href="/cms_trial/space/CMJC/2506031188/Release+notes+November+2025/">Release notes November 2025</a></li><li><a href="/cms_trial/space/CMJC/2623864835/Release+notes+December+2025/">Release notes December 2025</a></li><li><a href="/cms_trial/space/CMJC/2857566448/Release+notes+February+2026/">Release notes February 2026</a></li><li><a href="/cms_trial/space/CMJC/2980839433/Release+notes+March+2026/">Release notes March 2026</a></li><li><a href="/cms_trial/space/CMJC/3123709354/Release+notes+April+2026/">Release notes April 2026</a></li><li><a href="/cms_trial/space/CMJC/3301244947/Release+notes+May+2026/">Release notes May 2026</a></li><li><a href="/cms_trial/space/CMJC/3374187844/Release+notes+June+2026/">Release notes June 2026</a></li><li><a href="/cms_trial/space/CMJC/3416883522/Release+notes+July+2026/">Release notes July 2026</a></li><li><a href="/cms_trial/space/CMJC/3529801847/Release+notes+August+2026/">Release notes August 2026</a></li></ul></li><li><a href="/cms_trial/space/CMJC/194117717/Use+Cases/">Use Cases</a><ul><li><a href="/cms_trial/space/CMJC/258053021/Deploy+configuration+changes+from+Jira+Cloud+to+Cloud/">Deploy configuration changes from Jira Cloud to Cloud</a></li><li><a href="/cms_trial/space/CMJC/258085727/Migrate+projects+and+issues+from+Jira+Server%2FDC+to+Jira+Cloud/">Migrate projects and issues from Jira Server/DC to Jira Cloud</a></li><li><a href="/cms_trial/space/CMJC/2890924061/Test+and+deploy+Jira+configuration+changes+safely/">Test and deploy Jira configuration changes safely</a></li><li><a href="/cms_trial/space/CMJC/2936799239/Simplify+your+Cloud+migration+with+Configuration+Manager+for+Jira+(CMJ)/">Simplify your Cloud migration with Configuration Manager for Jira (CMJ)</a></li><li><a href="/cms_trial/space/CMJC/2981756935/Promote+JMWE+and+JSU+app+data+safely+with+CMJ+Cloud/">Promote JMWE and JSU app data safely with CMJ Cloud</a></li><li><a href="/cms_trial/space/CMJC/3504439478/Analyze+freely.+Deploy+precisely./">Analyze freely. Deploy precisely.</a></li></ul></li><li><a href="/cms_trial/space/CMJC/258053546/Help+and+support/">Help and support</a><ul><li><a href="/cms_trial/space/CMJC/642220408/Share+deployment+data+with+the+support+team/">Share deployment data with the support team</a></li><li><a href="/cms_trial/space/CMJC/2273706042/IP+allowlist+considerations+for+CMJ+Cloud+on+Premium+Jira+Cloud/">IP allowlist considerations for CMJ Cloud on Premium Jira Cloud</a></li></ul></li><li><a href="/cms_trial/space/CMJC/1922600795/Migration/">Migration</a><ul><li><a href="/cms_trial/space/CMJC/682131761/Migrating+from+Jira+Server+to+Cloud/">Migrating from Jira Server to Cloud</a></li></ul></li></ul></li><li><a href="/cms_trial/space/CMJC/443975880/Release+notes+11+August+2023/">Release notes 11 August 2023</a></li></ul></nav>
+</aside>
+</div>
+<!-- "Get Help" — a plain link to the real, already-working Refined JSM
+     portal, at a different path on the SAME domain. No custom OAuth
+     backend needed for this: Refined's own JSM integration already
+     correctly handles brand-new, first-time visitors in production today,
+     which is exactly the case our earlier OAuth-based attempt structurally
+     couldn't solve (Atlassian's own consent screen blocks anyone with zero
+     prior relationship to the site, before ever reaching JSM). Styled to
+     match the rest of the site and left as a same-tab navigation (not
+     target="_blank") so clicking it feels like moving to another page on
+     one continuous site, not popping open a separate system. -->
+<a class="get-help-btn" href="https://support.appfire.com/page/support">Get Help</a>
+
+<!-- Advanced Tables (Table Plus, etc.) enhancement — reconstructs the parts
+     of the macro's real behavior that aren't stored as static content:
+     click-to-sort columns, computed numeric totals, and hover highlighting.
+     Harmless to include on every page — it does nothing if no
+     .advanced-table elements are present. -->
+<script>
+(function () {
+  document.querySelectorAll(".advanced-table").forEach(function (container) {
+    var table = container.querySelector("table");
+    if (!table) return;
+
+    var enableSorting = container.dataset.enableSorting === "true";
+    var autoTotal = container.dataset.autoTotal === "true";
+    var enableHighlighting = container.dataset.enableHighlighting === "true";
+    var highlightColor = container.dataset.highlightColor || "";
+
+    var headerRow = table.rows[0];
+    var tbody = table.tBodies[0] || table;
+
+    // Highlighting: toggle a background color on row hover, matching the
+    // macro's own configured highlight color rather than a fixed one.
+    if (enableHighlighting && highlightColor && headerRow) {
+      Array.prototype.slice.call(tbody.rows).forEach(function (row) {
+        if (row === headerRow) return;
+        row.addEventListener("mouseenter", function () { row.style.backgroundColor = highlightColor; });
+        row.addEventListener("mouseleave", function () { row.style.backgroundColor = ""; });
+      });
+    }
+
+    // Sorting: click a header cell to sort by that column. Numeric-aware —
+    // compares as numbers when both values parse as one, falls back to
+    // string comparison otherwise. Repeated clicks toggle ascending/descending.
+    if (enableSorting && headerRow) {
+      Array.prototype.forEach.call(headerRow.cells, function (cell, colIndex) {
+        cell.classList.add("sortable-col");
+        cell.title = "Click to sort";
+        var ascending = true;
+        cell.addEventListener("click", function () {
+          var rows = Array.prototype.slice.call(tbody.rows).filter(function (r) { return r !== headerRow; });
+          rows.sort(function (a, b) {
+            var av = (a.cells[colIndex] ? a.cells[colIndex].textContent : "").trim();
+            var bv = (b.cells[colIndex] ? b.cells[colIndex].textContent : "").trim();
+            var an = parseFloat(av), bn = parseFloat(bv);
+            var cmp = (!isNaN(an) && !isNaN(bn)) ? (an - bn) : av.localeCompare(bv);
+            return ascending ? cmp : -cmp;
+          });
+          rows.forEach(function (row) { tbody.appendChild(row); });
+          ascending = !ascending;
+        });
+      });
+    }
+
+    // Computed totals: sum any column where every non-empty cell parses as
+    // a number, appended as a footer row. This approximates the common
+    // case (a numeric sum) — the real macro lets authors choose different
+    // calculation types per column (min, max, average...), which isn't
+    // reconstructed here.
+    if (autoTotal && headerRow) {
+      var dataRows = Array.prototype.slice.call(tbody.rows).filter(function (r) { return r !== headerRow; });
+      var totals = [];
+      for (var c = 0; c < headerRow.cells.length; c++) {
+        (function (colIndex) {
+          var allNumeric = true, sum = 0, sawAny = false;
+          dataRows.forEach(function (row) {
+            var cell = row.cells[colIndex];
+            var text = cell ? cell.textContent.trim() : "";
+            if (text === "") return;
+            var n = parseFloat(text);
+            if (isNaN(n)) { allNumeric = false; return; }
+            sum += n;
+            sawAny = true;
+          });
+          totals.push(allNumeric && sawAny ? sum : null);
+        })(c);
+      }
+      if (totals.some(function (t) { return t !== null; })) {
+        var footRow = document.createElement("tr");
+        footRow.className = "advanced-table-total-row";
+        totals.forEach(function (t) {
+          var td = document.createElement("td");
+          td.textContent = t !== null ? String(t) : "";
+          footRow.appendChild(td);
+        });
+        tbody.appendChild(footRow);
+      }
+    }
+  });
+})();
+</script>
+
+<!-- Aura Tab Group enhancement — click-to-switch tabs. Harmless to include
+     on every page; does nothing if no .aura-tab-group elements exist. -->
+<script>
+(function () {
+  document.querySelectorAll(".aura-tab-group").forEach(function (group) {
+    var buttons = group.querySelectorAll(".aura-tab-btn");
+    buttons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var targetId = btn.dataset.target;
+        group.querySelectorAll(".aura-tab-btn").forEach(function (b) { b.classList.remove("active"); });
+        group.querySelectorAll(".aura-tab-panel").forEach(function (p) { p.classList.remove("active"); });
+        btn.classList.add("active");
+        var panel = document.getElementById(targetId);
+        if (panel) panel.classList.add("active");
+      });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
