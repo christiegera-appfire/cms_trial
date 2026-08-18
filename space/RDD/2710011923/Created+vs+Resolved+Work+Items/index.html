@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146310010/Product+and+data+connections/">Product and data connections</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/3019735522/Connect+data+from+Atlassian+products/">Connect data from Atlassian products</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309926/Jira+Software/">Jira Software</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Created vs Resolved Work Items</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/2710011923" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Created vs Resolved Work Items</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview </h2><p>The Created vs Resolved Work Items gadget provides a clear view of work item creation and resolution over time using two debt metrics alongside a stacked area chart, helping stakeholders understand not just how many work items are being created, but whether overall technical or operational debt is growing or shrinking.</p><p>The area chart visualizes the work items across a selected time period, using color-coded areas to clearly indicate whether the team is accumulating new debt or reducing existing debt at a specified point. The <strong>Created</strong> value represents all issues; <strong>Resolved</strong> shows the number of resolved issues in the selected time period.</p><img alt="Dashboard Hub Dashboard Hub Created vs Resolved Work Items" class="doc-image" loading="lazy" src="/cms_trial/assets/974a475d-ed27-4a1e-9da6-dc8989974010.png"/><p>The gadget combines two key metrics using the number of items created and resolved within the defined date range. Current Period Accumulated Debt shows how work is accumulating right now, while Historical Debt shows what has carried over unresolved from previous periods. Both trending downward over time is a strong indicator of a team successfully managing its workload.</p><h3 id="current-period-accumulated-debt"><strong>Current Period Accumulated Debt</strong></h3><p>This metric shows how many work items created during the <em>current</em> time period (day, week, or month, depending on your selected date range) have not yet been resolved. It provides a real-time view of whether your team is keeping pace with incoming work. </p><p><strong>Calculation:</strong> <code>Created this period − Resolved this period</code></p><p>A higher number means new work is arriving faster than it's being completed. A number at or near zero means your team is keeping pace with incoming work within the period. The gadget also displays the resolution rate for the current period as a percentage.</p><p><strong>Calculation:</strong> <code>Resolved in period/Created in period x 100</code></p><p><strong>Example</strong>: If 5 work items were created this month and 1 was resolved, the current period’s accumulated debt is 4. The resolution rate is 20%. This calculation doesn’t include work items created in previous periods. </p><h3 id="historical-debt"><strong>Historical Debt</strong></h3><p>This shows how many work items created in <em>previous</em> periods were resolved in the <em>current</em> period, revealing the total unresolved deficit accumulated across all previous periods. </p><p>Periods where the team resolved more than was created do not offset deficits from other periods — each period's shortfall is counted independently. This ensures the metric accurately reflects the full weight of unresolved work carried forward over time, rather than allowing strong periods to obscure ongoing backlog pressure.</p><p><strong>Calculation:</strong> <code>SUM of MAX(0, Created − Resolved) for each previous period</code></p><p><strong>Example:</strong> If previous periods result in a shortfall of 6, the current period adds 5, and resolves 1, then the redemption ratio is 6% using <code>1 / (11 + 6) × 100 = 1 / 17 × 100 = 5.9%</code></p><hr/><h2 id="interactive-demo">Interactive demo</h2><p>Watch the interactive demo to learn how to add the gadget to your dashboard, or follow the steps under <em>Configure the gadget</em>.</p><p><a class="embed-card-link" href="https://app.arcade.software/share/6o1FuhsXYzXr11mfWSAM">https://app.arcade.software/share/6o1FuhsXYzXr11mfWSAM</a></p><h2 id="configure-the-gadget">Configure the gadget</h2><p>To add the gadget to a dashboard:</p><ol><li><p>Click <strong>Edit</strong> in your dashboard, then click <strong>Add Gadget</strong>. </p></li><li><p>Use the <em>Search</em> bar in the <em>Add gadget</em> page to find the required gadget.</p></li><li><p>Select the <strong>Created vs Resolved Work Items</strong> gadget.</p></li><li><p>Configure the gadget:</p><ol><li><p><strong>Name</strong>: The name field is completed by default. You can edit the name to make it more meaningful to your team.</p></li><li><p><strong>Datasource</strong>: Select the Jira datasource from where you want to retrieve work item statistics. To learn more about datasource types, see <a href="/cms_trial/space/RDD/2116682228/Datasources/">Datasources</a>.</p></li><li><p><strong>Filter</strong> (optional): Use this option to limit the work items to compare. Select a Jira filter or enter a JQL query and click <strong>Load</strong>. If you change the JQL filter, click <strong>Load</strong> again to refresh the work items used for the report.</p></li><li><p><strong>Date range</strong>: Select a date range for the work items. The dates provided filter the results of any applied filters. </p></li><li><p><strong>Group by </strong>(optional): Select an option from Day, Week, Month, Quarter or Year to aggregate work into a single data point. Day is the default selection.</p></li></ol></li><li><p>Click <strong>Add</strong> to save the configuration and add the gadget to your dashboard.</p></li></ol><div class="panel panel-success"><p>You can resize or reposition any gadget in a dashboard to prioritize specific data and enhance the dashboard layout.</p></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

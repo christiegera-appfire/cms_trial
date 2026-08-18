@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1874100241/Configuration/">Configuration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1874001954/Automate+your+integration/">Automate your integration</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Configure Automatic Pull from Salesforce</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/1873446010" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Configure Automatic Pull from Salesforce</h1>
+    <div class="page-meta">9 min read</div>
     <div class="columns" style="grid-template-columns: 100.0fr;"><div><div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>When a support agent updates a case in Salesforce, the linked Jira issue should reflect that change without anyone having to trigger a manual sync. Automatic Pull makes this happen by using Apex triggers in Salesforce to detect record changes and push them to the associated Jira issues instantly.</p><p>This means your engineering team always works with up-to-date information, without relying on agents to remember to sync, and without administrators having to intervene every time a record changes.</p><p>This page walks you through everything you need to configure as a Jira and Salesforce administrator to allow Automatic Pull from Salesforce by enabling the <strong>Allow</strong> <strong>Automatic Pull </strong>option and configuring the required Salesforce triggers. </p><p>Automatic Pull only works if:</p><ul><li><p>Connection is configured to Allow Automatic Pull</p></li><li><p>Association is configured to Allow Automatic Pull</p></li><li><p>Salesforce Triggers for the respective objects are installed</p></li><li><p>Connection allows modification</p></li><li><p>The Salesforce object for which you configure the Automatic Pull trigger is configured to be available</p></li></ul><div class="panel panel-note"><p><strong>Automatic Pull in Jira</strong> is called the <strong>Automatic Push in Salesforce</strong>. The naming is chosen based on the user's point of view for the respective system.</p></div></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="before-you-start">Before you start</h2><p>Make sure you have:</p><ul><li><p>Administrator rights in Jira </p></li><li><p><a href="/cms_trial/space/CSFJIRA/1873347420/Configure+Salesforce+objects+and+fields+in+connection+search+results/">configure the available objects and fields</a> before proceeding with the following steps. </p></li><li><p><a href="/cms_trial/space/CSFJIRA/1758232704/Install+the+Salesforce+package+in+Salesforce/">Installed</a> and <a href="/cms_trial/space/CSFJIRA/1873346949/Set+up+a+connection+to+Jira/">configured</a> the Salesforce package </p></li></ul></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="enable-connection-to-allow-automatic-pull">Enable connection to allow Automatic Pull</h2><ol><li><p>Select <strong>Apps</strong> from the left sidebar in Jira.</p></li><li><p>Under <em>Connector for Salesforce</em>, click <strong>Connections</strong>.</p></li><li><p>On the <em>Salesforce Connections</em> window, navigate to the Connection<strong> </strong>you want to configure and click <strong>Configure.</strong></p><img alt="Configure Connections" class="doc-image" loading="lazy" src="/cms_trial/assets/f5f40947-a483-4f29-a0d6-e1b86a117b6a.png"/></li><li><p>On the<em> Connection Configuration</em> window, find the <em>Connection Settings</em> and enable the <strong>Allow Automatic Pull </strong>option. </p></li><li><p>Make sure the <strong>Allow Modification</strong> option is enabled.</p><img alt="Connection Configuration" class="doc-image" loading="lazy" src="/cms_trial/assets/61693cd2-3bf5-4543-8cf3-6d631143a0bc.png"/></li></ol></div></div><h2 id="enable-automatic-pull-for-an-association">Enable Automatic Pull for an association</h2><p>Automatic Pull from Salesforce has to be enabled/disabled per association. Set it up either when <a href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/470754430">creating an association</a> or later by <a href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/1953366688">Configuring an association</a>. Additionally, the preset configuration for the Automatic Pull switch can be configured on the <strong>Connection Configuration</strong> page.</p><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="create-and-deploy-apex-triggers">Create and Deploy Apex triggers</h2><p>The Connector relies on Apex triggers to be informed of changes on Salesforce records. These triggers have to be created and deployed manually in Salesforce. For Salesforce Enterprise and Unlimited editions, the standard deployment of Apex triggers is required (see Salesforce <a href="https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_deploying.htm">documentation</a>).</p><p>The following code samples show how to write triggers for <strong>Cases</strong>. To create triggers for other objects, replace the object name in the code accordingly.</p></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h3 id="push-to-jira-after-object-updated">Push to Jira after Object updated <br/> </h3><p><strong>Cloud</strong></p><h4 id="caseupdatedtrigger"><strong>CaseUpdatedTrigger</strong></h4><pre><code class="language-java">trigger CaseUpdatedTrigger on Case (after update) {
     JCFS.API.pushUpdatesToJira();
 }</code></pre><p><strong>DC</strong></p><h4 id="caseupdatedtrigger-2"><strong>CaseUpdatedTrigger</strong></h4><pre><code class="language-java">trigger CaseUpdatedTrigger on Case (after update) {
@@ -310,6 +315,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

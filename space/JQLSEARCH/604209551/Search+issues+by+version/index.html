@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209972/JQL+Search+Extensions+(Cloud)/">JQL Search Extensions (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209757/Use+cases/">Use cases</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Search issues by version</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JQLSEARCH/pages/604209551" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Search issues by version</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="with-jira-advanced-search">With Jira advanced search</h2><p>You can use Jira’s advanced search to find issues by fixVersion: </p><p><code>fixVersion=v2.2</code></p><p>or to search more than one version:</p><p><code>fixVersion in (v2.2, v2.4)</code></p><p>You can also find issues matching a range of versions. For example, if there are versions v1.0, v2.0, v2.1, v2.2, v3.0 and you want to see all v2 versions:</p><p><code>fixVersion&gt;=v2.0 and fixversion &lt;=v2.2</code></p><div class="panel panel-note"><p>The order of versions is controlled by how they are arranged in your project’s versions configuration, not by the version number. To change the order, go to your <strong>Project Settings</strong> &gt; <strong>Versions</strong> and reorder the versions by drag-and-drop.</p></div><h2 id="wildcard-searching-and-regular-expressions">Wildcard searching and regular expressions</h2><p>Searching using the version order can be limiting because you must use an existing version to set the range. You may also want to find issues with versions that contain a particular text in the version name. You can perform both of these advanced version searches with <strong>JQL Search Extensions for Jira</strong> <a href="https://appfire.atlassian.net/wiki/x/74IDJ">Text functions</a>.</p><p><strong>To search by wildcard:</strong></p><ol><li><p>Go to <strong>Apps</strong> &gt; <strong>Extended Search</strong> to open the <a href="/cms_trial/space/JQLSEARCH/604209464/Extended+Search/"><em>Extended Search</em></a> page.</p></li><li><p>Enter <code>issue in wildcardMatch("fixVersion", "v2.0*")</code> to find all issues with versions starting with “v2.0”. You can put a wildcard anywhere in a search text.</p></li><li><p>Click <strong>Search</strong>.</p></li></ol><p><strong>To search with regular expressions:</strong></p><p>For even more control, you can leverage regular expressions. The following query only matches versions between v.2.0 and v2.5 that are beta versions:</p><p><code>issue in regex("fixVersion", "v2.[0-5]-beta")</code></p><div class="panel panel-success"><p>The documentation for <a href="/cms_trial/space/JQLSEARCH/604209903/Text+matches/">wildcardMatch </a>and <a href="/cms_trial/space/JQLSEARCH/604209903/Text+matches/">regex</a> provides more examples of how to use the functions in Extended Search.</p></div><h2 id="interactive-walkthrough">Interactive walkthrough</h2><p>Follow the interactive demo to see how to use the functions in Extended Search.</p><iframe src="https://demo.arcade.software/JwSpo5ryFfeQgdsNYvob"></iframe><p><em>Interactive demo of the JQL queries described on this page.</em></p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

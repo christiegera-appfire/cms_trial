@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12518315/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Guide to JSU error messages</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JSUCLOUD/pages/290194210" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Guide to JSU error messages</h1>
+    <div class="page-meta">5 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>This page provides information about the different types of errors that can occur in JSU Cloud and actions you can take to resolve them. The messages below are listed alphabetically by error title. </p><div class="panel panel-note"><p>If a JSU rule execution fails, JSU displays an error message and records the error in the <a href="/cms_trial/space/JSUCLOUD/138149902/Execution+Log/">Execution Log</a>. </p></div><h3 id="field-does-not-exist">Field does not exist</h3><p>This error occurs when a field to be actioned does not exist. This can happen if you configure your workflow and then later delete the field defined in the configuration from the origin or target work item. The message includes the field component ID.</p><p><strong>Solution</strong>: In the rule that produced the error, update the field component with a valid field then publish the workflow again.</p><hr/><h3 id="field-was-not-found-on-screen">Field was not found on screen</h3><p>This error occurs when a field is absent from the specified screen type. The message includes the post function, relevant field ID, work item type, and screen type.</p><p><strong>Solution</strong>: Add the missing field to the specified screen type. Alternatively, set the Perform as User option to <code>JSU Add-On User</code> in the specified post function to override this requirement.</p><div class="panel panel-warning"><p>If this error occurs for a Create Linked Issue post function, add the missing field to the Create transition screen. The perform as JSU Add-on user option can’t override missing fields on the Create transition.</p></div><hr/><h3 id="invalid-workflow-rule-configuration">Invalid workflow rule configuration</h3><p>This error occurs when a rule is configured so that it can’t be executed. This can be because of missing parameters or incorrect or incompatible options selected in the configuration. For example, you may have configured a Create a Linked Issue post function where the work item type for the new work item and the work item relation were not compatible.</p><p><strong>Solution</strong>: Review the rule, make any necessary adjustments then publish the workflow again. If you can’t identify the problem, contact our support team, referencing the log ID provided in the error message.</p><hr/><h3 id="jsu-can-t-find-the-transition-id">JSU can’t find the transition ID</h3><p>This is an internal error with JSU that occurs when it can’t identify a transition ID.</p><p><strong>Solution</strong>: Contact Appfire Support referencing the log ID provided in the error message.</p><hr/><h3 id="jsu-encountered-an-internal-error">JSU encountered an internal error</h3><p>An internal error occurs with JSU and not with your configuration. You do not need to make any changes to your workflow to resolve this error.</p><p><strong>Solution</strong>: Try refreshing your browser page. If the error persists, contact our support team.</p><hr/><h3 id="missing-permissions">Missing permissions</h3><p>This error occurs when the Perform As User (or actor) defined for a post function does not have the necessary permissions to perform the action following a transition. For example, you have configured the Update Any Issue Field post function to change the assignee when a work item moves to <span class="status-lozenge">IN PROGRESS</span> but set the Perform As User to a named user who does not have permission to change the <em>Assignee</em> field.</p><p><strong>Solution</strong>: Change the <a href="https://appfire.atlassian.net/wiki/spaces/JSU/pages/12682394">Perform As User</a> to a different user with the required permissions, or use the JSU Automation Suite for Jira Workflows user. This user setting contains all the necessary permissions to perform your rule actions. </p><hr/><h3 id="no-work-item-found">No work item found</h3><p>This error occurs when JSU can’t find the work item to be actioned. For example, you configure a Linked Issue post function to action a subtask of the work item in the transition, but the work item does not have any subtasks.</p><p><strong>Solution</strong>: Change the work item relation type for the post function or create the required work items for the selected relation type, for example, add subtasks to the triggering work item. See <a href="/cms_trial/space/JSUCLOUD/12518756/Related+issues/">Related Issues</a> to learn more. </p><hr/><h3 id="required-field-missing">Required field missing </h3><p><em>(Create a Linked Issue post function) </em></p><p>This error occurs when a value for a required field is missing for the new work item, and therefore, it can’t be created for the selected work item type.</p><p><strong>Solution</strong>: Set the field as optional in your Jira field configuration or change the selected work item type in the post function configuration.</p><hr/><h3 id="required-field-missing-2">Required field missing </h3><p><em>(Transition screen)</em></p><p>This error occurs when a value for a required field for a transition screen is not provided. The message contains the name of the missing field.</p><p><strong>Solution</strong>: In Jira, set the field as optional or add an update field component for the required field.</p><hr/><h3 id="transition-can-t-be-completed">Transition can’t be completed</h3><p>This error occurs if a work item in a source status does not have a transition to the destination status.</p><p><strong>Solution</strong>: Choose a valid destination status in your transition work item component, or modify the corresponding workflow to create a transition from the source status to the destination status.</p><hr/><h3 id="transition-caused-infinite-loop">Transition caused infinite loop</h3><p>This message is displayed when an automation rule results in an endless cycle of work item creation and follow-up transitions following the triggering of the origin work item. Performing this transition would result in an infinite loop, so JSU stops it to protect your system.</p><p><strong>Solution</strong>: Review your automations across all apps, including built-in automation. Automations that trigger follow-up automations should be reviewed, changed, or removed. If you need help, contact Appfire Support referencing the log ID</p><p>See <a href="/cms_trial/space/JSUCLOUD/256770940/Infinite+loop+detection/">Infinite loop detection</a> to learn more.</p><hr/><h3 id="transition-does-not-exist">Transition does not exist</h3><p>This error can occur if the transition configured for the rule has been deleted or is hidden by a workflow condition.</p><p><strong>Solution</strong><em>: </em>Update the transition work item component with a valid transition, or change the workflow itself and implement a valid transition to use in the rule.</p><hr/><h3 id="validation-rejected-the-transition">Validation rejected the transition</h3><p>This error occurs when a validator (check) rejects the transition.</p><p><strong>Solution</strong>: Change or remove the validator from the workflow. Alternatively, update the rule so that it complies with the selected validator. If you have multiple workflow apps installed, check if any conditions or validators configured are affecting your JSU rules.</p><p>See <a href="/cms_trial/space/JSUCLOUD/12518578/Workflow+validators/">Workflow validators</a> to learn more.</p></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

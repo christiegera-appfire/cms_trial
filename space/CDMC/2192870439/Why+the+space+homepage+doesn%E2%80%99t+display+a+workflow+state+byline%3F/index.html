@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192776724/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Why the space homepage doesn’t display a workflow state byline?</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2192870439" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Why the space homepage doesn’t display a workflow state byline?</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>You want to apply a <strong>Comala Document Management</strong> workflow to a space, including its homepage. However, the <strong>workflow state byline</strong> does not appear on the homepage after the workflow is applied. Additionally, you cannot apply a <strong>single-page workflow</strong> to the homepage.</p><h2 id="problem"><strong>Problem</strong></h2><p>Comala Document Management <strong>does not support</strong> a workflow app for a space’s homepage. As a result, the homepage <strong>will not display</strong> a workflow state byline.</p><p>This limitation is due to restrictions within the <strong>Atlassian Confluence Cloud</strong> platform.</p><div class="panel panel-note"><p>This <strong>Atlassian Cloud limitation</strong> also affects <strong>Comala Publishing</strong>. It prevents the source space homepage from being published to the target space, which means the homepage will not display a <strong>publishing lozenge</strong>.</p></div><h2 id="workaround"><strong>Workaround</strong></h2><p>To manage content effectively, we recommend:</p><ul><li><p>Designing the <strong>homepage</strong> using only <strong>page macros</strong> such as the <strong>Page Tree Macro</strong> or <strong>Children Macro</strong> to display space content.</p></li><li><p>A <strong>Comala Document Management</strong> workflow can be applied to manage content on child pages.</p></li></ul><p>This approach ensures proper workflow management while working within Confluence Cloud limitations.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMCFC/168855370/Overview/">Jira Misc Custom Fields (JMCF) - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/168855370/Overview/">Overview</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/465405670/JMCF+Administration/">JMCF Administration</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Error Logs</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMCFC/pages/465436864" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Error Logs</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><div class="panel panel-warning"><p><strong>Note</strong>: Version 2.0 of JMCF for Jira Cloud includes the release of <a href="https://appfire.atlassian.net/wiki/spaces/MCFCS/pages/713588743">Scripted Fields</a>. <em>This feature is currently in </em><em><strong>limited release</strong></em>.</p><p>Full availability of Scripted Fields will occur in a future release.</p></div><p>The <strong>Error logs</strong> page (Figure 1, right) displays a paginated list of any errors that have occurred with <strong>JMCF for Jira Cloud</strong> custom fields. Potential errors could include: </p><ul><li><p>An outage in Jira or Forge that causes JMCF calculations or display values to unexpectedly fail</p></li><li><p>A misconfigured custom field (e.g. a scripted custom field with a scripting error) that causes JMCF calculation errors</p></li><li><p>A bug in the JMCF application that may cause errors during configuration, calculation/re-calculation, or display of a custom field</p></li></ul><div class="panel panel-warning"><p><strong>Please note</strong>: Currently, Atlassian storage constraints limit the retention of error logs to <strong>100 logs per day for seven days only</strong>. </p></div><p>The error console data on the nature of the error and provides tools for acknowledging and deleting error logs. The page includes four primary sections: </p><ul><li><p><strong>Page Toolbar</strong> - The upper right corner of the page includes a menu with several commands: </p><ul><li><p><strong>Documentation</strong> - Open the JMCF for Jira Cloud documentation. </p></li><li><p><strong>Support request</strong> - Open the Appfire Support portal to submit a support request. </p></li><li><p><strong>Feedback</strong> - Open the Appfire Support portal to submit an enhancement or feature request. </p></li><li><p><strong>Atlassian Community</strong> - Open the <a href="https://community.atlassian.com/t5/tag/addon-com.innovalog.jmcf.jira-misc-custom-fields/tg-p/category-id/atlassian-marketplace">Atlassian Community page for JMCF</a>. </p></li></ul></li><li><p><strong>Acknowledged</strong> - Show or hide Acknowledged error logs.</p></li><li><p><strong>Actions</strong> - Bulk actions to acknowledge all errors or delete all errors.  </p></li><li><p><strong>Refresh</strong> - Refresh the Error logs table. </p></li><li><p><strong>Search</strong> - Search the Error logs table by:</p><ul><li><p><strong>Field name </strong>(full name or partial name)</p></li><li><p><strong>Field ID</strong></p></li><li><p><strong>Type</strong> (full type name or partial name)</p></li><li><p><strong>Error details</strong></p></li></ul></li><li><p><strong>Error Table</strong> - List of error logs. </p><ul><li><p><strong>Pagination</strong> - For instances with many custom fields that encounter errors, the table will be paginated with navigation controls under the table itself.</p></li></ul></li></ul><p>Additionally, the error table consists of the following columns: </p><div class="panel panel-note"><p><strong>Note</strong>: Column headers can be used to sort the Calculations table. </p></div><ul><li><p><strong>Time</strong> - Full date and time of the error.</p></li><li><p><strong>Type</strong> - The type of error.</p></li><li><p><strong>Details</strong> - Extended error details in the specific error message encountered.</p></li><li><p><strong>Field Name &amp; ID</strong> - The field name and Jira unique identifier.<br/><span class="icon-note">[note icon]</span> <strong>Note</strong>: Occasionally an error will occur that is not related to a specific custom field. When this occurs, the field name and ID column will display <strong>none</strong>. </p></li><li><p><strong>Acknowledged On</strong> - <em>Only visible when the </em><em><strong>Acknowledged</strong></em><em> checkbox is checked at the top of the page. </em>The date and time when the error log was acknowledged. </p></li><li><p><strong>Acknowledged</strong> - Check this box to acknowledge the error. Acknowledged errors remain in the error list table, but are hidden by default. Uncheck this box to mark the error as unacknowledged. </p></li><li><p><strong>Delete</strong> - Completely remove the error log. <strong>This action cannot be undone!</strong></p></li></ul></div><div><div class="panel panel-note"><p>You are viewing the documentation for <strong>Jira Cloud</strong>.</p></div><h3 id="on-this-page">On This Page</h3><img alt="Jira Misc Custom Fields (JMCF) Cloud error logs administration page" class="doc-image" loading="lazy" src="/cms_trial/assets/8afe2a05-0c9e-4005-99d4-63bb5d834c40.png"/></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

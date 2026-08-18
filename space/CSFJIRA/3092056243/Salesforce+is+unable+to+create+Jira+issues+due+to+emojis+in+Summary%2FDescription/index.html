@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3092186916/Errors+and+Error+Messages/">Errors and Error Messages</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Salesforce is unable to create Jira issues due to emojis in Summary/Description</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3092056243" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Salesforce is unable to create Jira issues due to emojis in Summary/Description</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="summary">Summary</h2><p>When a Jira issue's Summary or Description contains an emoji, an error will trigger and the issue will not be created. This happens when issues are being created from the Salesforce environment containing the emojis to the Jira issue.</p><h2 id="environment">Environment</h2><ul><li><p>Jira version 8.20 or prior</p></li><li><p>MySQL database 5.5.3 or prior</p></li></ul><h2 id="diagnostics-steps">Diagnostics Steps</h2><ol><li><p>Create a Jira issue with an emoji in the Description/Summary field.</p></li><li><p>Creation will fail, create a support zip file for this.</p></li><li><p>Check the zip file for an error similar to the following:</p></li></ol><h4 id="error"><strong>Error</strong></h4><pre><code class="language-">
 Incorrect string value: '\xF0\x9F\x98\x8A\x0D\x0A...' for column 'DESCRIPTION' at row 1</code></pre><h2 id="cause">Cause</h2><p>This issue is related to an existing bug regarding MySQL 5.5.3 or prior which does not support 4 byte UTF8 characters. There's a reference to this in the following Atlassian ticket:</p><ul><li><p><a href="https://jira.atlassian.com/browse/JRASERVER-44069?__hstc=72543820.01f99528af9bc253f8dffa62573b705b.1668666715733.1671418725475.1671538723098.12&amp;__hssc=72543820.9.1671538723098&amp;__hsfp=973777814">https://jira.atlassian.com/browse/JRASERVER-44069</a></p></li></ul><h2 id="workaround">Workaround</h2><p>Upgrade the MySQL version as mentioned in the knowledge base <a href="https://confluence.atlassian.com/fishkb/migrate-mysql-database-to-utf8mb4-character-encoding-962356253.html">here</a>.​​</p><h2 id="resolution">Resolution</h2><p>Not applicable.</p></div><div></div></div>
   </main>
@@ -155,6 +160,64 @@ Incorrect string value: '\xF0\x9F\x98\x8A\x0D\x0A...' for column 'DESCRIPTION' a
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

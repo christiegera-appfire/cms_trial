@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2139357355/Use+cases/">Use cases</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Create a two-way workflow between Jira work item and Salesforce Legal records</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/2140045422" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Create a two-way workflow between Jira work item and Salesforce Legal records</h1>
+    <div class="page-meta">4 min read</div>
     <div class="columns" style="grid-template-columns: 100.0fr;"><div><div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>As a services manager, you often receive requests from different customers with different needs. Once you prepare a statement of work (SOW), you need to access the legal team for final contract preparation. You want to have a seamless workflow between the services team (working on Jira) and the legal team (working on Salesforce).</p><p>This use case shows you how to build a bidirectional workflow between Salesforce and Jira using Connector for Salesforce &amp; Jira. Together with Jira's built-in functions like custom fields, workflows, post-functions, and Automation for Jira.</p></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="before-you-start">Before you start</h2><p>Make sure you have:</p><ul><li><p>Installed and set up Connector for Salesforce &amp; Jira: <a href="/cms_trial/space/CSFJIRA/1873477874/Installation/">Installation</a></p></li></ul><p>You will need some basic understanding of the following Jira features:</p><ul><li><p><a href="https://help.salesforce.com/s/articleView?id=platform.fields_creating_picklists.htm&amp;type=5">Salesforce custom fields</a></p></li><li><p><a href="https://help.salesforce.com/s/articleView?id=platform.creating_record_types.htm&amp;type=5">Create record type in Salesforce</a></p></li><li><p><a href="https://support.atlassian.com/jira-cloud-administration/docs/create-a-custom-field/">Jira custom fields</a></p></li><li><p><a href="https://www.atlassian.com/software/jira/workflows">Jira workflows</a></p></li><li><p><a href="https://www.atlassian.com/software/jira/guides/expand-jira/automation">Automation for Jira</a></p></li></ul></div><div><iframe src="https://demo.arcade.software/7mrZPhlfJTXXBF7D7drU"></iframe></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="complete-scenario">Complete scenario</h2><p><strong>Teams:</strong></p><ol><li><p>The team that resides on Salesforce is the Legal team.</p></li><li><p>The team that resides on Jira is the support and services team.</p></li></ol><p><strong>Scenario:</strong></p><ol><li><p>A customer reaches out to the organization's support team seeking their assistance.</p></li><li><p>Support/Services then creates an internal Jira ticket for their request of an SOW/pre-contract.</p></li><li><p>The created Jira ticket is associated with a Legal Case in Salesforce.</p></li><li><p>The Legal team will find a new Case created in Salesforce and work on it.</p></li><li><p>The Legal team updates the Case in Salesforce once they have provided what they need and it'll automatically get updated in Jira.</p></li><li><p>The Services team that is working with the customer can now update the customer with the information that they need.</p></li></ol></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="build-this-use-case">Build this use case</h2><h3 id="1-set-up-salesforce">1. Set up Salesforce</h3><p>In this scenario, we use the <strong>Case</strong> object. We will associate the <strong>Case</strong> object with Jira Task work types. First, we need to create Legal Case Record Type and custom fields in Salesforce to facilitate communication between the teams that use Salesforce.</p><ol><li><p>Navigate to <strong>Setup </strong>&gt;<strong> Object Manager </strong>&gt;<strong> Case </strong>&gt;<strong> Record Types</strong>.</p></li><li><p>Click <strong>New</strong> to add a new Record Type: <strong>Legal Case</strong>.<br/>Apply a proper page layout to the record type you created.</p><img alt="Screenshot of the Case Object with Record Types selected." class="doc-image" loading="lazy" src="/cms_trial/assets/33702311-ff6c-4133-b08a-7f64dd3aec70.png"/></li><li><p>Go to <strong>Fields &amp; Relationships </strong> and create custom Case fields in Salesforce:</p><ul><li><p><strong>Contract Type</strong> (<em>Picklist</em> field)</p></li><li><p><strong>Contract Due Date </strong>(<em>Date</em> field) used to specify the end of the contract.</p></li><li><p>(Optional) <strong>Pending for Legal? </strong>(<em>Picklist</em> field) with <em>Yes</em> and <em>No</em> options. </p></li></ul></li></ol></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>Now you can create a Case object as <strong>Legal Case </strong>with new custom fields visible.</p><img alt="Screenshot of New Case Legal Case in Salesforce." class="doc-image" loading="lazy" src="/cms_trial/assets/ff1c8710-870b-4a10-a8ea-9247b45bc74f.png"/><h3 id="2-set-up-jira">2. Set up Jira</h3><p><strong>Create custom fields in Jira</strong></p><p>Create custom fields in Jira that correspond to the custom fields you've already set up in Salesforce.</p><ol><li><p>In Jira, go to <strong>Settings </strong>&gt; <strong>Work items </strong>&gt; <strong>Fields</strong> &gt; <strong>Create new field</strong>.</p></li><li><p>Create these fields:</p><ol><li><p><strong>Contract Type </strong><em>select list (single choice)</em> field </p></li><li><p><strong>Contract Due Date </strong> <em>date picker</em> field</p></li><li><p>(Optional) <strong>Pending for Legal? </strong><em>select list (single choice) </em>field </p></li></ol></li></ol><h3 id="3-map-entities-and-fields-in-connector-for-salesforce-jira">3. Map entities and fields in Connector for Salesforce &amp; Jira</h3><ol><li><p>In Jira, navigate to <strong>Apps</strong> &gt; <strong>Connector for Salesforce</strong> &gt; <strong>App settings</strong> &gt; <strong>Bindings.</strong></p></li><li><p>Click<strong> Mapping</strong> for the JSM project you’re linking it to.</p></li><li><p>Click<strong> Add Entity Mapping, </strong>and map:</p><ul><li><p>Jira <strong>Task</strong> with Salesforce <strong>Case </strong>object</p><img alt="Screenshot of adding entity mapping in Jira." class="doc-image" loading="lazy" src="/cms_trial/assets/13e044a4-e44a-4f8e-b6b1-6f285a4845a6.png"/></li></ul></li><li><p>Click <strong>Mappings</strong> to map the fields from Salesforce to Jira for<strong> Task </strong>to<strong> Case </strong>field mappings:</p><ul><li><p>Jira <strong>Summary</strong> field with the <strong>Subject</strong> field</p></li><li><p>Jira <strong>Contract Type</strong> field with the <strong>Contract Type</strong> field</p></li><li><p>Jira <strong>Contract Due Date </strong> field with the <strong>Contract Due Date </strong> field</p></li><li><p> (Optional) <strong>Pending for Legal? </strong>field with the <strong>Pending for Legal?</strong> field</p><img alt="Screenshot of mapping the fields from Salesforce to Jira for task to case field mapping." class="doc-image" loading="lazy" src="/cms_trial/assets/3e8d2a66-efb7-45c0-9b21-c8e61693d337.png"/></li></ul></li></ol></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h3 id="associate-jira-task-with-salesforce-records">Associate Jira task with Salesforce records</h3><ol><li><p>Open the Jira task with the request of a SOW/pre-contract.</p></li><li><p>Under <strong>Connector for Salesforce</strong> click <strong>Associate</strong>.</p><ol><li><p>Select <strong>Case</strong> from the <strong>Obcject Type</strong> dropdown and find your Legal Case.</p></li><li><p>Select <strong>Push to Salesforce then Pull from Salesforce</strong> from the <strong>After associating</strong> dropdown list to update the data in Salesforce.</p></li></ol></li><li><p>Open Salesforce case to see updated fields.</p></li></ol><h3 id="4-set-up-workflow-statuses-and-post-functions">4. Set up workflow statuses and post functions</h3><ol><li><p>Configure a new Jira workflow for the <strong>Legal </strong>team use case</p><ol><li><p>In Jira, go to <strong>Settings </strong>&gt; <strong>Work items </strong>&gt; <strong>Workflows</strong> and click <strong>Add workflow.</strong></p></li><li><p>Click <strong>Add Status</strong> to create the required statuses and configure the status category:</p><ul><li><p><strong>Waiting for Legal </strong></p></li><li><p><strong>Waiting for Jira Team</strong></p></li></ul></li><li><p>Check the <strong>Allow all statuses to transition to this one</strong> for every created status.</p></li></ol></li><li><p>Click the <em>transition </em>arrow<em> </em>to the <strong>Waiting for Legal </strong>status and click <strong>Post Functions</strong>.</p><img alt="Screenshot showing the Legal workflow." class="doc-image" loading="lazy" src="/cms_trial/assets/57f33da0-b5ef-45f0-9a36-00fdd7ef84f1.png"/></li><li><p>Add the following post functions:</p><ol><li><p>The <strong>Update Issue Custom Field</strong> post function that automatically updates the <strong>Pending for Legal? </strong>field to <strong>Yes</strong> whenever this transition is made.</p></li><li><p>The <strong>Push to Salesforce </strong>post<strong> </strong>function automatically pushes the mapped fields to Salesforce.</p><img alt="Screenshot of the Transition Waiting for Legal workflow." class="doc-image" loading="lazy" src="/cms_trial/assets/8af5b7ce-7a75-493f-a39d-d6d42509ff08.png"/></li></ol></li></ol></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h3 id="5-automation-for-jira">5. Automation for Jira</h3><p>We need to add an automation to enable the ability to transition the issue in Jira from Salesforce.</p><ol><li><p>Navigate to <strong>Settings &gt; System &gt; Global Automation.</strong></p></li><li><p>Click <strong>Create Rule</strong> &gt; <strong>Create from scratch</strong>. </p></li><li><p>Select the <strong>Field value changed</strong> trigger and search for <strong>Pending for Legal? </strong>field and click <strong>Next</strong>.</p><img alt="Screenshot of the Automation page showing the Field value changed trigger." class="doc-image" loading="lazy" src="/cms_trial/assets/2da8cdbd-8205-465a-90e9-5b38560ec055.png"/></li><li><p>Select <strong>If: Add a condition</strong>.</p></li><li><p>Select <strong>User condition</strong> and set:</p><ul><li><p><strong>User who triggered the event</strong> for the <em>User</em> field</p></li><li><p><strong>Is </strong>for the <em>Check to perform</em> field</p></li><li><p><strong>Connector</strong> <strong>for</strong> <strong>Salesforce &amp; Jira</strong> for the <em>Criteria </em>field</p><img alt="Screenshot of the Automation page with the User condition selected." class="doc-image" loading="lazy" src="/cms_trial/assets/14b7d8ed-b8c5-4d88-ba44-2bde1ba2f9bd.png"/></li></ul></li><li><p>Click <strong>Then: add an action</strong>.</p></li><li><p>Select the <strong>Transition work item</strong>.</p><img alt="Screenshot of the Automation page with the Transition work item selected as the action." class="doc-image" loading="lazy" src="/cms_trial/assets/6d464457-286e-4680-b821-8d050b376b3b.png"/></li><li><p>Choose <strong>Waiting for Jira Team </strong>for the <em>Destination Status and c</em>lick <strong>Next</strong>.</p><img alt="Screenshot of the Automation page showing Waiting for jira team as the Destination status.." class="doc-image" loading="lazy" src="/cms_trial/assets/69c70654-ca65-432a-bc59-56731ca74a83.png"/></li><li><p>Click <strong>Turn on rule</strong>.</p></li></ol></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

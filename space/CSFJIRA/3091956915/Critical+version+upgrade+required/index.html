@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3091858027/Release+notes/">Release notes</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Critical version upgrade required</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3091956915" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Critical version upgrade required</h1>
+    <div class="page-meta">1 min read</div>
     <p><br/><br/><strong>Current latest version:</strong> Salesforce Jira Cloud (SFJC)7.2.0</p><hr/><h2 id="what-s-changing">What's changing</h2><p>The Connector for Salesforce &amp; Jira Cloud is transitioning from Connect to the Forge architecture. This migration improves performance and reliability but requires all customers to be on the latest marketplace version to ensure continued functionality. If your app version is below 7.0.0, follow the steps to upgrade it.</p><h3 id="upgrade">Upgrade </h3><ol><li><p>Navigate to <strong>Administration</strong>&gt;<strong>Connected apps</strong> in your Jira instance.</p></li><li><p>Find the <strong>Connector for Salesforce &amp; Jira Cloud</strong> in your installed apps and click <strong>View app details</strong>.</p></li><li><p>Click the <strong>Update</strong> button at the top right.</p></li><li><p>Follow the prompts to complete the upgrade</p></li></ol><div class="panel panel-note"><p>From version 7.0.0, the app requires new permission scopes. Please review and approve these permissions during the upgrade process.</p></div><p><strong>If you remain on an older version, you can experience:</strong></p><ul><li><p>App malfunction or unexpected behavior</p></li><li><p>Complete service disruption</p></li><li><p>Inability to receive frontend updates once the Forge transition is complete</p></li><li><p>Potential breakage when new backend versions are released</p></li></ul><p><strong>Once we fully transition to Forge:</strong></p><ul><li><p>Frontend updates will only be delivered to customers on the latest version</p></li><li><p>Automatic upgrades are not possible due to the new permission scope requirements</p></li><li><p>Backend updates can inadvertently break compatibility with older frontend versions</p></li></ul><hr/><p><strong> </strong></p><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p><strong>Support and resources</strong></p><ul><li><p>Explore exciting features, pricing updates, reviews, and more on the <a href="https://marketplace.atlassian.com/apps/1214214/connector-for-salesforce-jira?hosting=cloud&amp;tab=overview&amp;__hstc=72543820.f1ffb555b95f54caea1a9a28de23a28f.1606879596997.1622094034771.1622098833267.313&amp;__hssc=72543820.44.1622098833267&amp;__hsfp=950301092">Marketplace</a>.</p></li><li><p>If you encounter any issues, raise a ticket with our <a href="https://appf.re/support"><u>support team</u></a><a href="https://appf.re/support">.</a></p></li><li><p>Do you love using our app? Let us know what you think <a href="https://marketplace.atlassian.com/apps/1214214/connector-for-salesforce-jira?hosting=cloud&amp;tab=reviews&amp;__hstc=72543820.f1ffb555b95f54caea1a9a28de23a28f.1606879596997.1622094034771.1622098833267.313&amp;__hssc=72543820.44.1622098833267&amp;__hsfp=950301092">here</a>.</p></li></ul></div><div><p><strong>Credits</strong></p><p>Thank you to our valued customers! Your incredible support and feedback inspire us to improve continuously. We appreciate your trust in Connector for Salesforce and Jira!</p></div></div><p><strong> </strong></p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

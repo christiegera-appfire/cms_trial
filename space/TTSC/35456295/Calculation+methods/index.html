@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud Help Center</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/1678575285/SLA+configuration/">SLA configuration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/35651691/Define+SLAs/">Define SLAs</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Calculation methods</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TTSC/pages/35456295" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Calculation methods</h1>
+    <div class="page-meta">5 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>On this page, you’ll learn what different calculation methods mean and which one might be the best for your use case. The calculation method you select impacts how Time to SLA will calculate the elapsed duration of your SLAs.</p><div class="panel panel-note"><p><strong>Before you begin:</strong> </p><p>Each interval between a consecutive SLA start and endpoint within a work item’s lifespan is defined as a cycle. By default, each cycle starts with the earliest start point and earliest endpoint.</p></div><p>Now, let’s take a look at the different calculation methods you can choose from.</p><h2 id="first-cycle">First cycle </h2><p>The First Cycle method calculates only the first cycle between the Open and Resolved statuses. </p><img alt="Time to SLA Calculation methods first cycle timeline example" class="doc-image" loading="lazy" src="/cms_trial/assets/5f0567ba-50a8-425d-ae09-26ad66c736af.png"/><p>This calculation method considers the date/time when your work item met the first start condition and uses it as the SLA start date. The date/time when your work items met the first end condition is used as the SLA end date.</p><p><strong>Important: </strong>After meeting the first end condition, your SLA will not restart, even if you provide a start condition after the initial end condition!</p><div class="panel panel-note"><p><strong>For example</strong>: </p><p>Let's assume that your SLA will start when the status is <strong>To Do</strong> and end when the status is <strong>Done</strong>. Once you move the work item to <strong>To Do</strong>, your SLA will start counting until providing the end condition on this work item. When your status is <strong>Done</strong>, your SLA will never start again.</p><p>Even if you move the work item from <strong>Done</strong> to <strong>To Do</strong>, your SLA will not start, and Time to SLA will not take other cycles into account.</p></div><p>If you select this method, your SLA will only calculate the first cycle, which means you’ll never be able to restart the SLA afterward.</p><div class="panel panel-note"><p>If you want to set up an SLA for <strong>First Response Time</strong>, you could use the First Cycle method.</p></div><h2 id="last-cycle">Last cycle </h2><p>The Last Cycle method calculates only the last cycle between Open and Resolved statuses. </p><img alt="Time to SLA Calculation methods last cycle timeline example" class="doc-image" loading="lazy" src="/cms_trial/assets/d57650e3-42bb-4c6f-8684-df975ca94c0d.png"/><p>This calculation method considers the date/time when your work item met the last start condition and uses it as the SLA start date. The date/time when your work item met the last end condition is used as the SLA end date.</p><p>After meeting the end condition, if you provide the start condition again, Time to SLA will invalidate the previous cycle, and your SLA will start again.</p><div class="panel panel-note"><p><strong>For example</strong>: </p><p>Let's assume that your SLA will start when the status is <strong>To Do</strong> and end when the status is <strong>Done</strong>. Once you move the work item to <strong>To Do</strong>, your SLA will count until it provides the end condition on this work item.</p><p>When you move the work item from <strong>Done</strong> to <strong>To Do</strong>, your SLA will reset the elapsed duration and start from the beginning.</p></div><p>Moreover, this method displays the value of your SLA since the last Start condition was met. You can restart the SLA, but it will always display only the most recent cycle.</p><div class="panel panel-note"><p>You can choose this method to keep the last comment’s time in the panel. This will tell you when the last comment was submitted and whether it aligned with your target date.</p></div><h2 id="all-cycles">All cycles </h2><p>The All Cycles method will add up all cycles between Open and Resolved statuses. </p><img alt="Time to SLA Calculation methods all cycles timeline example" class="doc-image" loading="lazy" src="/cms_trial/assets/700d4554-d619-4e11-a739-da7656a30fd9.png"/><p>This calculation method considers the date/time when your work item met the last start condition and uses it as the SLA start date. The date/time when your work item met the last end condition is used as the SLA end date.</p><p>After meeting the end condition, if you provide the start condition again, your SLA will resume without resetting the elapsed duration.</p><div class="panel panel-note"><p><strong>For example</strong>: </p><p>Let's assume that your SLA will start when the status is <strong>To Do</strong> and end when the status is <strong>Done</strong>. Once you move the work item to <strong>To Do</strong>, your SLA will count until it provides the end condition on this work item.</p><p>When you change the status of the work item from Done to To Do, your SLA will resume on the previous elapsed duration. Please keep in mind that the elapsed duration will not continue to count between the end and start conditions.</p></div><p>This means that no matter how many statuses you change, your SLA will always pick up where it left off. It’s quite literally the sum of all cycles!</p><div class="panel panel-note"><p>To give you a better idea, selecting All Cycles for your <strong>Time to Resolution</strong> SLA would be a logical decision since you'd want to know how many days it took you to solve the work item. The All Cycles method would track the time from the work item’s creation to its resolution.</p></div><h2 id="largest-span">Largest span </h2><p>The Largest Span method will calculate the elapsed time between the first Open and last Resolved status. </p><img alt="Time to SLA Calculation methods largest span timeline example" class="doc-image" loading="lazy" src="/cms_trial/assets/a4516852-2c6d-4392-971f-1a0868d4322a.png"/><p>This calculation method considers the date/time when your work item met the last start condition and uses it as the SLA start date. The date/time when your work item met the last end condition is used as the SLA end date.</p><p>After meeting the end condition, if you provide the start condition again, your SLA will resume without resetting the elapsed duration.</p><div class="panel panel-note"><p><strong>For example</strong>: </p><p>Let's assume that your SLA will start when the status is <strong>To Do</strong> and end when the status is <strong>Done</strong>. Once you move the work item to <strong>To Do</strong>, your SLA will count until it provides the end condition on this issue.</p><p>When you change the status of the work item from Done to To Do, your SLA will resume on the previous elapsed duration. Please keep in mind that, unlike the All Cycles method, the Largest Span also takes intermediary statuses into account.</p></div><p>In a nutshell, this method takes into account <strong>all</strong> <strong>processes</strong> from the start of the SLA to the time it is resolved.</p><div class="panel panel-note"><p><strong>How is this different from the All Cycles method?</strong> Unlike the All Cycles method, the Largest Span also includes intermediary statuses. In this case, these are the Resolved/Closed statuses.</p></div><hr/><h2 id="important-notes">Important notes</h2><p>If you have different business hours for each day (as shown below), TTS will consider Monday’s business hours. </p><img alt="Time to SLA Calculation methods table showing cycle options and examples" class="doc-image" loading="lazy" src="/cms_trial/assets/55d2c558-81b3-4f15-8c4a-037538cfd282.png"/><p>For example, if you add a goal with a duration of <code>1d</code>, TTS will consider this 1 day as 10 hours. This is because your business hours add up to 10 hours on Monday. </p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

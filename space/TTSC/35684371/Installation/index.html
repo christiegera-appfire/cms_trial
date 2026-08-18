@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud Help Center</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/35456108/Get+started+with+Time+to+SLA+for+Cloud/">Get started with Time to SLA for Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Installation</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TTSC/pages/35684371" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Installation</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>This page contains step-by-step instructions on how to set up Time to SLA for Jira Cloud. </p><h2 id="before-you-begin">Before you begin</h2><ul><li><p>You must be a <a href="https://confluence.atlassian.com/adminjiracloud/managing-global-permissions-776636359.html">Jira administrator</a> to carry out the instructions on this page.</p></li><li><p>Browser requirements for Time to SLA match the relevant Jira requirements. See the <a href="https://confluence.atlassian.com/cloud/supported-browsers-744721663.html">Jira Supported Browser page</a> for the version of Jira you are using.</p></li><li><p>You need a license for Time to SLA. You can use a free Evaluation license for 30 days. Learn about our <a href="https://marketplace.atlassian.com/apps/1211843/time-to-sla?hosting=cloud&amp;tab=pricing">pricing tiers</a> in our Marketplace listing.</p></li></ul><h2 id="install-time-to-sla-for-jira-cloud">Install Time to SLA for Jira Cloud</h2><ol><li><p>Log in to Jira as a Jira Administrator.</p></li><li><p>On the <em>Atlassian Marketplace</em>, type <code>Time to SLA</code> in the search field and press <strong>Enter</strong>.</p></li><li><p>Click <strong>Time to SLA</strong>.</p></li><li><p>Click the <strong>Try it free</strong> button to install your app.</p></li><li><p>Choose a site to start your free trial.</p></li><li><p>Click <strong>Start free trial</strong>. A confirmation message displays once it installs successfully.</p></li></ol><p>All set! Check out our <a href="/cms_trial/space/TTSC/35456108/Get+started+with+Time+to+SLA+for+Cloud/">Get started</a> guide to begin your journey with Time to SLA for Jira Cloud.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12519552/Migrations/">Migrations</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Migrating from Jira Cloud to Jira Data Center</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JSUCLOUD/pages/12519542" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Migrating from Jira Cloud to Jira Data Center</h1>
+    <div class="page-meta">9 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>This page describes the required steps when migrating from a Jira Cloud instance to a Jira Data Center instance when you are using some of the default/JSU Workflow Condition/Validator/Post Functions in your workflows.</p><p>Migration from Jira Cloud to Jira Server is not directly possible. You have to be careful as there are many validators and conditions which are built into Jira Cloud, but not in Jira Server. For that, you will need JSU. JSU Cloud's additional post functions make it more powerful with its Related Issues, Perform as Add-on User, and many other post functions that you can use to automate your workflows without any coding.</p><div class="panel panel-note"><p>Looking for documentation on a <strong>Data Center to Cloud</strong> migration? See our <a href="/cms_trial/space/JSUCLOUD/12519557/Migrating+from+Jira+Data+Center+to+Jira+Cloud/">Migrating from Jira Data Center to Jira Cloud </a>page.</p></div><h2 id="background">Background</h2><p>Years ago, the founders of JSU donated several of JSU's modules to Atlassian. Atlassian integrated most of these workflow conditions/validators/post functions (based on JSU Server 1.4) into their native Jira Cloud environment.  Since then, JSU Server/Data Center has added more functionality to make it more powerful. When JSU for Jira Cloud was released, it also added advanced forms of the post functions that were in JSU Server. If you migrate from Jira Cloud to Jira Server/Data Center, the default JSU workflow conditions/validators/post functions do not exist in the default Jira Server/Data Center version but they can simply be replaced with the JSU app.</p><h2 id="how-to-fix-the-workflows">How to fix the workflows</h2><p>You can do one of the following to fix your migrated workflows:</p><ul><li><p>Reconfigure the affected workflow modules with the ones from JSU, then remove the broken ones.<br/><em>This is the safest way to do it, but it can be tedious.</em></p></li><li><p>Export XML workflows, modify, and import again.</p></li><li><p>Modify the workflows directly in the database - if you have the required knowledge. <br/><em>It's efficient but with more risk.</em></p></li></ul><h2 id="workflow-condition-post-functions-jsu">Workflow condition/post functions(JSU)</h2><table><tr><th><p>Workflow Name</p></th><th><p>JSU Cloud Module-Key</p></th><th><p>JSU Server/Data Center Module-Key</p></th></tr><tr><td><p><strong>Conditions</strong></p></td><td><p><br/></p></td><td><p><br/></p></td></tr><tr><td><p>User Is In Any Users (JSU)</p></td><td><p>com.atlassian.plugins.atlassian-connect-plugin:com.googlecode.</p><p>jira-suite-utilities__userisinanyusers-condition</p></td><td><p>com.googlecode.jsu.workflow.condition.userisinanyusers-condition</p></td></tr><tr><td><p><strong>Post Functions</strong></p></td><td><p><br/></p></td><td><p><br/></p></td></tr><tr><td><p>Clear Field Value (JSU)</p></td><td><p>com.atlassian.plugins.atlassian-connect-plugincom.googlecode.jira-suite-utilities__clearFieldValue-function</p></td><td><p>com.googlecode.jira-suite-utilitiesclearFieldValue-function</p></td></tr><tr><td><p>Copy Value From Other Field (JSU)</p></td><td><p>com.atlassian.plugins.atlassian-connect-plugincom.googlecode.jira-suite-utilities__copyValueFromOtherField-function</p></td><td><p>com.googlecode.jira-suite-utilitiescopyValueFromOtherField-function</p></td></tr><tr><td><p>Copy or Move Attachments (JSU)</p></td><td><p>com.atlassian.plugins.atlassian-connect-plugincom.googlecode.jira-suite-utilities__copymoveattachments-function</p></td><td><p>com.googlecode.jira-suite-utilitiescopymoveattachments-function</p></td></tr><tr><td><p>Create a Linked Issue (JSU)</p></td><td><p>com.atlassian.plugins.atlassian-connect-plugincom.googlecode.jira-suite-utilities__createlinkedissue-function</p></td><td><p>com.googlecode.jira-suite-utilitiescreatelinkedissue-function</p></td></tr><tr><td><p>Follow Up Transition (JSU)</p></td><td><p>com.atlassian.plugins.atlassian-connect-plugincom.googlecode.jira-suite-utilities__followuptransition-function</p></td><td><p>com.googlecode.jira-suite-utilitiesfollowuptransition-function</p></td></tr><tr><td><p>Linked Transition (JSU)</p></td><td><p>com.atlassian.plugins.atlassian-connect-plugincom.googlecode.jira-suite-utilities__linkedtransition-function</p></td><td><p>com.googlecode.jira-suite-utilitieslinkedtransition-function</p></td></tr><tr><td><p>Update any Issue Field (JSU)</p></td><td><p>com.atlassian.plugins.atlassian-connect-plugincom.googlecode.jira-suite-utilities__updateanyissuefield-function</p></td><td><p>com.googlecode.jira-suite-utilitiesupdateIssueCustomField-function</p></td></tr></table><h2 id="mapping-between-jsu-cloud-and-jsu-server-data-center">Mapping between JSU Cloud and JSU Server/Data Center</h2><p>The following table contains all the attributes that need to be mapped between the JSU Cloud and JSU Server workflow functionality.</p><h3 id="post-function-mapping-clear-field-value-jsu">Post function mapping: Clear Field Value (JSU)</h3><table><tr><th><p>Arg Name: JSU Cloud</p></th><th><p>Arg Name: JSU Server/Data Center</p></th></tr><tr><td><p>Example</p><pre><code class="language-"> &lt;function type="class"&gt;
  &lt;arg name="class.name"&gt;com.atlassian.plugin.connect.jira.workflow.RemoteWorkflowPostFunctionProvider&lt;/arg&gt;
  &lt;arg name="full.module.key"&gt;com.atlassian.plugins.atlassian-connect-plugincom.googlecode.jira-suite-utilities__clearFieldValue-function&lt;/arg&gt;
@@ -492,6 +497,64 @@ plugincom.googlecode.jira-suite-utilities__createlinkedissue-function&lt;/arg&gt
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

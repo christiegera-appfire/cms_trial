@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309946/User+guides/">User guides</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/2116583951/Admin+settings/">Admin settings</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Manage Performance Options</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/811106832" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Manage Performance Options</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>Improve your performance with these global options</p><h2 id="overview">Overview</h2><p>Learn how to fine-tune your instance for optimal performance, tailored to your unique workflow.</p><h2 id="global-settings-performance-options">Global settings - Performance Options</h2><h3 id="set-refresh-time">Set refresh time</h3><p>Navigate to “Manage apps” (only admins) and to “Global Settings” under the Dashboard Hub section. Change to the “Performance Options” tab and select the <strong>Auto refresh time interval</strong>.</p><img alt="Dashboard Hub auto refresh time interval setting" class="doc-image" loading="lazy" src="/cms_trial/assets/a8f78e6b-aa28-4d61-b7a3-6a8b4b9ef6b2.png"/><p><u>Improve the performance</u> of your instance by disabling or increasing the time of the automatic data refresh. If you <strong>disable auto refresh</strong>, the data will still be updated when you reload the dashboard.</p><ul><li><p>Default: All the Jira, Confluence, and monday.com gadgets are updated every 3 minutes. Opsgenie, Atlassian Marketplace, and gadgets from the “Other” category every 15 minutes. Exceptionally, the Historical Uptime from StatusPage is updated every 5 hours.</p></li><li><p>No refresh: Stop automatically updating gadgets, recommended for large instances. Data is still updated when the dashboard is reloaded.</p></li><li><p>[5 - 1440] minutes: All gadgets are automatically updated with the selected cadence in minutes.</p></li></ul><p><a href="/cms_trial/space/RDD/146309328/How+to+manage+dashboards/">High priority</a> gadgets are not affected by this change, and are updated every minute.</p><div class="panel panel-note"><p>If you <strong>disable auto refresh</strong>, the data will still be updated when you reload the dashboard.<br/><strong>Windows</strong>: Hold down Ctrl and press F5 (<em>Chrome</em>), or hold down Ctrl and ⇧ Shift and then press R (<em>Firefox</em>).<br/><strong>Mac</strong>: Hold down ⌘ Cmd and ⇧ Shift key and then press R (<em>Chrome</em> and <em>Firefox</em>), or hold down the Option + ⌘ Cmd key and then press the ‘E’ key (<em>Safari</em>).</p></div><h3 id="set-issue-limit">Set issue limit</h3><p>Read the dedicated page to learn how to set the default maximum issue limit: <a href="/cms_trial/space/RDD/1069711378/Set+the+Default+Maximum+Work+Item+Limit/">Set the Default Maximum Work Item Limit</a> </p><h2 id="see-also">See also</h2><div class="img-placeholder">[Unmapped macro: contentbylabel — no content to fall back on]</div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

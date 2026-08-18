@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/3482517944/Admin+guide/">Admin guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253540127/Installation+and+Data+Security/">Installation and Data Security</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253539922/Installation+guide/">Installation guide</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Common installation issues and errors</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/7TFA/pages/1253539978" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Common installation issues and errors</h1>
+    <div class="page-meta">5 min read</div>
     <h2 id="error-500-internal-server-error">⚠️ ERROR: 500 - Internal Server Error</h2><h3 id="problem">❓ Problem</h3><p>Why am I getting "Server Error - 500 - Internal Server Error" after a new on-premises Timetracker installation?</p><img alt="Internal_Server_Error.png" class="doc-image" loading="lazy" src="/cms_trial/assets/5596f4c5-0e58-4a8e-83a0-3bce4fdcef23.png"/><h3 id="resolution">💡 Resolution</h3><p>This error appears when the required version of ASP.NET Core Runtime - Windows Hosting Bundle is not installed.</p><table><tr><th><p><strong>7pace Timetracker version</strong></p></th><th><p><strong>Required minimal bundle version</strong></p></th><th><p><strong>Download link</strong></p></th></tr><tr><td><p>5.53 and up</p></td><td><p>8.0.103</p></td><td><p><a href="https://dotnet.microsoft.com/en-us/download/dotnet/8.0">ASP.NET Core Runtime Hosting Bundle 8.0.103</a></p></td></tr><tr><td><p>5.46 to 5.52</p></td><td><p>6.0.21</p></td><td><p><a href="https://dotnet.microsoft.com/en-us/download/dotnet/6.0">ASP.NET Core Runtime Hosting Bundle 6.0.21</a></p></td></tr><tr><td><p>5.11 to 5.45</p></td><td><p>3.1.32</p></td><td><p><a href="https://dotnet.microsoft.com/en-us/download/dotnet/3.1">ASP.NET Core 3.1 runtime Windows Hosting bundle</a></p></td></tr></table><p>Please refer to <a href="/cms_trial/space/7TFA/1253539922/Installation+guide/">this</a> article to check all of the requirements for the Timetracker installation.</p><h2 id="error-could-not-grant-access-to-7pace-timetracker-database-for-user">⚠️ ERROR: Could not grant access to 7pace Timetracker database for user</h2><h3 id="problem-2">❓ Problem</h3><p>During the installation and configuration process of 7pace Timetracker (on-prem), while "Applying Settings", an error appears: "<em>Could not grant access to 7pace Timetracker database for user ..."</em></p><h3 id="cause">❗ Cause</h3><p>This error displays when granting access to the 7pace Timetracker SQL database has failed. When you configure SQL connection settings as Windows Authentication, the Application Pool has to have access to TimetrackerOnlineDb on the SQL Server. the Configuration tool tries to apply these permissions during setup, but it can fail due to some specific environmental conditions (e.g. lack of permissions to do this).</p><p>The following SQL statements are being run:</p><pre><code class="language-">IF NOT EXISTS
  (SELECT name
     FROM master.sys.server_principals
@@ -185,6 +190,64 @@ InnerException: User does not have permission to perform this action.</code></pr
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

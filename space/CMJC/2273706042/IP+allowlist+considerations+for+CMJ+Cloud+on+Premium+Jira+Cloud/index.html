@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira (CMJ) Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/258053546/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">IP allowlist considerations for CMJ Cloud on Premium Jira Cloud</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CMJC/pages/2273706042" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>IP allowlist considerations for CMJ Cloud on Premium Jira Cloud</h1>
+    <div class="page-meta">1 min read</div>
     <p>If your <strong>Premium Jira Cloud</strong> instance has the IP allowlist feature enabled, you may encounter issues when installing or using the Configuration Manager for Jira (CMJ) Cloud. This is because IP allowlist restrictions prevent connections from any source not specified as allowed, including CMJ Cloud’s servers.</p><h3 id="symptoms">Symptoms</h3><ul><li><p>CMJ Cloud installation fails.</p></li><li><p>CMJ Cloud can’t be seen in the Atlassian Marketplace.</p></li><li><p>CMJ Cloud actions fail to run.</p></li><li><p>Connection errors related to network or authorization.</p></li></ul><hr/><h3 id="resolution">Resolution</h3><p>To resolve this, add CMJ Cloud’s IP addresses to your Jira Cloud allow list. You can follow Atlassian’s official guide here - <a href="https://support.atlassian.com/security-and-access-policies/docs/specify-ip-addresses-for-product-access/#Add-an-allowlist">Specify IP addresses for product access</a>.</p><h4 id="step-by-step-guide">Step-by-step guide:</h4><ol><li><p>In the <strong>Atlassian Admin</strong> panel, go to <em>Security → IP allowlisting</em>.</p></li><li><p>Click <strong>Add IP range</strong>.</p></li><li><p>Enter each CMJ Cloud IP address from the table below.</p></li><li><p>Save changes and retry using or installing CMJ Cloud.</p></li></ol><hr/><h3 id="required-ip-addresses">Required IP addresses</h3><table><tr><th><p><strong>Region / Purpose</strong></p></th><th><p><strong>IP address</strong></p></th></tr><tr><td><p>CMJ Cloud App Server #1</p></td><td><p><code>52.205.121.251</code></p></td></tr><tr><td><p>CMJ Cloud App Server #2</p></td><td><p><code>23.23.215.132</code></p></td></tr></table>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

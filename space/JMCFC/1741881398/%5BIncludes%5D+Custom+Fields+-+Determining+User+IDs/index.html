@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMCFC/168855370/Overview/">Jira Misc Custom Fields (JMCF) - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/465471159/Includes/">Includes</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">[Includes] Custom Fields - Determining User IDs</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMCFC/pages/1741881398" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>[Includes] Custom Fields - Determining User IDs</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p>In Jira, there is a distinct difference between a User’s public name and their User ID; a User’s ID is unique identifier associated with their Atlassian account and is unique across all Atlassian products and instances. The best way to find a User’s ID is to check the URL of the User when viewing their details through the User Management tools. To find the ID of a User: </p><ol><li><p>Log into Jira as an Administrator. </p></li><li><p>In the upper right corner of the window, click <strong>Settings</strong> ( ⚙️ ) and select <strong>User Management</strong>.</p></li><li><p>This will open a new window displaying the Atlassian Administration tools. In the list of <strong>Users</strong>, click the name of the user for whom you need an ID. </p></li><li><p> Check the URL of the page that opens (figure, immediately right). The User’s ID is the last part of the URL, after ‘/users/’. </p></li></ol></div><div><img alt="Jira Misc Custom Fields (JMCF) Cloud user ID determination guide" class="doc-image" loading="lazy" src="/cms_trial/assets/9623f8ae-2da0-430f-ac2f-0cf8fda05ba8.jpg"/></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

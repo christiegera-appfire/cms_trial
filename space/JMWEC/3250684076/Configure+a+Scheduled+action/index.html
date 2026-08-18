@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465503776/JMWE+Administration/">JMWE Administration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/466321868/Scheduled+actions/">Scheduled actions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Configure a Scheduled action</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/3250684076" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Configure a Scheduled action</h1>
+    <div class="page-meta">8 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="configure-a-scheduled-action">Configure a Scheduled Action</h2><img alt="Scheduled Action Editor configuration screen" class="doc-image" loading="lazy" src="/cms_trial/assets/d2c64aef-b352-45a1-82be-35154db68578.png"/><p>When you create or edit a Scheduled Action, the Scheduled Action Editor will open (Figure 3, right). The Scheduled Action Editor uses the <a href="/cms_trial/space/JMWEC/768573574/JMWE+Automation+Rule+Builder/">JMWE Automation Rule Builder</a>, consisting of two side-by-side panels; the left panel has buttons for selecting each configuration category (e.g. <strong>When </strong>for the Scheduled Action schedule), and the right panel includes specific configuration options for the selected category.</p><p>To configure a Scheduled Action set the following configurations: </p><ol><li><p><strong>Action name</strong> (<strong>Point 1</strong>, <strong>Figure 3</strong>, right) - <em>Required</em>. Click the name to edit. Enter a meaningful name and hit Enter, or click the check button, to save.</p></li><li><p><strong>Description</strong> (<strong>Point 1</strong>, <strong>Figure 3</strong>, right) - Click <em>Add a description</em> to edit the Scheduled Action description. Enter a detailed explanation of the action and click the check button to save.</p></li><li><p><strong>When/Schedule</strong> (<strong>Point 2</strong>, <strong>Figure 3</strong>, right) - Click the <strong>When </strong>header or the <strong>Schedule</strong> button. In the right panel, click each field to set the schedule for the action. See <strong>Schedule</strong>, below for more information.</p></li><li><p><strong>If Scope/Target Issues</strong> (<strong>Point 3</strong>, <strong>Figure 3</strong>, right) - Click the <strong>If Scope </strong>header or the <strong>Target Issues </strong>button to configure the JQL query that will return the issues for the Scheduled Action; set <strong>Max Issues</strong> to limit the number of issues for the action. You can test your query and preview the results by clicking the <strong>Search </strong>button. See <strong>Target Issues</strong>, below, for more information. </p></li><li><p><strong>Who</strong> (<strong>Point 4</strong>, <strong>Figure 3</strong>, right) - </p></li><li><p><strong>Then/Post-functions</strong> (<strong>Point 5</strong>, <strong>Figure 3</strong>, right) - Click the <strong>Then </strong>header or the <strong>Post-functions</strong> button. In the right panel, select a post function from the list to add the first post function, or click <strong>Add post-function</strong> to add additional post functions. See <strong>Post-functions</strong>, below for more information.</p><ol><li><p><strong>Skip subsequent post-functions if a post-function encounters an error</strong> - Check this box to stop the execution of the Event-based Action if any of it’s post functions encounter an error.</p></li></ol></li><li><p>Click <strong>Save</strong> to save the Shared Action.</p></li></ol><h2 id="schedule">Schedule</h2><p>The Schedule configuration determines how often the action will run. Every time the action runs, that action’s JQL search will run, and the post functions included in the action will run <em>on each issue returned by the search</em>, both in order of the issues returned by the JQL query <strong>and</strong> the order of the post functions within the Scheduled Action. </p><div class="panel panel-warning"><p><strong>Please note</strong> the following limitations on Scheduled Actions: </p><ul><li><p>You cannot run a scheduled action <em>more than once every 10 minutes</em> and running scheduled actions too often will have an impact on the performance and responsiveness of your Jira instance. </p></li><li><p>In general, there will be a difference of a few minutes in the configured scheduled time and the actual execution time of the action. For example. if you configure a Comment issue post function in the scheduled action to run every hour, then the comment might be added at 10:02 AM and then at 11:01 AM and then at 12:02 AM, etc.</p></li><li><p>The greater the number of actions that are scheduled, the more the actual execution time will vary. Actual execution time and execution duration depend on how many scheduled actions are running at the same time.</p></li></ul></div><h3 id="configure-a-schedule">Configure a schedule</h3><p>You can run the Scheduled Action at nearly any interval ranging from every hour to every year at specific times. </p><div class="panel panel-note"><p>Note that the schedule is expressed in <strong>UTC time</strong>. </p></div><p>The available values for the <strong>Schedule</strong> will change based on the increment that is initially selected. To set the schedule for an action set each of the available fields:</p><ol><li><p><strong>Increment</strong> - Set the overall increment. Available options are <strong>hour</strong>, <strong>day</strong>, <strong>week</strong>, <strong>month</strong>, or <strong>year</strong>. <br/>⚠️ <em>The other values for schedule will change based on this selection.</em></p></li><li><p><strong>Hour</strong> and/or <strong>Minute</strong> - <em>All increments allow for the Scheduled Action to run at a specific time of day.</em> </p><ol><li><p>Hours are set using a 24 hour clock. </p></li><li><p>Multiple hours or minute values can be selected. For example, to run an action every day at 6 AM and 3 PM every day, set the field as pictured below.</p><img alt="JMWE for Jira Cloud scheduled action time configuration with hour settings" class="doc-image" loading="lazy" src="/cms_trial/assets/e0a36c49-39c1-4cb3-9f3a-c4da3ae36f8a.png"/></li></ol></li><li><p><strong>Day of the Week</strong> - <em>Available when the increment is set to </em><strong><em>week</em></strong><em>. </em>Set the day or days of the week (Monday through Sunday) when the action will run. </p></li><li><p><strong>Day of the Month</strong> - <em>Available when the increment is set to </em><strong><em>month</em></strong><em> or </em><strong><em>year</em></strong><em>. </em>Set the date or dates of the month when the action will run. <br/>⚠️ <strong>Please note</strong>, the default value for this field is ‘Every day of the month’. To set this field back to the default value, deselect all of the specific dates. </p></li><li><p><strong>Month of the Year</strong> - <em>Available when the increment is set to </em><strong><em>year</em></strong>. Set the month or months when the action will run. <br/>⚠️ <strong>Please note</strong>, the default value for this field is ‘every month’. To set this field back to the default value, deselect all of the specific months</p></li></ol><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="target-issues">Target issues</h2><img alt="Scheduled Action Target Issues configuration screen" class="doc-image" loading="lazy" src="/cms_trial/assets/0192703c-3b8e-4ec7-81c7-821f5d9c9eff.png"/><p>Target issues for the Scheduled Action are determined by a JQL search that returns the issue or issues on which the action should run. For more information on creating JQL queries, see <a href="https://support.atlassian.com/jira-software-cloud/docs/what-is-advanced-searching-in-jira-cloud/#Advancedsearching-ConstructingJQLqueries">Constructing JQL Queries</a>.</p><p>To input a JQL query:</p><ol><li><p>From the <strong>Scheduled Action Editor</strong>, select <strong>If Scope</strong> or <strong>Target Issues</strong> in the left-hand panel.</p></li><li><p>In the right-hand panel (Figure 4, right), input a JQL expression that will return the issues on which the post functions should be run. For example:</p><pre><code class="language-sql">project =  TEST and issuetype = Bug</code></pre></li><li><p>Click <strong>Search </strong>(<strong>Figure 4</strong>, <strong>Point 1</strong>, right) to run the query and preview the issues that will be returned. It is recommended to check the results to avoid invalid JQL. </p></li><li><p>Set <strong>Max issues</strong> (<strong>Figure 4</strong>, <strong>Point 2</strong>, right) to limit the number of issues the query should return.  </p></li></ol></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><div class="panel panel-warning"><p><strong>Please note</strong> that a query cannot return more than <code>1000</code>issues. </p></div><div class="panel panel-note"><p>If the scheduled action runs <em>more than once per hour</em>, the number of issues is limited to <code>1000 * {lowest interval in minutes} / 60</code>. For example, if your scheduled action runs:</p><ul><li><p>Every hour then the maximum number of issues returned will be: <code>1000</code></p></li><li><p>Every 30 minutes then the maximum number of issues returned will be:  <br/><code>1000 * 30 / 60</code> or <code>500</code> issues</p></li><li><p>Every hour at 10 and 30 minutes past the hour, then the maximum number of issues returned will be: <br/><code>1000 * 20 / 60</code> or <code>333</code> issues (where 20 minutes is the lowest interval within the hour)</p></li><li><p>Every hour at 0, 10 and 30 minutes past the hour then the maximum number of issues returned will be: <br/><code>1000 * 10 / 60</code> or <code>167</code> issues (where 10 minutes is the lowest interval within the hour)</p></li></ul></div><h2 id="run-as-user">Run as user</h2><p>Select one of the following to set the creator of the issue:</p></div></div><h2 id="post-functions">Post-functions</h2><img alt="JMWE for Jira Cloud scheduled action post functions configuration panel" class="doc-image" loading="lazy" src="/cms_trial/assets/c77b58bb-76bc-4edb-8cc0-d8c1da4fec50.png"/><p>For each issue returned by the JQL search (detailed above), the configured post functions will run <em>in the order in which they are listed</em>. </p><h3 id="add-a-post-function">Add a post function</h3><ol><li><p>In the right panel, click <strong>Add post function</strong> at the top of the panel.</p></li><li><p>Select a post function from the list and click <strong>Add</strong>. You can search for the post function by name using the Search field at the top of the list. </p></li><li><p>The post function configuration window will open. Configure the selected post function as needed, then click <strong>Save</strong>. See <a href="/cms_trial/space/JMWEC/465242045/Post+functions/">Post functions</a> for more details on all of the available post functions.</p></li></ol><h3 id="modify-or-delete-a-post-function">Modify or delete a post function</h3><p>The steps to modify or delete a post function depend on the post function view you are using. See <strong>Post function views</strong> directly below for more information.</p><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h2 id="post-function-views">Post function views</h2><h2 id="error-handling">Error handling</h2><p>When a Scheduled Action encounters and error - in either it’s JQL query or in the included post functions - it will be indicated in two places: </p><ol><li><p>The <strong>Executions</strong> column of the Scheduled Action list will display an error icon</p></li><li><p>The Scheduled Action Editor will include a banner at the top of the editor with details of the errors</p></li></ol><p>Within the Scheduled Action Editor, you can view the details of any errors by expanding the banner using the <strong>Down </strong>( <span class="icon-note">[caret down icon]</span> ) button to the right. The banner is divided into two columns:</p><ul><li><p><strong>Errors/Warnings</strong> on the left will display any errors or warnings related to the action (e.g. a JQL query error)</p></li><li><p><strong>Post-functions</strong> on the right will display any specific errors for the included post functions </p></li></ul><p>You can mark errors are resolved for each column; individual errors can be marked using the link to the right of the error message and all errors for the column can be marked resolved using the link at the top of the list. When all errors have been marked as resolved &lt;what happens?&gt;</p><div class="panel panel-note"><p><strong>Note</strong>: If one of the post functions fails with an error, the remaining post functions in the sequence will still run. To stop the execution of subsequent post functions after an error occurs, select the option “Skip subsequent post functions if a post function encounters an error” under <strong>Then</strong> in the left-hand panel.</p></div></div><div><img alt="JMWE for Jira Cloud eventbased action post functions in simple view mode" class="doc-image" loading="lazy" src="/cms_trial/assets/3f8a2404-78fc-4aaa-b0a7-82a4538a82d5.png"/><img alt="JMWE for Jira Cloud eventbased action post functions in advanced view mode" class="doc-image" loading="lazy" src="/cms_trial/assets/ca5ed103-2bd6-46c3-bc50-c9e06abedbef.png"/></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

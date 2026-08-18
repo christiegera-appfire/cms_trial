@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/3511091204/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253540447/Frequently+Asked+Questions/">Frequently Asked Questions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Authorization and Token Questions</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/7TFA/pages/1253540142" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Authorization and Token Questions</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="question-provided-token-is-not-working-with-current-account">Question - Provided Token is not working with current account</h2><p>I am being asked to authorize 7pace Timetracker, but when I try, I get the error: "Provided token is not working with current account". How do I fix this?</p><img alt="FAQ_Auth_Provided_Token.png" class="doc-image" loading="lazy" src="/cms_trial/assets/fbfcdc34-10c6-4143-a3d5-6f4e4defa934.png"/><h3 id="answer-make-sure-the-correct-a-settings-are-selected">Answer - Make sure the correct A settings are selected</h3><p>If you use Azure Active Directory in your company, the wrong directory can cause an issue that results in you seeing the "Provided token is not working with the current account" error message. Please make sure that the correct AD settings have been selected.</p><p>To do so, please follow the steps below:<br/><br/>1. Go to the "My Profile" section from any DevOps page (top right corner) using the account that is affected by the issue (<a href="https://aex.dev.azure.com/me">https://aex.dev.azure.com/me</a>).<br/>2. Check what AD options you have selected and choose the proper directory / your company-specific domain:</p><img alt="FAQ_Auth_Provided_Token_AD_Options.png" class="doc-image" loading="lazy" src="/cms_trial/assets/eff548e1-0899-4635-a64e-55e8aa685a1f.png"/><p>3. Try to authorize again.</p><p>If you don't use Active Directory, please try logging out and logging back in (checking to ensure that your Microsoft account is selected) and then try authorizing again.</p><p>4. If the above steps don't work, please open the "My Profile" section again and select "Microsoft account".</p><p>5. Click "Authorizations" at the bottom left of the page.</p><p>6. "Revoke" anything related to your 7pace or Timetracker authorization.</p><img alt="FAQ_Auth_Provided_Token_My_Profile.png" class="doc-image" loading="lazy" src="/cms_trial/assets/398f7cb5-bedf-4ea2-8947-7840751fc1af.png"/><p> 7. Now switch to your Active Directory account and "Revoke" authorizations for the Active Directory account as well.</p><p>If you don't have a dropdown that allows options to switch between AD and Microsoft account, then just revoke authorizations for the account that is chosen.</p><p>8. Navigate to 7pace Timetracker's "Monthly" page and refresh the page.</p><p>9. Click "Authorize".</p><p>Authorization should resume from the beginning and will display the extension permissions request. Authorization should successfully complete by clicking "Accept".</p><img alt="FAQ_Auth_Provided_Token_Auth_Success.png" class="doc-image" loading="lazy" src="/cms_trial/assets/f157b7ec-0c2d-4345-a8a3-57b9ae428a36.png"/><p><div class="img-placeholder">[Unmapped macro: anchor — no content to fall back on]</div></p><h2 id="question-why-am-i-asked-to-authorize-on-every-page">Question - Why am I asked to authorize on every page?</h2><p>I'm the administrator of my account, but Timetracker keeps asking for authorization when I navigate to each page. When I click "Authorize", it says authorization was successful. However, when I refresh the page or try to pair the Windows Client, I get asked to authorize again or the following error displays on the Client: " System.InvalidOperationException: ExecuteAction failed An error occurred. Open web interface, refresh the page, and click "Authorize". [TT:0x00000001]".</p><p>Can you help me resolve this issue?</p><h3 id="answer-check-third-party-application-access-via-oauth">Answer - Check third party application access via OAuth</h3><p>Please check your settings here <a href="https://dev.azure.com/ukpr/_settings/policy">https://dev.azure.com/{account}/_settings/policy</a> and ensure that "Third-party application access via OAuth" is enabled/"on":</p><img alt="FAQ_Auth_Provided_Token_Third_Party_App_Access.png" class="doc-image" loading="lazy" src="/cms_trial/assets/68d588d6-a4c5-4a61-942b-5a2229c5af97.png"/><p><div class="img-placeholder">[Unmapped macro: anchor — no content to fall back on]</div></p><h2 id="question-oauth-vs-pat-authorization-cloud-only">Question - OAuth vs. PAT authorization (Cloud only)</h2><p>What is the difference between authorizing using OAuth or using Personal Access Token (PAT)? (cloud only)</p><h3 id="answer-description-of-each-authorization-option">Answer - Description of each authorization option</h3><p><a href="https://appfire.atlassian.net/wiki/spaces/7TFA/pages/1253540465">OAuth</a> may be a more seamless, short-term method in that the token refreshes itself automatically and frequently. The only potential drawback may occur if something goes wrong during the refresh tokens process, which will render your token unusable and will require you to issue it again. With the <a href="/cms_trial/space/7TFA/1253540459/Use+a+Personal+Access+Token+to+authorize+7pace+Timetracker+for+ADO+Cloud/">Personal Access Token</a> method of authorization, you have to manually reissue the token, but it remains valid for a period of up to one (1) year. </p><p>For more information, see the authorization section <a href="/cms_trial/space/7TFA/1253540271/Get+started/">here</a>.</p><h2 id="question-i-used-entra-id-to-authorize-7pace-and-receive-consent-requests-for-each-user">Question - I used Entra ID to authorize 7pace and receive consent requests for each user</h2><p>With Entra ID authorization, admin consent requests are required by default for each user. </p><h3 id="answer-grant-tenant-wide-admin-consent-for-7pace-timetracker">Answer - Grant tenant-wide admin consent for 7pace Timetracker</h3><p>To avoid having admin consent requests for each 7pace Timetracker user, <a href="https://learn.microsoft.com/en-us/entra/identity/enterprise-apps/grant-admin-consent?pivots=portal">grant tenant-wide admin consent</a> for 7pace Timetracker.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

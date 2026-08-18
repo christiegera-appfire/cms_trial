@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/401572816/Use+cases/">Use cases</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/401540130/Jira+use+cases+(Dashboard+Hub+Pro)/">Jira use cases (Dashboard Hub Pro)</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Restrict users to access dashboards with global restrictions</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/401769684" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Restrict users to access dashboards with global restrictions</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>To avoid the usage of Dashboard Hub Pro among some users and groups, admins can restrict access to the product. However, users without access will still be able to see dashboards shared with <a href="/cms_trial/space/RDD/146310576/Share+a+dashboard+with+a+public+link/">public links</a>.</p><div class="panel panel-note"><p>Learn more about <a href="/cms_trial/space/RDD/146309685/Manage+Global+Access+Restrictions/">Global Access Restrictions</a>.</p></div><img alt="Dashboard Hub Restrict users to access dashboards with global restrictions dashboard preview" class="doc-image" loading="lazy" src="/cms_trial/assets/59c3ef40-d509-4c1f-b727-951ba2e14f4c.png"/>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490996521/Feature+guides/">Feature guides</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/1165525018/Automation+(Script)+Templates/">Automation (Script) Templates</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Listener Templates</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/1165525361" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Listener Templates</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>Listener scripts are extremely useful because they capture a wide range of events that occur both inside and outside of the issues workflow. Listeners can capture such things as issue edits, or the creations of new objects within Jira.</p><p>The templates will add scripts to associated events within Jira.</p><h2 id="setting-up-the-listener-templates">Setting up the Listener Templates</h2><p>Listener scripts are designed to live above projects and workflows so those elements do not need to be specified with all listener scripts. However, listeners still need to be associated with events inside Jira. The first two steps to setting up a listener template is to select an event to use as a script trigger and as an associated user.</p><img alt="Power Scripts for Jira Cloud alias creation dialog" class="doc-image" loading="lazy" src="/cms_trial/assets/2595c0e5-29a3-45da-b2bb-8c8c841fac6c.png"/><div class="panel panel-note"><p><strong>NOTE:</strong> The “Run as” setting is not required. If used, the script will always run under the specified user. If not specified, the script will run as the user who triggered the event.</p></div><h2 id="testing-the-script">Testing the Script</h2><p>Testing listeners can be quite simple. In order to test you should perform an action that will trigger the specific event associated with the trigger then check to see if the desired action was performed. However, if not, troubleshooting listener scripts can be a little tricky, see this section about troubleshooting scripts.</p><h2 id="templates">Templates</h2><h2 id="print-in-server-log-when-an-event-is-triggered">Print in server log when an event is triggered</h2><p>Print text in log file when an event happens.</p><h3 id="inputs">Inputs</h3><table><tr><th><p><strong>Name</strong></p></th><th><p><strong>Required</strong></p></th><th><p><strong>Description</strong></p></th></tr><tr><td><p>User</p></td><td><p>YES</p></td><td><p>The specific user for which the issue will be assigned.</p></td></tr><tr><td><p>Description</p></td><td><p>NO</p></td><td><p>The description text will be added to a comment at the head of the script so other users can be informed of the purpose of the script.</p></td></tr></table><h3 id="script">Script</h3><pre><code class="language-">assignee = "jmuse";</code></pre></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

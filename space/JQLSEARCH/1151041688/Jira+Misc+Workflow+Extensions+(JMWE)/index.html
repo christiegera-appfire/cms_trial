@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209972/JQL+Search+Extensions+(Cloud)/">JQL Search Extensions (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/1120043993/App+integrations/">App integrations</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Jira Misc Workflow Extensions (JMWE)</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JQLSEARCH/pages/1151041688" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Jira Misc Workflow Extensions (JMWE)</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>The use cases in this section provide examples of using your saved JQL Extended Search filters with JMWE – a leading Appfire automation solution. </p><div class="panel panel-note"><p>JMWE is an all-in-one Jira automation app to customize and expand your workflows. Its event-based actions and scheduled actions allow the scope of Jira issues to be based on a JQL query. Combining JMWE with JQL Search Extensions (JSE) means you can deliver more precise and customized automations without any additional development costs. </p><p>Start a free trial of JMWE from our Atlassian <a href="https://marketplace.atlassian.com/apps/292/jira-misc-workflow-extensions-jmwe?hosting=cloud&amp;tab=overview">Marketplace listing</a>.</p></div><h2 id="featured-use-cases">Featured use cases</h2><ul class="children-list"><li><a href="/cms_trial/space/JQLSEARCH/1166901880/Event-based+actions+-+issue+hierarchy+scope/">Event-based actions - issue hierarchy scope</a></li><li><a href="/cms_trial/space/JQLSEARCH/1167262244/Event-based+actions+-+issue+links+scope/">Event-based actions - issue links scope</a></li><li><a href="/cms_trial/space/JQLSEARCH/1170571269/Scheduled+actions+-+Agile+sprint+scope/">Scheduled actions - Agile sprint scope</a></li></ul><h2 id="interactive-walkthrough">Interactive walkthrough</h2><p>Follow our interactive walkthrough to see how to use a saved Search Extensions filter in an event-based action in JMWE.</p><iframe src="https://demo.arcade.software/YBW0UBFAQxMJttUdppaM"></iframe><h2 id="why-use-jql-search-extensions-and-jmwe-together">Why use JQL Search Extensions and JMWE together?</h2><p>✅ <strong>Time savings</strong>: Automating status updates and changes across linked issues saves time by reducing manual effort and followup.</p><p>✅<strong> Better visibility and tracking</strong>: Real-time updates on sprint readiness, task dependencies, and mid-sprint changes provide team leads with better visibility and smoother workflow tracking.</p><p>✅ <strong>Increased accuracy</strong>: Automating status changes and notifications saves time, minimizes human errors, and ensures stakeholders are informed at the right time.</p><p>✅ <strong>Higher customer satisfaction</strong>: Aligned projects and seamless communication help deliver on commitments efficiently, improving overall customer satisfaction.</p><h2 id="what-scenarios-benefit-from-this-integration">What scenarios benefit from this integration?</h2><p>Our apps serve an extensive range of industries and teams. Here are a few examples where our customers are implementing the real-life use cases presented in this section:</p><ul><li><p><strong>Software development</strong>: Ensures that dependencies across Epics, Stories, and Subtasks are communicated effectively, keeping engineering, QA, and product teams aligned and informed. In agile teams, Scrum Masters and product owners gain consistent insights into sprint changes and upcoming priorities.</p></li><li><p><strong>Manufacturing</strong>: As new designs and tasks are approved or updated, linked issues in production and testing can be automatically notified, enhancing workflow continuity across departments.</p></li><li><p><strong>Construction and Engineering</strong>: For large projects with interconnected workstreams, automatic updates ensure that changes in one area are communicated across dependencies, reducing the risk of project delays.</p></li><li><p><strong>Customer support and success teams</strong>: Automatically notifying customer-facing teams about bug resolutions or feature updates enables faster, informed customer responses.</p></li><li><p><strong>Supply chain management</strong>: When tasks in a logistics or supply chain are linked, automatic status updates help streamline communication across interdependent activities, reducing lag and improving flow.</p></li><li><p><strong>Marketing teams</strong>: Teams stay aligned with evolving campaign tasks while ensuring new requirements are clear and actionable for upcoming cycles.</p></li></ul><div class="panel panel-success"><p>To learn more about JMWE, see the <a href="https://appfire.atlassian.net/wiki/spaces/JMWEC">JMWE user documentation</a>.</p></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

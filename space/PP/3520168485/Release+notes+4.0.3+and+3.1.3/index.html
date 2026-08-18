@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PP/1803714584/Planning+Poker+Help+Center/">Planning Poker</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PP/1803714584/Planning+Poker+Help+Center/">Planning Poker Help Center</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PP/1159103478/Release+notes%E2%80%8E/">Release notes‎</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PP/1336344833/Data+center/">Data center</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Release notes 4.0.3 and 3.1.3</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PP/pages/3520168485" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Release notes 4.0.3 and 3.1.3</h1>
+    <div class="page-meta">1 min read</div>
     <p><strong>Release date</strong>: <time datetime="2026-08-06">August 6, 2026</time></p><p>Planning Poker for Jira Data Center versions 4.0.3 for Jira 11 and 3.1.3 for Jira 10 include security fixes.</p><p><strong>Jira compatibility</strong>: Jira 11 and Jira 10</p><hr/><h2 id="security-fixes">Security fixes</h2><p>This release includes the following security fix:</p><ul><li><p>Upgraded a vulnerable dependency to address known security issues.</p></li></ul><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p> <strong>Questions and feedback</strong></p><ul><li><p>Explore exciting features, pricing updates, reviews, and more on the <a href="https://marketplace.atlassian.com/apps/1212495/planning-poker?hosting=datacenter&amp;tab=overview">Marketplace</a>.</p></li><li><p>Stuck with something? Raise a ticket with our <a href="https://appf.re/support">support team</a>.</p></li><li><p>Do you love using our app? Let us know what you think <a href="https://marketplace.atlassian.com/apps/1212495/planning-poker?hosting=datacenter&amp;tab=reviews">here</a>.</p></li></ul></div><div><p> <strong>Credits</strong></p><p>Thank you to our valued customers! Your incredible support and feedback inspire us to improve continuously. We appreciate your trust in Planning Poker.</p></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

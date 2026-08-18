@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/3511091204/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253540447/Frequently+Asked+Questions/">Frequently Asked Questions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">What is the Service Account used for?</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/7TFA/pages/1253540352" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>What is the Service Account used for?</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="question">Question</h2><p>I see the "Service Account" on my 7pace Timetracker Settings. Can you tell me what this is and what it it used for?</p><h2 id="answer">Answer</h2><p>We use the <a href="/cms_trial/space/7TFA/1253540308/Reporting+%26+API%3A+Service+Account%2C+Reporting+%26+REST+API+and+Access+Tokens/">Service Account</a> to perform requests and display data on some pages within 7pace Timetracker that would normally not be accessible or viewable to users with limited permission levels. The Service Account is required for server side tracking to work an it is necessary in order for Work Item Automation to function. The Service Account option helps display more accurate data to those team members with lower permission levels who do not have access to all projects. Instead of having to give these team members higher user group rights for all areas of 7pace Timetracker, you can just set up the Service Account to give them a better overall picture of the Budgets page, the Budgets Export functionality, the ability to fetch work item names within Times Explorer, and the API.</p><p>In <strong>7pace Timetracker for DevOps Services (cloud)</strong>, to get to the Service Account, navigate to the Settings page -&gt; Reporting &amp; API -&gt; Service Account.  As a user with expanded permissions, here you can set yourself as the Service Account for all users. For more information on configuring the Service Account for 7pace Timetracker for DevOps Services, click <a href="/cms_trial/space/7TFA/1253540308/Reporting+%26+API%3A+Service+Account%2C+Reporting+%26+REST+API+and+Access+Tokens/">here</a>. </p><p>In <strong>7pace Timetracker for DevOps Server (on-prem)</strong>, you have the option of setting up or changing the Service Account in the configuration tool wizard of 7pace Timetracker. We recommend that you choose a user with the highest permission level, which is anyone who is a member of the Project Collection Administrators user group. Once complete, you can then navigate to the Settings page -&gt; Reporting &amp; API -&gt; Service Account and view which Service Account has been configured. For more information on configuring the Service Account for 7pace Timetracker for DevOps Server, setting it up during initial installation or changing it post-installation, click <a href="/cms_trial/space/7TFA/1253540308/Reporting+%26+API%3A+Service+Account%2C+Reporting+%26+REST+API+and+Access+Tokens/">here</a>. </p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

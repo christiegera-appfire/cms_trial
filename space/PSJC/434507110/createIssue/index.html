@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434798967/Simple+Issue+Language/">Simple Issue Language</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434374166/SIL+Functions+library/">SIL Functions library</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434374224/Jira+Integration+Functions/">Jira Integration Functions</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434864363/Issue+Functions/">Issue Functions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">createIssue</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/434507110" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>createIssue</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>‌</p><h2 id="description">Description</h2><p>Creates an issue based on the provided arguments.</p><table><tr><th><p><strong>Syntax</strong></p></th><th><p>createIssue(projectKey, parentIssueKey, issueType, summary[, priority, description, components, due date, security_level, field_mappings])</p></th><th><p><strong>Package</strong></p></th><th></th></tr><tr><td><p><strong>Alias</strong></p></td><td></td><td><p><strong>Pkg Usage</strong></p></td><td></td></tr></table><h2 id="parameters">Parameters</h2><table><tr><th><p>Parameter name</p></th><th><p>Type</p></th><th><p>Required</p></th><th><p>Description</p></th></tr><tr><td><p>projectKey</p></td><td><p>String</p></td><td><p>Yes</p></td><td><p>Key of the project, where the issue will be created, as it is saved in the Administration part.</p></td></tr><tr><td><p>parentIssueKey</p></td><td><p>String</p></td><td><p>Yes</p></td><td><p>Key of the parent issue. Though the parameter is required, it can take an empty value to specify that the issue is not a sub-task, but a regular issue.</p></td></tr><tr><td><p>issueType</p></td><td><p>String</p></td><td><p>Yes</p></td><td><p>Type of the issue that will be created.</p></td></tr><tr><td><p>summary or issueSummary</p></td><td><p>String</p></td><td><p>Yes</p></td><td><p>Summary of the issue that will be created.</p></td></tr><tr><td><p>priority</p></td><td><p>String</p></td><td><p>No</p></td><td><p>Priority.</p></td></tr><tr><td><p>description</p></td><td><p>String</p></td><td><p>No</p></td><td><p>Description of the issue that will be created.</p></td></tr><tr><td><p>components</p></td><td><p>array of strings</p></td><td><p>No</p></td><td><p>Components of the issue that will be created.</p></td></tr><tr><td><p>due date</p></td><td><p>date</p></td><td><p>No</p></td><td><p>Due date of the issue that will be created.</p></td></tr><tr><td><p>security level</p></td><td><p>String</p></td><td><p>No</p></td><td><p>Security level of the issue that will be created.</p></td></tr><tr><td><p>custom fields mappings/field mappings</p></td><td><p>JFieldValue[]</p></td><td><p>No</p></td><td><p>Mappings of the custom and system fields of the issue that will be created.</p></td></tr></table><h2 id="return-type">Return Type</h2><p><strong>String</strong></p><p>The key of the created issue</p><h2 id="example">Example</h2><pre><code class="language-javascript">string issue_priority;//Possible values: "Major", "Critical" etc.
 string issue_description;
 string[] issue_components;
@@ -178,6 +183,64 @@ print ("On the project " + project + ", issue " + k + "is created.");</code></pr
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

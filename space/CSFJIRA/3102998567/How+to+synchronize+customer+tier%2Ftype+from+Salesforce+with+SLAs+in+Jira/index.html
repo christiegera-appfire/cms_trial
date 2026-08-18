@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3092186639/Association+and+synchronization/">Association and synchronization</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">How to synchronize customer tier/type from Salesforce with SLAs in Jira</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3102998567" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>How to synchronize customer tier/type from Salesforce with SLAs in Jira</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><p>You can configure Jira to apply different SLA goals based on Salesforce customer data like Customer Tier or Account Type using the Connector for Salesforce &amp; Jira.</p><h2 id="overview">Overview</h2><p>This integration allows you to automatically apply appropriate SLA policies to customer issues based on their status in Salesforce, ensuring consistent service delivery across platforms.</p></div><div></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="steps">Steps</h2><ol><li><p>Create a custom field in Jira to receive the value of the Salesforce field, which determines the SLA goals. </p><ul><li><p>Make sure the two Jira fields are <a href="https://appfire.atlassian.net/wiki/x/fYK9Wg">compatible</a> with the Salesforce field you're mapping</p></li></ul></li><li><p>Map your Jira custom field to the corresponding Salesforce field.<br/>Follow the detailed instructions in <a href="/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field+and+value+mappings/">Configure entity, field and value mappings </a> </p></li><li><p>Configure SLA Goals Based on Customer Data.</p><ol><li><p>In Jira, select <strong>Project </strong>&gt;<strong> View all projects</strong>.<strong> </strong></p></li><li><p>Under <strong>More actions,</strong> click <strong>Project settings</strong> for your project.</p></li><li><p>Click <strong>Request management</strong> &gt; <strong>SLAs</strong>. <br/>There is a list of SLAs already created, such as <strong>Time to first response</strong>.</p></li><li><p>Click <strong>Edit </strong>to set up goals.<br/>In the <strong>Goals</strong> view, under <strong>Apply to work items,</strong> you can see all work items that match the query. </p></li><li><p>Set up your goals: </p><ul><li><p>Create filters based on your custom field values</p></li><li><p>Assign appropriate timeframes for each customer category</p><img alt="tier.jpeg" class="doc-image" loading="lazy" src="/cms_trial/assets/08e8549c-6445-4b0d-8a0c-58f74b269471.jpeg"/></li></ul></li></ol></li></ol><div class="panel panel-note"><p>As shown in the image, the Customer Tier (custom field) is the filter to apply the different goals.</p><ul><li><p>For <strong>Tier 1</strong>,<strong> </strong>the goal for <strong>Time to first response</strong><em> </em>is 2 hours.</p></li><li><p>For <strong>Tier 2</strong>,<strong> </strong>the goal for <strong>Time to first response</strong><em> </em>is 4 hours.</p></li><li><p>For <strong>Tier 3</strong>,<strong> </strong>the goal for <strong>Time to first response</strong><em> </em>is 6 hours.</p></li></ul></div></div><div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

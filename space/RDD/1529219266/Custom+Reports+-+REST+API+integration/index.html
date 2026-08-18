@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146310010/Product+and+data+connections/">Product and data connections</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Custom Reports - REST API integration</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/1529219266" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Custom Reports - REST API integration</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview</h2><p>The <strong>Custom Reports</strong> gadget in Dashboard Hub that lets you integrate data from any product with a REST API into your dashboards. Unlike traditional gadgets tied to predefined <a href="/cms_trial/space/RDD/146309943/Learn+about+datasources/">datasources</a>, Custom Reports lets you create highly tailored reports by fetching data from virtually any external API and presenting it in a unified, interactive dashboard</p><img alt="An example the Custom Reports gadget configuration and descriptor file." class="doc-image" loading="lazy" src="/cms_trial/assets/2abccc8c-2a25-414e-8d79-6e4bacbd3ffe.png"/><h2 id="what-is-a-rest-api-based-report">What is a REST API-based report?</h2><p>REST API-based reports retrieve data directly from external systems using REST APIs. You define the API endpoints, parameters, and filters to retrieve specific data, which is then transformed into visual reports such as charts or tables within the dashboard. REST API-based reports are ideal for integrating data from products like monday.com, Jira, Bitbucket, 7pace GitHub, GitLab, Zendesk, custom CRM or ERP systems, or other platforms, enabling centralized analysis and reporting.</p><p>Custom Reports uses industry standards like <strong>JSON</strong> and <strong>JSONata</strong> for data transformation and visualization, giving you powerful, flexible control over how your data is queried and displayed.</p><h2 id="key-features">Key features</h2><h3 id="flexible-data-integration"><strong>Flexible data integration</strong></h3><p>Connect to APIs beyond the existing integrations provided by Dashboard Hub. Retrieve data from external systems, such as open APIs or private services, using REST API calls.</p><h3 id="customizable-gadgets"><strong>Customizable gadgets</strong></h3><p>Define every detail of the gadget's user interface with a descriptor file in JSON5 format. This includes layout, colors, and data presentation (text, tables, charts).</p><h3 id="advanced-security"><strong>Advanced security</strong></h3><p>Authenticate securely using methods such as Basic Authentication, Bearer Tokens, or API Keys, ensuring reliable and secure data access while maintaining best practices.</p><h3 id="powerful-data-contexts"><strong>Powerful data contexts</strong></h3><p>Combine data from multiple endpoints into a unified context. Query, filter, and visualize this data within the gadget using <a href="https://jsonata.org/">JSONata</a>.</p><h3 id="reusable-reports"><strong>Reusable </strong><strong>reports</strong></h3><p>Save and export reports as JSON files, to share designs, integrations, or collaborate on custom new visualizations.</p><h3 id="custom-reports-templates">Custom Reports templates</h3><p>To help you get started, we offer a catalog of <a href="/cms_trial/space/RDD/1568374878/Custom+Reports+templates/">Custom Reports templates</a> that suit a variety of scenarios and integrations. </p><h2 id="example-use-cases">Example use cases</h2><ul><li><p><strong>Simple reports</strong>: Display data from public APIs, such as weather or news updates, and display it on your dashboard.</p></li><li><p><strong>Advanced reports</strong>: Connect to authenticated APIs and create reports with combined data from multiple endpoints, using variables and filters for granular insights.</p></li></ul><p>Use Custom Reports to break data silos, creating dashboards that integrate information from any source with full control over presentation and functionality. See the <a href="/cms_trial/space/RDD/2110030119/Custom+report+example/">Custom report example</a> to learn more.</p><h2 id="related-pages">Related pages</h2><ul><li><p><a href="/cms_trial/space/RDD/1568374878/Custom+Reports+templates/">Custom Reports templates</a> </p></li><li><p><a href="/cms_trial/space/RDD/1550352515/Configure+a+REST+API+datasource+for+Custom+Reports/">Configure a REST API datasource for Custom Reports</a> </p></li><li><p><a href="/cms_trial/space/RDD/1549304032/Query+and+transform+your+data+with+JSONata/">Query and transform your data with JSONata</a> </p></li><li><p><a href="/cms_trial/space/RDD/1548747137/Nodes+as+building+blocks+for+Custom+Reports/">Nodes as building blocks for Custom Reports</a> </p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

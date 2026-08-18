@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490996521/Feature+guides/">Feature guides</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490998486/SIL+Runner+Gadget/">SIL Runner Gadget</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490996338/SIL+Runner+Gadget+configuration/">SIL Runner Gadget configuration</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Parameters in SIL Runner Gadget</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/490998740" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Parameters in SIL Runner Gadget</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>You can customize the SIL™ Runner Gadget in a more user friendly way by setting up the following components:</p><ul><li><p><strong>Name </strong>- name of the configuration</p></li><li><p><strong>Description </strong>- description of the configuration</p></li><li><p><strong>Execution script</strong> - script that will be executed </p></li><li><p><strong>Parameter script</strong> - optional script that will dynamically insert the advanced parameter fields on the configuration run screen. </p></li></ul><p>If no parameter script is given, the user will be able to add simple input fields for the text parameters (we maintained the old functionality). In order to not show any kind of input for the parameters, use an empty script.</p><h2 id="example">Example</h2><img alt="Power Scripts for Jira Cloud gadget settings display" class="doc-image" loading="lazy" src="/cms_trial/assets/2d30d742-8e58-4e47-8b30-3ae85896e32a.png"/><p>The execution script is the script that will be executed. If there are any parameters declared in the parameter script, their values will be received and interpreted here. In order to get the values of the parameters, use the <a href="/cms_trial/space/PSJC/434507485/Parameter+Retrieval+Functions/">parameter retrieval functions</a>. </p><p>In our case, the execution script uses the <a href="/cms_trial/space/PSJC/433000617/runnerLog/">runnerLog </a>function and can return as many values as you need, regardless of their type.</p><h4 id="example-code"><strong>Example code</strong></h4><pre><code class="language-">date start_date = gadget_getDateValue(argv, "Start Date");
 string tanks = gadget_getSingleValue(argv, "Tanks");
 string infantry = gadget_getSingleValue(argv, "Infantry");
@@ -170,6 +175,64 @@ gadget_createCheckboxGroup("Rockets", {"A big one", "A lot of small ones"}, "", 
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

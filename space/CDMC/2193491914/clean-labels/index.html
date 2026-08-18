@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193033035/Feature+guide/">Feature guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192903639/Administration/">Administration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193066207/Workflow+elements+and+concepts/">Workflow elements and concepts</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192967825/Triggers/">Triggers</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192870598/Trigger+actions/">Trigger actions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">clean-labels</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2193491914" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>clean-labels</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview</h2><p>Use the <strong>clean labels action</strong> in a workflow trigger to remove all the Confluence labels from the page or blog post with the applied workflow.</p><img alt="Comala cleanlabels trigger action applied to page only" class="doc-image" loading="lazy" src="/cms_trial/assets/a2f49b3b-dfe4-432d-ba58-3f980e4a5009.png"/><p>Additionally, you can configure this action to remove all labels only from <strong>direct child pages</strong> of a document with the applied workflow.</p><p>When the <strong>Clean only from child pages</strong> configuration is <strong>True</strong>, all labels are removed from the <strong>immediate children</strong> of the page, but not from the parent page itself or any further level of child pages.</p><img alt="Comala cleanlabels trigger action applied to immediate child pages only" class="doc-image" loading="lazy" src="/cms_trial/assets/66172384-1e5c-47f5-95cd-0facbbca9f1a.png"/><p>When the workflow trigger event occurs, it checks that any required conditions are met, and if they are, the <code>"clean-labels"</code> action removes all Confluence labels.</p><div class="panel panel-note"><p>The workflow trigger label actions are part of a gradual rollout of new features and are not immediately available to all our customers.</p></div><h2 id="clean-labels"><code>"clean-labels"</code></h2><p>The <code>"clean-labels"</code> action removes all the labels on the document.</p><ul><li><p><strong>action (</strong><em><strong>clean-labels</strong></em><strong>) </strong></p><ul><li><p><strong>Children </strong>remove all labels from the direct child pages, but not from the parent page itself or any further level of children</p><ul><li><p>boolean <code>true</code> or <code>false</code></p><ul><li><p>the default value is <code>"children": false</code>. All labels are removed from the current page</p></li><li><p>when the value is <code>"children": true</code>. All labels are removed from the direct child pages. All labels are removed only from the <strong>immediate children</strong> of the page - not from the parent page itself or any further level of child pages</p></li></ul></li></ul></li></ul></li></ul><div class="panel panel-note"><p>If the <code>"children"</code> parameter is not included in the workflow trigger code, the default value <code>false</code> is used, and labels are only removed from the page with the applied workflow.</p></div><h3 id="example-trigger-code">Example trigger code</h3><pre><code class="language-">"triggers":
 [
 	{"event": "on-change-state",
@@ -179,6 +184,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

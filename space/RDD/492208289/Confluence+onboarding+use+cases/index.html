@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/401572816/Use+cases/">Use cases</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/401769355/Confluence+use+cases+(Dashboard+Hub+for+Confluence)/">Confluence use cases (Dashboard Hub for Confluence)</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Confluence onboarding use cases</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/492208289" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Confluence onboarding use cases</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>Here you’ll find more detailed use cases for new Dashboard Hub for Confluence users to ease their onboarding experience.</p><div class="panel panel-success"><p>These advanced use cases are formed by combining various simpler use cases into more complete/broader solutions.</p></div><h2 id="onboarding-use-cases-for-teams-working-in-confluence">Onboarding use cases for teams working in Confluence</h2><ul class="children-list"><li><a href="/cms_trial/space/RDD/492110022/Upgrade+your+Confluence+pages+with+custom+chart+macros/">Upgrade your Confluence pages with custom chart macros</a></li><li><a href="/cms_trial/space/RDD/492372191/Redirect+users+and+groups/">Redirect users and groups</a></li><li><a href="/cms_trial/space/RDD/492372221/Create+custom+dashboards+in+Confluence/">Create custom dashboards in Confluence</a></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMCFC/168855370/Overview/">Jira Misc Custom Fields (JMCF) - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/168855370/Overview/">Overview</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">APIs</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMCFC/pages/1325596783" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>APIs</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="accessing-jira-fields">Accessing Jira Fields</h2><p>You can access the values of other fields and properties within JMCF <a href="/cms_trial/space/JMCFC/731676729/Scripted+Field/">Scripted Fields</a> - both for the current issue and related issues - by using the APIs detailed in this section.</p><h2 id="the-script-editor">The script editor</h2></div><div><div class="panel panel-note"><p>You are viewing the documentation for <strong>Jira Cloud</strong>. </p></div><table><tr><th><p><strong>In This Section</strong></p><ul class="children-list"><li><a href="/cms_trial/space/JMCFC/1325301787/issue+APIs/">issue APIs</a><ul class="children-list"><li><a href="/cms_trial/space/JMCFC/1324974093/getProperties/">getProperties</a></li><li><a href="/cms_trial/space/JMCFC/1325072483/getChildIssues/">getChildIssues</a></li><li><a href="/cms_trial/space/JMCFC/1325137936/getField/">getField</a></li><li><a href="/cms_trial/space/JMCFC/1326022692/getParentIssue/">getParentIssue</a></li><li><a href="/cms_trial/space/JMCFC/1326120998/getProperty/">getProperty</a></li><li><a href="/cms_trial/space/JMCFC/1326317598/getFields/">getFields</a></li><li><a href="/cms_trial/space/JMCFC/1562447291/getFieldHistory/">getFieldHistory</a></li><li><a href="/cms_trial/space/JMCFC/1563854403/getIssueHistory/">getIssueHistory</a></li><li><a href="/cms_trial/space/JMCFC/1798209737/getLinkedIssues/">getLinkedIssues</a></li></ul></li><li><a href="/cms_trial/space/JMCFC/1741390022/jira+APIs/">jira APIs</a><ul class="children-list"><li><a href="/cms_trial/space/JMCFC/1740898448/getUser/">getUser</a></li><li><a href="/cms_trial/space/JMCFC/1740963918/getGroupUsers/">getGroupUsers</a></li><li><a href="/cms_trial/space/JMCFC/1741226042/getGroup/">getGroup</a></li><li><a href="/cms_trial/space/JMCFC/1741390062/getProjects/">getProjects</a></li><li><a href="/cms_trial/space/JMCFC/1741488202/getStatuses/">getStatuses</a></li><li><a href="/cms_trial/space/JMCFC/1741750369/getPermissions/">getPermissions</a></li><li><a href="/cms_trial/space/JMCFC/1741815887/getProject/">getProject</a></li><li><a href="/cms_trial/space/JMCFC/1742045213/getAllPermissions/">getAllPermissions</a></li></ul></li></ul></th></tr></table></div></div><h2 id="determining-custom-field-ids">Determining custom field IDs</h2>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/899022918/Release+notes/">Release notes</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">3.2.19 Release notes</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/3194388494" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>3.2.19 Release notes</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p><strong>Release date</strong>: <time datetime="2026-05-01">May 1, 2026</time></p><p>This page outlines the updates included in the latest release of Power Scripts for Jira Cloud.</p><hr/><h2 id="enhancements">Enhancements</h2><h2 id="improved-functions-for-retrieving-email-addresses">Improved functions for retrieving email addresses</h2><p>The following functions now make it easier to retrieve email addresses:</p><ul><li><p><em>getUser</em> - The function includes a new optional parameter,<code>forceIncludeEmail</code> (boolean). When set to true, the result includes the user email. </p></li><li><p><em>getUserByFullName</em> - The function includes a new optional parameter, <code>forceIncludeEmail</code> (boolean). When set to <code>true</code>, the result includes the user email. </p></li><li><p><em>getUserByEmail</em> - Now returns the user’s email in the result.</p></li><li><p><em>userEmailAddress</em> - Returns the user’s email address.</p></li></ul><p>We've improved how Power Scripts retrieves user profile data, including email addresses. Previously, functions such as <code>userEmailAddress()</code>, <code>getUser()</code>, <code>getUserByEmail()</code>, and <code>getUserByFullName()</code> could return user records with missing email addresses. These functions now handle email retrieval and missing profile data more reliably, ensuring that user email addresses are quickly returned when available and that accounts with incomplete profile data no longer cause errors.</p><div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/HrGkYk2SdCI"></iframe></div><hr/><h2 id="bug-fixes">Bug fixes</h2><p>The following bugs are fixed in this release:</p><ul><li><p>Resolved an issue where users encountered a 403 error from the <code>autotransition</code> function when the add-on tries to impersonate itself using <code>asUser.</code></p></li><li><p>Resolved an issue where the <code>originalEstimate</code> function could not be set using SIL scripts if the field was not previously set from the issue.</p></li><li><p>Resolved an issue where the <code>createIssue</code> function does not set the due date field.</p></li><li><p>Resolved an issue where the user receives an error message in the SIL debugger: <code>Can't start the debug. Another session might be in progress</code>, even without a previous session active.</p></li><li><p>Resolved an issue where copying an ADF field containing a hyperlink fails and shows a <code>ERROR parsing document</code> message.</p></li><li><p>Resolved an issue where an ADF parsing error appears only when a cell is empty.</p></li></ul><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p><strong>Questions and feedback</strong></p><ul><li><p>Explore exciting features, pricing updates, reviews, and more on the <a href="https://marketplace.atlassian.com/apps/43318/power-scripts-jira-workflow-automation?tab=overview">Marketplace</a>.</p></li><li><p>Stuck with something? Raise a ticket through our <a href="https://appf.re/support">support portal</a>.</p></li><li><p>Do you love using our app? Let us know what you think <a href="https://marketplace.atlassian.com/apps/43318/power-scripts-jira-workflow-automation?tab=reviews">here</a>. <span class="img-placeholder" style="display:inline">[unmapped inline: placeholder]</span></p></li></ul></div><div><p><strong>Credits</strong></p><p>Thank you to our valued customers! Your incredible support and feedback inspire us to improve continuously. We appreciate your trust in Power Scripts for Jira Cloud!</p></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

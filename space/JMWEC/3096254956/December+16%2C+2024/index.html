@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/1154449466/Release+notes/">Release notes</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">December 16, 2024</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/3096254956" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>December 16, 2024</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="feature-release-jmwe-for-jira-cloud-1-2-37">Feature Release - JMWE for Jira Cloud 1.2.37</h2><p>This release of <strong>JMWE for Jira Cloud</strong> includes a new post function - Log Work - and improved error capture for the Clear fields post function. Additionally, several UI updates have been made for the JMWE Administration pages and the Automation Rule Builder. </p><p><span class="img-placeholder" style="display:inline">[unmapped inline: placeholder]</span></p><p><span class="img-placeholder" style="display:inline">[unmapped inline: placeholder]</span></p></div></div><hr/><h2 id="enhancements">Enhancements</h2><h2 id="extensions">Extensions</h2><h3 id="new-post-function-log-work">New post function - Log Work</h3><img alt="JMWE for Jira Cloud log work post function configuration with time tracking settings" class="doc-image" loading="lazy" src="/cms_trial/assets/4fd8bf72-88da-4861-b34f-eebc90132093.png"/><p> A new post function has been added to JMWE - Log Work! This post function can automatically add Worklog entries for calculated increments, including adjusting the issue’s estimate and adding scripted Descriptions!</p><h3 id="clear-fields-updated-error-logs">‘Clear fields’ updated error logs</h3><p>JMWE Logs have been enhanced to better capture when the Clear fields post function is configured to clear a field that is required (or cannot be empty). Now, when the post function attempts to clear a field that cannot be cleared, an Error will be added to the logs. </p><h2 id="ui-updates">UI Updates</h2><h3 id="actions-and-extensions-list-in-administration-pages">Actions and Extensions list in Administration pages</h3><p>The administration pages for JMWE Workflow extensions, Shared actions, Scheduled actions, and Event-based actions have been updated for better usability. The <strong>Edit</strong> option has been removed from the Action menu ( <span class="icon-note">[png icon]</span> ), and the Name value for all extensions or Actions are now clickable links; this enables you to easily open them in a new tab for editing without losing your location in the main list. </p><h3 id="automation-rule-builder-extensions-list">Automation Rule Builder extensions list</h3><img alt="JMWE for Jira Cloud rule builder filter expand and collapse controls" class="doc-image" loading="lazy" src="/cms_trial/assets/0e4809b1-8149-4b44-8987-64d2aac50c18.png"/><p> The Automation Rule Builder has been updated with options for better filtering as well as the option to Expand All and Collapse All tiles for the included post functions. The new options are located to the right of the Search field at the top of the post function list (pictured, right). </p><h2 id="bug-fixes">Bug fixes</h2><p>The following bugs are fixed in this release:</p><ul><li><p><strong>Issue Resolved event does not trigger Event-based Action</strong></p><ul><li><p>In some configurations, the Issue Resolved event does not trigger Event-based Actions when the Action is configured to run for JSM projects. This has been resolved. </p></li></ul></li><li><p><strong>‘Field required’ validator incorrectly validates the Sprint field</strong></p><ul><li><p>The Field required validator is incorrectly returning valid results when checking the Sprint field. This has been resolved. </p></li></ul></li><li><p><strong>‘Field required’ validator incorrectly validates when checking a paragraph field</strong></p><ul><li><p>The Field required validator is incorrectly returning valid results when checking multiple fields that include Paragraph fields. This has been resolved.  </p></li></ul></li><li><p><strong>‘Assign issue’ fails to assign the issue when run as ‘Current user’</strong></p><ul><li><p>Under some configurations, the Assign issue post function fails to correctly assign the issue. This has been resolved. </p></li></ul></li><li><p><strong>ParentIssue variable does not work when target issue is the current issue</strong></p><ul><li><p>The Nunjucks variable parentIssue fails to return a value when used in a Sub-task and the post function is configured to run against the ‘Current issue’ (the Sub-task). This has been fixed. </p></li></ul></li><li><p><strong>‘Transition issue’ post function incorrectly detects loops</strong></p><ul><li><p>In rare circumstances the Transition issue post function is incorrectly detecting loops and returning an error message. This has been fixed. </p></li></ul></li><li><p><strong>Shared Nunjucks templates incorrectly save with blank values</strong></p><ul><li><p>In some circumstances, the Shared Nunjucks templates could be saved with blank values for the name and Template fields. These fields now require values. </p></li></ul></li><li><p><strong>Description field in Automation Rule Builder disappears after editing</strong></p><ul><li><p>When editing an Action using the Automation Rule Builder, entering a blank space for the Description and then clicking away from the field causes the field to disappear from the screen. This has been resolved. </p></li></ul></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

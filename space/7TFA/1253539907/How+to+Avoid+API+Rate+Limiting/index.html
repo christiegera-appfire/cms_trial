@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/3482517944/Admin+guide/">Admin guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253540254/API+%26+Reporting/">API &amp; Reporting</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">How to Avoid API Rate Limiting</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/7TFA/pages/1253539907" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>How to Avoid API Rate Limiting</h1>
+    <div class="page-meta">10 min read</div>
     <div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p>Every system has its limits. At 7pace, there are limits on the number of API requests that you and your team are allowed to ensure quality of service for all users. Please see <a href="/cms_trial/space/7TFA/1253539983/7pace+Timetracker+API+Important+Information/">API Request Limits</a> and <a href="/cms_trial/space/7TFA/1253539983/7pace+Timetracker+API+Important+Information/">Lifetime Policies</a> for more information. This article contains techniques that may help you to achieve less frequent and more effective interaction with 7pace's API.</p></div><div></div></div><h2 id="incremental-refresh">Incremental refresh</h2><p>Incremental refresh is a great way to decrease the load on the API. Instead of repeatedly polling the entire history of data, <em>the data created, changed, or deleted during a specified period is requested (refreshed) from the API</em>. Whereas, the data created, changed, or deleted <em>before </em>this specified period stays stored in the dataset and is no longer requested from the API. Data older than a specified archived period is removed from the dataset altogether. The archived period is usually set to years, while the refreshed period is set to days or single months (more on this later).</p><img alt="Incremental_Refresh.png" class="doc-image" loading="lazy" src="/cms_trial/assets/046446ff-966a-40be-920d-d2857c8666c0.png"/><p>How to set this up with 7pace Reporting API? Use the <strong>EditedTimestamp</strong> attribute of worklogs and only query data where <strong>EditedTimestamp</strong> was changed within a specified period. The <strong>EditedTimestamp</strong> attribute is updated whenever a worklog is created, updated, or deleted. Make sure you use API of version 3.3 or higher and utilize endpoints ending with <code>WithDeleted</code> so that you get deleted worklogs in responses.</p><img alt="Edited_Timestamp.png" class="doc-image" loading="lazy" src="/cms_trial/assets/2b6fc261-624c-4b67-90ee-6aaa72e402d0.png"/><p>Incremental refresh can be implemented manually, e.g., via using two reports (one for historical data, one for fresh data). The easiest way, though, is to use native Power BI functionality. We recommend reading the <a href="https://docs.microsoft.com/en-us/power-bi/connect-data/incremental-refresh-overview">official Microsoft documentation</a> first.</p><h2 id="incremental-refresh-via-powerbi">Incremental refresh via PowerBI</h2><p>In this section, the process to connect Power BI to our data source and set up incremental refresh is described.</p><h3 id="prerequisites-and-recommendations">Prerequisites and recommendations</h3><ul><li><p>You need Power BI Desktop together with a Power BI Pro license or higher. Data model and incremental refresh is set up on Power BI Desktop, but incremental refresh only works if a model is published as a service. See <a href="https://docs.microsoft.com/en-us/power-bi/connect-data/incremental-refresh-overview">Power BI documentation</a> for up to date information.</p></li><li><p><strong>OData feed</strong> data source is more suitable for incremental refresh because it supports automatic pagination (via <code>@odata.nextlink</code> attribute in metadata). Therefore, we recommend using the <a href="https://appfire.atlassian.net/wiki/x/qoG3Sg">7pace reporting API</a>.  </p><ul><li><p>For optimal process, use version 3.3 or higher because it can also provide information about deleted<em> </em>worklogs. Why does it help? If you process information about deleted worklogs, you can select shorter refresh periods because you need not be dependent on locking past weeks for editing; you can simply get all changes no matter how old the edited or removed worklogs were.</p></li></ul></li><li><p>If you decide to connect a data source as regular JSON content into Power BI (<strong>New Source</strong> &gt; <strong>Web</strong>), you must implement pagination logic. This most likely prevent query folding that is required for incremental refresh to work (more on this later).</p></li></ul><h3 id="process">Process</h3><p>For incremental refresh to work, you need to:</p><ul><li><p><a href="#Set-up-data-source">Set up a data source</a> that will obtain data from the 7pace API for a certain date/time interval.</p></li><li><p><a href="#Set-up-incremental-refresh">Set up incremental refresh parameters</a> for this data source.</p></li><li><p><a href="#Publish-to-a-service-and-schedule-regular-refresh">Publish the data source</a> to a Power BI service and schedule its regular refresh interval.</p></li></ul><h4 id="set-up-data-source"><div class="img-placeholder">[Unmapped macro: anchor — no content to fall back on]</div>Set up data source</h4><p>First, connect Power BI to the 7pace OData data source (see <a href="/cms_trial/space/7TFA/1253540266/7pace+Timetracker+Reporting+API+Version+3/">our 7pace documentation</a> for our step-by-step guide). For optimal performance, it is strongly recommended to use API v3.3 or higher and utilize endpoints providing deleted worklogs as well (they end with <code>WithDeleted</code> suffix).</p><p>Once the data source is connected, you must set the <strong>RangeStart</strong> and <strong>RangeEnd</strong> parameters, and update the Power Query accordingly. This tells Power BI how to filter records from a specified refresh period.</p><ol><li><p>Edit the query, e.g. via the context menu:<br/></p><img alt="Edit_Query.png" class="doc-image" loading="lazy" src="/cms_trial/assets/5a9659af-8607-412e-a2c5-885b0b45c22a.png"/></li><li><p>Add <strong>RangeStart</strong> and <strong>RangeEnd</strong> parameters using the <a href="https://docs.microsoft.com/en-us/power-bi/connect-data/incremental-refresh-configure">official Microsoft configuration guide</a>. The parameters must be in the Date/Time format, otherwise, the incremental refresh will not work. For the initial values, we set <strong>RangeStart</strong> in the past (i.e. years) and <strong>RangeEnd</strong> to the current date.</p></li><li><p>Next, choose a field with <strong>RangeStart</strong><em> </em>and <strong>RangeEnd</strong> as ranges when obtaining data from the API. The field must contain a date and time. It is recommended to use the <strong>EditedTimestamp</strong><em><strong> </strong></em>of a work log; even if a user creates a work log in the future or changes an old record, <strong>EditedTimestamp</strong> will contain the system date of the time when the change took place.<br/>OData source, however, stores timestamps in DateTimeZone format, so you must create a function that transforms <strong>DateTimeZone</strong> to <strong>DateTime</strong>. Therefore, create a blank query, call it <code>DateKey</code>, and paste the following code to the body:<br/><code>= (x as datetime) =&gt; DateTimeZone.From(x)</code><br/>The result looks like this:<br/></p><img alt="DateKey.png" class="doc-image" loading="lazy" src="/cms_trial/assets/92481513-9b08-4f38-aa09-f9001f267466.png"/></li><li><p>As the final step, apply the filtering by <strong>RangeStart</strong><em> </em>and <strong>RangeEnd</strong> to the field of our choice from the previous step with the <code>DateKey</code> conversion function applied to it. An easy way to do this is to first filter the field with some random value:<br/></p><img alt="Range_Start_End.gif" class="doc-image" loading="lazy" src="/cms_trial/assets/db3835b9-008e-4a59-9a94-01892b3c9f27.gif"/><p>Next, update the transformation step so it works with the <strong>RangeStart</strong> and <strong>RangeEnd</strong><em> </em>parameters with the <code>DateKey</code><em> </em>function applied.<br/></p><img alt="Filtered_Rows.png" class="doc-image" loading="lazy" src="/cms_trial/assets/5eaf6260-df9f-46c2-83bc-45a5f0b1b925.png"/><img alt="Date_Timezone.gif" class="doc-image" loading="lazy" src="/cms_trial/assets/08dc2e2a-85dc-4c3c-a4b2-a53d3a30cbd6.gif"/></li></ol><div class="panel panel-note"><p>Make sure the interval is closed on one side (that is, <code>&gt;=</code>) and open on the other side (that is, <code>&lt;</code>), otherwise, the data in the report can get duplicated.</p></div><p>The final Power Query must look like this:</p><pre><code class="language-">let
   Source = OData.Feed("https://{replaceByYourURL}.timehub.7pace.com/api/odata/v3.3-beta", null, [Implementation="2.0"]),
   workLogsWorkItems_table = Source{[Name="workLogsWorkItemsWithDeleted",Signature="table"]}[Data],
@@ -165,6 +170,64 @@ in
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

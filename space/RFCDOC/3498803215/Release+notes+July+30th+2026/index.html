@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud) Documentation</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941853/Release+Notes/">Release Notes</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Release notes July 30th 2026</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/3498803215" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Release notes July 30th 2026</h1>
+    <div class="page-meta">1 min read</div>
     <p><strong>Release date</strong>: <time datetime="2026-07-30">July 30, 2026</time></p><p>This page outlines the updates included in the latest release of Rich Filters for Jira Dashboards.</p><hr/><h2 id="enhancements">Enhancements</h2><p><strong>Search rich filters by administrator</strong></p><p>You can now search the<strong> Rich filters </strong>list by the administrator, making it easier to find filters on large Jira instances. A new <strong>Administrator</strong> dropdown has been added alongside the existing search box, allowing you to quickly narrow down filters by their admin.</p><div class="panel panel-note"><p>This feature is being rolled out gradually and may not yet be available on all instances.</p></div><img alt="image-20260730-094732.png" class="doc-image" loading="lazy" src="/cms_trial/assets/a6873905-1033-4a91-97e9-e64bbaad1fbb.png"/><p>For details, see <a href="/cms_trial/space/RFCDOC/783941683/Manage+Rich+Filters/">Find an existing rich filter</a>.</p><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p> <strong>Questions and feedback</strong></p><ul><li><p>Explore exciting features, pricing updates, reviews, and more on the <a href="https://marketplace.atlassian.com/apps/1214789/rich-filters-for-jira-dashboards?hosting=cloud&amp;tab=overview"><u>Marketplace</u></a>.</p></li><li><p>Stuck with something? Raise a ticket with our <a href="https://appf.re/support"><u>support team</u></a>.</p></li><li><p>Do you love using our app? Let us know what you think <a href="https://marketplace.atlassian.com/apps/1214789/rich-filters-for-jira-dashboards?hosting=cloud&amp;tab=reviews"><u>here</u></a>.</p></li></ul></div><div><p><strong> </strong> <strong>Credits</strong></p><p>A heartfelt thank you to our valued customers! Your incredible support and feedback inspire us to improve our apps and products continually. You are the driving force behind why we create software. We appreciate your trust in Rich Filters for Jira Dashboards!</p></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

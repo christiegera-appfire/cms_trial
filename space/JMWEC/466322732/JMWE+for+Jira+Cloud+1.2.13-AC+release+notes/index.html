@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/1154449466/Release+notes/">Release notes</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465473449/Release+notes+(archived)/">Release notes (archived)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465504330/Previous+Releases/">Previous Releases</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">JMWE for Jira Cloud 1.2.13-AC release notes</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/466322732" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>JMWE for Jira Cloud 1.2.13-AC release notes</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>This version brings the following changes:</p><h3 id="improvements">Improvements:</h3><ul><li><p>The <strong>Email Issue(s) post-function</strong> now makes sure users don't receive multiple emails when they are part of multiple “recipients” options</p></li><li><p>The <code>sum</code> filter can now automatically convert string values into numbers</p></li><li><p>Post-functions that operate on linked or target issues now consider both directions of a symmetrical issue link type (e.g. “relates to”/“relates to”) as one, just like Jira does</p></li><li><p>Event-based actions can now listen to Comment Updated and Comment Deleted events</p></li></ul><h3 id="bug-fixes">Bug fixes:</h3><ul><li><p><a href="https://appfire.atlassian.net/browse/MWEC-970">MWEC-970</a> Regression: "At least one issue must be in one of the selected statuses below" and "At least one issue must not be in one of the selected statuses below" modes wrongly disabled</p></li><li><p><a href="https://appfire.atlassian.net/browse/MWEC-966">MWEC-966</a> Incorrect deprecation message logged when Copy Issue Fields post-function copies a user picker field to multiple issues</p></li><li><p><a href="https://appfire.atlassian.net/browse/MWEC-952">MWEC-952</a> Event-based action webhooks are not re-registered after uninstalling and reinstalling JMWE</p></li><li><p><a href="https://appfire.atlassian.net/browse/MWEC-931">MWEC-931</a> Intermittent timeouts processing issuelink_created and issuelink_deleted events</p></li><li><p><a href="https://appfire.atlassian.net/browse/MWEC-930">MWEC-930</a> Event-based actions that use a JQL filter don't work anymore</p></li><li><p><a href="https://appfire.atlassian.net/browse/MWEC-929">MWEC-929</a> Create Issue(s) post-function: can't find customer request type if there are more than 50 request types in the project</p></li><li><p><a href="https://appfire.atlassian.net/browse/MWEC-926">MWEC-926</a> Set issue fields post-function: Wrong snippet in the 'Issue Fields' tab in the 'Help' section</p></li><li><p><a href="https://appfire.atlassian.net/browse/MWEC-918">MWEC-918</a> Set issue fields/Copy issue fields: Conditional execution forces the presence of {{ }}</p></li><li><p><a href="https://appfire.atlassian.net/browse/MWEC-892">MWEC-892</a> No infinite loop detection in shared actions</p></li><li><p><a href="https://appfire.atlassian.net/browse/MWEC-878">MWEC-878</a> Shared action can be deleted even if it is Used in an action or post-function</p></li><li><p><a href="https://appfire.atlassian.net/browse/MWEC-846">MWEC-846</a> Delete functionality does not work in latest chrome browser version(92.0.4515.107) for event based action, shared action and scheduled action page</p></li><li><p><a href="https://appfire.atlassian.net/browse/MWEC-782">MWEC-782</a> Remove read-only text fields from drop-down of clear field value post function</p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

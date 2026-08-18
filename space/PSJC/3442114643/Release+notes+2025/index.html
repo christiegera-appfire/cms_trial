@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/899022918/Release+notes/">Release notes</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Release notes 2025</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/3442114643" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Release notes 2025</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>This section contains the 2025 Power Scripts Release notes. For the latest release notes and updates, refer to the current <a href="/cms_trial/space/PSJC/899022918/Release+notes/">Release notes</a> page.</p><ul class="children-list"><li><a href="/cms_trial/space/PSJC/1632240817/3.2.7+Release+notes/">3.2.7 Release notes</a></li><li><a href="/cms_trial/space/PSJC/1847558255/3.2.8+Release+notes/">3.2.8 Release notes</a></li><li><a href="/cms_trial/space/PSJC/1931477524/3.2.9+Release+notes/">3.2.9 Release notes</a></li><li><a href="/cms_trial/space/PSJC/1992130877/3.2.10+Release+notes/">3.2.10 Release notes</a></li><li><a href="/cms_trial/space/PSJC/2009006135/3.2.11+Release+notes/">3.2.11 Release notes</a></li><li><a href="/cms_trial/space/PSJC/2085060613/3.2.12+Release+notes/">3.2.12 Release notes</a></li><li><a href="/cms_trial/space/PSJC/2098200588/3.2.13+Release+notes/">3.2.13 Release notes</a></li><li><a href="/cms_trial/space/PSJC/2192506903/3.2.14+Release+notes/">3.2.14 Release notes</a></li><li><a href="/cms_trial/space/PSJC/2229469185/3.2.15+Release+notes/">3.2.15 Release notes</a></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

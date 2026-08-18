@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465503894/Help+and+Support/">Help and Support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/466288660/Migrating+from+Data+Center/">Migrating from Data Center</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Migrating using Jira Cloud Migration Assistant (JCMA)</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/466321545" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Migrating using Jira Cloud Migration Assistant (JCMA)</h1>
+    <div class="page-meta">5 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p>The JMWE app has an automated migration path and can be migrated from <strong>Jira Server/Data Center</strong> (JMWE version 7.2.0 and later) using <strong>Jira Cloud Migration Assistant (JCMA)</strong>. Be aware that JMWE’s Cloud migration may not migrate all of your extensions identically, so you should test the JMWE migration in a trial/test Cloud instance.</p><div class="panel panel-warning"><p><strong>BEFORE YOU BEGIN</strong></p><ul><li><p>Please be sure to review all <a href="https://support.atlassian.com/migration/docs/jira-cloud-migration-assistant/">Jira documentation</a> for the migration process. </p></li><li><p>Note that migration of third-party apps using JCMA is still in Beta; while every effort has been made to migrate all JMWE configurations <strong>the process is not 100% comprehensive</strong>. Some manual updates will be required!</p></li><li><p>The migration process is <strong>not aware of context</strong> - when migrating a single project, you will encounter many warnings!</p></li></ul></div></div><div><img alt="A screenshot of the Migration Assistant page." class="doc-image" loading="lazy" src="/cms_trial/assets/75fde98f-32cf-406f-ab06-87136deed58c.png"/></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><div class="panel panel-note"><p> <strong>Note:</strong> If you have already migrated to the Cloud and need information regarding how to fix errors, see the <a href="/cms_trial/space/JMWEC/465473765/Post+migration/">Post Migration page</a>. </p></div><h2 id="start-the-migration">Start the Migration</h2><div class="panel panel-note"><p>Before preparing your Data Center/Server instance for, verify that <strong>Jira Cloud Migration Assistant </strong>is installed!</p></div><p>The migration process starts on your Jira Data Center/Server instance, where you must prepare your data for migration. </p><p>To begin the migration, follow these steps: </p><ol><li><p>Log into your Jira instance as an Administrator. </p></li><li><p>From the <strong>Administration</strong> menu ( ⚙️ ) click <strong>System</strong>.</p></li><li><p>In the left-hand panel, scroll down to <em>IMPORT AND EXPORT</em><strong><em> </em></strong>and click <strong>Migrate to cloud</strong>. The Migration Assistant home page will open (Figure 1, right).</p></li><li><p>The following sections will detail any special considerations for JMWE in each of the major steps of the migration process. </p></li></ol><h2 id="assess-your-apps">Assess your apps</h2><img alt="Jira Misc Workflow Extension showing the Needed in cloud status." class="doc-image" loading="lazy" src="/cms_trial/assets/2c95ae92-7fcc-45a8-9477-7ad0b087be62.png"/><p>During the <a href="https://support.atlassian.com/migration/docs/use-the-jira-cloud-migration-assistant-to-migrate/#1.-Assess-your-apps"><strong>Assess your apps </strong></a><a href="https://support.atlassian.com/migration/docs/use-the-jira-cloud-migration-assistant-to-migrate/#1.-Assess-your-apps">step</a>, make sure that you have marked Jira Misc Workflow Extensions status as <strong>Needed in cloud</strong> (Figure 2, right). If a green check does not appear, you will need to upgrade to version 7.2.0 or later of JMWE <a href="https://marketplace.atlassian.com/apps/292/jira-misc-workflow-extensions-jmwe?tab=versions&amp;hosting=server">Server</a> or <a href="https://marketplace.atlassian.com/apps/292/jira-misc-workflow-extensions-jmwe?tab=versions&amp;hosting=datacenter">Data Center</a> to migrate using JCMA.</p><p>You can check the compatibility of your extensions using the <strong>View differences</strong> link, or you can see the feature comparison between Data Center/Server and Cloud <a href="/cms_trial/space/JMWEC/465473954/Feature+Comparison+-+JMWE+Data+Center+vs.+JMWE+Cloud/">here</a>.</p><p>When you have determined the migration status of all of your installed apps, click <strong>Done</strong>. </p><h2 id="prepare-your-apps">Prepare your apps</h2><p>During the<strong> </strong><a href="https://support.atlassian.com/migration/docs/use-the-jira-cloud-migration-assistant-to-migrate/#2.-Prepare-your-apps"><strong>Prepare your apps</strong></a><a href="https://support.atlassian.com/migration/docs/use-the-jira-cloud-migration-assistant-to-migrate/#2.-Prepare-your-apps"> step</a>, the migration process will verify that <strong>JMWE for Jira Cloud</strong> is installed on the destination Jira Cloud instance. You must be an Administrator on <strong>both</strong> the source Data Center/Server instance and the destination Cloud instance. Selecting your destination cloud instance will require that you input the base URL of your Data Center/Server instance, found under <strong>System</strong> → <strong>System info</strong>. </p><img alt="JMWE for Jira Cloud migration assistant app preparation interface" class="doc-image" loading="lazy" src="/cms_trial/assets/f0684b48-c517-4868-a238-2aaa646ac14b.png"/><p>Once you have verified that all required apps are installed on your destination Cloud instance, you can continue to prepare your migration by completing the <strong>Assess and prepare your users</strong> step and the <strong>Review all email domains</strong> step. When you are fully prepared to complete the migration, move to the next step. </p><h2 id="create-a-migration">Create a migration</h2><p>After completing all of the pre-migration steps, you create a migration and then execute that migration. JCMA will walk you through the steps necessary to complete the migration. You will need to name your migration, choose a migration stage (Production vs Testing), and verify the destination Cloud instance. During the setup of your migration, you will be prompted to choose what to migrate - be sure to select <strong>Choose what to migrate</strong> so that JMWE can be added to the migration. </p><p>During the pre-migration checks, the <strong>Apps</strong> section will likely display a warning. click <strong>View app vendor checks</strong> to open a list of potential issues. These issues can include: </p><ul><li><p><strong>Groovy scripts</strong> - Jira Cloud does not support Groovy; instead, it utilizes <strong>Jira expressions</strong> or <strong>Nunjucks</strong> for scripting purposes. </p></li><li><p><strong>Known incompatibilities</strong> - Known issues such as extensions that do not exist in Jira Cloud, or other incompatible configurations.  </p></li></ul><p>You can download CSV reports for each of the issues; <strong>it is highly recommended that you download and review these reports</strong>. They will provide guidance on any extensions, actions, or configurations that may not migrate completely. </p><p>When the JMWE migration is finished, you will see the status as Complete in the Apps section.</p><img alt="JMWE for Jira Cloud migration status display showing completion progress" class="doc-image" loading="lazy" src="/cms_trial/assets/eb199fe1-86d3-4315-b326-8f394bfa7b2d.png"/><div class="panel panel-note"><p>A message will display telling you whether the migration was successful, along with information about the total number of workflow extensions, how many were fully migrated, how many could not be migrated, and how many need attention.</p></div></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="check-the-completed-migration">Check the completed migration</h2><p>When the JMWE app migration is shown as complete in JCMA on your Jira Data Center/Server instance, open your Jira Cloud instance. Navigate to the JMWE app pages. If there are any migration issues requiring your attention, you are notified on the JMWE Overview page. </p><p>Click the <strong>Take action</strong> link in the notification box to proceed directly to the <em>Post Migration</em> page. Alternatively, you can select <strong>Post Migration</strong> at the bottom of the left navigation. This page and page link only displays if you have migrated JMWE data from Jira Server or Data Center to Jira Cloud.</p><p>The <em>Post Migration</em> page will list any extensions that encountered warnings or errors during migration, and you can open the extension directly by clicking the <strong>Edit</strong> button to the right of the extension in the list. The <em>Post Migration</em> page is organized into four tabs:</p><ul><li><p><strong>JMWE extensions</strong> - Extensions grouped by their Workflow; use the pulldown menu at the top of the list to view any extensions that have errors or warnings. </p></li><li><p><strong>Shared actions</strong></p></li><li><p><strong>Scheduled actions</strong></p></li><li><p><strong>Event-based actions</strong></p></li></ul><p>Additionally, you can filter the list using the <strong>Group by</strong> and <strong>Show Prolem(s)</strong> toggles to the right of the list. You can group by Transition or by Extension type, and you can display either a Summary or Details of the issue. </p></div><div><img alt="JMWE for Jira Cloud migration overview interface with detailed progress information" class="doc-image" loading="lazy" src="/cms_trial/assets/0d4660c7-bc19-4206-8ef7-4e455e8ee66f.png"/></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

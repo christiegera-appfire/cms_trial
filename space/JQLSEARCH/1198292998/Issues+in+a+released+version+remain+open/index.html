@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209972/JQL+Search+Extensions+(Cloud)/">JQL Search Extensions (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/1120043993/App+integrations/">App integrations</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/1194262532/Power+Scripts+for+Jira/">Power Scripts for Jira</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Issues in a released version remain open</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JQLSEARCH/pages/1198292998" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Issues in a released version remain open</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>This use case combines a JQL Search Extensions keyword with Power Script’s SIL Manager and Scheduler to identify issues planned for a release that remain open after the version is released.</p><div class="panel panel-note"><p>If you are not already using Power Scripts, you can try out these features with a free trial license. Visit our Power Scripts <a href="https://marketplace.atlassian.com/apps/43318/power-scripts-jira-workflow-automation?hosting=cloud&amp;tab=overview">marketplace listing </a>to learn more.</p></div><h3 id="problem-to-solve">Problem to solve</h3><p>When product versions are released, unresolved issues that are still open can create confusion and lead to incomplete release documentation. These issues can reflect work that was either forgotten or deprioritized. Unresolved issues in released versions can reduce release clarity, complicate post-release management, and result in inaccurate reporting.</p><h3 id="solution">Solution</h3><p>Use automation to check for open issues in released versions periodically. If any open issues are found, Power Scripts automatically notifies the issue owner to either close the ticket or provide an update. This ensures that post-release cleanup happens without repeated manual follow-ups.</p><table><tr><td><p><strong>Scenario</strong></p></td><td><p>A software company releases a version in which several tickets remain open due to unresolved bugs that were either deferred or left in the backlog. The manual task of identifying and updating these tickets could take days or weeks, delaying future planning cycles and resulting in costly inefficiencies. </p><p>Let’s automate the task of finding the issues and adding a comment reminding the ticket owners that the version was released and to update them where appropriate.</p></td></tr><tr><td><p><strong>JSE keyword</strong></p></td><td><p><code>fixedVersionsReleased</code></p></td></tr><tr><td><p><strong>PowerScripts features</strong></p></td><td><p>SIL Manager and Scheduler</p></td></tr><tr><td><p><strong>Method</strong></p></td><td><ol><li><p>In Jira, go to <strong>Settings</strong> &gt; <strong>Apps</strong>.</p></li><li><p>In the Apps sidebar menu, under <em>POWER SCRIPTS</em>, select <strong>SIL Manager</strong>.</p></li><li><p>On the <em>SIL Manager</em> page, select <strong>File</strong> &gt; <strong>New file</strong> to create a new file.</p></li><li><p>Add the following script to the file, and replace <code>MyProject</code> with your project details. </p></li><li><p>This example uses the comment, <code>This issue is in a version that was released. Should it be closed?</code> . You can change the comment to meet your scenario if needed.<br/></p><pre><code class="language-">string [] issues = selectIssues("project = MyProject AND fixVersionsReleased &gt; 0 AND statusCategory != Done");
 for(string issueKey in issues) {
   addComment(issueKey, "admin", "This issue is in a version that was released. Should it be closed?");
@@ -157,6 +162,64 @@ for(string issueKey in issues) {
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

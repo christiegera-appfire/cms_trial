@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMCFC/168855370/Overview/">Jira Misc Custom Fields (JMCF) - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/168855370/Overview/">Overview</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/465471226/Custom+Fields/">Custom Fields</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/1562447255/Supported+custom+fields/">Supported custom fields</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Time in Status</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMCFC/pages/465633373" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Time in Status</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p>The <strong>Time in Status</strong> custom field is a calculated field that displays how long an issue has remained in the configured status. It is a read-only field.</p><p>When creating the field, you can configure it to monitor the current status, in which case the field value will reset when the issue changes status in your workflow, or you can configure it to monitor one or more specific status values.  When you configure a Time in Status field to monitor specific status values, the following applies: </p><ul><li><p>When you add multiple status values to a <strong>Time in Status</strong> field, the field displays the total time the issue has been in ANY of those statuses. </p></li><li><p>If an issue <strong>returns</strong> to a status (e.g. an issue moves from <code>In Progress</code> to <code>Testing</code> and then back to <code>In Progress</code>), the Time in Status field will start accruing time, adding it to the existing value. </p></li></ul><div class="panel panel-note"><p><strong>Note</strong>: The <strong>Time in Status</strong> field will recalculate whenever an issue is opened. However, limitations within Jira do require that an issue is opened to trigger that recalculation, unless you <a href="/cms_trial/space/JMCFC/1114997525/Scheduled+recalculations/">schedule the field to recalculate</a>. Due to these limitations, <strong>Time in Status</strong> fields used in JQL queries and dashboards may not be updated when running the query or viewing the dashboard unless they have been scheduled to recalculate. </p></div><h2 id="add-a-custom-field">Add a custom field</h2><h2 id="configure-a-new-time-in-status-field">Configure a new ‘Time in Status’ field</h2><div class="panel panel-note"><p>If you added a JMCF custom field through the native Jira custom fields screen, see <strong>Edit a custom field</strong>, below.</p></div><p>Follow the steps above to add a custom field to your Jira instance, then follow these steps:</p><ol><li><p>In <strong>Associate Screens</strong> step of the wizard (Figure 2, right), check the boxes for the screens to which the field should be added.</p><ol><li><p>Use the search field above the list of screens to filter for a specific screen or screens.</p></li><li><p>Check the box at the top of the column to add the field to all screens.<br/>⚠️ <strong>Note</strong>: some team management screens in Jira do not currently support custom fields! The message at the bottom of the window indicates how many screens have been removed from the list. </p></li></ol></li><li><p>Click <strong>Next</strong>.</p></li><li><p>From the <strong>Status(es) to aggregate</strong>, select the status value or values which should be included in the calculation of time; selecting <code>*CURRENT</code> will configure the field to track how much time the issue has been in its current status only. </p></li><li><p>Click <strong>Save</strong>. </p></li></ol></div><div><div class="panel panel-note"><p>You are viewing the documentation for <strong>Jira Cloud</strong>.</p></div><p><a class="embed-card-link" href="https://appfire.wistia.com/medias/l2jume7dhn">https://appfire.wistia.com/medias/l2jume7dhn</a></p><img alt="Time in Status Screen" class="doc-image" loading="lazy" src="/cms_trial/assets/355629d4-7431-455c-9839-24e0b86a90bf.png"/><img alt="Jira Misc Custom Fields (JMCF) Cloud time in status screen association" class="doc-image" loading="lazy" src="/cms_trial/assets/89440ce3-4f8c-4e6c-91bf-b946332bcd03.png"/></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="edit-a-custom-field">Edit a custom field</h2><h2 id="search-templates">Search templates</h2></div><div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

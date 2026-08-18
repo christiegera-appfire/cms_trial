@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/496205894/Advanced+features/">Advanced features</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Persistent variables</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/496205909" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Persistent variables</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>A persistent variable is a variable that continues to exist outside of the scripts execution.</p><h2 id="what-is-a-persistent-variable">What is a Persistent Variable?</h2><p>A persistent variable is a variable that is used in a SIL script whose value continues to persist after the script is run. The values of these variables are stored and can be accessed by other scripts run in the future.</p><h2 id="what-are-they-used-for">What are they used for?</h2><p>Often, during the development of an integration or a special customization, people get stuck because of the lack of context. Questions appear: which user clicked the button for the next status? Did the manager approve this item? What was the result of the calculation in the previous step? The traditional way of dealing with such questions was to create additional custom fields to keep that data, usually hidden from users (so excluded from the screens schemes), effectively adding bloat to Jira and ultimately worsening indexing - and general - performance. Enter persistent variables, a way to store this information without introducing a new custom field to bloat the system.</p><p>That's one scenario, however there are many more like storing usernames and passwords or storing file paths that are used across multiple scripts. There are many possibilities and basically persistent variables are there for you to store whatever you need.</p><h2 id="issue-context-what">Issue context…what?</h2><p>So basically here are two types of persistent variables, those that are in an issue context and those that are not.</p><ul><li><p><strong>In an Issue Context</strong> - The value of these variables are tied to that issue specifically, just like a custom field would be.</p></li><li><p><strong>Out of an Issue Context</strong> - The value of these variables is constant from issue to issue. These variables are global.</p></li></ul><p><strong>See More</strong></p><ul class="children-list"><li><a href="/cms_trial/space/PSJC/496205929/Helper+functions/">Helper functions</a></li><li><a href="/cms_trial/space/PSJC/496205945/Persistent+variables+in+Issue+context/">Persistent variables in Issue context</a></li><li><a href="/cms_trial/space/PSJC/496205969/Persistent+variables+outside+the+Issue+context/">Persistent variables outside the Issue context</a></li><li><a href="/cms_trial/space/PSJC/496205995/Managing+persistent+variables/">Managing persistent variables</a></li></ul></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465241585/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465373348/Code+snippet+articles/">Code snippet articles</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Set Component/s field from a Cascading field</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/466323085" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Set Component/s field from a Cascading field</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h3 id="abstract">Abstract</h3><p>This code snippet sets the Component/s field from the value of a Cascading field. This is useful if you have a large number of Components that can be organized in categories, and want to make it easier for users to find the appropriate Component using a Cascading Select input (two dropdown lists).<br/></p><h3 id="logic">Logic</h3><p>Access the Cascading custom field and return its parent and child values separated by a delimiter (that separates the categories in the Component/s)</p><h3 id="snippet">Snippet </h3><pre><code class="language-javascript">{% if issue.fields['&lt;Name of the cascading field&gt;'] %}
 {{ issue.fields['&lt;Name of the cascading field&gt;'].value }}&lt;Delimiter&gt;{{ issue.fields['&lt;Name of the cascading field&gt;'] | field("child.value") }}
 {% endif %}</code></pre><h3 id="placeholders">Placeholders</h3><table><tr><th><p>Placeholder</p></th><th><p>Description</p></th><th><p>Example</p></th></tr><tr><td><p><code>&lt;Name of the cascading field</code>&gt;</p></td><td><p>Name of the field of type Cascading</p></td><td><p><code>Functional Modules</code></p></td></tr><tr><td><p><code>&lt;Delimiter&gt;</code></p></td><td><p>Delimiter of the parent and the child value</p></td><td><p><code>/</code></p></td></tr></table><h3 id="examples">Examples</h3><p>The output of this snippet is a <a href="https://docs.oracle.com/javase/7/docs/api/java/lang/String.html">String</a> representing the name of a Component which you could use for example, to set the Component/s to <code>Human Resources - Recruitment </code>when<code> Human Resources </code>and<code> Recruitment </code>are selected as the parent and child in the Cascading select list, in:</p><ul><li><p>one of the Set field value post-functions</p></li><li><p>the Create issue post-function under Set fields of new issue section</p></li><li><p>one of the Transition issue post-functions on the transition screen, if any</p><pre><code class="language-javascript">{% if issue.fields["Functional Modules"] %}
@@ -158,6 +163,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

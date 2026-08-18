@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3092186916/Errors+and+Error+Messages/">Errors and Error Messages</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Creating Jira work items: troubleshooting empty field displays</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3104407766" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Creating Jira work items: troubleshooting empty field displays</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="problem">Problem</h2><p>When you try to create a Jira work item from the Jira Issues (NextGen) Lightning Component in Salesforce, you might encounter an issue where:</p><ul><li><p>No fields appear when clicking <strong>Required Fields</strong> or <strong>More Fields to Review</strong>.</p></li><li><p>The <strong>Create</strong> button remains unclickable.</p></li><li><p>In some Salesforce instances, you might see a <strong>Component Error</strong> message.</p></li></ul><img alt="Connector for Salesforce &amp; Jira Create Issue dialog showing empty fields and unclickable Create button" class="doc-image" loading="lazy" src="/cms_trial/assets/255e9f6f-a932-42d4-b177-09d9f7d36753.png"/></div><div></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="reason">Reason</h2><p>This typically occurs when there's a mismatch between your mappings and your current Salesforce fields. The Connector can't pull information from fields that have been:</p><ul><li><p>Renamed</p></li><li><p>Deleted</p></li><li><p>Recently removed</p></li></ul></div><div></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="solution">Solution</h2><p>To solve the issue, you have two options to get things working again:</p><ol><li><p>If a field was renamed or permanently deleted:</p><ul><li><p>Remove the conflicted mapping that's trying to access the missing field </p></li></ul></li><li><p>If a field was recently removed but still exists: </p><ul><li><p>Restore the missing field in Salesforce</p></li></ul></li></ol><img alt="Connector for Salesforce &amp; Jira mapping configuration showing field removal option" class="doc-image" loading="lazy" src="/cms_trial/assets/335e3b63-639f-45d8-b63e-aefa49d17fed.png"/></div><div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

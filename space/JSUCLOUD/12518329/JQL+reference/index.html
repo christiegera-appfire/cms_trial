@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12518429/Features/">Features</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12518573/Key+concepts/">Key concepts</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">JQL reference</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JSUCLOUD/pages/12518329" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>JQL reference</h1>
+    <div class="page-meta">5 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="use-placeholders-for-jql-in-jsu">Use placeholders for JQL in JSU</h2><p>Atlassian's <a href="https://confluence.atlassian.com/jirasoftwareserver/advanced-searching-939938733.html">Jira Query Language</a> (JQL) allows you to perform <a href="https://confluence.atlassian.com/jirasoftwareserver/advanced-searching-939938733.html">advanced searching</a> in Jira's search dialog. JSU extends JQL with additional placeholders, which are replaced with the values of the current issue in transition.</p><p>For example, if you use the following JQL query in a JSU post function:</p><p><code>parent = {issue.Parent} AND component != {issue.Component/s} OR component is EMPTY </code></p><p>it will be converted by JSU before the search is executed similar to the following:</p><p><code>parent = 'ABC-123' AND component != 'Documentation' OR component is EMPTY </code></p><p><em>This will search all sibling issues (same parent) which do not have the same component as the current issue (in this example Documentation).</em></p><p>Any text in curly brackets, which follows the pattern <strong>{issue.FIELD NAME}</strong> is replaced with the value of that field on the current issue (the issue in transition). See below for further details on which names you can use for the different field types. Depending on your use case, you might not use any {issue.FIELD NAME} placeholder at all.</p><p>Logical operators, functions, and operators are the same as the JQL in Jira. It is important to use the correct JQL syntax. The easiest way to write a JQL query for JSU is to prepare it first in Jira's standard search interface (use 'advanced search') with some sample value, then copy it to JSU configuration and replace some of your sample values with {issue.FIELD NAME} as required.</p><p>See <a href="/cms_trial/space/JSUCLOUD/12518307/JQL+use+cases/">JQL Use Cases</a> for more examples.</p><h3 id="how-to-use-jql-search-extensions-keywords-with-jsu">How to use JQL Search Extensions keywords with JSU</h3><h2 id="tips-for-using-jql-with-jsu">Tips for using JQL with JSU</h2><h3 id="fields-on-the-current-issue">Fields on the current issue</h3><p>Add the following to your JQL query:</p><p><code>... AND key = {issue.key}</code></p><h3 id="fields-on-the-parent-issue">Fields on the parent issue</h3><p>Add the following to your JQL query:</p><p><code>... AND key = {issue.parent}</code></p><h3 id="fields-on-all-sibling-issues-other-sub-tasks-of-the-same-parent-issue">Fields on all sibling issues (other sub-tasks of the same parent issue)</h3><p>Add the following to your JQL query:</p><p><code>... AND parent = {issue.parent} AND key != {issue.key}</code></p><ul><li><p>sub-tasks with the same parent: parent = {issue.parent}</p></li><li><p>excluding the current issue: key != {issue.key}</p></li></ul><p>See <a href="/cms_trial/space/JSUCLOUD/12518307/JQL+use+cases/">JQL Use Cases</a> for more examples.</p><h2 id="query-results"> Query results</h2><p>Think carefully about what values might be used as replacements for the {issue.FIELD NAME} placeholders. Or, what happens if an issue has no value in a specified field? There could be some variation in the data of your issues.</p><div class="panel panel-warning"><p>If you are not careful, the result of a JQL query might unexpectedly contain hundreds of issues. Or, the JQL query might fail because the syntax has become invalid after the placeholders have been replaced.</p></div><h2 id="maximum-issues-allowed"><div class="img-placeholder">[Unmapped macro: anchor — no content to fall back on]</div>Maximum issues allowed</h2><p>You can set a limit for the maximum number of issues you expect from your JQL query. If the result of the JQL query returns more issues, JSU will not process anything. JSU essentially stops the process before things get out of control.</p><p>This way, you can prevent JSU from accidentally processing hundreds of issues. By default, this limit is 50 issues, and the maximum limit is 1,000.</p><h2 id="jql-injection">JQL injection</h2><p>Be aware of potential JQL injection. JSU does not check any value that it retrieves from the current issue. A malicious user might craft the value of a field (for example the value of a text field) so that after the replacement it adds additional criteria to your JQL query.</p><div class="panel panel-warning"><p>We recommend that you do not use text fields as placeholders or any other field where a user can freely change the text. Only use fields that can contain one/several clearly defined values.</p></div><h2 id="syntax-for-field-names">Syntax for field names</h2><p>Field names in your JQL should be the same as in the <a href="https://confluence.atlassian.com/jirasoftwareserver/advanced-searching-939938733.html">Advanced Search</a>. We suggest using the issue navigator's auto-complete feature to get the correct field names. In Jira, go to <strong>Issues </strong>&gt; <strong>Search for issues</strong>, and switch to<em> Advanced search</em>.</p><h2 id="system-fields">System fields</h2><p>System field names should match those used in JQL. For example:</p><ul><li><p>reporter</p></li><li><p>assignee</p></li><li><p>issuetype</p></li><li><p>priority</p></li></ul><h2 id="custom-fields">Custom fields</h2><p>Custom field names should match those used in JQL. For example:</p><ul><li><p>Approver or  cf[10010]</p></li><li><p>Hosting Server or cf[12910]</p></li><li><p>Date to Join or cf[11000]</p></li></ul><div class="panel panel-note"><p>If you have several custom fields with the same name, you can only use the cf[12345] notation to refer to one of them.</p></div><h2 id="syntax-for-values-of-the-current-issue">Syntax for values of the current issue</h2><p>The replaceable value from the issue must be between curly brackets:</p><p><code>{issue.FIELD NAME}</code></p><h3 id="system-fields-2">System fields</h3><p>Use the place holders from the following list:</p><ul><li><p>{issue.Affects Version/s}</p></li><li><p>{issue.Assignee}</p></li><li><p>{issue.Affects Version/s}</p></li><li><p>{issue.Assignee}</p></li><li><p>{issue.Component/s}</p></li><li><p>{issue.Created}</p></li><li><p>{issue.Creator}</p></li><li><p>{issue.Customer Request Type}</p></li><li><p>{issue.Description}</p></li><li><p>{issue.Due Date}</p></li><li><p>{issue.Environment}</p></li><li><p>{issue.Epic Color}</p></li><li><p>{issue.Epic Name}</p></li><li><p>{issue.Epic Status}</p></li><li><p>{issue.Epic Link}</p></li><li><p>{issue.Fix Version/s}</p></li><li><p>{issue.Issue Key}</p></li><li><p>{issue.Issue Type}</p></li><li><p>{issue.Labels}</p></li><li><p>{issue.Original story points}</p></li><li><p>{issue.Parent}</p></li><li><p>{issue.Priority}</p></li><li><p>{issue.Project}</p></li><li><p>{issue.Rank}</p></li><li><p>{issue.Reporter}</p></li><li><p>{issue.Request participants}</p></li><li><p>{issue.Resolution}</p></li><li><p>{issue.Resolved}</p></li><li><p>{issue.Security Level}</p></li><li><p>{issue.Sprint}</p></li><li><p>{issue.Status}</p></li><li><p>{issue.Summary}</p></li><li><p>{issue.Time to resolution}</p></li><li><p>{issue.Updated}</p></li><li><p>{issue.Voters}</p></li><li><p>{issue.Watchers}</p></li><li><p>{issue.Work Ratio}</p></li></ul><p>Alternatively, you might use the technical field ID of a system field, or how JQL refers to it. For example, all three variants below refer to the same field:</p><ul><li><p>{issue.Affects Version/s}<br/>Label in the English Jira user interface.</p></li><li><p>{issue.versions}<br/>Technical field ID. See also the constant values <a href="https://docs.atlassian.com/software/jira/docs/api/8.1.2/constant-values.html#com.atlassian.jira.issue.IssueFieldConstants.AFFECTED_VERSIONS">reference from Atlassian</a>.</p></li><li><p>{issue.affectedVersion}<br/>JQL's method to refer to that field.</p></li></ul><h3 id="custom-fields-2">Custom fields</h3><p>You can use either the name of a custom field or its ID. For example:</p><ul><li><p>{<a href="http://issue.My">issue.My</a> Text Field}</p></li><li><p>{issue.customfield_12345}</p></li></ul><p>However, the cf[12345] notation is not supported between curly brackets.</p><div class="panel panel-note"><p>If you have several custom fields with the same name, you must use the custom field ID.</p></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

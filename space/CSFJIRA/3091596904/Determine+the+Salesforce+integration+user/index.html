@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3091662302/General/">General</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Determine the Salesforce integration user</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3091596904" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Determine the Salesforce integration user</h1>
+    <div class="page-meta">1 min read</div>
     <h2 id="purpose">Purpose</h2><p>In some scenarios, you may need to find out which user is being used for Salesforce integration to check whether they have the right permissions. This FAQ helps you find the user on the Salesforce side, whether for general checking or troubleshooting purposes.</p><h2 id="answer">Answer</h2><p>The integration user can be determined via the Salesforce Setup page. The steps are:</p><ol><li><p>In the connected Salesforce instance, click the <strong>Cog Icon</strong> on the top right and click <strong>Setup</strong><em>.</em></p></li><li><p>Continue to <strong>Apps &gt; Connected Apps &gt; Connected Apps OAuth</strong> <strong>Usage</strong>.<br/>ℹ️ Alternatively, you can search for <strong>Connected Apps OAuthUsage </strong>in the search bar.</p></li><li><p>On the page, look for <strong>Salesforce &amp; JIRA Cloud Connector</strong> (or <strong>Salesforce &amp; JIRA Server Connector </strong>depending on the case).</p><img alt="image-20250807-075602.png" class="doc-image" loading="lazy" src="/cms_trial/assets/491186e9-e4b3-4a0d-b995-a9fcf020d2a9.png"/><p><br/><br/></p></li><li><p>In the <strong>User Count </strong>column, click the number.</p></li><li><p>Find the user used for the integration by referring to the <strong>Initial Connection </strong>or<strong> Last Used</strong> column. In the example below, the first user is the one being used for integration, based on the most recent <strong>Last Used</strong> and <strong>Initial Connection</strong> dates.</p><img alt="the user used for the integration" class="doc-image" loading="lazy" src="/cms_trial/assets/020edf4e-13a8-4134-9fc8-74ad6d0cbd92.png"/><p><br/></p></li></ol>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

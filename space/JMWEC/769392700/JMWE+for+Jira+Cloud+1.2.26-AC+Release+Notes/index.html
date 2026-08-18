@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/1154449466/Release+notes/">Release notes</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465473449/Release+notes+(archived)/">Release notes (archived)</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">JMWE for Jira Cloud 1.2.26-AC Release Notes</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/769392700" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>JMWE for Jira Cloud 1.2.26-AC Release Notes</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>This version, released on <time datetime="2024-02-19">February 19, 2024</time>, brings the following changes:</p><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h2 id="jmwe-automation-rule-builder">JMWE Automation Rule Builder</h2><p>The <strong>JMWE Automation Rule Builder</strong> is an improved editor for building and visualizing actions for <a href="/cms_trial/space/JMWEC/466288975/Shared+actions/">Shared Actions</a>, <a href="/cms_trial/space/JMWEC/466321868/Scheduled+actions/">Scheduled Actions</a>, and <a href="/cms_trial/space/JMWEC/465473524/Event-based+actions/">Event-based Actions</a>. The new, two-panel layout simplifies the configuration of actions by separating the components of the action into categories on the left, and each category's configurations on the right. Using a <code>WHEN-IF-THEN</code> format, each automation rule is clearly laid out and can be created or updated quickly. </p><div class="panel panel-note"><p><strong>Note</strong>: The new Automation Rule Builder is currently in limited release. Full availability will occur in a future update. </p></div></div><div><div class="video-embed"><iframe allowfullscreen="" src="https://player.vimeo.com/video/912398051?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479"></iframe></div></div></div><h2 id="other-improvements">Other Improvements</h2><p>This release includes other updates and improvements: </p><ul><li><p>The new <a href="/cms_trial/space/JMWEC/768573574/JMWE+Automation+Rule+Builder/">Automation Rule Builder</a> includes a Feature Request form to provide feedback and ideas to the Development Team!</p></li><li><p>Updates to the <a href="/cms_trial/space/JMWEC/465242701/Field+Required+Validator/">Field Required Validator</a> documentation to highlight appropriate use of the Parent field in validators. </p></li></ul><h2 id="bug-fixes">Bug Fixes</h2><p>The following bugs are fixed in this release: </p><ul><li><p>During migration from Jira Server to Jira Cloud, <strong>Create Issue(s)</strong> post-functions could cause issues if they were configured to set fields that have not been migrated to Jira Cloud; migrated Create Issue(s) post-functions will no longer try to set non-existent fields in Jira Cloud. </p></li><li><p>The <a href="/cms_trial/space/JMWEC/465242995/callRest/">callRest Nunjucks filter</a> did not support a timeout setting; this option has been added.</p></li><li><p>The <a href="/cms_trial/space/JMWEC/466323193/Linked+Issues+Status+Condition/">Linked Issues Status Condition</a> was incorrectly making transitions available when the current issue had multiple linked issues using different link types; the condition will now only display its configured transition when a linked issue of the configured link type has an issue in the configured status. </p></li><li><p>In the field <strong>Users</strong> under Criteria of the <a href="/cms_trial/space/JMWEC/465474547/User+Condition/">User Condition</a>, selected user values could sometimes display <code>Invalid input</code> instead of the selected user’s name; this was a display issue and has been resolved. </p></li><li><p>Firefox browser was not registering log entries in the Network tab; this has been corrected. </p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

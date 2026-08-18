@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434798967/Simple+Issue+Language/">Simple Issue Language</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434374166/SIL+Functions+library/">SIL Functions library</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/433000817/System+Integration/">System Integration</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">databaseAvailable</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/434440086" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>databaseAvailable</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="description">Description</h2><p>
  Checks if the database is available.
  </p><p>Checks if the database is available. Optionally, it can check also the availability of the results for the SQL passed in as the second parameter.</p><table><tr><td><p><strong>Syntax</strong></p></td><td><p>databaseAvailable(dbstring [, sqlstring])</p></td><td><p><strong>Package</strong></p></td><td><p>sql</p></td></tr><tr><td><p><strong>Alias</strong></p></td><td></td><td><p><strong>Pkg Usage</strong></p></td><td><p>available(dbstring [, sqlstring])</p></td></tr></table><h2 id="parameters">Parameters</h2><table><tr><th><p>Parameter name</p></th><th><p>Type</p></th><th><p>Required</p></th><th><p>Description</p></th></tr><tr><td><p>dbstring</p></td><td><p>String</p></td><td><p>Yes</p></td><td><p>Datasource JNDI name or the datasource name. For Jira database, this is set to "jdbc/JiraDS" by default, if exported.</p></td></tr><tr><td><p>sqlstring</p></td><td><p>String</p></td><td><p>No</p></td><td><p>SQL string.</p></td></tr></table><h2 id="return-type">Return Type</h2><p><strong>Boolean (true/false)</strong></p><h2 id="examples">Examples</h2><h3 id="example-1">Example 1</h3><p>Let's suppose in our examples `TextField` is a custom field text already configured for the current Jira server instance and `TestDB` represents the database resource name configured in the server context. For more details see <a href="https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=psjc&amp;title=SQL%20data%20sources&amp;linkCreation=true&amp;fromPageId=434440086">SQL data sources</a>.</p><pre><code class="language-javascript">TextField=databaseAvailable("TestDB"); //will set 'TextField' value to 'true'</code></pre><h3 id="example-2">Example 2</h3><pre><code class="language-javascript">TextField=databaseAvailable("TestDB", "select pname from project"); //will set 'TextField' value to 'true' if the SQL passed in can be executed</code></pre><h3 id="example-3">Example 3</h3><pre><code class="language-javascript">TextField=databaseAvailable("TestDB", "select pname from inexistentTableName");//will set 'TextField' value to 'false', because the SQL passed in cannot be executed</code></pre><h3 id="example-4">Example 4</h3><pre><code class="language-javascript">TextField=databaseAvailable("InexistentTestDB", "select pname from project");//will set 'TextField' value to 'false', because the database resource does not exist</code></pre><div class="panel panel-warning"><p>To configure the data source check the <a href="https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=psjc&amp;title=SQL%20data%20sources&amp;linkCreation=true&amp;fromPageId=434440086">SQL data sources</a> configuration chapter.</p></div><h2 id="see-also">See also</h2><div class="img-placeholder">[Unmapped macro: contentbylabel — no content to fall back on]</div>
@@ -156,6 +161,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

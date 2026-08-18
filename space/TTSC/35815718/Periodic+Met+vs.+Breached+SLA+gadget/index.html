@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud Help Center</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/181436799/Gadgets/">Gadgets</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Periodic Met vs. Breached SLA gadget</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TTSC/pages/35815718" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Periodic Met vs. Breached SLA gadget</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>The Periodic Met vs. Breached SLA gadget displays SLA performance as a <strong>bar chart</strong> grouped by status. The horizontal axis represents time, which can be displayed as either <strong>weekly</strong> or <strong>monthly</strong> periods.</p><p>This tutorial will guide you through adding and configuring the gadget on your Jira dashboard.</p><h2 id="how-to-add-periodic-met-vs-breached-sla-gadget">How to add Periodic Met vs. Breached SLA gadget</h2><h3 id="jira-admins"><strong>Jira admins</strong></h3><p>Jira admins can add the gadget directly to the <strong>system dashboard</strong> (Global dashboard) without creating a new dashboard.</p><h3 id="for-non-admins"><strong>For non-admins</strong></h3><p>Follow these steps to add the gadget to a custom dashboard:</p><ol><li><p>Open a custom dashboard, or create one following the <a href="https://support.atlassian.com/jira-cloud-administration/docs/configure-custom-dashboards/">Jira documentation</a>.</p></li><li><p>Click the <strong>Edit </strong>button. The <em>Add a gadget</em> side panel opens.</p></li><li><p>In the side panel, search for <code>TTS - Periodic Met vs Breached SLA</code>.</p></li><li><p>Click <strong>Add</strong>. The gadget configuration screen appears.</p></li><li><p>Configure the gadget:</p><img alt="Time to SLA Periodic Met vs Breached SLA gadget configuration" class="doc-image" loading="lazy" src="/cms_trial/assets/69f42888-e5c9-4707-a265-fb157e898c8e.png"/><ul><li><p><strong>Title:</strong> Enter a title for the gadget.</p></li><li><p><strong>Filter:</strong> <strong>Filter:</strong> Start typing the name of a saved Jira filter, then select it from the matching results. You can also select an SLA to include specific work items. Leave this field blank to include all SLAs.</p><ul><li><p><strong>Note:</strong> The gadget is limited to a maximum of <strong>2,000 work items</strong>. If your filter exceeds this limit, only the first 2,000 work items will be displayed.</p></li></ul></li><li><p><strong>Time Period:</strong> Choose whether to display data <strong>weekly</strong> or <strong>monthly.</strong></p></li><li><p><strong>Days Previously:</strong> Enter the number of days in the past from which you want to collect SLA data. This sets the start date for SLAs.</p><ul><li><p>For example, selecting <strong>30 days</strong> will show SLAs that started within the past 30 days.</p></li></ul></li><li><p><strong>Refresh </strong>period<strong>:</strong> (Optional) Set a refresh interval in minutes for the gadget to update automatically.</p></li></ul></li></ol><div class="panel panel-note"><p>You can limit work items based on Created Date or Resolved Date using JQL in the <strong>Filter</strong> field. Alternatively, limit data by SLA Start Date using the Days Previously field.</p></div><ol><li><p>Click <strong>Save</strong>. </p></li></ol><p>The gadget will now appear on the dashboard.</p><div class="panel panel-note"><p>This gadget displays the total number of SLA instances. If a work item has multiple SLAs in it, then each SLA will be counted separately.</p></div><h2 id="examples">Examples</h2><p>Let’s say you configure the gadget as follows:</p><ul><li><p><strong>Days Previously</strong>: <code>30d</code> (SLAs that started within the last 30 days).</p></li><li><p><strong>Filter</strong>: A saved search that shows work items created or resolved in the past 7 days.</p></li></ul><p>The resulting bar chart will display:</p><ul><li><p>SLAs from the last <strong>30 days</strong> on the X-axis.</p></li><li><p>Work items scoped over the <strong>last 7 days</strong> based on your filter criteria.</p></li></ul><p>This configuration answers the query: <code>Show me work items from the last 7 days whose SLAs started no more than 30 days ago.</code></p><h2 id="reports-integration">Reports integration</h2><p>When you click a bar in the gadget, you’ll be redirected to the <strong>SLA Reports</strong> page. Based on the gadget’s configuration, <strong>Time to SLA</strong> will automatically create a filter for the selected data.</p><p>You can click <strong>Generate</strong> to view the breakdown of the gadget’s components in a detailed report.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

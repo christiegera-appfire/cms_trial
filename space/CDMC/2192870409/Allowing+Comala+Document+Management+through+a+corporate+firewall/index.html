@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192776724/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Allowing Comala Document Management through a corporate firewall</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2192870409" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Allowing Comala Document Management through a corporate firewall</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="scenario">Scenario</h2><p>Some users access Confluence from behind a corporate firewall that restricts certain URLs.</p><p>Recent updates to Comala Document Management rely on asynchronous notifications for state changes, which require access to specific URLs.</p><p>Some features may not function as expected if the app is used behind a firewall without the necessary access.</p><h2 id="solution">Solution</h2><p>To ensure the app functions correctly, add the required URLs to your company’s <strong>URL Allow List</strong> or equivalent firewall settings.</p><h2 id="comala-document-management-urls-that-need-to-be-added-to-the-corporate-firewall-url-allow-list">Comala Document Management URLs that need to be added to the corporate firewall URL Allow List</h2><p>Add the following URLs to your corporate firewall’s <strong>Allow List</strong>:</p><ul><li><p><code>https://doc-m.comalatech.app</code></p></li><li><p><code>https://doc-m-cdn.comalatech.app</code></p></li><li><p><code>wss://ws.async-notifications-cw.production.comala.zone</code></p></li></ul><h2 id="comala-publishing-urls-that-need-to-be-added-to-the-url-allow-list">Comala Publishing URLs that need to be added to the URL Allow List</h2><p>If you are using <strong>Comala Publishing</strong> for space publishing and page syncing, add these URLs as well:</p><ul><li><p><code>https://publishing.comalatech.app</code></p></li><li><p><code>https://publishing-cdn.comalatech.app</code></p></li></ul><p>Adding these URLs ensures uninterrupted access to Comala Document Management and its features. </p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

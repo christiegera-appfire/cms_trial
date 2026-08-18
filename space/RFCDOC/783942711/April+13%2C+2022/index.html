@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud) Documentation</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941853/Release+Notes/">Release Notes</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/1595769075/Release+notes+2021%E2%80%932024/">Release notes 2021–2024</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783943818/2022/">2022</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">April 13, 2022</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/783942711" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>April 13, 2022</h1>
+    <div class="page-meta">2 min read</div>
     <p>In this release:</p><h2 id="access-bulk-change-operations-from-rich-filter-results-gadgets">Access bulk change operations from Rich Filter Results gadgets</h2><p>You can now access Jira's bulk change operations directly from your Rich Filter Results gadgets. Just click on the corresponding icon in the gadget footer, and the bulk change will be initiated with the list of issues displayed by the gadget. This means that, in addition to the easy access, you benefit from the filtering capabilities of rich filter dashboards when doing bulk changes.</p><p>For more information about the Rich Filter Results<em> </em>gadget, look at its <a href="/cms_trial/space/RFCDOC/783941759/The+Rich+Filter+Results+Gadget/">documentation page</a>.</p><h2 id="support-for-time-series-in-rich-filter-statistics-gadgets">Support for time series in Rich Filter Statistics gadgets</h2><p>The Rich Filter Statistics gadget can now be configured to compute and display <a href="/cms_trial/space/RFCDOC/783942356/Configure+time+series/">time series</a>. A new option labeled <em>Time series</em> was added at the bottom of the <em>Statistic type</em> dropdown under the <em>ADVANCED</em> section. When you select the <em>Time series</em> statistic type, the <em>Values</em> dropdown is replaced with a <em>Time series</em> dropdown so that you can select up to 10 time series for your gadget (you can select any time series defined in your rich filter, regardless of their value type). To finish the configuration of your gadget, select the <em>Aggregation periods</em> and <em>Time range</em>, as you would for a configuration of <a href="/cms_trial/space/RFCDOC/783941781/The+Rich+Filter+Statistics+Gadget/">statistics on date fields</a>.</p><p>For more information about the Rich Filter Statistics gadget, look at its <a href="/cms_trial/space/RFCDOC/783941781/The+Rich+Filter+Statistics+Gadget/">documentation page</a>.</p><h2 id="support-for-dashboard-permalinks">Support for dashboard permalinks</h2><p>You can now generate <em>permalinks</em> for already filtered dashboards. Permalinks are URLs that encode the active filters in the controller gadgets on the dashboard. You can use a permalink to open the dashboard later, with the same filters already applied. Of course, permalinks can also be very useful for sharing a filtered dashboard with other users.</p><p>To generate a dashboard permalink, simply click on the corresponding icon in the footer of your Rich Filter Controller gadget. The permalink will be automatically copied to your clipboard.</p><p>For more information about the Rich Filter Controller gadget, look at its <a href="/cms_trial/space/RFCDOC/783941745/The+Rich+Filter+Controller+Gadget/">documentation page</a>.</p><h2 id="support-for-ratios-in-bar-charts">Support for ratios in bar charts</h2><p>Flexi charts now support ratios as values (both <a href="/cms_trial/space/RFCDOC/783942266/Configure+custom+ratios/">custom ratios</a> and predefined SLA-based ratios). In the config form of your Rich Filter Flexi Charts gadget, the <em>Values</em> dropdown has a new section labelled <em>CUSTOM RATIOS</em> containing the custom ratios defined in your rich filter. If available, the SLA-based ratios are added under the section <em>SERVICE MANAGEMENT SLA FIELDS</em>. Ratio values are compatible with bar and clustered bar charts.</p><p>Of course, the quick charts available in the <a href="/cms_trial/space/RFCDOC/783941781/The+Rich+Filter+Statistics+Gadget/">Rich Filter Statistics</a> and the <a href="/cms_trial/space/RFCDOC/783941803/The+Rich+Filter+Two+Dimensional+Statistics+Gadget/">Rich Filter Two Dimensional Statistics</a> gadgets also support ratios, without any additional configuration.</p><p>For more information about the Rich Filter Flexi Charts gadget, have a look at its <a href="/cms_trial/space/RFCDOC/783941863/The+Rich+Filter+Flexi+Charts+Gadget/">documentation page</a>.</p><h2 id="support-for-dynamic-filters-on-epic-name">Support for dynamic filters on Epic Name</h2><p>The field <em>Epic Name</em> is now available to add as <a href="/cms_trial/space/RFCDOC/783941707/Configure+dynamic+filters/">dynamic filter</a>.</p><h2 id="support-for-project-category-in-rich-filter-results-gadgets">Support for Project Category in Rich Filter Results gadgets</h2><p>The field <em>Project Category</em> is now available to add as column in <a href="/cms_trial/space/RFCDOC/783941729/Configure+views/">views</a>, to be displayed in Rich Filter Results gadgets.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

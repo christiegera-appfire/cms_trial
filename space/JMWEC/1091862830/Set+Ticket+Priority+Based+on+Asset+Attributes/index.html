@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/466225276/Use+cases/">Use cases</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/466289408/Use+cases+for+post+functions/">Use cases for post functions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Set Ticket Priority Based on Asset Attributes</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/1091862830" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Set Ticket Priority Based on Asset Attributes</h1>
+    <div class="page-meta">4 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="scenario">Scenario</h2><p>When an ticket is opened in Jira Service Management, you want to set the Priority of the ticket based on the attached Asset’s attributes.</p><div class="panel panel-warning"><p><strong>Note</strong>: This use case requires <strong>Jira Service Management</strong> and uses a custom <strong>Asset</strong> field. For more information on creating and configuring Assets in JSM, see <a href="https://support.atlassian.com/jira-service-management-cloud/docs/what-is-the-assets-objects-field/">this page</a>.  </p></div><h2 id="resolution">Resolution</h2><p>This requires that a custom field for an <strong>Asset </strong>has been added to your project; it can have any name and can represent any type of Asset, but it must be an Asset object to successfully use the steps as outlined. By accessing the Asset’s attributes, you can update the ticket’s priority when the ticket’s Asset meets specific critera; for example, if you have a networking device Asset with a Priority attribute set to ‘Critical’, any tickets created that have that Asset attached can automatically be assigned the highest priority. </p><div class="panel panel-note"><p><strong>Note</strong>: the steps below use an example Asset object with an attribute of <strong>Priority</strong>. You will need to modify the included script for your specific JSM setup.  </p><p>Additionally, the script uses Jira Cloud’s Asset API to access the attribute values because these values are not accessible using the <a href="/cms_trial/space/JMWEC/465373638/Custom+filters/">insightFieldValue</a> custom Nunjucks filter. In order to access the attribute values through the Cloud API, you will need to provide your Atlassian username and an Access Token within the Nunjucks script. </p></div></div></div><h2 id="steps-to-create">Steps to Create</h2><h3 id="1-add-the-assets-object-custom-field">1. Add the Assets object custom field</h3><p>Verify that your Jira project has a custom Assets object field, and that that field has been added to all necessary screens. Additionally, you will need to verify that it has been fully configured per the Atlassian instructions. If that custom field does not exist, create one and add it wherever is necessary for your processes; see this page for more information: <a href="https://support.atlassian.com/jira-service-management-cloud/docs/set-up-the-assets-object-field/">https://support.atlassian.com/jira-service-management-cloud/docs/set-up-the-assets-object-field/</a> . </p><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h3 id="2-add-set-issue-fields-post-function">2. Add <em>Set issue fields</em> post-function</h3><ol><li><p>Log in to your Jira instance as an Administrator. </p></li><li><p>In the upper right corner of the window, click <strong>Settings</strong> ( ⚙️ ) and select <strong>Issues</strong>.</p></li><li><p>In the left-hand sidebar, click <strong>Workflows</strong>.</p></li><li><p>From the list of Workflows, click <strong>Actions</strong> ( <span class="icon-note">[menu button icon]</span> ) for the appropriate workflow and select <strong>Edit</strong>.</p></li><li><p>Edit the transition: </p><ol><li><p>When viewing the Workflow in <strong>Diagram</strong> view (Figure 1, right), select the Transition and click the <strong>Post Functions</strong> link. Click <strong>Add post function</strong> at the top of the list of existing post functions.</p></li><li><p>When viewing the Workflow in <strong>Text</strong> view, click the name of the Transition then select the <strong>Post Functions</strong> tab. Click <strong>Add post function</strong> at the top of the list of existing post functions.</p></li><li><p>Select <strong><em>Set issue fields (JMWE app)</em></strong> from the list of post-functions and click <strong>Add</strong>.</p></li></ol></li></ol><div class="panel panel-note"><p><strong>Note</strong>: In this example, the ticket’s priority should be set when the ticket is created, so the <strong>Create</strong> Transition is selected. You should adjust this to your process needs. </p></div></div><div><img alt="JMWE for Jira Cloud transition editing interface for assetbased priority setting" class="doc-image" loading="lazy" src="/cms_trial/assets/4570f909-715e-457e-a38d-bebcb82bdcc7.png"/></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h3 id="3-configure-the-post-function">3. Configure the post-function</h3><p>Set the following configurations (Figure 2, right):</p><ol><li><p><strong>Issue(s) to operate on</strong> - Set <strong>Target issue(s)</strong> to <em>Current Issue</em>. </p></li><li><p><strong>Set fields</strong> </p><ol><li><p>From the <strong>Add field(s)</strong> pulldown menu, select <strong>Priority</strong>. The Priority field will be added to the list of fields that will be updated by the post function. </p></li><li><p>For the Priority field’s configurations, set the <strong>Options</strong> as needed.</p></li><li><p> Also under the Priority field, use the following script for the <strong>Value</strong>:</p><pre><code class="language-">{% set assetURL = issue | insightFieldValue( "customfield_xxxxx", true ) | first | field("links.self") %}
 {% set assetPriority = assetURL 
   | callRest(options = { "auth": 
@@ -171,6 +176,64 @@ Medium
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

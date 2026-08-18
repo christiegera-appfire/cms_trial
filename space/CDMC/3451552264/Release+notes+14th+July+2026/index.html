@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193196083/Release+Notes/">Release Notes</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Release notes 14th July 2026</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/3451552264" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Release notes 14th July 2026</h1>
+    <div class="page-meta">1 min read</div>
     <p><strong>Release date:</strong> <time datetime="2026-07-14">July 14, 2026</time></p><p>This page outlines the updates included in the latest release of Comala Document Management Cloud.</p><p><strong>Version: </strong>5.0.6 &amp; 5.0.7</p><hr/><h2 id="bug-fixes">Bug fixes </h2><ul><li><p>Incomplete label information sent by Confluence no longer causes errors. These events are skipped safely, and valid label changes continue to work as expected.</p></li><li><p>The rejection notification no longer appears repeatedly when you open or refresh a page while its workflow is still loading.</p></li><li><p>Workflow labels are now validated in the Visual Builder and Code Editor. Uppercase or duplicate labels are blocked, with a clear error message explaining what needs to change. (Labels must be lowercase.)</p></li><li><p>Floating messages set by a <strong>Set message</strong> action on an <strong>On expire</strong> trigger now appear correctly once content expires.</p></li><li><p>In the Workflow Builder, the user picker for preassigned groups now appears before the editing panel rather than being hidden behind it.</p></li><li><p>Users who don’t have access to a space no longer see a workflow error when opening a restricted page. Permission-denied cases are now handled quietly, without flagging errors.</p></li><li><p>The Document Approvals macro now correctly displays approval history on migrated pages when set to a past workflow state. Empty states now reference the configured state name.</p></li></ul><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p><strong>Questions and Feedback</strong></p><ul><li><p>Explore exciting features, pricing updates, reviews, and more on the <a href="https://marketplace.atlassian.com/apps/142/comala-document-management?hosting=cloud&amp;tab=overview">Marketplace</a>.</p></li><li><p>Stuck with something? Raise a ticket through our <a href="https://appf.re/support">support portal</a>.</p></li><li><p>Do you love using our app? Let us know what you think <a href="https://marketplace.atlassian.com/apps/142/comala-document-management?hosting=cloud&amp;tab=reviews">here</a>.</p></li></ul></div><div><p><strong>Credits</strong></p><p>Thank you to our valued customers! Your incredible support and feedback inspire us to improve continuously. We appreciate your trust in Appfire's Comala Document Management Cloud!</p></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

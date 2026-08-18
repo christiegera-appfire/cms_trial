@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud Help Center</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/860717625/Release+notes/">Release notes</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Release notes 6 August 2026</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TTSC/pages/3512926364" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Release notes 6 August 2026</h1>
+    <div class="page-meta">2 min read</div>
     <p><strong>Release date</strong>: <time datetime="2026-08-06">August 6, 2026</time></p><p>This page outlines the updates included in the latest release of Time to SLA for Jira Cloud.</p><div class="panel panel-note"><p><strong>Upgrade recommended</strong></p><p>If you’re currently using <strong>16.0.0-FORGE</strong>, we recommend upgrading to version 17.</p><p>This upgrade needs to be completed manually from your Jira site. Upgrading ensures you have the latest version of Time to SLA and can continue receiving the newest improvements and fixes.</p></div><hr/><h2 id="new-features">New features</h2><h3 id="smoother-updates-with-rolling-releases">Smoother updates with rolling releases</h3><p>Time to SLA now supports rolling releases. App code updates and permission changes are versioned separately, helping us deliver new features and improvements more smoothly.</p><h3 id="run-sla-actions-when-an-sla-starts">Run SLA actions when an SLA starts</h3><p>You can now trigger SLA Actions as soon as an SLA starts. Use the new <strong>is started</strong> trigger to perform actions such as:</p><ul><li><p>Assigning an issue to a manager when an escalation SLA begins</p></li><li><p>Saving the SLA start date to a Jira field</p></li><li><p>Updating an SLA indicator field to <strong>IN PROGRESS</strong></p></li></ul><p>Resuming an SLA after a pause does not count as a new start. The trigger also supports reset SLAs, multiple cycles processed during the same calculation, and configurations that use <a href="/cms_trial/space/TTSC/35456221/SLA+conditions/"><strong>All of the following conditions</strong></a>.</p><h3 id="run-sla-actions-every-time-an-sla-is-met">Run SLA actions every time an SLA is met</h3><p>You can now run configured actions each time an SLA is completed before its target date.</p><p>For example, you can:</p><ul><li><p>De-escalate an issue when the SLA is met</p></li><li><p>Update an SLA indicator field to <strong>MET</strong></p></li><li><p>Change issue fields, add comments, reassign the issue, or trigger a Jira automation rule</p></li></ul><p>Previously, determining whether an SLA was met required additional fields and automation rules to distinguish met SLAs from breached ones. The new trigger lets you handle this directly through SLA actions.</p><hr/><h2 id="enhancements">Enhancements</h2><h3 id="sla-history-performance">SLA history performance</h3><p>Improved SLA history processing for issues with large numbers of changelog entries, comments, and event indexes. This also resolves delays and timeout errors that could occur when SLAs used the <strong>All of the following conditions</strong> logic.</p><hr/><h2 id="bug-fixes">Bug fixes</h2><p>The following bugs are fixed in this release:</p><ul><li><p>Fixed an issue that prevented users from selecting an SLA when the <strong>Invalidate current SLA (SLA is not active anymore)</strong> reset type was selected.</p></li><li><p>Periodic reports can now be created only for <strong>Details</strong> and <strong>Summary</strong> reports. The application prevents users from creating a periodic report when its selected filter uses an unsupported report type.</p></li><li><p>Prevented invalid <strong>Fire event</strong> notifications with an empty action type from being created during JCMA migrations or through export and import.</p></li><li><p>Fixed an issue that prevented SLAs from being exported when they contained the following SLA Actions: Set Jira field, Add comment, Change assignee, and Change priority.</p></li></ul><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p><strong>Questions and feedback</strong></p><ul><li><p>Explore exciting features, pricing updates, reviews, and more on the <a href="https://marketplace.atlassian.com/apps/1211843/time-to-sla?tab=overview&amp;hosting=cloud&amp;utm_source=appfire.com&amp;utm_medium=solutions&amp;utm_campaign=Time-to-SLA"><u>Marketplace</u></a>.</p></li><li><p>Stuck with something? Raise a ticket with our <a href="https://appf.re/support"><u>support team</u></a>.</p></li><li><p>Do you love using our app? Let us know what you think <a href="https://marketplace.atlassian.com/apps/1211843/time-to-sla?tab=reviews&amp;hosting=cloud&amp;utm_source=appfire.com&amp;utm_medium=solutions&amp;utm_campaign=Time-to-SLA"><u>here</u></a>.</p></li></ul></div><div><p><strong>Credits</strong></p><p>Thank you to our valued customers! Your incredible support and feedback inspire us to improve continuously. We appreciate your trust in Time to SLA!</p></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

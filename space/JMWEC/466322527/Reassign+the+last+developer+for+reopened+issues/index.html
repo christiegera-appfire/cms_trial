@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/466225276/Use+cases/">Use cases</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/466289408/Use+cases+for+post+functions/">Use cases for post functions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Reassign the last developer for reopened issues</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/466322527" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Reassign the last developer for reopened issues</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><table><tr><th><p><strong>Goal</strong></p></th><th><p>Reassign an issue to the last developer who worked on it.</p></th></tr><tr><th><p><strong>Scenario</strong></p></th><td><p>When an issue is reopened by a tester, it should be reassigned to the Developer who last worked on it.</p></td></tr><tr><th><p><strong>Components</strong></p></th><td><p><a href="/cms_trial/space/JMWEC/1133772861/Assign+issue(s)/">Assign issue(s)</a> post function</p></td></tr><tr><th><p><strong>Baseline</strong></p></th><td><ul><li><p>You have a role in your instance for Developers; in the example below the role is <strong>Developer</strong>. </p></li><li><p>Your workflow has a status of <strong>Reopened</strong>. </p></li></ul></td></tr></table><div class="panel panel-note"><p><strong>Note</strong>: the steps below require your workflow has a status of <strong>Reopened</strong> (or something similar). Figure 1, below, shows the status <strong>Reopened</strong> with an incoming transition from <strong>Done</strong> and and outgoing transition to <strong>In Progress</strong>. Your transitions do not need to match, but you will need a status that represents reopening an issue <em>after </em>it has been closed. </p></div><h2 id="requirements">Requirements</h2><ul><li><p>JIRA Administrator login</p></li><li><p><a href="https://marketplace.atlassian.com/apps/292/jira-misc-workflow-extensions-jmwe">Jira Misc Workflow Extensions Cloud</a></p></li></ul><h2 id="1-project-role-for-developers">1. Project role for Developers</h2><p>Verify that your Jira instance has a project role that includes the necessary developers. If that role does not exist, create one and add any necessary team members; see this page for more information: <a href="https://support.atlassian.com/jira-cloud-administration/docs/manage-project-roles/">https://support.atlassian.com/jira-cloud-administration/docs/manage-project-roles/</a>. </p></div></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h2 id="2-add-the-assign-issue-s-post-function">2. Add the <em>Assign issue(s)</em> post function</h2><ol><li><p>Log in to your Jira instance as an Administrator. </p></li><li><p>In the upper right corner of the window, click <strong>Settings</strong> ( ⚙️ ) and select <strong>Issues</strong>.</p></li><li><p>In the left-hand sidebar, click <strong>Workflows</strong>.</p></li><li><p>From the list of Workflows, click <strong>Actions</strong> ( <span class="icon-note">[menu button icon]</span> ) for the appropriate workflow and select <strong>Edit</strong>.</p></li><li><p>Edit the transition: </p><ol><li><p>When viewing the Workflow in <strong>Diagram</strong> view (Figure 1, right), select the <strong>Issue Reopened</strong> transition (<strong>Point 1</strong>, <strong>Figure 1</strong>, right) and click the <strong>Post Functions</strong> link (<strong>Point 2</strong>, <strong>Figure 1</strong>, right). Click <strong>Add post function</strong> at the top of the list of existing post functions.</p></li><li><p>When viewing the Workflow in <strong>Text</strong> view, click the <strong>Issue Reopened</strong> transition then select the <strong>Post Functions</strong> tab. Click <strong>Add post function</strong> at the top of the list of existing post functions.</p></li><li><p>Select <em>Assign issue(s)</em> from the list of post-functions and click <strong>Add</strong> at the bottom of the list.</p></li></ol></li></ol></div><div><p>&lt;need new screenshot&gt;</p></div></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h2 id="3-configure-the-post-function">3. Configure the post function</h2><p>Set the following configurations (Figure 2, right):</p><ol><li><p><strong>Issue(s) to operate on</strong> - Set <strong>Target issue(s)</strong> to <em>Current Issue</em>. </p></li><li><p><strong>Assign to</strong>: </p><ol><li><p>Set <strong>Select user</strong> to <em>Last role member</em>.</p></li><li><p>Set <strong>Project Role</strong> to the role you created for Developers. </p></li></ol></li><li><p><strong>Assignment behavior</strong> - Set as needed; <em>Always </em>is recommended.</p></li><li><p>Under <strong>Advanced options</strong>, set the following as needed:  </p><ol><li><p><strong>Run As</strong> - Set as needed; it is recommended to leave the default <em>Add-on user</em> value unless required for specific reasons.  </p></li><li><p><strong>Run this post-function only if a condition is verified</strong> - Set as needed. See <a href="/cms_trial/space/JMWEC/466256678/Conditional+Execution/">Conditional execution</a> for more information.  </p></li><li><p><strong>Delay the execution of this post-function</strong> - Set as needed. </p></li></ol></li><li><p>Click <strong>Add.</strong></p></li></ol><h2 id="save-and-test-the-workflow">Save and Test the Workflow</h2><p>Save your Workflow and publish the changes. To test that the post function is configured correctly, create a new issue and move it through your Workflow, assigning it to a QA or support person (any member who is not in the Developer role) before closing it. After closing it, reopen it by moving it to the <strong>Reopened</strong> status and verify that JMWE has correctly assigned it. </p><div class="panel panel-note"><h3 id="congratulations">🎉 Congratulations! </h3><p>Now, when a closed issue is reopened it will automatically be reassigned to the last member of the <strong>Developers</strong> project role to which it was assigned. </p></div></div><div><img alt="JMWE for Jira Cloud post function configuration for reassigning last developer" class="doc-image" loading="lazy" src="/cms_trial/assets/8e1c8709-fdbb-42ab-8b7d-55fc50a0b670.png"/></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

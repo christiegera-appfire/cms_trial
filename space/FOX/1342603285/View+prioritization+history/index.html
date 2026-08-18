@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/FOX/602537989/Foxly+-+Backlog+Prioritization+for+Jira/">Foxly - Backlog Prioritization for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/FOX/602537989/Foxly+-+Backlog+Prioritization+for+Jira/">Foxly - Backlog Prioritization for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/FOX/602538315/Get+started+with+Foxly+Project+Prioritization/">Get started with Foxly Project Prioritization</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">View prioritization history</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/FOX/pages/1342603285" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>View prioritization history</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p>Foxly allows users to review the history of prioritization directly from the issue details. This helps teams track and manage their prioritization decisions more effectively.</p></div><div></div></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h2 id="view-prioritization-history">View prioritization history</h2><ol><li><p>Click the <strong>Issue options</strong><span class="inline-icon" title="inline icon">▢</span>button. </p></li><li><p>Select <strong>history. </strong></p></li><li><p>View prioritization history. </p></li></ol><img alt="Screenshot showing Jira ticket prioritization history." class="doc-image" loading="lazy" src="/cms_trial/assets/9a2d17dc-827a-4d84-a263-4af4a6b87f98.png"/><h2 id="view-from-ticket">View from ticket </h2><ol><li><p>Click the ticket you would like to view. </p></li><li><p>Click the <strong>History</strong><span class="icon-note">[history icon icon]</span>icon. </p></li><li><p>View prioritization history. </p></li></ol></div><div><img alt="Screenshot of the Issue options." class="doc-image" loading="lazy" src="/cms_trial/assets/df6d8ed4-42e2-474e-914d-f44f821b22c5.png"/><img alt="Viewing the prioritization history through a Jira ticket." class="doc-image" loading="lazy" src="/cms_trial/assets/abb6cca2-a164-4cc6-9e23-917597dcf262.png"/></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

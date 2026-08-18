@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/899022918/Release+notes/">Release notes</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/3442114643/Release+notes+2025/">Release notes 2025</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">3.2.10 Release notes</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/1992130877" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>3.2.10 Release notes</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p><strong>Release date</strong>: <time datetime="2025-03-30">March 30, 2025</time></p><p>Our team is thrilled to announce the latest release of Power Scripts for Jira Cloud.</p><p>This release includes enhanced compatibility with Atlassian's new JQL search REST endpoints and introduces the new getStatusCategory() function to aid Jira DC to Cloud migrations.</p><hr/><h2 id="enhancements">Enhancements</h2><h3 id="moved-to-atlassian-s-new-jql-search-rest-endpoints">Moved to Atlassian's new JQL search REST endpoints</h3><p>This change was necessary as Atlassian is deprecating the old REST endpoints (<a href="https://developer.atlassian.com/cloud/jira/platform/changelog/#CHANGE-2046">CHANGE-2046</a>). The move ensures continued compatibility with Atlassian's evolving API infrastructure and maintains the reliability of JQL-based searches within our application.</p><p>This update changes how recent issue updates appear in search results. You might notice that recent changes aren't immediately reflected in searches. For cases requiring immediate read-after-write consistency, the new API offers the <code>reconcileIssues</code> parameter, which accepts up to a maximum of 50 issue IDs and ensures these specific issues display their latest updates in the results. This helps maintain data consistency for operations where current information is critical.</p><div class="panel panel-note"><p>If you experience issues with search result consistency after this update, see Atlassian's documentation on the <a href="https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-issue-search/#api-rest-api-3-search-jql-post">JQL Search API</a> for more information about the behavior of the new endpoints and how to use the <code>reconcileIssues</code> parameter to address consistency concerns.</p></div><h3 id="implemented-a-new-function-getstatuscategory">Implemented a new function: getStatusCategory()</h3><p>We've added a new <a href="/cms_trial/space/PSJC/1986232329/getStatusCategory/">getStatusCategory()</a> function to help customers migrating from Jira DC to Jira Cloud. This enhancement addresses a specific gap for customers transitioning their SIL Listeners between environments — certain trigger events available in Jira DC are not directly available in Jira Cloud.</p><p>The new <code>getStatusCategory()</code> function provides a workaround by allowing scripts to check an issue's status category, enabling customers to implement equivalent functionality in their Cloud environment. This helps maintain continuity in workflow automation during migration and ensures that critical business processes dependent on these status transitions can continue to function properly in Jira Cloud.</p><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p> <strong>Questions and feedback</strong></p><ul><li><p>Explore exciting features, pricing updates, reviews, and more on the <a href="https://marketplace.atlassian.com/apps/43318/power-scripts-jira-script-automation?hosting=cloud&amp;tab=overview"><u>Marketplace</u></a>.</p></li><li><p>Stuck with something? Raise a ticket through our <a href="https://appf.re/support">support portal</a>.</p></li><li><p>Do you love using our app? Let us know what you think <a href="https://marketplace.atlassian.com/apps/43318/power-scripts-jira-script-automation?hosting=cloud&amp;tab=reviews"><u>here</u></a>.</p></li></ul></div><div><p> <strong>Credits</strong></p><p>Thank you to our valued customers! Your incredible support and feedback inspire us to improve continuously. We appreciate your trust in Power Scripts for Jira Cloud!</p></div></div><hr/>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -40,14 +40,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMCFC/168855370/Overview/">Jira Misc Custom Fields (JMCF) - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/168855370/Overview/">Overview</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/465207378/Help+and+Support/">Help and Support</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Data Residency and JMCF</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMCFC/pages/2132771038" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Data Residency and JMCF</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><div class="panel panel-success"><p><strong>JMCF for Jira Cloud </strong>supports Data residency; all app data and log files are stored within Atlassian data centers, and all data can be pinned to a specific realm. It is possible to share execution log data with Appfire for the purposes of troubleshooting and support if you so choose. </p></div><p><strong>Data Residency</strong> for Atlassian products allow you to configure your instances to store long-term data in specific geographical regions, or <strong>realms </strong>as Atlassian labels them; these features help in fulfilling local and regional data storage requirements as well as enable organizations to store their user-generated content only in regions with which they are comfortable. </p><div class="panel panel-note"><p><strong>Note</strong>: The number of locations (AWS regions) Jira offers is currently limited, with more locations being made available. See the Atlassian <a href="https://www.atlassian.com/roadmap/cloud?category=dataManagement&amp;">cloud roadmap</a> for more information. </p></div><p>The FAQ below addresses Data Residency as it applies to JMCF as well as a few other specific questions. For more information on Data Residency in general, see this page: <a href="https://support.atlassian.com/security-and-access-policies/docs/understand-data-residency/">https://support.atlassian.com/security-and-access-policies/docs/understand-data-residency/</a>. </p><p>For detailed information on configuring data residency, see this page: <a href="https://developer.atlassian.com/cloud/jira/platform/data-residency/">https://developer.atlassian.com/cloud/jira/platform/data-residency/</a>.</p><details><summary>How does Atlassian define data residency compliance?</summary><p>Atlassian considers third-party apps data residency compliant if the app supports both <strong>realm pinning</strong> and <strong>realm migration</strong>. </p><div class="panel panel-note"><p><strong>Note</strong>: only specific Atlassian data, and therefore JMCF data, can be pinned. Atlassian defines this data as <strong>in-scope</strong> data. See this page for more information about which data can be pinned and which cannot: <a href="https://support.atlassian.com/security-and-access-policies/docs/understand-data-residency/#In-scope-product-data">https://support.atlassian.com/security-and-access-policies/docs/understand-data-residency/#In-scope-product-data</a> </p></div></details><details><summary>Is JMCF compliant with data residency? Does JMCF support Realm Pinning and Realm Migration?</summary><p><strong>JMCF</strong> is data residency compliant in respects to Atlassian’s definition of compliance; <em>data-at-rest and user-generated content are stored in the data residency realm for which your Jira instance is configured. </em>Because JMCF stores all of its configurations and data inside Jira, it is compliant with data residency without any additional configuration or actions. When you pin your Jira instance to a specific realm and complete the migration to that realm, JMCF is pinned and migrated as a part of your Jira instance. </p></details></div><div><div class="panel panel-note"><p>You are viewing the documentation for <strong>Jira Cloud</strong>.</p></div></div></div>
   </main>
   <aside class="sidebar">
@@ -177,6 +182,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

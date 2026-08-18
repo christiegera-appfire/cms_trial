@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/496205894/Advanced+features/">Advanced features</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Arguments (argv variable)</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/756252819" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Arguments (argv variable)</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>The argv variable is a predefined array in SIL scripts that enables passing arguments to scripts, allowing dynamic behavior across different execution contexts like Gadgets, Schedulers, and function calls.</p><p>The argv variable is a <a href="/cms_trial/space/PSJC/434602568/Variable+types+and+reference+methods/">standard array field</a> provided by the language to pass arguments into a script. It is predefined in all executions of the SIL scripts.</p><h2 id="where-it-is-used">Where it is used</h2><p>There may be situations where a single script is used in such a way that the argv variable is truly needed, so you may want to differentiate between calls:</p><ul><li><p><a href="/cms_trial/space/PSJC/490998486/SIL+Runner+Gadget/">SIL Runner Gadget</a> scripts</p></li><li><p>Live Fields scripts (DataCenter only)</p></li><li><p><a href="/cms_trial/space/PSJC/435028557/call/">call function</a></p></li><li><p><a href="/cms_trial/space/PSJC/490998807/SIL+Scheduler/">SIL Scheduler</a> configuration</p></li><li><p>Listeners</p></li><li><p>Postfunctions</p></li><li><p>etc</p></li></ul><p>Refer to each item documentation to see the parameters passed onto the argv variable</p><h2 id="how-to-use-it">How to use it</h2><p>Just like any other standard field, the argv variable can be called directly in any script. For example, the following script would print all the arguments in the argv variable in the log file.</p><pre><code class="language-">logPrint("INFO", argv);</code></pre><p>Since the argv variable is an array it can also work with index operators:</p><pre><code class="language-">string firstArg = argv[0];
 //or, provided that the invoking protocol defines a map array
 string summaryValue = argv["summary"];</code></pre><p>Or, since the argv variable is an array it can be iterated over using a loop:</p><pre><code class="language-">for(string argument in argv) {
@@ -168,6 +173,64 @@ for(string zipCode in argv) {
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

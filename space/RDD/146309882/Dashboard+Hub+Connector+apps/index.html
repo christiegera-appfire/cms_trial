@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146310010/Product+and+data+connections/">Product and data connections</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Dashboard Hub Connector apps</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/146309882" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Dashboard Hub Connector apps</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview</h2><p>Dashboard Hub Connector apps are<strong> </strong>free apps that easily and securely retrieve information from some Atlassian Cloud products like Jira and Confluence.</p><p>You don't need a Dashboard Hub Connector app to start using Dashboard Hub for Jira, but you do need one to connect certain products, namely:</p><ul><li><p><strong>External Jira instances</strong>: Install the free app <a href="https://marketplace.atlassian.com/apps/1223900/ronin-dashboards-connector-for-jira?hosting=cloud&amp;tab=overview">Dashboard Hub Connector for Jira</a>. There is no need to install a connector to display information from your current Jira instance; only if you want to retrieve information from an external Jira instance.</p></li><li><p><strong>Confluence</strong>. Install the free app <a href="https://marketplace.atlassian.com/apps/1223989/ronin-dashboards-connector-for-bitbucket?hosting=cloud&amp;tab=overview">Dashboard Hub Connector for Confluence</a>. </p></li></ul><p>This app is a bridge to bring data from other Atlassian products, keeping users and security privileges configured on every instance. This means that users can access data from other Atlassian Cloud products only if their Atlassian accounts have the right privileges. </p><p>It is possible to grant access to other datasources while maintaining data security without additional configuration. The main characteristics of the connector app are:</p><ol><li><p>Data access is managed on and by each Atlassian Cloud product instance.</p></li><li><p>It requires an admin to install the app and you are ready to go.</p></li><li><p>It requires Dashboard Hub Pro (paid app) to be installed on the main instance.</p></li></ol><h2 id="requirements">Requirements</h2><p>To use a Connector app:</p><ul><li><p>Dashboard Hub must be installed on your main instance.</p></li><li><p>You need admin access to the Confluence or Jira instance that you want to connect.</p></li></ul><h2 id="how-to-install-a-connector-app">How to install a Connector app</h2><p>The process is the same for Confluence and Jira. First, go to the Marketplace listing for the required app:</p><ul><li><p>Connector for Jira: <a href="https://marketplace.atlassian.com/apps/1223900/dashboard-hub-connector-for-jira?hosting=cloud&amp;tab=overview">https://marketplace.atlassian.com/apps/1223900/dashboard-hub-connector-for-jira?hosting=cloud&amp;tab=overview</a> </p></li><li><p>Connector for Confluence: <a href="https://marketplace.atlassian.com/apps/1224209/dashboard-hub-connector-for-confluence?hosting=cloud&amp;tab=overview">https://marketplace.atlassian.com/apps/1224209/dashboard-hub-connector-for-confluence?hosting=cloud&amp;tab=overview</a> </p></li></ul><ol><li><p>Click <strong>Get app</strong>. Install the connector app on your source instance. This is the external Jira or Confluence instance that you want to pull data from.</p></li><li><p>Add the source instance as a datasource in your main instance. This is the instance where Dashboard Hub is installed.</p><ol><li><p>In Dashboard Hub, select <strong>More options</strong> <strong>(…)</strong> &gt; <strong>Add datasource</strong>.</p></li><li><p>Select either Jira or Confluence depending on your requirement.</p></li><li><p>Enter a name for the datasource to help you identify it later.</p></li><li><p>Enter the URL of the external instance.</p></li><li><p>Select the permissions to apply to the datasource.</p></li><li><p>Click <strong>Add</strong>.</p></li></ol></li></ol><p>The external instance is now connected. When configuring gadgets in Dashboard Hub, it will appear as an available datasource.</p><h3 id="related-pages">Related pages</h3><ul><li><p> <a href="/cms_trial/space/RDD/146309943/Learn+about+datasources/">Learn about datasources</a> </p></li></ul><hr/><p><strong>Need help?</strong> Contact <a href="https://apps.appf.re/support">Appfire support</a>.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

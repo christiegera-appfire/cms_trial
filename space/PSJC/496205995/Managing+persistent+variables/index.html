@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/496205894/Advanced+features/">Advanced features</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/496205909/Persistent+variables/">Persistent variables</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Managing persistent variables</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/496205995" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Managing persistent variables</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>New in 5.8.0.x, persistent variables can be managed directly from the SIL Manager!</p><p>New in 5.8.0.x, persistent variables can be managed directly from the SIL Manager!</p><img alt="Power Scripts for Jira Cloud variable settings form" class="doc-image" loading="lazy" src="/cms_trial/assets/4668e790-978c-4d78-ac18-31ef67c53b59.png"/><h2 id="creating-variables">Creating Variables</h2><p>To create persistent variables from the SIL Manager:</p><ol><li><p>Open the <strong>Persistent Variable tab</strong> by click the tab on the right side of the SIL Manager</p></li><li><p>Click the <strong>plus icon</strong> in the upper right corner of the panel<br/></p><img alt="Power Scripts for Jira Cloud variable value display" class="doc-image" loading="lazy" src="/cms_trial/assets/e12344cb-80c4-49da-a792-b171120e42cd.png"/></li><li><p>A window will appear allowing a new variable to be created<br/></p><img alt="Power Scripts for Jira Cloud selfhelp interface overview" class="doc-image" loading="lazy" src="/cms_trial/assets/770d5e5f-1665-4bc4-b0d2-4333e78ec524.png"/></li><li><p>Enter an issue key in the <strong>Context</strong> field is the variable should only apply to a <em>specific issue</em></p></li><li><p>Give the variable a unique name in the <strong>Name</strong> field</p></li><li><p>Enter a value for the field in the <strong>Value</strong> field</p></li><li><p>Click <strong>OK</strong></p></li></ol><h2 id="editing-and-deleting-variables">Editing and Deleting Variables</h2><p>To <strong>edit</strong> a persistent variable:</p><ol><li><p>Open the <strong>Persistent Variable tab</strong> by click the tab on the right side of the SIL Manager</p></li><li><p>Click inside the field value to enable the inline editing mode<br/></p><img alt="Power Scripts for Jira Cloud monitoring dashboard interface" class="doc-image" loading="lazy" src="/cms_trial/assets/c14cf00b-e22a-427e-aa4c-ccb395002bfd.png"/></li><li><p>One the new value is entered click the <strong>check</strong> icon</p></li></ol><p>To <strong>delete</strong> a persistent variable:</p><ol><li><p>Open the <strong>Persistent Variable tab</strong> by click the tab on the right side of the SIL Manager</p></li><li><p>Click <strong>trash can</strong> icon next to the persistent variable name</p></li></ol><div class="panel panel-warning"><p>When editing or deleting a persistent variable that is in the <strong>context of an issue</strong>, those changes will only be applied for that specific issue.</p></div><p><strong>See More</strong></p></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

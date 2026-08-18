@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193033035/Feature+guide/">Feature guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192903639/Administration/">Administration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193066207/Workflow+elements+and+concepts/">Workflow elements and concepts</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192967825/Triggers/">Triggers</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192870598/Trigger+actions/">Trigger actions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">send-email</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2193852968" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>send-email</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview</h2><p>Using the<strong> send-email action</strong> in a workflow trigger lets you send customized emails. The trigger action sends a custom email when a chosen workflow event occurs, such as a change of workflow state or the expiration of a state due date.</p><img alt="Comala visual editor sendemail trigger action with recipients configured" class="doc-image" loading="lazy" src="/cms_trial/assets/360436d9-8322-41e1-981f-624591bc67c7.png"/><p>You must add at least one recipient to the custom email. This must be at least one value from any of the following:</p><ul><li><p>email address of a recipient</p></li><li><p>Confluence user</p></li><li><p>Confluence user group</p></li><li><p>Confluence smart value, such as <strong>watchers</strong> of the page, the page<strong> creator</strong>, and the last user who edited the page</p></li><li><p>a workflow user parameter or group parameter</p></li></ul><p>When the workflow trigger event occurs, the trigger checks that all required conditions are met. If these conditions and met, the <code>"send-email"</code> action sends an email to the specified recipients.</p><h2 id="send-email"><code>"send-email"</code></h2><p>The trigger action <code>"send-email"</code> sends a custom email to one or more specified recipients. </p><ul><li><p><strong>action (</strong><em><strong>send-email</strong></em><strong>)</strong></p></li><li><p><strong>recipients (array)</strong> <strong>❗️</strong>Recipients to send the email to (<em><strong>at least one recipient value must be added</strong></em>). A comma-separated list of one or more recipients is added using a combination of:</p><ul><li><p>one or more <code>email</code> addresses</p></li><li><p>one or more users using <code>{"user"="userID"}</code> specifying the Atlassian <code>userID</code>.<strong>†</strong></p></li><li><p>one or more user groups <code>{"group":"groupID"}</code> specifying Atlassian <code>groupID</code><strong>‡</strong> or the Atlassian <code>groupName</code><strong>‡</strong></p></li><li><p>one or more <strong>user</strong>-<strong>type workflow parameters</strong>  using <code>@userTypeParameterName@</code>(see <a href="/cms_trial/space/CDMC/2192837939/Parameters/">workflow parameter references</a>)</p></li><li><p>one or more <strong>group type workflow parameters</strong> using <code>@groupTypeParameterName@</code>(see <a href="/cms_trial/space/CDMC/2192837939/Parameters/">workflow parameter references</a>)</p></li><li><p>One or more of the following  Confluence <code>value references</code></p><ul><li><p><code>@watchers</code> (set at document level only)</p></li><li><p><code>@lastUpdatedBy</code></p></li><li><p><code>@creator</code></p></li><li><p><code>@assignee</code>(sends the email to the user assigned to the page. </p></li></ul></li></ul></li></ul><div class="panel panel-note"><p>For<code> @assignee</code> to work correctly, the assigner and assignee must be different users.</p><p><code>@assignee </code>value is currently supported only for the <a href="https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=CDMC&amp;title=on-assign%20event">on-assign</a> and <a href="https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=CDMC&amp;title=on-unassign%20event">on-unassign</a> events, as the assignees are resolved from these events.</p></div><ul><li><p><strong>notification (object) ❗️</strong> Notification holder. This includes the following parameters as a comma-separated list within curly brackets:</p><ul><li><p><code>"title"</code> (optional)</p></li><li><p><code>"subject"</code> <strong>❗️</strong></p></li><li><p> <code>"body"</code> <strong>❗️</strong></p></li></ul></li></ul><hr/><h3 id="mandatory-parameters">❗️Mandatory parameters</h3><p><strong>recipients</strong></p><p>At least one value for <strong>recipients</strong> must be included</p><p><strong>notification</strong></p><p>The <strong>"notification"</strong> holder is required. This must include both</p><ul><li><p><strong>"subject"</strong></p></li><li><p><strong>"body"</strong></p></li></ul><hr/><div class="panel panel-note"><p><strong>† </strong>Each <strong>Confluence user</strong> must be specified individually using <code>{"user":"userID"}</code>. Add multiple Confluence users in a comma-separated list <code>{"user":"userID_One"},{"user":"userID_Two"}, ...</code></p><p><strong>‡ </strong>Each <strong>Confluence group</strong> must be specified individually using <code>{"group":"groupID"}</code> and/or <code>{"group":"groupName"}</code>. Add multiple Confluence groups in a comma-separated list <code>{"group":"groupID_One"},{"group":"groupID_Two"},{"group":"groupName_Users1"},{"group":"groupName_Users2"}, ...</code></p></div><p>You can embed any of the following as part of the text value in the <code>"title"</code>, <code>"subject"</code>, and <code>"body"</code> parameters</p><ul><li><p> <code>${content.title}</code> - inserts the name of the page or blog post</p></li><li><p><code>${content.link}</code> -  inserts the link of the page or blog post</p></li><li><p><code>${content.space}</code> - inserts the name of the space</p></li></ul><h3 id="example-trigger-code">Example trigger code</h3><pre><code class="language-">"triggers":
 [
   {"event": "on-change-state",
@@ -190,6 +195,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

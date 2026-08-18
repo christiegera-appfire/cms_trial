@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3091858027/Release+notes/">Release notes</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Release notes 20 July 2026</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3466657795" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Release notes 20 July 2026</h1>
+    <div class="page-meta">2 min read</div>
     <p><strong>Release date</strong>: <time datetime="2026-07-20">July 20, 2026</time></p><p>This page outlines the updates included in the latest release of Connector for Salesforce &amp; Jira Cloud.</p><p><strong>Marketplace</strong> <strong>version:  </strong>25.0.0</p><hr/><h2 id="enhancements"><span class="status-lozenge">Jira Cloud</span> Enhancements</h2><h3 id="forge-migration-updates"><strong>Forge migration updates</strong></h3><p>Connector for Salesforce &amp; Jira has been developed and deployed on Atlassian Forge, Atlassian’s most advanced Cloud development platform. This release brings enhancements to meet Forge’s technical and security standards.</p><p>Moving to Forge ensures that your data is protected within Atlassian’s trusted infrastructure, leveraging its built-in security, compliance, and scalability capabilities. By embracing Forge, Appfire continues to deliver on its promise to offer secure, enterprise-grade apps that evolve with Atlassian’s platform.</p><div class="panel panel-warning"><p>Please update to the latest version by the end of 2026 to keep your app running. If you miss the deadline, the app stops working and data syncing breaks.</p></div><h3 id="upgrade-to-forge-manually">Upgrade to Forge manually</h3><p>You can also upgrade to Forge manually. To upgrade the app to the Forge version, you need Jira administrative privileges.</p><ol><li><p>Navigate to <strong>Apps</strong> &gt; <strong>Manage apps</strong>.</p></li><li><p>Under <em>Connected apps, </em>the Connector for Salesforce &amp; Jira app displays an <strong>Update</strong> label. Click <strong>View app details</strong>.</p></li><li><p>To upgrade the app, click <strong>Accept &amp; update</strong>.</p></li><li><p>The <em>Confirm app update</em> dialog opens. Click <strong>Update</strong>.<br/></p></li></ol><p>To learn more, see <a href="/cms_trial/space/CSFJIRA/3319464284/Migration+to+Forge/">Migration to Forge</a>. Contact your network administrator and share this page, or reach out to our <a href="https://support.appfire.com/page/support"><u>support</u></a> for any further assistance.</p><hr/><h2 id="bug-fixes"><span class="status-lozenge">Jira Cloud</span><strong> Bug fixes</strong></h2><p><strong> Jira work item search in Salesforce</strong></p><p>When searching for a Jira work item by its exact key in the Salesforce <em>Associate or Create Jira Issue</em> dialog, the correct work item now always appears in the results. Previously, it could be pushed out of view by newer work items that only mentioned the same key in their title or description.</p><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p> <strong>Questions and feedback</strong></p><ul><li><p>Explore exciting features, pricing updates, reviews, and more on the <a href="https://marketplace.atlassian.com/apps/1214214/connector-for-salesforce-jira?tab=overview"><u>Marketplace</u></a>.</p></li><li><p>Stuck with something? Raise a ticket with our <a href="https://appf.re/support"><u>support team</u></a>.</p></li><li><p>Do you love using our app? Let us know what you think <a href="https://marketplace.atlassian.com/apps/1214214/connector-for-salesforce-jira?tab=reviews"><u>here</u></a>.</p></li></ul></div><div><p><strong> </strong> <strong>Credits</strong></p><p>A heartfelt thank you to our valued customers! Your incredible support and feedback inspire us to improve our apps and products continually. You are the driving force behind why we create software. We appreciate your trust in Connector for Salesforce &amp; Jira Cloud!</p></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

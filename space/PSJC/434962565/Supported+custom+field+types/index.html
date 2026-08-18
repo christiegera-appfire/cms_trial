@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434798967/Simple+Issue+Language/">Simple Issue Language</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/1934458884/SIL+reference+guide/">SIL reference guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/1933541401/Reference+documentation/">Reference documentation</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Supported custom field types</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/434962565" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Supported custom field types</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="panel panel-note"><p>This page provides a comprehensive reference for mapping Jira custom field types to Simple Issue Language (SIL) data types, enabling developers to properly handle custom field data in their SIL scripts. </p></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><p>Provides a comprehensive reference for mapping Jira custom field types to SIL data types, enabling developers to properly handle custom field data in their SIL scripts. </p><h2 id="standard-field-types-reference">Standard field types reference</h2><p>SIL automatically converts custom field values to SIL data types following established mapping patterns. The table below lists all supported standard field types and their corresponding SIL representations:</p></div><div></div></div><table><tr><th><p><strong> Group name</strong></p></th><th><p><strong>Custom field type</strong></p></th><th><p><strong>SIL data type</strong></p></th><th><p><strong>Usage and notes</strong></p></th></tr><tr><td><p>Date and time fields</p></td><td><p>DateTime</p></td><td><p><code>date</code></p></td><td><p>Supports full DateTime with timezone</p></td></tr><tr><td><p>DatePicker</p></td><td><p><code>date</code></p></td><td><p>Date only, Time component is ignored</p></td></tr><tr><td><p>Numeric fields</p></td><td><p>Number field</p></td><td><p><code>number</code></p></td><td><p>Supports both integers and decimals</p></td></tr><tr><td><p>Text-based fields</p></td><td><p>URL field</p></td><td><p><code>string</code></p></td><td><p>Stores complete URL as text</p></td></tr><tr><td><p>Text field</p></td><td><p><code>string</code></p></td><td><p>Single-line text input</p></td></tr><tr><td><p>Textarea</p></td><td><p><code>string</code></p></td><td><p>Multi-line text input</p><div class="panel panel-note"><p>Test formatting behavior in your specific Jira environment.</p></div></td></tr><tr><td><p>User and group fields</p></td><td><p>User Picker</p></td><td><p><code>string</code></p></td><td><p>Stores username (not full name)</p></td></tr><tr><td><p>Multi User Picker</p></td><td><p><code>string []</code></p></td><td><p>String array of usernames</p></td></tr><tr><td><p>Group Picker</p></td><td><p><code>string</code></p></td><td><p>Group name as string</p></td></tr><tr><td><p>Multi Group Picker</p></td><td><p><code>string []</code></p></td><td><p>String array of group names</p></td></tr><tr><td><p>Selection fields</p></td><td><p>Multi Checkboxes</p></td><td><p><code>string []</code></p></td><td><p>String array of selected values</p></td></tr><tr><td><p>Multi Select</p></td><td><p><code>string []</code></p></td><td><p>String array of selected options</p></td></tr><tr><td><p>Radio Buttons</p></td><td><p><code>string</code></p></td><td><p>Single selected value</p></td></tr><tr><td><p>Select List</p></td><td><p><code>string</code></p></td><td><p>Single selected option</p></td></tr><tr><td><p>Cascading Select</p></td><td><p><code>string []</code></p></td><td><p>Two-element array: [parent, child]</p><div class="panel panel-note"><ul><li><p>Setting an invalid parent-child combination will be rejected.</p></li><li><p>When you assign a single value to a cascading select field in SIL, it will be treated as the parent/root selection only.</p></li></ul></div></td></tr><tr><td><p>Project and version fields</p></td><td><p>Project Picker</p></td><td><p><code>string</code></p></td><td><p>Project key</p></td></tr><tr><td><p>Version field</p></td><td><p><code>string</code></p></td><td><p>Version name as string</p></td></tr><tr><td><p>Multi Version field</p></td><td><p><code>string []</code></p></td><td><p>String array of version names</p></td></tr><tr><td><p>Labels Field</p></td><td><p><code>string []</code></p></td><td><p>Array of label strings</p></td></tr></table><hr/><h2 id="product-specific-fields">Product-specific fields</h2><table><tr><th><p><strong>Product name</strong></p></th><th><p><strong>Notes</strong></p></th></tr><tr><td><p>Jira Service Management (JSM) fields</p></td><td><p>JSM custom fields are supported with the same type mappings as standard fields. Special fields like SLA data and request participant fields are accessible through dedicated SIL functions.</p></td></tr><tr><td><p>Jira Software fields</p></td><td><p>Agile fields, such as Sprint and Story Points,  are directly accessible like standard custom fields. No special handling required.</p></td></tr><tr><td><p>Portfolio for Jira fields</p></td><td><p>Portfolio-specific fields can be accessed using the same patterns as standard custom fields.</p></td></tr></table>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

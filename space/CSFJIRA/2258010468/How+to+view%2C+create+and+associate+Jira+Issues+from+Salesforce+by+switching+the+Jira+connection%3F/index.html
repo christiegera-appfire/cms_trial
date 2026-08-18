@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1891206842/Configure/">Configure</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3091695766/Set+up+multiple+Jira+site+integration/">Set up multiple Jira site integration</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">How to view, create and associate Jira Issues from Salesforce by switching the Jira connection?</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/2258010468" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>How to view, create and associate Jira Issues from Salesforce by switching the Jira connection?</h1>
+    <div class="page-meta">1 min read</div>
     <p><br/></p><div class="panel panel-note"><p>This feature is only supported in LWC (Lightning Web Component).</p></div><h2 id="viewing-jira-issues-in-salesforce">Viewing Jira Issues in Salesforce </h2><ol><li><p>In a Salesforce object, you will see a dropdown option to choose the Jira site connection. Choose the Jira connection of your choice. <br/><br/><div class="img-placeholder">[Unmapped macro: inline-media-image — no content to fall back on]</div><br/></p></li></ol><div class="panel panel-warning"><p>The dropdown will not show if the Salesforce instance has only one Jira connection. To check the connections, read <a href="/cms_trial/space/CSFJIRA/3091827403/How+do+I+connect+more+than+one+Jira+connection+in+my+Salesforce+environment%3F/">How do I connect more than one Jira connection in my Salesforce environment?</a>. </p></div><p><br/></p><ol><li><p>Switching the connection will switch the content within the panel. A tick symbol indicates which Jira connection issues you are currently viewing. <br/><br/></p><img alt="contentId-2258010468" class="doc-image" loading="lazy" src="/cms_trial/assets/7e6b11a4-cac0-4880-a84f-d984c64456cd.png"/><p><br/></p></li></ol><h2 id="creating-and-associating-jira-issues-in-salesforce">Creating and associating Jira Issues in Salesforce</h2><ol><li><p>In the Salesforce object, click the <strong>Associate/Create </strong>button.</p></li><li><p>Click the <strong>Select a Connection</strong> dropdown to choose your Jira connection. <br/><br/><div class="img-placeholder">[Unmapped macro: inline-media-image — no content to fall back on]</div><br/></p></li><li><p>To associate a Jira issue from Salesforce, read our <a href="/cms_trial/space/CSFJIRA/3092284698/Associate+a+Jira+work+item+from+Salesforce+with+Jira+Issues+(NextGen)/">Associating a Jira Issue from Salesforce with Jira Issues (NextGen)</a> documentation.</p></li><li><p>To create a Jira issue from Salesforce, read our <a href="https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=csfjira&amp;title=Create%20a%20Jira%20Issue%20from%20Salesforce%20with%20Jira%20Issues%20%28NextGen%29&amp;linkCreation=true&amp;fromPageId=2258010468">Creating a Jira Issue from Salesforce with Jira Issues (NextGen)</a> documentation.</p></li><li><p>The created and associated Jira Issue will appear in the relevant Jira connection panel that you can view in the Salesforce object page.</p></li></ol><hr/><h2 id="related-content">Related content</h2><ul><li><p><a href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/1689518505">Is there any difference in setting up the integration in Jira for the multi-site feature?</a></p></li><li><p><a href="/cms_trial/space/CSFJIRA/3091827403/How+do+I+connect+more+than+one+Jira+connection+in+my+Salesforce+environment%3F/">How do I connect more than one Jira connection in my Salesforce environment?</a></p></li><li><p><a href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/1596916030">Why can't I switch or view the Jira connection dropdown for the Lightning Aura and Visualforce components?</a></p></li><li><p><a href="/cms_trial/space/CSFJIRA/3092252732/Are+attachments+sync+configurations+configured+individually+for+multiple+Jira+site+integration%3F/">Are attachments sync configurations configured individually with multiple Jira site integration?</a></p></li><li><p><a href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/1689616840">What are the limitations of the multiple Jira site integration?</a></p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193033035/Feature+guide/">Feature guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192903639/Administration/">Administration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193066207/Workflow+elements+and+concepts/">Workflow elements and concepts</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192967825/Triggers/">Triggers</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192870598/Trigger+actions/">Trigger actions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">set-message</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2193853008" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>set-message</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview</h2><p>A trigger action that displays a custom screen notification. The message can be customized with a title, message content, and notification style.</p><img alt="Comala visual editor setmessage trigger action with info message type" class="doc-image" loading="lazy" src="/cms_trial/assets/2d7ad945-7552-4fb9-a4d7-3c80789b0cee.png"/><p>This trigger displays the following notification:</p><img alt="Comala setmessage info notification displayed on a page" class="doc-image" loading="lazy" src="/cms_trial/assets/07ce108e-91fc-4793-9104-b955262be1d3.png"/><p>When the workflow trigger event occurs, the trigger checks that any required conditions are met, and if they are, the <code>"set-message"</code> action displays an on-screen notification message.</p><h2 id="set-message"><code>"set-message"</code></h2><p>The trigger action <code>"set-message"</code> creates a message notification and can include a message title and a body.</p><div class="panel panel-note"><p>It can be set as <strong>info</strong>, <strong>warning,</strong> or <strong>error</strong>, and set to auto-close after a specified period or require user acknowledgment.</p></div><ul><li><p><strong>action (</strong><em><strong>set-message</strong></em><strong>) </strong></p><ul><li><p><strong>type ❗️</strong> Indicator of the level of the message</p><ul><li><p>info</p></li><li><p>warning</p></li><li><p>error</p></li></ul></li><li><p><strong>title </strong> <strong>❗️</strong> For adding a title to the message</p></li><li><p><strong>body❗️</strong> For adding the content for the body of the message</p></li></ul></li></ul><hr/><h3 id="mandatory-parameters">❗️ Mandatory parameters</h3><p><strong>type</strong></p><p>The  <code>"type"</code> parameter value must be included.</p><p><strong>title</strong></p><p>You must add a title for the message</p><p><strong>body</strong></p><p>The <code>"body"</code> parameter value must be included.</p><hr/><h3 id="trigger-example">Trigger example</h3><pre><code class="language-">"triggers":
 [
 	{"event": "on-change-state",
@@ -168,6 +173,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

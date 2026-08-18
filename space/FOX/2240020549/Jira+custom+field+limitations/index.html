@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/FOX/602537989/Foxly+-+Backlog+Prioritization+for+Jira/">Foxly - Backlog Prioritization for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/FOX/602537989/Foxly+-+Backlog+Prioritization+for+Jira/">Foxly - Backlog Prioritization for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/FOX/1806368889/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Jira custom field limitations</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/FOX/pages/2240020549" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Jira custom field limitations</h1>
+    <div class="page-meta">1 min read</div>
     <p>With recent Atlassian API changes, you may encounter the following limitations when working with Jira custom fields. </p><h3 id="field-values-appear-empty"><strong>Field values appear empty </strong></h3><p><span class="status-lozenge">Limitation description</span> If you add Jira custom fields to the view, their values will appear empty. This happens because the custom fields aren’t included in the relevant Jira screen. </p><img alt="Screenshot of adding a field to the column view in Foxly." class="doc-image" loading="lazy" src="/cms_trial/assets/774955c7-a0ba-4aa2-8178-0d2ee0db0b6c.png"/><h3 id="priority-score-can-t-be-calculated">Priority score can’t be calculated</h3><p><span class="status-lozenge">Limitation description</span> If you’re using a prioritization template with metrics linked to Jira fields, the priority score won’t be calculated unless those fields are added to appropriate Jira screens. </p><p>In <strong>Configuration</strong>, you can check what prioritization template is in use and see if metrics are based on Jira fields. </p><img alt="Screenshot of the Configuration page in Foxly." class="doc-image" loading="lazy" src="/cms_trial/assets/08bf6790-2dad-49b7-95d8-1ed675b7c447.png"/><h3 id="solution">Solution</h3><p>To resolve the above limitations, add the required fields to the appropriate Jira screens. See full instructions in the <a href="https://support.atlassian.com/jira-cloud-administration/docs/add-a-custom-field-to-a-screen/">Add a field to a screen</a> Jira article. </p><div class="panel panel-note"><p>If you can’t access Jira settings, contact your Jira admin. </p></div><p>Once the necessary fields are added to Jira screens:</p><ul><li><p>The values of Jira fields added to the column view will be visible.</p></li><li><p>The priority score will be calculated when a prioritization template based on Jira fields is in use. </p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

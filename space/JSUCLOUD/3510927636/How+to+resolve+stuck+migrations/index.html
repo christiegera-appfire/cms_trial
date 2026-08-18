@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12519552/Migrations/">Migrations</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">How to resolve stuck migrations</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JSUCLOUD/pages/3510927636" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>How to resolve stuck migrations</h1>
+    <div class="page-meta">1 min read</div>
     <p>If your JSU Automation Suite migration remains in the <strong>Ready</strong> state, it doesn't necessarily mean the migration failed. In some cases, Atlassian's Cloud Migration Assistant doesn't start the vendor app migration, so JSU never receives a migration request.</p><p>Because JSU only processes migration requests sent by Atlassian, Appfire can't start or restart the migration independently.</p><h2 id="how-can-i-tell-whether-jsu-received-the-migration">How can I tell whether JSU received the migration?</h2><p>Appfire Support can verify whether a migration request reached the JSU migration service.  If no migration record exists, the migration was never initiated for the app, even if the Atlassian migration plan shows it as <strong>Ready</strong>.</p><h2 id="can-appfire-restart-the-migration">Can Appfire restart the migration?</h2><p>No. Appfire can't manually trigger a JSU migration. Vendor app migrations are initiated by Atlassian's migration platform.</p><h2 id="what-should-i-do">What should I do?</h2><p>If Appfire Support confirms that no migration request was received:</p><ol><li><p>Contact Atlassian Support and ask them to verify that the vendor app migration was initiated.</p></li><li><p>If advised by Atlassian, create a copy of the migration plan and run the migration again.</p></li></ol><h2 id="why-does-appfire-need-atlassian-to-investigate">Why does Appfire need Atlassian to investigate?</h2><p>Appfire and Atlassian each have visibility into different parts of the migration process. If a migration doesn't start or appears stuck, both teams can compare logs to determine whether the vendor app migration request was initiated.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

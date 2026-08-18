@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/3482517944/Admin+guide/">Admin guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253540254/API+%26+Reporting/">API &amp; Reporting</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">7pace Timetracker Client (Tracking) API</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/7TFA/pages/1253540758" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>7pace Timetracker Client (Tracking) API</h1>
+    <div class="page-meta">3 min read</div>
     <div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p>Each of the above tracking API endpoints requires the correct API version to be defined in the API call; the parameters are optional.</p></div><div></div></div><h3 id="get-api-tracking-client-current-expand"><strong>GET /api/tracking/client/current/{expand}</strong></h3><p>This function gets the current state of the active track. If you use the $expand parameter, additional details will be shown.</p><p>Example:</p><p><code>GET https://{your-organization}.timehub.7pace.com/api/tracking/client/current?$expand=true&amp;api-version=3.2</code></p><p><strong>POST /api/tracking/client/selected</strong> </p><p>Used to set the tracking parameters without starting tracking. The JSON body is required for the API call.</p><p>Example:</p><p><code>POST https://{your-organization}.timehub.7pace.com/api/tracking/client/selected?api-version=3.2</code></p><pre><code class="language-json">{
   "tfsId": 0,
   "remark": "string",
@@ -170,6 +175,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

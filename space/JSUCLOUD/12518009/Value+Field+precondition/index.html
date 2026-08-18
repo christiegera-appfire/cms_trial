@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12518429/Features/">Features</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12518025/Workflow+preconditions/">Workflow preconditions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Value Field precondition</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JSUCLOUD/pages/12518009" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Value Field precondition</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="description">Description</h2><p>The Value Field precondition checks whether a field on the issue matches a value.</p><p>For more complex scenarios or to combine several Value Field preconditions, you could use a <a href="/cms_trial/space/JSUCLOUD/12518033/JQL+precondition/">JQL precondition</a>.</p><h2 id="configuration">Configuration</h2><p>You must specify the field you want to check, the operation you want to perform, and the value you want to check against – although you can also check against an empty value.</p><p>If a field can have multiple values, for example, components, the precondition matches if one of the values is contained – or if it is not contained.</p><p>The following matching rules apply:</p><ul><li><p>Text fields with operators <code>=</code>  or <code>!=</code> will match with any text string.</p></li><li><p>Text fields with operators <code>&gt;=, &gt;, &lt;,</code> and <code>&lt;=</code> will match with any number.</p></li><li><p>Number fields will match with other numbers.</p></li><li><p>Date fields will match with other date fields.</p></li><li><p>Date time fields will match with other date time fields.</p></li><li><p>Estimate fields (original, remaining estimate) will match with duration formatted strings like <code>1w 2d 3h 4m 5s</code>. If no unit is given, minutes are assumed.</p></li><li><p>User fields can be matched against the user name or the account ID.</p></li><li><p>Sprints, select options, components, versions, issue types, priorities, resolutions, security levels, and statuses are matched against their name or ID.</p></li><li><p>Projects are matched against their name, key, or ID.</p></li></ul><h2 id="example">Example</h2><p>An Update Any Issue Field post function is added to the Create transition. A new comment should be created when the number of story points is exceeded, telling the user to break up the story.</p><img alt="Summary of the Update Any Issue Field post function as described on this page." class="doc-image" loading="lazy" src="/cms_trial/assets/c698a0e4-380d-46c0-9b23-780d4758fe89.png"/><img alt="Example of the Value Field preconditions set up for Original Estimate, Story Points, and Issue Type." class="doc-image" loading="lazy" src="/cms_trial/assets/68c4d281-53a3-4a43-96e6-df1b08e3b12c.png"/><h2 id="supported-fields-types">Supported fields types</h2><div class="included-content"><p>JSU supports many different field types; system fields, as well as custom fields.</p><p>You should be aware, however, that not all field types or all combinations are supported. We have tried to cover the most important field types but we are continuously adding more and improving how different field types are supported. We recommend you test JSU with fields to see if it is compatible with your system. Our evaluation license provides you with a 30-day free trial. </p></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3091662302/General/">General</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">GDPR-related changes to user mapping features for Jira Server</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3103883317" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>GDPR-related changes to user mapping features for Jira Server</h1>
+    <div class="page-meta">2 min read</div>
     <p><br/></p><h2 id="what-s-changing">What's changing?</h2><p>The changes affect features related to Jira user field types, e.g. Reporter, Assignee or custom user field types.</p><p>An affected setup will typically look like this:</p><img alt="contentId-3103883317" class="doc-image" loading="lazy" src="/cms_trial/assets/32f98606-45b3-4cec-a250-da72e2ef6937.png"/><h3 id="change-1-value-mapping-will-no-longer-accept-text-input">Change 1: Value mapping will no longer accept text input</h3><p>The value mapping screen will now show a dropdown menu to select Jira users. You can search by either username or display name.</p><table><tr><th><p>Before</p></th><th><p>After</p></th></tr><tr><td><img alt="contentId-3103883317" class="doc-image" loading="lazy" src="/cms_trial/assets/2e2df102-e6f4-4d2f-a72c-cc7a33d8e4b3.png"/></td><td><img alt="contentId-3103883317" class="doc-image" loading="lazy" src="/cms_trial/assets/97656879-b1fe-4c5e-a550-a26c502e38f9.png"/></td></tr></table><p>This change has already taken effect for any new creation of such mapping.</p><h3 id="potential-issue-with-existing-mappings">Potential issue with existing mappings</h3><p>For existing mappings, you may come across users which have different user keys and usernames. If you have a user who has a different user key and username, you will come across an issue similar to the following:</p><img alt="contentId-3103883317" class="doc-image" loading="lazy" src="/cms_trial/assets/47ecb376-9a39-4994-9708-462161159502.png"/><p>To resolve this, you will need to delete the value mapping and manually recreate it using the user picker.</p><h3 id="change-2-related-sync-will-only-send-user-keys">Change 2: Related sync will only send user keys</h3><p>All sync functionality will now only send user keys (instead of Jira usernames) to Salesforce. Refer to both examples below.</p><p>If you don’t specify any value mappings, Salesforce will now display the user key:</p><table><tr><th><p>Before</p></th><th><p>After</p></th></tr><tr><td><img alt="contentId-3103883317" class="doc-image" loading="lazy" src="/cms_trial/assets/5cf5b65e-8d96-4032-bad1-01294efe0341.png"/><p><br/></p></td><td><img alt="contentId-3103883317" class="doc-image" loading="lazy" src="/cms_trial/assets/510e1aa4-4415-44ba-836c-e64a67c76053.png"/></td></tr></table><p>If you specify a value mapping, Salesforce will display the corresponding mapped value as usual:</p><table><tr><th><p>Before</p></th><th><p>After</p></th></tr><tr><td><img alt="contentId-3103883317" class="doc-image" loading="lazy" src="/cms_trial/assets/5cf5b65e-8d96-4032-bad1-01294efe0341.png"/><p><br/></p></td><td><img alt="contentId-3103883317" class="doc-image" loading="lazy" src="/cms_trial/assets/5cf5b65e-8d96-4032-bad1-01294efe0341.png"/><p><br/></p></td></tr></table><h3 id="impact-on-bindings-without-existing-value-mappings">Impact on bindings without existing value mappings</h3><p>If you have a user field type mapping but without any value mapping, all the syncs will now use Jira user keys instead of Jira usernames. This typically affects any Jira user field types e.g. Reporter and Assignee that is mapped to a non-user type field in Salesforce, such as text fields.</p><p>Before the changes, the following illustrates the operations:</p><p>Jira ( username ) &gt; (Outbound push to) &gt; Salesforce (text field, with value username)</p><p>Salesforce (text field, with value username) &gt; (Inbound push to) &gt; Jira (username)</p><p>After the changes, it will change to:</p><p>Jira (user key) &gt;  (Outbound push to) &gt; Salesforce (text field, with value account ID)</p><p>Salesforce (text field, with value account ID ) &gt; (Inbound push to) &gt; Jira (user key)</p><p>The above will continue to work despite the usage of user key. However, if you would like to change this behavior to show a more meaningful information in Salesforce, OR making sure an existing association’s inbound push (from Salesforce to Jira) will continue to work, we recommend you to start adding explicit field value mappings.</p><p>With explicit value mappings, the operations will be such:</p><p>Jira (user key) &gt; (Outbound push to) &gt; Salesforce (text field, with value name )</p><p>Salesforce (text field, with value name ) &gt; (Inbound push to) &gt; Jira (user key)</p><h2 id="need-help">Need help?</h2><p>If you require assistance, contact our <a href="https://apps.appf.re/support">support team</a>.</p><p><br/></p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490996521/Feature+guides/">Feature guides</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/1165525018/Automation+(Script)+Templates/">Automation (Script) Templates</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Action (Post-function) Templates</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/1165525314" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Action (Post-function) Templates</h1>
+    <div class="page-meta">8 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>Actions are actions that occur after an issue is transitioned. Actions represent one of the largest categories of use cases for automation.</p><p>The templates will create the action by adding a new action script to an existing workflow transition within Jira.</p><h2 id="setting-up-the-post-function-templates">Setting up the Post-Function Templates</h2><p>Because the action script needs to live in an existing workflow transition the first two steps to creating a action script template will be selecting the workflow and transition for where the action should be place.</p><img alt="Power Scripts for Jira Cloud action postfunction template configuration interface" class="doc-image" loading="lazy" src="/cms_trial/assets/b713516e-7cf3-4903-861d-fdfda92772ed.png"/><p>If you are unsure which workflow to use an easy way to check is through the “view workflow” link that will present on any issue in Jira. Make sure you use an issue for the project and issue type you wish to add the action to.</p><img alt="Power Scripts for Jira Cloud postfunction template selection dialog" class="doc-image" loading="lazy" src="/cms_trial/assets/afa5171a-677c-4fcd-9311-fac48fc33f02.png"/><p>This “view workflow” link may not always be present due to permission settings. You may need to look in the project settings in order to determine which workflow you should select.</p><div class="panel panel-note"><p><strong>NOTE:</strong> Because the action script occurs at the end of the transition, transition screens are not relevant to the action script.</p></div><h2 id="testing-the-script">Testing the Script</h2><p>Testing the script is as simple as completing the transition and checking if the action action occurred. For example, if the script was designed to create subtasks after the transition, check to see if the subtasks were created. If not, see this section about troubleshooting scripts.</p><h2 id="templates">Templates</h2><h2 id="assign-issue">Assign issue</h2><p>Assign an issue to a selected user after the issue is transitioned.</p><h3 id="inputs">Inputs</h3><table><tr><th><p><strong>Name</strong></p></th><th><p><strong>Required</strong></p></th><th><p><strong>Description</strong></p></th></tr><tr><td><p>User</p></td><td><p>YES</p></td><td><p>The specific user for which the issue will be assigned.</p></td></tr><tr><td><p>Description</p></td><td><p>NO</p></td><td><p>The description text will be added to a comment at the head of the script so other users can be informed of the purpose of the script.</p></td></tr></table><h3 id="script">Script</h3><pre><code class="language-">assignee = "jmuse";</code></pre><hr/><h2 id="add-comment">Add Comment</h2><p>Add a comment to the current issue after the issue has been transitioned to a certain status.</p><h3 id="inputs-2">Inputs</h3><table><tr><th><p><strong>Name</strong></p></th><th><p><strong>Required</strong></p></th><th><p><strong>Description</strong></p></th></tr><tr><td><p>User</p></td><td><p>NO</p></td><td><p>If a default user is specified, this user will be recorded as the user who created the comment. If no user is specified then the user who transitioned the issue will be recorded as the user who created the comment.</p></td></tr><tr><td><p>Comment</p></td><td><p>YES</p></td><td><p>The text that should be added to the issue as a comment.</p></td></tr><tr><td><p>Description</p></td><td><p>NO</p></td><td><p>The description text will be added to a comment at the head of the script so other users can be informed of the purpose of the script.</p></td></tr></table><h3 id="script-2">Script</h3><pre><code class="language-">string selectedUser = "";
 string comment = "Hello World";
 
@@ -175,6 +180,64 @@ if(!isNull(parent)) {
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

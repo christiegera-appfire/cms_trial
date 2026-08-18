@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192967667/Migrate+to+Confluence+Cloud/">Migrate to Confluence Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2200469883/Migration+help+and+support/">Migration help and support</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Migrating Metadata Macros</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2514452500" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Migrating Metadata Macros</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview</h2><p>This page lists the Comala Metadata app macros that are supported for migration to Comala Document Management (CDM) for Cloud. Each migrated macro has an equivalent macro in the Cloud environment, ensuring continuity of functionality after migration.</p><h2 id="supported-metadata-macros">Supported Metadata Macros</h2><table><tr><th><p><strong>Data Center</strong></p></th><th><p><strong>Cloud</strong></p></th><th><p><strong>Description</strong></p></th></tr><tr><td><p><code>metadata</code></p></td><td><p>Document Metadata Set</p></td><td><p>Used to set metadata values on a page that can be referenced or accessed in workflows.</p></td></tr><tr><td><p><code>metadata-list</code></p></td><td><p>Document Metadata List</p></td><td><p>Displays and stores multiple metadata key-value pairs in a table format.</p></td></tr><tr><td><p><code>metadata-values</code></p></td><td><p>Document Metadata Values</p></td><td><p>Displays all the metadata key-value pairs associated with a page.</p></td></tr><tr><td><p><code>metadata-from</code></p></td><td><p>Document Metadata From</p></td><td><p>Retrieves the metadata values from a specific page. </p></td></tr><tr><td><p><code>metadata-report</code></p></td><td><p>Document Metadata Report</p></td><td><p>Displays the metadata and field values across all pages in a space.</p></td></tr></table><h2 id="learn-more">Learn more</h2><ul><li><p><a href="/cms_trial/space/CDMC/2510750404/Document+Metadata+Set/">Document Metadata Set</a></p></li><li><p><a href="/cms_trial/space/CDMC/2513797193/Document+Metadata+List/">Document Metadata List</a></p></li><li><p><a href="/cms_trial/space/CDMC/2513862720/Document+Metadata+Values/">Document Metadata Values</a></p></li><li><p><a href="/cms_trial/space/CDMC/2513600585/Document+Metadata+From/">Document Metadata From</a></p></li><li><p><a href="/cms_trial/space/CDMC/2508096484/Document+Metadata+Report/">Document Metadata Report</a></p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

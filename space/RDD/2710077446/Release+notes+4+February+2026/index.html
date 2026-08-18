@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/2117042596/Release+notes+-+Cloud/">Release notes - Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Release notes 4 February 2026</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/2710077446" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Release notes 4 February 2026</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p><strong>Release date</strong>: <time datetime="2026-02-04">February 4, 2026</time></p><p>Our team is thrilled to announce the latest release of the Dashboard Hub family of apps for Jira and Confluence.</p><h2 id="new-features">New features</h2><h2 id="dynamic-filter-bar-for-embedded-dashboards-in-confluence">Dynamic Filter Bar for embedded dashboards in Confluence</h2><p>You can now apply dynamic filters to dashboards embedded in Confluence pages with a dashboard macro. To learn more about the filtering options, see <a href="https://appfire.atlassian.net/wiki/x/rYG4C">Dynamic filters</a>.</p><hr/><h2 id="enhancements">Enhancements</h2><h2 id="statistics-shown-in-status-gadgets">Statistics shown in status gadgets</h2><p>You can now configure status-type gadgets to display statistics to users. This applies to the following gadgets: Time in Status, Status Transition Count, Transition Time From Status, and Work Items Entering Status by Date. All applicable statistics are shown to users by default.</p><img alt="Time in Status gadget with all statistics selected in the configuration page." class="doc-image" loading="lazy" src="/cms_trial/assets/58455f3e-796b-4a63-88ed-9049b9453fb0.png"/><h2 id="dark-mode">Dark mode</h2><p> Enhanced dark mode compatibility to support the dark mode option in Confluence and Jira.</p><h2 id="additional-languages-added-for-improved-internationalization">Additional languages added for improved internationalization</h2><p>We added the following languages to support internationalization of gadget View Mode texts:</p><ul><li><p>Arabic</p></li><li><p>Chinese</p></li><li><p>French</p></li><li><p>German</p></li><li><p>Japanese</p></li><li><p>Spanish</p></li><li><p>Romanian</p></li><li><p>Russian</p></li></ul><h2 id="migrations-using-the-jira-cloud-migration-assistant-jcma">Migrations using the Jira Cloud Migration Assistant (JCMA)</h2><p>This release includes updates to improve the experience of migrating Dashboard Hub Data Center to the Cloud using JCMA.</p><hr/><h2 id="bug-fixes">Bug fixes</h2><p>The following bug fix is included in this release summary:</p><ul><li><p>Fixed an issue where dashboard gadgets incorrectly displayed the warning, <code>This gadget hasn't been configured yet</code> when a user updated a previously configured gadget. </p></li></ul><hr/>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

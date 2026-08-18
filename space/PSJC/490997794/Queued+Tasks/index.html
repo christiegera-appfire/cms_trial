@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490996521/Feature+guides/">Feature guides</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490997751/Performance+and+Monitoring/">Performance and Monitoring</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Queued Tasks</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/490997794" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Queued Tasks</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>The Queued Tasks monitoring tool keeps track of individual script executions to help you understand the performance implications associated with running scripts.</p><p>The Queued Tasks monitoring tool keeps track of individual script executions to help you understand the performance implications associated with running scripts. The chart shows the number of script executions add to the script queue over time. The chart can be found at <strong>Power Apps Config → Runtime → Queued Tasks.</strong></p><p>If more scripts are executed and are simultaneously running than there are available threads in the thread pool, these script will sit in the queue until additional threads become available. You may want to increase the number of threads by configuring the thread pool size in <strong>Power Apps Config → General → Thread Pool</strong>. However, there may be additional performance implications. For more information see the <a href="/cms_trial/space/PSJC/490996420/Thread+pool+configuration/">Thread Pool documentation</a> page.</p><p>If there is a large number of apps running consistently then there may be some configuration issues that need to be addressed:</p><ul><li><p>Are scripts scheduled to run at very frequent intervals?</p></li><li><p>Are listener scripts filtered to only run for specific project and issue types?</p></li><li><p>Are scripted custom fields made only to run in specified project and issue type contexts?</p></li></ul><p>The settings and others could dramatically reduce the number of times a script is executed.</p><img alt="Power Scripts for Jira Cloud boomerang issue scheduler configuration" class="doc-image" loading="lazy" src="/cms_trial/assets/8d8209e2-a636-4de7-a66e-0805f86aa6eb.png"/><p><strong>See More</strong></p></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

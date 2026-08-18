@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira (CMJ) Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/193823429/Features+and+options/">Features and options</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Compare snapshots</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CMJC/pages/3417473252" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Compare snapshots</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview</h2><p>Snapshot comparison lets you analyze the differences between two versions of the same snapshot scope. Only different versions of the same snapshot can be compared.</p><p>Comparisons help you review configuration changes over time, identify added or removed configuration objects, and verify updates before deploying a snapshot.</p><div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/riNlk-127_Y"></iframe></div><h2 id="prerequisites">Prerequisites</h2><p>Before comparing snapshots:</p><ul><li><p>Install and license CMJ Cloud on your Jira Cloud site.</p></li><li><p>Ensure you have Site Admin or Organization Admin permissions.</p></li><li><p>Create at least two versions of the same snapshot.</p></li></ul><h2 id="compare-snapshots">Compare snapshots</h2><ol><li><p>In your Jira Cloud site, go to <strong>Apps &gt; Configuration Manager &gt; Snapshots</strong>.</p></li><li><p>Start a comparison by opening the snapshot summary screen and selecting the <strong>Comparison</strong> tab.</p><img alt="Comparison Empty View.png" class="doc-image" loading="lazy" src="/cms_trial/assets/31f1239f-e50d-433a-97bf-40d0fbaeb7b7.png"/></li><li><p>Select the source snapshot version and the destination snapshot version.</p></li><li><p>Click <strong>Compare</strong> to start the comparison.</p><p>💡 <strong>Note:</strong> You can only compare different versions of the same snapshot. If you only have one version, the comparison feature will be unavailable.</p></li><li><p>Review the comparison results. CMJ groups the analyzed configuration objects into the following filters:</p><ul><li><p><strong>Unique to source snapshot</strong> – Configuration objects that exist only in the source version.</p></li><li><p><strong>Unique to destination snapshot</strong> – Configuration objects that exist only in the destination version.</p></li><li><p><strong>Different</strong> – Configuration objects that exist in both versions but contain differences.</p></li><li><p><strong>Identical</strong> – Configuration objects that are unchanged between versions.</p></li></ul></li></ol><img alt="Comparison Analysis View.png" class="doc-image" loading="lazy" src="/cms_trial/assets/cfa55f47-a8ce-4f97-8fdd-b21ccd5e4cb6.png"/><ol><li><p>Select a category or configuration object to view detailed information.</p></li></ol><h3 id="review-comparison-details">Review comparison details</h3><p>When you open a configuration object from the comparison results, the following tabs are available:</p><h4 id="overview-2">Overview</h4><p>Displays information about the selected configuration object:</p><ul><li><p>If the element exists in both snapshot versions, CMJ shows information from both the source and destination versions.</p></li><li><p>If the element exists in only one version, CMJ shows information only for the available version.</p></li></ul><img alt="Comparison-Overview.png" class="doc-image" loading="lazy" src="/cms_trial/assets/e0294868-fbae-4009-847a-94c744ccaac3.png"/><h4 id="differences">Differences</h4><p>Displays the differences detected between the source and destination versions of the selected configuration object and its sub-elements.</p><img alt="Comparison Differences.png" class="doc-image" loading="lazy" src="/cms_trial/assets/6d4e4535-31eb-456a-808d-ea606b005338.png"/><h3 id="manage-a-comparison">Manage a comparison</h3><p>While viewing a comparison, you can:</p><ol><li><p>Click <strong>X</strong> in the upper-right corner to exit the comparison.</p></li><li><p>Click <strong>Delete</strong> to remove the comparison.</p></li><li><p>Use the <strong>Compared to</strong> drop-down menu to select a different destination snapshot version.</p></li><li><p>Click <strong>New Comparison</strong> to run a comparison against the newly selected version.</p></li></ol><img alt="Comparison-Options.png" class="doc-image" loading="lazy" src="/cms_trial/assets/69b022d0-9246-409d-bad3-64ebeac52b66.png"/>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -32,14 +32,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146310010/Product+and+data+connections/">Product and data connections</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/3019735522/Connect+data+from+Atlassian+products/">Connect data from Atlassian products</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146310131/Confluence/">Confluence</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Popular Pages</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/631210154" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Popular Pages</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><img alt="Dashboard Hub CQL Search" class="doc-image" loading="lazy" src="/cms_trial/assets/ca9c126c-a306-494a-9248-e0208852a27b.png"/><p><a href="/cms_trial/space/RDD/631210154/Popular+Pages/">POPULAR PAGES</a></p><p><a href="/wiki/pages/resumedraft.action?draftId=144015423">Display a list with the most popular pages list</a></p><h2 id="popular-pages-gadget">Popular Pages gadget</h2><p>Use the Popular Pages gadget to display the most popular pages as a list. It lets you display the same content as shown on the right side of the default dashboard of Confluence.</p><img alt="Dashboard Hub Popular pages" class="doc-image" loading="lazy" src="/cms_trial/assets/62cfa558-3ceb-44d6-bd5d-fbe38c6cc42c.png"/><h2 id="configuration">Configuration</h2><p>Give your gadget a meaningful name, so it is clear what it does and when to use it. </p><p>You can set the maximum number of pages to display on the gadget using the <strong>max results</strong> setting.</p><ul><li><p>The <strong>maximum number of pages</strong> of results to display.</p></li></ul><div class="panel panel-note"><p>The Popular Pages gadget is currently available only for Confluence Data Center.</p></div><h2 id="integrations">Integrations</h2><ul><li><p><span class="icon-note">[confluence icon]</span> Confluence</p></li></ul><details><summary>Confluence</summary><div class="img-placeholder">[Unmapped macro: contentbylabel — no content to fall back on]</div></details><p>We are working on our growing catalog of <a href="/cms_trial/space/RDD/146309915/Dashboard+gadgets+-+KPIs+and+metrics/">Dashboard gadgets - KPIs and metrics</a> and <a href="/cms_trial/space/RDD/146310010/Product+and+data+connections/">Product and data connections</a>, but contact us you want us to expedite a specific one, visit our <a href="/cms_trial/space/RDD/146309984/Help+and+support/">Help and support</a>.</p><h2 id="dashboards">Dashboards</h2><p>This gadget is not included in any pre-defined dashboard.</p><h2 id="see-also">See also</h2><div class="img-placeholder">[Unmapped macro: contentbylabel — no content to fall back on]</div>
   </main>
   <aside class="sidebar">
@@ -169,6 +174,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

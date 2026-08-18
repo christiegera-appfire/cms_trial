@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud) Documentation</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941853/Release+Notes/">Release Notes</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/1595769075/Release+notes+2021%E2%80%932024/">Release notes 2021–2024</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783943818/2022/">2022</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">September 7, 2022</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/783942416" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>September 7, 2022</h1>
+    <div class="page-meta">1 min read</div>
     <h2 id="queues-in-rich-filter-results-gadgets">Queues in Rich Filter Results gadgets</h2><p>This release introduces <em>queues</em>, a set of features that considerably extend the capabilities of the <em>Rich Filter Results</em> gadgets.</p><p>Defined in the rich filter configuration, <em>queues</em> are lists of issues based on configurable JQL queries that further filter the issues returned by the rich filter. Queues are ideal for <em>organizing support requests</em> (by support agent, service desk, request type, etc.) but also for managing lists of issues in general:</p><ul><li><p>one or multiple queues can be displayed in any given <em>Rich Filter Results</em> gadget,</p></li><li><p>each queue can be displayed with one or multiple views,</p></li><li><p>each queue has its sorting criteria, independent of the other queues,</p></li><li><p>and more – see the <a href="/cms_trial/space/RFCDOC/783942406/Configure+queues/">Configuring Queues</a> documentation page for more details.</p></li></ul><p>Example of <em>Rich Filter Results</em> gadget configured to display 3 support <a href="/cms_trial/space/RFCDOC/783942406/Configure+queues/">queues</a>:</p><img alt="contentId-783942416" class="doc-image" loading="lazy" src="/cms_trial/assets/268efec2-baab-4604-a134-0bac748757c9.png"/><p>Example of queue configuration:</p><img alt="contentId-783942416" class="doc-image" loading="lazy" src="/cms_trial/assets/33557280-89fa-42e4-8cb2-bb289ddd48bc.png"/><p>For more information about queues, look at the <a href="/cms_trial/space/RFCDOC/783942406/Configure+queues/">Configuring Queues</a> documentation page.</p><p>For more information about the <em>Rich Filter Results </em>gadget, look at its <a href="/cms_trial/space/RFCDOC/783941759/The+Rich+Filter+Results+Gadget/">documentation page</a>.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

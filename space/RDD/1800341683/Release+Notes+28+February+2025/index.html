@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/2117042596/Release+notes+-+Cloud/">Release notes - Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Release Notes 28 February 2025</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/1800341683" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Release Notes 28 February 2025</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p><strong>Release date</strong>: <time datetime="2025-02-28">February 28, 2025</time></p><p>Our team is thrilled to announce the latest release of the Dashboard Hub family of apps for Jira, Confluence, Bitbucket and monday.com.</p><p><span class="img-placeholder" style="display:inline">[unmapped inline: placeholder]</span></p><hr/><h2 id="new-features">New features</h2><h2 id="update-datasources">Update datasources</h2><p>Update your datasources in case your credentials changed, the domain was updated or a token expired. </p><img alt="Dashboard Hub release notes example screenshot" class="doc-image" loading="lazy" src="/cms_trial/assets/9fad22fb-69b2-4afa-8be0-0526b8e7d239.png"/><h2 id="dashboard-drafts">Dashboard drafts</h2><p>We are keeping your drafts, so you won’t accidentally lose the configuration of your gadgets again.</p><img alt="Dashboard Hub Release Notes 28 February 2025 page example" class="doc-image" loading="lazy" src="/cms_trial/assets/731b614d-af8c-4e90-8013-7839f5fa18d6.png"/><hr/><h2 id="enhancements">Enhancements</h2><h2 id="jcma-improvements">JCMA improvements</h2><p>Dataplane DC and Dashboard Hub DC provide a migration path to Dashboard Hub Cloud</p><ul><li><p>JQL gadgets with JQL configuration are now migrated</p></li><li><p>Several properties were not imported due to missing data</p></li></ul><h2 id="misc">Misc</h2><ul><li><p>More clear navigation bar in main dashboards</p></li><li><p>The Affected Services field was displayed as non-wrapping in cells leading to table overflow</p></li><li><p>The Sprint Health gadget is now multi-sprint</p></li><li><p>Improve empty state in the Burndown gadget</p></li><li><p>Dilbert gadget unavailable due to a dead API. Please try the daily xkcd comic via Custom Reports instead: <a href="/cms_trial/space/RDD/1568374878/Custom+Reports+templates/">Custom Reports templates</a> .</p></li></ul><hr/><h2 id="bug-fixes">Bug fixes</h2><p>The following bugs are fixed in this release:</p><ul><li><p>Lead and Cycle Time gadgets individual elements overlapped and some epics were not kept.</p></li><li><p>PDF export had issues in light mode</p></li><li><p>Confluence Custom Charts with grouped charts and labels could return an error</p></li><li><p>The Affected Services field was displayed as non-wrapping in cells leading to table overflow</p></li><li><p>Custom charts tables with reduced width are not displayed in Safari</p></li></ul><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p> <strong>Questions and feedback</strong></p><ul><li><p>Explore exciting features, pricing updates, reviews, and more on the <a href="https://marketplace.atlassian.com/apps/1223898/dashboard-hub-pro-chart-report-diagram-external-share?hosting=cloud&amp;tab=overview">Marketplace</a>.</p></li><li><p>Stuck with something? Raise a ticket through our <a href="https://appf.re/support">support portal</a>.</p></li><li><p>Do you love using our app? Let us know what you think <a href="https://marketplace.atlassian.com/apps/1223898/dashboard-hub-pro-chart-report-diagram-external-share?hosting=cloud&amp;tab=reviews">here</a>.</p></li></ul></div><div><p><strong>Credits</strong></p><p>Thank you to our valued customers! Your incredible support and feedback inspire us to improve continuously. We appreciate your trust in the Dashboard Hub family of apps!</p></div></div><hr/>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

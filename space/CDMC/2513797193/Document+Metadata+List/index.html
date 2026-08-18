@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193033035/Feature+guide/">Feature guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193162930/Page+macros/">Page macros</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Document Metadata List</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2513797193" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Document Metadata List</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview</h2><p>The <strong>Document</strong> <strong>Metadata List</strong> macro stores and displays multiple metadata key–value pairs in a table format. It helps organize and present related metadata values, such as document details, reviewer information, or workflow data, in a clear and structured way.</p><p>Metadata values defined with this macro can also be accessed in workflow definitions or retrieved using other metadata macros.</p><h2 id="syntax">Syntax</h2><p>You can define multiple key–value pairs using the following format:</p><pre><code class="language-">||job|cook|
 ||salary|1000|
 ||city|Boston|</code></pre><p>Each row represents a metadata key and its corresponding value.</p><h2 id="parameters">Parameters</h2><table><tr><th><p><strong>Parameter</strong></p></th><th><p><strong>Description</strong></p></th></tr><tr><td><p><strong>Orientation of the table</strong></p></td><td><p>Defines how the metadata table is displayed horizontally or vertically.</p></td></tr><tr><td><p><strong>Hidden</strong></p></td><td><p>When selected, the metadata table is stored but not displayed as part of the page content.</p></td></tr><tr><td><p><strong>Content</strong></p></td><td><p>The list of metadata keys and values, written using the syntax shown above.</p></td></tr></table><h2 id="add-the-macro">Add the macro</h2><p>To add the Document Metadata List macro:</p><ol><li><p>On a draft page, type <code>/document metadata List</code>.</p><img alt="Comala Document Metadata List macro output on a page" class="doc-image" loading="lazy" src="/cms_trial/assets/1ad42d28-e5b2-408a-9505-c37546a519e6.png"/></li><li><p>Choose the <strong>Document Metadata List </strong>macro. Click the macro to edit and choose the orientation of the table. <br/></p><img alt="Comala Document Metadata List macro with metadata entries displayed" class="doc-image" loading="lazy" src="/cms_trial/assets/d7557681-43c2-4b3e-8e43-0654059d8e36.png"/></li></ol><ol><li><p><strong>Publish</strong> or <strong>update</strong> the page to retrieve and render the metadata value on the page.<br/></p><img alt="Comala Document Metadata List macro configuration settings" class="doc-image" loading="lazy" src="/cms_trial/assets/6a2c751b-84a0-45bb-9eca-17ac47747b85.png"/></li></ol>
@@ -156,6 +161,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

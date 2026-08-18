@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud) Documentation</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941853/Release+Notes/">Release Notes</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Release notes February 26th 2025</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/1799028737" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Release notes February 26th 2025</h1>
+    <div class="page-meta">3 min read</div>
     <p><strong>Release date</strong>: <time datetime="2025-02-26">February 26, 2025</time></p><p>Our team is thrilled to announce the latest release of Rich Filters for Jira Dashboards.</p><hr/><h2 id="new-features">New features</h2><h2 id="restore-rich-filters-from-backup">Restore rich filters from backup</h2><p><a href="/cms_trial/space/RFCDOC/1723924660/Export+and+import+of+rich+filters+data/">Rich filter export and import</a> is still in beta. Your feedback is welcome and appreciated.</p><p>The <a href="/cms_trial/space/RFCDOC/1723596949/Bulk+operations/">bulk operation</a> <em>Export to backup</em> allows you to create backup files containing the configuration of multiple rich filters. Jira admins can import backup files into the same Jira instance or a copy of it.</p><p>In the previous release, we added an import method, <em>Create with new IDs</em>, which creates rich filters from a backup while assigning new IDs to the rich filters and their sub-objects (such as static filters). This allows you to clone rich filters within a Jira instance or transfer them between instances (e.g., from staging to production).</p><p>This release introduces a second import method: <em>Restore as exported</em>. It works only on the same Jira instance and restores rich filters while keeping their original IDs from the backup. This ensures that existing rich filter gadgets continue working with the restored rich filters. The primary use case for this feature is backup and restore scenarios—allowing you to create backups under your control and restore rich filters in case they are lost, corrupted, or modified unintentionally.</p><p>Jira admins can access the <em>Import from backup</em> screen from the <code>...</code> menu at the top-right of the rich filters list screen.</p><hr/><h2 id="enhancements">Enhancements</h2><h2 id="rich-filters-limit-enforcement-logic">Rich filters limit enforcement logic</h2><p>Previously, all rich filters in an instance counted toward the limit on the number of rich filters per instance. This meant that to free up space, you had to permanently delete rich filters.</p><p>Starting with this release, only <em>active and archived rich filters</em> count toward the limit. <em>Trashed rich filters no longer count</em>, so you can free up space by simply moving rich filters to the trash. This operation is easily reversible (including in bulk), so you don’t have to worry as much about making mistakes.</p><p>Together with automatic archival and bulk operations on rich filters, this change allows you to regularly remove unused rich filters by establishing a simple cleanup process that works for your organization.</p><h2 id="visual-indicator-for-status-of-dependencies-in-gantt-chart">Visual indicator for status of dependencies in Gantt chart</h2><p>The <em>Rich Filter Results</em> gadget can display Gantt charts, where dependencies between issues are represented by badges on each side of the bar.</p><p>Clicking on a badge opens the dependencies dialog, which already allows you to identify scheduling errors or conflicts. This enhancement adds <em>color coding</em> to the badges: red for errors and green for correct dependencies. This way, you can easily identify problematic dependencies at a glance, without needing to open each dialog.</p><h2 id="other-enhancements">Other enhancements</h2><ul><li><p><strong>Sort rich filters by </strong><em><strong>Last used date</strong></em>: Added the ability to sort by <em>Last used date</em> in rich filter lists.</p></li><li><p><strong>Import/export of trashed rich filters</strong>: Trashed rich filters can now be exported and imported.</p></li><li><p><strong>Increased column limit in views</strong>: You can now configure up to <em>70 columns per view</em>.</p></li></ul><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p> <strong>Questions and feedback</strong></p><ul><li><p>Explore exciting features, pricing updates, reviews, and more on the Marketplace. <a href="https://marketplace.atlassian.com/apps/1214789/rich-filters-for-jira-dashboards?hosting=cloud&amp;tab=overview">https://marketplace.atlassian.com/apps/1214789/rich-filters-for-jira-dashboards?hosting=cloud&amp;tab=overview</a> </p></li><li><p>Stuck with something? Raise a ticket with our <a href="https://appf.re/support"><u>support team</u></a>.</p></li><li><p>Do you love using our app? Let us know what you think here.  <a href="https://marketplace.atlassian.com/apps/1214789/rich-filters-for-jira-dashboards?hosting=cloud&amp;tab=reviews">https://marketplace.atlassian.com/apps/1214789/rich-filters-for-jira-dashboards?hosting=cloud&amp;tab=reviews</a> </p></li></ul></div><div><p><strong> </strong> <strong>Credits</strong></p><p>A heartfelt thank you to our valued customers! Your incredible support and feedback inspire us to improve our apps and products continually. You are the driving force behind why we create software. We appreciate your trust in <span class="img-placeholder" style="display:inline">[unmapped inline: placeholder]</span>!</p></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12518429/Features/">Features</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12518401/Workflow+post+functions/">Workflow post functions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Create a Linked Issue post function</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JSUCLOUD/pages/12518348" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Create a Linked Issue post function</h1>
+    <div class="page-meta">4 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="description">Description</h2><p>The Create a Linked Issue post function automatically creates a new issue that is linked to the original issue that triggered the post function. Any number of fields can be copied to the new issue and within the origin issue. </p><div class="panel panel-note"><p>See <a href="/cms_trial/space/JSUCLOUD/12518401/Workflow+post+functions/">Workflow post functions</a> to learn how to add a JSU post function to a Jira workflow.</p></div><h2 id="interactive-demo">Interactive demo</h2><p>Follow the interactive demo setup below for an example of how to configure the Create a Linked Issue post function.</p><p><a class="embed-card-link" href="https://app.arcade.software/share/ob6NpUrxXNyibe0AzAIy">https://app.arcade.software/share/ob6NpUrxXNyibe0AzAIy</a></p><h2 id="configuration">Configuration</h2><img alt="contentId-12518348" class="doc-image" loading="lazy" src="/cms_trial/assets/39cfa399-cb36-4b25-a908-0b631bbd0965.png"/><div class="panel panel-note"><p><a href="/cms_trial/space/JSUCLOUD/256770940/Infinite+loop+detection/">Infinite Loop Detection</a>: An infinite loop can occur when executing the Create a Linked Issue post function. An infinite loop results in an endless cycle of issue creation and follow-up transitions following the triggering of the origin issue. When a loop is detected, JSU will stop the execution and log an execution failure.</p><p>When using post functions that create issues or follow-up transitions, consider the rule's outcome and the user permissions of your project teams. You can also use <a href="/cms_trial/space/JSUCLOUD/12518025/Workflow+preconditions/">preconditions</a> to restrict when rules are run to reduce the likelihood of causing an infinite loop.</p></div><div class="panel panel-warning"><p>Post functions in JSU Cloud are executed asynchronously and a post function will be executed after the transition has been completed. If you use the Create a Linked Issue post function on a Create transition, the newly created issue will create another issue, which will create another issue, and so on. This results in an infinite loop and JSU will stop the execution to protect your instance.</p></div><h3 id="precondition">Precondition</h3><div class="included-content"><p>If you are using preconditions with a JSU post function, they can be evaluated in the following ways:</p><ul><li><p>True (Precondition must be true to execute a post function)</p></li><li><p>False (Precondition must be false to execute a post function)</p></li></ul><div class="img-placeholder"><span class="tag">Image — asset pipeline pending</span><br/>Setting options for JSU preconditions.</div><p>The precondition setting is available on our post function configuration pages, and it is set to <strong>True</strong> by default. You can learn more about our preconditions in <a href="/cms_trial/space/JSUCLOUD/12518025/Workflow+preconditions/">Workflow Preconditions</a>. See the Preconditions for Post Functions <a href="/cms_trial/space/JSUCLOUD/12518052/Update+an+issue+only+in+certain+conditions/">uses cases</a> for examples.</p></div><h3 id="copy-attachments">Copy attachments</h3><p>Use it to define configurations to copy or move attachments to the newly created issue.</p><p>You can choose Move Attachments added during Transition. The user then adds some attachments on the transition screen of the origin issue.<br/>However, since they are moved to the newly created issue, it appears as if they added the attachments to the new issue. </p><div class="panel panel-note"><h3 id="conditional-copying-attachments">Conditional copying attachments</h3><p>Conditional copying attachment (controlled by custom field) is always checked only for the issue in transition, regardless of whether it is a source or destination.</p></div><h2 id="initial-mandatory-values-for-the-new-issue">Initial mandatory values for the new issue</h2><p>Use this section to configure the mandatory fields for an issue. These are basic Jira fields. Remember that your Jira configuration may have additional mandatory fields (set these using the Copy operation). </p><p>Additionally, the summary will always be copied from the origin issue to the new issue. The reporter of the new issue will always be set to the user selected in the ‘Perform as User’ option. However, you might overwrite them later with <a href="https://appfire.atlassian.net/l/cp/oViikbxE">Copy to the New sub-function</a>.</p><h3 id="target-project"><strong>Target project </strong></h3><p>The target project can be set to:</p><ul><li><p>Inside same project: A new issue will be created in this same project</p></li><li><p>Selected Project: A new issue will be created in the selected project.</p></li></ul><h3 id="this-issue-will-be-related-via"><strong>This Issue will be related via</strong></h3><p>The Create a Linked Issue post function allows you to create new issues that are connected not only with an issue link but instead in a parent / sub-task, as well as epic / issue in epic relation. See <a href="https://appfire.atlassian.net/wiki/display/JSUCLOUD/Related+Issues">Related Issues</a> for more information.</p><h3 id="issue-type"><strong>Issue type</strong></h3><p>Define the issue type of the new issue. The issue type you select here must be available in the target project.</p><h3 id="perform-as-user"><strong>Perform as User</strong></h3><p>Perform As User is a configuration option in JSU post functions. It lets you choose the user who acts on the post function when it runs. When choosing a user account to run a post function, the specified user account must have the appropriate permissions to perform the actions, such as creating an issue or adding a comment.</p><p><div class="img-placeholder">[Unmapped macro: excerpt-include — no content to fall back on]</div></p><h3 id="sub-functions">Sub-functions</h3><p>In JSU, you can define configurations to modify fields on the origin and new issue; this feature is only available for the Create a Linked Issue post function. </p><ul><li><p><strong>Origin issue</strong>: Issue that triggered the post function</p></li><li><p><strong>New issue</strong>: Issue to be created by the post function, which was triggered on the origin issue</p></li></ul><img alt="Diagram illustrating the outcomes of the post function when applied to a new issue and the origin issue." class="doc-image" loading="lazy" src="/cms_trial/assets/ee46f6ac-ea47-474a-a775-8a493b97889b.png"/><p>To add a sub-function:</p><ol><li><p> Select <strong>+ Add Configuration</strong> to view the available operations.<br/></p><img alt="The Add Configuration button under the Sub-Functions section of the the Create a Linked Issue post function." class="doc-image" loading="lazy" src="/cms_trial/assets/e0d0f67e-4634-430e-8114-2c7e5fd6cae5.png"/></li><li><p>Select <strong>Add</strong> for the required operation.<br/></p><img alt="List of operations for the Create a Linked Issue sub-functions." class="doc-image" loading="lazy" src="/cms_trial/assets/a07d91e8-318e-4ec2-9834-68e9f0ce624b.png"/><p><br/>The following operations are available:</p><ul><li><p><a href="/cms_trial/space/JSUCLOUD/12518106/Copy+to+New/"><strong>Copy to New</strong></a></p></li><li><p><a href="/cms_trial/space/JSUCLOUD/12518295/Copy+Within+Origin/"><strong>Copy within Origin</strong></a></p></li><li><p><a href="/cms_trial/space/JSUCLOUD/12518116/Set/"><strong>Set</strong></a></p></li></ul></li><li><p>Configure the fields as required. See the<a href="https://appfire.atlassian.net/l/cp/rpyvVZ8U">https://appfire.atlassian.net/l/cp/rpyvVZ8U</a> use case for an example setup.<br/></p></li></ol><h3 id="organizing-operations">Organizing operations </h3><p>You can configure any number of configurations; they are executed sequentially.</p><ul><li><p>You can rearrange the configurations by dragging the line using the handle on the left.</p></li><li><p>You can also disable a configuration by unchecking the toggle next to the Delete button. Your operation will remain on your configuration but will be ignored.  </p></li></ul><img alt="Screenshot of the subfunctions as described on this page." class="doc-image" loading="lazy" src="/cms_trial/assets/00751d56-f58f-4a83-b8ae-82aa22f1c521.png"/><h2 id="related-pages">Related pages</h2><ul><li><p><a href="/cms_trial/space/JSUCLOUD/12518186/Define+field+values+for+new+linked+issues/">Define field values for new linked issues</a> </p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

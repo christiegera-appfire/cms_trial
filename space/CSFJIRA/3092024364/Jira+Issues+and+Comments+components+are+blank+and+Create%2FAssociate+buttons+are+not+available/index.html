@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3092186916/Errors+and+Error+Messages/">Errors and Error Messages</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Jira Issues and Comments components are blank and Create/Associate buttons are not available</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3092024364" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Jira Issues and Comments components are blank and Create/Associate buttons are not available</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="summary"> Summary</h2><p>When accessing a Salesforce Record, the <strong>Jira Issues</strong> and <strong>Comments</strong> components are shown blank. The usual <strong>Create</strong>/<strong>Associate</strong> buttons are also not available.</p><img alt="contentId-3092024364" class="doc-image" loading="lazy" src="/cms_trial/assets/05b7bec7-5e83-458c-a063-f86eff3c3990.png?version=1&amp;modificationDate=1678795886250&amp;cacheVersion=1&amp;api=v2"/><h2 id="environment">Environment</h2><ul><li><p>Any Connector for Salesforce &amp; Jira version</p></li><li><p>Any Jira version</p></li></ul><h2 id="diagnostics-steps">Diagnostics Steps</h2><p>Using the browser developer tools (press F12), check the Console for any CORS-related error. For example:</p><pre><code class="language-">
 Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remote resource at &lt;salesforce_url&gt;. (Reason: CORS header 'Access-Control-Allow-Origin' does not match '&lt;salesforce_url&gt;'.</code></pre><h2 id="cause">Cause</h2><p>The problem is caused by a Salesforce update called "Enable Secure Static Resources for Lightning Components". More information about this update can be found on the Salesforce site below:</p><ul><li><p><a href="https://help.salesforce.com/s/articleView?id=release-notes.rn_lc_secure_static_resources_update.htm&amp;type=5&amp;release=232">https://help.salesforce.com/s/articleView?id=release-notes.rn_lc_secure_static_resources_update.htm&amp;type=5&amp;release=232</a> </p></li></ul><p>As of this KB's creation (6th Sept 2021), Salesforce has postponed the update and has suggested not enabling it.</p><h2 id="workaround">Workaround</h2><p>Not applicable.</p><h2 id="resolution">Resolution</h2><p>Disable the update with the steps below:</p><ol><li><p>Navigate to <strong>Salesforce Setup</strong> &gt; <strong>Release updates</strong> &gt; <strong>Archived </strong>tab.</p></li><li><p>Look for Enable Secure Static Resources for Lightning</p></li><li><p>Click <strong>View Update</strong>.</p></li><li><p>Then click <strong>Disable Test Run</strong> to disable it.</p></li></ol><p>An example screenshot after disabling:</p><img alt="contentId-3092024364" class="doc-image" loading="lazy" src="/cms_trial/assets/0e1c37b0-5f78-4522-be71-1305f4067dcb.png?version=1&amp;modificationDate=1678795886394&amp;cacheVersion=1&amp;api=v2"/></div><div></div></div>
   </main>
@@ -155,6 +160,64 @@ Cross-Origin Request Blocked: The Same Origin Policy disallows reading the remot
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

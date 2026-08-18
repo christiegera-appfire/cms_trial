@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465372899/Workflow+Extensions+for+Jira+Cloud/">Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465473735/Conditions/">Conditions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">User Condition</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/465474547" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>User Condition</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>A workflow condition that lets you hide/show a particular transition from the list of available workflow actions based on either the <em>current user</em> or users in a specific field meeting certain criteria, such as being the reporter or assignee, belonging to certain groups or project roles, satisfying a Jira expression, etc.</p><p>When you add this condition to a transition, the transition will be available only if the configured user(s) satisfy the configured criteria.</p><img alt="JMWE for Jira Cloud user condition configuration with user selection criteria" class="doc-image" loading="lazy" src="/cms_trial/assets/a0b07715-0739-4511-b2db-2def695bdcd2.png"/><p><strong>To add a 'User Condition' to a transition:</strong></p><ol><li><p>Click <strong>Edit</strong> for the workflow that has the transition you wish to configure the validator on.</p></li><li><p>In the Workflow Designer, select the transition.</p></li><li><p>Click on <strong>Conditions </strong>in the properties panel.</p></li><li><p>Click on <code>Add condition</code>.</p></li><li><p>Select <code>User Condition </code>from the list of validators.</p></li><li><p>Click on <code>Add</code> to add the condition.</p></li><li><p>Configure the user(s) to check and the criteria (see below).</p></li><li><p>Click on <code>Add</code> to add the condition to the transition.</p></li></ol><h2 id="configuration">Configuration</h2><h3 id="user-s-to-check">User(s) to check</h3><p>You must first configure which user(s) need to be checked. You can check either the current user, or user(s) in an issue field such as Assignee, Reporter, or any user picker custom field.</p><ul><li><p><strong>Current user:</strong> the current user will be checked</p></li><li><p><strong>User(s) in field:</strong> the user in the specified field, such as Assignee, Reporter, or any User Picker custom field, will be checked. If the selected field is a multi-valued field, such as Voters, Watchers, or a Multi-user Picker custom field, all users in that field will be checked, and they <strong>all</strong> need to satisfy the criteria.</p></li></ul><h3 id="user-s-must-meet">User(s) must meet</h3><p>You need to specify whether the user(s) to be checked must satisfy <em>all</em> the configured criteria or <em>at least one</em>.</p><ul><li><p><strong>all the criteria configured below:</strong> each user will need to satisfy every criterion</p></li><li><p><strong>at least one of the criteria configured below:</strong> each user will need to satisfy at least one of the criteria</p></li><li><p><strong>or the field can be empty:</strong> if you select the “at least one of the criteria configured below” option and the “User(s) to check” is “User(s) in field”, you can also decide whether an empty field satisfies the condition. For example, if you are checking the Assignee field and you select the “or the field can be empty” option, the condition will succeed and the transition will be available even if the issue is unassigned.</p></li></ul><h3 id="criteria">Criteria</h3><p>You need to specify at least one criterion that the user(s) must satisfy for the validator to succeed. You can check whether each user:</p><ul><li><p><strong>The user is</strong>:</p><ul><li><p><strong>the Reporter</strong></p></li><li><p><strong>the Assignee</strong></p></li><li><p><strong>a Watcher</strong></p></li><li><p><strong>a Voter</strong></p></li></ul></li></ul><h2 id="advanced-options">Advanced Options</h2><h3 id="more-criteria">More criteria</h3><ul><li><p><strong>Project roles</strong>: The user belongs to one of the specified <strong>Project Roles</strong> in the issue’s project.</p></li><li><p><strong>Groups</strong>: The user belongs to one of the specified <strong>groups</strong>.</p></li><li><p><strong>Users</strong>: The user is one of a list of <strong>specific users</strong>.</p></li><li><p><strong>User fields</strong>: The user is selected in the specified user-type <strong>field</strong>, such as a user picker custom field.</p></li></ul><h3 id="scripted-condition">Scripted condition</h3><ul><li><p><strong>Condition for user(s)</strong>: The user satisfies a <strong>Jira expression</strong>. For each user to check, the Jira expression will be evaluated and must return <code>true</code> for the validation to succeed. Note that the user being checked is available through the <code>selectedUser</code> variable.</p></li></ul><h3 id="reverse-condition">Reverse Condition</h3><ul><li><p><strong>Reverse condition</strong>: If this box is checked, the condition specified in <strong>Condition for user(s)</strong> must return <code>false</code> for the validation to succeed.</p></li></ul></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

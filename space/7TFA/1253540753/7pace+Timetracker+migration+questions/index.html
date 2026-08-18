@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/3511091204/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253540447/Frequently+Asked+Questions/">Frequently Asked Questions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">7pace Timetracker migration questions</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/7TFA/pages/1253540753" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>7pace Timetracker migration questions</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="can-i-migrate-7pace-timetracker-data-from-one-devops-server-to-another">Can I migrate 7pace Timetracker data from one DevOps server to another?</h2><p>Is it possible to migrate 7pace Timetracker data from one DevOps server to a different DevOps server?</p><h3 id="answer">Answer</h3><p>Unfortunately, we <strong>do not</strong> support any migrations between DevOps servers.</p><p>On each DevOps server, there is a unique set of IDs (Guid's) for Users and Collections, and we map Timerecords on these IDs. Because the second DevOps server has different IDs for the same User/Collection, we cannot map Timerecords from the TimetrackerDB with IDs from first DevOps server. For 7pace Timetracker, these unknown IDs are another or new Collections/Users.</p><p>Please note that any manual changes made to the database by users will render 7pace Timetracker in an unsupported state.</p><p>We do support updates to DevOps Server on the same machine; for more information, please click <a href="/cms_trial/space/7TFA/1253539922/Installation+guide/">here</a>. </p><h2 id="can-i-migrate-7pace-timetracker-data-from-devops-server-to-the-cloud">Can I migrate 7pace Timetracker data from DevOps server to the Cloud?</h2><p>Is it possible to migrate 7pace Timetracker data from DevOps server to the Cloud?</p><h3 id="answer-2">Answer</h3><p>Yes. There are two options for migrating your data to the Cloud:</p><ol><li><p>Export/Import<br/>With this option, <a href="/cms_trial/space/7TFA/1253540085/Budgets/">export worklogs from the Budgets page</a>, and then use the <a href="/cms_trial/space/7TFA/1253540013/Times+Explorer/">import feature</a> on the Times Explorer page. <br/></p></li><li><p>Use the <a href="/cms_trial/space/7TFA/1253540003/7pace+Timetracker+REST+CRUD+API+Version+3/">NPM package that utilizes our REST CRUD API</a>.</p></li></ol><p>For assistance with migrations, please <a href="https://appfire.atlassian.net/servicedesk/customer/portal/35">contact our support team</a>.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3092186916/Errors+and+Error+Messages/">Errors and Error Messages</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">I am getting the "Field [FIELD_NAME] cannot be set. It is not on the appropriate screen, or is unknown" error</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3091793528" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>I am getting the "Field [FIELD_NAME] cannot be set. It is not on the appropriate screen, or is unknown" error</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="summary">Summary</h2><p>When trying to create an issue the user is getting an error that a field is not on the appropriate screen or is unknown.</p><h2 id="environment">Environment</h2><ul><li><p>Jira DC and Jira Cloud</p></li></ul><h2 id="diagnostics-steps">Diagnostics Steps</h2><p>Not applicable.</p><h2 id="cause">Cause</h2><p>This issue is caused by not having the specified field in the <strong>Default Create Screen</strong>.</p><h2 id="workaround">Workaround</h2><p>Not applicable.</p><h2 id="resolution">Resolution</h2><p>If the issue involves a <strong>Custom Field ID</strong>, we will first need to find the name of the field (if not, you can skip the following steps):</p><ol><li><p>Navigate to <strong>Administration &gt; Issues &gt;Custom Fields</strong>.</p></li><li><p>Go to the Cog Icon  (Jira Server) or the ellipsis (Jira Cloud) and hover over the <strong>Configure</strong> or <strong>Screens</strong> option.</p></li><li><p>Observe the URL at the bottom left of the browser window.  You will find the ID at the end of the link.<br/>Example:</p><img alt="contentId-3091793528" class="doc-image" loading="lazy" src="/cms_trial/assets/1a55f03f-3c64-4c9c-9eff-57e43c1e419f.png?version=1&amp;modificationDate=1715709267771&amp;cacheVersion=1&amp;api=v2"/></li></ol><p>To add the Field to the corresponding Screen:  </p><ol><li><p>Open the Project where the issue is happening.</p></li><li><p>Go to <strong>Project Settings</strong>.</p></li><li><p>Click on <strong>Screens</strong>.</p></li><li><p>Click on the name of your screen to expand.  You should see something like the screen below:</p><img alt="contentId-3091793528" class="doc-image" loading="lazy" src="/cms_trial/assets/87dafa22-e98d-458f-ae0e-f52702652ddd.png?version=1&amp;modificationDate=1678795889820&amp;cacheVersion=1&amp;api=v2"/></li><li><p>Click the name of the screen next to <strong>Create issue.</strong></p></li><li><p>Finally, add the missing field to the list.</p></li></ol></div><div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

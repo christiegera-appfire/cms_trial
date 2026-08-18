@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12518429/Features/">Features</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12518401/Workflow+post+functions/">Workflow post functions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Update Any Issue Field post function</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JSUCLOUD/pages/12518373" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Update Any Issue Field post function</h1>
+    <div class="page-meta">4 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="description">Description</h2><p>The Update Any Issue Field post function for <strong>JSU Automation Suite</strong> updates any field to a specified value after a transition has been completed. This can be a system- or a custom field. The field can be on the issue in transition (within the same issue) or on a related issue, such as a subtask, a linked issue, or an issue within an Epic (during the transition on the Epic).</p><p>In addition to setting values to fields, the Update Any Issue Field post function can also add comments.</p><div class="panel panel-note"><p><strong>Want to try a new way of creating this post function?</strong></p><p>We’re working to make it even easier for you to build workflow rules with JSU. A simplified version of this post function is available in our <a href="/cms_trial/space/JSUCLOUD/12517805/Universal+Rule+Builder/">Universal Rule Builder</a>, a new editor experience currently in beta.</p></div><h2 id="configuration">Configuration</h2><p>You must specify the field and the desired value. For example: </p><img alt="Example configuration of the JSU post function Update Any Issue Field" class="doc-image" loading="lazy" src="/cms_trial/assets/13652acd-c51a-4a63-a981-51f8c3ad3a25.png"/><h2 id="precondition">Precondition</h2><div class="included-content"><p>If you are using preconditions with a JSU post function, they can be evaluated in the following ways:</p><ul><li><p>True (Precondition must be true to execute a post function)</p></li><li><p>False (Precondition must be false to execute a post function)</p></li></ul><div class="img-placeholder"><span class="tag">Image — asset pipeline pending</span><br/>Setting options for JSU preconditions.</div><p>The precondition setting is available on our post function configuration pages, and it is set to <strong>True</strong> by default. You can learn more about our preconditions in <a href="/cms_trial/space/JSUCLOUD/12518025/Workflow+preconditions/">Workflow Preconditions</a>. See the Preconditions for Post Functions <a href="/cms_trial/space/JSUCLOUD/12518052/Update+an+issue+only+in+certain+conditions/">uses cases</a> for examples.</p></div><h2 id="issue-relation">Issue relation</h2><p><div class="img-placeholder">[Unmapped macro: excerpt-include — no content to fall back on]</div></p><h2 id="perform-as-user">Perform As User</h2><p>Perform As User is a configuration option in JSU post functions. It lets you choose the user who acts on the post function when it runs. When choosing a user account to run a post function, the specified user account must have the appropriate permissions to perform the actions, such as creating an issue or adding a comment.</p><p><div class="img-placeholder">[Unmapped macro: excerpt-include — no content to fall back on]</div></p><h2 id="issue-field">Issue field</h2><p>Select the field you want to update.</p><p>As a destination, you also have special options:</p><ul><li><p><code>*** new comment ***</code>: Create a new comment with the value provided.</p></li><li><p><code>*** new internal note ***</code>: Create a new internal note with the value from the source field (Jira Service Management only).</p></li></ul><h2 id="field-value">Field value</h2><p>Ensure that the value you enter is valid for the data type of the selected field. Also, verify that the context configuration for the project using this workflow will allow modification of the selected field. Typically, you will use text or numbers as values. User fields should be set to the account ID.</p><h3 id="spaces-and-multiple-values">Spaces and multiple values</h3><p>To define a string with spaces or to define multiple values, use double quotation marks <code>" "</code> to wrap each value:</p><p><code>"Events team"</code></p><p><code>"Events" "HR" "Marketing"</code></p><h2 id="special-macros">Special macros</h2><p>The following string values will be resolved at execution runtime.</p><p>If you use <code>%%CURRENT_USER%%</code> as the field value, the user who triggered the post function will be set as a value.<br/><br/>If you use <code>%%CURRENT_DATETIME%%</code> as the field value, the current date and time will be set as the value.</p><p>If you use <code>%%PREVIOUS_USER%%</code> as the field value, the field will be updated with the previous user assigned to the field. This is valid for single-user picker fields.</p><h2 id="examples">Examples</h2><ol><li><p>Whenever a parent issue is set to In Progress, the assignee of all its subtasks can be set to the current user (the one changing the status of the parent).</p></li><li><p>A developer has fixed a bug and then proceeds in the Jira workflow to the status Resolved (this might be triggered from their code pushed to Bitbucket). The Update any Issue Field now adds the label 'testing-required'. There are also cases when you need a more complex solution. Have a look at <a href="/cms_trial/space/JSUCLOUD/12518446/Testing+and+fixing+bugs/">Testing and Fixing Bugs</a>.</p></li></ol><p>For more information on how to configure a post function in Jira, see the <a href="http://confluence.atlassian.com/display/JIRA/Configuring+Workflow#ConfiguringWorkflow-Addingapostfunction">Jira documentation</a>.</p><h2 id="supported-field-types">Supported field types</h2><div class="included-content"><p>JSU supports many different field types; system fields, as well as custom fields.</p><p>You should be aware, however, that not all field types or all combinations are supported. We have tried to cover the most important field types but we are continuously adding more and improving how different field types are supported. We recommend you test JSU with fields to see if it is compatible with your system. Our evaluation license provides you with a 30-day free trial. </p></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465503894/Help+and+Support/">Help and Support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465372987/Known+Issues/">Known Issues</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/540673223/Common+Issues/">Common Issues</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Post-functions seem to be running in no apparent order</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/465373204" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Post-functions seem to be running in no apparent order</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="problem">Problem</h2><p>I have configured several JMWE post-functions on a single transition, in a specific order, but the post-functions seem to be running in a different order when I trigger the transition.</p><p>This can be a problem in certain cases. For example, if one post-function copies the "Affects Version/s" field from the parent issue of the subtask being transitioned, and then a second post-function copies the "Affects Version/s" field of that subtask to the "Fix Version/s" field, it will not work if the execution order of the two post-functions is reversed.</p><h2 id="solution">Solution</h2><p>Due to the way non-native post functions (those provided by add-ons) are implemented in JIRA Cloud, it is not possible to guarantee the order in which post functions will be executed. Therefore, if your workflow incorporates post-functions provided by the JMWE add-on, you should ensure that your workflows do not depend on post-functions being executed in a specific order.</p><h2 id="workaround">Workaround</h2><p>To enforce a predictable execution order of a set of post-functions, you should put them inside a <a href="/cms_trial/space/JMWEC/466322933/Sequence+of+Post-functions/">Sequence of post-functions</a> post-function or a <a href="/cms_trial/space/JMWEC/466288975/Shared+actions/">Shared Action</a>.</p><p>Alternatively, you can use the <a href="/cms_trial/space/JMWEC/466322009/Delayed+execution/">Delayed execution</a> option provided in the post-function configuration to delay the execution of the post-function by a selected number of seconds, thereby creating a more predictable execution order. But this approach is much less reliable than using a <a href="/cms_trial/space/JMWEC/466322933/Sequence+of+Post-functions/">Sequence of post-functions</a> post-function.</p><h2 id="related-articles">Related articles</h2><div class="img-placeholder">[Unmapped macro: contentbylabel — no content to fall back on]</div><table><tr><th><p>Related issues</p></th><td><p><br/></p></td></tr></table>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

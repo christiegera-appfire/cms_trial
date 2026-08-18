@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud) Documentation</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941853/Release+Notes/">Release Notes</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/1595769075/Release+notes+2021%E2%80%932024/">Release notes 2021–2024</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783943818/2022/">2022</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">June 28, 2022</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/783942819" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>June 28, 2022</h1>
+    <div class="page-meta">1 min read</div>
     <h2 id="support-for-wallboards">Support for wallboards</h2><p>The rich filter gadgets now support a dark theme that is automatically applied when they are displayed on wallboards.</p><h2 id="new-line-and-multi-line-chart-types">New line and multi-line chart types</h2><p><a href="/cms_trial/space/RFCDOC/783941863/The+Rich+Filter+Flexi+Charts+Gadget/">Flexi charts</a> and quick charts now have two new <em>Chart type</em> options:</p><ul><li><p><em>Line</em> charts are an alternative to bar charts (for 1D charts);</p></li><li><p><em>Multi-line</em> charts are an alternative to clustered bar charts (for 2D charts).</p></li></ul><h2 id="better-display-for-weeks-in-statistics-and-charts-based-on-dates">Better display for weeks in statistics and charts based on dates</h2><p>When statistics and charts are configured based on dates with <em>Weeks</em> as <em>Aggregation periods</em>, the weeks were represented in the gadgets with the week number and the year. To make the week representation easier for everyone, we've changed it to include the date of the Monday of the week and the week number.</p><p>This applies to the following gadgets: <a href="/cms_trial/space/RFCDOC/783941781/The+Rich+Filter+Statistics+Gadget/">Rich Filter Statistics</a>, <a href="/cms_trial/space/RFCDOC/783941803/The+Rich+Filter+Two+Dimensional+Statistics+Gadget/">Rich Filter Two Dimensional Statistics</a>, <a href="/cms_trial/space/RFCDOC/783941863/The+Rich+Filter+Flexi+Charts+Gadget/">Rich Filter Flexi Charts</a>, <a href="/cms_trial/space/RFCDOC/783942364/The+Rich+Filter+Time+Series+Chart+Gadget/">Rich Filter Time Series Chart</a>, and <a href="/cms_trial/space/RFCDOC/783942386/The+Rich+Filter+Created+vs+Resolved+Chart+Gadget/">Rich Filter Created vs. Resolved Chart</a>.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

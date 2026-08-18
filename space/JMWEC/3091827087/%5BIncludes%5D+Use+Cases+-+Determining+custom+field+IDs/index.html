@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465473424/Includes/">Includes</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">[Includes] Use Cases - Determining custom field IDs</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/3091827087" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>[Includes] Use Cases - Determining custom field IDs</h1>
+    <div class="page-meta">1 min read</div>
     <img alt="JMWE for Jira Cloud custom field ID configuration panel for field management" class="doc-image" loading="lazy" src="/cms_trial/assets/f3fac896-3038-4cc8-8cfa-ca25339e1b9f.png"/><p>There are several ways to determine the field ID of a custom field; the most straightforward is to check the URL of the custom field when editing its details through the Jira <strong>Custom fields</strong> screen. To find the ID of a custom field: </p><ol><li><p>Log into Jira as an Administrator. </p></li><li><p>In the upper right corner of the window, click <strong>Settings</strong> ( ⚙️ ) and select <strong>Issues</strong>.</p></li><li><p>In the left-hand sidebar, click <strong>Custom fields</strong>.</p></li><li><p>Locate your custom field in the list; use the filter at the top of the list to search. </p></li><li><p>Click the action button at the far right ( <span class="icon-note">[actionmenu icon]</span> ) and select <strong>Edit details</strong>.</p></li><li><p> Check the URL for the page that opens - the final argument of the URL is the field ID (Figure 1, right). </p></li><li><p>Append this value to “customfield_” to get the full ID of the field. For example, <code>customfield_10130</code> is the field ID of Projected Due Date, shown in Figure 1, right. </p></li></ol>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

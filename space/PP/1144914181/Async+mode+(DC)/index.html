@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PP/1803714584/Planning+Poker+Help+Center/">Planning Poker</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PP/1803714584/Planning+Poker+Help+Center/">Planning Poker Help Center</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PP/1144061984/Planning+Poker+for+Jira+Data+Center/">Planning Poker for Jira Data Center</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Async mode (DC)</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PP/pages/1144914181" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Async mode (DC)</h1>
+    <div class="page-meta">2 min read</div>
     <div class="panel panel-note"><p>This page is about <strong>Planning Poker for Jira Data Center</strong>. Using<strong> Cloud</strong>? <a href="/cms_trial/space/PP/9568359/Game+configuration+(Cloud)/"><strong>Click here</strong></a>.</p></div><p>It's possible to estimate each Jira issue in the Async mode, which is useful for distributed teams that can't have an "on-line" session. Currently, there is no unified "session" concept, as in the classical game version. Instead, all participants are invited to estimate directly in the issues directly through the Async mode tab. </p><p>The only thing the “admin” needs to do is simply share the JQL filter with the participants. Then, they can go over the issues and estimate them one by one. After voting, the participants refresh the page and the estimates appear. Then, everyone can see who voted for which, and the estimate is saved before moving on to the next issue.</p><p>Here is a concise overview of the available functionalities and guidance on configuring the game.</p><h2 id="how-to-configure-the-async-mode">How to configure the Async mode</h2><ol><li><p>Click the Jira cog icon, then <strong>Manage apps</strong> &gt; OTHER &gt; <strong>Planning Poker Configuration</strong>.</p></li><li><p>Find Planning Poker in the apps list, and click <strong>Configure</strong>.</p></li><li><p>Select the deck type and the estimation field you want to save the estimates to. For more details, refer to this <a href="/cms_trial/space/PP/511967561/Game+configuration+(DC)/">documentation</a>. </p></li><li><p>Click <strong>Save</strong>.</p></li></ol><p>Then, you can continue creating the game itself. Here is how:</p><ol><li><p>Create a JQL (Jira Query Language) filter that includes the issues you want to estimate. Consult Jira documentation to learn more about JQL.</p></li><li><p>Share the JQL filter with team members.</p></li><li><p>To get the estimation process started, open the first issue.</p></li><li><p>Scroll down to the Activity section, and click the  <strong>Estimate (async mode) </strong>tab.</p></li></ol><h2 id="game-flow">Game flow</h2><h3 id="initial-voting-phase">Initial voting phase</h3><ol><li><p>In the <strong>Estimate (async mode) </strong>tab, participants vote using a deck of cards to estimate the issue.</p><img alt="contentId-1144914181" class="doc-image" loading="lazy" src="/cms_trial/assets/f11b770c-57f0-4c83-8069-7ee02af0c9d9.png"/></li><li><p>To view results, refresh the page and click <strong>Show all estimates</strong>. </p></li></ol><h3 id="summary-phase">Summary phase</h3><ol><li><p>The summary of all estimates from all users will be grouped by the Story Points values. You can click <strong>Cancel my estimate </strong>to remove your card.</p></li><li><p>Reach a consensus and click the suggested card to assign the estimation value. </p><img alt="contentId-1144914181" class="doc-image" loading="lazy" src="/cms_trial/assets/412dcdd8-0674-4fd6-8e57-85ff6ec3b1b7.gif"/></li><li><p>To start fresh, you can use the <strong>Reset all estimates</strong> button, which clears previous estimates and restarts the estimation.</p></li></ol><p>That’s it! This provides a flexible and convenient way for teams who want to keep things at the issue level. However, if you don’t need this feature, you can remove the Async mode tab from your issue view by opening the app’s global settings, as described above, and checking the <strong>Hide "Async mode" tab on issue details page</strong> box. </p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

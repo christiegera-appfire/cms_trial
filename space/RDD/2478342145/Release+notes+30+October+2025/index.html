@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/2117042596/Release+notes+-+Cloud/">Release notes - Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Release notes 30 October 2025</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/2478342145" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Release notes 30 October 2025</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p><strong>Release date</strong>: <time datetime="2025-10-30">October 30, 2025</time></p><p>Our team is thrilled to announce the latest release of the Dashboard Hub family of apps for Jira, Confluence, Bitbucket and <a href="http://monday.com">http://monday.com</a> .</p><p><span class="img-placeholder" style="display:inline">[unmapped inline: placeholder]</span></p><hr/><h2 id="new-features">New features</h2><h2 id="bulk-delete-dashboards">Bulk delete dashboards</h2><p>To save time when managing multiple dashboards, you can now bulk delete dashboards. This new feature lets you sort your dashboards by creation date, last update date, or owner. You can then select multiple dashboards to delete instead of deleting dashboards one at a time. See our <a href="/cms_trial/space/RDD/146310002/How+to+create%2C+edit%2C+clone%2C+delete%2C+and+export+your+dashboard/"><u>documentation</u></a> to learn more about managing dashboards.</p><img alt="Dashboard Hub Manage Dashboards page showing bulk delete" class="doc-image" loading="lazy" src="/cms_trial/assets/f549716a-9d58-47e7-b78f-a6676a23f1b5.png"/><hr/><h2 id="enhancements">Enhancements</h2><p>The following improvements are included in this release:</p><ul><li><p>Updated the Bitbucket Add datasource UI to align with Atlassian’s deprecation of app passwords in favor of API tokens.</p></li><li><p>The default permission for new dashboards is now <em>Only specific people can view or edit. </em>This ensures that new dashboards are private on creation. Dashboard owners must explicitly configure the dashboard to change these permissions.</p></li></ul><hr/><h2 id="bug-fixes">Bug fixes</h2><p>The following bug fixes are included in this release:</p><ul><li><p>Resolved an issue where Dashboard Hub incorrectly displayed hours instead of minutes in the Time Spent field.</p></li><li><p>Default datasources were not created if a datasource was shared with a new user. Now, default datasources are always created unless a datasource for the same user and instance already exists.</p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

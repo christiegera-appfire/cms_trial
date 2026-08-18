@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193033035/Feature+guide/">Feature guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192903639/Administration/">Administration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193066207/Workflow+elements+and+concepts/">Workflow elements and concepts</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192967825/Triggers/">Triggers</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192870598/Trigger+actions/">Trigger actions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">reject</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2193787142" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>reject</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview</h2><p>You can use this action in a workflow trigger to reject a workflow approval. This action completes the approval (as a rejection) even if there are pending assigned reviewer decisions or a reviewer approval decision.</p><img alt="Comala reject trigger action configuration dialog" class="doc-image" loading="lazy" src="/cms_trial/assets/a4bc1aa5-8969-4280-a1b8-97d93898d3c4.png"/><p>The <strong>reject action</strong> requires that you specify a user. This user is logged in the document activity report as the rejecting reviewer.</p><p>By default, the approval action applies to the first named approval in the workflow state specified by the trigger event. Optionally, you can configure the reject action to target a different approval within the workflow.</p><p>When the workflow trigger event occurs, the trigger checks that any required conditions are met, and if met, the <code>"reject"</code> action rejects a named approval.</p><h2 id="reject"><code>"reject"</code></h2><p>The trigger action <code>"reject"</code> sets a rejected decision for a named approval if the provided parameters are valid.</p><ul><li><p><strong>action (</strong><em><strong>reject</strong></em><strong>) </strong></p><ul><li><p><strong>approval </strong>Name of the approval to be rejected. If not specified, <strong>default approval</strong><strong>†</strong>  is used</p></li><li><p><strong>user  ❗️</strong> Atlassian <code>userID</code> of the rejector</p></li></ul></li></ul><h3 id="mandatory-parameter"><strong>❗️ Mandatory parameter</strong></h3><p><strong>user</strong></p><p>The trigger action must define a value for the user parameter for the <strong>reject</strong> action to take place.</p><h3 id="default-approval">†Default approval</h3><p>If the trigger action does not specify a named approval, the action uses the <strong>default approval</strong> in the workflow.</p><p>The <strong>default approval</strong> is the approval in the state named in the trigger event condition. If there are multiple approvals in the state, the default approval is the first approval listed in the JSON markup.</p><h3 id="example-trigger-code">Example trigger code</h3><pre><code class="language-">"triggers":
 [
 	{"event": "on-change-state",
@@ -167,6 +172,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

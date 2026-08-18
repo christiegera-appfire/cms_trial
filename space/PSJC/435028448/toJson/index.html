@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434798967/Simple+Issue+Language/">Simple Issue Language</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434374166/SIL+Functions+library/">SIL Functions library</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434635514/HTTP+Functions/">HTTP Functions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">toJson</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/435028448" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>toJson</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="description">Description</h2><p>
  Converts any given struct, array or primitive parameter to a JSON string.
  </p><p>Converts any given struct, array or primitive parameter to a JSON string. By default, the JSON resulted from the conversion also contains the empty fields (in the case of structures for example) with null values.If you want these to be excepted from the conversion, you will have to set the <strong>convertEmptyFields</strong> flag to false.</p><table><tr><td><p><strong>Syntax</strong></p></td><td><p>toJson(&lt;any struct, array or primitive type&gt; [, convertEmptyFields, writeNull, datesFormat])</p></td><td><p><strong>Package</strong></p></td><td></td></tr><tr><td><p><strong>Alias</strong></p></td><td></td><td><p><strong>Pkg Usage</strong></p></td><td></td></tr></table><h2 id="parameters">Parameters</h2><table><tr><th><p>Parameter name</p></th><th><p>Type</p></th><th><p>Required</p></th><th><p>Description</p></th></tr><tr><td><p>&lt;any struct, array or primitive type&gt;</p></td><td><p>variable: primitive type, array or struct</p></td><td><p>Yes</p></td><td><p>The variable to be converted to JSON</p></td></tr><tr><td><p>convertEmptyFields</p></td><td><p>Boolean</p></td><td><p>No</p></td><td><p>Flag that indicates if empty fields should be converted (if missing or true) or excepted</p></td></tr><tr><td><p>writeNull</p></td><td><p>Boolean</p></td><td><p>No</p></td><td><p>If true: an empty field will have a null value, for example: "emptyField": nullIf false: an empty field will have empty string value, for example: "emptyField": ""Note: the behavior described above applies only for the <strong>convertEmptyFields</strong> flag set to true.</p></td></tr><tr><td><p>datesFormat</p></td><td><p>String</p></td><td><p>No</p></td><td><p>The format used for date formatting (e.g. use “yyyy-MM-dd” if you want your dates to be formatted like this, otherwise it will be defaulted to “yyyy-MM-dd’T’HH:mm:ssZ”</p></td></tr></table><h2 id="return-type">Return Type</h2><p><strong>String</strong></p><h2 id="example">Example</h2><h3 id="colors-json-example-code">Colors JSON Example Code</h3><p>You can look at this function as the preparatory one for the integration with other systems. You build your data structure first and then convert your struct to json to be sent to an external system. This script demonstrates the process of using structs and/or arrays to create JSON output.</p><pre><code class="language-javascript">//Step 1 - define the structs/arrays
@@ -240,6 +245,64 @@ return toJson(colors);</code></pre><p>Resulting JSON:</p><pre><code class="langu
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

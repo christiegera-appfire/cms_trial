@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3092186639/Association+and+synchronization/">Association and synchronization</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Broken images in Jira Issues/Jira Comments Lightning components</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3289121070" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Broken images in Jira Issues/Jira Comments Lightning components</h1>
+    <div class="page-meta">2 min read</div>
     <h2 id="broken-image-thumbnails-and-missing-icons">Broken image thumbnails and missing icons</h2><p>The Jira Issues and Jira Comments Lightning components may display broken image thumbnails or user avatars. This happens when Salesforce security settings block the external image sources used for user profiles and issue icons.</p><p>You may encounter the following issues in the app's components in Salesforce:</p><ul><li><p>Broken images for user avatars in the Jira Comments component.</p></li><li><p>The epic icon (lightning bolt) and other issue-type icons don't load correctly.</p></li><li><p>Browser console logs show "violated the following Content Security Policy directive: img-src..." errors for specific domains.</p></li></ul><h2 id="restore-images-by-updating-csp-settings">Restore images by updating CSP settings</h2><p>Salesforce's Content Security Policy (CSP) can block images loaded from external domains. Avatars and icons load from various Atlassian and Gravatar services, and if you don't add these domains to the Trusted URLs in Salesforce, the browser blocks them.</p><h3 id="identify-blocked-urls">Identify blocked URLs</h3><p>Before adding URLs, confirm which specific domains are blocked.</p><ol><li><p>In your <strong>browser</strong>, right-click anywhere on the Salesforce page and select <strong>Inspect</strong>.</p></li><li><p>Click the <em>Console</em> tab.</p></li><li><p>Look for error messages containing <code>violates the following Content Security Policy directive: "img-src...</code>.</p></li><li><p>Note the domain names mentioned in those errors (for example, <code>https://i0.wp.com</code>).</p></li><li><p>In <strong>Salesforce</strong>, navigate to <strong>Setup</strong> &gt; <strong>Security</strong> &gt; <strong>Trusted URL and Browser Policy Violations</strong>.</p></li><li><p>Note the domain names listed.</p></li></ol><h3 id="add-trusted-urls-in-salesforce">Add trusted URLs in Salesforce</h3><ol><li><p>Navigate to <strong>Setup</strong> &gt; <strong>Security</strong> &gt; <strong>Trusted URLs</strong>.</p></li><li><p>Click <strong>New Trusted URL</strong>.</p></li><li><p>In the <strong>API Name</strong> field, enter a unique name (for example, <code>Atlassian_Avatars</code>).</p></li><li><p>In the <strong>URL</strong> field, enter the domain to trust. Common domains that require authorization include:</p><ul><li><p><code>https://secure.gravatar.com</code></p></li><li><p><code>https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net</code></p></li><li><p><code>https://i0.wp.com</code></p></li></ul></li><li><p>In the <em>CSP Directive</em> section, select the <strong>img-src (image)</strong> checkbox.</p></li><li><p>Click <strong>Save</strong>.</p></li><li><p>Refresh the Salesforce page containing the Jira components. The images now load correctly.</p></li></ol><h2 id="related-articles">Related articles</h2><div class="img-placeholder">[Unmapped macro: contentbylabel — no content to fall back on]</div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

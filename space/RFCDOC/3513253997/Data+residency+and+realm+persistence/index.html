@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud) Documentation</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/1724055692/untitled/">Untitled</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Data residency and realm persistence</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/3513253997" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Data residency and realm persistence</h1>
+    <div class="page-meta">2 min read</div>
     <div class="columns" style="grid-template-columns: 100.0fr;"><div><p>Atlassian data residency lets you choose where the app data is stored geographically. If you have security needs or contractual obligations that require your data to be held in a particular geographic location, you can choose where your data is stored. This feature helps organizations meet compliance requirements by specifying which geographic regions host their data. To learn more, see <a href="https://developer.atlassian.com/cloud/jira/platform/data-residency/#realm-persistence">Data residency</a> and <a href="https://support.atlassian.com/security-and-access-policies/docs/understand-data-residency/">Understand data residency</a>.</p><div class="panel panel-note"><p>Currently, Rich Filters doesn’t support migration from one data location to another.  If you have your Rich Filters already installed, you can’t change its location for the moment.</p></div><h2 id="set-your-data-location">Set your data location </h2><p>For new installations of Rich Filters, you can set your Jira instance data residency location in Atlassian Administration.</p><ol><li><p>Go to<strong> Atlassian Administration</strong>. </p></li><li><p>Select your organization if you have more than one.</p></li><li><p>Select <strong>Data management</strong> &gt; <strong>Data residency.</strong></p></li><li><p>Click <strong>Set location</strong>.</p></li><li><p>Review information about the steps involved. Select <strong>Next</strong>.</p></li><li><p>Select the location from the menu where you want to move your app. Select <strong>Next</strong>.</p></li><li><p>Select a move window. Select <strong>Next</strong>.</p></li><li><p> Install the Rich Filters<br/>It will automatically use the same location as your Jira instance.<br/></p></li></ol><h2 id="realms-and-regions">Realms and regions</h2><p>Each realm represents a geographical area containing specific Amazon Web Services (AWS) regions where your data can be hosted. Currently, the Rich Filters offer the following realms:</p><ul><li><p><strong>Global:</strong> Your in-scope data is hosted within realms determined by Atlassian. Data can be moved between realms (distributed globally) as needed to ensure optimal performance and availability.</p></li><li><p><strong>US: </strong>In-scope data is hosted within the US East and US West AWS regions.</p></li><li><p><strong>EU:</strong> Your in-scope data is hosted within the Frankfurt   AWS regions.</p></li></ul><h2 id="realm-persistence">Realm persistence</h2><p>Realm persistence ensures continuity for your app's data location when reinstalling the Rich Filters. This means that if you uninstall and then reinstall the Rich Filters within the<strong> persistence period of 30 days</strong>, the app will be installed in the same realm it was previously, preserving access to your existing data. This prevents data loss or access issues when temporarily uninstalling the app.</p><div class="panel panel-note"><p> If you uninstall and then reinstall the app after the 30-day persistence window, your app might be assigned to a different region than before, and you can lose access to your previous data.</p></div></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="view-where-your-data-is-hosted">View where your data is hosted</h2><p>To view where your Rich Filters data is hosted, you must have organization administrator permissions to do this.</p><ol><li><p>Go to<strong> Atlassian Administration</strong>. </p><img alt="Screenshot showing the Atlassian Administration button location." class="doc-image" loading="lazy" src="/cms_trial/assets/4d066836-60ed-47aa-8b66-e08ebe261e32.png"/></li><li><p>Select your organization if you have more than one.</p></li><li><p>Select <strong>Data management</strong> &gt; <strong>Data residency.</strong></p></li><li><p> Click <strong>Menu </strong>(<span class="inline-icon" title="inline icon">▢</span>) &gt;<strong> View app details </strong>for the Jira instance where you have the Rich Filters installed.</p><img alt="2026-01-29_14-59-56.png" class="doc-image" loading="lazy" src="/cms_trial/assets/e191c1fb-c019-4b7a-a182-62e7ea7da0a8.png"/></li><li><p>You can search for Rich Filters.</p><p>If the location is set, you will see the name of the location. </p><img alt="contentId-3513253997" class="doc-image" loading="lazy" src="/cms_trial/assets/79670c2c-ce5d-4f93-b190-8f565932a903.png"/></li></ol></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

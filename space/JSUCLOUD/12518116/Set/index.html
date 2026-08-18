@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12518429/Features/">Features</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12518401/Workflow+post+functions/">Workflow post functions</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12518348/Create+a+Linked+Issue+post+function/">Create a Linked Issue post function</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Set</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JSUCLOUD/pages/12518116" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Set</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="description">Description</h2><p>Use the Set sub-function with the Create a Linked Issue post function to set the value of a selected field on the new issue. You can add any number of Set configurations.</p><h2 id="configuration">Configuration</h2><img alt="contentId-12518116" class="doc-image" loading="lazy" src="/cms_trial/assets/ac63d3af-f380-4520-8696-731c6916c231.png"/><p>Select <strong>Add</strong> <strong>Configuration</strong> to add more field settings.</p><h3 id="field-value">Field value</h3><p>Make sure that the value you enter is valid for the datatype of the selected field. Also verify, that the context configuration for the project using this workflow will allow for modifying the selected field. Typically you will use text, dates, or numbers as values. User fields should be set to the account ID.</p><h3 id="issue-field">Issue field</h3><p>Select the field you want to update.</p><h3 id="overwrite-append-prepend">Overwrite / append / prepend</h3><p>For text fields and other fields that can accept multiple values (like checkboxes), you can choose to overwrite, append, or prepend the new value to any existing value. For a text field, you can also choose a separator to place between the values (not shown in the screenshot above).</p><h3 id="create-version-if-necessary">Create version if necessary</h3><p>Imagine your origin issue has a version you want to copy to the linked issue. If the destination field is 'Fix Version/s', 'Affects Version/s', or some custom field of type 'Version Picker', you can define that a new version will be created in the target project if it does not exist. If you don't choose this option and that version does not exist, the user receives an error message and the transition completes.</p><div class="panel panel-note"><p>A user needs the Administer Projects permission to be able to create a new version.</p></div><h3 id="create-component-if-necessary">Create component if necessary</h3><p>Imagine your origin issue has a component you want to copy to the linked issue. If the destination field is <em>Components</em>, you define that a new component is created in the target project, if it does not yet exist. If you don't choose this option and that component does not yet exist, the user receives an error message and the transition completes.</p><div class="panel panel-note"><p>A user needs the Administer Projects permission to create a new component.</p></div><h3 id="special-sources">Special sources</h3><ul><li><p><code>*** empty ***</code>:  The destination field will be cleared.</p></li><li><p><code>*** last comment ***</code><strong>: </strong>The last comment from the source issue will be copied. In some cases, that might be the comment from the transition screen, which the user just entered while performing the current transition.</p></li></ul><h3 id="special-destinations">Special destinations</h3><ul><li><p><code>*** new comment *** </code>: A new comment will be created with the copied value. When you choose to overwrite to new comment, a new comment is created, enabling you to add multiple comments in one post function.<br/><strong>Examples</strong>:<br/><code>Copy Description to New Comment, overwrite </code><strong>→</strong> creates a new comment with the description.<br/><code>Copy Summary to New Comment, append with separator ", "</code> <strong>→</strong> appends the summary to the previously created comment, so the comment will look like &lt;Description&gt;, &lt;Summary&gt;.<br/><code>Copy Assignee to New Comment, overwrite</code> → creates a new comment.<br/>This configuration will result in two comments being created: one with the description and summary, and one with the assignee.</p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

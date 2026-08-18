@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3092186639/Association+and+synchronization/">Association and synchronization</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">How to run the association report via REST API</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3091924370" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>How to run the association report via REST API</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><p>The Connector for Salesforce &amp; Jira app supports reporting Jira work items associated with Salesforce records. To learn more about the association report, see the <a href="https://appfire.atlassian.net/wiki/x/XYVtd">Run an association report</a> page.</p><p>The association report lists all Jira work items associated with Salesforce records. You can access this report through:</p><ul><li><p>The Jira user interface</p></li><li><p>REST API calls </p></li></ul></div><div></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="instructions">Instructions</h2><h3 id="for-jira-ui">For Jira UI</h3><ol><li><p>In Jira, click the <strong>Apps </strong>menu.</p></li><li><p>Under <em>Connector for Salesforce</em>, select <strong>Reports</strong>.</p></li><li><p>Enter the <strong>JQL</strong> query to filter the results.<br/>For example, to show only Jira work items associated with a Salesforce case with the Record ID <code>5000K00002c6XA5QAM</code>.</p></li></ol><h4 id="example-jql-query">Example JQL query</h4><pre><code class="language-">salesforceAssociatedIds ~ 5000K00002c6XA5QAM</code></pre><img alt="reports.png" class="doc-image" loading="lazy" src="/cms_trial/assets/54272fb0-4539-4d79-a2c3-63d6d9237aae.png"/><h3 id="for-rest-api-calls">For REST API calls</h3><h3 id="before-you-start">Before you start</h3><p>Make sure to replace the following values:</p><ul><li><p>Replace <code>{JIRA_URL}</code>  with your actual Jira Base URL</p></li><li><p>Replace <code>5000K00002c6XA5QAM</code>  with your target Salesforce Record ID (when searching for a specific record)</p></li></ul><p>You can run these API requests using <a href="https://www.postman.com/">Postman</a>, or by entering the URL in your browser while logged into Jira.</p><ul><li><p>To search for work items linked to a specific Salesforce record, run the following request:</p></li></ul><pre><code class="language-html">{JIRA_URL}/rest/api/2/search?jql=salesforceAssociatedIds~5000K00002c6XA5QAM%20&amp;properties=com.servicerocket.jira.cloud.issue.salesforce.associations&amp;fields=key</code></pre><ul><li><p>To search for all associated Jira work items (without filtering the results) with any Salesforce connection, run the following request:</p></li></ul><pre><code class="language-">{JIRA_URL}/rest/api/2/search?jql=salesforceAssociatedIds is not EMPTY &amp;properties=com.servicerocket.jira.cloud.issue.salesforce.associations&amp;fields=key</code></pre></div><div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

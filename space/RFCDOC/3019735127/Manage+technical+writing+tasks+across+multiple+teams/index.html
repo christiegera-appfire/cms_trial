@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud) Documentation</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783942739/Use+cases/">Use cases</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Manage technical writing tasks across multiple teams</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/3019735127" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Manage technical writing tasks across multiple teams</h1>
+    <div class="page-meta">6 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p>Writers' work is often spread across multiple development teams and tracked in separate Jira projects. Without a unified view, managing documentation requests, release notes, video progress, and content reviews leads to constant context switching, making it harder to spot bottlenecks, balance workloads, and stay aligned with development cycles.</p><p>This article walks you through building a Technical Writing dashboard using Rich Filters for Jira Dashboards. The result is a single, filterable dashboard that gives your team a real-time overview of all their work across every project, along with an easy way to report progress. </p></div><div><div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/oyA4GYRVwvw"></iframe></div></div></div><img alt="Tech writer dashboard" class="doc-image" loading="lazy" src="/cms_trial/assets/1a12e29e-1f68-4304-8808-99135586907f.webp"/><h2 id="before-you-start">Before you start</h2><p>Make sure you are using Jira Cloud and that all projects are on the same Jira instance.</p><h2 id="use-case">Use case</h2><p>You have a centralized team of technical writers creating documentation, release notes, microcopy, and video tutorials for multiple development teams. Your writers need to track their assignments across various Jira projects, monitor individual workloads, handle documentation review requests, and support marketing campaigns.</p><p>Rich Filters for Jira Dashboards solve this by letting you aggregate and filter issues across multiple projects in a single view. Because rich filters are based on a standard Jira filter, the issues listed can span all your Jira projects and product teams.</p><p>The <em>Technical Writing</em> dashboard consists of the following gadgets:</p><ul><li><p><strong>Rich Filter Controller </strong>-<strong> </strong>the main control panel, letting writers slice the data using static, dynamic, and smart filters (details in the <em>Configure filters</em> section below).</p><img alt="Rich Filter Controller " class="doc-image" loading="lazy" src="/cms_trial/assets/de0b4638-c17f-433f-8355-ca8ab8cdffb4.png"/></li><li><p><strong>Writers tasks</strong> (Rich Filter Results gadget) - a comprehensive list of work, showing the Assignee, Pod, Status, Summary, Project, and Last comment.</p><img alt="Writer tasks (Rich Filter Results gadget) " class="doc-image" loading="lazy" src="/cms_trial/assets/ae1096bc-f386-44b1-b98c-a3f7ac47a528.png"/></li><li><p><strong>Rich Filter Flexi Charts</strong> - a bar chart showing issue count by status (for example, Backlog, To Do, In Progress, In Review) so the team can quickly spot bottlenecks in the publishing pipeline.</p><img alt="Rich Filter Flexi Charts " class="doc-image" loading="lazy" src="/cms_trial/assets/7f884fe9-8f6a-482a-bfb1-65cb21a73807.png"/></li><li><p><strong>Pods </strong>(Rich Filter Smart Gauges gadget)<strong> </strong>- a gauge chart that shows the percentage and exact number of issues assigned to each pod, so you can monitor workload distribution.</p><img alt="Pods (Rich Filter Smart Gauges gadget)" class="doc-image" loading="lazy" src="/cms_trial/assets/25e31e36-850b-46b0-a2a7-ce2196d0b518.png"/></li><li><p><strong>Assignees </strong>(Rich Filter Flexi Chart) - a breakdown of all issues by assignee, showing how many each team member is handling.</p><img alt="Assignees (Rich Filter Flexi Chart)" class="doc-image" loading="lazy" src="/cms_trial/assets/c59d6163-ae6f-4e72-aee4-7f8c1ffdaefe.png"/></li><li><p><strong>Content by type </strong>(Rich Filter Simple Counter) - a dedicated counter for video tutorials, microcopy work, and release notes.</p><img alt="Content by type (Rich Filter Simple Counter) " class="doc-image" loading="lazy" src="/cms_trial/assets/e2544147-6c93-4b59-b6ef-9e5eca2776a4.png"/></li><li><p><strong>Videos by Team Member</strong> (Rich Filter Pie Chart) - a breakdown of video tutorial issues by assignee.</p><img alt="Videos by team member (Rich Filter Pie Chart) " class="doc-image" loading="lazy" src="/cms_trial/assets/4a2b3ab6-46f6-4d0a-926e-caece88ad35e.png"/></li></ul><hr/><h2 id="create-the-rich-filter-and-jira-dashboard">Create the rich filter and Jira dashboard</h2><p>The rich filter is the foundation of the dashboard. It defines the pool of Jira issues that all gadgets will draw from.</p><ol><li><p>Create a new rich filter based on a Jira filter that returns all the documentation and technical writing work items you want to manage. </p><img alt="Create new rich filter " class="doc-image" loading="lazy" src="/cms_trial/assets/b09ad997-5734-4b2e-a3df-85ef1e366f0e.png"/><p>If you need guidance on creating rich filters and dashboard basics, see <a href="https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=rfcdoc&amp;title=Get%20started%20with%20Rich%20Filters%20for%20Jira%20Dashboards&amp;linkCreation=true&amp;fromPageId=783942749"><u>Rich Filters for Jira Dashboards</u></a>. </p></li><li><p>Create a new dashboard and name it <em>Technical writing.</em></p></li><li><p>Set <strong>Viewers</strong> to <em>My organization</em> so everyone in your company can view it. </p></li><li><p>Select the <strong>Two-column</strong> layout. </p></li></ol><h3 id="add-gadgets">Add gadgets</h3><p>Add the following gadgets to your dashboard. In each case, select your <em>Technical Writing</em> rich filter as the <strong>Rich filter</strong> value, then click <strong>Submit</strong>:</p><p><strong>Left column:</strong></p><ol><li><p>Rich Filter Controller (Main).</p></li><li><p>Rich Filter Results gadget and name it: <em>Writers tasks.</em></p></li><li><p>Click <strong>Done</strong> to exit dashboard edit mode.</p></li></ol><h3 id="configure-filters">Configure filters</h3><p>Filters control what all the gadgets on the dashboard display. Static filters offer one-click buttons; dynamic filters expose individual Jira fields for ad hoc filtering; smart filters group tickets by custom logic (in this case, by pod, which is a team of writers working together). </p><p>To configure them, open your rich filter configuration.</p><ol><li><p>Go to the <em>Static filters</em> tab of your rich filter config.</p></li><li><p>Create three static filters:</p><ol><li><p><em>Recently updated </em>with the <em>JQL</em> <code>updated &gt;= -30d</code>.<em> </em></p></li><li><p><em>Assigned to me</em>, with the <em>JQL</em> <code>assignee = currentUser()</code>. </p></li><li><p><em>Recently resolved </em>with the <em>JQL</em> <code>statusCategory = Done AND resolutiondate &gt;= -2w</code></p></li></ol></li><li><p>Go to the <em>Dynamic filters</em><strong> </strong>tab and add filters for the following Jira fields: Assignee, Status, Priority, Project, Sprint, Product, Updated, and Labels.</p></li><li><p>Go to the <em>Smart filters</em><strong> </strong>tab and create a smart filter called <em>Teams</em> to categorize tickets by the writer pods.</p><ol><li><p>Add a separate clause for each pod. (The JQL <code>assignee in membersOf("team-name")</code> filters issues to show only those assigned to members of your existing Jira groups, so you must use your organization's actual group names for it to work): </p></li></ol></li></ol><table><tr><th><p>Pod</p></th><th><p>Color</p></th><th><p>JQL</p></th></tr><tr><td><p>Fab 4</p></td><td><p>Purple</p></td><td><p><code>assignee in membersOf("fab4")</code></p></td></tr><tr><td><p>Pod 2</p></td><td><p>Green</p></td><td><p><code>assignee in membersOf("pod2")</code></p></td></tr><tr><td><p>D&amp;D</p></td><td><p><em>Red</em></p></td><td><p><code>assignee in membersOf("dd")</code></p></td></tr><tr><td><p>Connection Collective</p></td><td><p>Orange</p></td><td><p><code>assignee in membersOf("connectioncollective")</code></p></td></tr><tr><td><p>Sprintbusters</p></td><td><p>Blue</p></td><td><p><code>assignee in membersOf("sprintbusters")</code></p></td></tr><tr><td><p>Peas in a pod</p></td><td><p>Pink</p></td><td><p><code>assignee in membersOf("peasinapod")</code></p></td></tr></table><p>b. Go back to your dashboard and refresh it. <br/>Your controller should display all static, dynamic, and smart filters. Additionally, you can customize the shown filters, adding colors and custom sections.</p><img alt="customize the shown filters" class="doc-image" loading="lazy" src="/cms_trial/assets/de0b4638-c17f-433f-8355-ca8ab8cdffb4.png"/><h3 id="set-up-your-views">Set up your views</h3><p>Views define which columns appear in each Rich Filter Results gadget. </p><ol><li><p>Go to the <em>Views</em> tab of your rich filter config.</p></li><li><p>Create your view: <em>All work</em> with the columns: <em>Assignee, Pods, Status, Summary, Project, Last comment</em>.</p><img alt="Rich Filter Results view showing Assignee, Pod, Status, Summary, Project, and Last comment columns." class="doc-image" loading="lazy" src="/cms_trial/assets/0173c4cb-5a56-4a9d-a84f-a1ef0ae52b95.png"/></li></ol><p>3. Go back to your dashboard and refresh it. <br/>The Writers Tasks gadget now displays all the columns defined in the view.</p><img alt="Writer Tasks Rich Filter Results gadget displaying the configured view with task columns." class="doc-image" loading="lazy" src="/cms_trial/assets/4cbdbc74-6a70-48c2-8f7a-1c3d5ef4a8e6.png"/><h3 id="set-up-custom-values">Set up custom values</h3><p>Labels on work items (<code>video</code>, <code>ux-writing</code>, <code>releasenotes</code>) let you break out specific content types in your counters and charts. Custom values translate those labels into named metrics you can reference across gadgets.</p><ol><li><p>Go to the <em>Custom values</em> tab and create the following custom values:</p></li></ol><table><tr><th><p><strong>Name</strong></p></th><th><p><strong>Base value</strong></p></th><th><p><strong>JQL</strong></p></th></tr><tr><td><p>Microcopy</p></td><td><p><em>Issue Count</em></p></td><td><p><code>labels = ux-writing</code></p></td></tr><tr><td><p>Video</p></td><td><p><em>Issue Count</em></p></td><td><p><code>labels = video</code></p></td></tr><tr><td><p>Release notes</p></td><td><p><em>Issue Count</em></p></td><td><p><code>labels = releasenotes</code></p></td></tr></table><h3 id="set-up-your-charts-and-counters">Set up your charts and counters</h3><p>Add the following gadgets to your dashboard. In each case, select your <em>Technical writing</em> rich filter as the <strong>Rich filter</strong> value. Configure each gadget to display the right data in the right format.</p><ol><li><p>Rich Filter Flexi Charts and name it: <em>Rich Filter Flexi Charts.</em></p><ol><li><p><strong>Chart type</strong>: <em>Bar</em></p></li><li><p><strong>Statistic type</strong>: <em>Status</em> </p></li><li><p><strong>Value</strong>: <em>Issue Count</em><br/>Flexi Chart gadget shows the distribution of issues depending on their status, allowing you to spot bottlenecks in the publishing pipeline.</p></li></ol></li></ol><p><strong>Right column:</strong></p><ol><li><p>Rich Filter Smart Gauges gadget and name it: <em>Pods.</em></p><ol><li><p><strong>Smart filter</strong>: <em>Pods</em></p></li><li><p><strong>Computation mode</strong>: <em>Use smart clauses as gauge filters</em></p></li><li><p><strong>Value</strong>: <em>Issue Count</em></p></li><li><p><strong>Layout</strong>: <em> Gauge</em><br/>The gadget shows the percentage and exact number of issues assigned to each team, so you can monitor workload distribution.</p></li></ol></li><li><p>Rich Filter Flexi Chart and name it: <em>Assignees.</em></p><ol><li><p><strong>Chart type</strong>: <em>Donut</em></p></li><li><p><strong>Statistic type</strong>: <em>Assignee</em> </p></li><li><p><strong>Value</strong>: <em>Issue Count</em><br/>The chart visualizes how the work is spread among the writers.</p></li></ol></li><li><p>Rich Filter Counter and name it: <em>Content by type.</em></p><ol><li><p><strong>Values</strong>: <em>Video,</em> <em>Microcopy,</em> and <em>Release notes</em> custom values<br/>You can now easily see how many new releases are prepared, accompanied by the video and microcopy tasks.</p></li></ol></li><li><p>Rich Filter Pie Chart and name it:<em> Videos by Team Member.</em></p><ol><li><p><strong>Working query</strong>: <code>labels=video</code></p></li><li><p><strong>Chart type</strong>: <em>Donut</em></p></li><li><p><strong>Statistic type</strong>: <em>Assignee</em> </p></li><li><p><strong>Value</strong>: <em>Issue Count</em><br/>The gadget provides a preview for new videos published by the writers.</p></li></ol></li></ol><p>With this setup, your technical writing team has a single, always-current view of their entire workload. By using this layout, your technical writing team can seamlessly manage their workload, prioritize reviews, and keep all development pods well documented.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

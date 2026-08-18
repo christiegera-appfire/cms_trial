@@ -32,14 +32,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146310010/Product+and+data+connections/">Product and data connections</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/1529219266/Custom+Reports+-+REST+API+integration/">Custom Reports - REST API integration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/1528825149/Get+started+with+Custom+Reports/">Get started with Custom Reports</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Query and transform your data with JSONata</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/1549304032" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Query and transform your data with JSONata</h1>
+    <div class="page-meta">5 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="overview">Overview</h2><p><a href="https://jsonata.org/">JSONata</a> is a data query and transformation language designed for processing JSON data. It is used to preprocess, merge, and format data retrieved from APIs, allowing developers to perform complex calculations and data manipulations. You can try it out with the <a href="https://try.jsonata.org/">JSONata Exerciser</a>.</p></div><div></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="key-features-of-jsonata">Key features of JSONata</h2><ol><li><p><strong>Data Transformation:</strong> Modify and enhance JSON data by adding calculated fields.</p></li><li><p><strong>Merging Data:</strong> Combine information from multiple JSON data sources.</p></li><li><p><strong>Advanced Query Functions:</strong> Perform calculations using functions like <code>map</code>, <code>filter</code>, <code>distinct</code>, and <code>sort</code>.</p></li><li><p><strong>Debugging Support:</strong> Explore and debug the data processing context using debug tools.</p></li><li><p><strong>Data Visualization Integration:</strong> Use transformed JSON data to create dynamic visualizations.</p></li></ol><hr/></div><div></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="step-by-step-guide">Step-by-step guide</h2><p>Building a data-based custom report always consists of the same set of steps:</p><ul><li><p>Fetch the data and output to a JSON node, possibly from different data sources.</p></li><li><p>Process the data: discard the unused parts; adapt, aggregate, or process the data.</p></li><li><p>Pipe the processed data into rendering nodes.</p></li></ul></div><div></div></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h3 id="fetch-data-from-an-api-endpoint">Fetch data from an API endpoint</h3><ol><li><p>Use a REST node to fetch data from an API endpoint. This example will generate data for three people.</p></li></ol><pre><code class="language-json">{
   type: 'rest',
   uri: 'https://randomuser.me/api/?results=3',
@@ -272,6 +277,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

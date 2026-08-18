@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1874100241/Configuration/">Configuration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1873740170/Configure+settings+in+Salesforce/">Configure settings in Salesforce</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Configure Chatter</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/1873445656" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Configure Chatter</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 100.0fr;"><div><div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>With Chatter, you can post Jira comments to Case Feed (Chatter) or to an associated Jira issue. This integration is currently only supported for the Case type of records.</p><p>When someone creates or edits a comment in Jira, a post will be made to the Case Feed of the corresponding associated Case record and vice versa. </p><p>The post is made if:</p><ul><li><p>The Chatter Feed setting is enabled in Salesforce, per the guide below.</p></li><li><p>The Jira or Chatter comment satisfies comment privacy and hashtag filters set by the administrator.</p></li><li><p>The associated Jira issue is not marked as <strong>View-only</strong>.</p></li></ul><p>The Chatter post is posted by the administrator account configured for the connection. This behavior cannot be changed due to limitations in the Salesforce Chatter API. However, a remark is provided to indicate the user who left the comment in Jira.</p><p>To enable Chatter integration in Jira, visit <a href="/cms_trial/space/CSFJIRA/1853653945/Configure+connection+settings/">Configure connection settings</a> in Jira.</p></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div></div><div></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="enable-chatter-feed">Enable Chatter Feed</h2><ol><li><p>Log in to your Salesforce and click<strong> Settings</strong> &gt; <strong>Setup</strong>.<br/>If you are using Salesforce Classic, click <strong>Setup</strong> located on the upper right pane.</p></li><li><p>In the sidebar, use <strong>Quick Find</strong> and type <code>Installed Packages,</code> then click the <strong>Installed Packages</strong> link that appears.</p></li><li><p>Look for <em>Jira for Salesforce</em> and click <strong>Configure</strong>.</p></li><li><p>In the <strong>Comment Configuration</strong> section, enable the toggle next to <strong>Chatter Feed</strong>.</p><img alt="chatter feed.png" class="doc-image" loading="lazy" src="/cms_trial/assets/435252e2-605c-4c64-87fa-9b12728cd98d.png"/></li></ol></div></div><h2 id="next-steps">Next steps</h2><ul><li><p><a href="/cms_trial/space/CSFJIRA/1873740233/Configure+Lightning+Web+components/">Configure Visualforce components</a></p></li></ul><h2 id="related-information">Related information</h2><ul><li><p><a href="/cms_trial/space/CSFJIRA/1962443468/View+Salesforce+comments+in+Jira/">View Salesforce comments in Jira</a></p></li><li><p><a href="/cms_trial/space/CSFJIRA/1962607212/View+Jira+comments+in+Salesforce/">View Jira comments in Salesforce</a></p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

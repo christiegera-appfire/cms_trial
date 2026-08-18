@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1891206842/Configure/">Configure</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Will the Connector be impacted after changing Jira Instance URL?</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3091597377" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Will the Connector be impacted after changing Jira Instance URL?</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="purpose">Purpose</h2><p>Atlassian has recently released the Cloud Site Rename feature which allows changing the Jira instance URL.</p><p>More details are available in the following <a href="https://support.atlassian.com/organization-administration/docs/update-a-product-url/">documentation</a>, and Atlassian recommends <a href="https://jira.atlassian.com/browse/CLOUD-10809">checking the apps from the top vendors in the Atlassian Marketplace</a> to find out if they're compatible with instance URL changes and if so, how that may affect your installed app.</p><h2 id="answer">Answer</h2><p>Per <a href="https://jira.atlassian.com/browse/CLOUD-10809">this list</a>, Connector for Salesforce &amp; Jira is compatible with the Cloud Site Rename feature. Furthermore, as per our tests, changing the Jira instance URL does not have any impact on the connector, however, you will need to reauthorize the connection to ensure the connection between Jira and Salesforce continues to work.</p><p>Here's how to reauthorize the connection:</p><ol><li><p>Log into your Jira.</p></li><li><p>In Jira &gt; <strong>Salesforce</strong> &gt; <strong>Connections</strong> &gt; locate your connection &gt; click <strong>Revoke Access</strong> then click <strong>Revoke</strong> to confirm. </p><img alt="contentId-3091597377" class="doc-image" loading="lazy" src="/cms_trial/assets/ccdf45dd-ee23-4c29-81b7-cad29c06dbb5.png?version=1&amp;modificationDate=1678869881778&amp;cacheVersion=1&amp;api=v2"/></li><li><p>Click <strong>Authorize</strong>.</p><img alt="Authorize.png" class="doc-image" loading="lazy" src="/cms_trial/assets/c0971e61-bd0e-4662-9d8d-c93d8a86abcf.png"/></li><li><p>Select the environment type of your Salesforce instance, either <strong>Production</strong> or <strong>Sandbox</strong>.<br/>Then click <strong>Authorize</strong> to authorize the connection.</p><img alt="Authorize connection.png" class="doc-image" loading="lazy" src="/cms_trial/assets/a8379588-e4f8-4a5c-922c-3c2fb0e6f727.png"/><p>If you're not logged into Salesforce, the browser will load a new page and prompt you to enter your Salesforce credentials.</p></li><li><p>If the authorization was successful, the <strong>Status</strong> will change to <strong>Authorized</strong>.</p><img alt="authorized.png" class="doc-image" loading="lazy" src="/cms_trial/assets/b012d1dc-db0f-40c1-a8ea-79735d0505a0.png"/></li><li><p>After the connection is successfully authorized in Jira, <a href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/470754678/Setting+up+a+connection+to+Jira">follow the steps in this page</a> to update the API Access Token in Salesforce.</p></li></ol></div><div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

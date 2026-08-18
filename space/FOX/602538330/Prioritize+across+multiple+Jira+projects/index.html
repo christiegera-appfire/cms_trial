@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/FOX/602537989/Foxly+-+Backlog+Prioritization+for+Jira/">Foxly - Backlog Prioritization for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/FOX/602537989/Foxly+-+Backlog+Prioritization+for+Jira/">Foxly - Backlog Prioritization for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/FOX/602538082/Tutorials/">Tutorials</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Prioritize across multiple Jira projects</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/FOX/pages/602538330" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Prioritize across multiple Jira projects</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p>If you’re looking for a way to prioritize multiple Jira projects at once, you can use <strong>Projects filters</strong>. </p><p><strong>Project filters</strong> allow you to show issues from different projects that use the same prioritization template in the Priorities table and Priority matrix.</p></div><div></div></div><h2 id="how-to-use-project-filters">How to use Project filters</h2><p>The Foxly <em>Prioritization </em>tab is available in the menu of every Jira project. By default, it shows issues from that project. However, you can use <strong>Project filter </strong>to bring issues from different projects to the same table.</p><ol><li><p>Go to the <em>Priorities </em>tab in the project.</p></li><li><p>Click <strong>Project</strong> in the filters area.</p></li><li><p>Select projects.</p></li></ol><img alt="Foxly priorities tab with Project filter dropdown and multiple projects selected" class="doc-image" loading="lazy" src="/cms_trial/assets/c01e6f78-706d-4030-abd0-172a0b2699e8.png"/><p>Issues from selected projects now appear in the Priorities table. </p><div class="panel panel-note"><p>You can only filter projects that use the same prioritization template. <a href="/cms_trial/space/FOX/602538305/Change+the+prioritization+template/">Read more about prioritization templates</a> and how to change them.</p></div><h2 id="how-to-show-projects-in-the-priorities-table">How to show projects in the Priorities table</h2><p>You can show the <strong>Project</strong> field as a column in your Prioritization table to easily identify project issues.</p><ol><li><p>Click <strong>Columns</strong>.</p></li><li><p>Select the <strong>Project </strong>field in the drop-down</p></li><li><p>The <strong>Project</strong> column appears in the table.</p></li></ol><img alt="Foxly priorities table with Project column displayed to identify issues across projects" class="doc-image" loading="lazy" src="/cms_trial/assets/29b831f7-9dae-4426-b86e-ed76ecfae5dc.png"/>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

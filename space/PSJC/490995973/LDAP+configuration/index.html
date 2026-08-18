@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/994378270/Integration+guides/">Integration guides</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">LDAP configuration</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/490995973" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>LDAP configuration</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>Through this integration, SIL scripts can authenticate users, retrieve user information, query organizational structures, and synchronize user attributes with your LDAP directory. This functionality supports automation workflows that leverage your existing user management infrastructure, enforce security policies, and maintain consistency across enterprise systems without manual intervention.</p><hr/></div></div><h2 id="prerequisites">Prerequisites</h2><p>Before configuring LDAP for Power Scripts for Jira Cloud, please ensure you have:</p><ul><li><p><strong>Active Directory Access</strong>: Access to your organization's MS Active Directory system.</p></li></ul><div class="panel panel-note"><p>Other LDAP systems like OpenDS might work, but are not officially supported.</p></div><ul><li><p><strong>Service Account</strong>: An LDAP account with read permissions for directory information.</p></li><li><p><strong>Connection Details</strong>:</p><ul><li><p>Server hostname/IP address</p></li><li><p>Correct port number</p></li><li><p>Base DN information</p></li></ul></li><li><p><strong>Network Access</strong>: Ensure your Jira Cloud instance can connect to your LDAP server.</p></li><li><p><strong>Schema Knowledge</strong>: Basic understanding of your directory structure to properly query attributes.</p></li></ul><p>This preparation helps you successfully establish and test your LDAP connection.</p><hr/><h2 id="procedure">Procedure</h2><ol><li><p>In your Jira Cloud instance, go to <strong>Settings </strong>&gt;<strong> Marketplace Apps</strong> &gt; <strong>Power Scripts </strong>&gt;<strong> Configurations</strong>.</p></li><li><p>Click <strong>Integrations</strong> &gt; <strong>LDAP</strong>.</p><img alt="Power Scripts for Jira Cloud LDAP configuration interface" class="doc-image" loading="lazy" src="/cms_trial/assets/41263f4b-65c1-4127-a59a-018c0192b727.png"/></li><li><p>Click <strong>Add LDAP </strong>and provide the required information:</p><ol><li><p>Type a unique name for your LDAP configuration.</p></li><li><p>Keep the default <strong>Directory </strong>type selection.<br/>Microsoft Active Directory is pre-selected by default as it's the only officially supported directory type. If you're using a different LDAP type, contact support for assistance.</p></li><li><p>Enter the <strong>URL </strong>and <strong>Base DN </strong>for your LDAP server.</p></li><li><p>In the <strong>User </strong>and <strong>Password</strong> fields, provide the credentials for the LDAP service account.<br/>The username is typically in the format of a Distinguished Name or User Principal Name (e.g., "CN=ServiceAccount,OU=ServiceAccounts,DC=example,DC=com" or "<a href="mailto:serviceaccount@example.com">serviceaccount@example.com</a>").</p></li></ol></li><li><p>(Optional) In the <strong>Connection timeout </strong>field, set the duration in milliseconds before connection attempts timeout.<br/>The default value is suitable for most environments, but you may need to increase it for slower network connections or heavily loaded directory servers.</p></li><li><p>Click the <strong>Test</strong> button to verify your configuration.<br/>The system will attempt to connect to your LDAP server and display any errors directly on the page. You can make adjustments based on these error messages and test again until a successful connection is established.</p></li></ol><p>Once created, the LDAP configurations can be edited, removed, and tested from the <em>LDAP Configuration</em> page.</p><hr/><h2 id="default-ldap">Default LDAP</h2><p>You can create multiple LDAP configurations and designate one as the default by clicking the <strong>Make Default</strong> icon. This default configuration will be used automatically when scripts call LDAP functions without explicitly specifying a configuration name.</p><p>The default LDAP setting ensures backward compatibility with existing scripts. When older scripts that were written before the introduction of multiple LDAP configurations run, they will automatically use the default configuration without requiring modifications.</p><p>Only one LDAP configuration can be marked as default at any time.</p><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h2 id="more-configuration-guides">More configuration guides</h2><div class="img-placeholder">[Unmapped macro: contentbylabel — no content to fall back on]</div></div><div><h2 id="ldap-specific-functions">LDAP-specific functions</h2><div class="img-placeholder">[Unmapped macro: contentbylabel — no content to fall back on]</div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/401572816/Use+cases/">Use cases</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/401572854/General+use+cases+for+all+Dashboard+Hub+apps/">General use cases for all Dashboard Hub apps</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Monitor Comala Document Management Cloud Workflows with Dashboard Hub Custom Reports</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/1924301146" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Monitor Comala Document Management Cloud Workflows with Dashboard Hub Custom Reports</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="overview">Overview</h2><p>This document explains how you can integrate Dashboard Hub and Comala Document Management (CDM) <span class="status-lozenge">cloud</span> to view key metrics of your document workflows in Confluence.</p><div class="panel panel-note"><p>This document is for the Comala Document Management <strong>Cloud</strong> version.</p><p>For the Comala Document Management <strong>Data Center</strong> version, see <a href="/cms_trial/space/RDD/874905671/Document+Workflow+Custom+Charts/">Document Workflow Custom Charts</a>.</p></div></div><div></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="custom-reports-in-dashboard-hub">Custom Reports in Dashboard Hub<strong> </strong></h2><p>Dashboard Hub is a reporting app for creating centralized dashboards with data from various sources, including Confluence. Our Custom Reports gadget connects through REST API and uses the search endpoint to filter pages by CQL(Confluence Query Language), expanding on Comala Document Management data to build a usable, visual report.</p><p>For more details, see:</p><p><a href="/cms_trial/space/RDD/1528825149/Get+started+with+Custom+Reports/">Get started with Custom Reports</a> </p><h2 id="custom-reports-templates">Custom Reports templates</h2><p>Use our curated and maintained catalog of <a href="https://appfire.atlassian.net/wiki/spaces/RDD/folder/1992261872?atlOrigin=eyJpIjoiODg3YmQwOGVlZjQ2NDE4MjkyMTc3Yjk0MWI3MjJjOTQiLCJwIjoiYyJ9">Custom Reports templates</a>. This catalog offers ready-to-use, easy-to-connect examples. Find links to the Comala Document Management templates here: </p><ul><li><p><a href="/cms_trial/space/RDD/1955037214/Comala+Document+Management+status+report/">Comala Document Management status report</a> </p></li><li><p><a href="/cms_trial/space/RDD/1955102741/Comala+Document+Management+workflow+and+state+chart/">Comala Document Management workflow and state chart</a></p></li><li><p><a href="/cms_trial/space/RDD/1955954748/Comala+Document+Management+Page+Activity/">Comala Document Management Page Activity</a></p></li></ul></div><div></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="comala-document-management-cdm">Comala Document Management (CDM)</h2><p>Comala Document Management provides workflow automation for pages and blog posts in Confluence spaces. Comala Document Management also offers in-app reporting tools, including the Document Report for tracking workflow activity across pages in a space and the Document Activity report for an individual page. </p><p>You can find Comala Document Management on the Atlassian Marketplace here: <a href="https://marketplace.atlassian.com/apps/142/comala-document-management?hosting=cloud&amp;tab=overview">https://marketplace.atlassian.com/apps/142/comala-document-management?hosting=cloud&amp;tab=overview</a> </p></div><div></div></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h2 id="use-cases">Use cases </h2><h3 id="document-stats-report">Document stats report </h3><p>This chart provides a visual breakdown of pages by Workflow State, offering a quick overview of content progress and status.</p><p>CQL:<code>cw_state</code></p></div><div><img alt="An example of a document stats report showing pages by Workflow state." class="doc-image" loading="lazy" src="/cms_trial/assets/70bed254-bd6d-4020-a649-306acecd5ea1.png"/></div></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h3 id="pending-approvals-in-confluence">Pending approvals in Confluence </h3><p>This dashboard provides a clear view of all Confluence pages with active approvals assigned to the current user. Each team member has a dedicated gadget displaying their assigned approvals, making it easy to track pending reviews.</p><p>CQL: <code>cw_approver = currentUser()</code></p></div><div><img alt="An example of a pending approvals dashboard." class="doc-image" loading="lazy" src="/cms_trial/assets/04ac4622-cf9e-4ed6-aec1-3d633249ad4b.png"/></div></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h3 id="upcoming-expiring-pages">Upcoming expiring pages</h3><p>This table helps identify Confluence pages that are set to expire within the next four weeks, ensuring timely reviews and updates across the instance.</p><p>CQL: <code>cw_expires &lt; now("4w")</code></p></div><div><img alt="An example of an expiring pages table." class="doc-image" loading="lazy" src="/cms_trial/assets/34050c5e-a045-4a22-a7ad-95ce4f5be986.png"/></div></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h3 id="draft-pages-per-space">Draft pages per space</h3><p>This 1D pivot table displays the number of pages in the Draft state for each space, helping track unpublished content across Confluence.</p><p>CQL<strong>:</strong> <code>cw_state IN ("Draft")</code></p></div><div><img alt="An example of a table showing draft pages by space." class="doc-image" loading="lazy" src="/cms_trial/assets/884f579a-2b06-428d-9ad5-2af7ea56cb93.png"/></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="set-up">Set up </h2><h3 id="add-a-datasource">Add a datasource</h3><ol><li><p>In your dashboard, click the <strong>More actions</strong> ellipses (…), then click<strong> Add datasource. </strong>If you are new to datasources, see <a href="/cms_trial/space/RDD/146309943/Learn+about+datasources/">Learn about datasources</a> for more information.</p></li><li><p>Provide a meaningful name for your datasource. </p></li><li><p>Enter the API endpoint URL in the provided field. See <a href="/cms_trial/space/RDD/1568374878/Custom+Reports+templates/">Custom Reports templates</a>for a Comala Document Management example. </p></li><li><p>Set Authentication type: <strong>No Auth</strong> for this example. To learn about authentication types see <a href="/cms_trial/space/RDD/1545601193/Authentication+types+in+Custom+Reports+datasources/">Authentication types in Custom Reports datasources</a>.</p></li><li><p>Click <strong>Add</strong>.</p></li></ol></div><div></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h3 id="add-the-custom-reports-gadget">Add the Custom Reports gadget</h3><ol><li><p>Navigate to your Dashboard Hub app.</p></li><li><p>If you have not created a dashboard:</p><ol><li><p>Click the dashboard dropdown in the left corner or in the <strong>More actions</strong> menu in the right corner, and select <strong>Create dashboard.</strong></p></li><li><p>Name your dashboard, and click <strong>Create</strong>.</p></li><li><p>Click <strong>Add Gadget.</strong></p></li></ol></li><li><p>If you already have a dashboard created, click <strong>Edit.</strong></p></li><li><p>Click <strong>Add Gadget</strong>.</p></li><li><p>Type <strong>Custom Reports</strong> in the search bar in the gadget catalog or navigate to the Custom Reports section in the left-side navigation panel.</p></li><li><p>Locate the <strong>Custom Reports</strong> gadget, click <strong>Add,</strong> and click <strong>Open Editor</strong>.</p></li></ol></div><div></div></div><p>See also: </p><p><a href="/cms_trial/space/RDD/146310146/CQL+Search/">CQL Search</a></p><p><a href="/cms_trial/space/RDD/146310019/Add+and+configure+gadgets/">Add and configure gadgets</a></p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

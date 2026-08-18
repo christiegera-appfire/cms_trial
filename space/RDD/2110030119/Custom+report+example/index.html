@@ -80,14 +80,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146310010/Product+and+data+connections/">Product and data connections</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/1529219266/Custom+Reports+-+REST+API+integration/">Custom Reports - REST API integration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/1528825149/Get+started+with+Custom+Reports/">Get started with Custom Reports</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Custom report example</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/2110030119" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Custom report example</h1>
+    <div class="page-meta">6 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="overview">Overview</h2><p>New to custom reports in Dashboard Hub? This article has you covered with a short training video and helpful code snippets you can use to build your first report. Follow along and start customizing with confidence.</p></div><div></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h3 id="watch-the-training-video">Watch the training video</h3><p>The following training video uses the code snippets below to introduce many of Dashboard Hub’s custom report features. To get the most out of this experience, open Dashboard Hub and follow along.</p></div><div></div></div><div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/MpJSz0driks"></iframe></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h3 id="code-snippets">Code snippets</h3><p>Use the following code snippets to follow along with the training video. For the best results, exit the code editor after every example and discard any existing drafts.</p></div><div></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><img alt="Discard drafts in between examples." class="doc-image" loading="lazy" src="/cms_trial/assets/c5985e77-0d70-4e4d-bf58-247520140d5e.png"/></div><div></div></div><h3 id="add-text-to-the-report">Add text to the report</h3><details><summary>Report descriptor</summary><pre><code class="language-">{
   type: 'view',
   style: { flexDirection: 'column', gap: 40 },
@@ -744,6 +749,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146310010/Product+and+data+connections/">Product and data connections</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/1529219266/Custom+Reports+-+REST+API+integration/">Custom Reports - REST API integration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/1568374878/Custom+Reports+templates/">Custom Reports templates</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/2173796469/Appfire+apps/">Appfire apps</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">7pace Billable Hours</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/2424963728" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>7pace Billable Hours</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>This bar chart<strong> </strong>displays a monthly overview of total billable time.</p><img alt="Dashboard Hub 7pace Billable Hours report table" class="doc-image" loading="lazy" src="/cms_trial/assets/78f8c42c-48a9-4714-9af6-87c5d6be3f58.png"/><h2 id="prerequisites">Prerequisites</h2><ul><li><p><strong>7pace for Jira Cloud: </strong>You need to have 7pace Timetracker installed on your Jira Cloud instance. If you aren’t already using 7pace Timetracker, you can try it free from our <a href="https://marketplace.atlassian.com/apps/1235398/7pace-timetracker-for-jira?hosting=cloud&amp;tab=overview"><u>Atlassian Marketplace listing</u></a>.</p></li><li><p><strong>7pace API Token</strong>: Create this token in 7pace Timetracker and copy it to a safe place. You will need this token to set up your datasource in Dashboard Hub. Learn how to create this token in the <a href="https://appfire.atlassian.net/wiki/x/hgB3dg"><u>7pace API documentation</u></a>.</p></li><li><p><strong>Datasource</strong>: You need a Custom Reports datasource configured through REST API so that the report can connect 7pace data with the relevant Jira data.</p></li><li><p><strong>Dashboard Hub dashboard</strong>: You need to have a dashboard set up to add Custom Report gadgets.</p></li></ul><h2 id="how-to-set-up-the-7pace-datasource">How to set up the 7pace datasource</h2><p>To connect 7pace data with relevant data in your Jira instance, you need to configure a REST API datasource.</p><ol><li><p>In Dashboard Hub, select <strong>More actions (…) </strong>&gt; <strong>Add datasource</strong>.</p></li><li><p>Select <strong>Custom Reports</strong>.</p></li><li><p>Configure the datasource:</p><ol><li><p><strong>Name</strong>: Provide a name for the datasource to help you identify it when managing your datasources.</p></li><li><p><strong>URL</strong>: Enter the root URL of the latest 7pace API version. Refer to the <a href="https://appfire.atlassian.net/wiki/spaces/7TFJ/pages/1987510406"><u>7pace API documentation</u></a> for the latest version. In the following example, we’re using:</p><pre><code class="language-">https://timehubjra.7pace.com/api/v1</code></pre></li><li><p><strong>Authentication type</strong>: Select <code>Bearer token</code>.</p></li><li><p><strong>Token</strong>: Paste the 7pace API token into the <em>Token</em> field. This token is a prerequisite. If you haven’t created it yet, follow the steps in the <a href="https://appfire.atlassian.net/wiki/x/hgB3dg"><u>7pace API documentation</u></a>.<br/></p><img alt="Dashboard Hub Custom Report datasource configuration for 7pace" class="doc-image" loading="lazy" src="/cms_trial/assets/7ab113cd-fc1a-4356-9477-124a23eb8354.png"/></li></ol></li><li><p>Click <strong>Add</strong>.</p></li></ol><h2 id="how-to-use-the-7pace-billable-hours-report">How to use the 7pace Billable Hours report</h2><ol><li><p>Click <strong>Edit</strong> in your Dashboard Hub dashboard.</p></li><li><p>Click <strong>Add Gadget</strong>.</p></li><li><p>Search for <code>7pace</code> in the gadget search bar, then select the<strong> 7pace Billable Hours</strong> report gadget from the matching results. </p></li><li><p>On the gadget configuration page, the name is added by default.</p></li><li><p>Under <em>Datasources</em>, select the 7pace API datasource you created earlier.</p></li><li><p>Click <strong>Open Editor</strong>. The report JSON file loads.</p></li><li><p>In the <code>path</code> parameter, update the custom field name to match the custom field name in 7pace.</p></li><li><p>Close the editor, then click<strong> Add</strong>.</p></li></ol><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><img alt="Dashboard Hub 7pace Billable Hours configuration fields" class="doc-image" loading="lazy" src="/cms_trial/assets/b79ecd27-b0af-4415-b34e-b298bc4288ad.png"/></div><div><img alt="Dashboard Hub 7pace Billable Hours chart preview" class="doc-image" loading="lazy" src="/cms_trial/assets/14f5686a-19b6-43a5-b0d7-90660c482fe4.png"/></div></div><div class="panel panel-success"><p><strong>Pro tip</strong>: To populate the chart with a different 7pace custom toggle, replace <code>Billable hours</code> with the name of your selected 7pace custom toggle in the report configuration.</p></div><h2 id="troubleshooting">Troubleshooting</h2><h3 id="url-depth">URL depth</h3><p>If you receive a warning that an API call can’t be completed, compare the depth of URL paths defined in the report configuration and the datasource. </p><p>We recommend that your datasource setup uses the following URL format: <code>https://timehubjira.7pace.com/api/v1</code>, then the report configuration can be written with only the necessary endpoint.</p><img alt="Dashboard Hub 7pace Billable Hours dashboard preview" class="doc-image" loading="lazy" src="/cms_trial/assets/d3ac8132-aa35-4d92-9e90-4bbde1e87661.png"/>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

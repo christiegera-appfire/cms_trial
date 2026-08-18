@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192967667/Migrate+to+Confluence+Cloud/">Migrate to Confluence Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/3446079850/Migrate+from+Data+Center+to+Cloud+(Forge)/">Migrate from Data Center to Cloud (Forge)</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Consolidating Page Workflows for Migration to the Cloud</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/3446112260" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Consolidating Page Workflows for Migration to the Cloud</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview</h2><p>Page workflows are not migrated to the Cloud. If you need to preserve them, consolidate each page workflow into a labeled space workflow before migration.</p><p>You can consolidate page workflows in two ways:</p><ul><li><p><strong>Manually</strong> - consolidate the page workflow in each space using the Page Workflows dashboard (see the manual consolidation section below)</p></li><li><p><strong>Scripted</strong> - bulk consolidation across multiple spaces using a script (see the <a href="https://appfire.atlassian.net/wiki/spaces/CDMCCD/pages/3404955773/Consolidating+Page+Workflows+for+Migration+to+the+Cloud#Scripted-bulk-consolidation">bulk consolidation</a> section) </p></li></ul><h2 id="moving-your-page-workflows">Moving your page workflows</h2><p>Go to <strong>Confluence Global Administration</strong> &gt; <strong>Comala Document Management</strong> &gt; <strong>Migration CDM Usage</strong> and generate the <strong>Page Workflows Report</strong>. </p><p>This CSV file lists all active page workflows across your instance.</p><p>If the report is empty, you can skip this step.</p><h2 id="manual-consolidation-per-space">Manual consolidation (per space)</h2><p>Use the Page Workflows dashboard in each space to consolidate workflows one at a time.</p><ol><li><p>Go to <strong>Space tools</strong> &gt; <strong>Page Workflows dashboard</strong></p></li><li><p>All active page workflows in the space are listed, even if a space workflow is also active on the page</p></li><li><p>For each page workflow, open the <strong>Actions</strong> menu and select <strong>Consolidate</strong></p></li><li><p>In the <strong>Consolidate Page Workflow</strong> dialog, enter a label string. This string will be used as the content label filter when the workflow is converted to a space workflow.</p></li><li><p>Click <strong>Transform</strong> to complete the consolidation</p></li></ol><p>This does the following:</p><ul><li><p>Removes the page workflow from the linked pages and blog posts</p></li><li><p>Adds the label to those pages and blog posts</p></li><li><p>Creates a new space workflow with the label condition</p></li><li><p>Applies the workflow to the labeled pages as a space workflow</p></li></ul><p>The consolidated workflow is now included in the space's workflow list and will be migrated.</p><h2 id="scripted-bulk-consolidation">Scripted bulk consolidation</h2><p>For Confluence instances with many page workflows across multiple spaces, you can use the consolidation script.</p><h3 id="prerequisites">Prerequisites</h3><ul><li><p>The <strong>Page Workflows Report</strong> CSV file from the Workflow Usage screen</p></li><li><p>Python 3 installed</p></li><li><p>Access to the Confluence REST API</p></li></ul><h3 id="run-the-script">Run the script</h3><div class="panel panel-note"><p><strong>Script</strong>: <span class="inline-icon" title="inline icon">▢</span></p><p>consolidate_page_workflows.py<br/><strong>How to run it:</strong><code>python3 consolidate_page_workflows.py page-workflows.csv</code><br/><strong>Description</strong>: This script reads the CSV file containing page workflows from the <strong>Workflows Usage Report</strong> and consolidates them into space-level workflows using the Confluence REST API. When run, the script:</p><ol><li><p>Prompts you to choose the grouping logic:</p><ul><li><p><code>1</code>: Group by Space Key + Workflow Name</p></li><li><p><code>2</code>: Group by Space Key + Workflow Name + Workflow Markup</p></li></ul></li><li><p>Automatically generates a unique label for each group:<br/><code>WorkflowName</code> (cleaned) + incremental number (e.g., <code>SimpleApproval1</code>)</p></li><li><p>Sends a <code>curl</code> request per group to the Confluence REST API to perform the consolidation.</p></li></ol></div><p>In both cases, page workflows are consolidated as a label space workflow.</p><h3 id="verification">Verification</h3><p>After running the script:</p><ul><li><p>Check the <strong>Space Workflows</strong> dashboard in each affected space to confirm that the consolidated workflows appear</p></li><li><p>Verify that the content labels have been applied to the correct pages</p></li><li><p>Run a test migration on a non-production space to confirm that the consolidated workflows migrate correctly</p></li></ul><h2 id="related-pages">Related pages</h2><ul><li><p><a href="/cms_trial/space/CDMC/3446079850/Migrate+from+Data+Center+to+Cloud+(Forge)/">Migrate from Data Center to Cloud (Forge)</a> </p></li><li><p><a href="/cms_trial/space/CDMC/2192902721/Moving+your+workflows+to+the+cloud/">Moving your workflows to the cloud</a></p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

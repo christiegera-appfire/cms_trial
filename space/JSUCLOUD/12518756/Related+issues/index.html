@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12518429/Features/">Features</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12518573/Key+concepts/">Key concepts</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Related issues</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JSUCLOUD/pages/12518756" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Related issues</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>Most of JSU's workflow post functions have the option to define the scope of related issues. For example, instead of copying a field within an issue for a post function, you can copy it to a subtask.</p><img alt="A list of issue relation options in JSU post functions." class="doc-image" loading="lazy" src="/cms_trial/assets/92eecb57-82a8-49eb-80ba-4a446b9ded7d.png"/><h2 id="types-of-issue-relations">Types of issue relations</h2><p>Related issues are identified by one of the following Jira concepts:</p><ul><li><p><strong>Issue link: </strong>You can choose the link type to define which issues will be modified by the operation. If the post function includes the link type as ANY option, the operation will be performed on any linked issues.</p></li><li><p><strong>Parent / Sub-Task: </strong>The related issue is either the parent or a subtask.</p></li><li><p><strong>Epic / Issue in</strong> <strong>Epic: </strong>The other issue is either an epic related to an epic link or it is part of an epic. This is only applicable if you have Jira Software installed. </p></li><li><p><strong>JQL: </strong>Use a JQL query to retrieve the issues the post function will modify. You can use some placeholders in the JQL query, which will be replaced with the current field values of the issue in transition. For tips on writing the JQL query, see <a href="/cms_trial/space/JSUCLOUD/12518329/JQL+reference/">JQL Reference</a> or our <a href="/cms_trial/space/JSUCLOUD/12518307/JQL+use+cases/">JQL Use Cases</a> for some examples.</p></li></ul><h3 id="issue-in-transition">Issue in transition</h3><p><em>Issue in Transition</em> refers to the issue for which a workflow condition is checked, a workflow validator is examined, or a workflow post function is performed; in other words, the issue that triggered a workflow condition/validator/post function to be executed.</p><h3 id="source-and-destination">Source and destination</h3><p>For some post functions, you can choose whether the issue in transition serves as the source or the destination. For example, the <a href="/cms_trial/space/JSUCLOUD/12518474/Copy+Value+From+Other+Field+post+function/">Copy Value From Other Field</a> post function allows you to define the issue in transition as the source or destination of the copy operations. In contrast, you define the other end with an issue relation. The field value is then read from the source issue and written to the destination issue. Other post functions do not have a source and destination; you simply define the issue relation that applies to the post function. For example, the <a href="/cms_trial/space/JSUCLOUD/12518348/Create+a+Linked+Issue+post+function/">Create a Linked Issue</a> post function creates a new issue and then connects it through an issue relation to the issue in transition.</p><h3 id="related-issues-limitations">Related issues limitations</h3><p>While we try to execute as many configurations as possible, you should keep some restrictions in mind.</p><ul><li><p>Copy Value From Other Field post function: There should be only one source issue; otherwise, it is unclear from which issue the value should be read. The current implementation will simply select one of them and ignore the rest.</p></li><li><p>If you use the Create a Linked Issue post function to create a new subtask, you must also configure the post function to create the new issue as a subtask issue type. The target project must be the same as the one for the issue in transition.</p></li></ul><p><span class="img-placeholder" style="display:inline">[unmapped inline: placeholder]</span></p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

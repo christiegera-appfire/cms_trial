@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/1916338329/Scripting/">Scripting</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465503811/Using+Nunjucks+Templates/">Using Nunjucks Templates</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Issue Fields in Nunjucks Templates</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/465504298" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Issue Fields in Nunjucks Templates</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p>When building Nunjucks templates, the <strong>Help</strong> section includes shortcuts for adding common issue fields to the template. These shortcuts are listed under the <strong>Issue Fields</strong> tab (pictured right). </p><p>The shortcut buttons available update based on the settings in the top half of the section, reflecting the value that will be inserted into the template when the button is clicked. </p><p>To add a field to a Nunjucks template: </p><ol><li><p>Open the <strong>Select a field</strong> pulldown menu and select the Jira field to be added to the template.</p></li><li><p>Select the issue from which the value should be selected using the <strong>issue var </strong>pulldown.</p></li><li><p>Use the toggle <strong>Refer to the issue field by</strong> to configure how fields are reference - either by Name or by ID. The shortcut button values will update to reflect this change. </p></li></ol><p>After the desired field has been configured, several sets of shortcut buttons are available to insert fields into the template. These shortcuts are grouped into: </p><ul><li><p><strong>Accessing the field</strong> - Insert a reference to the selected field. </p></li><li><p><strong>Accessing sub-fields</strong> - Insert references to fields from related objects of the selected field.</p></li><li><p><strong>Testing the field’s value</strong> - Insert common expressions used to test the value of the selected field (e.g. if the field value equals a specified value or if the field is null). </p></li></ul><div class="panel panel-note"><p><strong>Please note</strong>: the shortcut button are only the <em>most common fields</em> used in templates. Other fields are available!</p></div></div><div><img alt="JMWE for Jira Cloud Nunjucks template editor with issue field integration" class="doc-image" loading="lazy" src="/cms_trial/assets/1839034d-6d14-4826-90a6-b5fcd790a20e.png"/></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

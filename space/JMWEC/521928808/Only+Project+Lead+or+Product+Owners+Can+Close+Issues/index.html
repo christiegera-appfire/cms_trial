@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/466225276/Use+cases/">Use cases</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/521994276/Use+Cases+for+Conditions/">Use Cases for Conditions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Only Project Lead or Product Owners Can Close Issues</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/521928808" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Only Project Lead or Product Owners Can Close Issues</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="scenario">Scenario</h2><p> In this scenario, a team is working on a major feature and for organizational purposes, only team leads are enabled to close out these types of issues.  When the issue is ready to be closed, only the <strong>Project Lead</strong> or members of the group <strong>Product Owners</strong> should be able to mark it as <strong>Done</strong>.  </p><h2 id="resolution">Resolution</h2><p>This solution requires adding the <a href="/cms_trial/space/JMWEC/465474547/User+Condition/">User Condition</a> extension to <strong>every </strong>transition that leads to the <strong>Done </strong>status. Once added, those transitions will only be available to users who are either a Project Lead or who are members of the Jira Group Product Owners, guaranteeing that only the appropriate team members can close an issue.  </p><div class="panel panel-note"><p><strong>Note</strong>: The steps below require a Jira group to represent <strong>Product Owners</strong>. In this scenario, the Jira Project Lead and a Product Owner are two different people. </p></div></div></div><h2 id="steps-to-create">Steps to create</h2><h3 id="1-create-a-group-for-product-owners">1. Create a group for <em>Product Owners</em></h3><p>Verify that your Jira instance has a group that includes all team members who are Product Owners. If that group does not exist, create one and add the necessary team members; see this page for more information: <a href="https://support.atlassian.com/jira-cloud-administration/docs/create-and-update-groups/">https://support.atlassian.com/jira-cloud-administration/docs/create-and-update-groups/</a>.</p><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h3 id="2-add-the-user-condition-condition">2. Add the <em>User Condition</em> condition</h3><ol><li><p>Log in to your Jira instance as an Administrator. </p></li><li><p>In the upper right corner of the window, click <strong>Settings</strong> ( ⚙️ ) and select <strong>Issues</strong>.</p></li><li><p>In the left-hand sidebar, click <strong>Workflows</strong>.</p></li><li><p>From the list of Workflows, click <strong>Actions</strong> ( <span class="icon-note">[menu button icon]</span> ) for the appropriate workflow and select <strong>Edit</strong>.</p></li><li><p>Edit the transition: </p><ol><li><p>When viewing the Workflow in <strong>Diagram</strong> view (Figure 1, right), select the Transition and click the <strong>Conditions</strong> link. Click <strong>Add condition</strong> at the top of the list of existing post functions.</p></li><li><p>When viewing the Workflow in <strong>Text</strong> view, click the name of the Transition then select the <strong>Condition</strong> tab. Click <strong>Add condition</strong> at the top of the list of existing post functions.</p></li><li><p>Select <strong><em>User Condition (JMWE app)</em></strong> from the list of conditions and click <strong>Add</strong>.</p></li></ol></li></ol></div><div><img alt="JMWE for Jira Cloud transition editing for project lead and product owner restrictions" class="doc-image" loading="lazy" src="/cms_trial/assets/9e876fb1-2ab0-4828-a31d-89473cb81f3b.png"/></div></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h3 id="3-configure-the-condition">3. Configure the condition</h3><p>Set the following configurations (Figure 2, right):</p><ol><li><p><strong>User(s) to check</strong> - Set <strong>Which user(s)</strong> to <em>Current user</em>. </p></li><li><p><strong>Mode</strong> - Set <strong>User(s) must meet</strong> to <em>at least one of the criteria configured below</em>.  </p></li><li><p><strong>Criteria</strong></p><ol><li><p><strong>Groups</strong> - Set to <em>Product Owners</em> (the group created in Step 1, above). </p></li><li><p><strong>Condition for user(s)</strong> - Enter the following Jira expression: <br/><code>user.accountId == issue.project.lead.accountId</code></p></li><li><p>Leave all other options blank </p></li></ol></li><li><p>Click <strong>Add.</strong></p></li></ol><div class="panel panel-note"><p><strong>Note: </strong>When adding Conditions to a Jira Workflow, there is a native configuration for ‘<strong>All of the following conditions’</strong> or ‘<strong>Any of the following conditions’</strong>. You should set this as needed for your workflow.</p></div></div><div><img alt="JMWE for Jira Cloud condition configuration for rolebased issue closing permissions" class="doc-image" loading="lazy" src="/cms_trial/assets/d5050085-606d-427b-be50-a34482d06647.png"/></div></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h3 id="4-repeat-as-needed">4. Repeat as needed</h3><p>Repeat steps 2 and 3, above, for each of the transitions necessary. In this example, the User Condition is added to a total of three transitions - <strong>Passed QA (above)</strong>, <strong>Client Approval</strong>, and the <strong>All</strong> transition pointing to the <strong>Done </strong>status. You should add the condition as many times as necessary for your workflow. </p></div><div></div></div><div class="panel panel-note"><h3 id="you-re-done">You’re done! </h3><p>Now, only the <strong>Project Lead</strong> of an issue’s project, or a member of the <strong>Product Owner</strong> group, can mark an issue as <strong>Done</strong>.  </p></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

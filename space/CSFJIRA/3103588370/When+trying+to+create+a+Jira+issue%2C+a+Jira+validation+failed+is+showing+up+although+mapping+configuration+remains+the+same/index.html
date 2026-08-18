@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3092186639/Association+and+synchronization/">Association and synchronization</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">When trying to create a Jira issue, a Jira validation failed is showing up although mapping configuration remains the same</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3103588370" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>When trying to create a Jira issue, a Jira validation failed is showing up although mapping configuration remains the same</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="problem">Problem</h2><p>The Connector starts throwing Jira validation failed errors even though you haven't changed your mapping configurations.</p><img alt="3EF09AAC-4363-4FD4-8CE6-D9899916C769_4_5005_c-20240816-035325.jpeg" class="doc-image" loading="lazy" src="/cms_trial/assets/82f406bb-f4f6-4ac9-a67c-e41919c53df7.jpeg"/></div><div></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="solution">Solution</h2><p>The most common cause is a change to a field's configuration (like a renamed field). Here's how to fix it:</p><ol><li><p>Identify the problematic field.</p><ol><li><p>Go to Jira <strong>Settings </strong>(<span class="inline-icon" title="inline icon">▢</span>) → <strong>Work items</strong> → <strong>Custom fields</strong>.</p></li><li><p>Select any field, click <strong>Menu</strong> (<span class="inline-icon" title="inline icon">▢</span>) → <strong>Edit details</strong>.</p></li><li><p>Replace the ID in the URL with the ID of your custom field.</p><img alt="fieldid.png" class="doc-image" loading="lazy" src="/cms_trial/assets/aa1fe805-aa09-4fbc-acd0-f9a45f526be0.png"/></li></ol></li><li><p>Once you identify the field, verify if there are any modifications to the field.</p></li><li><p>Refresh the mapping.</p><ol><li><p>Remove the field from your mappings.</p></li><li><p>Add the field again - this rebuilds the mapping JSON and resolves most errors.</p></li></ol></li></ol><div class="panel panel-note"><p>If the changes to the field were related to permissions or it was removed from any screen, then this solution does not apply, and the changes have to be reverted.</p></div></div><div></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div></div><div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

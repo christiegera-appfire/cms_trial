@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434798967/Simple+Issue+Language/">Simple Issue Language</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434374166/SIL+Functions+library/">SIL Functions library</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/433000817/System+Integration/">System Integration</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">sendHtmlEmail</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/435028575" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>sendHtmlEmail</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="description">Description</h2><p>
  Sends an email, HTML formatted.
  </p><p>Sends an email, HTML formatted. <strong>To </strong>and <strong>cc </strong> are string arrays with any of email addresses, users or groups. Email is sent to all the users of the groups.<br/><strong>From</strong> is optional. If missing the email is sent from the default email address configured in Jira.<br/>The function is the same as sendEmail() but with MIME type features. Starting with version 4.0 the engine is able to detect automatically when you send email. This function is now an alias to sendEmail(). Refer to that documentation page for details.</p><table><tr><td><p><strong>Syntax</strong></p></td><td><p>sendHtmlEmail([from], to, [cc], subject, body_or_template, [language])<br/>or<br/>sendHtmlEmail(from, to, cc, subject, body_or_template, language, issue_key, regex_array)</p></td><td><p><strong>Package</strong></p></td><td></td></tr><tr><td><p><strong>Alias</strong></p></td><td></td><td><p><strong>Pkg Usage</strong></p></td><td></td></tr></table><h2 id="return-type">Return Type</h2><p><strong>None</strong></p><div class="panel panel-warning"><p>To render HTML correct, write it correct: 'using the &lt;html&gt; and &lt;body&gt; tags'.</p></div><h2 id="see-also">See also</h2><div class="img-placeholder">[Unmapped macro: contentbylabel — no content to fall back on]</div>
@@ -156,6 +161,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

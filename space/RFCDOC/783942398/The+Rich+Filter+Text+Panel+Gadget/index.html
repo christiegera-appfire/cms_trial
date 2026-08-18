@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud) Documentation</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783942482/User+guides/">User guides</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941679/Work+with+Rich+Filter+gadgets/">Work with Rich Filter gadgets</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">The Rich Filter Text Panel Gadget</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/783942398" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>The Rich Filter Text Panel Gadget</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="1-about-the-rich-filter-text-panel-gadget"><div class="img-placeholder">[Unmapped macro: anchor — no content to fall back on]</div><strong>1. About the Rich Filter Text Panel gadget</strong></h2><p>The <em>Rich Filter Text Panel</em> the gadget allows you to display configurable rich text directly on dashboards in order to inform and guide users and to give context to dashboards. </p><img alt="contentId-783942398" class="doc-image" loading="lazy" src="/cms_trial/assets/c5906782-61e9-45d1-9bb7-77c013bea6d1.png"/><h2 id="2-configuring-the-rich-filter-text-panel-gadget"><div class="img-placeholder">[Unmapped macro: anchor — no content to fall back on]</div><strong>2. Configuring the Rich Filter Text Panel gadget</strong></h2><p><a href="https://support.atlassian.com/jira-work-management/docs/add-and-customize-a-gadget/">Add</a> a new or edit an existing <em>Rich Filter Text Panel</em> gadget in your <a href="https://support.atlassian.com/jira-work-management/docs/what-is-a-jira-dashboard/">Jira dashboard</a>. The configuration form of the gadget will be displayed.</p><img alt="contentId-783942398" class="doc-image" loading="lazy" src="/cms_trial/assets/3d0d63fb-ba9e-4516-9f16-7e6edd9f4b7f.png"/><p>Configuring a <em>Rich Filter Text Panel</em> is really straightforward. The gadget configuration form displays only a rich text editor. The user-friendly editor allows you to write text and to choose and combine text styles, text formatting, colors, bullet and numbered lists, links, tables, code snippets, info panels, quotes and expand/collapse sections. Once added, some of these elements can then be further refined with specific settings.</p><img alt="contentId-783942398" class="doc-image" loading="lazy" src="/cms_trial/assets/aec6292b-8fe0-4fc7-a619-fbeda4fd56d7.png"/><div class="panel panel-note"><p>Unlike other rich filter gadgets, the <em>Rich Filter Text Panel</em> gadget is not based on a particular rich filter. The gadget will display the same text, independently of the other gadgets on the dashboard.</p></div><p><br/></p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490995713/Get+started+with+Power+Scripts+for+Jira+Cloud/">Get started with Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Script portability</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/797278573" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Script portability</h1>
+    <div class="page-meta">5 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>The Simple Issue Language (SIL), included with Power Scripts for Jira Cloud and Power Scripts for Data Center, is designed to keep scripts portable across Jira environments. In most cases, you can move SIL scripts between Jira Data Center and Jira Cloud with minimal rewrites. This page explains what remains compatible, what changes during migration, and which platform differences can affect your scripts.</p><div class="panel panel-note"><p>Simple Issue Language (SIL) is practically identical on Jira DC and Jira Cloud.</p></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="why-sil-makes-your-scripts-super-portable">Why SIL makes your scripts super portable</h2><p>One of the main benefits of SIL is that scripts are portable across instances and hosting types. This is possible because the SIL language was created to run at a higher level than a general programming language. It functions as a domain-specific language that simplifies scripting, reducing implementation complexity while preserving scripting flexibility.</p><h2 id="benefits-of-sil-portability">Benefits of SIL portability</h2><p>Appfire places a lot of importance on ensuring your scripts can migrate from older versions of Jira to newer ones without requiring any changes. That's why Power Scripts uses the simple, JavaScript-like language SIL instead of Java-based scripting approaches, which often require additional maintenance during upgrades. The benefits include:</p><ul><li><p>Scripts written in older versions work in any future version.</p></li><li><p>You can migrate scripts from DC to Cloud without rewriting.</p></li><li><p>No modifications are needed when upgrading Jira.</p></li></ul></div></div><hr/><h2 id="what-differences-to-expect-when-migrating-scripts">What differences to expect when migrating scripts</h2><h3 id="function-differences-between-data-center-and-cloud">Function differences between Data Center and Cloud</h3><p>Since the SIL language depends on the Jira API, differences between the DC and Cloud APIs can subsequently affect SIL functions. Even though most Atlassian APIs are similar across hosting types, there are occasional differences, illustrated in the example below.</p><p>For example, when adding a comment on the DC version, you can set its visibility to a group or a project role. On Cloud, you can only use a project role.</p><p>Of the more than 700 Power Scripts functions available in the Cloud, only 0.4% differ from their Data Center equivalents.</p><h3 id="power-scripts-dc-functions-that-are-not-available-in-the-cloud">Power Scripts DC functions that are not available in the Cloud</h3><p>Some DC Jira functions aren't available in the Cloud. For example, administrator functions for Jira reindexing aren't necessary in the Cloud. Other functions aren't available for two reasons:</p><ul><li><p>Atlassian API limitations.</p></li><li><p>Cloud function development is still in progress.</p></li></ul><p>Appfire is continually adding new features to make Power Scripts even more powerful. We’ve added 200+ new functions, and soon, there will be more Cloud functions than DC functions.</p><hr/><h2 id="what-adjustments-are-required-when-migrating">What adjustments are required when migrating</h2><p>Unfortunately, some changes will still be required due to architectural differences between the DC and Cloud versions.</p><h3 id="configuration-differences-that-can-affect-scripts">Configuration differences that can affect scripts</h3><p>A minor difference can stem from the distinction between a Data Center and Cloud instance, but could also be due to different instances running on the same platform. For example, differences between a development instance and a production instance, even if both are running on Data Center, could affect scripts. These are usually differences in configurations or settings.</p><h4 id="concrete-names-versus-aliases"><strong>Concrete names versus aliases</strong></h4><p>If a script uses concrete configuration names instead of aliases, it needs to be updated. This applies to:</p><ul><li><p>Custom field ID’s</p></li><li><p>Project names or keys</p></li><li><p>Status/priority names</p></li><li><p>Issue type names (or any other object that has a name)</p></li></ul><h4 id="permission-settings"><strong>Permission settings</strong></h4><p>In Power Scripts, each script runs as a user, inheriting that user's permissions. If permissions differ between Jira versions or hosting types, this can impact your script.</p><h3 id="differences-that-will-impact-your-scripts">Differences that will impact your scripts</h3><p>Issues arise when Jira Data Center and Jira Cloud functionality differs, and scripts become incompatible.</p><h4 id="conditions-and-validators"><strong>Conditions and Validators</strong></h4><p>When Jira Cloud was launched, custom conditions and validators didn’t exist. This is because they were incompatible with the Jira Cloud architecture. Performing an action in the Cloud sets off a chain reaction of microservices and events all at once. Conditions and validators require a pause in those events while they determine what should happen next. Since Cloud doesn’t support this workflow, Atlassian released the expressions language, the only way to create custom conditions and validators.</p><p>This means that SIL scripts written for Data Center will need to be rewritten using the expressions language, reimagined to support the Cloud product, or removed entirely.</p><h4 id="jql-functions"><strong>JQL functions</strong></h4><p>Jira Cloud has a feature that’s similar to the JQL functions available in DC versions. However, they aren’t real JQL functions that are executed during a search and run to determine if an issue should be included in the results as part of the query. Instead, the results are pre-calculated in the Cloud, and the JQL functions query the result. That’s why they’re called JQL aliases in the Cloud; they act similarly to JQL functions in Data Center. JQL functions used on Jira Data Center will need to be rewritten to accommodate differences in Jira Cloud. Scripts that could be executed as part of a <a href="https://appfire.atlassian.net/wiki/spaces/PSJ/pages/15489314">custom JQL search</a> will need to be rewritten as custom <a href="/cms_trial/space/PSJC/490997951/Custom+Keywords/">JQL keyword (alias)</a> scripts.</p><h4 id="live-fields"><strong>Live Fields</strong></h4><p>Atlassian recently introduced the ability to create functionality such as Live Fields. As they have released only a few APIs for a select set of custom fields, Live Fields in Jira Cloud won’t be as powerful as its Data Center predecessor.</p><div class="panel panel-success"><p>To reduce the number of changes:</p><ul><li><p><strong>Use SIL aliases</strong>: by using SIL aliases, you avoid using the custom field ID directly in the script, protecting it from changes.</p></li><li><p><strong>Clean up old projects prior to migration</strong>: make any necessary project changes in your familiar environment rather than dealing with them in the new and unfamiliar Cloud setting.</p></li><li><p><strong>Use migration tools like CMJ</strong>: Did you know that Power Scripts is compatible with the <a href="https://appfire.atlassian.net/wiki/spaces/CMT">Configuration Manager Cloud Migration Tool</a>? Configuration Manager helps analyze and report changes so that they can be resolved prior to the migration.</p></li></ul></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

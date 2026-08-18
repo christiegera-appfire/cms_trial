@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMCFC/168855370/Overview/">Jira Misc Custom Fields (JMCF) - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/168855370/Overview/">Overview</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/465471226/Custom+Fields/">Custom Fields</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/1562447255/Supported+custom+fields/">Supported custom fields</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Transitioned by Users</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMCFC/pages/465731693" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Transitioned by Users</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><p>The <strong>Transitioned by Users</strong> custom field is a calculated field that displays a comma separated list of usernames for any users who moved an issue through a specific workflow transition. It is a read-only. </p><h2 id="add-a-custom-field">Add a custom field</h2><h2 id="configure-a-new-transitioned-by-users-field">Configure a new ‘Transitioned by Users’ field</h2><div class="panel panel-note"><p>If you added a JMCF custom field through the native Jira custom fields screen, see <strong>Edit a custom field</strong>, below.</p></div><p>Follow the steps above to add a custom field to your Jira instance, then follow these steps:</p><ol><li><p>In <strong>Associate Screens</strong> step of the wizard, check the boxes for the screens to which the field should be added.</p><ol><li><p>Use the search field above the list of screens to locate a specific screen.</p></li><li><p>Check the box at the top of the column to add the field to all screens.<br/>⚠️ <strong>Note</strong>: some team management screens in Jira do not currently support custom fields!</p></li></ol></li><li><p>Click <strong>Next</strong>.</p></li><li><p>Set the status value or values for both <strong>Transition From Status</strong> and <strong>To Status</strong>. When an issue is set to one of the status value(s) selected, it trigger an update of the <strong>Transitioned by User</strong> field.</p></li><li><p>Click <strong>Save</strong>.</p></li></ol><div class="panel panel-warning"><p><strong>Note</strong>: The <code>*ANY</code> value for <strong>Transition From Status</strong> and/or <strong>To Status</strong> can have unintended consequences if not used correctly:</p><ul><li><p>Setting both fields to <code>*ANY</code> will track <em>any change</em> in status for the issue.</p></li><li><p>Setting <strong>Transition From Status</strong> to <code>*ANY</code> will will track any transition <em>into the status value(s) set in </em><em><strong>To Status</strong></em> no matter the starting status value.</p></li><li><p>Setting <strong>To Status</strong> to <code>*ANY</code> will will track any transition <em>from the status value(s) set in </em><em><strong>Transition From Status</strong></em> no matter the starting status value.</p></li></ul></div></div><div><div class="panel panel-note"><p>You are viewing the documentation for <strong>Jira Cloud</strong>.</p></div></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="edit-a-custom-field">Edit a custom field</h2><h2 id="search-templates">Search templates</h2></div><div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

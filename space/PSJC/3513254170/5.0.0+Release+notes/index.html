@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/899022918/Release+notes/">Release notes</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">5.0.0 Release notes</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/3513254170" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>5.0.0 Release notes</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p><strong>Release date: </strong><time datetime="2026-08-08">August 8, 2026</time></p><p>This page outlines the updates included in the latest release of Power Scripts for Jira Cloud.</p><hr/><h2 id="enhancements">Enhancements</h2><p>The following enhancements are included in this release:</p><h2 id="forge-migration">Forge migration</h2><p>Power Scripts for Jira Cloud now runs on Atlassian Forge, Atlassian’s Cloud development platform. This release brings enhancements to meet Forge’s technical and security standards.</p><p>Moving to Forge allows Power Scripts for Jira Cloud to use Atlassian's built-in security, compliance, and scalability features. This migration helps Appfire continue delivering secure, enterprise-grade apps that stay aligned with Atlassian's platform.</p><p>If you previously tested your Jira Cloud Migration Assistant (JCMA) migration before this release, test it again in a development or staging environment before migrating your production data. The migration process has been updated for the Forge architecture, so previous test results might not reflect the current migration behavior.</p><div class="panel panel-note"><p><strong>Connect End of Support</strong></p><ul><li><p>Atlassian has announced the end of support for the Connect framework at the end of 2026.</p></li><li><p>For more information about the Connect end-of-support timeline, see <a href="https://www.atlassian.com/blog/developers/announcing-connect-end-of-support-timeline-and-next-steps">Announcing Connect End of Support: Timeline and Next Steps</a>.</p></li></ul></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p><strong>Questions and feedback</strong></p><ul><li><p>Explore features, pricing, and reviews on the <a href="https://marketplace.atlassian.com/apps/43318/power-scripts-jira-workflow-automation?tab=overview">Marketplace</a>.</p></li><li><p>Stuck with something? Raise a ticket through our <a href="https://appf.re/support">support portal</a>.</p></li><li><p>Do you love using our app? Let us know what you think <a href="https://marketplace.atlassian.com/apps/43318/power-scripts-jira-workflow-automation?tab=reviews">here</a>.</p></li></ul></div><div><p><strong>Credits</strong></p><p>Thank you to our valued customers! Your incredible support and feedback inspire us to improve continuously. We appreciate your trust in Power Scripts for Jira Cloud!</p></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

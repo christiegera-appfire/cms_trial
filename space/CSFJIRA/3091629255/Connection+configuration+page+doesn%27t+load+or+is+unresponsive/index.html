@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3092186916/Errors+and+Error+Messages/">Errors and Error Messages</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Connection configuration page doesn't load or is unresponsive</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3091629255" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Connection configuration page doesn't load or is unresponsive</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="summary">Summary</h2><p>If you are facing an issue where the Connection configuration page does not load or is unresponsive, then it might have been caused by importing invalid mapping data into the database. </p><h2 id="environment">Environment</h2><ul><li><p>Connector for Salesforce &amp; Jira Cloud</p></li></ul><h2 id="diagnostics-steps">Diagnostics Steps</h2><p>The Connection configuration page does not load or is unresponsive. You may also experience synchronization errors and bindings do not work as expected.</p><h2 id="cause">Cause</h2><p>Invalid mapping data in the database may have been caused by the following reasons:</p><ul><li><p>Importing a JSON file with invalid mappings </p></li><li><p>Importing a file with huge JSON data which caused the database to truncate the JSON data</p></li></ul><h2 id="workaround">Workaround</h2><p>Not applicable.</p><h2 id="resolution">Resolution</h2><p>If your bindings still work as expected and all synchronization activity also works as expected, then simply go to the <strong>Mappings</strong> screen and click <strong>Save</strong>. The Connector will then clean up any junk data from the JSON file in the DB.</p><p><strong>HOWEVER:</strong></p><p>If you experience synchronization errors and bindings do not work as expected, then most likely a JSON file with a very large amount of data was imported into the database and some data was inadvertently truncated, thus causing a lot of errors.</p><p>In this scenario, you will have to <a href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/470754325/Configuring+Entity+Mappings+and+Field+Mappings">manually reconfigure the mappings</a> if you want the synchronization to work properly with the bound project.</p></div><div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

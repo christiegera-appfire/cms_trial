@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193033035/Feature+guide/">Feature guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192903639/Administration/">Administration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193066207/Workflow+elements+and+concepts/">Workflow elements and concepts</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192967825/Triggers/">Triggers</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192870598/Trigger+actions/">Trigger actions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">add-restrictions</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2193590021" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>add-restrictions</h1>
+    <div class="page-meta">4 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview</h2><p>You can use the<strong> Add Restrictions </strong>action to add Confluence page-level permissions for the users who you want to view or edit your document.</p><img alt="Comala visual editor add view restrictions trigger with recipient examples" class="doc-image" loading="lazy" src="/cms_trial/assets/efb78e07-dd20-4954-8ef2-bc35e1f9ec7e.png"/><p>This <strong>Add Restrictions</strong> trigger action can be used to ensure that users have view or edit permissions for a document at various stages in your documentation process, such as when an approval decision is made or the workflow advances to the next state.</p><p>To add both <strong>view</strong> and <strong>edit</strong> restrictions, you must include a separate <strong>Add Restrictions</strong> action in a workflow trigger for each restriction type.</p><div class="panel panel-note"><p>Any existing page-level restrictions remain on the document. The action adds the specified permission to the users and groups included in the action.</p></div><h2 id="add-restrictions-action-parameters">Add Restrictions action parameters</h2><table><tr><th><p><strong>Action Parameter</strong></p></th><th><p><strong>Value</strong></p></th><th><p><strong>Notes</strong></p></th></tr><tr><td><p><strong>Type</strong> <span class="status-lozenge">MANDATORY</span> </p></td><td><p>Confluence page-level permissions to be added:</p><ul><li><p><strong>view</strong></p></li><li><p><strong>edit</strong></p></li></ul><div class="panel panel-note"><p>You must add a separate action for each.</p></div></td><td><p>Restricts the <strong>view</strong> or <strong>edit </strong>permission to the specified users</p><ul><li><p>does not remove any existing page-level permissions</p></li></ul></td></tr><tr><td><p><strong>Restrictions </strong><span class="status-lozenge">MANDATORY</span></p></td><td><p>Restrictions must be applied to at least one user.</p></td><td><p>At least one value must be added for one of the fields:</p><ul><li><p><strong>User</strong></p></li><li><p><strong>Confluence Smart Values</strong></p></li><li><p><strong>Workflow user type parameters</strong></p></li><li><p><strong>Group</strong></p></li><li><p><strong>Workflow group type parameters</strong></p></li></ul></td></tr><tr><td><p><strong>User</strong></p></td><td><p>One or more Confluence users.</p></td><td><p>List of Confluence users</p><ul><li><p>type to search and select each  user</p></li></ul></td></tr><tr><td><p><strong>Confluence Smart Values</strong></p></td><td><p>One or more Confluence value references.</p></td><td><p>List of Confluence value references (Smart Values).</p><p>Only the following are supported:</p><ul><li><p><strong>@watchers</strong></p></li><li><p><strong>@creator</strong></p></li><li><p><strong>@lastUpdatedBy</strong></p></li></ul></td></tr><tr><td><p><strong>Workflow user type parameters</strong></p></td><td><p>One or more workflow group type parameters.</p></td><td><p>List of workflow user type parameters</p><ul><li><p>add each workflow parameter as <strong>@workflowuserparameter_name@</strong></p></li></ul></td></tr><tr><td><p><strong>Group</strong></p></td><td><p>One or more Confluence user groups.</p></td><td><p>List of Confluence user groups</p><ul><li><p>type to search and select each group</p></li></ul></td></tr><tr><td><p><strong>Workflow group type parameters</strong></p></td><td><p>One or more workflow group type parameters.</p></td><td><p>List of workflow user type parameters</p><ul><li><p>add each workflow parameter as <strong>@workflowgroupparameter_name@</strong></p></li></ul></td></tr></table><p>When the workflow trigger Event occurs, the trigger checks that any required Conditions are met, and if met, the <strong>Add Restrictions </strong>action adds Confluence page-level content view or edit restrictions to the current page.</p><h2 id="add-restrictions-json-code">“add-restrictions” JSON code</h2><p>An <strong>Add Restrictions </strong>workflow trigger action added using the visual editor is automatically displayed in the workflow code editor as an <code>“add-restrictions”</code> trigger action.</p><img alt="Comala code editor addrestrictions trigger on state change event" class="doc-image" loading="lazy" src="/cms_trial/assets/6377b2d5-1e2b-483f-89b2-9163db26dcb5.png"/><p>You can also use the code editor to add the workflow trigger and the <code>“add-restrictions”</code> action.</p><h2 id="add-restrictions-workflow-parameters-and-workflow-trigger-code-example">"add-restrictions" workflow parameters and workflow trigger code example</h2><h3 id="add-restrictions"><code>"add-restrictions"</code></h3><p>The trigger action  <code>"add-restrictions"</code> adds content view or edit restrictions for specified users.</p><ul><li><p><strong>action (</strong><em><strong>add-restrictions</strong></em><strong>)</strong></p><ul><li><p><strong>type </strong><strong>! </strong>Type of permission to apply. Only one permission type can be added to each action.</p><ul><li><p><strong>view</strong> - assign view restrictions to one or more users or user groups</p></li><li><p><strong>edit</strong> - assign edit restrictions to one or more users or user groups</p></li></ul></li><li><p><strong>restrictions  </strong><strong>!</strong> List of users and groups with the specified type of permission. At least one user or one user group value must be specified</p><ul><li><p><strong>user</strong> - comma-separated list of user IDs, user type workflow parameters, Confluence value references*, or metadata</p><ul><li><p><code>{“user”: [ “userID”, @user_parameter@, @creator, @lastUpdatedBy, @watchers ]}</code></p></li></ul></li><li><p><strong>group</strong> -  comma-separated list of group IDs, group name, group type workflow parameters, or metadata</p><ul><li><p><code>{“group”: [ “groupID”, "groupName", @group_parameter@ ]}</code></p></li></ul></li></ul></li></ul></li></ul><div class="panel panel-note"><p>*The following value references in Confluence Cloud are supported: <strong>@creator</strong>, <strong>@watchers</strong>, and <strong>@lastUpdatedBy</strong>.</p></div><hr/><h3 id="mandatory-parameters">❗️ Mandatory parameters</h3><p><strong>type</strong></p><p>The <code>"type"</code> parameter value must be included. The <strong>view </strong>or <strong>edit</strong> value must be added</p><p><strong>restrictions</strong></p><p>The <code>"restrictions"</code> parameter value must be included. At least one value must be added for either the<strong> user </strong>or <strong>group</strong> parameter</p><p>Invalid values for the <strong>user </strong>or <strong>group</strong> parameter are ignored.</p><hr/><h3 id="supported-confluence-value-references">*Supported Confluence value references</h3><ul><li><p><strong>@watchers</strong></p></li><li><p><strong>@creator</strong></p></li><li><p><strong>@lastUpdatedBy</strong></p></li></ul><hr/><h3 id="example-trigger-code">Example trigger code</h3><pre><code class="language-">"triggers":
 [
 	{"event": "on-change-state",
@@ -177,6 +182,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

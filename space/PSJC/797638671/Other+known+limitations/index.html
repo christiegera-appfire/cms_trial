@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796721618/Jira+Product+Discovery+support/">Jira Product Discovery support</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Other known limitations</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/797638671" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Other known limitations</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>This page documents additional limitations and known issues when using Power Scripts with Jira Product Discovery projects, along with available workarounds.</p><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>There are some additional limitations and known issues when using Power Scripts with Jira Product Discovery projects.</p><h2 id="sil-manager-compatibility">SIL Manager compatibility</h2><p>Product Discovery field information is not fully compatible with the  <a href="/cms_trial/space/PSJC/496206102/Managing+aliases+from+the+SIL+Manager/">SIL Aliases panel</a> within the <a href="/cms_trial/space/PSJC/490996983/SIL+Manager/">SIL Manager</a>. This panel cannot access Product Discovery-specific fields when retrieving the custom field list from Jira.</p><p>The SIL Aliases panel is designed to update the <code>sil.aliases</code> file by rewriting the entire file with data from the interface. As a consequence, any Product Discovery fields added to the <code>sil.aliases</code> file will be overwritten by the UI panel, potentially causing scripts to stop working.</p><p><strong>Workaround:</strong> Schedule the <a href="/cms_trial/space/PSJC/793280566/Custom+fields+support+SIL+script/">Custom fields support SIL script</a> to run periodically to restore missing aliases. The script won't create duplicates and can be run multiple times safely without affecting existing aliases.</p><h2 id="user-attribution-inconsistencies">User attribution inconsistencies</h2><p>When Power Scripts updates issues in Product Discovery projects, the actions are performed by the current user instead of the addon. This affects operations like:</p><ul><li><p>Editing or deleting comments</p></li><li><p>Managing attachments</p></li><li><p>Setting field values</p></li></ul><p>This occurs because the Power Scripts addon doesn't have the necessary permissions to perform these operations directly in Product Discovery projects.</p></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/1940488291/Migration+resources/">Migration resources</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/1940488352/SIL+scripts+migration+guide/">SIL scripts migration guide</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Manual script migration</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/1940488446" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Manual script migration</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="panel panel-note"><p>Power Scripts will be unavailable during scheduled maintenance on August 8-9, 2026. Don't start a Data Center to Cloud migration during this time. Once maintenance is complete, update both your Data Center app and Power Scripts Cloud to the latest version before starting a migration.</p></div><p>What to expect when considering migrating to cloud.</p><p>This page explains the steps for manually migrating your SIL scripts from Jira Server/Data Center (Jira DC) to Jira Cloud.</p><div class="panel panel-note"><p>While migrating scripts and settings from Jira Server/Data Center to Jira Cloud can be done manually, there are automation tools that can help with large script volumes. In such cases, we can provide assistance with the script migration process. See <a href="https://appfire.atlassian.net/wiki/spaces/PSJ/pages/15481538">how to get help</a>.</p></div><h2 id="prer-quisites">Prerеquisites</h2><p>Your Power Scripts and SIL Engine version must be 5.8.0.0 or higher.</p><h2 id="procedure">Procedure</h2><ol><li><p>Export all scripts from your Jira Server or DC instance.</p><ol><li><p>Open the SIL Manager and right-click the <strong>silprograms</strong> folder.</p></li><li><p>From the dropdown menu that opens, select <strong>Download</strong>.<br/></p><img alt="This screenshot shows the Download menu that opens after right-clicking on the silprograms folder in the SIL Manager." class="doc-image" loading="lazy" src="/cms_trial/assets/13a45902-6d25-4a08-86c2-0d5cb8c860c0.png"/></li></ol></li><li><p>Install Power Script for Jira Cloud on your target cloud instance.</p></li><li><p>From the application server running Jira, create a zip file of the <strong>silprograms</strong> directory found in the Jira Home folder.</p></li><li><p>In your Jira Cloud instance:</p><ol><li><p>Navigate to the <strong>Apps </strong>&gt;<strong> Power Scripts</strong> &gt; <strong>Self Help</strong> page.</p></li><li><p>Select the <strong>Backup/Restore</strong> tab. </p></li><li><p>Upload the zip file.</p></li></ol></li></ol><img alt="This screenshot shows the Self Help page open on the Backup-Restore tab where the Upload button is located." class="doc-image" loading="lazy" src="/cms_trial/assets/e9240197-efbf-4c3d-9d96-4141cac563bf.png"/><p>Your SIL scripts are now migrated to the new Jira Cloud instance.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

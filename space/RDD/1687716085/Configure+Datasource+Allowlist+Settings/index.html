@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309946/User+guides/">User guides</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/2116583951/Admin+settings/">Admin settings</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/1900118024/Manage+Datasource+Restrictions/">Manage Datasource Restrictions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Configure Datasource Allowlist Settings</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/1687716085" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Configure Datasource Allowlist Settings</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview<br/></h2><p>The process for updating data source allowlist settings differs between Cloud and Data Center. This document outlines these differences and how to configure them.</p><ul><li><p><strong>Cloud</strong>: Managed through Appfire’s Jira configuration screen.</p></li><li><p><strong>Data Center</strong>: Managed through the platform Atlassian.</p></li></ul><div class="panel panel-note"><p>This feature is only available for Dashboard Hub Pro and Dashboard Hub for Confluence (Cloud and Data Center). Dashboard Hub for Bitbucket and Dashboard for monday.com do not include this configuration option yet.</p></div><h2 id="cloud">Cloud</h2><p>The Allowlist must be configured in the <strong>Global Settings</strong> section of Dashboard Hub. To configure, follow these steps:</p><ol><li><p>Select the <strong>More </strong>dropdown.</p></li><li><p>Click <strong>Apps.</strong></p></li><li><p>Click <strong>Manage apps. </strong></p></li><li><p>Navigate to Dashboard Hub's left sidebar and click <strong>Global Settings. </strong></p></li><li><p>Under <strong>Datasource Restrictions, </strong>you can choose <strong>Allowlist</strong>.</p><img alt="Dashboard Hub datasource allowlist settings page" class="doc-image" loading="lazy" src="/cms_trial/assets/ad852010-fe1f-40e1-8c42-757c5ad863f7.png"/></li></ol><h3 id="restriction-type">Restriction Type</h3><p>Three different restrictions can be set:</p><p><strong>Disabled - </strong>Data can be retrieved from any source with no restrictions. </p><ul><li><p>Data can be retrieved from <strong>any source</strong> without limitations; no restrictions are enforced on where the data comes from.</p></li><li><p>This is recommended for environments where external integrations are required.</p></li></ul><p><strong>Do not allow external data sources</strong> - only restrict data retrieval to this instance.</p><ul><li><p>Restricts data retrieval to the current Jira or Confluence instance only. Thus, <strong>external data sources are entirely blocked</strong>, ensuring that all queries and reports use internal data only.</p></li><li><p>Recommended for <strong>high-security environments</strong> where external data access is not permitted.</p></li></ul><p><strong>Allowlist </strong>- Only allows data from data sources with domains explicitly listed here.</p><ul><li><p>Only allows data retrieval from<strong> explicitly approved </strong>domains<strong>. </strong>Thus, Users must <strong>manually specify allowed domains</strong> to ensure secure connections.</p></li><li><p>Recommended for <strong>controlled access scenarios</strong>, only trusted external data sources should be used.</p></li></ul><h2 id="data-center">Data Center</h2><p>Dashboard Hub delegates the configuration on the Atlassian platform configuration: <a href="https://confluence.atlassian.com/adminjiraserver/configuring-the-allowlist-1014667309.html">https://confluence.atlassian.com/adminjiraserver/configuring-the-allowlist-1014667309.html</a> </p><p>To configure the Allowlist in the Data Center, follow these steps:</p><ol><li><p>From the top navigation bar, select <strong>Administration</strong>  &gt; <strong>System</strong>. </p></li><li><p> Select <strong>Allowlist</strong>.</p></li><li><p>Enter the URL or expression you want to allow.</p></li><li><p>Choose the <strong>Type</strong> of expression (see <em>Expression Types</em> below for examples).</p></li><li><p>Choose <strong>Allow Incoming</strong> if you need to allow CORS requests. See <a href="https://confluence.atlassian.com/adminjiraserver/configuring-the-allowlist-1014667309.html#Configuringtheallowlist-AllowIncomingSection">Configuring the allowlist</a> for more details).</p></li><li><p>Choose <strong>Allow anonymous users</strong> if you need to allow unauthenticated users.</p></li><li><p>Choose <strong>Add</strong>. Your URL or expression appears in the allowlist.</p></li></ol><div class="img-placeholder"><span class="tag">Image — asset pipeline pending</span><br/>Image</div><p>To test that your allowed listed URL works as expected, you can enter a URL in the <strong>Test a URL</strong> field. Icons will indicate whether incoming or outgoing traffic is allowed for that URL.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

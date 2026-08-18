@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions for Jira</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">JQL Search Extensions (Cloud)</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JQLSEARCH/pages/604209972" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>JQL Search Extensions (Cloud)</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>JQL Search Extensions for Jira Cloud (JSE) adds 50+ JQL functions and keywords not available in native Jira advanced search to improve the speed, precision, and relevance of your issue searches. Your queries can be saved as filters and used anywhere you would use a standard Jira filter. </p><h2 id="what-s-the-difference-between-extended-search-and-jira-s-advanced-search">What’s the difference between Extended Search and Jira’s advanced search?</h2><h3 id="extended-search"><strong>Extended Search</strong></h3><p>Extended Search is JSE’s issue search feature for Jira Cloud. Here, you can expand on Jira’s native search using JSE functions and keywords, save your queries as <a href="/cms_trial/space/JQLSEARCH/604209567/Extended+Search+filters/">filters</a>. You can use these filters in future searches and reporting and in other third-party apps.</p><p>To open the <em>Extended Search</em> page, in the top navigation bar in Jira, select <strong>Apps</strong> &gt;  <strong>JQL Search Extensions for Jira</strong>. Go to the <a href="/cms_trial/space/JQLSEARCH/604209464/Extended+Search/"><em>Extended Search</em></a> topic to learn more. </p><div class="panel panel-note"><p>JSE Cloud functions can only be used in the Extended Search page.</p></div><h3 id="advanced-search"><strong>Advanced search</strong></h3><p>Advanced search is Jira’s native JQL issue search feature. It lets you search across all projects in your instance using Jira Query Language (JQL). You can save your queries as filters then use them in reporting features and share them with others to facilitate their searching and reporting tasks. JSE Cloud keywords can be used in Extended Search and Advanced search.</p><h2 id="get-started">Get started</h2><p>See the <a href="/cms_trial/space/JQLSEARCH/604209802/Get+started+with+JQL+Search+Extensions+for+Jira/">Get started</a> section to learn more about where to use JSE and how to save and manage Extended Search filters. </p><p>Are you using Jira Data Center? See <a href="/cms_trial/space/JQLSEARCH/604209431/Get+started+with+JQL+Search+Extensions+for+Jira+Data+Center/">Get started with JQL Search Extensions for Jira Data Center </a>to learn about our Data Center app.</p><hr/><p>If you need further support, don't hesitate to contact us through our customer <a href="https://appf.re/support">support portal</a>.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

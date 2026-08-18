@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/1916338329/Scripting/">Scripting</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465503811/Using+Nunjucks+Templates/">Using Nunjucks Templates</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Shared Nunjucks Templates</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/465473979" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Shared Nunjucks Templates</h1>
+    <div class="page-meta">4 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><img alt="JMWE Administration page listing Shared Nunjucks Templates" class="doc-image" loading="lazy" src="/cms_trial/assets/92ef0321-0e94-44e4-a07b-c79308383a1e.png"/><p><strong>JMWE for Jira Cloud</strong> provides support for shared Nunjucks templates. A shared template can be used across many post-functions, and updating a shared template through the administration page will update the template everywhere it is used, increasing maintainability and efficiency. </p><div class="columns" style="grid-template-columns: 100.0fr;"><div><div class="panel panel-note"><p>A shared Nunjucks template can also be used to implement lengthy templates - longer than those normally possible inside post-functions. </p></div><img alt="JMWE for Jira Cloud shared Nunjucks templates editor with template management" class="doc-image" loading="lazy" src="/cms_trial/assets/834b9810-ceee-46d9-9af7-90b39a8f9222.png"/><p>The sections below explain how to create shared Nunjucks templates and reuse them from JMWE post functions or the <a href="/cms_trial/space/JMWEC/465503776/JMWE+Administration/">Nunjucks tester</a>. </p><h2 id="creating-a-shared-nunjucks-template">Creating a shared Nunjucks template</h2><ol><li><p>Log in to your Jira Cloud instance as an administrator.</p></li><li><p>Click the <strong>Settings</strong> icon ⚙️ in the upper right corner and select <strong>Apps</strong>.</p></li><li><p>Under <em>JIRA MISC WORKFLOW EXTENSIONS</em> in the left-hand panel, click <strong>Shared Nunjucks templates</strong>.</p></li><li><p>At the top of the list of shared templates, click <strong>Create new template</strong>.</p></li><li><p>The <strong>Shared Nunjucks Template Editor</strong> (Figure 2, right) will open. </p></li><li><p>Configure and build the template:</p><ol><li><p><strong>Template name</strong> - Give the template a name. </p></li><li><p><strong>Description</strong> - Give the template a description, if desired.</p></li><li><p><strong>Nunjucks template</strong> - Enter the Nunjucks template. </p></li></ol></li><li><p>Optionally, you can test the template against any issue using the <strong>Test Nunjucks template… </strong>button in the upper right corner of the editor.</p></li><li><p>Click <strong>Save</strong>.</p></li></ol><h2 id="working-with-templates">Working with Templates</h2><p>Within the list of Shared Nunjucks templates (Figure 1, right), there are several tools for sorting, filtering and working with your templates:  </p><ul><li><p>Use the <strong>Filter</strong> button ( <span class="inline-icon" title="inline icon">▢</span> ) to filter by any column. </p></li><li><p>Use the <strong>Sort</strong> button ( <span class="inline-icon" title="inline icon">▢</span> ) to sort a column. </p></li><li><p>Use the <strong>Action</strong> button (  click <strong>Edit </strong>to the right of the Shared Template name. </p></li><li><p>To delete a template, click <strong>Delete</strong> to the right of the Shared Template name.</p></li></ul><h2 id="import-include-a-nunjucks-template">Import/Include a Nunjucks template</h2><p>You can <a href="https://innovalog.atlassian.net/wiki/spaces/MWECS/pages/138447486/Tags+and+Expressions#TagsandExpressions-import">import</a> or <a href="https://innovalog.atlassian.net/wiki/spaces/MWECS/pages/138447486/Tags+and+Expressions#TagsandExpressions-include">include</a> a shared Nunjucks template into your post-functions or Script tester using the respective tags available in Nunjucks.</p><div class="panel panel-warning"><h3 id="limitations-of-macros">Limitations of macros</h3><p>Nunjucks macros have two limitations about which you need to be aware:</p><ol><li><p>Macros do not have access to the <em>global variables</em> of the calling Nunjucks template (such as <code>issue</code>, <code>currentUser</code>, etc.) If you need to access these variables from the body of the macro, you need to pass them as <em>parameters</em> to the macro.</p></li><li><p>Macros cannot execute asynchronous code. This means that <em>any filter that calls the Jira API</em> will fail when used inside a macro, and the failure is <em>silent</em> (no error message). This is a major limitation of Nunjucks macros. The workaround is <em>not to use macros</em> and instead <code>include</code> Shared Templates.</p></li><li><p>Macros cannot be used inside an <code>{% if %}</code> block. When a macro needs to be used in an if block, use <strong>ifAsync</strong> instead. For example, instead of: </p><pre><code class="language-">{% if true %}
 {% import "getReporter" as Reporter %}
 {{ Reporter.getReporter("Test",1) }}
@@ -188,6 +193,64 @@ Regards,
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

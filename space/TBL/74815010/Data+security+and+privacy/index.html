@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74814936/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Data security and privacy</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TBL/pages/74815010" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Data security and privacy</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>This page contains security information about Advanced Tables for Confluence on the cloud.</p><p><strong>Data tracking and privacy</strong><br/>At Appfire, we are committed to continuously improving our products while respecting user privacy.</p><ul><li><p>Our tracking efforts are designed to collect aggregate data related to app usage patterns and feature engagement. It allows us to identify areas for improvement and tailor our product roadmap accordingly.</p></li><li><p>We utilize tracking tools to gather analytics that inform our development process, focusing on enhancing user experience and optimizing our app's performance.</p></li><li><p><strong>Our privacy promise</strong>: No sensitive data is ever stored.</p><ul><li><p>All data is anonymized and aggregated before being used for analysis, ensuring that individual user information remains confidential and secure. Our practices align with industry standards for data protection and privacy.</p></li></ul></li></ul><p>The latest information on the security, privacy, and compliance of our uniquely positioned products and services is available in the <a href="https://trust.appfire.com/"><u>Appfire Trust Center</u></a>, for example, <a href="https://trust.appfire.com/?itemUid=38b62117-19f2-4e4e-b679-9421b66c114e&amp;source=click"><u>Data Security</u></a> in our apps. This article provides information about the security, copyrights, and licensing policy.</p><table><tr><td><p><strong>End User License Agreement</strong></p><hr/><p>The End User License Agreement contains the general terms and conditions for using our app licenses. Read our <a href="https://apps.appf.re/appfire-eula"><u>End User License Agreement</u></a> to learn more.</p></td><td><p><strong>Acceptable Use Policy</strong></p><hr/><p>The policy explains the terms and conditions for using our cloud services and the maintenance and usage of data through our apps. See our <a href="https://apps.appf.re/appfire-acceptable-use-policy"><u>Acceptable Use Policy</u></a> to learn more.</p></td></tr><tr><td><p><strong>Privacy Policy</strong></p><hr/><p>The policy provides information about your rights with respect to your data and our rights to process your data. See our <a href="https://apps.appf.re/appfire-privacy-policy"><u>Privacy Policy</u></a> to learn more.</p></td><td><p><strong>General FAQs</strong></p><hr/><p>If you have any additional questions about our policies, see <a href="https://appfire.com/eula-faq/#gdpr-faq"><u>GDPR Frequently Asked Questions</u></a> or create a <a href="http://appf.re/gdpr"><u>GDPR request</u></a> to get answers.</p></td></tr></table>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

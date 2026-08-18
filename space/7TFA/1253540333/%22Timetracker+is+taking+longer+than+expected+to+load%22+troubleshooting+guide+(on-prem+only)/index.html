@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/3511091204/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253540447/Frequently+Asked+Questions/">Frequently Asked Questions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">"Timetracker is taking longer than expected to load" troubleshooting guide (on-prem only)</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/7TFA/pages/1253540333" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>"Timetracker is taking longer than expected to load" troubleshooting guide (on-prem only)</h1>
+    <div class="page-meta">5 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><table><tr><th><p><strong>On this page:</strong></p><ul><li><p><a href="/cms_trial/space/7TFA/1253540333/%22Timetracker+is+taking+longer+than+expected+to+load%22+troubleshooting+guide+(on-prem+only)/">Start by opening the 7pace Timetracker website direct link</a></p></li><li><p><a href="/cms_trial/space/7TFA/1253540333/%22Timetracker+is+taking+longer+than+expected+to+load%22+troubleshooting+guide+(on-prem+only)/">Getting 500.19 error after opening the direct link</a></p></li><li><p><a href="/cms_trial/space/7TFA/1253540333/%22Timetracker+is+taking+longer+than+expected+to+load%22+troubleshooting+guide+(on-prem+only)/">HTTP Error 500.30 - ASP.NET Core app failed to start</a></p></li><li><p><a href="/cms_trial/space/7TFA/1253540333/%22Timetracker+is+taking+longer+than+expected+to+load%22+troubleshooting+guide+(on-prem+only)/">Checking the certificate being used for the 7pace Timetracker website</a></p></li><li><p><a href="/cms_trial/space/7TFA/1253540333/%22Timetracker+is+taking+longer+than+expected+to+load%22+troubleshooting+guide+(on-prem+only)/">Checking the port on which the 7pace Timetracker website is hosted</a></p></li><li><p><a href="/cms_trial/space/7TFA/1253540333/%22Timetracker+is+taking+longer+than+expected+to+load%22+troubleshooting+guide+(on-prem+only)/">Checking the Application Pool Start Mode</a></p></li><li><p><a href="/cms_trial/space/7TFA/1253540333/%22Timetracker+is+taking+longer+than+expected+to+load%22+troubleshooting+guide+(on-prem+only)/">Checking the Application Pool recycling interval</a></p></li><li><p><a href="/cms_trial/space/7TFA/1253540333/%22Timetracker+is+taking+longer+than+expected+to+load%22+troubleshooting+guide+(on-prem+only)/">Modifying the Application Pool Idle Time-out Setting</a></p></li></ul></th></tr></table><p>If you are receiving the message "Timetracker is taking longer than expected to load" when you try to navigate to the Time tab in the DevOps Server web portal <strong>after a fresh install</strong> or after you have <strong>made changes to your DevOps/TFS instance</strong> and reinstalled Timetracker, below you will find the steps to troubleshoot this issue.</p><img alt="FAQ_Time_Tracker_Troubleshoot.png" class="doc-image" loading="lazy" src="/cms_trial/assets/3d3b8227-e002-4348-b95e-5e3b63b4ab18.png"/><p><div class="img-placeholder">[Unmapped macro: anchor — no content to fall back on]</div></p><h3 id="starting-troubleshooting">Starting troubleshooting</h3><p>Check that you are able to open the direct link for the 7pace Timetracker website URL. To find it, run the 7pace Timetracker Configuration Tool and copy the link that is listed under the Bindings field:</p><img alt="FAQ_Time_Tracker_Start_Troubleshoot.png" class="doc-image" loading="lazy" src="/cms_trial/assets/56605bcd-b438-44f6-be27-de6ff6e32a97.png"/><p>If Timetracker is running properly, it should display an empty page with the following text: "Welcome to 7pace Timetracker".</p><img alt="FAQ_Time_Tracker_Welcome_Message.png" class="doc-image" loading="lazy" src="/cms_trial/assets/2d55168e-4ca7-4a85-a486-2d64df33ff1b.png"/><p><div class="img-placeholder">[Unmapped macro: anchor — no content to fall back on]</div></p><h3 id="possible-scenario-1">Possible scenario 1</h3><p>If you are seeing a <strong>500.19 error</strong> after opening the direct link, this indicates that the <strong>ASP.NET Core Runtime Hosting Bundle</strong> is not installed, or an incorrect version is installed. To resolve the issue, please see the <a href="/cms_trial/space/7TFA/1253539922/Installation+guide/">Prerequisites for 7pace Timetracker</a> and install the correct version of the <a href="/cms_trial/space/7TFA/1253539922/Installation+guide/">ASP.NET Core Runtime Hosting Bundle</a>.</p><img alt="FAQ_Time_Tracker_Possible_Scenario_1.png" class="doc-image" loading="lazy" src="/cms_trial/assets/e099022e-fdcf-4085-92ee-064f0b2c4d6f.png"/><p>After installing ASP.NET Core, try to open the direct link again. If ASP.NET Core missing was the cause of your issue, Timetracker should work now without problems.</p><p><div class="img-placeholder">[Unmapped macro: anchor — no content to fall back on]</div></p><h3 id="possible-scenario-2">Possible scenario 2</h3><p>If you are seeing the following message:</p><p>"HTTP Error 500.30 - ASP.NET Core app failed to start"</p><p>Then check the Application event viewer logs on the server where Timetracker is installed and they should give you an indication for the reason for this issue. If you need assistance to resolve it, please contact <a href="https://appfire.atlassian.net/servicedesk/customer/portal/35">technical support</a>.</p><p><div class="img-placeholder">[Unmapped macro: anchor — no content to fall back on]</div></p><h3 id="possible-scenario-3">Possible scenario 3</h3><p>Check the certificate that you are using for the 7pace Timetracker website. Whatever URL you have configured for Timetracker under the Bindings in the 7pace Timetracker Configuration Tool, this URL must be contained in the certificate, or should be covered by a wildcard certificate used with the website.<br/>If you are seeing the below certificate error (depending on your browser) when navigating to any Timetracker page, then there is an issue with the certificate:</p><img alt="FAQ_Time_Tracker_Possible_Scenario_3.png" class="doc-image" loading="lazy" src="/cms_trial/assets/fd073cc4-ba88-4c89-8d37-d6113c815fc0.png"/><p>To check the certificate that is used with the Timetracker website, open IIS and select the 7pace Timetracker website under Sites (1). Then, in the Edit Site section, click on Bindings (2). Here you will be able to see a list of the bindings for the website. Select the binding you are using and click on the Edit button (3). In the SSL certificate section, click on the View button (4) and ensure that the Timetracker website URL is contained in the Subject field on the Details tab of the certificate (5):</p><img alt="FAQ_Time_Tracker_Possible_Scenario_Edit_3.png" class="doc-image" loading="lazy" src="/cms_trial/assets/b346031a-487a-4ba2-8c87-e087a14bedf9.png"/><p>Once the certificate is updated correctly, check the direct link once more, and if you are able to open any Timetracker pages from DevOps.</p><p><div class="img-placeholder">[Unmapped macro: anchor — no content to fall back on]</div></p><h3 id="possible-scenario-4">Possible scenario 4</h3><p>Ensure that only 7pace Timetracker is hosted on port 8080 in IIS, which is the default port for Timetracker.</p><p>To check if you have any other websites hosted on the same port as you are hosting 7pace Timetracker, open the 7pace Timetracker Configuration Tool and check which port is configured for the Timetracker website. Then, open your IIS (Internet Information Services) and check the hosted websites by selecting each website in the navigation panel under Sites, and ensuring that port 8080 is not occupied by any of them, or whatever port you are using for the 7pace Timetracker website in the Browse Website section. In the screenshot below, you can see a misconfiguration where the Azure DevOps Server website is using port 8080, which prevents Timetracker from using it since this port is configured by default under the Timetracker Bindings:</p><img alt="FAQ_Time_Tracker_Possible_Scenario_4.png" class="doc-image" loading="lazy" src="/cms_trial/assets/587a54e0-cc2c-4d0a-b7db-e3fbcc136b1c.png"/><p>Check the direct link once more and if you are able to open any Timetracker pages from DevOps.</p><p><div class="img-placeholder">[Unmapped macro: anchor — no content to fall back on]</div></p><h3 id="possible-scenario-5">Possible scenario 5</h3><p>If none of the previously described scenarios are valid for you, then ensure that the Application Pools "Start Mode" is set to "Always Running".<br/><br/>1. Open IIS.<br/>2. Open Application Pools list.<br/>3. Select 7pace Timetracker App Pool.<br/>4. Click the "Advanced Settings" button on the right panel (see screenshot below).<br/>5. In the resulting dialog box, ensure that the "Start Mode" setting is set to "Always Running".</p><img alt="FAQ_Time_Tracker_Possible_Scenario_5.png" class="doc-image" loading="lazy" src="/cms_trial/assets/e91f0f79-7ded-476c-bd64-4da4e79d390d.png"/><p><div class="img-placeholder">[Unmapped macro: anchor — no content to fall back on]</div></p><h3 id="possible-scenario-6">Possible scenario 6</h3><p>If none of the previously described scenarios are valid for you, then check the Application Pools' "Regular Time Interval" to ensure that it is recycling regularly.</p><p>1. On the "Edit Application Pool" panel, click "Advanced Settings" (screenshot in Step x)<br/>2. Scroll down and check the "Regular Time Interval".</p><img alt="FAQ_Time_Tracker_Possible_Scenario_6.png" class="doc-image" loading="lazy" src="/cms_trial/assets/17a8736d-07bb-4137-882c-f756f345ae78.png"/><p><div class="img-placeholder">[Unmapped macro: anchor — no content to fall back on]</div></p><p> Possible Scenario 7</p><p>Change the "Idle Time-out" Setting to "0".</p><p>Sometimes, IIS can send the application to the background when it is not getting requests (even if "Always Running" is true). </p><p>1. On the Edit Application Pool panel, click "Advanced Settings". (screenshot in Step x)<br/>2. Scroll down and check the "Idle Time-out".<br/>3. "Idle Time-out" is usually set to 20. Set it to "0". </p><img alt="FAQ_Time_Tracker_Possible_Scenario_7.png" class="doc-image" loading="lazy" src="/cms_trial/assets/2c3ea081-813b-4210-a2c5-f24177569143.png"/><p> <em>If you were unable to resolve your issue after following all the steps described, please reach out to </em><a href="mailto:supportazure@appfire.com"><em>7pace Support</em></a><em> for assistance.</em></p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

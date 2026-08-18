@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1891206842/Configure/">Configure</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Revoke access for expired connection</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3224731651" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Revoke access for expired connection</h1>
+    <div class="page-meta">2 min read</div>
     <h2 id="summary"><strong>Summary</strong></h2><p>This issue is caused by a Salesforce security policy that automatically expires refresh tokens after 30 days of inactivity. Once the token expires, the connection between Salesforce and Jira stops working, and all automated workflows and data syncs that rely on it will fail until an administrator reauthorizes it. </p><p><strong>No data is lost when a connection expires.</strong> Existing Salesforce and Jira records are not affected. Only new syncs and automated workflows are paused until the connection is reauthorized.</p><h3 id="symptoms"><strong>Symptoms</strong></h3><p>You may encounter the <strong> Salesforce authorization failed</strong> error when a connection has expired. Automated workflows and data syncs between Salesforce and Jira stop working until the connection is reauthorized. </p><h2 id="before-you-start">Before you start</h2><p>Make sure you have:</p><ul><li><p>Jira administrator permissions - only Jira administrators can revoke and reauthorize connections.</p></li></ul><h2 id="resolution">Resolution</h2><p>Complete step 1 for connections in Jira. </p><p>Complete step 2 if you use the Jira connections in Salesforce.</p><h3 id="1-revoke-access-for-the-connection"><strong>1. Revoke access for the connection</strong></h3><ol><li><p>In Jira, go to <strong>Apps</strong> from the left sidebar.</p></li><li><p>Under <em>Connector for Salesforce</em>, click <strong>Connections</strong>.</p></li><li><p>Select the impacted connection, and click <strong>Revoke Access</strong>.</p><img alt="Connector for Salesforce Connections page with the Revoke Access button selected for an expired connection." class="doc-image" loading="lazy" src="/cms_trial/assets/365f7c80-7cf7-40ad-8551-a03484d0c212.png"/></li><li><p>Click <strong>Revoke </strong>to<strong> </strong>confirm.</p></li><li><p>Click <strong>Authorize</strong>.</p></li><li><p>Sign in with Salesforce credentials when prompted.</p></li></ol><h3 id="2-change-the-access-token-in-the-salesforce-connection"><strong>2. Change the Access Token in the Salesforce connection</strong></h3><ol><li><p>In Salesforce, click <strong>Settings </strong>&gt;<strong> Setup</strong>.</p></li><li><p>In the sidebar, use <strong>Quick Find</strong> to find <em>Package</em> and go to <strong>Installed Packages</strong>.</p></li><li><p>Look for <em>Jira Cloud for Salesforce</em> and click <strong>Configure</strong>. </p></li><li><p>Click <strong>Change access token</strong> next to the connection.</p><img alt="Jira Cloud for Salesforce configuration page with the Change access token option highlighted." class="doc-image" loading="lazy" src="/cms_trial/assets/197ac89f-af6e-4d51-a97d-8ceffa9a3770.png"/></li><li><p>Switch to Jira and go to <strong>Apps</strong> from the left sidebar.</p></li><li><p>Under <em>Connector for Salesforce</em>, click <strong>Connections</strong>.</p></li><li><p>Click <strong>Menu</strong> (<span class="inline-icon" title="inline icon">▢</span>)&gt; <strong>API Access Token.</strong> </p><div class="img-placeholder"><span class="tag">Image — asset pipeline pending</span><br/>Connections page showing the More actions menu with API Access Token selected.</div></li><li><p>The <em>API Access Token</em><strong> </strong>dialog window appears with the <strong>Salesforce access token.</strong></p><img alt="Salesforce access token shown in the API Access Token page." class="doc-image" loading="lazy" src="/cms_trial/assets/675497d2-7209-4f97-9e14-05b793197664.png"/></li><li><p> Copy the Salesforce access token and save it. </p></li><li><p>Under <strong>Access Token </strong>in the <em>Change Access Token</em> window, paste the new Salesforce Access Token you have just copied in step 9.</p><img alt="Change Access Token dialog with the Access Token field highlighted." class="doc-image" loading="lazy" src="/cms_trial/assets/fd7e1a71-9c4d-489e-ab9a-8b76f6ea40fc.png"/></li><li><p>Click <strong>Save</strong>.</p></li></ol>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

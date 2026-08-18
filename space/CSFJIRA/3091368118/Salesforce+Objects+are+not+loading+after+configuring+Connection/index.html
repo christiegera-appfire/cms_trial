@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1891206842/Configure/">Configure</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Salesforce Objects are not loading after configuring Connection</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3091368118" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Salesforce Objects are not loading after configuring Connection</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="summary">Summary</h2><p>After configuring the Salesforce Connection in JIRA, the Salesforce Objects are not loading:</p><img alt="contentId-3091368118" class="doc-image" loading="lazy" src="/cms_trial/assets/a76f41e5-8d7b-43f0-806e-cffdb2cb35ed.png?version=1&amp;modificationDate=1678857296741&amp;cacheVersion=1&amp;api=v2"/><h2 id="environment">Environment</h2><p>JIRA Cloud</p><p>Chrome browser.</p><h2 id="diagnostics-steps">Diagnostics Steps</h2><p>Not applicable.</p><h2 id="cause">Cause</h2><p>Chrome browser prevents websites from saving and reading cookie data.</p><h2 id="workaround">Workaround</h2><p>Not applicable.</p><h2 id="resolution">Resolution</h2><p>Disable "Block Third Party Cookies" in Chrome setting:</p><ol><li><p>On your computer, open Chrome <span class="inline-icon" title="inline icon">▢</span>.</p></li><li><p>At the top right, select <strong>More</strong><span class="inline-icon" title="inline icon">▢</span> <strong>Settings</strong><span class="inline-icon" title="inline icon">▢</span>.</p></li><li><p>Select <strong>Privacy and security &gt; Third-party cookies.</strong></p></li><li><p>Select <strong>Allow third-party cookies</strong>. </p></li></ol><p>Learn more about cookies:<a href="https://support.google.com/accounts/answer/61416?hl=en&amp;co=GENIE.Platform%3DDesktop"> turn cookies on or off.</a> </p></div><div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

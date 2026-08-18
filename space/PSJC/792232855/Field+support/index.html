@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796721618/Jira+Product+Discovery+support/">Jira Product Discovery support</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Field support</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/792232855" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Field support</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>This page covers which fields work with Power Scripts in Jira Product Discovery projects.</p><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>Product Discovery uses fields differently than standard Jira projects to create specialized tables and views for idea management. This unique field structure can cause compatibility issues with Power Scripts. </p><h2 id="supported-fields">Supported fields</h2></div></div><p>The following fields work with Power Scripts in Product Discovery projects:</p><table><tr><td><p><strong>Standard fieds</strong></p></td><td><p>Standard Jira fields work normally when present in Product Discovery projects, including Summary, Description, Assignee, and others. For a complete list of supported standard fields, see <a href="/cms_trial/space/PSJC/434962565/Supported+custom+field+types/">this page</a>.</p></td></tr><tr><td><p><strong>Custom fields</strong></p></td><td><p>Most Product Discovery custom fields work with SIL code like any other custom field. These include fields like Category, Customer segments, Documents, Goal, and others discovered by the <a href="/cms_trial/space/PSJC/793280566/Custom+fields+support+SIL+script/">Custom fields support SIL script</a>.</p><div class="img-placeholder">[Unmapped block: nestedExpand]</div></td></tr><tr><td><p><strong>Date fields</strong></p></td><td><p>Use the <a href="/cms_trial/space/PSJC/435028065/Predefined+structure+types+reference/">JPDInterval SIL type</a> to manipulate custom date type fields, such as Project start and Project target. </p></td></tr></table><h2 id="unsupported-fields">Unsupported fields</h2><p>The following fields return null values from the REST API and cannot be accessed through Power Scripts:</p><ul><li><p>Delivery progress</p></li><li><p>Delivery status</p></li><li><p>Insights</p></li></ul><div class="panel panel-note"><p>Some Product Discovery fields use ranking-style values (similar to 5-star ratings) that may require special handling in your scripts. If you need to work with ranking-style fields, use the <a href="/cms_trial/space/PSJC/793280566/Custom+fields+support+SIL+script/">Custom fields support SIL script</a> to discover the current field IDs and test accessibility.</p></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

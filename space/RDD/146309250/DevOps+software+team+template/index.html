@@ -48,14 +48,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146310013/Dashboard+templates/">Dashboard templates</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">DevOps software team template</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/146309250" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>DevOps software team template</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><img alt="Dashboard Hub DevOps software team template gadget thumbnail" class="doc-image" loading="lazy" src="/cms_trial/assets/9b71f758-c8aa-4be5-8689-07c7283b5c29.png"/><p><a href="/cms_trial/space/RDD/146309250/DevOps+software+team+template/">DEVOPS SOFTWARE TEAM</a></p><p><a href="/cms_trial/space/RDD/146309250/DevOps+software+team+template/">Help monitoring all the processes involved in the DevOps chain</a></p><h2 id="overview">Overview</h2><p>DevOps is about communication and collaboration between development, IT, and operations teams. At the heart of the DevOps movement are practices like continuous integration and delivery, integration, automation, and deployment. Each of these practices produces outputs that require constant monitoring. </p><p>This dashboard groups gadgets to help monitor all the processes involved in the DevOps chain. By combining all the involved tools into a single source of truth, teams can deliver value more quickly and efficiently.</p><img alt="Dashboard Hub DevOps software team template gadget thumbnail" class="doc-image" loading="lazy" src="/cms_trial/assets/3b50e021-fb64-4d37-83bf-6db10af53fb4.jpg"/><p>Transmit to the involved teams information about the last deployments, critical incidents, or who is on-call duty when an alert or a service is down. Combine these gadgets with others from the <a href="/cms_trial/space/RDD/146310016/Scrum+software+team+template/">Scrum software team template</a> or the <a href="/cms_trial/space/RDD/146309962/IT+Service+Management+team+template/">IT Service Management team template</a>.</p><h2 id="gadgets">Gadgets</h2><p>This dashboard template comes with a set of gadgets that you can organize according to your needs. Learn more about adding and configuring gadgets in <a href="/cms_trial/space/RDD/146310019/Add+and+configure+gadgets/">Add and configure gadgets</a>.</p><div class="columns" style="grid-template-columns: 33.33fr 33.33fr 33.33fr;"><div><p><div class="img-placeholder">[Unmapped macro: excerpt-include — no content to fall back on]</div></p></div><div><p><div class="img-placeholder">[Unmapped macro: excerpt-include — no content to fall back on]</div></p></div><div><p><div class="img-placeholder">[Unmapped macro: excerpt-include — no content to fall back on]</div></p></div></div><div class="columns" style="grid-template-columns: 33.33fr 33.33fr 33.33fr;"><div><p><div class="img-placeholder">[Unmapped macro: excerpt-include — no content to fall back on]</div></p></div><div><p><div class="img-placeholder">[Unmapped macro: excerpt-include — no content to fall back on]</div></p></div><div><p><div class="img-placeholder">[Unmapped macro: excerpt-include — no content to fall back on]</div></p></div></div><div class="columns" style="grid-template-columns: 33.33fr 33.33fr 33.33fr;"><div><p><div class="img-placeholder">[Unmapped macro: excerpt-include — no content to fall back on]</div></p></div><div><p><div class="img-placeholder">[Unmapped macro: excerpt-include — no content to fall back on]</div></p></div><div><p><div class="img-placeholder">[Unmapped macro: excerpt-include — no content to fall back on]</div></p></div></div><h2 id="current-integrations">Current integrations</h2><ul><li><p><span class="icon-note">[bitbucket icon]</span></p></li></ul><details><summary>Bitbucket </summary><div class="img-placeholder">[Unmapped macro: contentbylabel — no content to fall back on]</div></details><ul><li><p><span class="icon-note">[statuspage icon]</span> </p></li></ul><details><summary>Statuspage</summary><div class="img-placeholder">[Unmapped macro: contentbylabel — no content to fall back on]</div></details><ul><li><p><span class="icon-note">[opsgenie icon]</span> </p></li></ul><details><summary>Opsgenie</summary><div class="img-placeholder">[Unmapped macro: contentbylabel — no content to fall back on]</div></details><div class="panel panel-note"><p>We are working on our growing catalog of <a href="/cms_trial/space/RDD/146310010/Product+and+data+connections/">product and data integrations</a>. If you can’t find what you need, <a href="https://appf.re/support">let us know</a>.</p></div>
   </main>
   <aside class="sidebar">
@@ -185,6 +190,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

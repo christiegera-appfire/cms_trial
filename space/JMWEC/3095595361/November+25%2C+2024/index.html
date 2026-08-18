@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/1154449466/Release+notes/">Release notes</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">November 25, 2024</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/3095595361" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>November 25, 2024</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="feature-release-jmwe-for-jira-cloud-1-2-36">Feature Release - JMWE for Jira Cloud 1.2.36</h2><p>This release of <strong>JMWE for Jira Cloud</strong> includes various UI updates, including an expanded script editor window for longer scripts, an option to disable JMWE menus in various Jira views, and other Bug fixes. </p><p><span class="img-placeholder" style="display:inline">[unmapped inline: placeholder]</span></p><p><span class="img-placeholder" style="display:inline">[unmapped inline: placeholder]</span></p></div></div><hr/><h2 id="enhancements">Enhancements</h2><h3 id="script-editors">Script editors</h3><p>The script editors used throughout JMWE configuration pages have been updated to better use the available screen space. Editing longer scripts should now be more accessible. </p><h3 id="jmwe-automation-rule-builder">JMWE Automation Rule Builder</h3><p>The Automation Rule Builder has been updated to better display on small viewports. Administering your automations on the go just got easier!</p><h3 id="option-to-remove-jmwe-from-menus">Option to remove JMWE from menus</h3><p>With an earlier release, shortcuts to the JMWE Administration pages were added to the project sidebar, the board menus, and the Action menu in the issue view. This update provides a toggle in the <a href="/cms_trial/space/JMWEC/466288938/JMWE+Configuration/">JMWE Configuration</a> page that allows you to disable these additional menu options.  </p><h3 id="copy-issue-fields-post-function-ui-fixes">‘Copy issue fields’ post function UI fixes</h3><p>The field labels in the <a href="/cms_trial/space/JMWEC/466323304/Copy+issue+fields/">Copy issue fields</a> post function configuration screen have been updated for better clarity. </p><h2 id="bug-fixes">Bug fixes</h2><p>The following bugs are fixed in this release:</p><ul><li><p><strong>Actions</strong></p><ul><li><p>For <a href="/cms_trial/space/JMWEC/465473524/Event-based+actions/">Event-based Actions</a>, icons would sometimes fail to load on the configuration page. This has been resolved. </p></li><li><p>On the <a href="/cms_trial/space/JMWEC/466321868/Scheduled+actions/">Scheduled Actions</a> administration page, the <strong>Run Now</strong> option in the Action menu would not trigger a change to the UI, leading to some confusion on whether or not the action was initiated. This has been resolved. </p></li></ul></li><li><p><strong>Shared Nunjucks Templates</strong></p><ul><li><p>General responsiveness when editing or deleting <a href="/cms_trial/space/JMWEC/465473979/Shared+Nunjucks+Templates/">Shared Nunjucks templates</a> has been improved. </p></li></ul></li><li><p><strong>Status Pickers in extensions</strong></p><ul><li><p>When encountering missing status values, status pickers used in extension configuration screens (for example, <a href="/cms_trial/space/JMWEC/466323193/Linked+Issues+Status+Condition/">Linked Issues Status Condition</a> or <a href="/cms_trial/space/JMWEC/465504708/Linked+Issues+Status+Validator/">Linked Issues Status Validator</a>) displayed errors and showed all statuses as grey labels. Error handling has been improved and this has been resolved. </p></li></ul></li><li><p><strong>Nunjucks parentIssue variable</strong></p><ul><li><p>In some circumstances, the <strong>parentIssue</strong> variable failed to retrieve values when executing a Nunjucks template. This has been resolved. </p></li></ul></li><li><p><strong>Post-functions</strong></p><ul><li><p>The <a href="/cms_trial/space/JMWEC/466323396/Shared+Action+post-function/">Shared action</a> post function configuration page had broken links and was missing tooltip text. These have been fixed. </p></li></ul></li><li><p><strong>User Properties Editor</strong></p><ul><li><p> There was a display issue on the User Properties Editor administration page that hid the <strong>Add</strong> button. This has been fixed. </p></li></ul></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

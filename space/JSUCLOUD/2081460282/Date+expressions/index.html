@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12518429/Features/">Features</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12518573/Key+concepts/">Key concepts</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Date expressions</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JSUCLOUD/pages/2081460282" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Date expressions</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>This page explains how to write a date expression in JSU Automation Suite for Jira Workflows (JSU). Date expressions can be used in our validators, conditions, and preconditions.</p><h2 id="how-to-write-a-date-expression-in-jsu">How to write a date expression in JSU</h2><p>JSU reads a date expression using the following logic:</p><ul><li><p>Units should be entered in order, from largest to smallest, for example, <code>2y 6M 1w</code>.</p></li><li><p>If a value doesn’t include the unit, JSU interprets it as minutes. For example, <code>4d 10</code> is interpreted as four days, 10 minutes.</p></li><li><p>A unit can only be used once in an expression.</p></li><li><p>The value and unit should be written without spaces, for example, <code>2w 1d</code>.</p></li><li><p>Unless a unit is explicitly written as a negative value, it’s read as positive. For positive values, you can include the <code>+</code> if you prefer. For example, <code>4d</code> is the same as <code>+4d</code>. To express the negative value, write <code>-4</code>. </p></li><li><p>JSU accepts the following expression units: </p></li></ul><table><tr><td><p><code>y</code></p></td><td><p>years</p></td></tr><tr><td><p><code>M</code></p></td><td><p>months</p></td></tr><tr><td><p><code>w</code></p></td><td><p>weeks</p></td></tr><tr><td><p><code>d</code></p></td><td><p>days</p></td></tr><tr><td><p><code>m</code></p></td><td><p>minutes</p></td></tr><tr><td><p><code>s</code></p></td><td><p>seconds</p></td></tr></table><h3 id="valid-date-expression-examples">Valid date expression examples</h3><table><tr><th></th><th><p><strong>Expression</strong></p></th><th><p><strong>Meaning</strong></p></th></tr><tr><td><p>✅</p></td><td><p>2M 1w</p></td><td><p>two months, one week</p></td></tr><tr><td><p>✅</p></td><td><p>1y</p></td><td><p>one year</p></td></tr><tr><td><p>✅</p></td><td><p>10d 12h</p></td><td><p>10 days, 12 hours</p></td></tr><tr><td><p>✅</p></td><td><p>20</p></td><td><p>20 minutes</p></td></tr><tr><td><p>✅</p></td><td><p>-6d</p></td><td><p>minus six days</p></td></tr><tr><td><p>✅</p></td><td><p>+3M</p></td><td><p>three months</p></td></tr></table><h3 id="date-expression-error-examples">Date expression error examples</h3><table><tr><th></th><th><p><strong>Expression</strong></p></th><th><p><strong>Error</strong></p></th></tr><tr><td><p>❌</p></td><td><p>2M 4y</p></td><td><p>The units are not in the correct order</p></td></tr><tr><td><p>❌</p></td><td><p>1d 30m 5</p></td><td><p>The missing unit for 5 is read as minutes, which is already used</p></td></tr><tr><td><p>❌</p></td><td><p>4w 5d 1d</p></td><td><p>The day unit is used twice</p></td></tr><tr><td><p>❌</p></td><td><p>1y 6 M</p></td><td><p>There is a space in the months expression</p></td></tr></table><h3 id="recommended-operators">Recommended operators</h3><p>It’s recommended that you use the greater than (<code>&gt;</code>, <code>&gt;=</code>) or less than (<code>&lt;</code>, <code>&lt;=</code>) operators instead of equal to (<code>=</code>) and not equal to (<code>!=</code>) when using date expressions.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

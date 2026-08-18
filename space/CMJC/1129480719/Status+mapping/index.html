@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira (CMJ) Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/193823429/Features+and+options/">Features and options</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/2507112493/Deploy+a+snapshot/">Deploy a snapshot</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/759595150/Transformations/">Transformations</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Status mapping</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CMJC/pages/1129480719" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Status mapping</h1>
+    <div class="page-meta">6 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="what-is-a-status-mapping">What is a status mapping?</h2><p>In Jira, you can’t delete a status from an active workflow before you remap it to another valid status. To accommodate this, <strong>Configuration Manager for Jira (CMJ) Cloud</strong> provides a mapping process that allows you to select an alternative status during deployment. CMJ Cloud then applies the status mapping while updating the active workflow.</p><h2 id="when-is-status-mapping-required">When is status mapping required</h2><p>CMJ Cloud halts the deployment during the <em>Analyze</em> phase if it identifies a status scheduled for deletion from an active workflow. In such instances, you will encounter the following error:</p><div class="panel panel-warning"><p><strong>Status needs to be remapped</strong></p><p><em>The [statusname] status won’t be deployed in the current deployment configuration. It needs to be remapped to an active status to maintain workflow stability.</em></p></div><p>It requires you to map the status scheduled for deletion to another status. You can choose a status already in the destination or one that the deployment will create. For instructions on how to map statuses using a JSON file, please refer to <a href="#Guidelines-for-mapping-statuses-with-a-JSON-file">this section</a>.</p><h2 id="how-to-remap-statuses-with-inline-transformations">How to remap statuses with Inline transformations</h2><p>The easiest way can do status remaps is directly within the <strong>Detailed Analysis Info Screen</strong> by using inline transformations. This method allows users to manually adjust mappings without downloading or modifying a JSON file.</p><p><strong>Steps to remap a status with Inline transformations:</strong></p><ol><li><p>Open the <strong>Issue Migrations </strong>card by selecting it on the <em>Analyze</em> page.</p></li><li><p>This opens up the <strong>Status Mapping</strong> section.</p></li></ol><img alt="NEWStatusMapping.png" class="doc-image" loading="lazy" src="/cms_trial/assets/ef77e258-7134-408e-ad1f-d327fe13b77e.png"/><ol><li><p>Click the dropdown under <strong>New Status</strong> and select a new status to replace the one that’s going to be deleted.</p></li><li><p>The change will be marked as a <strong>Draft</strong>, indicating that the modification has been made but not yet finalized.</p></li><li><p>Click <strong>Analyze Changes</strong> to confirm and save the transformation.</p></li><li><p>Review the <strong>Changes Tab</strong> to verify the updated mapping before proceeding with deployment.</p></li></ol><h2 id="how-to-remap-statuses-with-bulk-transformations">How to remap statuses with Bulk transformations</h2><p>Bulk transformations provide a structured approach to map statuses using a JSON file. This method is useful for larger-scale deployments where multiple statuses need to be reassigned efficiently.</p><p><strong>Steps to remap a status with Bulk transformations:</strong></p><ol><li><p>Create a deployment.</p></li><li><p>During the Analyze Changes phase, click the <strong>Bulk Transformations</strong> button.</p><ul><li><p>This will allow you to download a JSON file containing the default mapping for all projects, configuration elements, and users in the deployment scope. The file will also include entries for statuses scheduled for deletion and a list of alternative statuses for mapping.</p></li></ul></li></ol><img alt="DownloadMapButton.png" class="doc-image" loading="lazy" src="/cms_trial/assets/76f86735-2fce-4241-abb9-a0d269ef881b.png"/><ol><li><p>Modify the JSON file.</p><ul><li><p>Enter alternative statuses for those scheduled for deletion. Follow the syntax guidelines outlined in the section <a href="/cms_trial/space/CMJC/759988316/Guidelines+to+customize+the+configuration+mapping/">Guidelines for Mapping Statuses with a JSON File</a>.</p></li></ul></li><li><p>Upload the updated JSON file via the <strong>Bulk Transformations</strong> button.</p></li></ol><img alt="UploadMapButton.png" class="doc-image" loading="lazy" src="/cms_trial/assets/dc4bc2f8-7aae-422c-b863-478cefb6717b.png"/><ol><li><p>Confirm the mapping.</p><ul><li><p>If no problems are detected, click <strong>Confirm</strong> to apply the status mapping. CMJ Cloud will reanalyze the configuration and finalize the mapping.</p></li></ul></li><li><p>Resolve any errors.</p><ul><li><p>If issues are reported, correct the JSON file and re-upload it. The deployment will not be able to proceed until all problems are resolved.</p></li></ul></li><li><p>Click <strong>Deploy</strong> to finalize the deployment.</p><ul><li><p>CMJ Cloud will apply the status mapping and update affected issues accordingly.</p></li></ul></li></ol><h2 id="guidelines-for-mapping-statuses-with-a-json-file">Guidelines for mapping statuses with a JSON file</h2><p>As mentioned above, you can download a JSON mapping file that describes how the source configuration elements will be transferred to the destination. If the deployment process involves deleting a status from an active workflow, the file will include a section for status mapping. In this section, you need to specify an alternative status from the list of mappable statuses to replace the one being deleted. After deployment, any issues associated with the deleted status will be reassigned to the new status.</p><p>To configure the status mapping, modify the downloaded mapping file or create your own. Make sure any file you generate is in JSON format. Refer to the <a href="/cms_trial/space/CMJC/759988316/Guidelines+to+customize+the+configuration+mapping/">Guidelines to customize the configuration mapping</a> document for additional instructions on using a JSON file.</p><h3 id="map-statuses-in-a-downloaded-json-file">Map statuses in a downloaded JSON file</h3><p>You can manage the mapping between statuses by downloading the current mapping file, modifying it, and then uploading it back. When the deployment includes deleting a status, the mapping file you download will include entries similar to the example below:</p><p><em>Status mapping records in a downloaded JSON file</em></p><pre><code class="language-json">"statusMapping" : {
     "mappableStatuses" : [ "Build Broken", "To Do", "Done", "Review" ],
     "statusMigrations" : [ {
@@ -186,6 +191,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193033035/Feature+guide/">Feature guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193162930/Page+macros/">Page macros</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Document Metadata Set</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2510750404" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Document Metadata Set</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview</h2><p>The Document Metadata Set macro lets you define metadata values on a page that can be referenced by other metadata macros or accessed in workflow definitions. It helps store and share structured information that can be reused in different parts of your documentation or workflow setup.</p><h2 id="parameters">Parameters</h2><table><tr><th><p><strong>Parameter</strong></p></th><th><p><strong>Description</strong></p></th></tr><tr><td><p><strong>Metadata Name</strong> <em>(required)</em></p></td><td><p>The name of the metadata to be set.</p></td></tr><tr><td><p><strong>Metadata value </strong><em>(required)</em></p></td><td><p>The value of the metadata.</p></td></tr><tr><td><p><strong>Hidden</strong></p></td><td><p>When selected, the metadata value is stored but not displayed as part of the page content.</p></td></tr></table><h2 id="add-the-macro">Add the macro</h2><p>To add the Document Metadata Set macro,</p><ol><li><p>On a draft page, type <code>/document metadata set</code>.<br/></p><img alt="Document Metadata Set macro." class="doc-image" loading="lazy" src="/cms_trial/assets/3e6bcab2-307a-4d20-ae96-87290532f379.png"/></li><li><p>Choose the <strong>Document Metadata Set </strong>macro. Click the macro to edit and add the <strong>Metadata Name</strong> and <strong>Metadata Value.</strong></p></li></ol><img alt="Insert Set Metadata showing the Metadata Name and Metadata Vaule fields." class="doc-image" loading="lazy" src="/cms_trial/assets/1b493b91-6e50-4b92-b3a2-8365364d2b31.png"/><ol><li><p>Click <strong>Insert. </strong></p></li></ol><img alt="Document Metadata Set Metadata Value field." class="doc-image" loading="lazy" src="/cms_trial/assets/dbba8063-289a-42e1-a7bf-d48854c1563d.png"/><ol><li><p><strong>Publish</strong> or <strong>update</strong> the page to retrieve and render the metadata value on the page.</p></li></ol>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

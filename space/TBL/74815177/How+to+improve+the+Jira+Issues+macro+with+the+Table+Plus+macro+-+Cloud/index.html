@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74814716/Use+cases+-+cloud/">Use cases - cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74812579/Table+Plus+macro+examples+-+Cloud/">Table Plus macro examples - Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">How to improve the Jira Issues macro with the Table Plus macro - Cloud</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TBL/pages/74815177" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>How to improve the Jira Issues macro with the Table Plus macro - Cloud</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview</h2><p>This page demonstrates how to use the <a href="/cms_trial/space/TBL/74812542/Table+Plus+macro+-+Cloud/">Table Plus macro</a>, which is part of the <a href="https://appfire.atlassian.net/wiki/spaces/TBL">Advanced Tables for Confluence</a> app, to enhance the <em>Jira Issues</em> macro. Simply insert a <em>Table Plus</em> macro onto your page, configure its parameters, and then insert a <em>Jira Issues</em> macro inside of the <em>Table Plus</em> macro. </p><div class="panel panel-warning"><p>Though nested macros are generally not supported in Confluence Cloud, some macros like the <em>Jira Issues</em> macro can be inserted into the <em>Table Plus</em> macro.</p></div><p>The <em>Table Plus</em> macro can add sorting and other features to the <a href="https://confluence.atlassian.com/display/DOC/JIRA+Issues+Macro">Jira Issues macro</a> including styling the table differently. The key to doing this successfully can sometimes be dependent on the Confluence release (or more specifically, the release of the plugin containing <em>Jira Issues</em> macro).</p><div class="panel panel-success"><h3 id="limitations">Limitations</h3><p>Sorting is only done on the visible issues.</p></div><h2 id="macro-browser-input">Macro browser input</h2><h2 id="select-this-macro">Select this macro</h2><table><tr><td><p><strong>Macro name</strong></p></td><td><p><em>Advanced Tables - Table Plus</em></p></td></tr><tr><td><p><strong>Macro syntax (Old editor)</strong></p></td><td><p><em>{table-plus}</em></p></td></tr><tr><td><p><strong>Macro syntax (New editor - case insensitive)</strong></p></td><td><p><em>/Table Plus</em></p></td></tr></table><h2 id="define-these-parameters-values">Define these parameters/values</h2><table><tr><td><p><em><strong>Heading rows</strong></em></p></td><td><p><em>2</em><em> </em></p></td></tr><tr><td><p><em><strong>Column types</strong></em></p></td><td><p><em>S,S,X,M,M,S,S,S,F,F,S</em></p></td></tr></table><div class="panel panel-warning"><ul><li><p>The <em>Column types</em> parameter is required for sorting. It should contain a comma separated list of values for handling each column.  </p></li><li><p>Click <em>Display Options</em> from within the <a href="https://confluence.atlassian.com/display/DOC/JIRA+Issues+Macro">Jira Issues macro</a> to review and optionally, customize the columns to display, and thus, determine how to set the <em>Table Plus</em> macro's <em>Column types</em> parameter.</p></li></ul></div><h3 id="column-types-parameter-values">Column types parameter values</h3><table><tr><th><p>Use</p></th><th><p>For</p></th></tr><tr><td><p><strong>String (</strong><em><strong>S</strong></em><strong>)</strong></p></td><td><p>Columns with string values.</p></td></tr><tr><td><p><strong>Exclude this column from user selectable sorting (</strong><em><strong>X</strong></em><strong>)</strong></p></td><td><p>Exclude column from sorting. For example, using <em>Type</em> column as that sorts by key, which is confusing.</p></td></tr><tr><td><p><strong>Date (</strong><em><strong>M</strong></em><strong>)</strong></p></td><td><p>Columns with date values.</p></td></tr><tr><td><p><strong>Complex HTML elements (</strong><em><strong>E</strong></em><strong>)</strong></p></td><td><p>Columns with images or emoticons.</p></td></tr><tr><td><p><strong>Numeric and float values </strong><em><strong>(F)</strong></em></p></td><td><p>Columns with numeric or float values.</p></td></tr></table><h3 id="parameters-set-in-the-macro-editor">Parameters set in the macro editor</h3><img alt="Advanced Tables Table Plus macro settings for Jira Issues macro data" class="doc-image" loading="lazy" src="/cms_trial/assets/c6f86e73-275b-43f5-977d-b285d77fb692.png"/><img alt="Advanced Tables Jira Issues macro column type settings" class="doc-image" loading="lazy" src="/cms_trial/assets/4531a7bc-493e-4add-b698-44736b01bc0a.jpg"/><p>After the relevant parameters are set in the <em>Table Plus</em> and <em>Jira Issues</em> macros, the macros are shown on the page (before it is published) as:</p><img alt="Advanced Tables Jira Issues macro input table example" class="doc-image" loading="lazy" src="/cms_trial/assets/37271841-a955-4da8-9614-e5d334b3cddd.jpg"/><h2 id="wiki-markup-input-old-editor">Wiki markup input (Old editor)</h2><pre><code class="language-plaintext">{table-plus:heading=2|autoTotal=true|columnTypes=S,S,X,M,M,S,S,S,F,F,S}
 {jiraissues:url=[https://xxxxxxxx.atlassian.net/sr/jira.issueviews:searchrequest-rss/temp/SearchRequest.xml?jqlQuery=project+%3D+TBL+AND+fixVersion+%3D+%226.1.0%22+ORDER+BY+priority+DESC}
 {table-plus}</code></pre><h2 id="example-result">Example result</h2><div class="img-placeholder">[Unmapped block: blockCard]</div><h2 id="other-examples">Other examples</h2><p>Visit our <a href="/cms_trial/space/TBL/74814716/Use+cases+-+cloud/">full list of product examples</a> for additional inspiration!</p>
@@ -156,6 +161,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

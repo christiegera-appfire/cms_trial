@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309984/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146310544/Security/">Security</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Firewall issues</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/146311321" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Firewall issues</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>Potential issues with firewalls</p><h2 id="overview">Overview</h2><p>Our apps run on AWS servers. To improve the performance and security of our services, we perform different requests with very specific scopes. This means that our apps can make multiple calls to our servers, requesting very specific data.</p><div class="panel panel-note"><p>Ensure that your system administrator adds the following URLs to the allowlist for your firewall: </p><ul><li><p><a href="https://dashboardhub-eu.appfire.app/">https://dashboardhub-eu.appfire.app</a></p></li><li><p><a href="https://dashboardhub-us.appfire.app/">https://dashboardhub-us.appfire.app</a></p></li></ul></div><h2 id="the-problem">The problem</h2><p>A common problem in cloud instances is that some firewalls identify third-party app servers as <em>untrustworthy</em>, preventing users from accessing our app<em>’s</em> functionalities. </p><h3 id="how-to-check-if-you-are-affected-by-a-firewall-issue">How to check if you are affected by a firewall issue</h3><p>To know if you are affected, the first thing that can happen is that an error page displays when you load our app (a blank page with the error message):</p><img alt="Dashboard Hub firewall issue error message" class="doc-image" loading="lazy" src="/cms_trial/assets/6392d85a-bd9f-4296-b8a3-a7cc441ec230.png"/><p>If you see this page, you might be affected. To confirm that this is the case, try to open the following URLs.</p><ul><li><p><a href="https://dashboardhub-eu.appfire.app/images/dashboard.svg">https://dashboardhub-eu.appfire.app/images/dashboard.svg</a></p></li><li><p><a href="https://dashboardhub-us.appfire.app/images/dashboard.svg">https://dashboardhub-us.appfire.app/images/dashboard.svg</a></p></li></ul><p>If you are unable to load it and see the following image instead, then you are affected by this issue.</p><img alt="Dashboard Hub firewall issue configuration example" class="doc-image" loading="lazy" src="/cms_trial/assets/c187a24f-786f-49dc-ab90-4a3c0624d192.png"/><p>To further test if this is the problem, you can try disabling the firewall and launching the app again. Remember to enable the firewall again following the test.</p><p>If it still doesn’t load, submit a help request through <a href="https://roninpixels.atlassian.net/servicedesk/customer/portal/7">our support portal</a>.</p><h2 id="solution">Solution</h2><p>To enable our app to work with your firewall, contact the system/firewall administrator and ask to include these URLs on the allowlist: </p><ul><li><p><a href="https://dashboardhub-eu.appfire.app/">https://dashboardhub-eu.appfire.app</a> </p></li><li><p><a href="https://dashboardhub-us.appfire.app/">https://dashboardhub-us.appfire.app</a> </p></li></ul><h2 id="see-also">See also</h2><ul><li><p><a href="https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=DTPS&amp;title=Security%20and%20compliance">Security and compliance</a></p></li><li><p><a href="/cms_trial/space/RDD/146309741/Data+Residency+(Cloud)/">Data Residency</a></p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

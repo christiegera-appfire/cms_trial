@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146310010/Product+and+data+connections/">Product and data connections</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/1529219266/Custom+Reports+-+REST+API+integration/">Custom Reports - REST API integration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/1568374878/Custom+Reports+templates/">Custom Reports templates</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/2173534443/Atlassian+apps/">Atlassian apps</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Jira joins financial data</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/1955954704" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Jira joins financial data</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview</h2><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><p>Display Jira issue table linking issues with financial data taken from <a href="https://www.npoint.io/docs/5a3a149160b561c7b868">https://www.npoint.io/docs/5a3a149160b561c7b868</a>. </p></div><div></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="prerequisites">Prerequisites</h2><ul><li><p>Connect<strong> the </strong>Jira datasource to a valid Jira instance. </p></li><li><p>Set up an initial variable project to an existing project key.</p></li><li><p>Clone point financial data and fill in some info for existing issue keys. </p></li><li><p>Connect the financial data datasource to your endpoint. </p></li></ul></div><div></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="features">Features</h2><ul><li><p>Load data from two different datasources and process it to be consumed (join data). <span class="status-lozenge">datasource required</span></p></li></ul></div><div></div></div><img alt="Dashboard Hub Jira joins financial data custom report preview" class="doc-image" loading="lazy" src="/cms_trial/assets/dd02756e-458b-420e-9732-b67199cbcae8.png"/><img alt="Dashboard Hub report setup using Jira and financial data sources" class="doc-image" loading="lazy" src="/cms_trial/assets/41d365f0-a9b5-4f01-b5f8-933c84006d66.png"/><ul><li><p>Render a table.</p></li><li><p>Reuse styles using stylesheets.</p></li><li><p>Render columns from a different data set using <code>$root</code>.</p></li><li><p>Shape data calculating aggregation for rendering purposes.</p></li><li><p>Render a line/area chart showing multiple data series.</p></li><li><p>Render a progress circular bar. </p></li></ul><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="setup">Setup</h2><ol><li><p>Add a datasource. See: <a href="/cms_trial/space/RDD/1550352515/Configure+a+REST+API+datasource+for+Custom+Reports/">Configure a REST API datasource for Custom Reports</a>. </p></li><li><p>Click <strong>Add Gadget</strong>.</p></li><li><p>Select <strong>Custom Reports</strong> in the side navigation.</p></li><li><p>Select the <strong>Appfire Hedge risk matrix</strong>.</p></li></ol><div class="panel panel-note"><p>See <a href="/cms_trial/space/RDD/2110030119/Custom+report+example/">Custom report example</a> for a video walkthrough of how to customize your report. </p></div></div><div></div></div><img alt="Dashboard Hub custom report combining Jira and financial data sources" class="doc-image" loading="lazy" src="/cms_trial/assets/9e72d333-8f30-429e-b84a-9bb58626aa26.png"/>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

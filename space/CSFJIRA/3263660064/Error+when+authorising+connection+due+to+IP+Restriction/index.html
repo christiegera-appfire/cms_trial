@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1891206842/Configure/">Configure</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Error when authorising connection due to IP Restriction</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3263660064" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Error when authorising connection due to IP Restriction</h1>
+    <div class="page-meta">2 min read</div>
     <h2 id="summary"><strong>Summary</strong></h2><p>This article addresses the issue when establishing a connection between Salesforce and Jira Cloud using the Connector for Salesforce &amp; Jira due to "Restricted IP" status. It covers scenarios where Salesforce security settings (Login IP Ranges or Network Access) block the connection attempt.</p><h2 id="environment"><strong>Environment:</strong></h2><ul><li><p><strong>Platform:</strong> Jira Cloud / Salesforce</p></li><li><p><strong>Version:</strong> All Cloud versions</p></li></ul><h2 id="problem">Problem</h2><p>When authorizing the connection, the following error appears: “This is probably not the page you were looking for”</p><img alt="image-20260622-032214.png" class="doc-image" loading="lazy" src="/cms_trial/assets/ccad2356-3366-494c-9b4a-b7c1a9ce4a56.png"/><p>Checking through the <strong>Login History </strong>of the user account used for the authorization, the <strong>Status</strong> shows as <strong>Restricted IP</strong>.</p><img alt="image (6)-20260622-033136.png" class="doc-image" loading="lazy" src="/cms_trial/assets/46906721-9052-48e5-9b44-b9766d537409.png"/><h2 id="cause">Cause</h2><p>The issue is typically caused by Salesforce-side security configurations that restrict access based on IP addresses. Even if the Connector app is correctly installed, Salesforce may block the incoming request if:</p><ol><li><p>The <strong>Salesforce User Profile</strong> used for the connection has specific <strong>Login IP Ranges</strong> defined that do not include the user's current IP address.</p></li><li><p>The Salesforce <strong>Network Access</strong> settings (Trusted IP Ranges) are restricted.</p></li></ol><p>For Jira Cloud instances, there is no requirement to manually whitelist IP addresses for the app itself beyond standard installation.</p><h2 id="solution">Solution</h2><p> After ensuring the remote site is added as per <a href="https://support.appfire.com/space/CSFJIRA/1873412619/Add+new+remote+site">https://support.appfire.com/space/CSFJIRA/1873412619/Add+new+remote+site</a> article, follow the steps below:</p><h3 id="1-check-user-profile-login-ip-ranges">1. Check User Profile Login IP Ranges</h3><p>If the Salesforce user used for the integration has restricted IP ranges, the connection will be blocked.</p><ol><li><p>Log in to Salesforce as an Administrator.</p></li><li><p>Go to <strong>Setup</strong> &gt; <strong>Users</strong> &gt; <strong>Users</strong>.</p></li><li><p>Click on the name of the <strong>affected user</strong> (the one used for the Jira-Salesforce connection).</p></li><li><p>Click on the user's <strong>Profile</strong>.</p></li><li><p>Scroll down to the <strong>Login IP Ranges</strong> section.</p></li><li><p><strong>Action:</strong></p><ul><li><p>If ranges are configured, you must add the IP address mentioned in the previous <strong>Login History </strong>to the list.</p></li><li><p>Alternatively, if these restrictions are not required for your organization's security policy, remove the ranges to allow access from all IPs.</p></li></ul></li></ol><h3 id="2-check-network-access-trusted-ip-ranges">2. Check Network Access / Trusted IP Ranges</h3><p>Check if there are global network restrictions in Salesforce.</p><ol><li><p>Go to <strong>Salesforce Setup</strong> &gt; <strong>Security</strong> &gt; <strong>Network Access</strong>.</p></li><li><p>Review the <strong>Trusted IP Ranges</strong>.</p></li><li><p><strong>Action:</strong> Ensure the IP address shown in the previous <strong>Login History</strong> is within a trusted range</p></li></ol><h2 id="related-articles"><strong>Related articles</strong></h2><ul><li><p><a href="https://support.appfire.com/space/CSFJIRA/3091334997/Page+cannot+be+found+when+I+try+to+re-authorize+connection+with+Salesforce">https://support.appfire.com/space/CSFJIRA/3091334997/Page+cannot+be+found+when+I+try+to+re-authorize+connection+with+Salesforce</a> </p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

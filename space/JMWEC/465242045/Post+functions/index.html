@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465372899/Workflow+Extensions+for+Jira+Cloud/">Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Post functions</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/465242045" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Post functions</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p>Post functions are used to carry out additional processing <em>after</em> a transition is performed. <strong>Jira Misc Workflow Extensions (JMWE)</strong> includes the following Post functions:</p><ul class="children-list"><li><a href="/cms_trial/space/JMWEC/465242070/Display+Message+to+User/">Display Message to User</a></li><li><a href="/cms_trial/space/JMWEC/465242225/Link+issues+to+the+current+issue/">Link issues to the current issue</a></li><li><a href="/cms_trial/space/JMWEC/465242612/Transition+issue(s)/">Transition issue(s)</a></li><li><a href="/cms_trial/space/JMWEC/465474211/Copy+comments+to+related+issues/">Copy comments to related issues</a></li><li><a href="/cms_trial/space/JMWEC/465504784/Unlink+issues+from+the+current+issue/">Unlink issues from the current issue</a></li><li><a href="/cms_trial/space/JMWEC/465504849/Set+issue+fields/">Set issue fields</a></li><li><a href="/cms_trial/space/JMWEC/465505339/Delete+issue(s)/">Delete issue(s)</a></li><li><a href="/cms_trial/space/JMWEC/466225840/Set+entity+property+value/">Set entity property value</a></li><li><a href="/cms_trial/space/JMWEC/466226128/Clear+fields/">Clear fields</a></li><li><a href="/cms_trial/space/JMWEC/466256916/Create+issue(s)/">Create issue(s)</a><ul class="children-list"><li><a href="/cms_trial/space/JMWEC/465474628/Advanced+configuration+of+the+Create+issue(s)+post-function/">Advanced configuration of the Create issue(s) post-function</a></li></ul></li><li><a href="/cms_trial/space/JMWEC/466257282/Set+field+value+from+User+Entity+Property+value/">Set field value from User Entity Property value</a></li><li><a href="/cms_trial/space/JMWEC/466289696/Increase+value+of+field/">Increase value of field</a></li><li><a href="/cms_trial/space/JMWEC/466289991/Build-your-own+(Nunjucks+scripted)+Post+function/">Build-your-own (Nunjucks scripted) Post function</a></li><li><a href="/cms_trial/space/JMWEC/466322568/Comment+issue(s)/">Comment issue(s)</a></li><li><a href="/cms_trial/space/JMWEC/466322658/Email+issue/">Email issue</a></li><li><a href="/cms_trial/space/JMWEC/466322933/Sequence+of+Post-functions/">Sequence of Post-functions</a></li><li><a href="/cms_trial/space/JMWEC/466323304/Copy+issue+fields/">Copy issue fields</a></li><li><a href="/cms_trial/space/JMWEC/466323396/Shared+Action+post-function/">Shared Action post-function</a></li><li><a href="/cms_trial/space/JMWEC/1023803395/Return+to+Previous+Status/">Return to Previous Status</a></li><li><a href="/cms_trial/space/JMWEC/1126432847/Set+Issue+Security+Level/">Set Issue Security Level</a></li><li><a href="/cms_trial/space/JMWEC/1133772861/Assign+issue(s)/">Assign issue(s)</a></li><li><a href="/cms_trial/space/JMWEC/1546420358/Log+Work/">Log Work</a></li><li><a href="/cms_trial/space/JMWEC/1848017067/Send+Slack+message/">Send Slack message</a></li></ul></div><div><iframe src="https://appfire.wistia.com/medias/kgacaewnx4"></iframe></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

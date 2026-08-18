@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Feature guide</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2193033035" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Feature guide</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>This guide provides a technical overview of the core features within <strong>Comala Document Management</strong> for Confluence Cloud.</p><p>Follow the sections below to configure administrative settings, architect custom workflows, and deploy page macros to surface real-time metadata. You will also learn to leverage advanced reporting tools to audit document statuses across your entire Confluence instance.<br/></p><ul class="children-list"><li><a href="/cms_trial/space/CDMC/2192838469/Page+macros+for+reporting/">Page macros for reporting</a><ul class="children-list"><li><a href="/cms_trial/space/CDMC/2192677319/Document+State/">Document State</a></li><li><a href="/cms_trial/space/CDMC/2192777118/Document+Approvals/">Document Approvals</a></li><li><a href="/cms_trial/space/CDMC/2193097355/Document+Activity/">Document Activity</a></li></ul></li><li><a href="/cms_trial/space/CDMC/2192870271/Apply+workflows/">Apply workflows</a><ul class="children-list"><li><a href="/cms_trial/space/CDMC/2192838126/At+page%2Fblog+level/">At page/blog level</a></li><li><a href="/cms_trial/space/CDMC/2193033075/At+space+level/">At space level</a></li></ul></li><li><a href="/cms_trial/space/CDMC/2192903639/Administration/">Administration</a><ul class="children-list"><li><a href="/cms_trial/space/CDMC/2192776249/Space+administration/">Space administration</a></li><li><a href="/cms_trial/space/CDMC/2192870224/App+scope+and+permissions/">App scope and permissions</a></li><li><a href="/cms_trial/space/CDMC/2193066207/Workflow+elements+and+concepts/">Workflow elements and concepts</a></li><li><a href="/cms_trial/space/CDMC/2193129643/Global+administration/">Global administration</a></li><li><a href="/cms_trial/space/CDMC/2193129668/Built-in+workflow+templates/">Built-in workflow templates</a></li><li><a href="/cms_trial/space/CDMC/2193162391/Create+and+edit+workflows/">Create and edit workflows</a></li></ul></li><li><a href="/cms_trial/space/CDMC/2193001238/Notifications/">Notifications</a></li><li><a href="/cms_trial/space/CDMC/2193066247/Searching+and+Reporting/">Searching and Reporting</a><ul class="children-list"><li><a href="/cms_trial/space/CDMC/2193033420/Document+report+-+Space+level/">Document report - Space level</a></li><li><a href="/cms_trial/space/CDMC/2193162907/Document+activity+(document-level)/">Document activity (document-level)</a></li></ul></li><li><a href="/cms_trial/space/CDMC/2193129918/Workflow+state+dialog/">Workflow state dialog</a><ul class="children-list"><li><a href="/cms_trial/space/CDMC/2192968161/Assign+reviewers+through+the+workflow+state+dialog/">Assign reviewers through the workflow state dialog</a></li><li><a href="/cms_trial/space/CDMC/2193129841/Workflow+state+byline/">Workflow state byline</a></li></ul></li><li><a href="/cms_trial/space/CDMC/2193162930/Page+macros/">Page macros</a><ul class="children-list"><li><a href="/cms_trial/space/CDMC/2192838382/Document+Metadata+Get/">Document Metadata Get</a></li><li><a href="/cms_trial/space/CDMC/2508096484/Document+Metadata+Report/">Document Metadata Report</a></li><li><a href="/cms_trial/space/CDMC/2510750404/Document+Metadata+Set/">Document Metadata Set</a></li><li><a href="/cms_trial/space/CDMC/2513600585/Document+Metadata+From/">Document Metadata From</a></li><li><a href="/cms_trial/space/CDMC/2513797193/Document+Metadata+List/">Document Metadata List</a></li><li><a href="/cms_trial/space/CDMC/2513862720/Document+Metadata+Values/">Document Metadata Values</a></li></ul></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

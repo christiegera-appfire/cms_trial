@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PP/1803714584/Planning+Poker+Help+Center/">Planning Poker</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PP/1803714584/Planning+Poker+Help+Center/">Planning Poker Help Center</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PP/1159103478/Release+notes%E2%80%8E/">Release notes‎</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PP/1159300293/Cloud/">Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Release notes August 2024</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PP/pages/1234108523" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Release notes August 2024</h1>
+    <div class="page-meta">1 min read</div>
     <p><strong>Release date</strong>: <time datetime="2024-08-22">August 22, 2024</time></p><p>Our team is thrilled to announce the latest release of Planning Poker for Jira Cloud.</p><hr/><h2 id="enhancements">Enhancements</h2><p>These new enhancements streamline the planning process and provide greater flexibility for teams.</p><h2 id="game-management">Game Management</h2><h3 id="save-and-finish">Save and Finish</h3><p>The <strong>Save</strong> button is enabled when unestimated items are in the game backlog. In this situation, a specific button is provided for finishing the game.</p><img alt="contentId-1234108523" class="doc-image" loading="lazy" src="/cms_trial/assets/b4f115b8-f04b-4469-884f-1b726f464edd.png"/><p>The <strong>Save &amp; Finish </strong>button<strong> </strong>will only be visible if users estimate the last item from the backlog and all items above it have been estimated.</p><img alt="contentId-1234108523" class="doc-image" loading="lazy" src="/cms_trial/assets/ede789cf-d4c3-42e1-8db2-7f61bfb61bc0.png"/><h3 id="direct-jira-access">Direct Jira Access</h3><p>After completing a game, users can easily navigate to Jira to view estimated items by clicking the <strong>Open issues in Jira</strong> button.</p><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><img alt="contentId-1234108523" class="doc-image" loading="lazy" src="/cms_trial/assets/36c3682b-8032-4c8b-9614-79a0797d917d.png"/></div><div><img alt="contentId-1234108523" class="doc-image" loading="lazy" src="/cms_trial/assets/2e351884-4121-44f5-bc7d-dcd9e730cfd8.png"/></div></div><h2 id="game-cloning">Game Cloning</h2><h3 id="backlog-duplication">Backlog Duplication</h3><p>When cloning a game, users now have the option to duplicate the game backlog as well, preserving the existing issue list for the new game.</p><img alt="contentId-1234108523" class="doc-image" loading="lazy" src="/cms_trial/assets/f44caaa2-e8b5-4be2-82c9-1ec2d934cc83.png"/><h2 id="issue-search">Issue Search</h2><h3 id="keyword-search">Keyword Search</h3><p>The search field within the <em>Add issues</em> section supports searching by either issue summary or key, making it easier to find and add specific items to the game.</p><img alt="contentId-1234108523" class="doc-image" loading="lazy" src="/cms_trial/assets/d468c6fb-2599-4ff9-a4b3-a805aa0ccc7b.png"/><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p> <strong>Questions and feedback</strong></p><ul><li><p>Explore exciting features, pricing updates, reviews, and more on the <a href="https://marketplace.atlassian.com/apps/1212495/planning-poker?hosting=cloud&amp;tab=overview">Marketplace</a>.</p></li><li><p>Stuck with something? Raise a ticket with our <a href="https://appf.re/support">support team</a>.</p></li><li><p>Do you love using our app? Let us know what you think <a href="https://marketplace.atlassian.com/apps/1212495/planning-poker?hosting=cloud&amp;tab=reviews">here</a>.  </p></li></ul></div><div><p><strong> </strong> <strong>Credits</strong></p><p>A heartfelt thank you to our valued customers! You are the driving force behind why we create software. We appreciate your trust in <a href="https://marketplace.atlassian.com/apps/1212495/planning-poker?hosting=cloud&amp;tab=overview">Planning Poker</a>.</p></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

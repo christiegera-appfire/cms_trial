@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193196083/Release+Notes/">Release Notes</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/3128066689/Release+Notes+2025/">Release Notes 2025</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Release notes 6th March 2025</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2193130576" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Release notes 6th March 2025</h1>
+    <div class="page-meta">1 min read</div>
     <p><strong>Release date</strong>: <time datetime="2025-03-06">March 6, 2025</time> </p><p>Our team is thrilled to announce the latest releases of Comala Document Management Cloud.</p><hr/><h2 id="new-features">New features</h2><h3 id="new-workflow-trigger-actions">New workflow trigger actions</h3><h4 id="add-restrictions-action">Add Restrictions action</h4><p>The <a href="https://appfire.atlassian.net/wiki/spaces/CDMCD/pages/1731526706">Add Restrictions trigger action</a> lets you add page-level <strong>view</strong> or <strong>edit</strong> restrictions to a document. It can be used to add, view, or edit permissions for one or more Confluence users or groups.</p><img alt="Comala visual editor add view restrictions trigger with recipient examples" class="doc-image" loading="lazy" src="/cms_trial/assets/7a7c143a-320b-464a-b2fa-da4a7492a04d.png"/><h4 id="set-restrictions-action">Set Restrictions action</h4><p>The <a href="https://appfire.atlassian.net/wiki/spaces/CDMCD/pages/1775730689">Set Restrictions trigger action</a> removes existing page-level <strong>view</strong> or <strong>edit</strong> restrictions for a document before adding new page-level<strong> </strong>restrictions <strong>of the same type</strong> for one or more Confluence users or Confluence groups.</p><img alt="Comala visual editor set view restrictions trigger with recipient examples" class="doc-image" loading="lazy" src="/cms_trial/assets/16f5f9a8-f9df-47a1-aff2-9598d68fc129.png"/><hr/><h2 id="enhancements">Enhancements</h2><h3 id="app-space-settings-ui-update">App space settings UI update</h3><p>The <strong>Labels</strong> column is now always displayed in the app space settings. Previously, it was only displayed when at least one workflow included a label condition.</p><img alt="Comala space settings with one custom workflow and label column shown" class="doc-image" loading="lazy" src="/cms_trial/assets/7cacf209-1f3e-48ca-9478-cc5a18561a2d.png"/><p>This update ensures consistency in the settings interface.</p><div class="panel panel-note"><p>The application of workflows conditioned by labels is being gradually rolled out, and the <strong>Labels</strong> column might not be displayed on all customer sites.</p></div><h3 id="maintenance-updates">Maintenance updates</h3><p>Updated the usage of API v2</p><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p> <strong>Questions and feedback</strong></p><ul><li><p>Explore exciting features, pricing updates, reviews, and more on the <a href="https://marketplace.atlassian.com/apps/142/comala-document-management?hosting=cloud&amp;tab=overview">Marketplace</a>.</p></li><li><p>Stuck with something? Raise a ticket through our <a href="https://appf.re/support">support team</a>.</p></li><li><p>Do you love using our app? Let us know what you think <a href="https://marketplace.atlassian.com/apps/142/comala-document-management?hosting=cloud&amp;tab=reviews">here</a>.</p></li></ul></div><div><p><strong> Credits</strong></p><p>Thank you to our valued customers! Your incredible support and feedback inspire us to improve continuously. We appreciate your trust in Appfire’s Comala Document Management Cloud!</p></div></div><hr/>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

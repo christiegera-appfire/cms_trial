@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1891206842/Configure/">Configure</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Change refresh token expiry period</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3234594895" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Change refresh token expiry period</h1>
+    <div class="page-meta">1 min read</div>
     <h2 id="overview">Overview</h2><p>Salesforce enforces a mandatory 30-day maximum on the idle refresh token TTL (time-to-live) for connected apps. This is a platform-wide security enforcement that affects all connected app integrations, including Connector for Salesforce &amp; Jira Cloud.</p><p>If a Salesforce connection goes unused for 30 consecutive days, the refresh token expires, and you must reauthorize the connection. Each time the token is used within that 30-day window, the inactivity timer resets automatically (sliding window behavior).</p><div class="panel panel-note"><p>30 days is the maximum — not the default. You can set the idle expiration period to less than 30 days, but you cannot exceed the 30-day maximum. Salesforce enforces this limit regardless of what your connected app policy previously specified.</p></div><p>For full details on Salesforce's enforcement, see the <a href="https://help.salesforce.com/s/articleView?id=xcloud.connected_app_limit_idle_ttl.htm&amp;language=en_US&amp;type=5">Salesforce documentation</a>.</p><h2 id="before-you-start">Before you start</h2><p>Make sure you have:</p><ul><li><p>Administrator rights in Jira - only administrators can revoke the connection</p></li></ul><h2 id="configure-the-refresh-token-expiry-period">Configure the refresh token expiry period</h2><ol><li><p>In Salesforce, click the gear icon (<span class="inline-icon" title="inline icon">▢</span>) in the upper right corner and select <strong>Setup</strong>.</p></li><li><p>In the <strong>Quick Find</strong> box, type <code>Connected Apps</code>.</p><img alt="Salesforce Setup page showing the Quick Find field and the Edit field highlighted." class="doc-image" loading="lazy" src="/cms_trial/assets/5f244f99-87c9-4884-8bc6-73038df066e5.png"/></li><li><p>From the results, click <strong>Manage Connected Apps.</strong></p></li><li><p>Click <strong>Edit</strong> next to <em>Salesforce &amp; JIRA Cloud Connector</em>.</p><img alt="Salesforce Connected Apps page with the Expire refresh token option highlighted." class="doc-image" loading="lazy" src="/cms_trial/assets/6c00f745-ea3d-4e3a-bf5d-220bb6f2e3a8.png"/></li><li><p>Under the <em>OAuth Policies</em> section, find the <strong>Refresh Token Policy </strong>field.</p></li><li><p>Set the idle expiration to <strong>30 days </strong>or fewer based on your security requirements.</p></li><li><p>Click <strong>Save.</strong></p></li></ol><h2 id="handling-an-expired-connection">Handling an expired connection</h2><p>If a connection expires due to inactivity, you must reauthorize it. For step-by-step instructions, see <a href="/cms_trial/space/CSFJIRA/3224731651/Revoke+access+for+expired+connection/">Revoke access for an expired connection</a>.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

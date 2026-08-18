@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud) Documentation</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941853/Release+Notes/">Release Notes</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/1595769075/Release+notes+2021%E2%80%932024/">Release notes 2021–2024</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783943820/2021/">2021</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">August 23, 2021</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/783942092" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>August 23, 2021</h1>
+    <div class="page-meta">1 min read</div>
     <h2 id="working-queries-in-rich-filter-gadgets">Working Queries in Rich Filter Gadgets</h2><p>The rich filter gadgets can optionally be configured to use a gadget-specific issue-filtering JQL condition referred to as <em>working query</em>.</p><p>Defined in the gadget's configuration form, the working query is an<em> additional JQL query</em> which is permanently applied on top of the base Jira filter and any active quick filters in the controller to further filter the issues the gadget will work with. In other words, while all the linked rich filter gadgets on a dashboard have access to the same collection of issues (which is dynamically controlled by the <a href="/cms_trial/space/RFCDOC/783941745/The+Rich+Filter+Controller+Gadget/">controller gadget</a>), each individual gadget can also be configured to work with a subset of this issues collection.</p><p>This powerful feature allows you to configure each gadget to be precisely tailored to the intended use, while keeping the benefit of interactive and coherent dashboards.</p><img alt="contentId-783942092" class="doc-image" loading="lazy" src="/cms_trial/assets/10b9519b-d8ad-4a58-91ae-f2c89a8af829.png"/><h2 id="totals-in-rich-filter-results-views">Totals in Rich Filter Results Views</h2><p>The <a href="/cms_trial/space/RFCDOC/783941729/Configure+views/">views</a> displayed by the <a href="/cms_trial/space/RFCDOC/783941759/The+Rich+Filter+Results+Gadget/">Rich Filter Results</a> gadgets can now be configured to optionally show a row with the totals. The total values are computed and displayed for the columns corresponding to numeric and time-tracking fields and to <a href="/cms_trial/space/RFCDOC/783942033/Configure+custom+values/">custom values</a>.</p><p>This feature provides an easy and convenient way to access aggregated issue data directly in the Rich Filter Results gadgets.</p><img alt="contentId-783942092" class="doc-image" loading="lazy" src="/cms_trial/assets/c4bb7c6e-a3aa-4cae-bd5c-4575e30a7ee5.png"/><p><br/></p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

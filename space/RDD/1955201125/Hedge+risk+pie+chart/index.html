@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146310010/Product+and+data+connections/">Product and data connections</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/1529219266/Custom+Reports+-+REST+API+integration/">Custom Reports - REST API integration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/1568374878/Custom+Reports+templates/">Custom Reports templates</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/2173796469/Appfire+apps/">Appfire apps</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Hedge risk pie chart</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/1955201125" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Hedge risk pie chart</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="overview">Overview</h2><p>Display the risk pie chart from Hedge’s data. </p></div><div></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="features">Features</h2><ul><li><p>Requires variables (JQL and template Id) to work. </p></li><li><p>Load data from the Jira API. </p></li><li><p>Process data to render a custom pie chart. </p></li><li><p>Render a custom legend. </p></li></ul></div><div></div></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h2 id="setup">Setup</h2><p> <span class="status-lozenge">datasource required</span> <span class="status-lozenge">VARS required</span></p><ol><li><p>Add a datasource. See, <a href="/cms_trial/space/RDD/1550352515/Configure+a+REST+API+datasource+for+Custom+Reports/">Configure a REST API datasource for Custom Reports</a>. </p></li><li><p>Provide access to a Jira instance using a Custom Reports datasource with a valid access token.  </p></li><li><p>Generate an access token at <a href="https://id.atlassian.com/manage-profile/security/api-tokens">Atlassian API tokens</a>.  </p><ul><li><p>For more details, see: <a href="https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/">https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/</a>.</p></li></ul></li><li><p>Once you have obtained your token, create a Dashboard Hub datasource using basic authentication, specifying your email as the username and the access token as the password. </p></li></ol></div><div><img alt="Dashboard Hub Custom Report datasource setup for Hedge risk pie chart" class="doc-image" loading="lazy" src="/cms_trial/assets/99a85b1d-c5d5-4898-bcad-c60d652e0092.png"/></div></div><h2 id="configure"><br/>Configure </h2><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><ol><li><p>Configure the report with the Jira datasource. </p></li><li><p>Set the required variables:</p><ul><li><p><span class="status-lozenge">JQL</span>: the query to request issues from jira, a valid JQL request (ex. project=XXX).</p></li><li><p><span class="status-lozenge">templateid</span>: the id for the hedge template you want to gather data.</p></li></ul></li></ol><p>You should now see your data. </p><div class="panel panel-note"><p>See, <a href="/cms_trial/space/RDD/2110030119/Custom+report+example/">Custom report example</a> for a video demonstration on how to configure your report. </p></div></div><div><img alt="An example Portfolio risk register graph." class="doc-image" loading="lazy" src="/cms_trial/assets/6bb01c8f-8208-47d0-9b27-6eb4b43830a2.png"/></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

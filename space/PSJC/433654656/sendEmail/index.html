@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434798967/Simple+Issue+Language/">Simple Issue Language</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434374166/SIL+Functions+library/">SIL Functions library</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/433000817/System+Integration/">System Integration</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">sendEmail</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/433654656" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>sendEmail</h1>
+    <div class="page-meta">4 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="description">Description</h2><p>
  Sends an email.
  </p><p>Sends an email. <strong>To</strong> and <strong>cc</strong> are string arrays with any of email addresses, users or groups. Email is sent to all the users of the groups.<br/><br/><strong>From</strong> is optional. If missing the email is sent from the default email address configured in Jira. To pass the language specify the 'sender', 'to', 'cc', 'subject', 'body' and finally the 'language', as a string (for instance "en", "fr", "en_US", "ro", and so on). However, this is relevant only if you use templates as they support localization.<br/><br/>For example, an email sent with language "en" will look for templates in the folder called "en", inside the default template directory. If no such template is found, it will use the one in the default directory.<br/><br/>Also, starting with katl-commons-1.1.1, a default template placed in the default directory is mandatory for each template name used in your SIL programs. For example, if you want to use a template "t.tpl" using language "en_US", it is not only necessary to have "t.tpl" in the "en_US" folder, but you have to have a file "t.tpl" in the default directory.<br/><br/>If you don't specify the language parameter and you use templates, by default the messages are sent in the sender defined language. For the users that are Jira users ('to' or 'cc' are user names and not email addresses) the language defined in the user profile(for each user) is used for email sending. For the rest of the users the email is sent using the sender defined language.</p><table><tr><td><p><strong>Syntax</strong></p></td><td><p>sendEmail([from], to, [cc], subject, body_or_template, [language]</p></td><td><p><strong>Package</strong></p></td><td></td></tr><tr><td><p><strong>Alias</strong></p></td><td></td><td><p><strong>Pkg Usage</strong></p></td><td></td></tr></table><h2 id="parameters">Parameters</h2><table><tr><th><p>Parameter name</p></th><th><p>Type</p></th><th><p>Required</p></th><th><p>Description</p></th></tr><tr><td><p>from</p></td><td><p>String</p></td><td><p>No</p></td><td><p>From address</p></td></tr><tr><td><p>to</p></td><td><p>string []</p></td><td><p>Yes</p></td><td><p>Recipient list</p></td></tr><tr><td><p>cc</p></td><td><p>string []</p></td><td><p>No</p></td><td><p>CC'ed recipient list</p></td></tr><tr><td><p>subject</p></td><td><p>String</p></td><td><p>Yes</p></td><td><p>Subject</p></td></tr><tr><td><p>body_or_template</p></td><td><p>String</p></td><td><p>Yes</p></td><td><p>Message body, either direct or a template</p></td></tr><tr><td><p>language</p></td><td><p>String</p></td><td><p>No</p></td><td><p>Language used to send the email(relevant only if you use templates)</p></td></tr><tr><td><p>issue_key</p></td><td><p>String</p></td><td><p>No</p></td><td><p>Issue to extract attachments from</p></td></tr><tr><td><p>regex_array</p></td><td><p>String []</p></td><td><p>No</p></td><td><p>Name patterns to match the attachments from the issue</p></td></tr><tr><td><p>wildcard_path_array</p></td><td><p>String []</p></td><td><p>No</p></td><td><p>Absolute paths containing wildcards for attaching files from disk</p></td></tr></table><h2 id="return-type">Return Type</h2><h2 id="examples">Examples</h2><h3 id="example-1">Example 1</h3><pre><code class="language-javascript">sendEmail("projectmanager", "teamleader1", "Transition executed", currentUser() + " has executed a transition");
@@ -180,6 +185,64 @@ sendEmail(email);</code></pre><h2 id="see-also">See also</h2><div class="img-pla
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

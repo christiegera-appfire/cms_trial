@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3092186639/Association+and+synchronization/">Association and synchronization</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Updates from Salesforce to Jira are not reflected in other Salesforce objects associated to Jira ticket</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3091892143" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Updates from Salesforce to Jira are not reflected in other Salesforce objects associated to Jira ticket</h1>
+    <div class="page-meta">2 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="problem">Problem</h2><p>I have two objects associated to one Jira work item (Case, Contact). I'm pulling some fields from Salesforce to fields mapped to both Case and Contact records.</p><p>The Connector automatically pulls Contact fields correctly, but it doesn’t automatically push them to the Case record.</p><p><strong>Case mapping</strong></p><img alt="contentId-3091892143" class="doc-image" loading="lazy" src="/cms_trial/assets/88be4efa-37ab-4356-9299-c7c041c939ad.png"/><p><strong>Contact Mapping</strong></p><img alt="contentId-3091892143" class="doc-image" loading="lazy" src="/cms_trial/assets/c755ca17-481c-4365-9a70-f7c53e75b7e4.png"/></div><div></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="solution">Solution</h2><p>This is a current limitation of our Connector, mainly to prevent infinite loops if you configure the mapping inaccurately. For more details, you can refer to our documentation here: <a href="https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=csfjira&amp;title=Why%20does%20my%20association%20not%20auto-push%20back%20to%20other%20associated%20Salesforce%20Objects%20after%20pulling%20to%20Jira&amp;linkCreation=true&amp;fromPageId=3091892143">Why does my association not auto-push back to other associated Salesforce Objects after pulling to Jira</a> </p><p>Because of this safeguard, you cannot auto-push other association fields back at this time.</p></div><div></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="recommended-solutions">Recommended solutions</h2><ol><li><p>Use Manual Push when you associate records in Jira to sync fields to Salesforce.</p></li><li><p>Create a custom Workflow with the <a href="/cms_trial/space/CSFJIRA/1873969278/Configure+workflow+post+functions+in+Jira/">Push to Salesforce post-function</a>. This is the failsafe for pushing the fields you haven't manually pushed. You can set this on the next transition.</p></li><li><p>Utilize Jira Automation and a separate Jira Custom Field.</p><ol><li><p>The Logic is to create a separate Jira Custom Field that will be updated with the Account ID/Contact ID value from the Contact Record using Jira Automation. This automation ensures the update happens separately from the auto-push/pull process.</p></li><li><p>For the Jira-Contact association, maintain the Mappings to a designated field (for example, Jira Text Read Only Custom Field 2 or 3)</p><img alt="contentId-3091892143" class="doc-image" loading="lazy" src="/cms_trial/assets/0f2237dd-d868-4f37-9a2f-ff29e5a385d2.png"/></li></ol></li></ol><p>c. Create a new Jira Custom Field that will be updated with the value from Jira Custom Field A using Jira Automation, and add this into the Mappings (for <em>example, Jira Text Read Only Custom Field</em>)</p><img alt="contentId-3091892143" class="doc-image" loading="lazy" src="/cms_trial/assets/f523240a-a391-49b0-9a95-32b95c7ee691.png"/><p>d. When you associate with the Contact Record, which pulls in the data, this data will be copied to the new custom field, which will act as a manual update to the field and push to Salesforce.</p><div class="panel panel-warning"><p>The feature is not supported out of the box. These suggestions are provided to the best of our ability. If there are any issues with the implementation, it is beyond the scope of our standard support.</p></div><div class="panel panel-note"><h3 id="other-limitations"><strong>Other limitations</strong></h3><ul><li><p>The post function would not respect the After Create Salesforce Object settings.</p><ul><li><p>Use the APEX trigger to auto-push from SF to update and pull information to Jira after creating the Salesforce record using the post function.</p></li></ul></li><li><p>Jira Read-only fields won't trigger the auto push.</p></li><li><p>Salesforce read-only fields won't trigger the auto push to Jira.</p></li><li><p>The post function won't create another record if there is already an existing one.</p></li></ul></div></div><div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira (CMJ) Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/1922600795/Migration/">Migration</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Migrating from Jira Server to Cloud</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CMJC/pages/682131761" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Migrating from Jira Server to Cloud</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="move-to-configuration-manager-for-jira-cloud">Move to Configuration Manager for Jira Cloud</h2><p>If you are wondering about moving to Jira Cloud, the most important question is probably if you need to migrate any app configuration or data so that the whole process is seamless for your teams and users. The good news is that there is no need for migration.</p><p>All you need to do to migrate from Configuration Manager Server/Data Center to the Cloud is to install the <a href="https://marketplace.atlassian.com/apps/1211611/configuration-manager-for-jira-cmj?hosting=cloud&amp;tab=overview">Cloud app</a> on the Jira Cloud site. There is <strong>no need to migrate</strong> any app data. Afterward, you can start moving projects and other related configurations between the Jira Cloud sites. Likewise, if you’re migrating from Jira Cloud to Jira Data Center, you won’t need to migrate any app configurations or data.</p><p>For detailed information about using the Configuration Manager for Jira Cloud app, take a look at its <a href="/cms_trial/space/CMJC/193823429/Features+and+options/">documentation</a>.</p><h2 id="what-will-be-different">What will be different</h2><p>We’ve put together a document describing the differences in functionality between Configuration Manager for Jira Server/Data Center and Cloud. Please review the <a href="/cms_trial/space/CMJC/681903694/Differences+between+CMJ+Server%2FData+Center+and+CMJ+Cloud/">Differences between CMJ Server/Data Center and CMJ Cloud</a> document to learn how the move will impact you in terms of Configuration Manager.</p><h2 id="do-i-need-a-new-license">Do I need a new license</h2><p>You will need a new license if you’re moving to Jira Cloud since the Atlassian Marketplace treats the licenses differently. For more details, please visit <a href="https://www.atlassian.com/licensing/marketplace#general-faqs">https://www.atlassian.com/licensing/marketplace#general-faqs</a></p><h2 id="we-are-here-to-help">We are here to help</h2><p>In case you need any guidance or help during your migration process, please do not hesitate to <a href="https://appf.re/support">contact us</a> – we'll be glad to help!<br/>We'd also love to hear about your organization's specific needs, so we can adjust product development plans.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

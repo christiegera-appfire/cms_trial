@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PP/1803714584/Planning+Poker+Help+Center/">Planning Poker</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PP/1803714584/Planning+Poker+Help+Center/">Planning Poker Help Center</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PP/1144061974/Planning+Poker+for+Jira+Cloud/">Planning Poker for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Planning Poker tab estimation (Cloud)</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PP/pages/9568542" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Planning Poker tab estimation (Cloud)</h1>
+    <div class="page-meta">2 min read</div>
     <div class="panel panel-note"><p>This page is about <strong>Planning Poker for Jira Cloud</strong>. Using<strong> DC</strong>? <a href="/cms_trial/space/PP/1144061984/Planning+Poker+for+Jira+Data+Center/"><strong>Click here</strong></a>.</p></div><p>It's possible to estimate each Jira issue in the Async mode, which is useful for distributed teams that can't have an "on-line" session. Currently, there is no unified "session" concept, as in the classical game version. Instead, all participants are invited to estimate directly in the issues directly through the Planning Poker tab tab on the right side of the issue screen. </p><p>The only thing the admin needs to do is simply share the JQL filter with the participants. Then, they can go over the issues and estimate them one by one. After voting, the participants refresh the page and the estimates appear. Then, everyone can see who voted for which, and the estimate is saved before moving on to the next issue.</p><p>Below is a brief overview of the available functionality, as well as how to configure the game.</p><h3 id="prerequisites">Prerequisites </h3><ul><li><p>The Jira admin must check the toggle for <strong>Enable estimation from issue details </strong>in global settings.</p></li><li><p>The project admin must check the toggle for <strong>Show Planning Poker in board menu</strong> and <strong>Enable estimation from issue details</strong> in project settings.</p></li></ul><div class="panel panel-note"><p>For more information, refer to the <a href="/cms_trial/space/PP/661454980/Settings+(Cloud)/">Settings documentation</a>. </p></div><h3 id="configure-the-tab">Configure the tab</h3><ol><li><p>Navigate to <strong>Apps</strong> &gt; <strong>Manage your apps</strong>. </p></li><li><p>Find Planning Poker in the apps list, and click <strong>Configure</strong>.</p></li><li><p>Select the deck type and the estimation field you want to save the estimates to. For more details, refer to this <a href="/cms_trial/space/PP/9568359/Game+configuration+(Cloud)/">documentation</a>. </p><img alt="Screenshot 2024-07-29 at 14.58.01.png" class="doc-image" loading="lazy" src="/cms_trial/assets/16011858-e2a3-479e-a8f6-74b474a71071.png"/></li><li><p>Click <strong>Save</strong>.</p></li></ol><p>Then, you can continue creating the game itself. Here is how:</p><ol><li><p>Create a JQL (Jira Query Language) filter that includes the issues you want to estimate. Consult Jira documentation to learn more about JQL.</p></li><li><p>Share the JQL filter with team members.</p></li><li><p>To get the estimation process started, open the first issue.</p></li><li><p>Click the <strong>Planning Poker </strong>tab on the right side of the screen.</p><img alt="image-20240729-112000.png" class="doc-image" loading="lazy" src="/cms_trial/assets/cadf701f-91d4-40ae-ad8d-6b76d489b5ae.png"/></li></ol><p>This will reveal the card deck and start the initial voting phase.</p><h3 id="initial-voting-phase">Initial voting phase</h3><ol><li><p>In the Planning Poker tab, participants vote using a deck of cards to estimate the issue. </p></li><li><p>To view results, refresh the page and click <strong>Reveal</strong>. </p><img alt="5fb8ab42-2ad3-4df7-9b7a-c37f6438f88c.png" class="doc-image" loading="lazy" src="/cms_trial/assets/f43152df-d0f7-4147-a695-7448a549cb13.png"/></li></ol><h3 id="summary-phase">Summary phase</h3><p>The summary of all estimates from all users will be grouped by the Story Points values. </p><ol><li><p>Reach a consensus and click the suggested card to assign the estimation value. </p><img alt="03bfee05-3ded-41f2-bbe3-5816e6e9941e.png" class="doc-image" loading="lazy" src="/cms_trial/assets/5ca0a04a-fd6d-4140-8f09-f43d18e9298f.png"/></li><li><p>Pick the final estimate, or set the final estimate and click <strong>Save estimate</strong>.</p></li><li><p>To start fresh, you can use the <strong>Reset</strong> button, which clears previous estimates and restarts the estimation.</p></li></ol><p>That’s it! This provides a flexible and convenient way for teams who want to keep things at the issue level. However, if you don’t need this feature, you can remove the Planning Poker tab from your issue view by opening the app’s project settings, and unchecking the <strong>Enable estimation from issue details</strong> box. </p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

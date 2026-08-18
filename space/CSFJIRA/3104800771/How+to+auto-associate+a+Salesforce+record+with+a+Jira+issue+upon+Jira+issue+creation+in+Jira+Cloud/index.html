@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3092186639/Association+and+synchronization/">Association and synchronization</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">How to auto-associate a Salesforce record with a Jira issue upon Jira issue creation in Jira Cloud</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3104800771" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>How to auto-associate a Salesforce record with a Jira issue upon Jira issue creation in Jira Cloud</h1>
+    <div class="page-meta">3 min read</div>
     <h2 id="problem">Problem</h2><p>Currently, the Connector cannot automatically link a Salesforce record with a Jira issue when it’s created. However, you can set up automation with the Jira  <a href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/470757333/Jira+REST+API+association?src=search">REST API</a>,  within the project to facilitate the auto-association process.</p><p>To make the automation work, manually add the Salesforce Object ID in a custom field when creating the Jira issue. </p><p><strong>Compatibility:</strong> This method works with both standard Jira and Jira Service Management (JSM).</p><div class="panel panel-note"><p>Scope: This guide focuses exclusively on one-to-one associations.</p></div><h2 id="instructions">Instructions</h2><h3 id="part-1-create-a-jira-custom-field">Part 1: Create a Jira custom field</h3><p>First, we'll create a custom field to capture the Salesforce Object ID. </p><ol><li><p>Navigate to <strong>Settings</strong> &gt; <strong>Work Items</strong> &gt; <strong>Fields</strong>.</p></li><li><p>Click <strong>Create new field</strong>.</p><ol><li><p>Field type: <strong>Short Text (plain text only) </strong></p></li><li><p>Name: In this example, the name of the field is <code>Case ID.</code></p></li></ol></li><li><p>Add this field to your <strong>Create screen</strong> for the relevant Issue Type.</p></li><li><p>(Optional)  Add the field to the <strong>View</strong> and <strong>Edit</strong> screens.</p></li></ol><h3 id="part-2-create-the-jira-automation">Part 2: Create the Jira automation</h3><p>Jira Automation allows us to automatically send a web request to edit the entity property of the Jira issue and then associate the Salesforce record.</p><ol><li><p>Go to <strong>Project</strong> &gt; <strong>Project Settings</strong> &gt; <strong>Automation</strong> (in the left panel).</p></li><li><p>Click <strong>Create Rule</strong>.</p></li><li><p>Select <strong>Field value changed</strong> as your trigger and set it as follows:</p><ul><li><p><strong>Fields to monitor for changes</strong>: <code>Case ID</code></p></li><li><p><strong>Change type</strong>: <code>Any changes to the field value</code></p></li><li><p><strong>For</strong>: <code>Create issue</code></p></li></ul></li></ol><img alt="Field value changed screen with Fields to monitor for changes, Change type and For fields" class="doc-image" loading="lazy" src="/cms_trial/assets/b00fe125-0374-417f-a598-3ea9456ff97c.png"/><ol><li><p>Click <strong>Add Component</strong> &gt; <strong>IF: Add a condition</strong> &gt; <strong>{{smart values}} condition</strong>.<br/> This ensures that our agents/customers add the correct ID of the configured object. In this example, the Case Object type is used.</p><ul><li><p><strong>First value</strong>: <code>{{issue.&lt;customField_Id&gt;}}</code></p></li><li><p><strong>Condition</strong>: <code>Starts with</code></p></li><li><p><strong>Second Value</strong>: <code>Object ID prefix</code></p></li></ul></li></ol><div class="panel panel-note"><p>Ensure you utilize the field ID corresponding to the field you created on your instance in Part 1 of this documentation. To find the Custom Field ID, see <a href="https://confluence.atlassian.com/jirakb/how-to-find-id-for-custom-field-s-744522503.html?__hstc=72543820.dca6847bc67d72cb12dda09618bcbbf0.1610352968903.1663293812024.1663296455536.959&amp;__hssc=72543820.27.1663296455536&amp;__hsfp=3395054717">How to find the ID for custom field(s)</a>.</p></div><div class="panel panel-note"><p>See the <a href="https://www.salesforceben.com/salesforce-object-key-prefix-list/">Salesforce Object Key Prefix List | Salesforce Ben</a> documentation to find the right prefix for your object type.</p></div><img alt="smart values condition page with First value, Condition, and Second value fields" class="doc-image" loading="lazy" src="/cms_trial/assets/c13000ff-99de-4e05-97b7-7ec873241442.png"/><ol><li><p>Click <strong>Next</strong> &gt; <strong>Add an action</strong> &gt; <strong>Create variable</strong> and set the component as follows:</p><ul><li><p><strong>Variable name</strong>: <code>CaseID</code></p></li><li><p><strong>Smart value</strong>: <code>{{fieldChange.toString}}</code></p></li></ul></li></ol><p> This helps update the JSON file in the web request.</p><img alt="Create variable screen with Variable name and Smart value fields" class="doc-image" loading="lazy" src="/cms_trial/assets/90baab1a-9e60-4726-b095-7846fba07b95.png"/><ol><li><p>Click  <strong>Next</strong> &gt; <strong>Add Component</strong> &gt; <strong>IF: Add a condition</strong> &gt; <strong>{{smart values}} condition</strong> and set the component as follows:</p><ul><li><p><strong>First value</strong>: <code>{{CaseID.length()}}</code></p></li><li><p><strong>Condition</strong>: <code>equals</code></p></li><li><p><strong>Second value</strong>: <code>18</code></p></li></ul></li></ol><p> This helps to verify that the added ID is the correct length. </p><img alt="smart values condition screen with First value, condition and Second value fields" class="doc-image" loading="lazy" src="/cms_trial/assets/0cae5fa2-d24f-4d6e-89a4-7033fe23021a.png"/><ol><li><p>Set the <strong>Web Request URL</strong> with the URL according to your Jira environment:</p><ul><li><p>Jira Cloud EU:<code> eu-sfjc.integration.appfire.app/external/api/association?allowUpsert=true</code></p></li><li><p>Jira Cloud Rest of the World: <code>https://sfjc.integration.appfire.app/external/api/association?allowUpsert=true</code></p></li></ul></li><li><p>In a new tab, navigate to <strong>Jira &gt; Apps &gt; Connector for Salesforce &gt; Connections </strong>&gt; click the 3 dots next to your connection &gt;<strong> API Access Token</strong> &gt; Select the <strong>REST API token </strong>lifespan and copy the token shown at the bottom.</p><img alt="image-20250722-141733.png" class="doc-image" loading="lazy" src="/cms_trial/assets/0bb9d925-afc2-4780-8ed1-4970e5ec48e4.png"/></li><li><p>Go back to the automation and in the <em>Headers</em> section, set the <strong>Key</strong> name as <code>Authorization</code>.</p></li><li><p>Set the <strong>Value</strong> as <code>JWT &lt;REST API Token&gt;</code></p></li><li><p>Set the <strong>HTTP Method</strong> to <code>POST</code> and select the <strong>Delay execution</strong> option.</p></li><li><p>Set the <strong>Web Request body</strong> as Custom data and use the following JSON file in the <strong>Custom data</strong> field. In this example, a case object type is used.</p><pre><code class="language-">{
 	"jiraIssueId": "{{issue.id}}",
 	"son": "Case",
@@ -161,6 +166,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192967667/Migrate+to+Confluence+Cloud/">Migrate to Confluence Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2200469883/Migration+help+and+support/">Migration help and support</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">What is migrated?</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2192870471" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>What is migrated?</h1>
+    <div class="page-meta">4 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview</h2><p>When migrating to Comala Document Management for Cloud using the Atlassian CCMA, the following are included in the migration:</p><ul><li><p>Global workflow and space workflows</p></li><li><p>Current workflow state and workflow-related data within this state</p></li></ul><p>For audit purposes, the migration data for each page includes a record of the document workflow events and activity history as a custom content property in CSV file format (from Comala Document Management Data Center v7.10.1).</p><p>You can also include page metadata and page workflows in the migration data if you undertake the following tasks before migration:</p><ul><li><p><a href="/cms_trial/space/CDMC/2192902721/Moving+your+workflows+to+the+cloud/">Consolidate your page workflows</a> as a label space workflow</p></li></ul><p>In the hosted Confluence app, a global administrator can run <a href="https://appfire.atlassian.net/wiki/spaces/CDML/pages/649957481">pre-migration reports</a> on workflow usage to help prepare for a migration to Confluence Cloud.</p><h2 id="workflow-migration">Workflow migration</h2><p>In a migration, global workflows and space workflows are translated into their cloud-valid equivalents. The migrated workflow includes</p><ul><li><p>all the users and user groups (in any macro that uses them), replaced with the right cloud IDs, are created in the cloud spaces (taking into account if they were enabled or disabled on the server side)</p></li><li><p><strong>Label </strong>conditions, including <strong>Invert labels</strong></p></li><li><p>workflow parameter values defined at the space level</p></li></ul><p>All the linked global scope workflows in a space are migrated and automatically set as enabled space workflows in the migrated space. When the migrated space includes both global scope and space workflows, space scope workflow names are appended with a "~" prefix in the cloud. This means that the workflow order in the app space settings is maintained from the hosted instance (v7.12.1+).</p><img alt="contentId-2192870471" class="doc-image" loading="lazy" src="/cms_trial/assets/31ecaacb-e683-4183-857b-811f7864b92d.png"/><p><strong>Page workflows</strong> in each space are not included in the migration. However, a space administrator can <a href="/cms_trial/space/CDMC/2192902721/Moving+your+workflows+to+the+cloud/">consolidate page workflows</a> in each space as a space workflow before migration using the Page Workflows dashboard in the data center app.</p><p>The Atlassian CCMA includes an app vendor precheck for the workflows in the spaces to be migrated. This assessment checks</p><ul><li><p>Which global and space workflows are fully cloud-compatible</p></li><li><p>Whether the space workflows include global-scope workflows</p></li><li><p>Whether page workflows are present in the selected spaces</p></li></ul><p>See: <a href="/cms_trial/space/CDMC/2192902721/Moving+your+workflows+to+the+cloud/">Moving your workflows to the cloud</a> </p><h2 id="migration-of-the-current-workflow-state">Migration of the current workflow state</h2><p>The migration includes the data for the current workflow state on a page.</p><p>The migrated workflow state data includes the following elements (if present):</p><img alt="contentId-2192870471" class="doc-image" loading="lazy" src="/cms_trial/assets/479d8429-ff97-4e10-88f2-41e640547b38.png"/><ul><li><p>state due date</p></li><li><p>assignees of any approvals in the state</p></li><li><p>status of each assignee in each approval</p><ul><li><p>approved</p></li><li><p>rejected</p></li><li><p>pending</p></li></ul></li><li><p>byline link to the last approved version (the <strong>View approved</strong> byline)</p></li></ul><p>The workflow <strong>document activity report</strong> on the migrated page in Confluence Cloud includes all the workflow activity that occurred in the current workflow state.</p><div class="panel panel-note"><p>Data for the current workflow state is migrated only for pages with an active workflow.</p></div><p>Once you use Comala Document Management in the Cloud, the page's workflow state is set using the migrated data. Subsequently, workflow events and activities are recorded as part of the page-level document activity.</p><h2 id="migrating-metadata">Migrating metadata</h2><p>Metadata is now automatically migrated through the Confluence Cloud Migration Assistant (CCMA), eliminating the need for manual export. The following metadata is included in the migration and available on the page or blog post in the cloud:</p><ul><li><p>Metadata set with the "set-metadata" trigger action</p></li><li><p>Metadata set with the <a href="https://marketplace.atlassian.com/apps/5295/comala-metadata?hosting=datacenter&amp;tab=overview">Comala Metadata app</a> page macros</p></li><li><p><a href="https://appfire.atlassian.net/wiki/spaces/CDML/pages/649760641">Workflow Parameters</a> at page level</p></li></ul><p>The transfer order for Data Center migration follows the sequence as shown below:</p><ol><li><p><strong>Global Workflows</strong></p></li><li><p><strong>Space Workflows and Page State</strong> – starts after Global Workflows migration is complete</p></li><li><p><strong>Document Activity and Metadata</strong> – starts after Space Workflows and Page State migration is complete.</p></li></ol><p>The metadata is added as a JSON content property on each page and blog post, and it can be retrieved in the Confluence Cloud site using the Comala Document Management Cloud <a href="/cms_trial/space/CDMC/2192838382/Document+Metadata+Get/"><strong>Document metadata</strong></a><a href="/cms_trial/space/CDMC/2192838382/Document+Metadata+Get/"> macro</a>.</p><p>In the hosted Confluence app, a global administrator can run an <a href="https://appfire.atlassian.net/wiki/spaces/CDML/pages/649957481">audit and validation report</a> to generate a CSV file containing all key-value pairs of page parameters and metadata.</p><h2 id="workflow-historical-activity-migration">Workflow historical activity migration</h2><p>In the cloud app, the <strong>Document Activity report</strong> on a migrated page includes the last workflow state and the related workflow state information. The document activity also includes a <strong>View Historical Activity</strong> option (from Comala Document Management Data Center 7.10.1) that lets you view the <strong>migrated full workflow history data</strong>. This means any historical activity information that was moved from the server during migration, such as who edited or approved a page, is now easily accessible directly from the report with a single click.</p><img alt="contentId-2192870471" class="doc-image" loading="lazy" src="/cms_trial/assets/aa82d410-972b-407d-bbcb-01abe1e39d27.png"/><div class="panel panel-note"><p>Migrated workflow history does not merge with the existing Cloud document activity.</p></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

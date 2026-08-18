@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3091858027/Release+notes/">Release notes</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Release notes 14 April 2026</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3123709157" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Release notes 14 April 2026</h1>
+    <div class="page-meta">2 min read</div>
     <p><strong>Release date</strong>: <time datetime="2026-04-14">April 14, 2026</time></p><p>Our team is thrilled to announce the latest release of Connector for Salesforce &amp; Jira Cloud.</p><hr/><h2 id="enhancements">Enhancements </h2><h2 id="security-fixes"><span class="status-lozenge">Salesforce</span> Security fixes  </h2><ul><li><p>Security vulnerability fixes have been added. </p></li></ul><h2 id="visual-improvement"><span class="status-lozenge">Jira Cloud</span> Visual improvement  </h2><ul><li><p>The layout of Jira Work Item Panel dialogs, including <em>Create Salesforce Record, Associate, Bulk Associate, Details</em>, and <em>Configure, </em>has been updated for improved visual consistency across all modals. Existing functionality is unchanged.</p></li></ul><h2 id="improved-navigation"><span class="status-lozenge">Jira Cloud</span><strong> </strong>Improved navigation</h2><ul><li><p>A top navigation bar in the administrator UI, providing a tab-based experience with consistent branding, has been introduced. You can now switch quickly between your <strong>Connections</strong>, <strong>Bindings</strong>,<strong> Settings</strong>, and <strong>Get started </strong>tabs. </p><img alt="image-20260331-114138.png" class="doc-image" loading="lazy" src="/cms_trial/assets/22114420-e53a-4244-9ccd-46baf1fc3fb9.png"/></li></ul><hr/><h2 id="bug-fixes">Bug fixes</h2><ul><li><p><span class="status-lozenge">Jira Cloud</span> <span class="status-lozenge">Salesforce</span> <strong>Restricted comments sent in notifications</strong></p></li></ul><p>We have fixed an issue where <strong>Simple Email Notifications</strong> included the full content of role-restricted Jira comments. The Connector now checks comment visibility settings before dispatching notifications, and any comment restricted to a project role is excluded entirely from email content. This ensures that role-restricted comments remain confidential to their intended audience and are no longer disclosed through notification emails.</p><ul><li><p><span class="status-lozenge">Jira Cloud</span> <strong>Unable to delete Bindings</strong></p></li></ul><p>We have resolved an issue where integration bindings could not be deleted. You can now successfully remove bindings again.</p><ul><li><p><span class="status-lozenge">Jira Cloud</span> <strong>Unable to access Connector for Salesforce &amp; Jira</strong></p></li></ul><p>We have resolved an issue where users were unable to access the Connector for Salesforce &amp; Jira app due to a policy error. You can now access the Connector in Jira without interruption.</p><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p> <strong>Support and resources</strong></p><ul><li><p>Explore exciting features, pricing updates, reviews, and more on the <a href="https://marketplace.atlassian.com/apps/1214214/connector-for-salesforce-jira?hosting=cloud&amp;tab=overview&amp;__hstc=72543820.f1ffb555b95f54caea1a9a28de23a28f.1606879596997.1622094034771.1622098833267.313&amp;__hssc=72543820.44.1622098833267&amp;__hsfp=950301092"><u>Marketplace</u></a>.</p></li><li><p>If you encounter any issues, raise a ticket with our <a href="https://appf.re/support"><u>support team.</u></a></p></li><li><p>Do you love using our app? Let us know what you think <a href="https://marketplace.atlassian.com/apps/1214214/connector-for-salesforce-jira?hosting=cloud&amp;tab=reviews&amp;__hstc=72543820.f1ffb555b95f54caea1a9a28de23a28f.1606879596997.1622094034771.1622098833267.313&amp;__hssc=72543820.44.1622098833267&amp;__hsfp=950301092"><u>here</u></a>.</p></li></ul></div><div><p><strong>Credits</strong></p><p>Thank you to our valued customers! Your incredible support and feedback inspire us to improve continuously. We appreciate your trust in Connector for Salesforce and Jira! </p></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

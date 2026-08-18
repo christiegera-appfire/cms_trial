@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMCFC/168855370/Overview/">Jira Misc Custom Fields (JMCF) - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/168855370/Overview/">Overview</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/465471188/Use+Cases/">Use Cases</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/861962280/User+and+User+Groups/">User and User Groups</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">First Approver or Approvers of Issue</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMCFC/pages/465600621" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>First Approver or Approvers of Issue</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="scenario">Scenario</h2><p>Display the user (or users) who first moved an issue to a specific status. </p><p>You require a field that displays the Jira user or users who first approved an issue. </p><div class="panel panel-note"><p>In this example, the workflow is configured so that an issue is approved when it is moved into the <strong>Approved</strong> status. In your Jira instance, the status that represents an issue’s approval may be different - just substitute your status value in the steps below! </p></div><h2 id="resolution">Resolution</h2><p>Depending on whether your approval process requires a single user or multiple users, the custom field type will change. For a single approver, this solution uses the <strong>Transitioned by User</strong> custom field type. For multiple approvers, you can use the <strong>Transitioned by Users</strong> . This custom field creates a User field that, when calculated, displays the profile photo and user name of a Jira user; hovering over the field value will open a pop-up window displaying more details on that user, including their email address. </p></div><div><div class="panel panel-note"><p>You are viewing the documentation for <strong>Jira Cloud</strong>.</p></div><h3 id="on-this-page">On This Page</h3></div></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h2 id="steps-to-create">Steps to Create</h2><h3 id="1-create-a-transitioned-by-user-or-transitioned-by-users-custom-field">1. Create a <em>Transitioned by User</em> or <em>Transitioned by Users</em> custom field</h3><ol><li><p>Log into your Jira instance as an Administrator. </p></li><li><p>In the upper right corner of the window, click <strong>Settings</strong> ( ⚙️ ) and select <strong>Apps</strong>. </p></li><li><p>In the left-hand sidebar, click <strong>Jira Misc Custom Fields</strong>. </p></li><li><p>Click <strong>My custom fields</strong> and in the upper right corner click <strong>New custom field</strong>. </p></li><li><p>Enter a name for your custom field and, optionally, a description. </p></li><li><p>Select <strong>Transitioned by User</strong> (for a single approver) or <strong>Transitioned by Users</strong> (for multiple approvers) and click <strong>Next</strong>. </p></li><li><p>Select the screens to which the new custom field should be added (Figure 1, right). Click <strong>Next</strong>.</p></li><li><p>Configure the field: </p><ol><li><p>From the <strong>Transition From Status</strong> pulldown menu, select <code>Any</code> (or select the status that immediately precedes your approval status).</p></li><li><p>From the <strong>To Status</strong> pulldown menu, select <code>Approved</code>. </p></li><li><p>For <strong>Which Change? </strong>select <code>Earliest</code>. </p></li></ol></li><li><p>Click <strong>Save</strong>.</p></li></ol></div><div><img alt="Jira Misc Custom Fields (JMCF) Cloud first approver screen association" class="doc-image" loading="lazy" src="/cms_trial/assets/9b9ca55a-e934-4d9a-b354-e404fc26e86a.png"/></div></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h3 id="2-configure-custom-field-context-optional">2. Configure Custom Field Context (Optional)</h3><p>When a custom field is created, it is added to the selected screens, but it is also added to <em>every issue type</em> and <em>every project</em>. If a custom field should only be added to specific issue types and/or projects, you need to edit the custom field context.</p><ol><li><p>Open the custom field configuration:</p><ol><li><p>From the My Custom Fields page, click the <strong>Contexts</strong> link for the new custom field.</p></li><li><p>Through the native Jira menus:</p><ol><li><p>In the upper right corner of the Jira window, click <strong>Settings</strong> ( ⚙️ ) and select <strong>Issues</strong>.</p></li><li><p>In the left-hand panel, click <strong>Custom fields</strong>.</p></li><li><p>Locate your new custom field in the list and click <strong>Action</strong> at the far right. Select <strong>Contexts and default value</strong>.</p></li></ol></li></ol></li><li><p> Update the context for your custom field as necessary: </p><ol><li><p>To add a new context, click <strong>Add new context</strong>. </p></li><li><p>To update the existing context, click <strong>Edit context</strong> or <strong>Edit Configuration</strong>.</p></li><li><p>For specific steps on modifying contexts, see this page: <a href="https://support.atlassian.com/jira-cloud-administration/docs/edit-a-custom-field-context/">https://support.atlassian.com/jira-cloud-administration/docs/edit-a-custom-field-context/</a> </p></li></ol></li></ol></div><div><img alt="Jira Misc Custom Fields (JMCF) Cloud custom field context modification dialog" class="doc-image" loading="lazy" src="/cms_trial/assets/1cb60ac6-6146-43e0-bcdc-fd54a97dd69f.png"/></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

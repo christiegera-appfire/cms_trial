@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434798967/Simple+Issue+Language/">Simple Issue Language</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/15731951/Getting+started+with+SIL/">Getting started with SIL</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/491001660/Scripting+basics/">Scripting basics</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Getting and Setting Custom Fields</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/491001743" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Getting and Setting Custom Fields</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="implicit-context">Implicit Context</h2><p>Whenever reading or storing a custom field value, the SIL Engine must be given an issue context so that it can connect those values to an issue. In most scripting environments (such as a listener or a custom workflow), the context is already provided.</p><h3 id="getting-a-custom-field-value-by-id">Getting a Custom Field Value by Id</h3><table><tr><td><pre><code class="language-">string value = customfield_1234;</code></pre></td></tr></table><h3 id="getting-a-custom-field-value-by-name">Getting a Custom Field Value by Name</h3><table><tr><td><pre><code class="language-">string value = #{custom field name};</code></pre></td></tr></table><h3 id="setting-a-custom-field-value-by-id">Setting a Custom Field Value by Id</h3><table><tr><td><pre><code class="language-">customfield_1234 = value;</code></pre></td></tr></table><h3 id="setting-a-custom-field-value-by-name">Setting a Custom Field Value by Name</h3><table><tr><td><pre><code class="language-">customfield_1234 = #{custom field name};</code></pre></td></tr></table><h2 id="explicit-context">Explicit Context</h2><p>There are times when you must explicitly declare the context of an issue. This is especially useful when looping through an array of issues.</p><h3 id="getting-a-custom-field-value-by-id-2">Getting a Custom Field Value by Id</h3><table><tr><td><pre><code class="language-">string value = key.customfield_1234;</code></pre></td></tr></table><h3 id="getting-a-custom-field-value-by-name-2">Getting a Custom Field Value by Name</h3><table><tr><td><pre><code class="language-">string value = key.#{custom field name};</code></pre></td></tr></table><h3 id="setting-a-custom-field-value-by-id-2">Setting a Custom Field Value by Id</h3><table><tr><td><pre><code class="language-">%key%.customfield_1234 = value;</code></pre></td></tr></table><h3 id="setting-a-custom-field-value-by-name-2">Setting a Custom Field Value by Name</h3><table><tr><td><pre><code class="language-">%key%.customfield_1234 = #{custom field name};</code></pre></td></tr></table><div class="panel panel-note"><p> When setting custom fields using an explicit context, you must surround the issue variable with percent signs.</p></div><h2 id="additional-help">Additional Help</h2><p>Need help implementing this script? Talk to me directly to me by clicking on the bot on this page.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

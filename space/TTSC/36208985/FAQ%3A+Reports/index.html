@@ -80,14 +80,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud Help Center</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/1669595182/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">FAQ: Reports</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TTSC/pages/36208985" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>FAQ: Reports</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>Below are some answers to questions we're commonly asked about creating SLA reports. For help with something we haven't addressed, <a href="https://appfire.atlassian.net/servicedesk/customer/portals">please contact us</a>.</p><h4 id="are-jql-functions-available"><em><strong>Are JQL functions available?</strong></em></h4><details><summary>Answer:</summary><p>SLA Search functionalities are not available on Cloud due to the limitations of the Atlassian Cloud API. This means you won’t be able to use SLA Search functionalities on the work item navigator.</p><div class="panel panel-note"><p>As SLA Search functionalities are not available, we recommend that you use the <strong>+</strong> <strong>More</strong> button to set the SLA scope. </p></div></details><p><em><strong>I’m getting a request timeout error while trying to generate my report. How can I fix that?</strong></em></p><details><summary>Answer:</summary><p>It could be that you simply have way too many work items, SLAs, and other information. Try to use as many Filter Types as you can, and if possible, split the information in your report into numerous other reports. Then, you can also try to generate your report as a background report. If the problem persists, please contact us.</p></details><h4 id="is-there-a-limit-to-the-work-items-i-can-use-in-my-reports"><em><strong>Is there a limit to the work items I can use in my reports?</strong></em></h4><details><summary>Answer:</summary><p>We can't offer you an exact work item limit as this depends on how your SLA is configured, the number of SLAs utilized, the configurations, how many goals are in each SLA, and many other parameters. </p><p>We strongly recommend you generate your reports with low work item numbers in the UI and create background reports for those with high numbers. </p><div class="panel panel-note"><p>As a rule of thumb, always use as many filters as you can! Creating as many different reports as possible is also a good option. </p></div><p>To ensure that the report generation process runs smoothly, always try to fill out either Project, JQL, or Filter Type, since these will have a significant impact on the generation performance of your report.</p></details><h4 id="i-selected-my-filters-and-generated-my-report-however-some-of-my-selected-slas-are-missing-from-the-report-s-column-section-why"><em><strong>I selected my filters and generated my report. However, some of my selected SLAs are missing from the report’s column section. Why?</strong></em></h4><details><summary>Answer:</summary><p>If there is no relevant information about the SLA you selected, it will not appear in your report. In the near future, those SLAs will appear as a blank column in your report.</p></details><h4 id="my-report-has-incorrect-and-or-missing-information-how-can-i-fix-this"><em><strong>My report has incorrect and/or missing information. How can I fix this?</strong></em></h4><details><summary>Answer:</summary><p>First, recalculate the report’s scope. After that, if there are still inaccuracies in your SLAs, you can run another report to compare the two reports.</p></details><h4 id="is-there-a-way-to-delete-old-reports-automatically"><em><strong>Is there a way to delete old reports automatically?</strong></em></h4><details><summary>Answer:</summary><p>Yes! Go to <strong>Settings</strong> &gt; <strong>Advanced</strong> &gt; <strong>Clean Old Reports</strong>. Here you can select how often reports will be automatically deleted.</p></details><h4 id="my-sla-summary-reports-and-sla-detail-reports-are-showing-different-values-why"><em><strong>My SLA Summary Reports and SLA Detail Reports are showing different values. Why?</strong></em></h4><details><summary>Answer:</summary><p>The SLA Summary Report is useful for developing work item-based reports, whereas the SLA Detail Report is better for creating SLA-based reports. Once you’ve created a summary report, if you have an SLA that didn’t reach the target date, it shows the remaining duration of this SLA. If you have an SLA that has already been breached, it shows the overdue duration of the SLA.</p><p>Once you’ve created a Detail report, it shows the elapsed duration in the working duration column, the remaining duration in the remaining duration column, and the overdue duration in the breach duration column.</p><table><tr><th><p><strong>REPORT TYPE</strong></p></th><th><p><strong>SLA INDICATOR</strong></p></th><th><p><strong>RESULT ON REPORT</strong></p></th></tr><tr><td><p>SUMMARY</p></td><td><p>EXCEEDED</p></td><td><p>OVERDUE DURATION</p></td></tr><tr><td><p>SUMMARY</p></td><td><p>MET/PROGRESS</p></td><td><p>REMAINING DURATION</p></td></tr><tr><td><p>DETAIL</p></td><td><p>EXCEEDED</p></td><td><p>ELAPSED, REMAINING, BREACHED in different columns</p></td></tr><tr><td><p>DETAIL</p></td><td><p>MET/PROGRESS</p></td><td><p>ELAPSED, REMAINING, BREACHED in different columns</p></td></tr></table><div class="panel panel-warning"><p>Please note that you shouldn’t compare the Summary report with the Detail report to avoid this misunderstanding.</p></div></details>
   </main>
   <aside class="sidebar">
@@ -217,6 +222,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

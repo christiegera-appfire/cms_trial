@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3092186639/Association+and+synchronization/">Association and synchronization</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Salesforce Reporting on Jira Issue key</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3104407562" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Salesforce Reporting on Jira Issue key</h1>
+    <div class="page-meta">2 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="purpose">Purpose</h2><p>Reporting Jira associations on Salesforce is not possible at the moment. A workaround for customers, when they ask about Reporting on Salesforce, is to send the Jira Key field value to a Salesforce string Field and create a report based on the Jira key.</p><p>This is useful when Salesforce users might not have/don't need access to Jira and wish to report on :</p><ul><li><p>How many cases have an association with a Jira issue.</p></li><li><p>Jira Issue key associated to an Object.</p></li><li><p>Jira issue link on another field.</p></li></ul><div class="panel panel-note"><h3 id="limitation">Limitation</h3><p>The limitation is that you cannot list more than one association per record.</p></div><h2 id="answer">Answer</h2><h2 id="sending-the-jira-issue-key-to-a-string">Sending the Jira issue key to a String</h2><p>More information about Field mapping can be found <a href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/470754325/Configuring+Entity+Mappings+and+Field+Mappings">here</a>.</p><p>For this we need to map the Jira Key to a String.</p><ol><li><p>Add a String field on Salesforce and map the Key value to that new Field (that we will call Jira Key).</p></li></ol><p>The binding is only one way, since the Key in Jira is Read-only. </p><img alt="contentId-3104407562" class="doc-image" loading="lazy" src="/cms_trial/assets/f5583642-93a6-472b-93e6-e325e92a8a33.png?version=1&amp;modificationDate=1678858805321&amp;cacheVersion=1&amp;api=v2"/><ol><li><p>You will get the Jira Key as a String on Salesforce.</p></li></ol><img alt="contentId-3104407562" class="doc-image" loading="lazy" src="/cms_trial/assets/f92de75e-51e9-49f7-8e6b-b5967f35a1ef.png?version=1&amp;modificationDate=1678858805190&amp;cacheVersion=1&amp;api=v2"/><ol><li><p>Create a Salesforce report with the new Jira Key field.</p></li></ol><p>Now you need to create a report and add the new Jira key field. for that we will use the Case object as an example.</p><ul><li><p>Click on the App launcher (9 dots) Service → Reports → New Report.</p></li><li><p>In the Search box type "Cases" and click <strong>Continue</strong> on the bottom right.</p></li><li><p>Add the Column "Jira Key" and click Refresh.</p></li></ul><img alt="contentId-3104407562" class="doc-image" loading="lazy" src="/cms_trial/assets/f8ca7657-1dae-45b2-b66d-0ebdc58e37ab.png?version=1&amp;modificationDate=1678858805518&amp;cacheVersion=1&amp;api=v2"/><p>The Report configuration will look like this:</p><img alt="contentId-3104407562" class="doc-image" loading="lazy" src="/cms_trial/assets/c2543ba9-0598-47ba-87ea-f121531846c0.png?version=1&amp;modificationDate=1678858805650&amp;cacheVersion=1&amp;api=v2"/><ul><li><p>Save the new report.</p></li></ul><ol><li><p>Now you can select the new report. After this you can add any columns with information that's coming from Jira (you can add the Status, Assignee, etc.)</p></li></ol><img alt="contentId-3104407562" class="doc-image" loading="lazy" src="/cms_trial/assets/23e2fc8c-8c26-4f03-a503-1e082c3d92e1.png?version=1&amp;modificationDate=1678858805451&amp;cacheVersion=1&amp;api=v2"/><p>This is the fastest way to get a report in Salesforce of all the Case records with an association. </p><p>If you want to have a report in Jira, please take a look at this documentation:</p><p><a href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/470754196/Running+an+association+report">Running an association report in Jira</a></p></div><div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192776724/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Use the Comala Document Management App with Confluence Live Pages</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2420670735" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Use the Comala Document Management App with Confluence Live Pages</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>If your team is using Confluence Cloud and has enabled the new Live Pages (Live Docs) feature, you may notice that Comala Document Management workflows are disabled while editing a Live Page. This article explains what this means, what is supported, and how to continue using Comala workflows alongside Live Pages.</p><h2 id="information">Information:</h2><ol><li><p><strong>What Happens When You Edit a Live Page?</strong></p></li></ol><p>When a Confluence Live Page is in edit mode, you will see the following message:</p><blockquote><p>"Live Editing<br/>Interaction with Comala Document Management is disabled in edit mode."</p></blockquote><img alt="Comala Document Management with Confluence Live Pages enabled" class="doc-image" loading="lazy" src="/cms_trial/assets/536cd2b3-4657-4b4b-8a47-f5cf938263e1.png"/><p>This means:</p><ul><li><p>Comala workflows (state transitions, approvals, etc.) are temporarily disabled.</p></li><li><p>You cannot interact with the workflow status or triggers while editing.</p></li><li><p>This limitation applies only during the Live Page edit session.</p></li></ul><ol><li><p><strong>Does This Affect Workflow Data or History?</strong></p></li></ol><p>No. Comala Document Management continues to track the workflow history and state of the page. Once editing ends, workflow functionality resumes outside of edit mode.</p><ol><li><p><strong>What Is the Recommended Workflow?</strong></p></li></ol><p>If you want to use Comala workflows fully on a Live Page, follow these steps:</p><ul><li><p>Step 1: Use the Live Page feature to take real-time notes or collaborate quickly.</p></li><li><p>Step 2: When you're ready to apply formal workflows (e.g., for review or approval), convert the Live Page to a regular Confluence page.</p></li><li><p>Step 3: Comala Document Management will now be fully functional on the converted page.</p></li></ul><ol><li><p><strong>Can I Keep Using My Existing Pages?</strong></p></li></ol><p>Yes. Your existing Confluence pages (created before enabling Live Docs) are not affected. Comala Document Management works normally on those pages.</p><ol><li><p><strong>Is It Safe to Enable Live Pages?</strong></p></li></ol><p>Enabling Live Pages will not affect your existing workflow-enabled content. You can enable Live Docs across your site and continue using them alongside traditional pages.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

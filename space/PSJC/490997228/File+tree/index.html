@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490996521/Feature+guides/">Feature guides</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490996983/SIL+Manager/">SIL Manager</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">File tree</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/490997228" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>File tree</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>The file tree on the left side of the SIL Manager displays your scripts and folders in an organized hierarchy. Files are organized in folders and show their type with icons:<br/></p><img alt="Power Scripts for Jira Cloud file types icon display" class="doc-image" loading="lazy" src="/cms_trial/assets/25bfca41-39b7-4f9c-90b7-8d688458fb72.png"/><div class="panel panel-note"><p>SIL script files must use the <code>.sil</code> extension to be recognized and executed properly by the system.</p></div></div></div><p>You can navigate, search, and manage your files directly from this panel.</p><table><tr><th><p><strong>To…</strong></p></th><th><p><strong>Do this</strong></p></th></tr><tr><td><p>Open a file in the editor</p></td><td><p>Double-click any file in the tree.</p></td></tr><tr><td><p>Search for a file in a folder</p></td><td><p>Select the folder and use the search box to quickly find files by name. The search looks through the selected folder and all its nested subfolders, making it easy to locate files in large directory structures.</p></td></tr><tr><td><p>Open the context menus for a folder</p></td><td><p>Right-click on any folder to access available actions:</p><img alt="Power Scripts for Jira Cloud file menu options" class="doc-image" loading="lazy" src="/cms_trial/assets/e5360640-cc14-494b-bdc3-2c03b17c5ddf.png"/><ul><li><p><strong>Refresh</strong>: Updates the view to show new files added to the folder outside of the SIL Manager.</p></li><li><p><strong>Rename</strong>: Changes the folder name.</p></li><li><p><strong>Delete</strong>: Removes the folder.</p></li></ul><div class="panel panel-note"><p>Only empty folders can be deleted. Remove all files and subfolders before attempting to delete a folder.</p></div><ul><li><p><strong>New</strong>: Creates new files or subfolders within the selected folder.</p></li><li><p><strong>Download</strong>: Downloads the folder and its contents.</p></li><li><p><strong>Upload file</strong>: Uploads a file to the selected folder.</p></li></ul></td></tr><tr><td><p>Open the context menus for a file</p></td><td><p>Right-click on any folder to access available actions:</p><img alt="Power Scripts for Jira Cloud file context menu interface" class="doc-image" loading="lazy" src="/cms_trial/assets/58400375-5d01-4305-98e1-23f3ade1bc2f.png"/><ul><li><p><strong>Rename</strong>: Changes the filename.</p></li><li><p><strong>Delete</strong>: Removes the file.</p></li><li><p><strong>Storage Type</strong>: Select where the file is stored.</p><ul><li><p><strong>Disk</strong>: File stored on the file system.</p></li><li><p><strong>Database</strong>: File stored in the database.</p></li></ul></li></ul><div class="panel panel-note"><p>Changing a file's storage type will automatically migrate the file to the new location. For bulk migrations, a <a href="/cms_trial/space/PSJC/490996090/Script+Storage+configuration/">bulk storage change utility</a> is available to transfer all SIL scripts between storage locations at once. Note that this utility affects only SIL scripts, not supplementary files (HTML, JavaScript, CSV, text files).</p></div><ul><li><p><strong>Find usages</strong>: Searches for references to this file across all scripts and configurations.</p></li></ul><div class="panel panel-success"><p>This option is particularly useful for understanding dependencies before deleting or renaming a file. It helps you avoid breaking existing workflows or scripts that depend on it.</p></div><ul><li><p><strong>Download</strong>: Downloads the file.</p></li></ul></td></tr></table><div class="panel panel-warning"><p>The <strong>Delete</strong> and <strong>Rename</strong> actions are performed without checking for existing usage. If your script is already used in workflows, post-functions, or other automations, deleting or renaming it will break those implementations. Always verify usage before performing these operations.</p></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/POKERADO/148307970/Planning+Poker+Azure+Home/">Planning Poker for ADO</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/POKERADO/148307970/Planning+Poker+Azure+Home/">Planning Poker Azure Home</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/POKERADO/3008299028/Get+started+with+Planning+Poker/">Get started with Planning Poker</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Install Planning Poker in Azure DevOps</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/POKERADO/pages/3341353014" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Install Planning Poker in Azure DevOps</h1>
+    <div class="page-meta">2 min read</div>
     <p>Use this guide to install the Planning Poker extension from the Azure DevOps Marketplace into your organization. This is a standard marketplace installation flow for Azure DevOps extensions and is intended for organization administrators or users with permission to manage extensions.</p><div class="panel panel-note"><p>Planning Poker for Azure DevOps provides a native estimation experience inside Azure DevOps, including interactive estimation sessions, async estimation, and estimation directly from work item views.</p></div><h2 id="before-you-begin">Before you begin</h2><ul><li><p>You need access to the target <strong>Azure DevOps organization</strong>.</p></li><li><p>You need permission to <strong>install extensions</strong> for that organization. In many environments, this requires organization admin rights.</p></li><li><p>Have the marketplace listing ready if you want to navigate directly to the app.</p></li></ul><div class="panel panel-note"><p>If your company restricts marketplace installs, you may need approval from your Azure DevOps administrator, procurement team, or security team before completing the installation.</p></div><h2 id="install-from-the-marketplace">Install from the Marketplace</h2><ol><li><p><strong>Open the Azure DevOps Marketplace.</strong><br/>Go to the Marketplace and search for <strong>Planning Poker</strong>.</p></li><li><p><strong>Open the Planning Poker listing.</strong><br/>Review the app overview, publisher details, permissions, and pricing or trial information shown on the listing page.</p></li><li><p><strong>Select Get it free</strong> or the current install action.<br/>The exact button label can vary depending on listing status, licensing model, or whether a trial is offered.</p></li><li><p><strong>Choose your Azure DevOps organization.</strong><br/>If you belong to multiple organizations, select the one where you want Planning Poker installed.</p></li><li><p><strong>Confirm the installation.</strong><br/>Review the requested access and proceed with the standard extension installation flow.</p></li><li><p><strong>Wait for the installation to complete.</strong><br/>Once finished, Azure DevOps will confirm that the extension has been added to the selected organization.</p></li></ol><div class="panel panel-note"><p>Best practice: install the extension first in a test or sandbox Azure DevOps organization if your team uses a controlled rollout process.</p></div><h2 id="verify-the-installation">Verify the installation</h2><p>After installation, confirm that the extension is available in the organization.</p><ul><li><p>Open <strong>Organization settings</strong> in Azure DevOps.</p></li><li><p>Go to the installed extensions area.</p></li><li><p>Confirm that <strong>Planning Poker</strong> appears in the list of installed extensions.</p></li><li><p>Open Azure Boards and check whether Planning Poker entry points are available where your team expects to estimate work.</p></li></ul><p>Depending on your Azure DevOps setup and the app configuration, users may see Planning Poker features in places such as:</p><ul><li><p>Work item details</p></li><li><p>Backlog or sprint-related estimation flows</p></li><li><p>Query-based or selected-work-item estimation flows</p></li></ul><div class="panel panel-success"><p>If the extension is visible in the installed extensions list and its UI appears in Azure DevOps, the installation was successful.</p></div><h2 id="troubleshooting">Troubleshooting</h2><ul><li><p><strong>The install button is unavailable:</strong> you may not have permission to install extensions for the organization.</p></li><li><p><strong>The organization is not listed:</strong> verify that you are signed in with the correct account and have access to the target Azure DevOps organization.</p></li><li><p><strong>The extension installs but is not visible to users:</strong> refresh Azure DevOps, confirm installation under organization settings, and verify that users are accessing supported Azure DevOps areas.</p></li><li><p><strong>Security review is required:</strong> review the marketplace listing and your internal approval process before installation.</p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

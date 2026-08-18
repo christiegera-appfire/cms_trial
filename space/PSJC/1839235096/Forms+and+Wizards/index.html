@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490996521/Feature+guides/">Feature guides</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Forms and Wizards</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/1839235096" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Forms and Wizards</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>The Forms and Wizards feature lets you design custom actions in Jira Cloud that enable users to modify issues and execute tasks without advancing through workflow transitions. </p><p>The Forms and Wizards feature lets you design custom actions in Jira Cloud that enable users to modify issues and execute tasks without advancing through workflow transitions. </p><p>With this feature, you can create various interface options for users, such as:</p><ul><li><p>Interactive forms and wizards that appear in panels within the Jira issue view (in the right column or the main body of the issue screen). </p></li><li><p>Configurable buttons that serve as multiple entry points, each opening a different form or wizard within an issue.</p></li></ul><p>This streamlined approach significantly reduces maintenance costs, simplifies development and configuration, and lets you implement complex actions without duplicating configuration throughout your workflow. </p></div></div><p>Watch this video for a brief overview of the Forms and Wizards feature:</p><iframe src="https://appfire.wistia.com/medias/8l3jzcf7oq"></iframe><hr/><h2 id="what-you-need-to-know-about-actions">What you need to know about actions</h2><div class="panel panel-note"><p>Forms and Wizards is the cloud version of the Power Actions for Jira DC app. </p></div><p>In this context, an action refers to a customizable, interactive operation that users can execute within a Jira issue panel.</p><ul><li><p>Actions can be presented as standalone forms, multi-step wizards, or as a collection of buttons that each trigger their own form or wizard.</p></li><li><p>An action has the same activation structure as a workflow transition and can be performed regardless of the issue status as long as the action condition is met.</p></li><li><p>Each action is controlled by a set of SIL scripts that determine its visibility, user interface, and functional behavior.</p></li></ul><hr/><h2 id="the-interface-options">The interface options</h2><p>The Forms and Wizards feature provides the following customizable interfaces within Jira issues:</p><ul><li><p><strong>Forms</strong> provide a simple single-screen interface with all input fields visible at once. Forms are ideal for simple, straightforward tasks.</p></li><li><p> <strong>Wizards</strong> break complex processes into manageable steps, with each screen building upon previous selections. This multi-step approach supports:</p><ul><li><p>Integration with external databases or LDAP directories</p></li><li><p>Creation of sophisticated decision paths based on earlier user choices</p></li><li><p>Dynamic content that adapts to user inputs across multiple screens</p></li></ul></li><li><p><strong>Buttons</strong> serve as distinct entry points to different forms or wizards within a single panel. Each button:</p><ul><li><p>Acts as a gateway to its own complete form or a multi-step wizard</p></li><li><p>Allows administrators to organize complex functionality into intuitive, purpose-specific options</p></li><li><p>Enables multiple forms to coexist within the same panel without overwhelming the user.</p></li></ul></li></ul><hr/><h2 id="how-it-works">How it works</h2><p>The Forms and Wizards feature is built on three essential script components that work together as building blocks to create dynamic, interactive experiences within Jira issue panels. </p><table><tr><th><p><strong>Script component</strong></p></th><th><p><strong>Description</strong></p></th></tr><tr><td><p>Condition script</p></td><td><p>Controls the visibility and availability of actions. You can make actions:</p><ul><li><p>Available (enabled) for users to execute</p></li><li><p>Visible but unavailable (disabled) based on specific conditions</p></li><li><p>Hidden entirely when not applicable</p></li></ul></td></tr><tr><td><p>Screen scripts</p></td><td><p>Defines the user interface for gathering information. This script lets you:</p><ul><li><p>Create rich, interactive forms with various input types</p></li><li><p>Add HTML to provide context and instructions</p></li><li><p>Customize buttons, titles, and field attributes</p></li></ul></td></tr><tr><td><p>Action script</p></td><td><p>The engine that performs the actual work after all information is gathered. This script can:</p><ul><li><p>Process user input from the form</p></li><li><p>Perform validations and provide feedback if errors occur</p></li><li><p>Execute complex logic using our Simple Issue Language (SIL)</p></li><li><p>Modify issue values or take conditional actions</p></li></ul></td></tr></table><p>These three scripts operate as complementary components within a unified framework, providing a complete solution that guides Jira users through complex actions while maintaining data consistency and adhering to your business rules.</p><p>By separating the condition, interface, and execution layers, Forms and Wizards give you flexibility in designing and implementing user interactions in Jira without the traditional constraints of workflow transitions.</p><hr/>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

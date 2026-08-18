@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490995921/Configuration+guides/">Configuration guides</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">SIL configuration</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/490996120" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>SIL configuration</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>This basic configuration page lets you specify the charset used to interpret SIL script files and the cache size of the SIL scripts.</p><p>To access the page, go to <strong>Power Scripts</strong> &gt; <strong>Settings </strong>&gt; <strong>Basic</strong> &gt; <strong>SIL Configuration. </strong> Use the respective fields to specify the following:</p><ul><li><p> The character encoding used to interpret your SIL script files.</p></li><li><p>The memory cache size for SIL scripts. The <strong>SIL Cache Size</strong> setting determines how many parsed script trees are kept in memory using a Least Recently Used (LRU) algorithm. To improve performance, the system caches already parsed scripts, enabling the SIL Engine to access these pre-parsed and optimized trees directly from memory instead of reading from disk each time.</p><p>You can disable this cache, but we do not recommend it as it will negatively impact performance. Conversely, if your installation uses many scripts, consider increasing the cache size to accommodate more parsed trees in memory for optimal performance.</p></li></ul><img alt="Power Scripts for Jira Cloud SIL Mail configuration interface" class="doc-image" loading="lazy" src="/cms_trial/assets/2ca38142-9bbe-4707-8ffa-a6e362680536.png"/><div class="panel panel-note"><p>The <strong>SIL Home Directory </strong>setting, which used to be part of the SIL configuration, has been moved to the <a href="/cms_trial/space/PSJC/490996090/Script+Storage+configuration/">Script Storage configuration</a>.</p></div><hr/><h2 id="more-configuration-guides">More configuration guides</h2><div class="img-placeholder">[Unmapped macro: contentbylabel — no content to fall back on]</div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

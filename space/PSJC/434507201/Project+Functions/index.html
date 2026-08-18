@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434798967/Simple+Issue+Language/">Simple Issue Language</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434374166/SIL+Functions+library/">SIL Functions library</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434374224/Jira+Integration+Functions/">Jira Integration Functions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Project Functions</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/434507201" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Project Functions</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>This section contains functions that enable users to handle projects.</p><p>This section contains functions that enable users to handle projects.</p><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="functions-summary">Functions Summary</h2><ul class="children-list"><li><a href="/cms_trial/space/PSJC/433000678/getVersions/">getVersions</a></li><li><a href="/cms_trial/space/PSJC/433654497/getTeamLeaders/">getTeamLeaders</a></li><li><a href="/cms_trial/space/PSJC/434472682/getComponents/">getComponents</a></li><li><a href="/cms_trial/space/PSJC/434733476/allProjects/">allProjects</a></li><li><a href="/cms_trial/space/PSJC/434733545/getComponent/">getComponent</a></li><li><a href="/cms_trial/space/PSJC/434733561/getVersion/">getVersion</a></li><li><a href="/cms_trial/space/PSJC/434766119/getVersionsObjects/">getVersionsObjects</a></li><li><a href="/cms_trial/space/PSJC/434766136/projectsForPM/">projectsForPM</a></li><li><a href="/cms_trial/space/PSJC/434799271/issueTypesForProject/">issueTypesForProject</a></li><li><a href="/cms_trial/space/PSJC/434831827/getProjectRoleIdByName/">getProjectRoleIdByName</a></li><li><a href="/cms_trial/space/PSJC/434831843/getComponentsObjects/">getComponentsObjects</a></li><li><a href="/cms_trial/space/PSJC/434831859/projectPM/">projectPM</a></li><li><a href="/cms_trial/space/PSJC/434864433/getProjectComponentLead/">getProjectComponentLead</a></li><li><a href="/cms_trial/space/PSJC/434930117/projectMembers/">projectMembers</a></li><li><a href="/cms_trial/space/PSJC/435028429/getProjectKeyByName/">getProjectKeyByName</a></li><li><a href="/cms_trial/space/PSJC/804326925/issueTypeIdsForProject/">issueTypeIdsForProject</a></li><li><a href="/cms_trial/space/PSJC/806387730/issueTypeIdForProject/">issueTypeIdForProject</a></li><li><a href="/cms_trial/space/PSJC/820609122/getProjectIdByKey/">getProjectIdByKey</a></li><li><a href="/cms_trial/space/PSJC/821067864/getProjectKeyById/">getProjectKeyById</a></li></ul></div><div><div class="panel panel-note"><p>Can’t find what you are looking for? There are many more user functions in the <a href="https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=PSJC&amp;title=User%20Administration%20Functions&amp;linkCreation=true&amp;fromPageId=434864450">User Administration section</a>.</p></div></div></div><p><br/></p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

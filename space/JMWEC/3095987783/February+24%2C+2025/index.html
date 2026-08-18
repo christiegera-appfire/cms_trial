@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/1154449466/Release+notes/">Release notes</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">February 24, 2025</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/3095987783" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>February 24, 2025</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="feature-release-jmwe-for-jira-cloud-1-2-39">Feature Release - JMWE for Jira Cloud 1.2.39</h2><p><strong>Release date</strong>: February 24, 2025</p><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>This release of <strong>JMWE for Jira Cloud</strong> includes new events for Event-based actions! The types of events that can trigger an Event-based action has been greatly expanded to include Project, Sprint, Version, and User related events. Additionally, a new ‘Advanced view’ has been added to all Automation Rule Builder configuration screens.  </p><p><span class="img-placeholder" style="display:inline">[unmapped inline: placeholder]</span></p><p><span class="img-placeholder" style="display:inline">[unmapped inline: placeholder]</span></p></div></div><hr/><h2 id="enhancements">Enhancements</h2><h2 id="actions">Actions</h2><h3 id="new-events-for-event-based-actions">New events for Event-based actions!</h3><img alt="JMWE for Jira Cloud new events configuration interface for version 1.2.39 features" class="doc-image" loading="lazy" src="/cms_trial/assets/6afdffdb-dc7f-407e-8feb-c4625d2e0ae9.png"/><p>Event-based actions have been updated with a greatly expanded list of events that can trigger them! In addition to the existing issue-related events, you can now configure JMWE post functions to fire based on Project-, Sprint-, Version-, and User-related events! See <a href="/cms_trial/space/JMWEC/465473524/Event-based+actions/">Event-based actions</a> for more information!</p><h2 id="ui-updates">UI Updates</h2><h3 id="automation-rule-builder-advanced-view">Automation Rule Builder ‘Advanced view’</h3><p>All actions that use the Automation Rule Builder (<a href="/cms_trial/space/JMWEC/466288975/Shared+actions/">Shared</a>, <a href="/cms_trial/space/JMWEC/466321868/Scheduled+actions/">Scheduled</a>, and <a href="/cms_trial/space/JMWEC/465473524/Event-based+actions/">Event-based actions</a>) have been updated with an ‘Advanced view’ when configuration the post functions included in the action. The new button to toggle between Simple and Advanced views appears after an action has at least one post function configured. Advanced view adds a detailed list of post functions and their configurations to the bottom of the editor screen, providing a data-rich summary view of all configurations included in the action. See the pages for each action for more information. </p><h3 id="last-modification-date-and-user-added-to-actions">Last modification date and user added to Actions</h3><p> In addition to the Advanced view, the tables listing all existing actions (<a href="/cms_trial/space/JMWEC/466288975/Shared+actions/">Shared</a>, <a href="/cms_trial/space/JMWEC/466321868/Scheduled+actions/">Scheduled</a>, and <a href="/cms_trial/space/JMWEC/465473524/Event-based+actions/">Event-based actions</a>) have been expanded with two new columns - <strong>By</strong> and <strong> Last modified</strong>. These columns display the user badge of the last person to modify (or create) the action, and when that modification occured. This includes enabling or disabling the action. </p><h2 id="extensions">Extensions</h2><h3 id="regular-expression-support-in-nunjucks-templates">Regular expression support in Nunjucks templates</h3><p>Nunjucks templates and scripts have been updated to support regular expressions when the <strong>filter</strong> and <strong>find</strong> filters to match issues or objects. See <a href="/cms_trial/space/JMWEC/465373240/Nunjucks+Filters/">Nunjucks filters</a> for more information. </p><h2 id="bug-fixes">Bug fixes</h2><p>The following bugs are fixed in this release:</p><ul><li><p><strong>‘Link issues’ post function encounters errors</strong> - In some configurations when selecting a maximum number of issues for the <a href="/cms_trial/space/JMWEC/465242225/Link+issues+to+the+current+issue/">Link issues to the current issue</a> post function, the post function does not successfully complete. This has been resolved. </p></li><li><p><strong>JQL Expression editor fixes </strong>- The JQL editor did not display test results correctly in some circumstances. This has been resolved. </p></li><li><p><strong>Script editor help link is broken - </strong>The ‘More Help’ link in the Nunjucks and JQL Expression editor is broken. This has been resolved. </p></li><li><p><strong>Migrated Scripted user configurations show wrong error in Cloud</strong> - When migrating a post function from Data Center to Cloud that uses a script to determine the <strong>Run as</strong> user, the Cloud version of the migrated post function shows the error ‘Groovy script must be converted into a Jira expression' when it should state ‘Groovy script must be converted into a Nunjucks script’. This has been resolved.  </p></li></ul><hr/>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

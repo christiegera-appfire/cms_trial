@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465372899/Workflow+Extensions+for+Jira+Cloud/">Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465242045/Post+functions/">Post functions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Send Slack message</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/1848017067" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Send Slack message</h1>
+    <div class="page-meta">6 min read</div>
     <p>A workflow post function that sends a message to Slack - to selected channel or channels, or to specific users. </p><div class="panel panel-note"><p><strong>Note</strong>: To utilize this post function, there are a few considerations outside of JMWE: </p><ol><li><p>Use of this post function requires the free Slack app <strong>Notifier by Appfire</strong>. You will be prompted to install this app on Slack the first time you connect JMWE to your Slack workspace.</p></li><li><p>You must be an administrator of the Slack workspace to which you want to send messages; workspace administrator permissions are only required when connecting JMWE to a workspace, not for sending messages to a workspace. </p></li><li><p>You only need to connect to a workspace once. </p></li></ol></div><div class="panel panel-note"><p><strong>Note</strong>: The <strong>Send Slack message</strong> post function does not include configuration options to Run As any user other than the app user; this is due to permission requirements within Slack when using the <strong>Notifier by Appfire</strong> app. </p></div><img alt="Send Slack Message post function." class="doc-image" loading="lazy" src="/cms_trial/assets/b8e67c8b-bb50-49c6-9667-a33207894f45.png"/><p><strong>To add the 'Send Slack message' post function to a transition</strong>:</p><ol><li><p>Click <strong>Edit</strong> for the workflow that has the transition to which you wish to add the post function.</p></li><li><p>In the Workflow Designer, select the transition.</p></li><li><p>Click <strong>Post Functions </strong>in the properties panel.</p></li><li><p>Click <strong>Add post function</strong>.</p></li><li><p>Select <strong>Send Slack message</strong> from the list of post functions.</p></li><li><p>Click <strong>Add</strong> to navigate to the <em>Send Slack Message</em><strong> </strong>screen where you can add configuration details to the post function. See below for configuration details.</p></li><li><p>Click <strong>Add</strong> to add the post function to the transition.</p></li></ol><p>After adding the post function, move the post function to the appropriate position according to <a href="/cms_trial/space/JMWEC/466289149/Adding+extensions+to+transitions/">Placing post functions in a transition</a> document.</p><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="connect-a-slack-workspace">Connect a Slack workspace</h2><p>Before sending messages to Slack, you must connect JMWE to a Slack workspace. The first time you configure the <strong>Send Slack message</strong> post function, you will be prompted to connect to a workspace. To connect to a Slack workspace: </p><ol><li><p>In the <strong>Send Slack message</strong> post function configuration page, click <strong>Connect new workspace</strong> to the right of the <strong>Slack Workspace</strong> pulldown menu. </p></li><li><p>A new tab will open. </p><ol><li><p>If this is your first connected workspace, the tab will include dialog for logging into your Slack workspace; enter your Slack URL and click <strong>Continue</strong>. </p></li><li><p>If you have connected a workspace previously, but want to connect to a different workspace, select <strong>Add another workspace</strong> from the pulldown menu in the upper right corner. Enter the new Slack URL and click <strong>Continue</strong>. </p></li></ol></li><li><p>You must install Notifier by Appfire in your Slack workspace. Click <strong>Allow</strong>.</p></li><li><p>Close the tab when prompted. </p></li></ol><p>In the post function configuration screen, your Slack workspace should now be available in the <strong>Slack Workspace</strong> pulldown menu. </p><h2 id="issue-s-to-operate-on">Issue(s) to operate on</h2><p>Select the issues to set the assignee field on. They can be:</p><ul><li><p><strong>Target issues</strong></p><ul><li><p><strong>Current issue:</strong> Select this option to set the assignee of the current issue. <em>This is the default option.</em></p></li><li><p><strong>Sub-tasks of the current issue: </strong>Select this option to set the assignee of sub-tasks of the current issue.</p></li><li><p><strong>Parent issue of the current sub-task:</strong> Select this option to set the assignee of the parent of the current issue.</p></li><li><p><strong>Issues that belong to the current issue (Epic):</strong> Select this option to set the assignee of issues that belongs to the current Epic.</p></li><li><p><strong>Epic of the current issue: </strong>Select this option to set the assignee of the Epic of the current issue.</p></li><li><p><strong>Child issues of the current issue in the Portfolio hierarchy:</strong> Select this option to set the assignee of child issues of the current issue in the Portfolio hierarchy.</p></li><li><p><strong>Parent issue of the current issue in the Portfolio hierarchy:</strong> Select this option to set the assignee of the parent issue of the current issue in the Portfolio hierarchy.</p></li><li><p><strong>Issues linked to the current issue through any link type:</strong> Select this option to set the assignee of the current issues' linked issues.</p></li><li><p><strong>Issues linked to the current issue through the following link type:</strong> Select this option to set the assignee of issues linked to the current issue through a specific link type. Select the specific link type under “Issue link”.</p></li><li><p><strong>Issues returned by the following Nunjucks template: </strong>Select this option to set the assignee of the issues returned by the result of a Nunjucks template. Input a Nunjucks template which is a comma-separated list of valid issue keys. For example:</p><ul><li><p><code>"TEST-1"</code></p></li><li><p><code>"TEST-1","TEST-2"</code></p></li><li><p><code>{{ issue.fields.parent.key }}</code></p></li><li><p><code>{{ issue.fields.subtasks | join(",", "key") }}</code></p></li></ul></li><li><p><strong>Issues returned by a JQL search</strong>: Select this option to set the assignee of the issues returned by a JQL search. Input a JQL search expression. For example:</p><ul><li><p><code>project = TEST</code> returns issues of the project with the key TEST</p></li><li><p><code>project = {{ issue.fields.project.key }} and assignee = {{currentUser._accountId}}</code> returns issues of a project that belong to the project with key TEST and the assignee is the current user</p></li><li><pre><code class="language-">{% if issue.fields.assignee %}
     assignee = {{issue.fields.assignee._accountId}}
 {% else %}
@@ -158,6 +163,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

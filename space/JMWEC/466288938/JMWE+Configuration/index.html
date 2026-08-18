@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465503776/JMWE+Administration/">JMWE Administration</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">JMWE Configuration</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/466288938" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>JMWE Configuration</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>Generally, JMWE does not require any global configurations; nearly all of its features - and their configurations - are included in the workflow editing screens or in the other tools available under the<em> JIRA MISC WORKFLOW EXTENSIONS </em>section of App administration. However, there are a few options available, detailed below. </p><h2 id="general-settings">General Settings</h2><h3 id="send-notifications">Send notifications</h3><p>This setting controls the default value of the "Send notifications" option when adding a <em>new</em> post function to a transition.</p><div class="panel panel-warning"><p>Updating this option will <strong>not update</strong> existing post functions. </p></div><div class="panel panel-note"><p><strong>To migrating users</strong></p><p>If you have workflows that have been migrated from the Data Center/Server versions of JMWE to the new "Connect" version on Sept. 19, 2016, this option also controls the default behavior of the <a href="https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=mwecs&amp;title=Assign%20to%20role%20member&amp;linkCreation=true&amp;fromPageId=449839323">Assign to Role Member</a> and <a href="/cms_trial/space/JMWEC/466225934/Assign+to+last+role+member+(Deprecated)/">Assign to Last Role Member</a> post functions. If you did not reconfigure these post functions after the migration, the default setting above will be used to control whether they should send notifications. </p><p>You can always override the default behavior by editing the post function configuration directly.</p></div><h2 id="view-issue-screen">View Issue Screen</h2><p>Because of the <a href="/cms_trial/space/JMWEC/466256571/Changes+made+by+post-functions+are+not+always+visible+immediately/">asynchronous nature of Cloud post-functions</a>, the outcome of JMWE post functions is generally not visible on the View Issue screen when it is refreshed at the end of a transition. Likewise, no user interaction can be triggered by a post function.</p><p>JMWE for Jira Cloud implements a mechanism that supports triggering actions, such as refreshing the screen or navigating to an issue, after the transition completes, <em>only if the transition was triggered from the View Issue screen</em>. </p><h3 id="auto-refresh-issue">Auto-refresh Issue</h3><p><strong>This option is selected by default.</strong> Checking this setting will cause JMWE to refresh the View Issue screen if a change made by a JMWE post function is detected within 10 seconds after the Transition completes. </p><h3 id="show-transitions-activity-tab">Show “Transitions” Activity Tab</h3><p>JMWE adds a <strong>Transitions</strong> activity tab to the View Issue screen. However, some Jira Cloud instances might show a second Transitions tab, which is implemented by Jira Cloud but only available on "old" Jira Cloud instances. <strong>JMWE</strong>'s Transitions tab can be hidden by unchecking this option.</p><div class="panel panel-warning"><p><strong>Note:</strong> Atlassian's Transitions tab, if you see it, can only be hidden by opening a support ticket with <a href="https://support.atlassian.com/contact/#/">Atlassian Support</a>.</p></div><h2 id="application-menus">Application menus</h2><h3 id="display-jmwe-links">Display JMWE links</h3><p>This option will add or remove shortcuts to the JMWE Administration page in the following places: </p><ul><li><p>Project sidebar</p></li><li><p>Board menus (in the upper right corner near the Action menu for the board)</p></li><li><p>Action menu of the Issue view (the option <strong>Edit workflow with JMWE</strong>)</p></li></ul></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

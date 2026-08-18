@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309984/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309266/FAQ/">FAQ</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">How to build your Central Data Hub</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/146309617" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>How to build your Central Data Hub</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>Centralize your data by turning Jira and Confluence into the Central Data Hub of your organization</p><h2 id="centralize-your-data">Centralize your data</h2><p>Wouldn’t it be more convenient and time-saving if you could view and access all of your information in a central location?</p><p>Dashboard Hub addresses this by automatically becoming a Central Data Hub. Unlike the default Jira dashboard that is built to work with the instance where it’s installed, Dashboard Hub connects with both the current instance as well as several Jira instances. This lets you use dashboards to keep your data centralized.</p><h2 id="single-reference-point">Single reference point</h2><p>Centralizing key metrics in a single display provides you with a bird’s eye view of what is happening in your organization, plus saves you the inconvenience of jumping between platforms to check on the status of your projects and teams.</p><p>Dashboard Hub gives your team a single reference point where they can analyze key statistics and be kept up-to-date on the relevant project information.</p><img alt="Dashboard Hub Centralyze 1" class="doc-image" loading="lazy" src="/cms_trial/assets/f2e702a1-752b-4e47-9041-33fa63778012.jpeg"/><h2 id="see-also">See also</h2><ul><li><p><a href="https://appfire.atlassian.net/wiki/spaces/SUPPORT/pages/919404551">SQL query for identifying dashboards that utilize rich filter gadgets in an Oracle database</a></p></li><li><p><a href="https://appfire.atlassian.net/wiki/spaces/SUPPORT/pages/89130893">How to configure columns displayed on Service Desk Queue gadgets in Dashboard Hub Pro app</a></p></li><li><p><a href="https://appfire.atlassian.net/wiki/spaces/SUPPORT/pages/89130635">How to add a Reports and Timesheets gadget to a dashboard</a></p></li><li><p><a href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/748683346">Dashboard functions in Power Scripts</a> </p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

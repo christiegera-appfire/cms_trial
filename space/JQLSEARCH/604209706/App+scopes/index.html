@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209972/JQL+Search+Extensions+(Cloud)/">JQL Search Extensions (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209802/Get+started+with+JQL+Search+Extensions+for+Jira/">Get started with JQL Search Extensions for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209677/Key+concepts/">Key concepts</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">App scopes</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JQLSEARCH/pages/604209706" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>App scopes</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>JQL Search Extensions for Jira requires various application scopes to function correctly. Application scopes give access to Jira data. The following list explains the required scopes and how the data is used.</p><table><tr><th><p><strong>Scope name</strong></p></th><th><p><strong>Description</strong></p></th><th><p><strong>How the app uses the scope</strong></p></th></tr><tr><td><p>READ</p></td><td><p>View, browse, and read information from Jira.</p></td><td><ul><li><p>reads issue fields</p></li><li><p>fetches fields configuration</p></li><li><p>performs searches</p></li><li><p>reads previously saved issues metadata</p></li><li><p>reads the app’s metadata</p></li></ul></td></tr><tr><td><p>WRITE</p></td><td><p>Create or edit content in Jira, but not delete content.</p></td><td><ul><li><p>saves the app’s metadata against an issue</p></li><li><p>saves the app’s metadata</p></li></ul></td></tr><tr><td><p>DELETE</p></td><td><p>Delete content in Jira.</p></td><td><ul><li><p>deletes the app’s metadata from an issue</p></li><li><p>deletes the app’s metadata</p></li></ul></td></tr><tr><td><p>ACT_AS_USER</p></td><td><p>Access content using the permissions of the user running the app.</p></td><td><ul><li><p>performs search as a user (helps with security of data)</p></li><li><p>saves filter as a user</p></li><li><p>deletes a user’s filter</p></li></ul></td></tr><tr><td><p>ACCESS_EMAIL_ADDRESSES</p></td><td><p>Get the email addresses of users.</p></td><td><ul><li><p>obtains the email of a person who initiated a transactional action, for example, triggered the Jira indexing.</p></li></ul></td></tr></table>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

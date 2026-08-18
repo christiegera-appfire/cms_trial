@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309984/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309266/FAQ/">FAQ</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">How can I change the styles of my Dashboard?</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/146311404" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>How can I change the styles of my Dashboard?</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>You can use CSS to change elements such as font style, size, or even more complex style changes. You can modify CSS in Jira and Confluence Data Center.</p><p>Jira: <a href="https://confluence.atlassian.com/jirakb/how-to-hide-elements-in-jira-using-css-or-javascript-958774526.html">How to hide elements in Jira using CSS or JavaScript</a></p><p>Confluence: <a href="https://confluence.atlassian.com/doc/styling-confluence-with-css-166528400.html">Styling Confluence with CSS | Confluence Data Center and Server</a></p><p>Customizing in cloud instances requires Themes from the Atlassian Marketplace. </p><h2 id="a-browser-plugin-to-customize-my-dashboards">A browser plugin to customize my dashboards</h2><p>A browser plugin can suit the needs of avid users who prefer customized options to refine every detail. </p><h3 id="stylebot-for-chrome">Stylebot for Chrome</h3><p><a href="https://chrome.google.com/webstore/detail/stylebot/oiaejidbmkiecgbjeifoejpgmdaleoha?hl=en">Stylebot is a plugin for Chrome</a> that lets you configure web elements: font, color, margins, visibility, custom CSS, and more.</p><img alt="Dashboard Hub dashboard style settings page" class="doc-image" loading="lazy" src="/cms_trial/assets/3816c7f1-76c1-4e03-982d-b8e3860388ca.png"/><p>In <em>Basic</em> mode, you can modify different elements without using CSS, but if you want to create advanced styles, select the <em>Code</em> option. </p><p>If you don’t know how to start, you can copy and paste the following examples and create your own style:</p><img alt="Dashboard Hub dashboard style customization fields" class="doc-image" loading="lazy" src="/cms_trial/assets/983c19c0-d90b-4f27-8746-7c4cdf9e4874.png"/><h4 id="example-to-edit-the-font-of-the-first-slide">Example to edit the font of the first slide</h4><pre><code class="language-css">@import url(https://fonts.googleapis.com/css2?family=Fira+Code:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&amp;display=swap);
 body{
   font-style: cursive !important;
@@ -164,6 +169,64 @@ div.wallboard-slide.active {
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

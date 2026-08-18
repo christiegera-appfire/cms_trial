@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/466225276/Use+cases/">Use cases</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/2219508313/Use+Cases+for+Actions/">Use Cases for Actions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Move parent to 'Done' when all child issues are closed</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/1419772073" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Move parent to 'Done' when all child issues are closed</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><table><tr><th><p><strong>Goal</strong></p></th><th><p>Automatically close a Parent issue when all of its Child issues are closed.</p></th></tr><tr><th><p><strong>Scenario</strong></p></th><td><p>You want to automatically close a Parent issue (e.g. Epic with Stories or Stories and Tasks with sub-tasks) when all of the child issues have been closed because all work for the Parent has been completed.  </p></td></tr><tr><th><p><strong>Components</strong></p></th><td><p><a href="/cms_trial/space/JMWEC/465473524/Event-based+actions/">Event-based Action</a>: Issue transitioned event, <a href="/cms_trial/space/JMWEC/465242612/Transition+issue(s)/">Transition issue(s)</a> post function</p></td></tr><tr><th><p><strong>Baseline</strong></p></th><td><ul><li><p>The Parent issue and all Children issues share the same Workflow.</p></li><li><p> Your workflow enables issues to move to <strong>Done</strong> from any other status. </p></li></ul></td></tr></table><p>In these scenarios, some examples of the Parent-Child relationship are:</p><ul><li><p>Jira Software “Parent/Sub-task”</p></li><li><p>Jira Software “Epic/Story”</p></li><li><p>Advanced Roadmaps (Portfolio) “Parent link”</p></li><li><p>Issues connected through the links available in “Issue Linking”</p></li></ul></div></div><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h2 id="requirements">Requirements</h2><ul><li><p>JIRA Administrator login</p></li><li><p><a href="https://marketplace.atlassian.com/apps/292/jira-misc-workflow-extensions-jmwe">Jira Misc Workflow Extensions Cloud</a></p></li></ul><h2 id="workflow-configuration">Workflow configuration</h2><p>Only one transition is addressed in this Use Case - the transition from any status to <strong>Done</strong>; however, the same steps could be used on nearly any transition.  </p><div class="panel panel-note"><p>Nearly any scenario can be addressed where both:</p><ul><li><p>The Parent issue status needs to match the status of the Child(ren) issue(s) AND</p></li><li><p>All Children issues have been transitioned to the destination issue (e.g. all children issues have been moved to <strong>Testing </strong>or moved to <strong>Client Review</strong>).</p></li></ul></div><h2 id="1-create-the-event-based-action">1. Create the Event-based Action</h2><ol><li><p>Log into your instance as an administrator.</p></li><li><p>Click on the <strong>Settings </strong>icon ⚙️ in the upper right corner.</p></li><li><p>Select <strong>Apps</strong>.</p></li><li><p>In the left-hand panel under <em>JIRA MISC WORKFLOW EXTENSIONS, </em>click <strong>Event-based actions</strong> and click <strong>Create new action</strong> in the upper right corner.</p></li><li><p>Give your Event-based action a name and, optionally, a description.</p></li><li><p>Under <strong>WHEN</strong>, make sure <strong>Select Event</strong> is selected. In the right-hand panel, select <strong>Issue Transitioned</strong> (<strong>Figure 1</strong>, right).</p></li><li><p>The <em>Issue Transitioned </em>configuration window will open (<strong>Figure 2</strong>, right). For <strong>To status</strong>, select <em>Done</em> and click <strong>Save</strong>. </p></li><li><p>Under <strong>IF SCOPE</strong>, select the projects and/or issue types that should trigger the Event-based option. If the post functions should be run for all projects and/or all issue types, leave the values as <code>Any</code>, as appropriate. </p></li></ol></div><div><img alt="Event-based Action Select Event" class="doc-image" loading="lazy" src="/cms_trial/assets/29412cf6-4c0b-481a-b49e-b102a5c72bfd.png"/><img alt="Issue Transitioned configuration" class="doc-image" loading="lazy" src="/cms_trial/assets/0da545c2-4cf7-4dda-93bb-e7b6c50bb2f6.png"/></div></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h2 id="2-add-the-transition-issue-s-post-function">2. Add the <em>Transition issue(s)</em> post-function </h2><ol><li><p>Under <strong>THEN</strong>, click <strong>Select Post-functions</strong>.</p></li><li><p>In the right-hand panel, select <strong>Transition issue(s)</strong> in the list of post functions. The <a href="/cms_trial/space/JMWEC/465242612/Transition+issue(s)/">Transition issue(s)</a> configuration screen will open.</p></li><li><p>For <strong>Target issues</strong>, select <em>Parent issue of the current sub-task </em>(<strong>Point 1</strong>, <strong>Figure 3</strong>, right)<em>. </em></p></li><li><p>Click the <strong>Transition Picker </strong>button to select a Transition (<strong>Point 2</strong>, <strong>Figure 3</strong>, right).</p></li><li><p>In the <em>Pick a transition</em> window:</p><ol><li><p>Select your workflow from the <strong>Workflow name</strong> pulldown menu.</p></li><li><p>Select the transition for moving issues into the <strong>Done</strong> status.</p></li><li><p>Click <strong>Use transition name</strong>.</p></li></ol></li><li><p>Click <strong>Expand all</strong> at the bottom right.</p></li><li><p>Check the box for <strong>Run this post-function only if a condition is verified</strong>. </p></li><li><p>In the script editor, enter the following (<strong>Point 3</strong>, <strong>Figure 3</strong>, right): </p><pre><code class="language-">{% set subs = targetIssue | subtasks %}
 {% set trigger = true %}
 {% for sub in subs %}
@@ -161,6 +166,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -32,14 +32,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490999487/Tutorials+and+recipes/">Tutorials and recipes</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490999529/Power+Scripts+recipes/">Power Scripts recipes</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Large bulk operations - memory optimization</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/1824850122" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Large bulk operations - memory optimization</h1>
+    <div class="page-meta">11 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="overview">Overview</h2><p>This document addresses memory optimization strategies for Jira scripts that process large volumes of issues. When handling bulk operations, memory consumption can grow rapidly, leading to performance degradation for both the script itself and other operations on your Jira instance.</p><p>We present examples of three key approaches to memory management:</p><ul><li><p>Basic memory optimization: Using the <a href="/cms_trial/space/PSJC/865928192/saveModifiedIssues/">saveModifiedIssues() </a>function at strategic intervals to commit changes and release memory.</p></li><li><p>Simple batch processing: Breaking down issue selection by project, type, or other criteria to process smaller sets.</p></li><li><p>Advanced batch processing: Using scheduled scripts to process issues in smaller batches with complete system memory recovery between executions.</p></li></ul><p>These techniques can be implemented individually or combined to handle virtually any volume of issues efficiently. The appropriate strategy depends on your specific use case, the number of issues to be processed, and the complexity of the operations being performed.</p></div></div><h2 id="problem">Problem</h2><p>Large-scale operations in Jira frequently require scripts to process hundreds or thousands of issues simultaneously. When working with substantial issue volumes, scripts can consume excessive memory resources, leading to several critical problems, such as:</p><ul><li><p>Script performance degradation: As memory usage increases, script execution slows down dramatically, potentially timing out before completion</p></li><li><p>System-wide ompact: High memory consumption by one script can starve other scripts and even core Jira functions of necessary resources</p></li><li><p>Failed operations: Without proper memory management, bulk operations may fail entirely, requiring manual intervention and repeated attempts</p></li></ul><p>This memory challenge is particularly common in two scenarios:</p><ul><li><p>Scheduler scripts: Automation that regularly processes batches of issues (such as status updates or field calculations)</p></li><li><p>Ad-hoc cleanup scripts: One-time scripts run directly from the SIL Manager, often needed after migrations or for data cleanup projects</p></li></ul><p>Without proper memory optimization techniques, scripts that initially work well with small data sets may fail catastrophically when they encounter larger volumes of issues in production environments.</p><h2 id="solution">Solution</h2><p>By employing specialized functions and scripting techniques, memory utilization can be optimized, allowing for the efficient processing of numerous issues.</p><hr/><h2 id="basic-memory-optimization-example">Basic memory optimization example</h2><p>Using the <a href="/cms_trial/space/PSJC/865928192/saveModifiedIssues/">saveModifiedIssues() </a>function is a great way to keep the utilized memory from growing too large. This function will commit the changes to issues that have been updated by the script and will release the memory for those issues. Executing the function for every script may cause the scripts to run slowly since it will try to perform these memory optimization steps for every single issue. It is unnecessary and inefficient to include the function on every issue or for every iteration of the loop. A more efficient way would be to call the function once for every 10 issues as seen in the example below. </p><pre><code class="language-">// Basic memory optimization example
 // Processes issues in batches of 10 to prevent memory buildup
 int count = 0;
@@ -219,6 +224,64 @@ if(isNull(lastIssue)) {
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

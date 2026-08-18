@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74816002/Release+notes/">Release notes</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Release notes 21 May 2026</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TBL/pages/3265462603" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Release notes 21 May 2026</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p><strong>Release date</strong>: <time datetime="2026-05-21">May 21, 2026</time></p><p>This page outlines the updates included in the latest release of Advanced Tables for Confluence.</p><p>Version: 7.3.0</p><hr/><h2 id="enhancements">Enhancements</h2><h2 id="advanced-table-viewer-macro">Advanced Table Viewer macro</h2><h3 id="full-screen-view">Full screen view</h3><p>The full screen view on the Confluence page view mode now opens as a modal rather than an overlay, providing a more focused data analysis experience.</p><img alt="Advanced Tables Advanced Table Viewer fullscreen view" class="doc-image" loading="lazy" src="/cms_trial/assets/8d93e0f1-debc-459b-a335-c07cfbee6304.jpg"/><hr/><h2 id="bug-fixes">Bug fixes</h2><p>The following bugs are fixed in this release:</p><ul><li><p>The Table Plus macro was not displaying the <strong>Auto total row</strong>, even when configured. </p><ul><li><p>The issue is now resolved, and the macro now displays the <strong>Auto total row</strong> as expected.</p></li></ul></li></ul><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p><strong>Questions and feedback</strong></p><ul><li><p>Explore exciting features, pricing updates, reviews, and more on the <a href="https://marketplace.atlassian.com/apps/197/advanced-tables-for-confluence?hosting=cloud&amp;tab=overview">Marketplace</a>.</p></li><li><p>Stuck with something? Raise a ticket through our <a href="https://appf.re/support">support portal</a>.</p></li><li><p>Do you love using our app? Let us know what you think <a href="https://marketplace.atlassian.com/apps/197/advanced-tables-for-confluence?hosting=cloud&amp;tab=reviews">here</a>.</p></li></ul></div><div><p><strong>Credits</strong></p><p>Thank you to our valued customers! Your incredible support and feedback inspire us to improve continuously. We appreciate your trust in Advanced Tables for Confluence!</p></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

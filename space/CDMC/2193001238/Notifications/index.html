@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193033035/Feature+guide/">Feature guide</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Notifications</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2193001238" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Notifications</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview</h2><p>Workflow notifications in Comala Document Management keep you informed about changes in a page’s workflow state. These notifications are triggered by specific workflow events such as page approvals, rejections, or transitions between states.</p><p>By default, Comala Document Management sends system-generated notifications based on the active workflow for existing workflows. For example, you will receive an email when assigned as a reviewer or when a document is approved in a <a href="/cms_trial/space/CDMC/2193195328/Basic+approval+workflow/">basic approval workflow</a>.</p><p>In addition to the default notifications, you can set up custom email notifications in your workflows. These can be sent during specific state transitions or conditions. You can also customize the message, decide who receives the notifications, and set what they say based on your needs.</p><h2 id="workflow-notifications">Workflow notifications</h2><p>Comala Document Management sends email notifications for the following events</p><ul><li><p>Assignees receive a notification when they are assigned to review a page/blog</p></li><li><p>The expiry date has been reached for content with the <a href="/cms_trial/space/CDMC/2192776431/Content+expiry+workflow/">Content Expiry workflow</a> applied</p></li></ul><p>On-screen notifications are displayed to a user viewing a page on which they have been assigned an approval.</p><img alt="Comala notification message for approvalassigned user" class="doc-image" loading="lazy" src="/cms_trial/assets/8615fb11-e0f9-4209-b6e7-f54661e3584d.png"/><p>The message includes details of the approval name and the user who manually assigned the reviewer.</p><p>On-screen notification messages are also created, for example, when reviewers have undertaken an approval decision:</p><img alt="Comala notification email preview" class="doc-image" loading="lazy" src="/cms_trial/assets/d5179c65-b440-4bc1-920c-5fbedfd6176b.png"/><p>For content with the <strong>Content Expiry workflow</strong> applied, when the expiry date is reached, the content state changes to <strong>Expired</strong> and email notifications are sent to users who are watching it. </p><p>The email notifications come from <code>no-reply@appfire.com</code>.</p><div class="panel panel-note"><p>This is not from the address that normally sends emails related to built-in Confluence functionality.</p></div><h2 id="custom-notifications">Custom notifications</h2><p>Custom notifications can be added using JSON triggers. A trigger can be set to fire for a specific event and create one or more notifications.</p><p><strong>Example Trigger</strong></p><pre><code class="language-plaintext">[{"event":"on-expire","actions":
 [{"action":"send-email","recipients":["@watchers"],
 "notification":
@@ -165,6 +170,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

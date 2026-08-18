@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490995713/Get+started+with+Power+Scripts+for+Jira+Cloud/">Get started with Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">How to install Power Scripts for Jira Cloud</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/490995734" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>How to install Power Scripts for Jira Cloud</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="installation-process"><strong>Installation Process</strong></h2><p>The Power Scripts app installation follows the standard procedure for Jira Cloud applications.</p><p>The app is available through subscription, starting with a free trial that automatically converts to a paid subscription when it ends.</p></div></div><h3 id="installation-steps"><strong>Installation Steps</strong></h3><ol><li><p>In your <em>Jira Cloud Administration</em> console, navigate to <strong>Settings </strong>&gt;<strong> Apps</strong>.</p></li><li><p>In the <em>Explore apps for Jira</em> search type <code>Power Scripts</code>.</p></li><li><p>To start the installation, click <strong>Try it free</strong>.</p></li></ol><p>When the installation completes, the <em>Power Scripts</em><em><strong> </strong></em>menus section appears in the left menu.</p><div class="panel panel-note"><p>You can restart your trial only during the original trial period. Once the trial expires, your only option is to subscribe through the <strong>Manage apps</strong> page. For more details, see the <a href="https://confluence.atlassian.com/adminjiracloud/managing-add-ons-776830283.html#Managingadd-ons-Findandaddnewapps">Atlassian documentation</a>.</p></div><h2 id="next-steps">Next steps</h2><p>Now that you’ve installed Power Scripts for Jira Cloud, continue with the <a href="/cms_trial/space/PSJC/1761182167/Power+Scripts+for+Jira+Cloud+Product+tour/">Product tour</a> that guides you through the key navigation elements of the Power Scripts app.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

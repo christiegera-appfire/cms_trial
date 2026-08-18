@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMCFC/168855370/Overview/">Jira Misc Custom Fields (JMCF) - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/168855370/Overview/">Overview</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/465502278/Release+notes/">Release notes</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">JMCF for Jira Cloud 1.0</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMCFC/pages/465698971" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>JMCF for Jira Cloud 1.0</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h2 id="hello-world">🌎 Hello World!</h2><p>This version, release on <time datetime="2023-07-31">July 31, 2023</time>, is the <strong>initial release</strong>.</p><p>Today we’re thrilled to share that <strong>Jira Misc Custom Fields (JMCF)</strong> is available to Jira users on Cloud!</p><p>With over 4,000+ installs on Atlassian Marketplace, JMCF has established itself as the go-to app to help Jira users and organizations make more informed business decisions and estimations through the power of calculated custom fields!</p><p>This is a big day not just for JMFC customers looking to migrate their operations to Cloud, but also anyone new looking to explore the potential of calculated custom fields in Jira.</p></div><div><div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/pXKrU3-yCXY"></iframe></div></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="custom-fields-for-jira-cloud">Custom Fields for Jira Cloud</h2><p>The initial release of <strong>JMCF for Jira Cloud</strong> includes several custom field types enabling enhanced screens, reports, and dashboards. Custom fields are created without code using only a few clicks; just go to the JMCF administration section, select <strong>My custom fields</strong>, and click <strong>New custom field</strong>! See <a href="/cms_trial/space/JMCFC/465405703/Create+Custom+Field/">Create Custom Field</a> for more detailed steps.</p><p>For this release, please note that scripted fields are not supported; however, a number of custom field types are available! These custom field types include: </p><ul><li><p>Last field change Date/Time and User</p></li><li><p>Parent Status</p></li><li><p>Status Entered Date/Time and User</p></li><li><p>Transition Count</p></li><li><p>Time in Status</p></li></ul><p>Among several others! For a full list of the available custom fields, see <a href="/cms_trial/space/JMCFC/465471226/Custom+Fields/">Custom Fields</a>. </p><h2 id="jmcf-administration">JMCF Administration </h2><p>This release includes four administration pages, providing a central location for creating, managing, and troubleshooting all of your JMCF custom fields. The administration pages include:</p><ul><li><p><strong>Getting Started</strong> - Find quick links for product demonstration videos, resources, and to open support requests.</p></li><li><p><a href="/cms_trial/space/JMCFC/465471321/My+Custom+Fields/"><strong>My custom fields</strong></a> - A complete list of all JMCF-created custom fields, including screen associations, contexts for each field, and shortcuts for working with each field. </p></li><li><p><a href="/cms_trial/space/JMCFC/465633417/Calculations/"><strong>Calculations</strong></a> - A list of all ongoing calculations or recalculations of custom fields. </p></li><li><p><a href="/cms_trial/space/JMCFC/465436864/Error+Logs/"><strong>Error logs</strong></a> - All error logs for JMCF custom fields. </p></li></ul></div><div><img alt="Jira Misc Custom Fields (JMCF) Cloud custom fields management page" class="doc-image" loading="lazy" src="/cms_trial/assets/9e4e80c6-2587-48ca-a949-3a57b9c3151b.png"/></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

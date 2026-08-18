@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434798967/Simple+Issue+Language/">Simple Issue Language</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/15731951/Getting+started+with+SIL/">Getting started with SIL</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/491001471/Scripting+best+practices/">Scripting best practices</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Clean Code</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/491001626" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Clean Code</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>An important aspect of scripting and programming in general is code maintenance, and to this end keeping code clean, readable and maintainable is an important aspect of scripting over the life of your code. Can others read and understand what is going on in your code? </p><h2 id="simplicity">Simplicity</h2><p>Find ways to solve problems without unneeded complexity. If you have ever heard the acronym KISS, “keep it simple”, this will help you and your team immensely in creating readable, maintainable code.</p><h2 id="don-t-repeat-yourself">Don’t Repeat Yourself</h2><p>Scripting naturally lends itself to endless lines of code that do the same thing. A reader can lose themselves in an ocean of repeated statements. </p><ul><li><p>If you find that your code has a long list of the same line (but different parameters), consider creating an array (with those same parameters) and loop through those parameters.</p></li><li><p>If your code is more complex (and still repeats), consider refactoring your code into a user-defined function, the call that function as necessary. If you give the function a descriptive name of what it does, this gives the user the ability to understand what your code does.</p></li></ul><h2 id="yagni-you-aren-t-gonna-need-it">YAGNI - You Aren’t Gonna Need It</h2><p>A temptation for many programmers is to prepare code for future need. The needs of future code cannot be predicted as business needs change constantly. If there is code that is currently not being used, remove it.</p><h2 id="readability">Readability</h2><p>When you write code, you are writing for other humans to read. While your code may perform as expected (as interpreted by the computer), your code is read and maintained by other humans. </p><h2 id="consistency">Consistency</h2><p>Follow the rules as established by your team on accepted convention and coding style. </p><p>Use names in a consistent manner. For example, when creating functions that run something (for example runTodo()), do not use “run” sometimes, then “execute” other times.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

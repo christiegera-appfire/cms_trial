@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193033035/Feature+guide/">Feature guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193066247/Searching+and+Reporting/">Searching and Reporting</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Document activity (document-level)</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2193162907" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Document activity (document-level)</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview</h2><p>The Document Activity report tracks all workflow events for a page or blog post, providing a full audit trail of state changes, approvals, rejections, and other workflow actions.</p><p>The <a href="/cms_trial/space/CDMC/2193129918/Workflow+state+dialog/">workflow state dialog</a> includes a <strong>Document Activity</strong> option that displays the document’s workflow history. </p><p>In the<em> Workflow State</em> dialog, click the <strong>three-dot (…) menu </strong>&gt; <strong>Document Activity</strong> to view the activity report.</p><img alt="Workflow State dialog with the Document Activity option selected from the More actions menu." class="doc-image" loading="lazy" src="/cms_trial/assets/8156f798-666a-40d2-aa81-4615c1c5395c.png"/><p>The Document Activity report is displayed, showing the document's workflow history.</p><img alt="Document Activity report" class="doc-image" loading="lazy" src="/cms_trial/assets/fa1bd410-8bcb-4c0f-bf96-8529ce9aeb97.png"/><h2 id="activity-events">Activity events</h2><p>The Document Activity report records the following events:</p><ul><li><p><strong>State transitions</strong>: Show both the origin and destination states, for example, Changed state from Draft to Review.</p></li><li><p><strong>Approvals</strong>: Records the reviewer, their decision (approved/rejected), and the approval name.</p></li><li><p><strong>Multi-approver transitions</strong>: All approvers in a transition are listed as contributors, with the final approver shown as the actor.</p></li><li><p><strong>Manual state overrides</strong>: Flagged in the log, for example, <code>Changed state from Review to Approved (manual state override)</code>.</p></li><li><p><strong>Bulk state overrides</strong>: Recorded when states are initialized in bulk using app space settings.</p></li><li><p><strong>State expirations</strong>: Recorded as <code>Document state expired</code>. The add-on account is shown as the actor for expirations only.</p></li><li><p><strong>Page created</strong>: Recorded when a page is created with an active workflow.</p></li></ul><p>All other actions are attributed to the user who performed them.</p><h2 id="document-activity-in-a-full-page-view">Document Activity in a full page view</h2><p>You can view the Document Activity report in a full Confluence page, making it easy to bookmark or share a direct link to it.</p><ul><li><p>To navigate to the full Confluence page, click <strong>Open in full page</strong>.</p><img alt="Document Activity_full page view.png" class="doc-image" loading="lazy" src="/cms_trial/assets/0a6b92e3-3bf0-459f-9b36-04fe3fc8c69a.png"/></li><li><p>This opens the Document Activity in a new browser tab. To return to the original Confluence content page, click <strong>Back to page</strong>.</p><img alt="Document Activity_Full page view_Back to page.png" class="doc-image" loading="lazy" src="/cms_trial/assets/8241759e-80ba-4422-9855-57e281b05d80.png"/></li></ul><h2 id="export-to-csv">Export to CSV</h2><p>Document Activity can be exported as a CSV file for offline analysis or reporting.</p><p>Click the <strong>Export to CSV</strong> button in the Document Activity dialog to download the full activity log for the document.</p><img alt="Document Activity_Export to CSV.png" class="doc-image" loading="lazy" src="/cms_trial/assets/b4b3dc60-8995-492e-868b-2a114cd16057.png"/><h2 id="view-historical-activity-migrated-pages">View historical activity (migrated pages)</h2><p>For pages migrated from Data Center, the Document Activity report includes a <strong>View Historical Activity</strong> option. This displays the full workflow history that was migrated from the DC instance.</p><p>Migrated historical activity is viewable for audit purposes and does not merge with the Cloud document activity.</p><div class="panel panel-note"><p>Document Activity records are retained for compliance and audit purposes. Records are automatically removed only when the associated page or space is deleted.</p></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

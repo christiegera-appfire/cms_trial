@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434798967/Simple+Issue+Language/">Simple Issue Language</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/15731951/Getting+started+with+SIL/">Getting started with SIL</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/491001471/Scripting+best+practices/">Scripting best practices</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Using Loops</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/491001550" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Using Loops</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>Loops are an important feature in programming in that it provides replication without having to write code repeatedly. However, loops can also be dangerous in that they can result in delirious affects to your system if not used in a careful manner.</p><h2 id="using-a-development-environment">Using a Development Environment</h2><p>If at all possible, use a testing environment so as to prevent an administrator's worst nightmare, data loss. Even when carefully creating scripts, you can still cause major damage to your system. For this purpose, you are highly encouraged to use a testing environment while developing scripts.</p><h2 id="try-the-script-out-without-any-for-loops">Try the Script out Without Any For Loops</h2><p>For most scripts, a for loop creates a copy, of a copy, of a copy. Make sure that the first copy does what you want it to before making copies of the original. Once you have run the script a few times and know it works as expected, then through in a for loop.</p><h2 id="avoid-while-loops-if-possible">Avoid While Loops if Possible</h2><p>The most frequent way coders create infinite loops is with a while loop and should only be used when absolutely necessary. If you do find a situation when you do need to use a while loop, consider adding some kind of maximum limit the loop would be allowed. Consider the following function, getUsersFromLastComment(). Looping through text is the only way that such a loop could work as you would always want to check if there were more users to be found in the comment.</p><table><tr><td><pre><code class="language-">function getUsersFromLastComment() {
     string [] commentUsers;
     number maxUsers = 100;
@@ -174,6 +179,64 @@ string [] users = getUsersFromLastComment();</code></pre></td></tr></table><p>As
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

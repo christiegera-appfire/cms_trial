@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira (CMJ) Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/193823429/Features+and+options/">Features and options</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Migrate Service Management projects to the Cloud</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CMJC/pages/1160020327" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Migrate Service Management projects to the Cloud</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="streamlining-your-workflow-migrating-jira-service-management-projects-from-cloud-to-cloud">Streamlining your workflow: Migrating Jira Service Management projects from Cloud to Cloud</h2><p>Configuration Manager for Jira (CMJ) Cloud now allows you to migrate your Jira Service Management projects. Our app automates and streamlines the migration process, ensuring a smooth transition.</p><h3 id="how-service-management-projects-are-migrated">How service management projects are migrated</h3><p>Configuration Manager for Jira (CMJ) Cloud can:</p><ul><li><p>add a source service project as a new one to the destination site, and</p></li><li><p>merge a source service project with an existing destination service project.</p></li></ul><p>The <a href="/cms_trial/space/CMJC/193626781/Analyze+changes/">Analyze Changes</a> document explains how CMJ Cloud migrates and reports projects. The information there applies to <em>Jira Software</em> and <em>Service Management</em> projects.</p><h3 id="case-sensitivity-in-sla-names">Case-sensitivity in SLA names</h3><p>The source and destination SLA fields may use different letter capitalizations, which can affect mapping. For instance, a source SLA called "Time to resolution" won't match a destination SLA labeled "TIME TO RESOLUTION." In such cases, CMJ Cloud will not map these SLAs. Instead, it will create a new destination SLA that exactly matches the name and capitalization of the source field.</p><h3 id="supported-service-management-configuration">Supported Service Management configuration</h3><table><tr><th><p><strong>Jira Service Management configuration</strong></p></th><th><p><strong>Supported configuration</strong></p></th></tr><tr><td><p>Service Management project basics</p></td><td><p><span class="status-lozenge">available</span> </p></td></tr><tr><td><p>Organizations</p></td><td><p><span class="status-lozenge">Partially</span> </p><p><em>Organization membership isn’t migrated.</em></p></td></tr><tr><td><p>Request types</p></td><td><p><span class="status-lozenge">available</span></p></td></tr><tr><td><p>Portal groups</p></td><td><p><span class="status-lozenge">available</span></p></td></tr><tr><td><p>Portal settings</p></td><td><p><span class="status-lozenge">available</span></p></td></tr><tr><td><p>SLAs</p></td><td><p><span class="status-lozenge">available</span></p></td></tr><tr><td><p>Queues</p></td><td><p><span class="status-lozenge">available</span> </p></td></tr><tr><td><p>Calendars</p></td><td><p><span class="status-lozenge">available</span></p></td></tr><tr><td><p>Work categories</p></td><td><p><span class="status-lozenge">available</span></p></td></tr><tr><td><p>Forms</p></td><td><p><span class="status-lozenge">available</span></p></td></tr><tr><td><p>JQL querries</p></td><td><p><span class="status-lozenge">available</span></p></td></tr><tr><td><p>Satisfaction settings</p></td><td><p><span class="status-lozenge">available</span></p></td></tr><tr><td><p>Customer permissions</p></td><td><p><span class="status-lozenge">available</span></p></td></tr><tr><td><p>Customer notifications</p></td><td><p><span class="status-lozenge">available</span></p></td></tr><tr><td><p>Email requests</p></td><td><p><span class="status-lozenge">Future</span></p></td></tr><tr><td><p>Language settings</p></td><td><p><span class="status-lozenge">Future</span></p></td></tr><tr><td><p>Knowledge base</p></td><td><p><span class="status-lozenge">Future</span></p></td></tr><tr><td><p>Reports</p></td><td><p><span class="status-lozenge">TBD</span></p></td></tr><tr><td><p>Widgets</p></td><td><p><span class="status-lozenge">TBD</span></p></td></tr></table>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

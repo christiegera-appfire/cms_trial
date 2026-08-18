@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74812514/Featured+macros+-+Cloud/">Featured macros - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/1531117698/Advanced+Table+Viewer+macro/">Advanced Table Viewer macro</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Search with Advanced Table Viewer macro</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TBL/pages/1764920560" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Search with Advanced Table Viewer macro</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>The Advanced Table Viewer macro search feature enables you to perform a dynamic search on the imported table data. </p><ul><li><p>The macro enables the search feature by default when you insert it for the first time.</p></li><li><p>When search is enabled, the search bar is accessible to you without edit permissions.</p></li></ul><div class="img-placeholder">[Unmapped macro: refined-tab — no content to fall back on]</div><div class="panel panel-note"><p>You need edit permissions to access the setup mode.</p></div><ul><li><p>Edit the macro to open the setup mode. Refer to <a href="/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/"><u>Setup the Advanced Table Viewer macro features</u></a>.</p></li><li><p>The macro enables the search feature by default when you insert it for the first time.</p><img alt="Advanced Tables search icon in Advanced Table Viewer" class="doc-image" loading="lazy" src="/cms_trial/assets/3397f9d7-83c3-4a2f-9be1-4f91ec8919bc.jpg"/></li><li><p>To disable search, click the <strong>Search</strong> icon (<span class="inline-icon" title="inline icon">▢</span>). </p></li><li><p>Click <strong>Save</strong>.</p></li></ul><div class="img-placeholder">[Unmapped macro: refined-tab — no content to fall back on]</div><ul><li><p>Search is available in both <strong>edit</strong> and <strong>view</strong> mode of the Confluence page.</p><img alt="Advanced Tables search feature shown on a Confluence page in edit mode" class="doc-image" loading="lazy" src="/cms_trial/assets/2f03cb3c-f757-4325-97b9-043d30574541.jpg"/><img alt="Advanced Tables search feature shown on a Confluence page in view mode" class="doc-image" loading="lazy" src="/cms_trial/assets/a63e90d5-636c-486d-a9f5-0f590b556274.jpg"/></li></ul><ul><li><p>To perform a search, enter a keyword in the search box. The macro dynamically displays the search results.</p></li><li><p>Once you perform a search and continue editing the Confluence page, the macro maintains the search state during further page edits until you clear the search text field.</p><img alt="Advanced Tables search state shown in Advanced Table Viewer edit mode" class="doc-image" loading="lazy" src="/cms_trial/assets/817af9a1-08b5-40be-8c7c-39d38b3ef764.jpg"/></li><li><p><strong>Full-screen view</strong> mode: You can open the macro in full-screen mode from the page view mode. The search bar is available in full-screen mode as well. </p><img alt="Advanced Tables Advanced Table Viewer fullscreen search view" class="doc-image" loading="lazy" src="/cms_trial/assets/2b86520f-f8c8-4673-8a2c-2f6068c7c294.jpg"/></li></ul><div class="columns" style="grid-template-columns: 100.0fr;"><div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

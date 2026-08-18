@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1689453102/Security/">Security</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Http request blocked by CORS policy</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/1689453157" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Http request blocked by CORS policy</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="purpose">Purpose</h2><p>When trying to access the Jira section in Salesforce, an error is shown. Reviewing the console/HAR file, the following error can be seen:</p><h4 id="error-message"><strong>Error Message</strong></h4><pre><code class="language-">has been blocked by CORS policy: The 'Access-Control-Allow-Origin' header has a value 'https://backroads--uatsandbox.lightning.force.com' that is not equal to the supplied origin</code></pre><h2 id="answer">Answer</h2><p>This issue is related to <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">CORS policy</a>. In the HAR file, the original URL is different from what is shown in the error.</p><p>To make sure that Salesforce returns the correct CORS information on the HTTP header (so that the browser will block the request), you need to allow the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Origin#:~:text=The%20Origin%20request%20header%20indicates,be%20included%20in%20the%20request.">origin </a>in the request header:</p><ol><li><p>Go to <strong>Setup</strong> &gt; search for <strong>CORS</strong> and click it.</p></li><li><p>Under <strong>Allowed Origins List</strong>, select <strong>New </strong>and enter the origin URL pattern.</p></li></ol><p>If performing the steps mentioned above does not resolve the issue, contact <a href="/cms_trial/space/CSFJIRA/1689453157/Http+request+blocked+by+CORS+policy/">Appfire Support</a> to investigate this further.</p></div><div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

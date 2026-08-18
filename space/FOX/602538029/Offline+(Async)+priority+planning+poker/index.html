@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/FOX/602537989/Foxly+-+Backlog+Prioritization+for+Jira/">Foxly - Backlog Prioritization for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/FOX/602537989/Foxly+-+Backlog+Prioritization+for+Jira/">Foxly - Backlog Prioritization for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/FOX/602538082/Tutorials/">Tutorials</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/FOX/602538189/Priority+planning+poker/">Priority planning poker</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Offline (Async) priority planning poker</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/FOX/pages/602538029" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Offline (Async) priority planning poker</h1>
+    <div class="page-meta">2 min read</div>
     <div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p>By choosing Asynchronous Planning Poker, you allow your team to vote calmly and independently, leading to a decrease in the duration of planning meetings. This type of poker lets users vote in their own time and gives them more flexibility.</p></div><div></div></div><h2 id="how-to-create-async-priority-poker-game">How to create Async priority poker game</h2><p>To create a new priority planning poker game, access Foxly by clicking the <em>Priorities </em>tab in the Project menu.</p><img alt="Create asynchronous priority poker with Foxly for Jira" class="doc-image" loading="lazy" src="/cms_trial/assets/a2b349ee-3352-492f-9ecc-270dc802bd68.png"/><ol><li><p>Click <strong>Priority poker</strong>  in the top right corner.</p></li><li><p>Click <strong>Create a new game</strong>.</p></li><li><p>Choose <strong>Async poker</strong>.</p></li><li><p>Give your poker session a name and select the metrics you want to prioritize on the session.</p></li><li><p>Select issues you want to prioritize.</p></li><li><p>Click<em> </em><strong>Create game</strong>.</p></li><li><p>You’ve created a new poker game. </p></li></ol><p>Invite other players to the game via the link and once you’re ready, click <strong>Join the poker game</strong><em> </em>to begin voting. New players can join anytime until a game administrator hasn’t closed voting.</p><h2 id="how-to-administer-the-async-poker-game">How to administer the Async poker game</h2><p>Once you’ve created a new game as admin, you are taken to the <em>Game Admin View</em> screen which includes the following information:</p><ul><li><p>Pie chart with players' vote status (finished, in progress, or not started)</p></li><li><p>List of players participating in the game, their vote progress, and completion status</p></li></ul><p>From the <em>Admin </em>page, you can invite other players, close voting, and review results.</p><img alt="How to manage async poker game in Foxly for Jira" class="doc-image" loading="lazy" src="/cms_trial/assets/8f75ff8d-a3c3-487b-ad86-9d0d6e3cd102.png"/><div class="panel panel-note"><p>Review the <a href="/cms_trial/space/FOX/602538203/Store+metric+in+a+custom+field/">roles</a> in priority planning poker.</p></div><h2 id="how-to-vote-on-issue-metrics-voting-screen">How to vote on issue metrics (voting screen)</h2><p>Once you’ve joined the game you are taken to the voting screen, where you can choose what issues to vote for. </p><ol><li><p>Choose issue metrics and add values to them.</p></li><li><p>Filter issues by <em>voted</em> and <em>pending</em>.</p></li><li><p>Click <strong>Submit my vote</strong> after you finished voting on the issues.</p></li></ol><img alt="How to vote on Jira issues in async Poker game in Foxly for Jira" class="doc-image" loading="lazy" src="/cms_trial/assets/a034e5e9-4016-40d7-9520-295b1cf1d9f5.png"/><h2 id="how-to-review-and-accept-voting-results">How to review and accept voting results</h2><p>After you, as admin, close the voting - you are directed to the <em>Game Results</em> screen.</p><ol><li><p>Review voting details by clicking <strong>details</strong> next to each issue.</p></li><li><p>Inspect voting statistics in the report section.</p></li><li><p>Close the game by clicking <strong>Accept results</strong>.</p></li></ol><img alt="How to review async poker game results in Foxly for Jira" class="doc-image" loading="lazy" src="/cms_trial/assets/48886600-1b0b-4973-abf5-38301a0c0cd4.png"/><div class="panel panel-note"><p>Learn more about:</p><ul><li><p><a href="/cms_trial/space/FOX/602538189/Priority+planning+poker/">Online (real-time) priority planning poker</a></p></li><li><p><a href="/cms_trial/space/FOX/602538012/Foxly+Permissions/">Foxly permissions</a></p></li></ul></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

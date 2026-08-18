@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud Help Center</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/860717625/Release+notes/">Release notes</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/860422871/Archived/">Archived</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Release notes 8 May 2024</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TTSC/pages/965247288" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Release notes 8 May 2024</h1>
+    <div class="page-meta">1 min read</div>
     <p><strong>Release date</strong>: <time datetime="2024-05-08">May 8, 2024</time></p><p>Our team is thrilled to announce the latest release of Time to SLA for Jira Cloud.</p><hr/><h2 id="partial-releases">Partial releases</h2><p>We are excited to partially introduce some improvements to the SLA setup. This change is currently being tested with a select group of users to gather feedback and ensure the best possible user experience. This means some users will see the new feature while others will continue with the existing experience.</p><h3 id="simplified-sla-context">Simplified SLA Context</h3><p>We've improved the overall SLA setup flow, renaming "SLA Scope" to "Context" for easier setup and simplifying the process.</p><h3 id="better-setup-flow">Better Setup Flow</h3><p>A clear call to action has been added within the SLA setup section, ensuring the users know the next steps following the initial SLA creation.</p><h3 id="automated-sla-notifications">Automated SLA Notifications</h3><p>We've automatically enabled email notifiers, with a frequency ranging from 50% to 75% based on SLA.</p><h3 id="preconfigured-start-and-finish-conditions">Preconfigured Start and Finish Conditions</h3><p>We’ve preset Start and Finish conditions to make creating SLAs easier.</p><hr/><h2 id="bug-fixes">Bug fixes</h2><p>The following bugs are fixed in this release:</p><ul><li><p>Resolved an error on the SLA History tab.</p></li><li><p>Fixed SLAs that weren't stopping properly due to missing triggering events.</p></li><li><p>Removed an unrelated item from the top-right corner of the SLA Panel on the Customer Portal.</p></li></ul><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p> <strong>Questions and feedback</strong></p><ul><li><p>Explore exciting features, pricing updates, reviews, and more on the <a href="https://marketplace.atlassian.com/apps/1211843/time-to-sla?tab=overview&amp;hosting=cloud&amp;utm_source=appfire.com&amp;utm_medium=solutions&amp;utm_campaign=Time-to-SLA">Marketplace</a>. </p></li><li><p>Stuck with something? Raise a ticket with our <a href="https://appf.re/support"><u>support team</u></a>.</p></li><li><p>Do you love using our app? Let us know what you think <a href="https://marketplace.atlassian.com/apps/1211843/time-to-sla?tab=reviews&amp;hosting=cloud&amp;utm_source=appfire.com&amp;utm_medium=solutions&amp;utm_campaign=Time-to-SLA">here</a>.  </p></li></ul></div><div><p><strong>Credits</strong></p><p>A heartfelt thank you to our valued customers! Your incredible support and feedback inspire us to improve our apps and products continually. You are the driving force behind why we create software. We appreciate your trust in Time to SLA!</p></div></div><hr/>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/1916338329/Scripting/">Scripting</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465503811/Using+Nunjucks+Templates/">Using Nunjucks Templates</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465373240/Nunjucks+Filters/">Nunjucks Filters</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465373638/Custom+filters/">Custom filters</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">callJira</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/465243039" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>callJira</h1>
+    <div class="page-meta">5 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p><code>callJira</code></p><p>This is a <em>custom </em>Nunjucks filter that operates on a string representing the partial URL, starting with either: </p><ul><li><p><strong>/rest</strong> </p></li><li><p><strong>/gateway</strong> </p></li></ul><p>Both of which are part of the Jira API. Any Jira API endpoint beginning with these is callable and returns the response in JSON.</p><div class="panel panel-note"><p>To make a call to any Jira Cloud REST API of another instance of Jira or any external REST API, user <a href="/cms_trial/space/JMWEC/465242995/callRest/">callRest</a> filter</p></div><p>For information about the Jira REST API, see:</p><ul><li><p>Core API: <a href="https://developer.atlassian.com/cloud/jira/platform/rest/v2/">https://developer.atlassian.com/cloud/jira/platform/rest/v2/</a></p></li><li><p>Jira Software-specific API: <a href="https://developer.atlassian.com/cloud/jira/software/rest/">https://developer.atlassian.com/cloud/jira/software/rest/</a></p></li><li><p>Jira Service Desk-specific API: <a href="https://developer.atlassian.com/cloud/jira/service-desk/rest/">https://developer.atlassian.com/cloud/jira/service-desk/rest/</a></p></li></ul></div></div><h2 id="applies-to">Applies to</h2><p>A string representing the partial URL, starting with /rest. For example: <code>"/rest/api/2/issue/TEST-1"</code></p><h2 id="parameters">Parameters</h2><p>Note the use of named parameters instead of positional parameters because of the number of parameters and their optional nature.</p><table><tr><th><p><strong>Named parameter</strong></p></th><th><p><strong>Description</strong></p></th><th><p><strong>Examples</strong></p></th></tr><tr><td><p><code>verb</code></p></td><td><p>Indicates the HTTP verb such as GET (to get information), PUT (to update existing information), POST (to post or create a new item), DELETE (to delete an item).</p><p>The default is <code>GET</code>. </p><div class="panel panel-note"><p>The verb is not case-sensitive. </p></div></td><td><ul><li><p><code>{{ "/rest/api/2/issue/TEST-1" | callJira() | dump(2)}}</code> dumps the information of the issue with key TEST-1</p></li><li><p><code>{{ "/rest/api/2/issue/:issue" | callJira(verb = "GET", params={"issue":issue.key}) | dump(2)}}</code> dumps the information of the current issue.</p></li><li><p><code>{{ "/rest/api/2/issue/TEST-1" | callJira(verb=("PUT"), params={"issue":"TEST-1"}, body={"fields": {"summary": "New summary"} }) }}</code> updates the summary of the issue with key TEST-1 to “New summary”</p></li><li><p>See the <a href="/wiki/spaces/MWECS/pages/78481843/callJira#Examples">examples section</a> for an example on the POST verb</p></li><li><p><code>{{ "/rest/api/2/issue/TEST-1" | callJira( verb=("DELETE"), params={"issue":"TEST-1"} ) }}</code> deletes the issue with key TEST-1</p></li></ul></td></tr><tr><td><p><code>params</code></p></td><td><p>Indicates the parameters to be passed to replace placeholders in the rest-url. It is a hash of key and values. Any instance of ":key" in the <code>rest-url</code> is replaced with its value found in the hash under "key". The value will be Uri-Encoded. </p><p>The default is no param</p></td><td><ul><li><p><code>{{"rest/api/2/customFieldOption/:id" | callJira(verb = "GET", params={"id":"10000"}) | dump(2)}}</code> replaces <code>:id</code> with <code>10000</code> and dumps the custom field option</p></li><li><p><code>{{"/rest/api/2/priority/:id" | callJira(verb = "GET", params={"id":linkedIssue.fields.priority.id}) | dump(2)}}</code> replaces <code>:id</code> with the id of the linked issues' priority and dumps the priority object in a pretty JSON format</p></li></ul></td></tr><tr><td><p><code>query</code></p></td><td><p>Indicates the query string to be appended to the url. It is a hash of key and values. The values must be scalar and will be encoded appropriately. This is used to return a subset of fields.</p><p>The default is no query param.</p></td><td><ul><li><p><code>{{ "/rest/api/2/issue/TEST-1" | callJira(query={"fields":"reporter"}) | dump(2) }}</code> will call <code>/rest/api/2/issue/TEST-1?fields=reporter</code> and dump the issue whose key is TEST-1 with its Reporter information.</p></li><li><p><code>{{ "/rest/api/2/issue/:issue" | callJira(params={"issue":linkedIssue.key}, query={"fields":"subtasks"}) | dump(2) }} </code> dumps the linked issue with its subtasks in a pretty JSON format.</p></li></ul></td></tr><tr><td><p><code>body</code></p></td><td><p>Indicates the body to pass to <code>PUT</code> and <code>POST</code> calls. It is an object that will be automatically converted to JSON. </p><p>The default is no body.</p></td><td><ul><li><p><code>{{ "/rest/api/2/issue/:issue" | callJira(verb=("put"), params={"issue":linkedIssue.key}, body={"fields": {"summary": "Updated Summary"} }) }}</code> updates the Summary of the current issue to <code>Updated Summary</code></p></li><li><p><code>{{ "/rest/api/2/issue/:issue" | callJira(verb=("put"), params={"issue":parentIssue.key}, body={"fields": {"versions": issue.fields.versions | first | field("name"} }) }}</code> updates the Affects Version/s of the parent issue to the first Affects Version/s of the current issue.</p></li><li><p>For examples using POST call and PUT verb see <a href="/wiki/spaces/MWECS/pages/78481843/callJira#Examples">here</a>.</p></li></ul></td></tr><tr><td><p><code>impersonate</code></p></td><td><p>Indicates the impersonation to be applied to the call. It is either <code>true</code> to impersonate the current user, or an accountId to impersonate that user. </p><p>The default is no impersonation and acts as the add-on user.</p></td><td><ul><li><p><code>{{ "/rest/api/2/issue/:issue" | callJira(verb=("put"), params={"issue":parentIssue.key}, body={"fields": {"summary": "Hello" } }, impersonate="accountId:5d94aa5a4af8460dd557a40a" ) }}</code> updates the Summary of the parent issue to “Hello” as the user with the specified accountID.</p></li></ul></td></tr><tr><td><p><code>dontFail</code></p></td><td><p>If <code>true</code>, when the REST call to Jira returns an error, instead of throwing an exception, the error will be returned as an object containing an <code>_error</code> and/or a <code>_statusCode</code> field.</p></td><td><ul><li><p><code>{{ "/rest/api/2/issue/:issue" | callJira(verb=("put"), params={issue:issue.key}, body={fields:{components: [{name:"Server"}]} }, dontFail=true) | dump(2)}}</code> updates the Component/s of the issue to “Server”, and if the “Server” component doesn’t exist, returns: <br/></p><pre><code class="language-">{
   "_error": {
     "code": 400,
@@ -222,6 +227,64 @@ body={
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193033035/Feature+guide/">Feature guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192903639/Administration/">Administration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193162391/Create+and+edit+workflows/">Create and edit workflows</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">JSON code editor</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2192837873" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>JSON code editor</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview</h2><p>Use the <strong>JSON Code Editor </strong>to create and customize workflows in Comala Document Management. Only the space administrator can edit the workflow template using the<strong> code editor</strong>. </p><p>The JSON Code Editor provides flexibility for power users who need more customization than the visual workflow builder allows. With the JSON code editor, you can,</p><ul><li><p><strong>Manually define and modify workflows</strong> by editing the JSON structure directly.</p></li><li><p><strong>Import and export workflows</strong> across different spaces or instances by copying and pasting JSON code.</p></li><li><p><strong>Refine workflow logic</strong>, including triggers, conditions, transitions, and notifications. </p></li><li><p><strong>Apply advanced configurations</strong>, such as integrating external systems or automating document approvals with precise control.</p></li></ul><h2 id="steps-to-use-the-json-code-editor">Steps to use the JSON code editor</h2><p>You can edit an existing custom workflow or create a new one and edit it with the JSON code editor. In this example, let’s create a new workflow and build it with the code editor.</p><ol><li><p>Log in to your Confluence space. </p></li><li><p>Choose <strong>Comala document management</strong> under <em>Space Apps</em>.</p></li><li><p>Click <strong>Create New Workflow</strong>. <br/></p><img alt="Create New Workflow button on the Comala Document Management workflows page." class="doc-image" loading="lazy" src="/cms_trial/assets/6072b5e9-b0d5-4153-80e0-eeb488be5c84.png"/></li><li><p>The visual builder is displayed by default. Click the <code>{}</code> icon to open the JSON code editor. <br/></p><img alt="Visual workflow builder with the JSON code editor button indicated." class="doc-image" loading="lazy" src="/cms_trial/assets/d6eb08bd-585a-4d29-912d-e756c6a70c67.png"/></li><li><p>The workflow template JSON code is displayed in the workflow schema box and can be edited directly in the editor.<br/></p><img alt="JSON Code Editor displaying the workflow template JSON schema." class="doc-image" loading="lazy" src="/cms_trial/assets/644ab54c-ef02-4a18-8aa1-82c0cbb9a2e3.png"/></li><li><p>Click <strong>Save</strong> to save your code.</p></li></ol><p>The JSON code editor includes the following:</p><ul><li><p>Color coding to distinguish property names, values, and different data types.</p></li><li><p>Autocomplete feature for workflow properties and values.</p></li><li><p>Dropdown selectors for available property names, including workflow triggers, workflow parameters, states, transitions, and approvals.</p></li><li><p>A search tool accessed by the keyboard shortcut <strong>CMD+F</strong>.</p></li></ul><p> The workflow builder also lets you toggle between the visual and code editors using the editor icon buttons in the right-hand navigator panel.</p><div class="panel panel-note"><p>Changes applied in one editor are dynamically updated in the other editor.</p></div><div class="panel panel-note"><p>If migrating from server to the cloud, each server workflow can be translated to a cloud-compatible JSON workflow template using the Workflow Translator for Cloud in data center and server apps. The cloud-compatible JSON for each workflow can be copied from the translator and pasted into the cloud app code editor.</p></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

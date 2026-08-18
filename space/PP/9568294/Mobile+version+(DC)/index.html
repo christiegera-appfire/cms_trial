@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PP/1803714584/Planning+Poker+Help+Center/">Planning Poker</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PP/1803714584/Planning+Poker+Help+Center/">Planning Poker Help Center</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PP/1144061984/Planning+Poker+for+Jira+Data+Center/">Planning Poker for Jira Data Center</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Mobile version (DC)</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PP/pages/9568294" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Mobile version (DC)</h1>
+    <div class="page-meta">2 min read</div>
     <div class="panel panel-note"><p>This page is about <strong>Planning Poker for Jira Data Center</strong>. Using<strong> Cloud</strong>? <a href="/cms_trial/space/PP/1144061974/Planning+Poker+for+Jira+Cloud/"><strong>Click here</strong></a>.</p></div><div class="panel panel-note"><p>We are currently working on a dedicated mobile phone version for Cloud. Stay tuned for further information.</p></div><p>Planning Poker is also available as a Progressive Web App (PWA) for your mobile device, providing you with a convenient and accessible way to estimate tasks, even when not everyone in your meeting room has a laptop. This feature lets you collaborate seamlessly with team members using both laptops and smartphones, ensuring everyone can participate in the estimation process.  </p><div class="panel panel-success"><p>This feature is available in the native Jira apps for Android and iOS.</p></div><p>To connect Planning Poker with your mobile device after installing it in Jira, follow these steps:</p><ol><li><p>Open your Planning Poker app dashboard in Jira.</p><img alt="image-20240731-184239.png" class="doc-image" loading="lazy" src="/cms_trial/assets/568e9387-5efd-4acc-8ffe-936960398451.png"/></li><li><p>Click <strong>Mobile version</strong>. This action will trigger a modal window to appear, containing a uniquely generated personal code.</p></li><li><p>Scan the QR code with the camera of your mobile device.</p></li><li><p>(Optional) Add the shortcut to the home screen for quick access. Or you can play the game from your browser.</p></li></ol><div class="columns" style="grid-template-columns: 33.33fr 33.33fr 33.33fr;"><div><img alt="contentId-9568294" class="doc-image" loading="lazy" src="/cms_trial/assets/aa007b74-5e0c-4ebd-a6cb-1b2f66787947.PNG"/></div><div><img alt="contentId-9568294" class="doc-image" loading="lazy" src="/cms_trial/assets/70ec926b-e5d3-445b-ae3e-ede7a6ea31d1.png"/></div><div><img alt="contentId-9568294" class="doc-image" loading="lazy" src="/cms_trial/assets/5b9e3e22-54de-454a-acc5-bab766e3c0e8.png"/></div></div><ol><li><p>When you launch the Planning Poker app on your mobile device for the first time, you will be asked to enter the personal code you received earlier. Enter your <strong>personal code</strong> to log in, and your Planning Poker mobile app will be paired with the Planning Poker Jira app. You're all set!</p></li></ol><div class="columns" style="grid-template-columns: 33.33fr 33.33fr 33.33fr;"><div><img alt="contentId-9568294" class="doc-image" loading="lazy" src="/cms_trial/assets/09e55dfe-ca4c-43ed-ba2b-b5d16104cead.PNG"/></div><div></div><div></div></div><div class="panel panel-note"><p>When pairing with a mobile device, take note that you're pairing not to a particular game but to the whole Planning Poker Jira app. That means that you'll be able to view and to participate in all the games in Planning Poker Jira app. The pairing code is unique and personal for each user. You can't pair several users to the Planning Poker app with a single code.</p></div><h3 id="mobile-planning-poker-experience">Mobile Planning Poker experience</h3><div class="columns" style="grid-template-columns: 33.33fr 66.66fr;"><div><img alt="contentId-9568294" class="doc-image" loading="lazy" src="/cms_trial/assets/3eb23894-8eff-464a-a072-c6d1210088ea.PNG"/></div><div><p>The mobile app will provide you with means to select games and play cards to estimate issues within your Jira. In short, the Planning Poker mobile app will provide you with all the user role features in a slightly condensed way. The mobile version offers great convenience, making Planning Poker games easily accessible and saving space in crowded meeting rooms. Now, team members can play the game on their phones instead of needing laptops.</p><div class="panel panel-note"><p>If you want users to be able to change mobile URL, go to <strong>Manage Apps</strong> &gt; <strong>Planning Poker</strong> &gt; <strong>Configure</strong>, and check the <strong>Allow users to change mobile URL</strong> box. </p></div></div></div><div class="panel panel-warning"><p><strong>There are no admin tools available on mobile. </strong>The Planning Poker app for mobile prioritizes simplicity, so it doesn't include an interface for managing administrative privileges. For game management tasks, ensure that at least one of the game admins participates using the full Planning Poker app for Jira on a computer. </p></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

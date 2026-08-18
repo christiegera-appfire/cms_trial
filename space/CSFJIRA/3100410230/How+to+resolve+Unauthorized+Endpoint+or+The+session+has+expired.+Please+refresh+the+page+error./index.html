@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3092186916/Errors+and+Error+Messages/">Errors and Error Messages</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">How to resolve Unauthorized Endpoint or The session has expired. Please refresh the page error.</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3100410230" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>How to resolve Unauthorized Endpoint or The session has expired. Please refresh the page error.</h1>
+    <div class="page-meta">1 min read</div>
     <h2 id="summary">Summary</h2><p>After applying the <a href="/cms_trial/space/CSFJIRA/1873346949/Set+up+a+connection+to+Jira/">API access token</a> on the Salesforce package an <em>Unauthorized Endpoint</em> message appears, and the page is stuck in a loop.</p><img alt="contentId-3100410230" class="doc-image" loading="lazy" src="/cms_trial/assets/50f21f3d-2e3f-4753-908b-f909684daf0d.png"/><p>Another error that can be seen after adding the API token:</p><img alt="contentId-3100410230" class="doc-image" loading="lazy" src="/cms_trial/assets/e648e999-dc05-494e-852d-ac94eb33f450.png"/><h2 id="environment">Environment</h2><ul><li><p>Jira Cloud or Jira Server</p></li></ul><h2 id="cause">Cause</h2><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><table><tr><th><p>Environment</p></th><th><p>Cause</p></th></tr><tr><td><p>Cloud</p></td><td><p>This is usually caused by the Connector's server URL not being configured in 'Remote Site Settings'.</p></td></tr><tr><td><p>Server</p></td><td><p>This is usually caused by the Jira instance URL not being configured in 'Remote Site Settings'.</p></td></tr></table></div><div></div></div><h2 id="resolution">Resolution</h2><table><tr><th><p>Environment</p></th><th><p>Resolution</p></th></tr><tr><td><p>Cloud</p></td><td><ol><li><p>Go to the Salesforce page. In the <strong>Quick Find</strong> box in the sidebar, type "<em>remote site settings</em>".</p></li><li><p>Click the <strong>Remote Site Settings</strong> link that appears.</p></li><li><p>On the <strong>All Remote Sites</strong> screen, click the <strong>New Remote Site</strong> button.</p></li><li><p>On the <strong>Edit Remote Sites</strong> screen, enter the following details:<br/><strong>Remote Site Name: </strong> <code>Jira</code><br/><strong>Remote Site URL:  </strong><a href="https://sfjc.integration.appfire.app">https://sfjc.integration.appfire.app</a></p></li><li><p>Click <strong>Save</strong>.</p></li><li><p>Please revoke the access from both ends </p></li><li><p><a href="/cms_trial/space/CSFJIRA/1873346949/Set+up+a+connection+to+Jira/">Re-authorize the connection </a> <a href="https://servicerocket-apps.atlassian.net/wiki/pages/createpage.action?spaceKey=CCSFJIRA&amp;title=Setting%20up%20a%20connection%20to%20Salesforce"> </a></p></li><li><p><a href="/cms_trial/space/CSFJIRA/1873346949/Set+up+a+connection+to+Jira/">Copy a new API Token from the Connector configuration in JIRA</a></p></li></ol></td></tr><tr><td><p>Server</p></td><td><ol><li><p>Go to the Salesforce page. In the <strong>Quick Find</strong> box in the sidebar, type "<em>remote site settings</em>".</p></li><li><p>Click the <strong>Remote Site Settings</strong> link that appears.</p></li><li><p>On the <strong>All Remote Sites</strong> screen, click the <strong>New Remote Site</strong> button.</p></li><li><p>On the <strong>Edit Remote Sites</strong> screen, enter the following details:<br/><strong>Remote Site Name: </strong> <code>Jira</code><br/><strong>Remote Site URL: </strong><code> &lt;enter your Jira instance URL&gt;</code></p></li><li><p>Click <strong>Save.</strong></p></li><li><p>Revoke the access from both ends.</p></li><li><p><a href="/cms_trial/space/CSFJIRA/1873346949/Set+up+a+connection+to+Jira/">Re-authorize the connection. </a> <a href="https://servicerocket-apps.atlassian.net/wiki/pages/createpage.action?spaceKey=CCSFJIRA&amp;title=Setting%20up%20a%20connection%20to%20Salesforce"> </a></p></li><li><p><a href="/cms_trial/space/CSFJIRA/1873346949/Set+up+a+connection+to+Jira/">Copy a new API Token from the Connector configuration in JIRA</a>.</p></li></ol></td></tr></table><p>If, after following all these steps, the issue persists, please verify that your Jira instance meets all the system requirements; you can find more information about it<a href="/cms_trial/space/CSFJIRA/1873412305/System+and+platform+requirements/"> here</a>. </p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

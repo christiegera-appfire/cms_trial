@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PP/1803714584/Planning+Poker+Help+Center/">Planning Poker</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PP/1803714584/Planning+Poker+Help+Center/">Planning Poker Help Center</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PP/1159103478/Release+notes%E2%80%8E/">Release notes‎</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PP/1159300293/Cloud/">Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Release notes September 2024</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PP/pages/1269596801" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Release notes September 2024</h1>
+    <div class="page-meta">1 min read</div>
     <p><strong>Release date</strong>: <time datetime="2024-09-06">September 6, 2024</time></p><p>Our team is thrilled to announce the latest release of Planning Poker for Jira Cloud.</p><hr/><h2 id="enhancements">Enhancements</h2><p>Appfire is excited to introduce the following updates to Planning Poker for Jira Cloud. </p><h3 id="full-screen-attachment-viewing">Full-screen attachment viewing</h3><p>You can now expand attachments within the description field and comments to full-screen size without leaving the planning poker session screen. This provides a more immersive and detailed view of important visual content, allowing users to discuss and collaborate on project details more effectively.</p><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><img alt="2024-09-10_22-37-32 copy (2)-20240910-194123.gif" class="doc-image" loading="lazy" src="/cms_trial/assets/a898a6f4-60cd-4b73-8d2d-4d2cd07f8339.gif"/></div><div><img alt="2024-09-10_22-37-32 (1)-20240910-194002.gif" class="doc-image" loading="lazy" src="/cms_trial/assets/19a213d5-e50c-4ce6-b2f5-bc3cd75659be.gif"/></div></div><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p> <strong>Questions and feedback</strong></p><ul><li><p>Explore exciting features, pricing updates, reviews, and more on the <a href="https://marketplace.atlassian.com/apps/1212495/planning-poker?hosting=cloud&amp;tab=overview">Marketplace</a>.</p></li><li><p>Stuck with something? Raise a ticket with our <a href="https://appf.re/support">support team</a>.</p></li><li><p>Do you love using our app? Let us know what you think <a href="https://marketplace.atlassian.com/apps/1212495/planning-poker?hosting=cloud&amp;tab=reviews">here</a>.</p></li></ul></div><div><p><strong> </strong> <strong>Credits</strong></p><p>A heartfelt thank you to our valued customers! You are the driving force behind why we create software. We appreciate your trust in Planning Poker!</p></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

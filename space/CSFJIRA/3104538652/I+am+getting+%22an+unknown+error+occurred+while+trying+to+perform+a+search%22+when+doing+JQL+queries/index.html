@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3092186916/Errors+and+Error+Messages/">Errors and Error Messages</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">I am getting "an unknown error occurred while trying to perform a search" when doing JQL queries</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3104538652" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>I am getting "an unknown error occurred while trying to perform a search" when doing JQL queries</h1>
+    <div class="page-meta">1 min read</div>
     <h2 id="summary">Summary</h2><p>On some of my JQL queries, I am getting this error</p><p>"An unknown error occurred while trying to perform a search ."</p><img alt="Connector for Salesforce &amp; Jira unknown error message when performing JQL search" class="doc-image" loading="lazy" src="/cms_trial/assets/3b81b3ec-9a41-4ec2-abc9-c3a96f77b7ab.png"/><img alt="Connector for Salesforce &amp; Jira JQL query error detail view" class="doc-image" loading="lazy" src="/cms_trial/assets/4b453833-f4f5-46bf-85cc-6a9e4533c58c.png"/><h2 id="environment">Environment</h2><ul><li><p>JIRA</p></li><li><p>Connector for Salesforce &amp; Jira (Cloud)</p></li></ul><h2 id="cause">Cause</h2><p>This issue usually only affects projects with a very large number of Jira issues (around 5,000 or more).</p><h2 id="resolution">Resolution</h2><p>Enable the <strong>Optimize the association JQL query</strong> option under <strong>Query Optimization</strong> in the connector settings.</p><img alt="Connector for Salesforce &amp; Jira Query Optimization settings with Optimize association JQL query option" class="doc-image" loading="lazy" src="/cms_trial/assets/7cd4837c-a6de-453c-8241-061b78371bf5.png"/><p>If enabled, this option can help improve performance and reduce the "unknown error" messages by fine-tuning the JQL query that retrieves Salesforce and Jira associations, where it will be limited to projects with active binding. This option is disabled by default.</p><h2 id="accessing-the-configuration-settings">Accessing the configuration settings</h2><ol><li><p>Go to <div class="img-placeholder">[Unmapped macro: inline-media-image — no content to fall back on]</div> <strong>&gt; Apps</strong>, and then in the sidebar, under <strong>Salesforce</strong>, choose <strong>Connections.</strong></p></li><li><p>Choose your connection, then click <strong>Configure</strong>.</p></li></ol><p><br/></p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

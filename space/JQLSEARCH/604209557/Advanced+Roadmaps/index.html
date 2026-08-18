@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209972/JQL+Search+Extensions+(Cloud)/">JQL Search Extensions (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/1120043993/App+integrations/">App integrations</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Advanced Roadmaps</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JQLSEARCH/pages/604209557" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Advanced Roadmaps</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>This article describes the integration points and possible use cases of JQL Search Extensions with Advanced Roadmaps.</p><div class="panel panel-note"><p>Advanced Roadmaps is a feature of Jira Premium that is used for project management and project portfolio management. You can leverage its power with the additional JQL keywords and functions provided by <strong>JQL Search Extensions</strong>.</p></div><h2 id="integration-points">Integration points</h2><h2 id="scope-definition">Scope definition</h2><p>JQL Search Extensions helps define a precise scope of an Advanced Roadmaps plan. You can source issues with additional JQL keywords and <a href="/cms_trial/space/JQLSEARCH/604209464/Extended+Search/">Extended Search</a> filters.</p><p>It’s possible, for example, to have a plan with a subset of initiatives or epics and their children. You will typically create the <a href="/cms_trial/space/JQLSEARCH/604209464/Extended+Search/">Extended Search</a> filter for the board and reuse it in the plan.</p><img alt="contentId-604209557" class="doc-image" loading="lazy" src="/cms_trial/assets/9de6c7d1-599e-4d96-ae59-9b721a7a6fc0.png"/><p><strong>To use a filter in Advanced Roadmaps: </strong></p><ol><li><p>Create a filter in <a href="/cms_trial/space/JQLSEARCH/604209464/Extended+Search/">Extended Search</a>.</p></li><li><p>Select the filter in the plan configuration: <strong>Configure</strong> &gt; <strong>Issue sources</strong>.</p></li></ol><p>Refer to the examples in the Use Cases section below.</p><h2 id="external-use">External use</h2><p>It’s a common requirement to access the contents of a plan outside of Advanced Roadmaps, for example, to create a report in a third-party app or tool.</p><p>If you define the scope with a Jira filter, you can use this filter in:</p><ul><li><p>dashboard gadgets</p></li><li><p>boards</p></li><li><p>Jira search - simply use this syntax <code>filter="Your filter name"</code></p></li><li><p>Third-party apps that accept filters and JQL</p></li></ul><h2 id="use-cases">Use cases</h2><h2 id="source-a-subset-of-epics-with-their-full-hierarchy">Source a subset of epics with their full hierarchy</h2><p>You don’t need to add a whole Jira project to the scope of a plan. You can create a plan that includes selected epics, their associated stories, and subtasks.</p><p>If you have a list of specific epic keys that should be in scope, run and save the following query as a filter and use it as a scope:</p><p><code>key in (EPIC-2, EPIC-5, EPIC-8) OR issue in childrenOfIssuesInQueryRecursive("key in (EPIC-2, EPIC-5, EPIC-8)")</code></p><p>You can also choose epics that specify some dynamic criteria, for example, the epics with labels:</p><p><code>(type=Epic and labels='myFeature') OR issue in childrenOfIssuesInQueryRecursive("type=Epic and labels='myFeature'")</code></p><p>The above query could be limited to one project or it can source the issues from multiple projects.</p><h2 id="source-a-subset-of-initiatives-with-their-full-hierarchy">Source a subset of initiatives with their full hierarchy</h2><p>This use case is similar to the previous use case with epics. You can create a plan that includes selected initiatives and all their associated initiatives.</p><p>Use the <code>childrenOfIssuesInQueryRecursive</code> function:</p><p><code>key in (INT-2, INT-5, INT-8) OR issue in childrenOfIssuesInQueryRecursive("key in (INT-2, INT-5, INT-8)")</code></p><p>Or with more complex criteria:</p><p><code>(type=Initiative and labels='myVision') OR issue in childrenOfIssuesInQueryRecursive("type=Initiative and labels='myVision'")</code></p><h2 id="source-issues-linked-to-your-project">Source issues linked to your project</h2><p>You can create a plan that includes issues from your project and external issues linked to your project.</p><p><code>project=MYPROJ OR linksIssueProject=MYPROJ or linkedByIssueProject=MYPROJ</code></p><p>If you only want to include the issues linked with the particular link type, you can create, run, and save the following query as a filter:</p><p> <code>project=MYPROJ OR issue in linkedIssuesOfQuery("project=MYPROJ", "is blocked by")</code></p><p>You can also get a full hierarchy of the linked issues by creating a nested filter:</p><ol><li><p>Create a filter with:<br/><code>issue in linkedIssuesOfQuery("project=MYPROJ", "is blocked by")</code><br/>and call it <code>Blockers</code></p></li><li><p>Create another filter that nests the first filter:<br/><code>project=MYPROJ OR filter="Blockers" OR issue in childrenOfIssuesInQueryRecursive("filter='Blockers'")</code>.</p></li><li><p>Use the filter as your scope in the plan configuration.</p></li></ol>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

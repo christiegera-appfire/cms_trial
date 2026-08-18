@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1891206842/Configure/">Configure</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">How to copy the last Case comment/Chatter to a Salesforce custom field</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/1596654292" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>How to copy the last Case comment/Chatter to a Salesforce custom field</h1>
+    <div class="page-meta">3 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="purpose">Purpose</h2><p>This KB explains how to:</p><ul><li><p>Send the last Chatter comment to a custom text field in Salesforce (Feed Item object)</p></li><li><p>Send the last Case comment to a custom text field in Salesforce (Case Comment object) </p></li></ul><div class="panel panel-warning"><ul><li><p>This solution is for Case Chatter/Comments. The Salesforce connector fully supports chatter/comments on the Case object and Chatter on the Opportunity object.</p></li><li><p>This solution has been tested in a sandbox and production environment. We recommend you to test this on a sandbox environment before deploying it to production.  </p></li></ul></div><div class="panel panel-note"><p>The <a href="https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_feeditem.htm">Feed Item </a>object is for Chatter, the <a href="https://developer.salesforce.com/docs/atlas.en-us.object_reference.meta/object_reference/sforce_api_objects_casecomment.htm?q=case+comments">Case Comments</a> object is for Case comments.</p></div><h2 id="answer">Answer</h2><ol><li><p>In Jira, create two paragraph fields. In this example, the first is named "Last Comment Jira" and the second is named "Last Chatter Jira".</p></li><li><p>In Salesforce, create two Salesforce Rich text fields. In this example, the first is named "Last Case Comment" and the second is named "Last Chatter Comment".</p><ol><li><p>Both custom fields should have a length of 32k.</p></li></ol></li></ol><h2 id="configuring-last-case-comment-to-a-custom-field">Configuring Last Case Comment to a custom field</h2><ol><li><p> Create a <a href="https://help.salesforce.com/s/articleView?id=sf.flow.htm&amp;language=en_US&amp;r=https%3A%2F%2Fwww.google.com%2F&amp;type=5#:~:text=A%20flow%20is%20an%20application,and%20scheduled%20actions%20from%20processes.">Salesforce flow</a> using the Case Comment object. Set the following information:</p><ul><li><p>i.) <strong>Object</strong> - Set the name as "Cast Comment".</p></li><li><p>ii.) <strong>Configure Trigger - Trigger the Flow when</strong> - Set to "A record is created".</p></li><li><p>iii.) Set the <strong>Condition Requirements</strong> based on the image below:</p><img alt="contentId-1596654292" class="doc-image" loading="lazy" src="/cms_trial/assets/66ca259d-f1d9-4937-9298-fe231eb91b71.png?version=1&amp;modificationDate=1678857307170&amp;cacheVersion=1&amp;api=v2"/></li><li><p>iv.) The value “5005” are the first numbers of the CASE object ID(The number varies for different users. Check your instance CASE ID starting numbers).</p></li><li><p>v.) The second entry condition is to check that ”commentBody” is not empty.</p></li><li><p><strong>Optimize the Flow for </strong>- Set to "Actions and Related Records".</p></li></ul></li><li><p> Create a <a href="https://help.salesforce.com/s/articleView?id=sf.flow_ref_elements_data_update.htm&amp;language=en_US&amp;r=https%3A%2F%2Fwww.google.com%2F&amp;type=5#:~:text=Identify%20Salesforce%20records%20to%20update,set%20the%20field%20values%20individually.">Update Records</a> and set the following information:</p><ol><li><p>i.) <strong>How to Find Records to Update and Set Their Values</strong> - Set to "Specify conditions to identify records, and set fields individually". </p></li><li><p>ii.) <strong>Object </strong>- Set the name to "Case".</p></li><li><p>iii.) Set the <strong>Filter Case Records</strong> based on the image below:</p><img alt="contentId-1596654292" class="doc-image" loading="lazy" src="/cms_trial/assets/2776f56e-e249-4152-bb2f-b80b1767357b.png?version=1&amp;modificationDate=1678857307241&amp;cacheVersion=1&amp;api=v2"/></li><li><p><strong>Last Case Comment</strong> - Set it to your own wordings. The Flow will be triggered and the custom field will be updated with the last comment.</p></li></ol></li><li><p>In Jira, map the <strong>Last Comment Jira</strong> field with the <strong>Last Case Comment</strong> field.</p><p>inlineExtension</p></li></ol><h2 id="configuring-last-chatter-comment-to-a-custom-field">Configuring Last Chatter Comment to a custom field</h2><ol><li><p>Create a <a href="https://help.salesforce.com/s/articleView?id=sf.flow.htm&amp;language=en_US&amp;r=https%3A%2F%2Fwww.google.com%2F&amp;type=5#:~:text=A%20flow%20is%20an%20application,and%20scheduled%20actions%20from%20processes.">Salesforce flow</a> for the Feed Item object. Set the following information:</p><ul><li><p>i.) <strong>Object</strong> - Set the name as "Feed Item".</p></li><li><p>ii.) <strong>Configure Trigger - Trigger the Flow when</strong> - Set to "A record is created".</p></li><li><p>iii.) Set the <strong>Condition Requirements</strong> based on the image below:</p><img alt="contentId-1596654292" class="doc-image" loading="lazy" src="/cms_trial/assets/0aaf8af1-54d0-4b96-90f2-35251b3cf24c.png?version=1&amp;modificationDate=1678857307315&amp;cacheVersion=1&amp;api=v2"/></li></ul></li><li><p> Create a <a href="https://help.salesforce.com/s/articleView?id=sf.flow_ref_elements_data_update.htm&amp;language=en_US&amp;r=https%3A%2F%2Fwww.google.com%2F&amp;type=5#:~:text=Identify%20Salesforce%20records%20to%20update,set%20the%20field%20values%20individually.">Update Records</a> and set the following information:</p><ol><li><p>i.) <strong>How to Find Records to Update and Set Their Values</strong> - Set to "Specify conditions to identify records, and set fields individually". </p></li><li><p>ii.) <strong>Object </strong>- Set the name to "Case".</p></li><li><p>iii.) <strong>Filter Case Records</strong>  - Set to "All Conditions are Met (AND)</p><ol><li><p>Field is "ID", Operator is "Equals, Value is "$Record &gt; Parent ID (Case) &gt; Case ID"</p></li></ol></li><li><p>iv.) <strong>Set Field Values for the Case Records</strong> - Set Field to "Last_Chatter_Comment_C" and Value to "$Record &gt; Body". </p></li></ol></li><li><p>In Jira, map the <strong>Last Chatter Jira</strong> field with the <strong>Last Chatter Comment</strong> field.</p></li><li><p>The configuration is complete.</p></li></ol></div><div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

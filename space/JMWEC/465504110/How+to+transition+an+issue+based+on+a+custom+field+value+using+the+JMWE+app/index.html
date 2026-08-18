@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465241585/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">How to transition an issue based on a custom field value using the JMWE app</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/465504110" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>How to transition an issue based on a custom field value using the JMWE app</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>This article explains how to transition an issue based on a custom field value using <a href="https://appfire.atlassian.net/wiki/spaces/JMWE/pages/462127732">https://appfire.atlassian.net/wiki/spaces/JMWE/pages/462127732</a>  post function.</p><div class="panel panel-note"><p><strong>Use case</strong>: Based on the custom field, <em>Question, </em>with value  “Yes” or “No”  transition of the current issue happens. If the selected value is <em>Yes,</em> the issue shall go to Review status and if the value is selected as <em>No,</em> it shall go to Done status.</p></div><h2 id="instructions">Instructions</h2><ol><li><p>Navigate to the desired workflow transition and add the <em>Transition Issue</em> post function.</p></li><li><p>Add the target transition Id of the specific workflow and custom field Id based on your Jira instance.<br/></p><img alt="JMWE for Jira Cloud workflow configuration for custom fieldbased issue transitions" class="doc-image" loading="lazy" src="/cms_trial/assets/2b052cf9-f20c-4aea-b3c4-a5edf25dbbfd.png"/></li><li><p>Enter the below Condition Execution which will make sure to execute the post function when this condition is true. <br/></p><img alt="JMWE for Jira Cloud custom field value display for transition workflow configuration" class="doc-image" loading="lazy" src="/cms_trial/assets/df641ef5-1108-4afe-8af2-c923ba355d49.png"/></li><li><p>Add the following post function.<br/></p><img alt="JMWE for Jira Cloud transition configuration showing field valuebased workflow logic" class="doc-image" loading="lazy" src="/cms_trial/assets/ad1acde1-8c05-4303-b10a-63988d428831.png"/></li><li><p><strong>Publish</strong> the workflow and execute the scenario.</p></li></ol>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

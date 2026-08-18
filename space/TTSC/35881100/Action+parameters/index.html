@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud Help Center</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/1678575285/SLA+configuration/">SLA configuration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/35881090/Actions/">Actions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Action parameters</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TTSC/pages/35881100" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Action parameters</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>Some action types support dynamic parameters. Dynamic parameters let you include SLA or Jira work item details in messages, comments, and notification content.</p><p>You can use dynamic parameters in:</p><ul><li><p>Email subjects and bodies</p></li><li><p>Slack messages</p></li><li><p>Comments</p></li></ul><p>To add a dynamic parameter, type <strong>$</strong> or select one of the available parameter chips. </p><p>Here is the full list of parameters you can use:</p><table><tr><th><p><strong>Parameter</strong></p></th><th><p><strong>Type</strong></p></th><th><p><strong>Description</strong></p></th></tr><tr><td><p><code>$baseUrl</code></p></td><td><p>String</p></td><td><p>Jira base URL.</p></td></tr><tr><td><p><code>$slaDescription</code></p></td><td><p>String</p></td><td><p>Name of the SLA.</p></td></tr><tr><td><p><code>$slaValue</code></p></td><td><p>String</p></td><td><p>SLA value as a time string.</p></td></tr><tr><td><p><code>$slaStartDate</code></p></td><td><p>String</p></td><td><p>Start time of the SLA.</p></td></tr><tr><td><p><code>$slaEndDate</code></p></td><td><p>String</p></td><td><p>End time of the SLA.</p></td></tr><tr><td><p><code>$originStatus</code></p></td><td><p>String</p></td><td><p>Origin status name (null if not set by status).</p></td></tr><tr><td><p><code>$slaState</code></p></td><td><p>String</p></td><td><p>The SLA’s state.</p></td></tr><tr><td><p><code>$targetStatus</code></p></td><td><p>String</p></td><td><p>Target status name (null if not set by status).</p></td></tr><tr><td><p><code>slaTargetDate</code></p></td><td><p>String</p></td><td><p>Target date of the SLA.</p></td></tr><tr><td><p><code>$issue.key</code></p></td><td><p>String</p></td><td><p>Work item key (for example, ABC-123).</p></td></tr><tr><td><p><code>$issue.summary</code></p></td><td><p>String</p></td><td><p>Summary of the work item.</p></td></tr><tr><td><p><code>${issue.fields.reporter.displayName}</code></p></td><td><p>String</p></td><td><p>Display name of the work item’s reporter.</p></td></tr><tr><td><p><code>${issue.fields.priority.name}</code></p></td><td><p>String</p></td><td><p>Priority of the work item.</p></td></tr><tr><td><p><code>${issue.fields['customfield_10004'][*].name}</code></p></td><td><p>String</p></td><td><p>Custom field for organizations.</p></td></tr><tr><td><p><code>${issue.fields.duedate}</code></p></td><td><p>String</p></td><td><p>Due date of the work item.</p></td></tr><tr><td><p><code>${issue.fields.assignee.displayName}</code></p></td><td><p>String</p></td><td><p>Display name of the work item’s assignee.</p></td></tr><tr><td><p><code>${baseUrl}/browse/${issue.key}</code></p></td><td><p>String</p></td><td><p>Link to the work item.</p></td></tr><tr><td><p><code>$issue.fields.content[0].content.text</code></p></td><td><p>String</p></td><td><p>Slack notification parameter for the work item description.</p></td></tr><tr><td><p><code>${issue.fields['customfield_1000'].value}</code></p></td><td><p>String</p></td><td><p>The single-choice custom field. </p></td></tr><tr><td><p><code>${issue.fields['customfield_1000'][*].value}</code></p></td><td><p>String</p></td><td><p>The select list multiple-choice custom field.</p></td></tr><tr><td><p><code>$issue.fields.labels </code></p></td><td><p>String</p></td><td><p>The label field.</p></td></tr></table>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

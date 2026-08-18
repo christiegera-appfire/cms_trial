@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/913997907/Release+notes/">Release notes</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209185/Release+notes+-+Cloud/">Release notes - Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Release notes 17 February 2026</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JQLSEARCH/pages/2894921845" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Release notes 17 February 2026</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p><strong>Release date</strong>: <time datetime="2026-02-17">February 17, 2026</time></p><p>Our team is pleased to announce the latest release of JQL Search Extensions for Jira Cloud.</p><hr/><h2 id="new-features">New features</h2><h2 id="childrencount-keyword">childrenCount keyword</h2><p>The <code>childrenCount</code> keyword helps you find work items that have a specified number of children or none. childrenCount=0, for example, can help you identify epics for which no stories have been created. The keyword uses Jira’s child-parent hierarchy and custom hierarchies to return the count of children at the next level.<br/>See <a href="/cms_trial/space/JQLSEARCH/604209353/Issue+hierarchy/"><u>Issue hierarchy</u></a> for more information and examples.</p><h2 id="usermentionedincomment-keyword">userMentionedInComment keyword</h2><p>The <code>userMentionedInComment</code> keyword helps you find work items that mention a specified user in a comment. See <a href="/cms_trial/space/JQLSEARCH/604209943/Comments/"><u>Comments</u></a> for more information and examples.</p><h2 id="usermentionedinlastcomment-keyword">userMentionedInLastComment keyword</h2><p>The <code>userMentionedInLastComment</code> keyword helps you find work items that mention a specified user in the latest comment. See <a href="/cms_trial/space/JQLSEARCH/604209943/Comments/"><u>Comments</u></a> for more information and examples.</p><hr/><h2 id="bug-fix">Bug fix</h2><p>The following fix is included in this release summary:</p><h3 id="commentlastcreatedby-and-commentlastupdatedby-fields">commentLastCreatedby and commentLastUpdatedby fields</h3><ul><li><p>Resolved an issue where the <code>commentLastCreatedBy</code> and <code>commentLastUpdatedBy</code> fields returned issues with no comments and issues where the current user made the last comment. Now, if the query excludes the current user or issues without comments, these fields return the correct results.</p></li></ul><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p> <strong>Questions and feedback</strong></p><ul><li><p>Explore exciting features, pricing updates, reviews, and more on the <a href="https://marketplace.atlassian.com/apps/1214791/jql-search-extensions-for-jira?hosting=cloud&amp;tab=overview">Marketplace</a>. </p></li><li><p>Stuck with something? Raise a ticket with our <a href="https://appf.re/support"><u>support team</u></a>.</p></li><li><p>Do you love using our app? <a href="https://marketplace.atlassian.com/apps/1214791/jql-search-extensions-for-jira?hosting=cloud&amp;tab=reviews">Let us know</a> what you think.</p></li></ul></div><div><p><strong> Credits</strong></p><p>Thank you to our valued customers. You are the driving force behind our software, and we appreciate your trust in JQL Search Extensions!</p></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

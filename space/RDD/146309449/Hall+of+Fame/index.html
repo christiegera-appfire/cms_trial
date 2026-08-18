@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146310010/Product+and+data+connections/">Product and data connections</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/3019735522/Connect+data+from+Atlassian+products/">Connect data from Atlassian products</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/2381316116/Integration+with+Bitbucket/">Integration with Bitbucket</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Hall of Fame</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/146309449" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Hall of Fame</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><img alt="Dashboard Hub hall fame" class="doc-image" loading="lazy" src="/cms_trial/assets/28a0f4c5-a600-4bf3-9e4d-83088a5d9fbe.png"/><p><a href="/cms_trial/space/RDD/146309449/Hall+of+Fame/">HALL OF FAME</a></p><p><a href="/cms_trial/space/RDD/146309449/Hall+of+Fame/">Expose the last successful pipelines incidents (tests, deployments, builds)</a></p><h2 id="overview">Overview</h2><p>Use the Hall of Fame gadget to showcase a team’s success. The gadget displays the last successful pipeline events, including tests, deployments, and builds, as well as the team member responsible.</p><div class="panel panel-note"><p>Alternatively, if you want to highlight issues with pipeline events or encourage team accountability, you could use the <a href="/cms_trial/space/RDD/146309596/Hall+of+Shame/">Hall of Shame</a> gadget. </p></div><img alt="Dashboard Hub Hall of Fame" class="doc-image" loading="lazy" src="/cms_trial/assets/1c3ba0e1-1a05-4d10-8306-6bc4ccc6631c.png"/><h2 id="configuration">Configuration</h2><p>Name your gadget meaningfully, so everyone knows at a glance what it is about and when to use it. Fill out the rest of the fields as applicable, namely:</p><ul><li><p>The <strong>datasource</strong> to connect to Bitbucket Pipelines. See <a href="/cms_trial/space/RDD/2381316116/Integration+with+Bitbucket/">Integrations with Bitbucket</a> to learn more.</p></li><li><p>The <strong>repository</strong> where your continuous integration and delivery pipelines run.</p></li><li><p>Finally, indicate if you want to use the current settings for all the compatible gadgets in the dashboard. This option eases the pain of configuring one by one the rest of the gadgets with the same default configuration</p></li></ul><h2 id="integrations">Integrations</h2><ul><li><p><span class="icon-note">[bitbucket icon]</span> </p></li></ul><h2 id="dashboards">Dashboards</h2><p>This gadget appears in the following dashboard: <a href="/cms_trial/space/RDD/146310016/Scrum+software+team+template/">Scrum software team template</a>. </p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

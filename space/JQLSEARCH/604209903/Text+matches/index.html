@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209972/JQL+Search+Extensions+(Cloud)/">JQL Search Extensions (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209395/JQL+functions+and+keywords+reference/">JQL functions and keywords reference</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Text matches</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JQLSEARCH/pages/604209903" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Text matches</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="panel panel-note"><p>The examples on this page describe how to build a JQL search using <a href="https://marketplace.atlassian.com/plugins/jql-extensions/cloud/overview">JQL Search Extensions</a>.</p></div><h2 id="text-jql-functions">Text JQL functions</h2><div class="panel panel-note"><p><strong>JQL functions</strong> are accessible from the <a href="/cms_trial/space/JQLSEARCH/604209464/Extended+Search/">Extended Search</a> page or <a href="/cms_trial/space/JQLSEARCH/604209567/Extended+Search+filters/">Extended Search filters</a> in Jira advanced search. When using functions, the issues returned are based on the subquery defined in parentheses.</p></div><h3 id="exacttextmatch">exactTextMatch()</h3><p>Matches issues that contain the text in the summary, description, or environment fields. Takes a case-sensitive text as an argument.</p><p><strong>Example</strong><br/><code>issue in exactTextMatch("text")</code></p><h3 id="exacttextmatchcaseinsensitive">exactTextMatchCaseInsensitive()</h3><p>This function is similar to exactTextMatch() but is case-insensitive.</p><p><strong>Example</strong><br/><code>issue in exactTextMatchCaseInsensitive("tExT")</code> matches issues with TEXT, Text, tEXT, etc.</p><h3 id="wildcardmatch">wildcardMatch()</h3><p>Matches issues with a field containing a specified text (case-sensitive). You can use the asterisk (<strong>*</strong>) to match any text.</p><p><strong>Examples</strong><br/><code>issue in wildcardMatch("summary", "Hello*")</code><br/><code>issue in wildcardMatch("fixVersion", "12.0*")</code><br/><code>issue in wildcardMatch("labels", "*Marketing*")</code><br/><code>issue in wildcardMatch("component", "Business*")</code><br/><code>issue in wildcardMatch("category", "MyOrg*")</code></p><p>You can place the asterisk anywhere in the text, and use more than one.</p><h3 id="regex">regex()</h3><p>Use the full power of regular expressions to match field values. Regular expressions are strict and case-sensitive, following JavaScript syntax for regular expressions.</p><p>You can use backslashes to escape special characters. </p><p><strong>Examples</strong></p><p><code>issue in regex("summary", "^Hello.*")</code> matches issues with summaries starting with<br/><code>issue in regex("fixVersion", "12.[0-5]")</code> matches issues with versions from 12.0 to 12.5<br/><code>issue in regex("labels", "Marketing$")</code>matches issues with labels that end with <em>Marketing</em><br/><code>issue in regex("component", "Business.*")</code><br/><code>issue in regex("category", "MyOrg.*")</code><br/><code>issue in regex("Acceptance checklist", "can proceed")</code> matches issues that have any checkbox with <em>can proceed </em>checked<br/><code>issue in regex("Custom cascading select list", "- Georgia")</code> matches issues with a cascading select field with Georgia as a child value</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

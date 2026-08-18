@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/401572816/Use+cases/">Use cases</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/401769355/Confluence+use+cases+(Dashboard+Hub+for+Confluence)/">Confluence use cases (Dashboard Hub for Confluence)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/492208289/Confluence+onboarding+use+cases/">Confluence onboarding use cases</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Create custom dashboards in Confluence</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/492372221" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Create custom dashboards in Confluence</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>Dashboard Hub provides pre-defined templates, 12+ product integrations, and over 60 powerful metrics that can be combined to visualize advanced data and create insightful, easy-to-share reports.</p><img alt="Dashboard Hub custom Confluence dashboard with multiple gadgets and chart visualizations" class="doc-image" loading="lazy" src="/cms_trial/assets/770a6cba-5cd3-4c82-bbc3-4be755c23c44.png"/><h2 id="benefits-of-powerful-confluence-dashboards">Benefits of powerful Confluence dashboards</h2><ul><li><p><strong>Effortless Dashboard Creation</strong>:<strong> </strong>Pre-defined templates and a wide range of nearly 100 advanced metrics and 12+ product integrations make it easy to design visually appealing and data-rich dashboards.</p></li><li><p><strong>Enhanced Collaboration and Communication</strong>:<strong> </strong>Use secure links to share these powerful dashboards with stakeholders outside your Confluence environment. Foster collaboration with clients, partners, or other external parties, ensuring they have access to the information they need.</p></li><li><p><strong>Seamless Document Integration:</strong> The ability to embed these dynamic dashboards into Confluence documents with a macro enhances the quality and interactivity of your documents.</p></li></ul><h2 id="how-to-start">How to start</h2><ol><li><p>Start creating a dashboard: Select a name, the permissions, and a pre-built template.</p></li><li><p>Configure the template gadgets. Compatible gadgets will configure automatically.</p></li><li><p>Tailor your perfect data view by adding gadgets<strong> </strong>from the <a href="/cms_trial/space/RDD/146309915/Dashboard+gadgets+-+KPIs+and+metrics/">collection of Dashboard Hub metrics</a>.</p><ol><li><p>You can also <a href="/cms_trial/space/RDD/401802479/Create+Jira+Custom+Charts/">create customized charts and metrics</a> with the JQL Custom Charts gadget.</p></li></ol></li><li><p>If you want even more customization, you can move and resize gadgets, change colors, add a slideshow, and more. Also, make sure to review the dashboard permissions.</p></li><li><p>Your dashboard is ready; share it with your team using a <a href="/cms_trial/space/RDD/146310576/Share+a+dashboard+with+a+public+link/">public link</a> so they can share your joy.</p></li></ol><p>Is there a metric or product integration that your team is craving for but you can't find in Dashboard Hub? <a href="https://apps.appf.re/support">Make a request/suggestion for our team</a>, and we might add it to incoming releases.</p><div class="panel panel-note"><p><a href="/cms_trial/space/RDD/401572816/Use+cases/">Explore the use case library</a> if you want to learn more about how Dashboard Hub can help your organization.</p></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

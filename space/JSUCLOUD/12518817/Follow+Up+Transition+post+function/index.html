@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12518429/Features/">Features</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12518401/Workflow+post+functions/">Workflow post functions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Follow Up Transition post function</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JSUCLOUD/pages/12518817" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Follow Up Transition post function</h1>
+    <div class="page-meta">4 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="description">Description</h2><p>The Follow Up Transition post function evaluates the <a href="/cms_trial/space/JSUCLOUD/12518591/Workflow+conditions/">workflow conditions</a> of all subsequent transitions based on the target status of the current transition, including global transitions. If exactly one transition is possible, that transition will be triggered as a follow-up. If more than one transition is possible, JSU cannot determine which to use as the follow-up transition. To learn more about global transitions in Jira workflows, see Atlassian’s <a href="https://support.atlassian.com/jira-cloud-administration/docs/configure-advanced-issue-workflows/#Global-transitions">https://support.atlassian.com/jira-cloud-administration/docs/configure-advanced-issue-workflows/#Global-transitions</a>.</p><div class="panel panel-note"><p>See <a href="/cms_trial/space/JSUCLOUD/12518401/Workflow+post+functions/">Workflow post functions</a> to learn how to add a JSU post function to a Jira workflow.</p></div><h2 id="configuration">Configuration</h2><p>The Follow Up Transition post function has no additional parameters to configure; however, you must have at least one workflow condition configured.</p><h2 id="use-case">Use case</h2><img alt="An example Jira workflow that includes a junction status that leads to three different follow-up transitions depending on the condition that is met." class="doc-image" loading="lazy" src="/cms_trial/assets/a8b752e2-380d-46e2-b93c-268f15a714ae.png"/><ul><li><p>Our issue has a mandatory number custom field.</p></li><li><p>At the end of the <em>Go</em> transition, we have configured a Follow Up Transition post function.</p></li><li><p>Each transition leading away from the status <span class="status-lozenge">junction</span>  has a workflow condition:</p><ul><li><p><em>Under Five</em> has the condition: Number field &lt; 5?</p></li><li><p><em>Exactly Five</em> has the condition: Number field == 5?</p></li><li><p><em>Over Five</em> has the condition: Number field &gt; 5?</p></li></ul></li><li><p>When a user performs the <em>Go</em> transition, this will always trigger a follow-up transition.</p></li></ul><p>For example, if a user enters Number=3 during the Go transition, this leads to the <span class="status-lozenge">in progress</span> status. If they enter 42, this leads to <span class="status-lozenge">closed</span>.</p><p>We configured our workflow conditions so that only ever one condition can be true. This way, the user will never be stuck at the <span class="status-lozenge">junction</span> status.</p><h2 id="conditions">Conditions</h2><p>Use conditions to ensure that only one transition is possible for the follow-up transition. Let's continue the example from above, where a number field is evaluated. We will configure three conditions: one for each outgoing transition from the <span class="status-lozenge">junction</span> status.</p><h4 id="under-five">Under Five</h4><img alt="The Under Five condition." class="doc-image" loading="lazy" src="/cms_trial/assets/8dcbaa10-c366-44f0-9332-f9f44d562fe9.png"/><h4 id="exactly-five">Exactly Five</h4><img alt="The Exactly Five condition." class="doc-image" loading="lazy" src="/cms_trial/assets/df472d58-bdbe-42f1-8cd1-f5dc16a0a02f.png"/><h4 id="over-five">Over Five</h4><img alt="The Over Five condition." class="doc-image" loading="lazy" src="/cms_trial/assets/9360b367-a49e-4be8-ad67-4207d5cd91eb.png"/><h4 id="simple-yes-no-example">Simple <em>Yes / No</em> example</h4><p>A simpler use case occurs when there are only two transitions leading from a status, and you evaluate the same condition, with one condition being negated.</p><ul><li><p>a == b? </p></li></ul><p>You can use Jira’s Value Field condition for this setup.</p><img alt="Example Jira workflow with a junction status with only one condition that determines the follow up transition." class="doc-image" loading="lazy" src="/cms_trial/assets/83e855ca-0957-4bb5-9669-d7d61c2009ea.png"/><ul><li><p>Check it: Follow Up Transition post function.</p></li><li><p>Yes: Condition a == b?</p></li><li><p>No: Condition a != b?</p></li></ul><h4 id="fast-forward-example">Fast forward example</h4><p>Some extra steps in your workflow might only be necessary if a specific condition is not met. Otherwise, that step could be skipped.</p><img alt="Example Jira workflow that uses a condition to bypass a step." class="doc-image" loading="lazy" src="/cms_trial/assets/c8e91a0f-1bf0-4c64-8a76-5701fd32f48f.png"/><h4 id="management-approval">Management approval</h4><p>See the <a href="/cms_trial/space/JSUCLOUD/12518631/Streamline+an+approval+process/">Streamline an approval process</a> use case for another example.</p><div class="panel panel-note"><p>You can learn more about workflow conditions in Atlassian’s <a href="https://support.atlassian.com/jira-cloud-administration/docs/configure-advanced-issue-workflows/#Validators">Configure Advanced Issue Workflows</a> article.</p></div><h2 id="troubleshooting">Troubleshooting</h2><p><strong>Problem</strong>: Workflow is blocked at the Junction status</p><p><strong>Cause</strong>: Not exactly one condition</p><p>Usually, the problem can be tracked down by reviewing the expected outcome of the post function;<br/>if exactly one condition is valid, the corresponding transition will be triggered.</p><div class="panel panel-note"><p>It's important to do your analysis with the same user who encountered the problem. There might be issues with permissions that could lead to a different result, depending on the user performing the transition.</p></div><p>Consider an issue blocked at the Junction status: How many transition buttons does it have?  If you have none or more than one transition, review your workflow conditions on the transitions leading out from the  <span class="status-lozenge">JUNCTION</span> status.</p><p>If there is only one button, there might be something wrong with that transition. For example, a validator could prevent the transition from being completed. </p><p><strong>Cause</strong>: Triggered transition fails</p><p>Another reason might be that the triggered transition does not run. For example, if it has a validator that fails.</p><h3 id="infinite-loop-detection">Infinite Loop Detection</h3><p>An infinite loop can occur when executing the Follow Up Transition post function. An infinite loop results in an endless cycle of issue creation and follow-up transitions following the triggering of the origin issue. When a loop is detected, JSU will stop the execution and log an execution failure.</p><p>When using post functions that create issues or follow-up transitions, consider the outcome of the rule and the user permissions of your project teams. You can also use <a href="/cms_trial/space/JSUCLOUD/12518025/Workflow+preconditions/">preconditions</a> to restrict when rules are run to reduce the likelihood of causing an infinite loop. Learn more about how JSU identifies an infinite loop in <a href="/cms_trial/space/JSUCLOUD/256770940/Infinite+loop+detection/">Infinite loop detection</a> .</p><h2 id="related-pages">Related pages</h2><ul><li><p><a href="/cms_trial/space/JSUCLOUD/12518631/Streamline+an+approval+process/">Streamline an approval process</a> </p></li><li><p><a href="/cms_trial/space/JSUCLOUD/256770940/Infinite+loop+detection/">Infinite loop detection</a></p></li><li><p><a href="/cms_trial/space/JSUCLOUD/12518591/Workflow+conditions/">Workflow conditions</a> </p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

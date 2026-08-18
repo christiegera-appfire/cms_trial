@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490995921/Configuration+guides/">Configuration guides</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Time configuration</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/2028634113" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Time configuration</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>Thе <em>Time Configuration</em> page in Power Scripts for Jira Cloud lets you set fundamental time-related parameters that affect how scripts process date calculations. These time settings ensure that all scripts process dates and times consistently across your Jira instance, especially important in automated workflows involving deadlines or time-based calculations.</p><p>To access the page, go to <strong>Power Scripts </strong>&gt; <strong>Settings</strong> &gt; <strong>Time</strong>. Use the respective fields to specify the following:</p><ul><li><p><strong>Time Zone</strong>: The base timezone used for all date calculations in your SIL scripts. All dates processed in a SIL script will be affected by the timezone setting. This setting is particularly important for scripts that perform date calculations or time-based operations.</p></li><li><p><strong>Work Hours per Day</strong>: The standard number of working hours in a business day. This value reflects the working hours per day as set in your Jira configuration; it cannot be modified from this page.</p></li><li><p><strong>Work Days per Week</strong>: How many days are considered working days in a week. This value reflects the working days per week as set in your Jira configuration; it cannot be modified from this page.</p></li></ul><img alt="Power Scripts for Jira Cloud SSL certificate settings" class="doc-image" loading="lazy" src="/cms_trial/assets/847aa378-cd71-4a54-9912-77d6dab91955.png"/><div class="panel panel-note"><p>The <strong>Work Hours per Day </strong>and <strong>Work Days per Week</strong> settings are synchronized with your Jira's time tracking configuration and cannot be changed from the <em>Time Configuration</em><em><strong> </strong></em><em>page</em>. To modify them, navigate to the <em>Time tracking</em> page in your Jira admin settings.</p></div><hr/><h2 id="more-configuration-guides">More configuration guides</h2><div class="img-placeholder">[Unmapped macro: contentbylabel — no content to fall back on]</div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192838067/Get+started+with+Comala+Document+Management+for+Cloud/">Get started with Comala Document Management for Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Installation</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2192870167" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Installation</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>The Comala Document Management for Confluence Cloud is managed as a user-installed app. The user-installed app is usually downloaded from <a href="http://marketplace.atlassian.com/">Atlassian Marketplace</a>.</p><img alt="Confluence Manage apps page." class="doc-image" loading="lazy" src="/cms_trial/assets/8048c689-2b52-40eb-a50f-426539b5a211.jpg"/><p>To install the app:</p><ol><li><p>Log in to your Atlassian account and select the Confluence site where you want to install the app. </p></li><li><p>Go to<strong> Apps</strong> &gt; <strong>Find new apps. </strong></p></li><li><p>Search for Comala Document Management and click <strong>Try it free </strong>in the app marketplace, or click <a href="https://appfire.atlassian.net/wiki/marketplace/discover/app/com.comalatech.workflow">here</a> to go to the app’s download page. </p></li></ol><img alt="Comala Document Management page in Atlassian Marketplace." class="doc-image" loading="lazy" src="/cms_trial/assets/385a46d6-1a20-4210-b21d-a21b8a6087d2.png"/><ol><li><p>Click <strong>Start Free Trial</strong>. The app installs automatically.</p></li></ol><img alt="Comala Document Management download page showing the Start free trial button." class="doc-image" loading="lazy" src="/cms_trial/assets/eacc02f8-645b-4f70-9619-991b28474e3c.png"/><p>Once installed, you can proceed with configuration to enable workflows and set up document approvals. See <a href="/cms_trial/space/CDMC/2192869918/Onboarding/">Onboarding</a> for more details.</p><div class="panel panel-note"><p>Comala Document Management workflows are configured from the space’s <strong>Apps</strong> settings in Confluence. This entry point only appears when the <strong>Apps</strong> feature toggle is enabled for the space. If <strong>Apps</strong> is off, the option to add or edit workflows won’t be visible, even if the app is already installed. </p><p>Check the following setting in your space:</p><ol><li><p>Go to your <em>Confluence Space</em> and, next to the space name, select <strong>More (•••) &gt; Space settings &gt; General &gt; Features. </strong></p></li><li><p>Under <strong>Sections</strong>, enable <strong>Apps</strong>.<br/></p><img alt="image-20260807-101358.png" class="doc-image" loading="lazy" src="/cms_trial/assets/fe59aa08-0d09-4461-ba1a-b659018ce7f1.png"/></li></ol><p>This is a Confluence space-level setting, so it must be enabled for each space individually. Only space or app administrators can edit a space’s features. Learn more: <a href="https://support.atlassian.com/confluence-cloud/docs/edit-features-for-a-space/">Edit features for a space</a></p></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1891206842/Configure/">Configure</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">How to map an Epic Link when creating a story</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/1596621419" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>How to map an Epic Link when creating a story</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="purpose">Purpose</h2><p>How do I map a value from Salesforce to certain Epics (<strong>Epic Link </strong>field in Jira) when a Jira Issue is created.?</p><h2 id="answer">Answer</h2><ol><li><p>First, create a custom field in Salesforce with type: string. </p></li><li><p>Then, map the Salesforce custom field to JIRA's "Parent" field. If you are unsure on how to do this, refer to <a href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/470754325/Configuring+Entity+Mappings+and+Field+Mappings">Configuring Entity Mappings and Field Mappings</a>. <br/></p><img alt="contentId-1596621419" class="doc-image" loading="lazy" src="/cms_trial/assets/963fd217-b546-4b8a-99bf-c00a9e79be7d.png?version=1&amp;modificationDate=1678856761187&amp;cacheVersion=1&amp;api=v2"/></li><li><p>To ensure the value in Salesforce synchronizes with Jira, make sure Epic Issue Key (not just a Jira key) is mapped Salesforce Text Custom Field like the example below.<br/></p><img alt="contentId-1596621419" class="doc-image" loading="lazy" src="/cms_trial/assets/93583e60-bd0a-40d6-b654-c97088ed658c.png?version=1&amp;modificationDate=1678856760895&amp;cacheVersion=1&amp;api=v2"/></li></ol><p>Once the Salesforce object and the JIRA issue is synchronized, the Epic Link will automatically be converted according to the JIRA Issue:</p><img alt="contentId-1596621419" class="doc-image" loading="lazy" src="/cms_trial/assets/11e3c26b-2c07-4a99-8354-215d10764def.png?version=1&amp;modificationDate=1678856760963&amp;cacheVersion=1&amp;api=v2"/><div class="panel panel-note"><h3 id="important">Important</h3><p>The fields <strong>Epic Link</strong> and <strong>Parent Link</strong> will be deprecated by Nov 11, 2022. It is crucial to update your mapping before that date by updating the deprecated fields to <strong>Parent</strong>.</p></div></div><div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/POKERADO/148307970/Planning+Poker+Azure+Home/">Planning Poker for ADO</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/POKERADO/148307970/Planning+Poker+Azure+Home/">Planning Poker Azure Home</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Scopes usage explanation</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/POKERADO/pages/660308966" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Scopes usage explanation</h1>
+    <div class="page-meta">1 min read</div>
     <ol><li><p><strong>vso.work</strong>: This scope provides access to read work items and related information within Azure DevOps project. It allows our application to perform queries and retrieve details about work items, such as tasks, bugs, epics, and user stories.</p></li><li><p><strong>vso.work_write</strong>: This scope extends the previous one and adds the ability to modify work items within Azure DevOps. It grants our application the capability to update work items, specifically allowing for the addition or alteration of estimation values.</p></li><li><p><strong>vso.graph</strong>: The vso.graph scope grants access to Azure DevOps Graph API. This API provides information about users and group membership information. Specifically, we utilize this API to verify user membership in the organization administrators group.</p></li><li><p><strong>vso.features</strong>: This scope grants access to feature flags within the Azure extension environment. We leverage this scope to ascertain whether our application should be visible within enabled Azure extension points, such as the Work Item details or Board view.</p></li><li><p><strong>vso.features_write</strong>: Expanding upon the <code>vso.features</code> scope, this permission enables your application to dynamically control the visibility of our app within the specified Azure extension points.</p></li><li><p><strong>vso.memberentitlementmanagement</strong>: Allows access to retrieve user data and license information for all users within the organization. This scope is utilized within our user management interface, enabling the selection of users authorized to use our extension.</p></li><li><p><strong>vso.identity</strong>:<strong> </strong>Enables access to read user identities within the organization. This scope allows for batch queries for specific users, offering a more targeted approach compared to retrieving all users, as done with the <code>vso.memberentitlementmanagement</code> scope. This targeted querying capability optimizes efficiency in user-related operations within our application.</p></li></ol><p>More information about scopes description can be found here: <a href="https://learn.microsoft.com/en-us/azure/devops/extend/develop/manifest?view=azure-devops#scopes">https://learn.microsoft.com/en-us/azure/devops/extend/develop/manifest?view=azure-devops#scopes</a></p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

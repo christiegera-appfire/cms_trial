@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/466225276/Use+cases/">Use cases</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/1261797421/With+Jira+Misc+Custom+Fields+(JMCF)/">With Jira Misc Custom Fields (JMCF)</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Escalate Issue After Fix is Rejected</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/465473859" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Escalate Issue After Fix is Rejected</h1>
+    <div class="page-meta">7 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>In this recipe, you will learn how to escalate an issue when the fix has been rejected a certain number of times. This scenario could arise most frequently in a <strong>Jira Service Management </strong>context where an end user or customer might reject a proposed fix, but the recipe can be applied to any Jira project where there is a threshold for the number of times an issue should be allowed to be re-worked before it is given extra consideration. </p><p>There are a few ways in which an issue can be marked as escalated: </p><ul><li><p>Set the native Jira <code>Flagged</code> field</p></li><li><p>Set the priority of the issue to a high value</p></li><li><p>Create a custom field for escalations; this method works particularly well when there are multiple types of escalations</p></li><li><p>Create a status for Escalated issues</p></li></ul><div class="panel panel-warning"><p><strong>Note</strong>: If you plan to use a specific status for <strong>Escalated</strong> issues, the Recipe <a href="/cms_trial/space/JMWEC/466322207/Hold+an+issue%2C+proceed+when+clear/">Hold an Issue, Seek Clarification, Then Proceed</a> is a better solution. That recipe can be modified to use a status for high priority issues that require immediate attention. </p></div><p>Using any of the methods above provides powerful options for identifying and working with issues that require immediate attention or that have proven problematic. These include: </p><ul><li><p>Creating custom dashboard widgets (see this page for more information: <a href="https://support.atlassian.com/jira-software-cloud/docs/create-and-edit-dashboards/">https://support.atlassian.com/jira-software-cloud/docs/create-and-edit-dashboards/</a>)</p></li><li><p>Creating a swimlane for escalated issues ( see this page for more information: <a href="https://support.atlassian.com/jira-software-cloud/docs/configure-swimlanes/">https://support.atlassian.com/jira-software-cloud/docs/configure-swimlanes/</a>)</p></li><li><p>Adding a column to a Kanban board for escalated issues (see this page for more information: <a href="https://support.atlassian.com/jira-software-cloud/docs/configure-columns/">https://support.atlassian.com/jira-software-cloud/docs/configure-columns/</a>)</p></li></ul><div class="panel panel-note"><p>The steps below include two options for representing the escalation of an issue. The first uses a custom field called <strong>Escalated</strong>, which can be either a simple escalation flag (a check box custom field) or a more complicated escalation process that can include multiple escalation types. The second uses the native Jira field <code>Flagged</code> and sets it to true. </p><p>Both of these options use a custom field to track the number of times an issue fix has been rejected, and both use a post-function on the transition that is triggered when a fix has been rejected. </p></div></div></div><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h2 id="requirements">Requirements</h2><ul><li><p>JIRA Administrator login</p></li><li><p><a href="https://marketplace.atlassian.com/apps/292/jira-misc-workflow-extensions-jmwe">Jira Misc Workflow Extensions for Jira Cloud</a></p></li><li><p>Jira Misc Custom Fields for Jira Cloud</p></li></ul><div class="panel panel-warning"><p>This Recipe uses an additional Marketplace app - <strong>Jira Misc Custom Fields (JMCF)</strong> - to track the number of times a fix has been rejected. The custom field uses the <a href="https://appfire.atlassian.net/wiki/spaces/JMCFC/pages/465600697">Transition Count</a> custom field type, which calculates the number of times an issue has been moved through a specific workflow transition. </p><p>If you do not have access to <strong>JMCF for Jira Cloud</strong>, it is still possible to achieve the same outcome but it will require extra steps. Instead of using a single JMCF custom field, you will need to create a standard custom Number Field and an additional post-function that increments the Number field. These additional steps are <em>not included</em> in this Recipe. </p></div><h2 id="workflow-configuration">Workflow configuration</h2><p>Consider the workflow shown in <strong>Figure 1</strong>, right. This workflow is based on the default IT Service Management workflow. </p><p>In this configuration, the <strong>Resolved</strong> status is categorized as Done, but it is an unconfirmed resolution. A workflow could be configured this way to differentiate between an issue that the support team considers fixed but reporting requirements make it necessary or preferable to track closed issues separately. Additionally, an automation could be configured to close Resolved issues (and <em>only</em> Resolved issues) after several days of inactivity. Lastly, it enables the <strong>Fix Rejected</strong> transition, which is an integral part of this Recipe!   </p></div><div><img alt="JMWE for Jira Cloud workflow diagram for escalating issues after fix rejection" class="doc-image" loading="lazy" src="/cms_trial/assets/c071d4a0-2c4d-4d9f-8800-3054d77913d0.png"/></div></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h2 id="1-create-a-transition-count-custom-field-for-rejected-count">1. Create a <em>Transition Count</em> custom field for “Rejected Count”</h2><div class="panel panel-note"><p>As noted above, this step requires an additional Marketplace App - <strong>Jira Misc Custom Fields (JMCF)</strong>. </p><p>Before updating your workflow, you need to add a custom field to your Jira instance; this custom field will store the number of times an issue has been moved through a transition. This custom field will track the number of times, if any, an issue is moved through the <strong>Fix Rejected</strong> transition. </p></div><ol><li><p>Log into your Jira instance as an Administrator. </p></li><li><p>Click on the <strong>Settings </strong>icon ⚙️ in the upper right corner.</p></li><li><p>Select <strong>Apps</strong>.</p></li><li><p>In the left-hand panel, click <strong>Jira Misc Custom Fields</strong> then click <strong>My custom fields</strong>.</p></li><li><p>In the upper-right corner, click <strong>New custom field</strong>. </p></li><li><p>In the window that opens, select <strong>Transition Count</strong> and click <strong>Next</strong>. </p></li><li><p>Select the screens on which the new field should be included. Click <strong>Next</strong>. </p></li><li><p>Configure the custom field: </p><ol><li><p><strong>Transition From Status</strong> - Select <code>Resolved</code>.</p></li><li><p><strong>To Status</strong> - Select <code>Reopened</code>.</p></li><li><p>Click <strong>Save</strong>. </p></li></ol></li></ol></div><div><img alt="JMWE for Jira Cloud custom field configuration panel for fix rejection escalation" class="doc-image" loading="lazy" src="/cms_trial/assets/c542f7b8-4c70-4447-8e85-cc556bec4ab0.png"/></div></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h2 id="2-option-1-create-a-custom-field-for-escalation">2. (Option 1) Create a custom field for “Escalation”</h2><div class="panel panel-note"><p>This section is optional. There are Jira standard fields such as <strong>Flagged</strong> or <strong>Priority</strong> that can be used to represent an escalated issue. If you plan to use <strong>Flagged</strong>, it may need to be added to you issue <strong>Field Configuration</strong>. See this page for information on adding fields to an issue: <a href="https://support.atlassian.com/jira-cloud-administration/docs/change-a-field-configuration/">https://support.atlassian.com/jira-cloud-administration/docs/change-a-field-configuration/</a>.</p><p><em>If you choose to use one of the above fields, you can skip this section.</em> </p><p>In this section you will create a custom field that represents the escalated state of the issue. This is a standard Jira custom field, and can be a check box for a straightforward Escalated/Not Escalated configuration. Or it can be a Select List that enables you to create multiple Escalated states, each of which could be handled differently (e.g. different teams or other, different automations for each state). </p></div><ol><li><p>Log into your Jira instance as an Administrator. </p></li><li><p>Click on the <strong>Settings </strong>icon ⚙️ in the upper right corner.</p></li><li><p>Select <strong>Issues</strong>.</p></li><li><p>In the left-hand panel, click <strong>Custom fields</strong>. </p></li><li><p>In the upper-right corner, click <strong>Create custom field</strong>.</p></li><li><p>From the list of Standard fields, select the type for your scenario: </p><ol><li><p><strong>Checkboxes</strong> - For a single Escalated/Not Escalated setup. </p></li><li><p><strong>Select List</strong> - For multiple, different Escalated states. </p></li></ol></li><li><p>Configure the field (Figure 3, right): </p><ol><li><p><strong>Name</strong> - Enter “Escalated”. </p></li><li><p><strong>Description</strong> - (Optional) Enter a description. </p></li><li><p><strong>Options</strong> - Enter the needed options. </p><ol><li><p>For a <strong>Checkbox</strong>, create a single option suck as <strong>True</strong> and click <strong>Add</strong>.</p></li><li><p>For a <strong>Select List</strong>, create any options needed and click <strong>Add</strong>. </p></li></ol></li></ol></li><li><p>Click <strong>Create</strong>.</p></li></ol></div><div><img alt="JMWE for Jira Cloud escalated field display in issue view" class="doc-image" loading="lazy" src="/cms_trial/assets/79c137c4-aebc-4bdd-b93f-9ba3b32ad110.png"/></div></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h2 id="3-open-the-workflow">3. Open the workflow</h2><div class="panel panel-note"><p>Once you have the custom fields added to your issues, you can update the workflow. </p></div></div><div></div></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h2 id="4-add-a-set-issue-field-s-post-function-to-the-fix-rejected-transition">4. Add a <em>Set issue field(s)</em> post-function to the “Fix Rejected” transition </h2><div class="panel panel-note"><p>The last step of this Recipe is to add a <a href="/cms_trial/space/JMWEC/465504849/Set+issue+fields/">Set issue field(s)</a> post-function to the transition between the <strong>Resolved</strong> status and the <strong>Reopened</strong> status. This post-function will only fire conditionally - if the <strong>Rejected Count</strong> field value is greater than or equal to 3, the post-function will set the <strong>Escalated</strong> field to True. </p></div><ol><li><p>In your workflow, add a post-function to the <strong>Fix Rejected</strong> transition: </p><ol><li><p>When viewing the Workflow in <strong>Diagram</strong> view, select the Transition and click the <strong>Post Functions</strong> link. Click <strong>Add post function</strong> at the top of the list of existing post functions.</p></li><li><p>When viewing the Workflow in <strong>Text</strong> view, click the name of the Transition then select the <strong>Post Functions</strong> tab. Click <strong>Add post function</strong> at the top of the list of existing post functions.</p></li></ol></li><li><p>Select <strong><em>Set issue fields (JMWE app)</em></strong> from the list and click <strong>Add</strong>.</p></li><li><p>Configure the post-function as follows: </p><ol><li><p><strong>Target issue(s)</strong> (<strong>Point 1</strong>, <strong>Figure 4</strong>, right) - Set to <code>Current issue</code>.</p></li><li><p><strong>Add field(s)</strong> (<strong>Point 2</strong>, <strong>Figure 4</strong>, right)- Select the field you’re using for escalation, e.g. <code>Flagged</code>, <code>Priority</code>, or the custom field you created in Step 2 above, <code>Escalated</code>.</p></li><li><p><strong>Options</strong> - Set as needed. For example, if using <code>Flagged</code> or a checkbox version of <code>Escalated</code>, set the option <code>Set only if field is empty</code> so that the post-function will only attempt to escalate an issue that isn’t already escalated. </p></li><li><p><strong>Value</strong> (<strong>Point 3</strong>, <strong>Figure 4</strong>, right) - Enter <code>True</code>if using checkboxes, or the value to select if using a Select List.</p></li><li><p>Click <strong>Add</strong> (<strong>Point 4</strong>, <strong>Figure 4</strong>, right).</p></li><li><p><strong>Send notifications</strong> - Configure as needed.</p></li><li><p><strong>Conditional execution</strong> (<strong>Point 5</strong>, <strong>Figure 4</strong>, right)</p><ol><li><p>Check the box for <code>Run this post-function only if a condition is verified</code>.</p></li><li><p> Enter the following in the code editor: <br/><code>{{ issue.fields["Rejected Count"] &gt;= 3 }}</code></p></li></ol></li><li><p><strong>Run as</strong> - It is recommended to leave this set to <code>Addon user</code>.</p></li><li><p><strong>Delayed execution</strong> - Configure as needed.</p></li></ol></li><li><p>Click <strong>Add</strong>. </p></li></ol></div><div><img alt="JMWE for Jira Cloud postfunction configuration dialog for fix rejection workflow" class="doc-image" loading="lazy" src="/cms_trial/assets/2ffbe57d-2017-44fd-a16d-1d2ad36b692b.png"/></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

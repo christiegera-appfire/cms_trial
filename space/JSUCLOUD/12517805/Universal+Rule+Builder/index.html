@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12518429/Features/">Features</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Universal Rule Builder</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JSUCLOUD/pages/12517805" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Universal Rule Builder</h1>
+    <div class="page-meta">5 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="panel panel-note"><p><strong>A new rule builder experience is coming</strong></p><p>We’re updating the Universal Rule Builder with a more flexible interface for creating rules with multiple actions, conditions, and nested logic.</p><p>Configurations created in the current rule builder will be migrated automatically and will remain available in the new experience. You don’t need to recreate them or take any action before the update.</p><p>The instructions on this page describe the current beta interface and may differ from the upcoming experience.</p></div><h2 id="a-new-editor-experience">A new editor experience </h2><p>JSU’s Universal Rule Builder <span class="status-lozenge">BETA</span>  is a faster and simpler way to build and visualize automation rules for your Jira workflows. You can build simple or complex rules from a single place, eliminating the need to navigate through Jira multiple times to add your desired workflow changes with JSU. The Universal Rule Builder lets you review your complete rule summary in a <span class="status-lozenge">When-if-then</span> format, edit the component configurations, or change their order before saving the rule, so you can quickly configure and fine-tune the rules you want from the start.</p><h2 id="what-s-in-the-beta-release">What’s in the beta release?</h2><p>We have included simplified versions of two of our most popular post functions for you to try out. Don’t worry, all of your existing JSU rules remain intact. The new feature will not change or replace anything in your existing rules. You can still create and edit rules in the usual way, using individual components (post function, precondition, or conditions) in the old editor experience. New rules that you build with the Universal Rule Builder are managed strictly through the new editor. </p><p>The beta version of the Universal Rule Builder provides a new way to use the following features: </p><ul><li><p><span class="status-lozenge">new</span> Clear Field Value post function</p></li><li><p>Update Any Issue Field post function</p></li><li><p>Trigger a Linked Transition post function</p></li><li><p><em>Related Issue Status</em> precondition (new <span class="status-lozenge">IF</span> precondition that you can add to a post function)</p></li></ul><div class="panel panel-note"><p>We will continue to release additional features to the Universal Rule Builder based on your feedback, and we will provide you with opportunities to share your thoughts directly within the app. </p></div><h3 id="beta-limitations">Beta limitations</h3><ul><li><p><strong>Update Any Issue Field </strong>and<strong> Clear Field</strong>: These can only be performed within the <em>same</em> issue; there are no issue relation options. </p></li><li><p><strong>Trigger a Linked Transition</strong>: This post function can apply only to parent or subtask.</p></li><li><p><strong>Run as User</strong>: Rules are always executed as the JSU User.</p></li></ul><h2 id="how-can-i-access-the-universal-rule-builder">How can I access the Universal Rule Builder?</h2><p>You can access the Universal Rule Builder through the <em>Add Post Function</em> option when editing a draft workflow in Jira. Like all JSU features, the Universal Rule Builder can only be used when working with <em>company-managed</em> projects.</p><ol><li><p>Navigate to your project workflow and select <strong>Edit</strong> to create a draft.</p></li><li><p>In Diagram mode, select the arrow for the transition that will trigger your rule. Alternatively, in Text mode, select the transition name.</p></li><li><p>Select <strong>Post Functions</strong> from the <em>Options</em> menu. If you are in Text mode, select the <em>Post Functions</em> tab.</p></li><li><p>Select <strong>Add Post Function</strong>.</p></li><li><p>Select the <em>Access the Universal Rule Builder from JSU</em> post function, and then click <strong>Add</strong> at the bottom of the page. The Universal Rule Builder displays.</p></li></ol><div class="panel panel-warning"><p>We recommend that you build and test your rules in a test project.</p></div><img alt="Resized.mp4" class="doc-image" loading="lazy" src="/cms_trial/assets/b48c1897-0b20-42f0-ad19-d7c4db9b9e69.mp4"/><hr/><h2 id="build-a-rule-with-the-universal-rule-builder">Build a rule with the Universal Rule Builder</h2><p>On the left side of the Universal Rule Builder, you can see the rule overview, starting with a WHEN statement representing your selected transition. The components you use to build your rule are displayed on the right side. To change the triggering transition, navigate back to the workflow editor in Jira, select the transition, and then add the post function for the Universal Rule Builder again.</p><div class="panel panel-note"><p>If you don’t see a component that you need in the URB, use the request button at the bottom of the components list and tell us about it.</p></div><img alt="The Universal Rule Builder in JSU." class="doc-image" loading="lazy" src="/cms_trial/assets/fa0c876e-52c8-44f0-a826-e7880e27e27b.png"/><p>To help you get started, we will add a simple rule to trigger a transition on a linked issue.</p><p><strong>Step 1: Select a component</strong><br/>In the <strong>All Components</strong> list, select your required component. It displays in the rule overview. In this example, we selected the <em>Trigger a Linked Transition</em> post function.</p><img alt="A fully configured rule using the Trigger a Linked Transition post function in the Universal Rule Builder." class="doc-image" loading="lazy" src="/cms_trial/assets/7efd3c3e-4ffe-4116-ac0a-b6529d620273.png"/><p><strong>Step 2: Configure the component</strong><br/>Set the parameters for your component to define the outcome of your rule.<br/><strong>What</strong>: Select the type of issue that you want to transition to the new status. Here, we selected the <em>Subtask(s) of the parent</em>.<br/><strong>Where</strong>: Select the status that you want to move the issue to. You can filter the list of available statuses by selecting a different workflow if required under <em>Advanced/Optional settings</em>.</p><p><strong>(Optional): Add more components </strong><br/>Select <strong>Add Component</strong> to display the list of available options.</p><div class="panel panel-note"><p>To change the order of a component within the rule Overview, drag it to the desired position. To remove a component, select the <strong>More</strong> <strong>options</strong> menu (<strong>⋮</strong>), then select <strong>Delete Component</strong>.</p></div><p><strong>Step 3: Name your rule</strong><br/> In the <em>Name</em> field, enter a name. Choose a name that helps you identify what the rule does. </p><p><strong>Step 4: Save your rule</strong><br/>Select <strong>Add</strong> below the Overview to save your rule. Your complete rule is displayed in the <em>Post Functions</em> tab on the selected transition page. To make any changes, select the <strong>Edit</strong> icon for the corresponding rule. </p><img alt="Summary of the rule in the draft workflow showing the location of the Edit option." class="doc-image" loading="lazy" src="/cms_trial/assets/a3b9e642-618c-4157-abda-c406dd0e6c16.png"/><p><strong>Step 5: Publish your draft workflow</strong><br/>Select <strong>Publish Draft</strong> at the top of the draft Workflow page, and then test out your rule by creating some test issues and subtasks. </p><div class="panel panel-success"><p>See <a href="/cms_trial/space/JSUCLOUD/12519535/My+Workflows/">My Workflows</a> to learn how to view all your saved JSU rules in one place. </p></div><h2 id="related-pages">Related pages</h2><ul><li><p><a href="https://appfire.atlassian.net/l/cp/kuimUCD0">Use Case: Close Parent Issue When All Subtasks are Closed</a></p></li><li><p><a href="/cms_trial/space/JSUCLOUD/49775577/Remove+assignee+when+an+issue+moves+back+to+To+Do/">Use Case: Remove Assignee When an Issue Moves Back to To Do</a></p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

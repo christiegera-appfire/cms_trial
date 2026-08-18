@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192967667/Migrate+to+Confluence+Cloud/">Migrate to Confluence Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/3446374401/Migrate+from+Data+Center+to+Cloud+(Connect)/">Migrate from Data Center to Cloud (Connect)</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Step 3 - Post-migration</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2193097068" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Step 3 - Post-migration</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview</h2><p>You can migrate your Comala Document Management app data from a hosted instance using the <a href="https://marketplace.atlassian.com/apps/1219672/confluence-cloud-migration-assistant?hosting=datacenter&amp;tab=overview">Atlassian Confluence Cloud Migration Assistant (CCMA)</a>.</p><p>After a successful migration, post-migration tasks include:</p><ul><li><p>Review of migrated space workflows identified in the CCMA precheck as not fully cloud-compatible. If required, these need to be edited to ensure the workflow elements are cloud-compatible and the workflow functionality meets your needs</p></li><li><p>If multiple workflows are active in a space, review the order in which the workflows are applied to ensure the correct workflow is applied to each document</p></li></ul><p>You can also edit pages to add the <a href="https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=CDMC&amp;title=Document%20Metadata">Document metadata macro</a> to retrieve and display migrated metadata</p><h2 id="prerequisites">Prerequisites</h2><p>You must have completed</p><ul><li><p><strong>CCMA migration task</strong> - <a href="/cms_trial/space/CDMC/2193130034/Step+2+-+Migrate+your+data+using+the+Confluence+Cloud+Migration+Assistant/">Step 2 - Migrate your data using the Migration Assistant</a></p></li></ul><h2 id="post-migration">Post-migration</h2><h3 id="edit-workflows-for-cloud-compatibility"><strong>Edit workflows for cloud compatibility</strong></h3><p>Some workflows might have been identified as not fully cloud-compatible during the <strong>Migration Assistant</strong> vendor app checks or when using the Workflow Translator for Cloud tool.</p><p>You might also need to update <a href="/cms_trial/space/CDMC/2193950329/Trigger+events/">workflow trigger events</a> or <a href="/cms_trial/space/CDMC/2193950329/Trigger+events/">workflow trigger actions</a>.</p><p>These must be reviewed and edited using the workflow builder visual editor or code editor to ensure the functionality meets your needs in Confluence Cloud.</p><div class="panel panel-note"><p>After migration, all workflows transferred from the server will have access to their <strong>original server markup</strong> within the <strong>Cloud Workflow Builder</strong>. This information will be available in a dedicated section for migrated workflows only.</p></div><h3 id="review-enabled-workflows"><strong>Review enabled workflows</strong></h3><p>Reapply workflows in each space using the app space settings.</p><ul><li><p><a href="/cms_trial/space/CDMC/2193033075/At+space+level/">Apply workflows at the space level</a> </p></li></ul><img alt="contentId-2193097068" class="doc-image" loading="lazy" src="/cms_trial/assets/e7635f42-4efb-4ee1-8991-fe294bbaf986.png"/><p>When <a href="/cms_trial/space/CDMC/2193033075/At+space+level/">multiple workflows are active in a space</a>, you should review their order and any labels to ensure they are applied in the required order.</p><p>If the migration included a hosted app global scope workflow in the space, this is enabled by default in the cloud space. You might also need to review the space workflow names if a global-scope workflow was included in a migrated space, as space-scope workflows are migrated with a "~" prefix in the cloud to preserve the workflow order from the hosted instance.</p><div class="img-placeholder"><span class="tag">Image — asset pipeline pending</span><br/>contentId-2360967230</div><p>Hosted app page workflows are consolidated as space workflows before migration and are included in the space.</p><h3 id="adjust-workflow-states"><strong>Adjust workflow states</strong></h3><p>You can manually update any mismatched workflow states:</p><ul><li><p>On a page-by-page basis, using the workflow state dialog box on each document, or</p></li><li><p>Initialize states for all documents with an active workflow using the app space settings.</p></li></ul><img alt="contentId-2193097068" class="doc-image" loading="lazy" src="/cms_trial/assets/48a47371-1f68-4f89-ba5f-ef472ee4da39.png"/><p>See: <a href="/cms_trial/space/CDMC/2192776249/Space+administration/">Space administration</a> </p><h3 id="retrieve-and-display-metadata">Retrieve and display metadata</h3><p>Metadata is automatically migrated through the Confluence Cloud Migration Assistant (CCMA). </p><p>The macro retrieves only the metadata and values included in the migrated document. This includes:</p><ul><li><p>Metadata from the <strong>Comala Metadata</strong> app</p></li><li><p>Metadata set using the <strong>set-metadata</strong> macro in the hosted Comala Document Management app</p></li><li><p><strong>Page-level workflow parameters</strong> are defined in the workflow</p></li></ul><p>The macro can be added to a page, and a migrated metadata value can be displayed by adding the name.</p><img alt="contentId-2193097068" class="doc-image" loading="lazy" src="/cms_trial/assets/521f57f3-6381-4521-8f40-44c71fcecc4d.png"/><h3 id="hosted-workflow-markup-view-for-migrated-workflows"><strong>Hosted workflow markup view for migrated workflows</strong></h3><p>The <a href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2570355695">Migrated workflow view</a> in the workflow editor lets users access the <strong>hosted app workflow markup</strong> for a migrated workflow.</p><p>It can be accessed via the <strong>Migrated workflow</strong> button next to the two existing options (<a href="https://appfire.atlassian.net/wiki/spaces/CDMCD/pages/614009868">visual builder editor</a> and <a href="https://appfire.atlassian.net/wiki/spaces/CDMCD/pages/614010155">JSON code editor</a>). </p><img alt="contentId-2193097068" class="doc-image" loading="lazy" src="/cms_trial/assets/65ed45ec-8f3b-4720-a390-f6329cd2b17f.png"/><p>The view is only visible for workflows that have been migrated from a<strong> DC instance</strong>, providing better insight into the original hosted app workflow configuration post-migration.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3092186639/Association+and+synchronization/">Association and synchronization</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Send Reporter/Assignee name to Salesforce</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3091924782" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Send Reporter/Assignee name to Salesforce</h1>
+    <div class="page-meta">2 min read</div>
     <h2 id="purpose">Purpose</h2><p>We will discuss how to send the Reporter field from Jira to Salesforce without value mapping of Jira Id and Salesforce ID. For more information about Value mapping , please check this documentation, <a href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/470754325/Configuring+Entity+Mappings+and+Field+Mappings">Configuring Entity Mappings and Field Mappings</a>.</p><p>This came to be because value mapping of 100+ reporters(and Assignee) is not scalable. </p><p>This can be used for any Jira ID field like (Assignee). Or any field that is sent as an ID .</p><h2 id="answer">Answer</h2><h3 id="1-create-a-jira-custom-field">1. Create a Jira Custom Field</h3><p>First let's create a Text field (single line) </p><img alt="contentId-3091924782" class="doc-image" loading="lazy" src="/cms_trial/assets/3caaf8fe-0cf3-4bea-b1a5-3e36f5324a52.png?version=1&amp;modificationDate=1678858807789&amp;cacheVersion=1&amp;api=v2"/><h3 id="2-salesforce-custom-field">2. Salesforce Custom Field</h3><p>Then create a custom field in Salesforce (Any text field will do). I will use the object "Case" as example.</p><ul><li><p>Click the <strong>Cog</strong> icon &gt; <strong>Setup</strong> &gt; <strong>Object Manager</strong> &gt; on the <strong>Quick find box</strong> type "Case".</p></li><li><p>Select<strong> Field &amp; Relationships</strong>.</p></li><li><p>Click <strong>New</strong> just beside the Quick find box.</p></li><li><p>In the next windows, select the <strong>Text</strong> option and click <strong>Next</strong> on the top right.</p><img alt="contentId-3091924782" class="doc-image" loading="lazy" src="/cms_trial/assets/a599f5be-2c5b-4f0b-a1e3-71b5787f1083.png?version=1&amp;modificationDate=1678858807858&amp;cacheVersion=1&amp;api=v2"/></li><li><p>Name the new field (on this example I called it RichTextField2) and the length of the field (i selected 255 as example, it could be lower). Click  <strong>Next</strong>.</p></li></ul><img alt="contentId-3091924782" class="doc-image" loading="lazy" src="/cms_trial/assets/3972274c-2c31-40e1-a7a5-3fa80e717a42.png?version=1&amp;modificationDate=1678858807723&amp;cacheVersion=1&amp;api=v2"/><ul><li><p>Then, Establish the Field-level security (for this, click the <strong>Visible</strong> box , which will select all the profiles). Click <strong>Next</strong>.</p></li><li><p>Add the field to the Layout. By default, it will be added to all the Case layouts. Click <strong>Save</strong>.</p></li></ul><h3 id="3-binding">3.- Binding</h3><ul><li><p>Bind those two fields bidirectionally (this can be changed based on the use case). For that you need to go to<strong> Apps </strong>&gt;<strong> Salesforce </strong>&gt;<strong> Bindings</strong>.</p></li></ul><p>More information about entity mapping can be in <a href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/470754325/Configuring+Entity+Mappings+and+Field+Mappings">Configuring Entity Mappings and Field Mappings</a>.</p><img alt="contentId-3091924782" class="doc-image" loading="lazy" src="/cms_trial/assets/d6ab168f-268c-4ed1-acd2-5e8973a5dd2a.png?version=1&amp;modificationDate=1678858807159&amp;cacheVersion=1&amp;api=v2"/><h3 id="4-automation-rule">4.- Automation Rule</h3><p>Create an Automation Rule</p><img alt="contentId-3091924782" class="doc-image" loading="lazy" src="/cms_trial/assets/41cfab1a-b3fe-4f0b-bb0a-882bbfbc3d74.png?version=1&amp;modificationDate=1678858807579&amp;cacheVersion=1&amp;api=v2"/><p>This rule is going to be executed every time the Reporter changes. </p><p>On the custom field we use the smart value - {{reporter.displayName}} - To translate the reporter ID to a name.</p><h3 id="5-how-it-looks">5.- How it looks</h3><p>This is the Jira Reporter Field :</p><img alt="contentId-3091924782" class="doc-image" loading="lazy" src="/cms_trial/assets/a1d4d813-af43-4d54-8390-ef72d5049940.png?version=1&amp;modificationDate=1678858807302&amp;cacheVersion=1&amp;api=v2"/><p>This is the Jira Custom Reporter field:</p><img alt="contentId-3091924782" class="doc-image" loading="lazy" src="/cms_trial/assets/c7fa8eb5-66bf-4fee-b3ee-6e61b89478bd.png?version=1&amp;modificationDate=1678858807370&amp;cacheVersion=1&amp;api=v2"/><p>And the Salesforce text field will look like this:</p><img alt="contentId-3091924782" class="doc-image" loading="lazy" src="/cms_trial/assets/8889ba71-cd8d-4d9a-878d-9ba9ab8324f8.png?version=1&amp;modificationDate=1678858807438&amp;cacheVersion=1&amp;api=v2"/><h3 id="6-using-the-assignee-field-instead-of-the-reporter-field">6.- Using the Assignee field instead of the Reporter field.</h3><p>The same automation can be used with the Assignee field. Instead of using the <strong>{{reporter.displayName}}</strong> we use the <strong>{{assignee.displayName}}.</strong></p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

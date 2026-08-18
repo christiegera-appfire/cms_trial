@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12518315/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Appfire Trust Center</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JSUCLOUD/pages/920813622" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Appfire Trust Center</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>The latest information on the security, privacy, and compliance of our uniquely positioned products and services is available in the <a href="https://trust.appfire.com/">Appfire Trust Center</a>, for example, <a href="https://trust.appfire.com/?itemUid=38b62117-19f2-4e4e-b679-9421b66c114e&amp;source=click">Data Security</a> in our apps. This article provides information about the security, copyrights, and licensing policy.</p><h3 id="end-user-license-agreement">End User License Agreement</h3><p>The End User License Agreement contains the general terms and conditions for using our app licenses. Read our <a href="http://apps.appf.re/appfire-eula">End User License Agreement</a> to learn more.</p><h3 id="acceptable-use-policy">Acceptable Use Policy</h3><p>The policy explains the terms and conditions for using our cloud services and the maintenance and usage of data through our apps. See our <a href="https://appfire.com/acceptable-use-policy">Acceptable Use Policy</a> to learn more.</p><h3 id="privacy-policy">Privacy Policy</h3><p>The policy provides information about your rights with respect to your data and our rights to process your data. See our <a href="https://appfire.com/privacy-policy">Privacy Policy</a> to learn more.</p><h3 id="general-faqs">General FAQs</h3><p>If you have any additional questions about our policies, see <a href="https://appfire.com/eula-faq">GDPR Frequently Asked Questions</a> or create a <a href="https://forms.monday.com/forms/d92f3d3c4ed56481e43355a0e97a153e?r=use1">GDPR request</a> to get answers.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

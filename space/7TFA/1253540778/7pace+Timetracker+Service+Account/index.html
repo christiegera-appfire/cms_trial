@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/3482517944/Admin+guide/">Admin guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253540127/Installation+and+Data+Security/">Installation and Data Security</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">7pace Timetracker Service Account</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/7TFA/pages/1253540778" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>7pace Timetracker Service Account</h1>
+    <div class="page-meta">2 min read</div>
     <div class="panel panel-note"><p>7pace Timetracker requires a <strong>Service Account user</strong> to access your organization’s ADO data. If a Service Account is not configured, all of the features in Timetracker Reporting are not available, including the Times Explorer page, search, and API. Therefore, to use 7pace Timetracker to its fullest, configure one licensed user as a <strong>Service Account user</strong>.</p></div><h2 id="requirements">Requirements</h2><p>The <strong>Service Account user</strong> must be an ADO user who is part of the <em><strong>DevOps Project Collection Administrator group</strong></em>. This allows 7pace Timetracker to obtain ADO data about work items from across your organization through the user’s authorization token.</p><h2 id="configuration">Configuration</h2><p>To configure the Timetracker Service Account, the user who serves as the Service Account must log into 7pace Timetracker, navigate to<em> </em><strong>Timetracker Settings</strong> &gt; <strong>Reporting and API</strong> &gt; <strong>Service Account </strong>and click <em><strong>Set Myself as Service Account</strong></em>:</p><img alt="Service Account Settings page with the Set Myself as Service Account button." class="doc-image" loading="lazy" src="/cms_trial/assets/05fa1c9f-fafd-4ef6-b6ef-04bb7e8b25a4.png"/><h2 id="optional-privacy-setting">Optional Privacy Setting</h2><p>You can enable 7pace Timetracker to display ADO data in Timetracker Reporting and Times Explorer to users who normally do not have access to those projects by enabling the <em><strong>Allow access to DevOps data from restricted projects in Reporting</strong></em> setting. With this setting activated, users can see work item details (title and basic information) for tracked time across your organization, even if their ADO user permissions don’t allow it.</p><h2 id="service-account-personal-access-token-pat">Service Account Personal Access Token (PAT)</h2><p>Users can authorize 7pace Timetracker for use with ADO through OAuth authorization or a DevOps-issued Personal Access Token (PAT). </p><div class="panel panel-note"><p>The user serving as the Timetracker Service Account user must authorize Timetracker with ADO with <a href="/cms_trial/space/7TFA/1253540459/Use+a+Personal+Access+Token+to+authorize+7pace+Timetracker+for+ADO+Cloud/">a DevOps-issued PAT</a>. Timetracker uses the PAT to access work item information from your organization and displays the data in Timetracker Reporting and Times Explorer.</p></div><p>Since ADO limits the lifespan of a Personal Access Token to a maximum of one year, we recommend creating a PAT that expires after a year. This way, you are forced to renew only once per year.</p><p>To see common errors related to an expired Service Account PAT or misconfigured Service account, see: </p><ul><li><p><a href="/cms_trial/space/7TFA/1253539973/7pace+Timetracker+Reporting+and+API+common+errors+and+states.+Why+is+my+Reporting+or+API+not+working%3F/">7pace Timetracker Reporting and API common errors and states. Why is my Reporting or API not working?</a></p></li></ul><h2 id="service-account-personal-access-token-pat-requirements">Service Account Personal Access Token (PAT) Requirements</h2><p>There are no unique requirements for the Service Account user's PAT compared to regular users. The Personal Access token used for 7pace Timetracker must have the following scopes enabled:</p><table><tr><th><p><strong>Scope</strong></p></th><th><p><strong>Access Level</strong></p></th></tr><tr><td><p>User profile</p></td><td><p>Read</p></td></tr><tr><td><p>Work Item</p></td><td><p>Read &amp; Write</p></td></tr><tr><td><p>Identity</p></td><td><p>Read</p></td></tr></table><p>Instructions on generating a Personal Access Token in ADO are found in this Microsoft article guide: </p><ul><li><p><a href="https://learn.microsoft.com/en-us/azure/devops/organizations/accounts/use-personal-access-tokens-to-authenticate?view=azure-devops&amp;tabs=Windows">Use personal access tokens</a></p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

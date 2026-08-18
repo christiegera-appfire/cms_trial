@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1891206842/Configure/">Configure</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Review and Create screen in Salesforce is not displaying the fields configured in Jira</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/2257944901" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Review and Create screen in Salesforce is not displaying the fields configured in Jira</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="summary">Summary</h2><p>When creating a Jira Issue from the Salesforce Lightning Component or the Visualforce Page, there is a button to allow you reviewing the information before creating the ticket.</p><p>However, even after setting up the fields in the appropriate screen in Jira, those fields are not rendered into the Salesforce component.</p><h2 id="environment">Environment</h2><ul><li><p>Jira Cloud</p></li><li><p>Jira Data Center</p></li></ul><h2 id="diagnostics-steps">Diagnostics Steps</h2><p>The field can be found on the screen by performing the following:</p><ol><li><p>Click <strong>Create</strong> to open the <em>Create Issue </em>screen on your Jira site.</p></li><li><p>Click the Menu icon<span class="inline-icon" title="inline icon">▢</span>on the top right corner of the <em>Create Issue </em>screen.</p></li><li><p>Select <strong>Find your field </strong>and type the field name. After finding the field, you will see the following error:</p></li></ol><img alt="contentId-2257944901" class="doc-image" loading="lazy" src="/cms_trial/assets/50eacaac-4a3b-451a-a41d-3a327bf501a9.png?version=1&amp;modificationDate=1678857295220&amp;cacheVersion=1&amp;api=v2"/><h2 id="cause">Cause</h2><p>The administrator has set up a custom field, but the affected project and issue type are not linked to it.</p><h2 id="workaround">Workaround</h2><p>Not applicable.</p><h2 id="resolution">Resolution</h2><p>In order to allow the users to interact with this field on the screen in Jira (the equivalent of the Salesforce's <em>Review and Create</em> screen), the administrator must add the missing project and issue type to the field context:</p><ol><li><p>Go to your <strong>Jira </strong>site.</p></li><li><p>Click <strong>Settings </strong>(<span class="inline-icon" title="inline icon">▢</span>) &gt; <strong>Work items</strong>.</p></li><li><p>In the left tab, search for the <strong>Fields</strong> section &gt; select <strong>Fields</strong>.</p></li><li><p>Search for your field <strong>&gt; </strong>click the <strong>Menu</strong> icon<span class="inline-icon" title="inline icon">▢</span><strong>&gt; Contexts and default value</strong>.</p></li><li><p>Click <strong>Edit Context</strong>.</p></li><li><p>Select the affected project and issue type.</p></li><li><p>Select <strong>Modify </strong>to save changes.</p></li></ol></div><div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

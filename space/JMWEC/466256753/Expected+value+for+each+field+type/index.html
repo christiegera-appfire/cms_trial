@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465372899/Workflow+Extensions+for+Jira+Cloud/">Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Expected value for each field type</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/466256753" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Expected value for each field type</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>When setting a field value, the post-function will fail to work as expected if the input value does not match the value expected for the intended field type. This document describes the format of values expected by a field when using post-functions to set them.</p><p>The value can be a text provided in the <code>Value</code> field of:</p><ul><li><p><a href="/cms_trial/space/JMWEC/465504849/Set+issue+fields/">Set issue fields</a> post-function</p></li><li><p><a href="/cms_trial/space/JMWEC/465504997/Set+field+value+of+linked+issues+(Deprecated)/">Set field value of linked issues</a> post-function</p></li><li><p>"User entity properties" of <a href="/cms_trial/space/JMWEC/466256416/User+Properties+Editor/">User properties editor page</a>, to copy the value of the specified user property for the current user using <a href="/cms_trial/space/JMWEC/466257282/Set+field+value+from+User+Entity+Property+value/">Set field value from User Entity Property value</a> post-function</p></li><li><p><a href="/cms_trial/space/JMWEC/466256916/Create+issue(s)/">Create issue post-function</a>, to set fields of the newly created issue</p></li><li><p>one of the Transition issue post-functions, to set fields on the transition screen, if any</p></li></ul><p>The value can be the result of a Nunjucks template provided in the <code>Value</code> field of:</p><ul><li><p><a href="/cms_trial/space/JMWEC/465504849/Set+issue+fields/">Set issue fields</a> post-function</p></li><li><p><a href="/cms_trial/space/JMWEC/465504997/Set+field+value+of+linked+issues+(Deprecated)/">Set field value of linked issues</a> post-function</p></li><li><p><a href="/cms_trial/space/JMWEC/466256916/Create+issue(s)/">Create issue post-function</a>, to set fields of the newly created issue</p></li><li><p>one of the Transition issue post-functions, to set fields on the transition screen, if any</p></li></ul><h2 id="text-value">Text value</h2><p>The value can be specified as text. It can be:</p><ul><li><p>a simple, constant String. For example: <code>This is a description</code></p></li><li><p>the String representation of a </p><ul><li><p>Number. For example:  <code>3.2</code></p></li><li><p>Date. The expected format is <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO_8601</a>. For example: <code>2016-08-05</code></p></li><li><p>Complex (object) field. In this case, the value should be the String representation of that object. For example, to set the Fix Version/s to version 2.0, you would use the following value: <code>2.0</code></p></li></ul></li></ul><p>Multiple values (for multi-valued fields) can be provided, separated by commas. For example, to specify two Affects Versions 1.0 and 2.0 write <code>1.0,2.0 </code>in the Value.</p><p>For detailed information about the exact format of the expected value for each field, see:</p><ul><li><p><a href="/cms_trial/space/JMWEC/466289528/Text+input+for+fields/">Text value - Standard Jira fields</a></p></li><li><p><a href="/cms_trial/space/JMWEC/466289528/Text+input+for+fields/">Text value - Predefined Custom fields</a></p></li><li><p><a href="/cms_trial/space/JMWEC/466289528/Text+input+for+fields/">Text value - User-created custom fields</a></p></li></ul><p>You can also inject<em> </em><a href="/cms_trial/space/JMWEC/465503811/Using+Nunjucks+Templates/">Nunjucks annotations</a> into the text value. You might also want to look at <a href="/cms_trial/space/JMWEC/465373107/Issue+and+Transition+Data+in+Nunjucks/">Issue and Transition Data in Nunjucks</a>.</p><div class="panel panel-note"><p>You can use the <a href="/cms_trial/space/JMWEC/465504849/Set+issue+fields/">Set Field Value</a> post-function to clear a field value by leaving the <code>Value</code> field empty. Ensure that neither <code>Ignore empty value</code> nor <code>Add value(s) to the field</code> options are selected.</p></div><h2 id="json-value">JSON value</h2><p>The value can be specified as a JSON value, which is a text representation of data that can be passed to Jira. This requires the <code>Treat value as JSON</code> option to be selected.</p><p>Supported value types include:</p><ul><li><p>String. For example:<code> "This is a description"</code></p></li><li><p>Number. For example: <code>3.12</code></p></li><li><p>Date. This must be a String containing an <a href="https://en.wikipedia.org/wiki/ISO_8601">ISO_8601</a> date. For example: <code>"2016-08-05"</code></p></li><li><p>Object. The object must contain at least one field (different from <strong>id</strong>) which allows the object to be identified unambiguously. For example, a user can be specified as:<code>{"accountId":"accountId:557058:3a41d4ee-3331-4363-8cdf-f90a2da92f7e"}</code></p></li></ul><p>For multi-valued fields, the value(s) must be provided as an array of values, even if only one value is provided. For example, to set the Fix Versions field to "2.0":<code> [{"name":"2.0"}]</code></p><p>For detailed information about the JSON value expected by each field type, see</p><ul><li><p><a href="/cms_trial/space/JMWEC/466225769/JSON+input+for+fields/">JSON value - Standard Jira fields</a></p></li><li><p><a href="/cms_trial/space/JMWEC/466225769/JSON+input+for+fields/">JSON value - Predefined Custom fields</a></p></li><li><p><a href="/cms_trial/space/JMWEC/466225769/JSON+input+for+fields/">JSON value - User-created custom fields</a></p></li></ul><p>You can also inject<em> </em><a href="/cms_trial/space/JMWEC/465503811/Using+Nunjucks+Templates/">Nunjucks annotations</a> into the JSON value. You might also want to look at <a href="https://appfire.atlassian.net/wiki/display/JMWEC/Accessing+the+details+of+an+issue+or+a+transition+in+Nunjucks">Accessing an issue or a transition using Nunjucks annotations</a>.</p><div class="panel panel-note"><p>You can use the <code>null</code> <em>JSON value </em>to clear a field (assuming the field is not required, like Summary, Description or Resolution).</p></div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

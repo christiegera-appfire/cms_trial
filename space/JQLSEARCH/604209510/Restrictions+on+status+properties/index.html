@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209972/JQL+Search+Extensions+(Cloud)/">JQL Search Extensions (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209802/Get+started+with+JQL+Search+Extensions+for+Jira/">Get started with JQL Search Extensions for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209677/Key+concepts/">Key concepts</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209961/App+permissions%C2%A0/">App permissions </a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Restrictions on status properties</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JQLSEARCH/pages/604209510" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Restrictions on status properties</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>Although the app has required permissions as described in <a href="/cms_trial/space/JQLSEARCH/604209847/Global+permissions/">Global permissions</a> and <a href="/cms_trial/space/JQLSEARCH/604209961/App+permissions%C2%A0/">App permissions</a>, there could be status properties restricted to groups/roles/users. Ensure the app has all the permissions to view the issues for completing indexing.</p><h2 id="restrictions-for-workflow-properties">Restrictions for workflow properties</h2><p>To check if there are restrictions applied to workflow properties:</p><ol><li><p>Navigate to the project workflow.</p></li><li><p>Select a workflow and click <strong>Edit</strong>.</p></li><li><p>Click <strong>View Properties</strong> for the status. A list of properties displays.<br/></p><img alt="contentId-604209510" class="doc-image" loading="lazy" src="/cms_trial/assets/88428873-23e8-455b-9153-169237eba4b1.png"/></li><li><p>If there are any properties as shown below, there are restrictions applied at the status (here, the edit and comment permissions are only granted to group Development), which means the app doesn't have complete permissions. When you perform indexing, this workflow’s issues will not proceed with indexing.<br/></p><img alt="JSE-permissions-dev.png" class="doc-image" loading="lazy" src="/cms_trial/assets/1c52230e-a106-41ab-9b9d-08c7ede608ee.png"/></li><li><p>To resolve this permission issue, add the Edit permission for the <strong>projectrole</strong> for <strong>atlassian-addon-project-access</strong>.<br/></p><img alt="JSE-permissions-atlassian.png" class="doc-image" loading="lazy" src="/cms_trial/assets/10bb2c41-d937-42b5-937c-91ea61ed56d2.png"/></li><li><p>Contact our <a href="https://appf.re/support">support team</a> to perform the indexing.</p></li></ol>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

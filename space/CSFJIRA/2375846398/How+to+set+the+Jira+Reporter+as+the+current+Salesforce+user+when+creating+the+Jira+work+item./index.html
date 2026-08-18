@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1891206842/Configure/">Configure</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">How to set the Jira Reporter as the current Salesforce user when creating the Jira work item.</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/2375846398" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>How to set the Jira Reporter as the current Salesforce user when creating the Jira work item.</h1>
+    <div class="page-meta">2 min read</div>
     <h2 id="problem">Problem</h2><p>When you create a Jira work item from Salesforce using the <strong>Connector for</strong> <strong>Salesforce &amp; Jira</strong>, the system maps the Jira <strong>Reporter</strong> field to the Connector for Salesforce and Jira user by default. If you use the  <a href="/cms_trial/space/CSFJIRA/3091400759/Changing+Reporter%2FAssignee+using+Case+Owner+email/">Changing Reporter/Assignee using Case Owner email</a> approach, the system maps the field to the <strong>Salesforce Owner ID</strong> or <strong>CreatedBy ID</strong>. However, neither option represents the Salesforce user who actually clicked the button to create the Jira work item.</p><h2 id="solution">Solution</h2><p>The Connector doesn't natively capture the Salesforce user who clicks the button to create the Jira work item. However, you can implement the workaround below, which dynamically sets the current Salesforce user ID into a custom field before creating the Jira work item.</p><h4 id="step-1-add-a-custom-formula-and-text-field-in-salesforce"><strong>Step 1: </strong>Add a custom <strong>Formula </strong>and<strong> Text </strong>field in Salesforce</h4><ol><li><p>In Salesforce go to <strong> Setup </strong>&gt;<strong> Object Manager </strong>&gt;your Object (for example, <strong>Opportunity</strong>,<strong> Case, </strong>etc.)<strong> </strong>&gt;<strong> Fields &amp; Relationships </strong>&gt;<strong> New</strong>.</p></li><li><p>Choose the <strong>Text</strong> field and name it.</p></li><li><p>Repeat step 1 and create the <strong>Formula </strong>field.</p></li><li><p>Set <code>$User.Email</code> as the formula value.</p></li><li><p>Name the field, for example, <strong>"Current user email,"</strong> and add it to the relevant page layout.</p></li></ol><h4 id="step-2-create-a-salesforce-flow-to-capture-the-current-user"><strong>Step 2: Create a Salesforce Flow to capture the current user</strong></h4><ol><li><p>In Salesforce, go to <strong>Setup </strong>&gt;<strong> Flows </strong>&gt;<strong> New Flow</strong>.</p></li><li><p>Select <strong>Record-Triggered Flow</strong>.</p></li><li><p>Configure the Flow:</p><ul><li><p><strong>Trigger</strong> <strong>the Flow When</strong>: <strong>A record is updated</strong></p><img alt="A record is updated option" class="doc-image" loading="lazy" src="/cms_trial/assets/f5092ce0-86bc-42ca-b5d9-f06b7ae29af6.png"/></li></ul></li><li><p>Click the <strong>Plus</strong> ( + ) icon to add a new element.</p><img alt="Add element" class="doc-image" loading="lazy" src="/cms_trial/assets/93df0fe1-5bc8-42df-9647-a0379c628865.png"/></li><li><p>Select <strong>Update Related Records</strong> and set this element as follows:</p><ol><li><p>For <strong>How to Find Records to Update and Set Their Values </strong>select the <strong>Use the case record that triggered the flow </strong>option.</p><img alt="Use the case record that triggered the flow option." class="doc-image" loading="lazy" src="/cms_trial/assets/4038d507-3318-4578-a2b6-5536dd09f97d.png"/></li><li><p>For <strong>Field</strong>, select the text field you created in Step 1,</p></li><li><p>For <strong>Value</strong>,  paste the following value <code>{!$Record.Current_User_Email__c}</code> . This approach follows the methodology outlined in the <a href="/cms_trial/space/CSFJIRA/3091400759/Changing+Reporter%2FAssignee+using+Case+Owner+email/">Changing Reporter/Assignee using Case Owner email</a> article.</p></li></ol></li><li><p>Click <strong>Activate</strong> to enable the Flow.</p></li></ol>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

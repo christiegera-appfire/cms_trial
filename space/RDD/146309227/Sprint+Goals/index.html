@@ -40,14 +40,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146310010/Product+and+data+connections/">Product and data connections</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/3019735522/Connect+data+from+Atlassian+products/">Connect data from Atlassian products</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309926/Jira+Software/">Jira Software</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Sprint Goals</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/146309227" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Sprint Goals</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p><a href="/wiki/pages/resumedraft.action?draftId=146309227">SPRINT GOALS</a></p><p><a href="/wiki/pages/resumedraft.action?draftId=146309227">Display the sprint goal, a lighthouse guiding the team to focus on getting the expected outcome</a></p><h2 id="overview">Overview</h2><p>The sprint goal is probably the most important aspect to consider in a sprint. It is the main reason the team works together during the sprint length: A commonly agreed outcome of the iteration, and how the planned work provides business value.</p><p>This gadget displays the sprint goal, a lighthouse guiding the team to focus on getting their goal.</p><img alt="Dashboard Hub sprint goals gadget" class="doc-image" loading="lazy" src="/cms_trial/assets/4fba5e6c-7789-4279-a67b-ef39f56f09f8.png"/><img alt="Dashboard Hub sprint goals future sprint" class="doc-image" loading="lazy" src="/cms_trial/assets/c0e8142a-a2ce-4509-96d1-63fd22267f5c.png"/><p>Sprints in Jira Software have a field to describe the sprint goal, which only accepts plain text. If your team works with several sprint goals to make sure all stakeholders are in the same page, then, add a sprint goal per line:</p><ul><li><p>Starting by * will render the current number of the goal (1)</p></li><li><p>Starting by (/) will render the green ticket ✅, when the goal was met</p></li><li><p>Starting by (x) will render the red cross ❌, when the goal was not met</p></li></ul><img alt="Dashboard Hub sprint goals format" class="doc-image" loading="lazy" src="/cms_trial/assets/b2adb3ec-6a4d-4dd1-8224-9a13f5cfb96a.png"/><h2 id="configuration">Configuration</h2><p>Name your gadget meaningfully, so everyone knows at a glance what it is about and when to use it. Fill out the rest of the fields as applicable, namely:</p><ul><li><p>The <strong>datasource</strong>, where <strong>Current</strong> indicates the Jira instance where the app is installed.</p></li><li><p>Getting issues by (active or future sprints, but parallel sprints are not supported yet):</p><ul><li><p>Boards. The <strong>project</strong> and the <strong>board</strong> where the sprint is.</p></li><li><p>Sprints. Just select the <strong>sprint</strong>.</p></li></ul></li><li><p>Finally, indicate if you want to use the current settings for all the compatible gadgets in the dashboard. This option eases the pain of configuring one by one the rest of the gadgets with the same default configuration</p></li></ul><h2 id="integrations">Integrations</h2><ul><li><p><span class="icon-note">[jira software icon]</span></p></li></ul><details><summary>Jira Software</summary><div class="img-placeholder">[Unmapped macro: contentbylabel — no content to fall back on]</div></details><p>We are working on our growing catalog of <a href="/cms_trial/space/RDD/146309915/Dashboard+gadgets+-+KPIs+and+metrics/">Dashboard gadgets - KPIs and metrics</a> and <a href="/cms_trial/space/RDD/146310010/Product+and+data+connections/">Product and data connections</a>, but contact us you want us to expedite a specific one, visit our <a href="/cms_trial/space/RDD/146309984/Help+and+support/">Help and support</a>.</p><h2 id="dashboards">Dashboards</h2><p>This gadget appears in the following dashboard: <a href="/cms_trial/space/RDD/146310016/Scrum+software+team+template/">Scrum software team template</a>. See:</p><details><summary>Scrum Software Team template</summary><div class="img-placeholder">[Unmapped macro: contentbylabel — no content to fall back on]</div></details>
   </main>
   <aside class="sidebar">
@@ -177,6 +182,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

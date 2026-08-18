@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193033035/Feature+guide/">Feature guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192870271/Apply+workflows/">Apply workflows</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">At space level</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2193033075" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>At space level</h1>
+    <div class="page-meta">4 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview </h2><p>In Comala Document Management, workflows can be applied at the space level so that every page and blog post in a Confluence space follows a consistent review and approval process.</p><p>This page covers how to apply a space workflow, set evaluation priority, and use label-based conditions.</p><h2 id="apply-a-space-workflow">Apply a space workflow </h2><p>A workflow can be applied across all documents in a space. Only space administrators can enable and apply space workflows.</p><p>To apply a workflow at the space level:</p><ol><li><p>Go to <strong>Space apps</strong> &gt; <strong>Comala Document Management</strong>.</p></li><li><p>In the <em>Space Workflows</em> tab, enable the required workflow using the toggle next to its name.</p></li></ol><p>The workflow is applied to all pages and blog posts in the space.</p><img alt="Space Workflows tab showing an enabled workflow toggle." class="doc-image" loading="lazy" src="/cms_trial/assets/32e62033-9c8a-4f55-9238-dd47626e32d0.png"/><p>Workflows can’t be added to a space homepage. Confluence Cloud restricts the use of certain properties, like the workflow content byline, on the homepage.</p><div class="panel panel-note"><p>An active space workflow takes priority over any page-level workflow applied to the same document.</p></div><h2 id="multiple-active-workflows">Multiple active workflows</h2><p>If you’re a space administrator, you can enable multiple workflows and set the order in which workflows are evaluated using the drag-and-drop option.</p><ul><li><p>Enabled workflows are evaluated from top to bottom, and evaluation stops at the first match.</p></li><li><p>Disabled workflows are skipped.</p></li><li><p>Only one workflow can be applied to a document at a time.</p></li><li><p>Changes take effect after you save the new order.</p></li></ul><p>For example, if two workflows are active in this order:</p><ol><li><p>Legal Review (label: <code>legal</code>) - applies to documents with the <code>legal</code> label.</p></li><li><p>General Approval (no labels) - applies to all other documents.</p></li></ol><p>A page with the <code>legal</code> label gets the Legal Review workflow. A page without any labels gets the General Approval workflow.</p><img alt="Space Workflows tab showing Content Expiry Workflow." class="doc-image" loading="lazy" src="/cms_trial/assets/472d55c6-308a-4e2f-b320-108485a90cac.png"/><img alt="Drag-and-drop workflow ordering controls in the Space Workflows tab." class="doc-image" loading="lazy" src="/cms_trial/assets/3493a3f8-d56b-4588-beb7-b2fe4bb367da.png"/><p>If a document doesn’t meet the conditions for any active workflow, no workflow is applied, and a <strong>No Applicable Workflow</strong> byline is displayed on the page.</p><h2 id="label-based-workflows">Label-based workflows </h2><p>Workflows can be assigned to specific content labels. They apply only to pages with those labels, or exclude pages with certain labels. Labels and workflows stay in sync in both directions: applying a label to a page activates the corresponding workflow, and selecting a workflow from the <em>Workflow State Dialog</em> adds the required label to the page.</p><h3 id="apply-a-workflow-with-labels">Apply a workflow with labels </h3><p>To add labels to your workflow,</p><ol><li><p>Open the required custom workflow from Space Settings and click <strong>Edit Workflow</strong>.</p></li><li><p>Add one or more labels to a workflow using the visual editor under the <strong>Labels</strong> option. <br/>The added labels are displayed in the <em>Space Workflows</em> tab.</p></li></ol><img alt="Edit Workflow dialog and Space Workflows screen showing how to apply a workflow with labels." class="doc-image" loading="lazy" src="/cms_trial/assets/c58998ee-8470-4439-9452-f693ba978f3d.png"/><div class="panel panel-note"><p>When a workflow has labels configured:</p><ul><li><p>The workflow applies only to documents that have at least one of the specified labels.</p></li><li><p>If multiple workflows are active, the first matching workflow in the evaluation order is applied.</p></li><li><p>When you add more than one label, the workflow applies to any document with at least one of the specified labels.</p></li></ul><p>For example, if a workflow is configured with the labels <code>compliance</code> and <code>audit</code>, the workflow applies to any document that has at least one of these labels.</p></div><h3 id="exclude-labels">Exclude labels </h3><p>Use the <strong>Exclude labels</strong> option to prevent a workflow from applying to pages with specific labels. All other pages in the space get the workflow.</p><p>For example, if a workflow is set to exclude the label <code>draft</code>, the workflow applies to all pages in the space that don’t have the <code>draft</code> label. Pages with the <code>draft</code> label are skipped.</p><p>To exclude labels,</p><ol><li><p>Open the required custom workflow from space settings and click <strong>Edit Workflow</strong>.</p></li><li><p>In the <em>Labels </em>option, select the <strong>Exclude labels</strong> checkbox. This applies the workflow only to documents that don’t have any of the specified labels. When the <strong>Exclude labels</strong> option is selected, the labels are displayed as <strong>Excluding</strong> in the <em>Space Workflows</em> tab.</p></li></ol><img alt="Workflow editor with the Exclude labels option enabled." class="doc-image" loading="lazy" src="/cms_trial/assets/dac1af99-a8b9-494a-ba65-ae38f4729ed3.png"/><h3 id="sticky-labels">Sticky labels </h3><p>Sticky labels ensure that essential labels remain consistently applied to a workflow. When sticky labels are added, only administrators can remove them. Non-admin users can still manage regular labels. </p><p>For example, if the label <code>regulated</code> is set to sticky, only administrators can remove it from a page. Non-admin users can still add or remove other labels on that page.</p><p>To add sticky labels:</p><ol><li><p>Open the required custom workflow from space settings and click <strong>Edit Workflow</strong>.</p></li><li><p>Under <em>Advanced</em> options, add the required sticky labels.</p></li></ol><img alt="Advanced settings showing sticky label configuration." class="doc-image" loading="lazy" src="/cms_trial/assets/46b729fc-0913-4c09-853e-92693cdcdf4f.png"/><h2 id="bulk-apply-workflows">Bulk apply workflows </h2><p>Administrators can bulk apply workflows to scan all pages and blog posts in a space, apply the appropriate workflow, and initialize their workflow status. This ensures all documents appear correctly in the Document Report.</p><p>See <a href="/cms_trial/space/CDMC/2192776249/Space+administration/">Space Administration</a> for detailed steps on <strong>Apply Workflow Updates</strong> and <strong>Initialize States.</strong></p><p><strong>Related topics</strong></p><ul><li><p><a href="/cms_trial/space/CDMC/2192776249/Space+administration/">Space administration</a></p></li><li><p><a href="/cms_trial/space/CDMC/2192838126/At+page%2Fblog+level/">Apply workflows at page level</a></p></li><li><p><a href="/cms_trial/space/CDMC/2276786309/Global+workflows/">Global workflows</a></p></li><li><p><a href="/cms_trial/space/CDMC/2193129918/Workflow+state+dialog/">Workflow state dialog</a></p></li><li><p><a href="/cms_trial/space/CDMC/2193162438/Visual+builder+editor/">Visual builder editor</a></p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

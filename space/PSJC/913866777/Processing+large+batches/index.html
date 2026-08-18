@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/496205894/Advanced+features/">Advanced features</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Processing large batches</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/913866777" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Processing large batches</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>The saveModifiedIssues() function optimizes memory management when processing large sets of Jira issues, preventing memory overflow by efficiently saving changes and releasing resources—essential for scheduled jobs, ad-hoc scripts, and bulk issue processing workflows.</p><p>The <code>saveModifiedIssues()</code> function provides robust memory management capabilities when working with large sets of Jira issues. This function optimizes memory usage by efficiently saving changes to issues and releasing memory resources, preventing potential memory overflow errors even as your data processing needs grow. This memory optimization approach is particularly valuable in:</p><ul><li><p>Scheduled jobs</p></li><li><p>SIL Manager ad-hoc scripts</p></li><li><p>Scenarios where you need to load, modify, and update many issues efficiently</p></li></ul><div class="panel panel-success"><p>Implementing this function in your scripts is a best practice for batch processing, ensuring your code remains performant and scalable whether you're currently working with a small number of issues or planning to handle thousands in the future.</p></div><h2 id="basic-example">Basic example</h2><p>The following pattern demonstrates how to process large batches while managing memory usage:</p><pre><code class="language-">int i = 0;
 for(string k in selectIssues("project = TEST", 1000)) {
     i++;
@@ -186,6 +191,64 @@ saveModifiedIssues();</code></pre><p>This script demonstrates:</p><ol><li><p>Sel
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

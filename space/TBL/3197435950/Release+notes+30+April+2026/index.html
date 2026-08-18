@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74816002/Release+notes/">Release notes</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Release notes 30 April 2026</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TBL/pages/3197435950" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Release notes 30 April 2026</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p><strong>Release date</strong>: <time datetime="2026-04-30">April 30, 2026</time></p><p>This page outlines the updates included in the latest release of Advanced Tables for Confluence.</p><p>Version: 7.1.0</p><hr/><h2 id="new-features">New features</h2><h2 id="advanced-table-viewer-macro">Advanced Table Viewer macro</h2><h3 id="column-grouping">Column grouping</h3><p>The Advanced Table Viewer macro now supports column grouping. You can group and organize table data interactively on the Confluence page.</p><ul><li><p>Once you enable column grouping, hover over any column header to display the grouping icon, and click it to group table data by that column. </p></li><li><p>Nest grouping across multiple columns, up to one less than the total number of columns.</p></li><li><p>For more information, refer to <a href="/cms_trial/space/TBL/3211755580/Group+columns+with+Advanced+Table+Viewer+macro/">Group columns with Advanced Table Viewer macro</a>.</p><img alt="Advanced Table Viewer showing grouped columns with expandable rows and a grouping icon in the column header." class="doc-image" loading="lazy" src="/cms_trial/assets/8c33c8db-17df-4dde-9c5e-0b3aaa316e7a.jpg"/></li></ul><h3 id="pagination">Pagination</h3><p>The Advanced Table Viewer macro now includes pagination, enabling you to navigate large datasets efficiently on the Confluence page.</p><ul><li><p>Display the current row range and total row count (for example, showing 1–10 of 55 rows).</p></li><li><p>Navigate across pages using the previous, next, and direct page number controls.</p></li><li><p>Set the number of rows displayed per page using the <strong>Rows per page</strong> option.</p><img alt="Table with pagination controls showing row range, page numbers, and a Rows per page dropdown at the bottom." class="doc-image" loading="lazy" src="/cms_trial/assets/4e426bf4-d4d1-42c7-85a8-a850db5104de.jpg"/></li></ul><hr/><h2 id="enhancements">Enhancements</h2><h2 id="advanced-table-viewer-macro-2">Advanced Table Viewer macro</h2><h3 id="summarize-column-calculations">Summarize column calculations</h3><p>The Sum-up type feature now includes new calculation types in addition to the existing <strong>Sum</strong> and <strong>Average</strong> types. For more information, refer to <a href="/cms_trial/space/TBL/1540654683/Column+calculation+with+Advanced+Table+Viewer+macro/">Summarize column values with Advanced Table Viewer macro</a>.</p><ul><li><p><strong>Minimum</strong> - Returns the lowest numerical value in the column.</p></li><li><p><strong>Maximum</strong> - Returns the highest numerical value in the column.</p></li><li><p><strong>Count</strong> - Counts the total number of non-empty cells in the column.</p></li><li><p><strong>Distinct</strong> - Counts unique values only, ignoring duplicates and empty cells.</p></li></ul><img alt="Advanced Table Viewer displaying column summary options including Sum, Average, Minimum, Maximum, Count, and Distinct." class="doc-image" loading="lazy" src="/cms_trial/assets/5b61aaf8-07af-414d-9f0a-b3c41b5894ce.jpg"/><hr/><h2 id="bug-fixes">Bug fixes</h2><p>The following bugs are fixed in this release:</p><ul><li><p>Existing <strong>JSON Table macros</strong> on older pages using JSON URL failed to render data and returned an error. </p><ul><li><p>This issue is resolved, and the JSON Table macro using JSON URL now renders data correctly as expected.</p></li></ul></li><li><p>Emojis were not rendering inside the <strong>Table Plus macro</strong>.</p><ul><li><p>This issue is resolved, and emojis now render as expected.</p></li></ul></li><li><p>The simple date format link in the <strong>Attachment Table macro</strong> was pointing to an incorrect URL. </p><ul><li><p>The link has been updated to reference the correct page.</p></li></ul></li></ul><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p><strong>Questions and feedback</strong></p><ul><li><p>Explore exciting features, pricing updates, reviews, and more on the <a href="https://marketplace.atlassian.com/apps/197/advanced-tables-for-confluence?hosting=cloud&amp;tab=overview">Marketplace</a>.</p></li><li><p>Stuck with something? Raise a ticket through our <a href="https://appf.re/support">support portal</a>.</p></li><li><p>Do you love using our app? Let us know what you think <a href="https://marketplace.atlassian.com/apps/197/advanced-tables-for-confluence?hosting=cloud&amp;tab=reviews">here</a>.</p></li></ul></div><div><p><strong>Credits</strong></p><p>Thank you to our valued customers! Your incredible support and feedback inspire us to improve continuously. We appreciate your trust in Advanced Tables for Confluence!</p></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

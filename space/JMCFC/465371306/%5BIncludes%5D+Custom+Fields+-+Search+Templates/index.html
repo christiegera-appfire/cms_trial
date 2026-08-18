@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMCFC/168855370/Overview/">Jira Misc Custom Fields (JMCF) - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/465471159/Includes/">Includes</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">[Includes] Custom Fields - Search Templates</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMCFC/pages/465371306" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>[Includes] Custom Fields - Search Templates</h1>
+    <div class="page-meta">2 min read</div>
     <p>Currently, there are no specific search templates for custom fields created with JMCF; currently the only search template available is <strong>Forge custom field searcher</strong>, the default search template for Jira Forge apps. Because JMCF uses native data types, the fields are generally searchable using JQL and basic search. However, there are some differences between search in Jira Data Center and Jira Cloud: </p><ul><li><p><strong>Time in Status</strong> values are stored in seconds, but can be searched using a variety of representations, including by number of days (days or d), hours (hours or h), minutes (minutes or m), and seconds (seconds or s). This includes combinations of these units. Some examples include:</p><ul><li><p><code>2days3hours42minutes17seconds</code> </p></li><li><p><code>2d3h42m17s</code> - 2 days, 3 hours, 42 minutes, 17 seconds</p></li><li><p><code>7h15m</code>- 7 hours, 15 minutes</p></li><li><p><code>485903</code> - 485,903 seconds</p></li></ul></li></ul><p>For example, the JQL query <code>TimeInCurrentStatus &gt; 9h30m</code> will search for all issues with a value greater than 9 hours 30 minutes (34200 seconds) in the field <strong>TimeInCurrentStatus</strong>.</p><ul><li><p><strong>Time in Status Table</strong> values are stored in seconds, and total time is stored for both individual status values (Sub-Status Times), and for the work item as a whole (Total Time). These values can be accessed using the following syntax (where <em>myTime</em> is the custom field name): </p><ul><li><p><code>myTime.Total</code> - Access the total time for all statuses included in the field. </p></li><li><p><code>myTime.ToDo</code> or <code>myTime.Blocked</code> - Access the total time for status values of <em>ToDo</em> or <em>Blocked</em>. </p></li></ul></li><li><p>Additionally, both <strong>Time in Status</strong> fields and <strong>Time in Status Table</strong> fields can be searched using a custom JQL function - <code>jmcfDuration</code>. This JQL function accepts an argument of a time value in narrow format (w,d,h,m,s). For example: </p><ul><li><p> <code>myTime.Total &gt; jmcfDuration('5h')</code> checks that the total time (all status values cumulative) is greater than 5 hours. </p></li><li><p><code>myTime.ToDo &lt; jmcfDuration('3d')</code> checks that the issue has been in the <strong>To Do</strong> status for less than 3 days. </p></li><li><p><code>myTime.InProgress &gt;= jmcfDuration('2w 3d 30s')</code> checks that the issue has been in the <strong>In Progress</strong> greater than or equal to 2 weeks, 3 days, and 30 seconds.</p></li></ul></li></ul><div class="panel panel-note"><p>Search template flexibility will be expanded in later versions of <strong>JMCF for Jira Cloud </strong>as the Forge team introduces more capabilities for search. </p></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

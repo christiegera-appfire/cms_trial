@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/FOX/602537989/Foxly+-+Backlog+Prioritization+for+Jira/">Foxly - Backlog Prioritization for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/FOX/602537989/Foxly+-+Backlog+Prioritization+for+Jira/">Foxly - Backlog Prioritization for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/FOX/602538082/Tutorials/">Tutorials</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Filter</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/FOX/pages/602538110" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Filter</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><p>Foxly offers multiple filter views:</p><ol><li><p><strong>Basic Filters </strong>allow you to quickly select filters from preselected options like Projects, Assignee, Fixed versions, and more.</p></li><li><p><strong>Advanced Filters</strong> allow you to use JQL search to filter by anything you want! Plus, you also get hints while typing your search to make it much easier.</p></li><li><p><strong>Saved Filters </strong>allow you to select any of your saved filters in Jira, which is ideal for quickly switching between the views.</p></li></ol></div><div></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div></div><div></div></div><div class="columns" style="grid-template-columns: 33.33fr 66.66fr;"><div><h2 id="basic-filters">Basic Filters</h2><ol><li><p>To use the basic filters in Foxly, select <strong>Basic Filters </strong>from the drop-down on the left. </p></li><li><p>Click <strong>More Filters</strong> on the right and select a field to filter on. </p></li></ol></div><div><img alt="Foxly filter bar with Basic Filters selected and More Filters option" class="doc-image" loading="lazy" src="/cms_trial/assets/f00b731f-9189-4cc7-a7ea-37e22594695d.png"/><img alt="Foxly priority table filtered by label showing matching issues" class="doc-image" loading="lazy" src="/cms_trial/assets/71fed3bf-395c-44ce-810c-a61fae97baa1.png"/></div></div><div class="columns" style="grid-template-columns: 33.33fr 66.66fr;"><div><h2 id="advanced-filters-jql">Advanced Filters (JQL)</h2><ol><li><p>In Jira, under <em>Apps</em>, click <strong>Priorities.</strong></p></li><li><p>Click <strong>Basic Filters</strong>.</p></li><li><p>From the drop-down, click <strong>Advanced Filters.</strong> </p></li><li><p>Enter your desired <strong>JQL query </strong>in the search field. Hints will appear as you're entering your query.</p></li></ol></div><div><img alt="Foxly filter bar showing filter type dropdown options" class="doc-image" loading="lazy" src="/cms_trial/assets/f00b731f-9189-4cc7-a7ea-37e22594695d.png"/></div></div><div class="panel panel-note"><p><strong>New to JQL? Here are some useful links 🤓</strong></p><ul><li><p><a href="https://www.atlassian.com/software/jira/guides/expand-jira/jql">https://www.atlassian.com/software/jira/guides/expand-jira/jql</a> </p></li><li><p><a href="https://support.atlassian.com/jira-software-cloud/docs/what-is-advanced-searching-in-jira-cloud/">https://support.atlassian.com/jira-software-cloud/docs/what-is-advanced-searching-in-jira-cloud/</a> </p></li></ul></div><hr/><div class="columns" style="grid-template-columns: 33.33fr 66.66fr;"><div><h2 id="saved-filters">Saved Filters</h2><ol><li><p>From the Filters drop-down, select <strong>Saved Filters</strong>. </p></li><li><p>Click <strong>Saved Filters</strong> to see a list of the filters that have been saved in this Jira project.</p></li></ol></div><div><img alt="Foxly Saved Filters dropdown listing available Jira saved filters" class="doc-image" loading="lazy" src="/cms_trial/assets/91f6180c-7a54-4f1c-a21f-159966317587.png"/></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

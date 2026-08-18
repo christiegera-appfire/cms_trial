@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490996521/Feature+guides/">Feature guides</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490999005/Workflow+Automation/">Workflow Automation</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Scripted Conditions and Validators in cloud - a new paradigm</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/804552898" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Scripted Conditions and Validators in cloud - a new paradigm</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>When Jira Cloud was launched custom conditions and validators didn’t even exist. This is because they completely break the design of the cloud architecture. Performing an action in the cloud sets off a chain reaction of micro-services and events all at once, like knocking over multiple rows of dominos. Conditions and validators require a pause in those events while they determine if the domino <em>should</em> fall over or if it is <em>allowed</em> to fall over. It really doesn't work like that so instead of being able to use scripted conditions and validators Atlassian release the <a href="https://developer.atlassian.com/cloud/jira/service-desk/jira-expressions/">expressions language</a> which is the only available way to create custom conditions and validators.</p><p>Jira expressions is like any problem “solved” by the government or some service provided by the government. Yes, it technically does the job but the experience usually leaves a lot to be desired. While you can use Jira expressions if you really want to, another solution may be to approach the problem from another direction. Instead executing the script that decides if the transition can/should be performed right at that moment in time like conditions and validators do, you could use scripts to pre-calculate the answer. Using listeners you could store the answer to that question in invisible issue fields called issue entity properties. Then, with expressions you could simply check the value of that property thus created a truly scripted solution and minimizing the need to use expressions.</p><h2 id="example">Example</h2><p><strong>Goal</strong>: I've got an issue type of "Dev ask" that uses a workflow that is standard for all subtasks. When this groundwork status is updated to "Complete", I want to check that all sibling subtasks are assigned (because this is just part of the responsibilities for the person who completes the groundwork task). If any are Unassigned this transition should fail.</p><h2 id="jira-expressions">Jira Expressions</h2><pre><code class="language-">issue.issueType.name.match('^(Dev Task)$') == null || 
 (issue.issueType.name.match('^(Dev Task)$') != null &amp;&amp; 
 issue.parent.subtasks.filter(subtask =&gt; subtask.assignee != null).length == 
@@ -166,6 +171,64 @@ setIssueEntityPropertyValue(key, "passCondition", passConditionValue);</code></p
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

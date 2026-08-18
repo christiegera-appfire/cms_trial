@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192776724/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">End of support for the Connect framework</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/3412264373" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>End of support for the Connect framework</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="end-of-support-for-the-connect-framework-and-transition-to-forge-remote-for-comala-document-management-document-control-and-document-approval">End of support for the Connect framework and transition to Forge remote for Comala Document Management, Document Control, and Document Approval</h2><p>Atlassian has <a href="https://www.atlassian.com/blog/developer/announcing-connect-end-of-support-timeline-and-next-steps">announced</a> the end of support for the Connect framework in late 2026. As part of this transition, <strong>Comala Document Management for Confluence Cloud </strong>will move from the Connect framework to Atlassian’s Forge platform.</p><p><strong>Comala Document Control (CDC)</strong> and <strong>Comala Document Approval (CDA)</strong> are following the same platform transition. Both apps will have their own Forge-based Cloud versions, and the Connect end-of-support timeline applies to them equally.</p><div class="panel panel-note"><ul><li><p>A new <strong>Forge-based version of Comala Document Management </strong>is released on <strong>June 30, 2026</strong>. Current CDM Connect customers need to manually upgrade to the new Forge version. The upgrade period begins <strong>July 1, 2026</strong>, and the Connect version is expected to be retired on <strong>October 1, 2026</strong>.</p></li><li><p><strong>Comala Document Control (CDC)</strong> and <strong>Comala Document Approval (CDA)</strong> will have their own <strong>Forge-based Cloud versions</strong>, following the same platform transition. We will make these Forge versions available as soon as possible. Once available, customers on the Connect versions of CDC or CDA will need to <strong>upgrade to the Forge versions</strong> to continue receiving updates, security fixes, and support. The Connect versions of CDC and CDA are expected to be retired around <strong>Q4, 2026</strong>.</p></li><li><p>Contact our <a href="http://appf.re/support">support team</a> if you have any questions or need assistance planning your upgrade.</p></li></ul></div><h2 id="why-forge">Why Forge?</h2><ul><li><p><strong>Enhanced security</strong>: Forge apps run within Atlassian’s trusted infrastructure, ensuring your data is protected with built-in security and compliance controls. Your data stays within Atlassian’s platform boundary rather than being processed on external servers.</p></li><li><p><strong>Improved performance and reliability</strong>: The Forge platform is designed for enterprise-scale workloads, with better scalability and more reliable app performance within Confluence Cloud.</p></li><li><p><strong>Tighter platform integration</strong>: Forge enables deeper, more seamless integration with Confluence Cloud, providing a more native app experience.</p></li><li><p><strong>Atlassian’s recommended standard</strong>: Forge aligns with Atlassian’s highest standards for app security, trust, and compliance on the cloud platform.</p></li><li><p><strong>Continued support</strong>: Atlassian is <a href="https://www.atlassian.com/blog/developer/announcing-connect-end-of-support-timeline-and-next-steps">ending support for the Connect framework</a> in late 2026. Upgrading to the Forge version ensures you continue to receive app updates and support.</p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

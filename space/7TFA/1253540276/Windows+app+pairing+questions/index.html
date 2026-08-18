@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/3511091204/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253540447/Frequently+Asked+Questions/">Frequently Asked Questions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Windows app pairing questions</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/7TFA/pages/1253540276" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Windows app pairing questions</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="question">Question</h2><p>I'm having difficulties pairing the Timetracker Windows Apps with DevOps. After selecting the 'pair client' option on the Timetracker "Apps" page and confirming the prompts, an error pops up in the client application with the message 'An error occurred while sending the request'. What should I do?</p><h3 id="answer">Answer</h3><p>Sometimes, the combination of certain configurations in Windows, Firewall and Active Directory security can prevent the Timetracker Windows Client from properly authorizing in DevOps.</p><p>Please perform the following steps to see if this solves the problem:</p><p>1. Navigate to "Control Panel -&gt; "Credential Manager".</p><p>2. Select the "Windows Credentials" tab.</p><p>3. Scroll to the "Generic Credential" group and see if you have any credentials stored there that are starting with "timetracker4:[DevOps address]".</p><p>4. If you do, please delete them and then try to authorize the Windows Client again.</p><p>5. If you're still having challenges, manually add new credentials with value at address "timetracker4:[your DevOps address with collection name]" with your login and password.</p><p>Example:</p><img alt="Windows_App_Pairing.png" class="doc-image" loading="lazy" src="/cms_trial/assets/5d573564-99f0-476b-8e6b-de04a4c5dcbc.png"/><p><div class="img-placeholder">[Unmapped macro: anchor — no content to fall back on]</div></p><h2 id="question-2">Question</h2><p>I am trying to pair the 7pace Windows App but it keeps asking for my credentials and then doesn't accept them. I keep seeing the “Pairing” screen but nothing happens and then I receive an error message that says, “Could not authorize with current credentials.” Can you help?</p><h3 id="answer-2">Answer</h3><p>​​This may occur because you are missing Windows authentication in IIS. Please follow the steps outlined in the following article to troubleshoot and solve the issue: </p><p><a href="https://stackoverflow.com/questions/8067448/in-iis-why-doesnt-window-authentication-show-up-as-one-of-the-options-for-my-w">In IIS, why doesn't Window Authentication show up as one of the options for my web application?</a></p><p><div class="img-placeholder">[Unmapped macro: anchor — no content to fall back on]</div></p><h2 id="question-3">Question</h2><p>When I try to pair my desktop app with my Azure DevOps (ADO) org, I get a message that says “Pairing … Please click <strong>Open Timetracker or Yes</strong> to pair your client. If nothing prompts from browser, download it and run 7pace Timetracker.”</p><img alt="App_Pairing.png" class="doc-image" loading="lazy" src="/cms_trial/assets/19c86076-a78f-4188-9741-33821cb12a6e.png"/><p>But there is no extra “window” or prompts from the browser. Can you help?</p><h3 id="answer-3">Answer</h3><p>To successfully pair your 7pace Timetracker desktop app with the ADo org of your choice, please ensure that your browser’s security settings are set to allow pop-ups and prompts for external apps. </p><p>If you use Safari, for example,  go to<strong> Settings</strong> &gt; <strong>Privacy</strong> &gt; <strong>Disable: Prevent cross-site tracking</strong>. Now return to the 7pace Timetracker <strong>Apps</strong> page, , select <strong>Pair Desktop App</strong> and the popup will display. Once pairing is complete, you can re-enable the prevent cross-site tracking setting. </p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

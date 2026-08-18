@@ -32,14 +32,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146310010/Product+and+data+connections/">Product and data connections</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/3019735522/Connect+data+from+Atlassian+products/">Connect data from Atlassian products</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309921/Jira+Service+Management+and+Assets/">Jira Service Management and Assets</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Time to first response</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/146309393" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Time to first response</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><img alt="Dashboard Hub time to first response" class="doc-image" loading="lazy" src="/cms_trial/assets/84b6db83-67dc-48a4-9e8f-8458a6c57c77.png"/><p><a href="/wiki/pages/resumedraft.action?draftId=99779657">TIME TO FIRST RESPONSE</a></p><p><a href="/wiki/pages/resumedraft.action?draftId=99779657">Display the average time to first response for all requests in a period of time</a></p><h2 id="overview">Overview</h2><p>The time to first response is probably the <strong>most important metric for customers, because they acknowledge that their request is being taken care of</strong>. Thus, service management teams need a mechanism to easily determine whether they are meeting their organizations' service level agreements (SLAs), so they can take action before any breach occurs.</p><p>This gadget displays the average time to the first response for all requests over a specified period. It involves all request types in your service desk and highlights the average time for all issues and also for issues of the highest priority (or any other priority you decide to include).</p><div class="panel panel-note"><p>In contrast to Jira Service Management reports, this gadget is <strong>multi-project</strong>, so you can report across your whole portfolio of projects.</p></div><p>If you hold the pointer over the graph series line, it indicates the average time to first response for all issues for each day.</p><p>You can also customize the color of the line segments for both the line representing the issues with the selected priorities and the line for all the issues.</p><img alt="Dashboard Hub Time to first response" class="doc-image" loading="lazy" src="/cms_trial/assets/36e5af35-a427-418e-bbf5-feb932670cb5.png"/><h2 id="configuration">Configuration</h2><p>Name your gadget meaningfully, so everyone knows at a glance what it is about and when to use it. Fill out the rest of the fields as applicable, namely:</p><ul><li><p>The <strong>datasource</strong>, where <strong>Current</strong> indicates the Jira Service Management cloud instance where the app is installed.</p></li><li><p>The <strong>projects</strong> and the <strong>queues</strong> where the requests are.</p></li><li><p>The <strong>priorities</strong> of the issues you want to differentiate from the rest of the issues.</p></li><li><p>The <strong>color</strong> for the “All Issues” line and for the selected priorities line.</p></li><li><p>The <strong>period of time</strong> you want to display in the time series of the graph.</p></li><li><p>Finally, indicate if you want to use the current settings for all the compatible gadgets in the dashboard. This option eases the pain of configuring one by one the rest of the gadgets with the same default configuration</p></li></ul><h2 id="integrations">Integrations</h2><ul><li><p><span class="icon-note">[jira service management icon]</span></p></li></ul><details><summary>Jira Service Management</summary><div class="img-placeholder">[Unmapped macro: contentbylabel — no content to fall back on]</div></details><p>We are working on our growing catalog of <a href="/cms_trial/space/RDD/146309915/Dashboard+gadgets+-+KPIs+and+metrics/">Dashboard gadgets - KPIs and metrics</a> and <a href="/cms_trial/space/RDD/146310010/Product+and+data+connections/">Product and data connections</a>, but contact us you want us to expedite a specific one, visit our <a href="https://appf.re/support">support portal</a> .</p><h2 id="dashboards">Dashboards</h2><p>This gadget appears in the following dashboard: <a href="/cms_trial/space/RDD/146309962/IT+Service+Management+team+template/">IT Service Management team template</a>. </p>
   </main>
   <aside class="sidebar">
@@ -169,6 +174,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

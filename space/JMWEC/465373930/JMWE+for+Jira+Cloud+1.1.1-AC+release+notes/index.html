@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/1154449466/Release+notes/">Release notes</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465473449/Release+notes+(archived)/">Release notes (archived)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465504330/Previous+Releases/">Previous Releases</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">JMWE for Jira Cloud 1.1.1-AC release notes</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/465373930" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>JMWE for Jira Cloud 1.1.1-AC release notes</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>This version brings the following improvements:</p><h3 id="new-features">New features:</h3><ul><li><p>The Nunjucks editor now includes a comprehensive inline help system:<br/><div class="img-placeholder">[Unmapped macro: inline-media-image — no content to fall back on]</div></p></li><li><p>A summary of recent errors and warnings is displayed for each post-function on the transition post-functions tab:</p><img alt="JMWE for Jira Cloud error reporting interface showing system diagnostics" class="doc-image" loading="lazy" src="/cms_trial/assets/6170fe88-4c46-4d70-ac7c-c22ad956533f.png"/></li><li><p>You can now create shared Nunjucks templates, which can be reused across post-functions</p></li><li><p>New "worklog" Nunjucks filter to access the worklog of an issue</p></li><li><p>New "optionID" Nunjucks filter to get the ID of an option2 option (such as Tempo's Accounts and Teams)</p></li></ul><h3 id="enhancements">Enhancements:</h3><ul><li><p>The Customer Request type field is now supported in the Create issue post-function under the Set fields of new issue</p></li><li><p>You can now set fields that do not appear on the transition screen in Transition [current/linked/parent] issue post-functions</p></li><li><p>The Issue Type can now be calculated (with Nunjucks) in the Create Issue Post-Function</p></li><li><p>The "groupMembers" Nunjucks filter now supports groups containing more than 50 members</p></li><li><p>Email Issue post-function: new warning about self-notifications</p></li></ul><h3 id="bug-fixes">Bug fixes:</h3><ul><li><p>Assign to last role member post-function was broken by the latest Jira Cloud update</p></li><li><p>User and Group pickers were broken by the latest Jira Cloud update</p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

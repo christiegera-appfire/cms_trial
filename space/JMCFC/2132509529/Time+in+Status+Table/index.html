@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMCFC/168855370/Overview/">Jira Misc Custom Fields (JMCF) - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/168855370/Overview/">Overview</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/465471226/Custom+Fields/">Custom Fields</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/1562447255/Supported+custom+fields/">Supported custom fields</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Time in Status Table</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMCFC/pages/2132509529" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Time in Status Table</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><p>The <strong>Time in Status Table</strong> custom field is a calculated field that displays how long an issue has remained in the configured status values; the field displays all selected statuses and the total time for each status in a table format. It is a read-only field.</p><p>When creating the field, you can configure it to monitor any number of status values, and you can include any status values that exist in your instance. You should verify that the status values you have selected for a Time in Status Table field are the same status values in the Workflow for the project and issue types to which you have added the custom field!</p><div class="panel panel-note"><p><strong>Note</strong>: The <strong>Time in Status Table</strong> field will recalculate whenever an issue is opened. However, limitations within Jira do require that an issue is opened to trigger that recalculation, unless you <a href="/cms_trial/space/JMCFC/1114997525/Scheduled+recalculations/">schedule the field to recalculate</a>. Due to these limitations, <strong>Time in Status Table</strong> fields used in JQL queries and dashboards may not be updated when running the query or viewing the dashboard unless they have been scheduled to recalculate. </p></div><h2 id="add-a-custom-field">Add a custom field</h2><h2 id="configure-a-new-time-in-status-table-field">Configure a new ‘Time in Status Table’ field</h2><div class="panel panel-note"><p>If you added a JMCF custom field through the native Jira custom fields screen, see <strong>Edit a custom field</strong> below.</p></div><p>Follow the steps above to add a custom field to your Jira instance, then follow these steps:</p><ol><li><p>In the <strong>Associate Screens</strong> step of the wizard (Figure 2, right), check the boxes for the screens to which the field should be added.</p><ol><li><p>Use the search field above the list of screens to filter for a specific screen or screens.</p></li><li><p>Check the box at the top of the column to add the field to all screens.<br/>⚠️ <strong>Note</strong>: some team management screens in Jira do not currently support custom fields! The message at the bottom of the window indicates how many screens have been removed from the list. </p></li></ol></li><li><p>Click <strong>Next</strong>.</p></li><li><p>From the pulldown, select the status value or values that should be included in the table of values; select <strong>ALL STATUSES </strong>will configure the field to include every status value that exists in your instance, even those that may not be included in the Workflow for the selected Project and Work Item type. </p></li><li><p>Click <strong>Save</strong>. </p></li></ol></div><div><div class="panel panel-note"><p>You are viewing the documentation for <strong>Jira Cloud</strong>.</p></div><table><tr><th><h3 id="on-this-page">On This Page</h3></th></tr></table><img alt="Jira Misc Custom Fields (JMCF) Cloud time in status table configuration" class="doc-image" loading="lazy" src="/cms_trial/assets/42722c3d-1d3a-449c-8e3b-8f1fe95742a4.png"/><img alt="Jira Misc Custom Fields (JMCF) Cloud time in status screen association" class="doc-image" loading="lazy" src="/cms_trial/assets/098f8a0d-258a-4e1c-bee9-2a6dddb151df.png"/></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="edit-a-custom-field">Edit a custom field</h2><h2 id="search-templates">Search templates</h2></div><div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

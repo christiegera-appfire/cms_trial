@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490996521/Feature+guides/">Feature guides</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">SIL Scheduler</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/490998807" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>SIL Scheduler</h1>
+    <div class="page-meta">4 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>The SIL Scheduler allows you to run scripts at specific time intervals or at various times using CRON.</p><p>You can access the SIL™ Scheduler page from <strong>Administration → Manage Apps → Power Apps Config → Advanced → Scheduler</strong>.</p><img alt="Power Scripts for Jira Cloud schedule settings interface" class="doc-image" loading="lazy" src="/cms_trial/assets/06228788-941c-407b-827f-abec89a7b836.png"/><h2 id="scheduler-page-columns">Scheduler Page Columns</h2><table><tr><th><p>Column</p></th><th><p>Description</p></th></tr><tr><td><p>Script</p></td><td><p>Full path to the script and the arguments if they exist</p></td></tr><tr><td><p>Schedule</p></td><td><p>Either the interval on which the script should run or the CRON expression interpreted</p></td></tr><tr><td><p>Next Run</p></td><td><p>Date and time of the next run</p></td></tr><tr><td><p>Runs as</p></td><td><p>User to impersonate when running the script</p></td></tr><tr><td><p>Operations</p></td><td><p>Possible operations to do with a scheduler (delete, in our case)</p></td></tr></table><h2 id="managing-sil-scheduler">Managing SIL™ Scheduler</h2><p>The SIL™ Scheduler feature enables you to run SIL™ scripts after a valid Jira interval or using a CRON expression.</p><p>Jobs are persistent and survive engine restarts. You can read about scheduling jobs here: <a href="/cms_trial/space/PSJC/434507358/Scheduling+Functions/">Scheduling functions</a>. This mechanism uses the same scheduling engine, thus the same notes apply.</p><p>Each scheduled job has the following properties:</p><ul><li><p><strong>Job type</strong> - either interval or CRON expression</p></li><li><p><strong>Schedule</strong> - valid Jira interval or a CRON expression</p></li><li><p><strong>Script </strong>- SIL Script that will run using the schedule that you define</p></li><li><p><strong>Arguments</strong> - job arguments</p></li><li><p><strong>Run script as</strong> - if specified, the script will run as if by this user</p></li><li><p><strong>Does this job repeat?</strong> - if you use a Jira interval, you can define whether the job should repeat at the specified interval</p></li></ul><img alt="Power Scripts for Jira Cloud scheduler job configuration" class="doc-image" loading="lazy" src="/cms_trial/assets/21c62543-4d29-4809-b861-05f0892c7fed.png"/><p>To schedule a CRON job, change the type to "CRON" and enter a valid schedule (Quarts CRON expression).</p><div class="panel panel-warning"><p>The Quarts Cron expressions also considers the seconds, unlike the traditional Cron expressions:</p><p><strong>SIL Scheduler</strong>: Sec Min Hour Day Month Day of Week</p><p><strong>Traditional Cron</strong>: Min Hour Day Month Day of Week</p></div><img alt="Power Scripts for Jira Cloud scheduler timing configuration" class="doc-image" loading="lazy" src="/cms_trial/assets/dca2d75d-47d0-4e83-bce6-e6db0dcd02da.png"/><div class="panel panel-note"><h3 id="info">Info</h3><ul><li><p>To edit the actual scripts, use the <a href="/cms_trial/space/PSJC/490996983/SIL+Manager/">SIL™ Manager</a>.</p></li><li><p>Try using sites like <a href="http://www.cronmaker.com/">http://www.cronmaker.com/</a> to help generate a valid Quarts CRON expression</p></li></ul></div><p>After saving the added job, a new entry is added to the table on the Administration page.</p><h3 id="editing-scheduler-jobs">Editing Scheduler Jobs</h3><p>Just click on the edit icon, you will be able to reschedule or change any of the parameters you defined the job with:</p><img alt="Power Scripts for Jira Cloud SIL template editor interface" class="doc-image" loading="lazy" src="/cms_trial/assets/770ebef1-6cc0-4eed-8722-1a2b19edca43.png"/><h3 id="deleting-scheduled-jobs">Deleting Scheduled Jobs</h3><p>Clicking on the bin icon will delete the job.</p><h2 id="the-user-and-the-running-jobs">The User and the Running Jobs</h2><p>If you do not specify an user the job will query Jira with the addon user, which is internal to the cloud integration. In other words, you will still be able to perform certain operations, but not all of them.</p><p>Functionsfuncncotons like <em>currentUser()</em>, <em>archiveProject()</em> still require an user to return the right result. If called from the unauthenticated context, they will blow the script, yielding probably undesired results. The script will NOT have the required permissions to fully interact with Jira tickets, unless configured so or script explicitly calls out the user to use within in the script using the <a href="/cms_trial/space/PSJC/434374366/runAs/">runA</a>ffncunocion. </p><div class="panel panel-warning"><p>It is highly recommended to provide a user to the scheduled job when interacting with Jira tickets.</p></div><h2 id="processing-issues-in-bulk">Processing Issues in Bulk</h2><p>When changing issues in bulk, remember to create scheduled jobs as efficient as possible. Jira and Power Scripts being two separate entities, your goal is to minimize the number of calls and the data pulled from Jira (same old principle of minimizing the I/O)</p><p> A standard scheduled job usually looks like this:</p><pre><code class="language-">string jql = "project = TEST"; //be more exact here, this JQL is not ok!
 
 for(string k in selectIssues(jql)) {
@@ -168,6 +173,64 @@ for(string proj in argv) {
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

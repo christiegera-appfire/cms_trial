@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465473424/Includes/">Includes</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">[Includes] Use Cases - Publish and Test</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/466225297" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>[Includes] Use Cases - Publish and Test</h1>
+    <div class="page-meta">1 min read</div>
     <p>The last step is to publish your updated workflow and then test the new version to verify that the new extensions have been configured correctly. To test the extensions, you’ll need to trigger the same transition to which they were added and verify the results. </p><div class="panel panel-note"><p><strong>Note</strong>: it is generally recommended to perform testing in a non-Production environment. After testing is complete, you can <strong>migrate your workflow</strong> to your Production environment; see this page for steps on exporting and importing your workflow: <a href="https://support.atlassian.com/jira-cloud-administration/docs/import-and-export-issue-workflows/">https://support.atlassian.com/jira-cloud-administration/docs/import-and-export-issue-workflows/</a>. </p></div><p>To publish your updated workflow: </p><ol><li><p>Click <strong>Settings </strong>⚙️  and select <strong>Issues. </strong></p></li><li><p>In the left-hand panel, click <strong>Workflows</strong>. </p></li><li><p>For the workflow, click <strong>Actions </strong><span class="icon-note">[menu button icon]</span> and select <strong>Edit</strong>. </p></li><li><p>At the top of the workflow editor, click <strong>Publish Draft</strong>. </p></li></ol><p>With the workflow published, you should test it to verify that the new extensions execute successfully and that the outcome is expected.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

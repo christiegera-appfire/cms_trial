@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193851167/Use+cases/">Use cases</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Use workflows to govern and manage your Confluence documents</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/3368681682" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Use workflows to govern and manage your Confluence documents</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p><span class="status-lozenge">USE CASE</span></p><p>Comala Document Management lets you automate the review and approval process for Confluence pages. By applying workflows at the space or page level, you ensure that critical documents are reviewed and approved by the right people, on time, thus reducing manual overhead and minimizing the risk of publishing unapproved content.</p><h2 id="what-are-the-ways-teams-benefit">What are the ways teams benefit?</h2><div class="panel panel-note"><p><strong>Compliance:</strong> Route documents to the correct reviewers and approvers. Track and report all changes and approvals to meet regulatory standards and reduce the risk of non-compliance.</p><p><strong>Knowledge bases:</strong> Give knowledge workers clear visibility into the documentation lifecycle. They can see which pages are approved, in progress, or need attention, which reduces the risk of outdated or incorrect information.</p><p><strong>Policies and procedures:</strong> Automate lifecycle management to keep policies and procedures current. Set expiration dates that trigger review reminders to keep policies up to date, consistent, and secure.</p></div><hr/><h2 id="compliance">Compliance</h2><p>Automated document lifecycle management ensures that only authorized users can review and approve documents. Workflows route content through a defined approval chain, so every document meets your organization's compliance requirements before publication.</p><p>Comala Document Management records all workflow activity, including who made changes, when they were made, and what was approved. This produces an accessible audit trail that supports regulatory requirements and helps demonstrate compliance to regulators and stakeholders.</p><div class="panel panel-note"><p>Add an electronic signature layer with OTP (one-time password) e-signatures to protect content with encryption and authentication, safeguarding sensitive information during approvals.</p></div><hr/><h2 id="knowledge-bases">Knowledge bases</h2><p>When teams use Confluence as a knowledge base, readers need to trust the content they find. Workflows provide clear visibility into each page's lifecycle status, whether it is approved, in review, or needs attention.</p><p>This transparency improves documentation accuracy and reduces the risk of misinformation spreading through your organization. Authors know what needs work, and readers know what they can rely on.</p><hr/><h2 id="policies-and-procedures">Policies and procedures</h2><p>Managing policies and procedures manually increases the risk of outdated processes, compliance violations, and inconsistent documentation. Workflows automate this lifecycle, so your team can keep policies up to date without manual tracking.</p><p>Key capabilities for policy management:</p><ul><li><p><strong>Expiration dates:</strong> Set review intervals so you are notified when a policy is due for review and update.</p></li><li><p><strong>Automated reminders:</strong> Trigger notifications to reviewers when their attention is needed, keeping approvals on schedule.</p></li><li><p><strong>Controlled publishing:</strong> Use the <a href="https://marketplace.atlassian.com/apps/143/comala-publishing?hosting=cloud&amp;tab=overview">Comala Publishing app</a> to automatically publish approved pages to a target space, where users can be configured with view-only access to the approved content.</p></li></ul><hr/><h2 id="getting-started">Getting started</h2><p>Install Comala Document Management from the <a href="https://marketplace.atlassian.com/apps/1215961/comala-document-management?hosting=cloud&amp;tab=overview">Atlassian Marketplace</a> or through <strong>Find new apps</strong> in your Confluence instance.</p><p>Once installed, apply workflows at the space or page level and configure them in the Document Management dashboard. You can use the out-of-the-box workflows or create your own.</p><div class="panel panel-note"><p>See the <a href="/cms_trial/space/CDMC/2192869918/Onboarding/">Onboarding</a> page for step-by-step setup guidance, including how to apply a workflow to all pages in a space.</p></div><hr/><div class="panel panel-note"><h2 id="disclaimer"><em><strong>Disclaimer</strong></em></h2><p><a href="http://www.appfire.com"><em>Appfire</em></a><em> does not claim compliance or certification of any of our tools. In addition to taking advantage of technical elements, compliant systems must implement procedural and administrative controls.</em></p></div><div class="panel panel-note"><p><em>The </em><a href="https://trust.appfire.com/"><em>Appfire Trust Centre</em></a><em> has the latest information on the security, privacy, and compliance of our uniquely positioned products and services.</em></p></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

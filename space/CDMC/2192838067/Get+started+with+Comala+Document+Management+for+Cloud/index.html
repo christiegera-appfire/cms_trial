@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Get started with Comala Document Management for Cloud</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2192838067" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Get started with Comala Document Management for Cloud</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="panel panel-warning"><p><strong>Action required: Upgrade to the Forge version</strong></p><p>Atlassian will end <a href="https://www.atlassian.com/blog/developer/announcing-connect-end-of-support-timeline-and-next-steps">support</a> for the Connect framework in late 2026. After that date, the Connect version of Comala Document Management for Confluence Cloud will no longer receive security updates, new features, or ongoing support.</p><p>To continue receiving updates and support, you must upgrade to the Forge version of Comala Document Management. <a href="https://support.appfire.com/space/CDMC/3412264373/End+of+support+for+the+Connect+framework">Learn more about the upgrade.</a> </p></div><h2 id="about-comala-document-management">About Comala Document Management</h2><p>Comala Document Management adds review and approval workflows to Confluence Cloud. Teams can assign reviewers, set deadlines, and track a document's lifecycle. Integrated reporting tools provide oversight of all status changes and approvals within a space.</p><h2 id="key-concepts">Key concepts</h2><h3 id="workflow">Workflow</h3><p>A workflow defines the stages a document moves through, such as Draft, In Review, and Approved. You can create workflows with any number of stages and apply them to individual pages or entire spaces. A single workflow can be reused across multiple pages and spaces.</p><p>Learn more in <a href="/cms_trial/space/CDMC/2193162391/Create+and+edit+workflows/">Create and edit Workflows</a>.</p><h3 id="workflow-state">Workflow state</h3><p>A <a href="/cms_trial/space/CDMC/2193066115/States/">workflow state</a> is the current stage of a document. The state displays on the page, so your team can see whether a document is in progress, under review, or approved. States update as reviewers take action.</p><h3 id="approval">Approval</h3><p>An <a href="/cms_trial/space/CDMC/2193195490/Approvals/">approval</a> is a review action on a document. You assign one or more reviewers to a page. Those reviewers approve or reject the content at the appropriate stage in the workflow. The app records who approved, when, and at which stage.</p><h3 id="workflow-trigger">Workflow trigger</h3><p>A <a href="/cms_trial/space/CDMC/2192967825/Triggers/">trigger</a> monitors a specific event and performs an action in response. For example, you can configure a trigger to send an email when a document enters review, set an expiry date when content is approved, or restrict page editing during an approval stage.</p><h3 id="workflow-parameter">Workflow parameter</h3><p>A <a href="/cms_trial/space/CDMC/2192837939/Parameters/">workflow parameter</a> is a configurable value within a workflow. Examples include a list of default reviewers, a review deadline, or a notification message. Parameters let you reuse the same workflow across spaces while adjusting values for each team or project.</p><h2 id="what-you-can-do">What you can do</h2><p><strong>Automate reviews and approvals:</strong> Assign reviewers, set deadlines, and route pages through multi-stage approval workflows. Reviewers receive notifications when content needs their attention.</p><p><strong>Track document status:</strong> Every page with an active workflow displays its current state. Space administrators can view the status of all pages in a space using the document report.</p><p><strong>Support compliance requirements: </strong>Require reviewers to authenticate their decisions using e-signatures. Set expiry dates to flag content that needs periodic review. Use audit trails and reporting to support FDA 21 CFR Part 11, ISO 9001, and ISO 13485 requirements.</p><p><strong>Configure notifications:</strong> Set up email and on-screen notifications for specific workflow events. You can notify reviewers when they are assigned, alert authors when a document is approved, or flag content owners when a page expires.</p><p><strong>Display workflow data on pages:</strong> Use page macros to show document state, approval status, and activity history directly on a Confluence page.</p><p><strong>Publish approved content:</strong> Integrate with Comala Publishing to separate draft and published versions of a page. You can configure workflows to publish content automatically when it reaches an approved state.</p><h2 id="set-up-comala-document-management">Set up Comala Document Management</h2><p>If you are new to Comala Document Management Cloud, follow these steps to set up your environment:</p><ol><li><p><strong>Installation and setup:</strong> <a href="/cms_trial/space/CDMC/2192870167/Installation/">Install the app</a> and configure global permissions. See Installation.</p></li><li><p><strong>Space activation:</strong> Enable Comala Document Management for specific Confluence spaces. See <a href="/cms_trial/space/CDMC/2192869918/Onboarding/">Onboarding</a>.</p></li></ol><h2 id="migrating-from-data-center">Migrating from Data Center?</h2><p>Planning a Cloud migration? Start here:</p><p><a href="/cms_trial/space/CDMC/2192677102/Product+comparison/">Product comparison</a> – Key differences between DC and Cloud<br/><a href="https://appfire.atlassian.net/servicedesk/customer/portal/11/group/1236">Migration support from Appfire</a> – Guided migration assistance</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

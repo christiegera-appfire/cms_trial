@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1891206842/Configure/">Configure</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Mapping Account Name to a Jira Custom Field</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3091891814" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Mapping Account Name to a Jira Custom Field</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="purpose">Purpose</h2><p>If we map the Salesforce Account Field to a Jira Custom Field, it will be shown as the Account ID rather than its name like in the Salesforce. This behavior is expected due to the value inside the field being the ID rather than the name. An example is below:</p><img alt="contentId-3091891814" class="doc-image" loading="lazy" src="/cms_trial/assets/43c74543-a448-4bd7-b395-e599241a3b75.png?version=1&amp;modificationDate=1678861994297&amp;cacheVersion=1&amp;api=v2"/><p>This article is to help the custom field showing the name of the Account rather than its ID, like the example shown below:</p><img alt="contentId-3091891814" class="doc-image" loading="lazy" src="/cms_trial/assets/260dd7e4-c1c7-4370-865b-517524a30206.png?version=1&amp;modificationDate=1678861994598&amp;cacheVersion=1&amp;api=v2"/><h2 id="answer">Answer</h2><p>Rather than directly link the custom field to the Account, we can use the Salesforce Formula Field to get the Account Name first, then link it to the custom field.</p><p>The steps for the configuration are:</p><ol><li><p>Navigate to <strong>Salesforce Setup</strong> &gt; <strong>Object Manager</strong>.</p></li><li><p>Search for the linked Salesforce object and click to get its setup details.</p></li><li><p>Move to <strong>Fields &amp; Relationships</strong> and click <strong>New</strong>.</p></li><li><p>Select <strong>Formula</strong> and click <strong>Next</strong>.</p></li><li><p>Label the field as you want and select <strong>Text</strong> as the <strong>Formula Return Type</strong>.</p><img alt="contentId-3091891814" class="doc-image" loading="lazy" src="/cms_trial/assets/caf71e0d-8098-434a-9204-f4c744e54e9c.png?version=1&amp;modificationDate=1678861994796&amp;cacheVersion=1&amp;api=v2"/></li><li><p>Insert "Account.Name" to the formula.</p><img alt="image-20241213-141321.png" class="doc-image" loading="lazy" src="/cms_trial/assets/8426f050-549c-4f9d-9014-3499ace5f470.png"/></li><li><p>Finish the field creation.</p></li></ol><p>Check the Salesforce Record that the field able to get the Account Name then do a test pull from Jira to confirm that the Jira custom field is now showing the Account Name.</p></div><div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

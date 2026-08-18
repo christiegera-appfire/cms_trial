@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490996521/Feature+guides/">Feature guides</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/516456599/Managing+your+solution%3A+Self-Help/">Managing your solution: Self-Help</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">TLS / SSL configuration</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/601819283" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>TLS / SSL configuration</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>If you’re concerned about resource security, Power Scripts has you covered!</p><p>Starting with engine version 3.0.13, support was added for:</p><ul><li><p>Deploying a private key with TLS/SSL configuration.</p></li><li><p>Secure Cloud communications with various resources, including databases, LDAP, and other REST endpoints.</p></li></ul><img alt="Power Scripts for Jira Cloud listener issue update interface" class="doc-image" loading="lazy" src="/cms_trial/assets/cc2bb821-7893-46c5-8b56-dd84bf18c3be.png"/><p>The following components are required to use this feature:</p><ol><li><p>A unique configuration name. </p><ul><li><p>Note: Configurations with duplicate names are overwritten.</p></li></ul></li><li><p>PEM content with your certificates and/or private key. </p><ul><li><p>Appfire recommends encrypted private keys. </p><ul><li><p>However, plain private keys (PEM encoded) are acceptable. </p></li></ul></li><li><p>Private keys and certificates are retained and placed in secure storage.</p></li></ul></li><li><p>If your key is encrypted, please provide the<strong> </strong>password for decryption. </p><ul><li><p>This password is not stored and is only used to install the private key. Afterward, it is discarded.</p></li></ul></li></ol><div class="panel panel-note"><p>You must restart the engine for the settings to take effect. Keys and certificates are global components in the SIL Engine and may be used in the database configuration files and for HTTPS access.</p></div><div class="panel panel-warning"><p>Note: Uploading the wrong TLS info may render your engine unusable. If this happens, contact technical support to reset the TLS configuration. Appfire also recommends testing your configurations on a non-production system.</p></div><h2 id="pem-content">PEM content</h2><p>The <strong>Certificate</strong> field can contain a certificate, several X.509 certificates (intermediates and the end one), and the private key if it exists.</p><div class="panel panel-warning"><p>Note: Only one private key per PEM is processed. If you have multiple configurations, upload them individually and assign unique names.</p></div><div class="panel panel-warning"><p>Note: The logs on the SIL Engine contain valuable information about the uploaded PEM content. If there is missing information or partially imported configurations, check the log files. In some cases, the parser used for PEMs skips invalid content without generating an error.</p></div><div class="panel panel-warning"><p>Note: To configure the proper authorization chain, a private key must be accompanied by the corresponding public key or certificate. However, it is possible to only upload certificates, if necessary.</p></div><h3 id="example-encrypted-private-key">Example: Encrypted private key</h3><pre><code class="language-">Bag Attributes
     localKeyID: 08 C1 70 AF 8E E2 3F F8 06 B4 67 DF 8C 88 82 39 C3 5D B4 BD 
 subject=/CN=Client Certificate
@@ -182,6 +187,64 @@ GTH3fhaM/pZZGdIC75x/69Y=
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192776724/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Why is my document status shown as “Not initialized” in the Document Report?</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2192968035" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Why is my document status shown as “Not initialized” in the Document Report?</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h3 id="what-does-not-initialized-mean"><strong>What does “Not initialized” mean?</strong></h3><p>The status <strong>Not initialized</strong> appears in the Document Report when a page or blog post has not yet been assigned a workflow state.</p><p>This happens when:</p><ul><li><p>A workflow was not enabled in the space at the time the page was created.</p></li><li><p>You create a new page or blog post.</p></li><li><p>A workflow is enabled later at the space level.</p></li><li><p>The Document Report is viewed before the document is accessed by a user.</p></li></ul><p>Since the document hasn’t been opened after the workflow was applied, the workflow state has not been set yet.</p><h3 id="when-does-the-status-change"><strong>When does the status change?</strong></h3><p>The status will automatically update the next time you open the document. At that point, the workflow assigns a state, and the status in the report will update accordingly.</p><h3 id="how-can-you-initialize-document-states-without-opening-each-page">How can you initialize document states without opening each page?</h3><p>Only a space administrator can initialize all document states from the app space settings, so users don’t need to access each document manually.</p><div class="panel panel-note"><p>If a document status appears with <strong>"(Obsolete)"</strong>, see the related FAQ: <a href="/cms_trial/space/CDMC/2193097214/Why+is+my+document+state+name+in+the+workflows+document+report+appended+with+%22...(Obsolete)%22%3F/">Why is my document state name in the Document Report appended with “(Obsolete)”?</a></p></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/1154449466/Release+notes/">Release notes</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465473449/Release+notes+(archived)/">Release notes (archived)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465504330/Previous+Releases/">Previous Releases</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">JMWE for Jira Cloud 1.2.8-AC release notes</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/466289757" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>JMWE for Jira Cloud 1.2.8-AC release notes</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="new-major-feature-event-based-actions">New major feature: Event-based Actions</h2><p><strong>Use Event-based Actions to automate processes outside of Jira Workflows.</strong></p><p>You can now trigger one or more JMWE post-functions to run when a change is made to an issue, such as fields being modified, an issue being updated, a comment being added, etc. </p><p>The following triggers are included in this release: </p><ul><li><p>Issue Field Value Change </p></li><li><p>Issue Commented</p></li><li><p>Issue Updated</p></li><li><p>Issue Created</p></li><li><p>Issue Transitioned</p></li></ul><p>For example, when a user updates an issue or modifies certain fields, it can trigger post-functions to: </p><ul><li><p><strong>Synchronize issues</strong>, i.e., copy content from parent issue to child; </p></li><li><p><strong>Validate field changes</strong>, i.e., check the value of fields against the requirement and show guided messages to users (<a href="https://hub.appfire.com/guides/getting-started-with-jmwe-cloud-guide/configuring-validators/">View this how-to demo</a>);</p></li><li><p><strong>Perform calculations</strong>,  i.e., instantly calculate the value of fields from other fields (<a href="https://hub.appfire.com/guides/getting-started-with-jmwe-cloud-guide/how-to-calculate-field-values/">View this how-to demo</a>);</p></li><li><p>and more.</p></li></ul><p><a href="https://hub.appfire.com/popular-topics/workflow-and-automation/jira-misc-workflows-extensions-guide/#automation-with-event-based-actions">Visit our website</a> or read <a href="/cms_trial/space/JMWEC/465473524/Event-based+actions/">this documentation page</a> to learn more about Event-based Actions.</p><h2 id="nunjucks-improvements">Nunjucks improvements</h2><ul><li><p>The <code>callJira</code> and <code>callRest</code> filters now support an option to return errors as a return value instead of stopping the execution of the template and logging an error.</p></li><li><p>In workflow post-functions, the changes made to the issue by the user on the transition screen are now available to Nunjucks templates through the <code>context.changelog</code> global variable.</p></li><li><p>In workflow post-functions, the comment input by the user on the transition screen are now available to Nunjucks templates through the <code>context.comment</code> global variable.</p></li><li><p>The Build-your-own post-function now supports longer templates (scripts).</p></li></ul><h2 id="other-improvements">Other improvements</h2><ul><li><p>Insight custom fields are now supported in post-functions that set or copy field values.</p></li><li><p>The Satisfaction field of Jira Service Management is now available as a <em>source</em> field in post-functions that copy field values.</p></li><li><p>When creating multiple issues, the Create Issue(s) post-function will now continue iterating after encountering an error while creating an issue.</p></li></ul><h2 id="bug-fixes">Bug fixes:</h2><ul><li><p><a href="https://appfire.atlassian.net/browse/MWEC-608">MWEC-608</a> Post-functions that iterate over issues should limit their execution time </p></li><li><p><a href="https://appfire.atlassian.net/browse/MWEC-606">MWEC-606</a> callRest filter adds "?" at the end of the URL when no query params are passed </p></li><li><p><a href="https://appfire.atlassian.net/browse/MWEC-603">MWEC-603</a> first and last filter is not working properly with strings</p></li><li><p><a href="https://appfire.atlassian.net/browse/MWEC-593">MWEC-593</a> Long post-function configurations in Sequences don't work </p></li><li><p><a href="https://appfire.atlassian.net/browse/MWEC-590">MWEC-590</a> Advanced Roadmap's Team field cannot be copied <em>from</em> </p></li><li><p><a href="https://appfire.atlassian.net/browse/MWEC-583">MWEC-583</a> Create Issue(s) post-function: Cannot set the Request Participants field when creating a JSD request </p></li><li><p><a href="https://appfire.atlassian.net/browse/MWEC-582">MWEC-582</a> Extra ":" in Transition Current Issue for Target Issues for "JQL" and "Nunjuck" </p></li><li><p><a href="https://appfire.atlassian.net/browse/MWEC-574">MWEC-574</a> Create loop detection stopped working after recent Jira Cloud change</p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

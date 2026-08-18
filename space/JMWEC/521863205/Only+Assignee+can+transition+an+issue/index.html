@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/466225276/Use+cases/">Use cases</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/521994276/Use+Cases+for+Conditions/">Use Cases for Conditions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Only Assignee can transition an issue</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/521863205" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Only Assignee can transition an issue</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="scenario">Scenario</h2><p>When an issue has a status of <strong>In Progress,</strong> and is ready to move to the next stage, only the Assignee of the issue can move it to the next status. </p><h2 id="resolution">Resolution</h2><p>This requires adding the <a href="/cms_trial/space/JMWEC/465474547/User+Condition/">User Condition</a> extension to <strong>every </strong>transition that should be limited to just the issue's Assignee. Once added, those transitions will only be available to that one user, guaranteeing that only the appropriate person can advance an issue through its workflow.  </p><div class="panel panel-note"><p><strong>Note</strong>: the steps below detail adding the User Condition to two transitions - from <strong>In Progress</strong> to <strong>Code Review</strong> and from <strong>In Progress</strong> to <strong>To Test</strong>. In this scenario, the developer assigned to the issue has completed work to the extent that it is ready for review or testing. You can, however, apply these same steps to any transition which should be limited in the user who can advance an issue to a specific status. </p></div></div></div><h2 id="steps-to-create">Steps to create</h2><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h3 id="1-add-the-user-condition-condition">1. Add the <em>User Condition</em> condition</h3><ol><li><p>Log in to your Jira instance as an Administrator. </p></li><li><p>In the upper right corner of the window, click <strong>Settings</strong> ( ⚙️ ) and select <strong>Issues</strong>.</p></li><li><p>In the left-hand sidebar, click <strong>Workflows</strong>.</p></li><li><p>From the list of Workflows, click <strong>Actions</strong> ( <span class="icon-note">[menu button icon]</span> ) for the appropriate workflow and select <strong>Edit</strong>.</p></li><li><p>Edit the transition: </p><ol><li><p>When viewing the Workflow in <strong>Diagram</strong> view (Figure 1, right), select the Transition and click the <strong>Conditions</strong> link. Click <strong>Add condition</strong> at the top of the list of existing post functions.</p></li><li><p>When viewing the Workflow in <strong>Text</strong> view, click the name of the Transition then select the <strong>Condition</strong> tab. Click <strong>Add condition</strong> at the top of the list of existing post functions.</p></li><li><p>Select <strong><em>User Condition (JMWE app)</em></strong> from the list of conditions and click <strong>Add</strong>.</p></li></ol></li></ol></div><div><img alt="JMWE for Jira Cloud transition editing interface for assigneeonly workflow restrictions" class="doc-image" loading="lazy" src="/cms_trial/assets/b8b3f00d-1e2a-4ec6-a18e-3fb2f75f624e.png"/></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h3 id="2-configure-the-condition">2. Configure the condition</h3><p>Set the following configurations (Figure 2, right):</p><ol><li><p><strong>User(s) to check</strong> - Set <strong>Which user(s)</strong> to <em>Current user</em>. </p></li><li><p><strong>Mode</strong> - Set <strong>User(s) must meet</strong> to <em>all the criteria configured below</em>.  </p></li><li><p><strong>Criteria</strong></p><ol><li><p><strong>The user is</strong> - Set to <em>the Assignee</em>. </p></li><li><p>Leave all other options blank </p></li></ol></li><li><p>Click <strong>Add.</strong></p></li></ol><div class="panel panel-note"><p><strong>Note: </strong>When adding Conditions to a Jira Workflow, there is a native configuration for ‘<strong>All of the following conditions’</strong> or ‘<strong>Any of the following conditions’</strong>. You should set this as needed for your workflow. </p></div></div><div><img alt="JMWE for Jira Cloud condition configuration for assigneebased transition control" class="doc-image" loading="lazy" src="/cms_trial/assets/4a1dff37-74f6-4ccc-8f54-6a5c67e6c9dd.png"/></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h3 id="3-repeat-as-needed">3. Repeat as needed</h3><p>Repeat steps 2 and 3 for each necessary transition. In this example, the User Condition is added to two transitions - <strong>Ready to Test </strong>and <strong>Technical Review</strong>. Add the condition as many times as necessary for your workflow. </p></div><div></div></div><div class="panel panel-note"><h3 id="you-re-done">You’re done! </h3><p>Now, only the Assignee of an issue can move the issue out of the <strong>In Progress</strong> status.  </p></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

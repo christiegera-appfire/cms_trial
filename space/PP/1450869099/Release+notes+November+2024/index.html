@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PP/1803714584/Planning+Poker+Help+Center/">Planning Poker</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PP/1803714584/Planning+Poker+Help+Center/">Planning Poker Help Center</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PP/1159103478/Release+notes%E2%80%8E/">Release notes‎</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PP/1159300293/Cloud/">Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Release notes November 2024</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PP/pages/1450869099" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Release notes November 2024</h1>
+    <div class="page-meta">1 min read</div>
     <p><strong>Release date</strong>: <time datetime="2024-11-05">November 5, 2024</time></p><p>Our team is thrilled to announce the latest release of Planning Poker for Jira Cloud.</p><hr/><h2 id="new-features">New features</h2><h3 id="quick-add-to-game-backlog">Quick Add to Game Backlog</h3><p>You can now quickly add individual items to the game backlog using the new <strong>Add issue to backlog</strong> option. This feature streamlines the process of updating your game backlog, saving you time when adding extra items on the go.</p><img alt="image-20241105-181408.png" class="doc-image" loading="lazy" src="/cms_trial/assets/9853a0fe-f992-4ff3-8629-45034cad19f9.png"/><h3 id="sort-items-in-game-backlog">Sort Items in Game Backlog</h3><p>The <strong>Order by</strong> option now enables you to sort items within columns in the game backlog. You can organize items based on variables such as Jira rank, priority, or status, and toggle between ascending or descending order. Sorting by one field also allows switching between filter mode and JQL<strong> </strong>mode. By default, items are ordered by rank in ascending order, consistent with JQL conventions.</p><img alt="image-20241105-181620.png" class="doc-image" loading="lazy" src="/cms_trial/assets/e213609e-6437-4e0e-b2be-c07219571526.png"/><div class="panel panel-note"><p><strong>Note:</strong> In JQL mode, you can sort by two fields simultaneously, but this is not available in filter mode. If you switch from JQL mode (where two fields are selected) to filter mode, ordering by multiple fields will be disabled.</p></div><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p> <strong>Questions and feedback</strong></p><ul><li><p>Explore exciting features, pricing updates, reviews, and more on the <a href="https://marketplace.atlassian.com/apps/1212495/planning-poker?hosting=cloud&amp;tab=overview">Marketplace</a>.</p></li><li><p>Stuck with something? Raise a ticket with our <a href="https://appf.re/support">support team</a>.</p></li><li><p>Do you love using our app? Let us know what you think <a href="https://marketplace.atlassian.com/apps/1212495/planning-poker?hosting=cloud&amp;tab=reviews">here</a>.</p></li></ul></div><div><p><strong> </strong> <strong>Credits</strong></p><p>A heartfelt thank you to our valued customers! Your incredible support and feedback inspire us to improve our apps and products continually. We appreciate your trust in Planning Poker!</p></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

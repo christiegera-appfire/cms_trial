@@ -88,14 +88,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3092186916/Errors+and+Error+Messages/">Errors and Error Messages</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">How to troubleshoot 'Failed to push to Jira!' error message</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3103784975" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>How to troubleshoot 'Failed to push to Jira!' error message</h1>
+    <div class="page-meta">2 min read</div>
     <h2 id="summary">Summary</h2><p><em>Failed to push to Jira</em> error message prompts when pushing updates manually from Salesforce to Jira. </p><img alt="contentId-3103784975" class="doc-image" loading="lazy" src="/cms_trial/assets/e8d43823-2357-4fa8-a5f7-1b22d6c46bf0.png"/><h2 id="environment">Environment</h2><ul><li><p>Jira Cloud/Server</p></li><li><p>Any</p></li></ul><h2 id="diagnostics-steps">Diagnostics Steps</h2><p>Web requests can provide the full error message for further troubleshooting. </p><h2 id="causes">Causes</h2><p><em>Failed to push to Jira</em> error message can be caused by various issues. Below are the possible error messages you might find in the browser web requests:</p><details><summary>"Field 'status' cannot be set. It is not on the appropriate screen, or unknown."</summary><p>Jira Status field is a <em>Read-Only</em> field. Therefore, only outbound sync (Jira &gt; Salesforce) is supported.</p></details><details><summary>"Field 'customfield_10112' cannot be set. It is not on the appropriate screen, or unknown."</summary><p>As the error suggests, the custom field with ID '10112' is not on the appropriate screen. Specifically, the custom field is not on the <em>Edit Issue screen</em>. </p><p>The connector uses the mapped fields on the Jira <em>Edit Issue screen</em> to push updates from Salesforce to Jira. </p></details><details><summary>"Option id 'null' is not valid"</summary><p>This might be due to mapping incompatible field types. For example, having Jira 'Select List (single choice)' field type mapped with Salesforce 'Picklist(Multi)' field type. </p></details><details><summary>"Option value 'Child 1' is not valid"</summary><p>The mapped fields are compatible with one another. However, the value 'Child 1' is unavailable in Jira. </p></details><h2 id="resolution">Resolution</h2><details><summary>"Field 'status' cannot be set. It is not on the appropriate screen, or unknown."</summary><ol><li><p>Go to Jira, <strong>Apps</strong> &gt; <strong>Salesforce</strong> &gt; <strong>Bindings</strong> &gt; <strong>Mapping</strong> &gt; <strong>Mappings</strong></p></li><li><p>Locate <strong>Status</strong> field mapping </p></li><li><p>Make the sync direction pointing to Salesforce only (<em>Outbound sync</em>) as shown as the picture below:<br/></p><img alt="contentId-3103784975" class="doc-image" loading="lazy" src="/cms_trial/assets/7a62c5de-e01f-4420-afdc-d9045b2d9e94.png"/></li></ol></details><details><summary>"Field 'customfield_10112' cannot be set. It is not on the appropriate screen, or unknown."</summary><ol><li><p>Find the custom field mentioned in the error message:</p><ol><li><p>In Jira, navigate to <strong>Issues</strong> &gt; <strong>Custom fields.</strong></p></li><li><p>Click on the <strong>Configure</strong> for any the custom fields you have.</p></li><li><p>You should see the following in the Browser URL:</p><pre><code class="language-">https:JIRAurl/secure/admin/EditCustomField!default.jspa?id=15800</code></pre></li><li><p>Change <code>15800</code> to the ID you see in the error message (for example, <code>10112</code>)</p></li><li><p>Press <code>Enter</code>.</p></li></ol></li><li><p>After locating the custom field name from the step above. We need to add the field to the <em>Edit Issue screen</em></p><ol><li><p>In Jira, go to <strong>Projects</strong> &gt; &lt;your project&gt;.</p></li><li><p><strong>Project Settings</strong> &gt; <strong>Screens.</strong></p></li><li><p>Locate the Issue type and expand it.</p></li><li><p>Click on the screen on the <strong>Edit issue</strong> operation.</p><img alt="contentId-3103784975" class="doc-image" loading="lazy" src="/cms_trial/assets/f1a9cb56-dc27-4b4c-903a-b881f1ebf64a.png"/></li><li><p>Add the field that you have located in the previous step.</p></li></ol></li></ol></details><details><summary>"Option id 'null' is not valid"</summary><p>This might be due to the mapped field being incompatible. Check <a href="/cms_trial/space/CSFJIRA/1522369149/Jira+field+type+to+Salesforce+field+type+compatibility/">Jira Field Type to Salesforce Field Type compatibility</a> to learn more about Jira Field Type to Salesforce Field Type compatibility. </p></details><details><summary>"Option value 'Child 1' is not valid"</summary><p>There are two solutions to this issue:</p><ol><li><p>Make sure that the values of the Jira and Salesforce fields are identical.</p></li><li><p>Configuring value mappings to non-identical value. Please refer to <a href="/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field+and+value+mappings/">Configuring Entity Mappings and Field Mappings</a>, <em>Part 3: Configuring Value Mappings.</em></p></li></ol></details><div class="panel panel-note"><p>The error message is not listed here? Please <a href="https://appfire.atlassian.net/servicedesk/customer/portals">contact Technical Support</a> for further assistance.</p></div><p><br/></p>
   </main>
   <aside class="sidebar">
@@ -225,6 +230,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

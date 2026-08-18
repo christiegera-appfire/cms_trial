@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/HED/602865666/Hedge/">Hedge - Risk Management &amp; Risk Register for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/HED/602865666/Hedge/">Hedge</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/HED/602865819/Get+started+with+Hedge/">Get started with Hedge</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/HED/2239692808/Hedge+in+action/">Hedge in action</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Customize risk register</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/HED/pages/2292023540" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Customize risk register</h1>
+    <div class="page-meta">1 min read</div>
     <p>With Hedge, you can create risk registers customized for different teams, projects, or compliance needs. Each one reflects your unique risk framework, whether for IT, Finance, or Operations.</p><p>Watch how easily you can customize a risk register in Hedge. No complexity, just control. </p><iframe src="https://fast.wistia.com/embed/iframe/99yxb4pni6"></iframe>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

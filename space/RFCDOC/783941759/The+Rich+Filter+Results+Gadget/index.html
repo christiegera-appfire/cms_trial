@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud) Documentation</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783942482/User+guides/">User guides</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941679/Work+with+Rich+Filter+gadgets/">Work with Rich Filter gadgets</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">The Rich Filter Results Gadget</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/783941759" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>The Rich Filter Results Gadget</h1>
+    <div class="page-meta">7 min read</div>
     <h2 id="about-the-rich-filter-results-gadget"><div class="img-placeholder">[Unmapped macro: anchor — no content to fall back on]</div>About the Rich Filter Results gadget</h2><p>The <em>Rich Filter Results</em> gadget displays one or multiple lists of issues. It resembles Jira’s built-in <em>Filter Results</em> gadget, but it is based on a rich filter instead of a Jira saved search and thus adds several new features:</p><ul><li><p>the content displayed can be further filtered by using <em>Rich Filter Controller</em> gadgets;</p></li><li><p>the gadget itself can further refine the results by applying a gadget-specific JQL query called a <em>working query</em>;</p></li><li><p>the gadget can display multiple <a href="/cms_trial/space/RFCDOC/783941729/Configure+views/">views</a> defined in the rich filter (which can include computed columns and color coding);</p></li><li><p>the gadget can display all the issues (the default behavior) or one or multiple <a href="/cms_trial/space/RFCDOC/783942406/Configure+queues/">queues</a>; queues are custom lists of issues configured in the rich filter;</p></li><li><p>the gadget allows the users to edit the issues directly from the dashboard using the issue dialog;</p></li><li><p>the gadget gives easy access to Jira's bulk operations on the displayed issues;</p></li><li><p>end-users can customize the layout of each view; </p></li><li><p>the content of the gadget can be <a href="/cms_trial/space/RFCDOC/783942966/Export+data/">exported</a> to PDF, Excel (.xlsx), and CSV formats.</p></li></ul><p><strong>Example 1</strong>: gadget configured to display the issues using three <a href="/cms_trial/space/RFCDOC/783941729/Configure+views/">views</a>:</p><img alt="Results view dashboard" class="doc-image" loading="lazy" src="/cms_trial/assets/60741b99-814f-48d7-9fe5-d90d2124a6c1.png"/><p><strong>Example 2</strong>: gadget configured to display three support <a href="/cms_trial/space/RFCDOC/783942406/Configure+queues/">queues</a>:</p><img alt="queues dashboard" class="doc-image" loading="lazy" src="/cms_trial/assets/f05cad53-7770-4448-981d-9a25ef5b1c95.png"/><p><strong>Example 3</strong>: the selected view displays a Gantt chart:</p><img alt="2026-04-09_15-34-48.png" class="doc-image" loading="lazy" src="/cms_trial/assets/9414177e-140d-4c24-aa6c-2c74c8ec1654.png"/><h2 id="configure-the-rich-filter-results-gadget"><div class="img-placeholder">[Unmapped macro: anchor — no content to fall back on]</div>Configure the Rich Filter Results gadget</h2><p><a href="https://support.atlassian.com/jira-core-cloud/docs/add-and-customize-a-gadget/">Add</a> a new or edit an existing <em>Rich Filter Results</em> gadget in your <a href="https://support.atlassian.com/jira-core-cloud/docs/what-is-a-jira-dashboard/">Jira dashboard</a>. The configuration form of the gadget will be displayed:</p><img alt="contentId-783941759" class="doc-image" loading="lazy" src="/cms_trial/assets/8950adcc-dfac-4f7e-9165-10442c264435.png"/><h3 id="rich-filter"><strong>Rich Filter</strong></h3><ol><li><p>Select the rich filter on which the gadget will be based.</p></li><li><p>Click the <em>Rich Filter</em> selector to display the list of rich filters.<br/>You can either scroll through or use the search box to find the filter you need.</p></li></ol><div class="panel panel-note"><p>The gadgets’ configuration forms only show the rich filters you can view. For details, see the <a href="/cms_trial/space/RFCDOC/783941839/Rights+and+Permissions/">Rights and Permissions</a> documentation page.</p></div><h3 id="working-query"><strong>Working Query</strong></h3><p>The working query is an additional JQL query that is permanently applied on top of the base Jira filter and any active quick filters in the controller to further filter the issues the gadget will work with. The working query is optional: if left empty, only the base Jira filter and the quick filters affect the issues displayed by the gadget.</p><div class="panel panel-success"><p>The working query can also contain an <code>ORDER BY</code> clause. If such a clause is present, it precedes the order defined by the base Jira filter. You can even have a working query that contains only the <code>ORDER BY</code> clause if you want to change only the default order of the displayed issues.</p><p>Note that the gadget can also display queues of issues (see below). In such a case, the order defined in queues takes precedence over all other orders by clauses. </p></div><h3 id="display"><strong>Display</strong></h3><p>There are two display options possible:</p><ul><li><p><strong>All issues</strong>: The gadget displays the list of issues returned by the rich filter and any additional filtering at the dashboard level. With the "Views" setting (see below), you can then select the views that are used to display the issues.</p></li><li><p><strong>Queues</strong>:The gadget will display the <a href="/cms_trial/space/RFCDOC/783942406/Configure+queues/"><u>queues</u></a> selected in the <strong>Queues</strong> setting (see below). Each queue will use the views configured in the rich filter.</p></li></ul><h3 id="views"><strong>Views</strong></h3><p>The <strong>View</strong> option is available when you select <strong>All issues</strong> for the <strong>Display</strong>.</p><p>You can select the views (among the views defined in the Rich Filter) displayed by the gadget. By default, all views are displayed (the option <strong>Show all views</strong> is selected).</p><p>Select the <strong>Customize views</strong> option to display only selected views. You can add, remove, or reorder the views to be displayed.</p><img alt="2026-06-24_08-48-40.png" class="doc-image" loading="lazy" src="/cms_trial/assets/9d012a49-7420-49ad-a2a4-e5bef4bb99e9.png"/><h3 id="queues"><strong>Queues </strong></h3><p>The <strong>Queues </strong>option is available when you select <strong>Queues</strong> for the <strong>Display</strong>.</p><p>You can select to:</p><ul><li><p><strong>Show all queues</strong>:<strong> </strong>to display<strong> </strong>all the queues defined in the selected rich filter.</p></li><li><p><strong>Customize queues: </strong>to display only selected queues. <br/>You can add, remove, or reorder the queues you want to be displayed.</p></li></ul><div class="panel panel-note"><p>The queues displayed in the same gadget are independent of the current view, page, and sort order.</p></div><img alt="Customize queues" class="doc-image" loading="lazy" src="/cms_trial/assets/c207887a-e258-430e-94c0-1c8993507dea.png"/><h3 id="maximum-rows"><strong>Maximum rows</strong></h3><p>The <strong>Maximum</strong> <strong>rows</strong> option lets you set the number of issues the gadget displays per page. The default number of issues is 10. You can change it, but it cannot exceed 50.</p><p>You can view the maximum number of issues by clicking the range pill toggle at the bottom of the gadget. </p><img alt="recult issue count.png" class="doc-image" loading="lazy" src="/cms_trial/assets/aaf8a0de-2009-49af-868e-83ce703bfb62.png"/><h2 id="customize-view-layout"><div class="img-placeholder">[Unmapped macro: anchor — no content to fall back on]</div>Customize view layout</h2><p>The end users can customize the layout of each view in two ways:</p><ul><li><p>Adjusting the width of any column,</p></li><li><p>Choosing how the rows are displayed – two options are available:</p><ul><li><p>rows of variable height, i.e., the rows are displayed on one or several lines, depending on the content and the horizontal space available in the gadget – this is the default option;</p></li><li><p>rows of the same height, i.e., the rows are always displayed with one line per row (some content will be hidden when the available horizontal space is insufficient).</p></li></ul></li></ul><p>To adjust the width of a column, simply drag the edge of the column header to reduce or increase its size.</p><p>The settings dropdown situated in the top-right corner of the issues table lets you customize the layout of the current view further:</p><ul><li><p><strong>One-line rows</strong><em>: </em>enable you to toggle between rows of variable height (one or multiple lines per row) and rows of the same height (one line per row)</p></li><li><p><strong>Striped rows</strong>: enable you to toggle between rows in one color and rows in stripes </p></li><li><p><strong>Reset column</strong>: If the width of at least one column has been customized, the option removes the customizations and reverts to the default column width</p></li></ul><p> The customizations are remembered at the browser level and do not impact other users of the same dashboard.</p><img alt="customizations" class="doc-image" loading="lazy" src="/cms_trial/assets/1e38be5a-22cd-417a-a56e-ada22c3c4e2d.png"/><h2 id="update-issues-using-the-issue-dialog"><div class="img-placeholder">[Unmapped macro: anchor — no content to fall back on]</div>Update issues using the issue dialog</h2><p>You can update issues directly from the dashboard using the issue dialog accessible from the <em>Rich Filter Results</em> gadget. You'll find an <strong>Open issue dialog</strong> button on the gadget's right-hand side when hovering over an issue. Clicking this button will open the <a href="https://support.atlassian.com/jira-software-cloud/docs/update-an-issues-details/">issue dialog</a> directly in the dashboard, allowing users to preview and/or update issues.</p><img alt="Open issue dialog.png" class="doc-image" loading="lazy" src="/cms_trial/assets/0fcecd94-a7b8-434d-9b5c-9dd1555d7d14.png"/><p>Once the user closes the <em>issue dialog</em>, the dashboard is automatically updated to reflect any changes made.</p><h2 id="bulk-change-issues"><div class="img-placeholder">[Unmapped macro: anchor — no content to fall back on]</div>Bulk change issues</h2><p>The issues displayed in the <em>Rich Filter Results</em> gadget can be modified in bulk by using the <strong>Bulk change issues...</strong> button located in the gadget's footer.</p><img alt="bulk change.png" class="doc-image" loading="lazy" src="/cms_trial/assets/c7d03447-07aa-4b98-b94a-75e0506742d6.png"/><p>When clicking <em>Bulk Change Issues, the</em> button redirects you to <a href="https://support.atlassian.com/jira-service-management-cloud/docs/edit-multiple-issues-at-the-same-time/">Jira's Bulk Operation screen</a>. This allows you to edit, move, transition, delete, watch, or stop watching multiple issues in one operation. </p><h2 id="use-gantt-charts"><div class="img-placeholder">[Unmapped macro: anchor — no content to fall back on]</div>Use Gantt charts</h2><p>A Gantt <em>chart</em> is a bar chart that illustrates a project schedule. Any <a href="/cms_trial/space/RFCDOC/783941729/Configure+views/">view</a> can be configured to display a Gantt chart in addition to normal columns like <em>Key</em> and <em>Summary</em>.</p><p>In the view configuration (see <a href="/cms_trial/space/RFCDOC/783941729/Configure+views/">Enable Gantt chart</a> for details), the Gantt chart is configured with:</p><ul><li><p>a start and an end date based on issue fields,</p></li><li><p>optionally, a list of dependencies based on <em>issue link types</em>,</p></li><li><p>a choice for bar colors: predefined based on the issues' <em>status category</em> or customized based on a <a href="/cms_trial/space/RFCDOC/783941713/Configure+smart+filters/">smart filter</a>.</p></li></ul><p>In <em>Rich Filter Results</em> gadgets, views with a Gantt chart are displayed like any other view: they can be used in queues, sorting, pagination, issue dialog, switching between views, etc., and work normally. The only particularity of views with a Gantt chart is that they can only be displayed with the one-line layout.</p><p>Below are the main things to know when using Gantt charts:</p><ul><li><p>The dependencies are represented with badges showing the number of the corresponding issues, placed to the left or the right of the bar, depending on the order of precedence.</p></li><li><p>You can hover over a bar to see a tooltip with the start and end dates and the bar's duration.</p></li><li><p>You can quickly scroll the chart by dragging the background or using the top and bottom scroll bars.</p></li><li><p>When the bar of issues is present in the chart but not currently visible, an arrow at the left edge allows you to scroll the chart to see that bar automatically.</p></li></ul><img alt="2026-04-09_15-34-48.png" class="doc-image" loading="lazy" src="/cms_trial/assets/9414177e-140d-4c24-aa6c-2c74c8ec1654.png"/><p>The settings icon (<span class="inline-icon" title="inline icon">▢</span>) situated in the top-right of the issues table gives access to the following Gantt-specific features:</p><ul><li><p>Click <strong>Go to today</strong> to scroll the chart to the current period automatically.</p></li><li><p>Hold the pointer over the <strong>GANTT</strong> lozenge to see which date fields the Gantt is based on.</p></li><li><p>You can change the chart zoom level. The available options are <strong>D</strong>, <strong>W</strong>, <strong>M</strong>, and <strong>Q</strong>, which represent days, weeks, months, and quarters, respectively.</p></li></ul><img alt="gant options.png" class="doc-image" loading="lazy" src="/cms_trial/assets/b054baaf-8007-423f-91df-ab6d4a88ce0a.png"/>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

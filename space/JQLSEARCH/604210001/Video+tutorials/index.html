@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209972/JQL+Search+Extensions+(Cloud)/">JQL Search Extensions (Cloud)</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Video tutorials</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JQLSEARCH/pages/604210001" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Video tutorials</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><p>Our demo videos for JQL Search Extensions for Jira Cloud show you how to get started from initial setup and saving queries to understanding the difference between Jira’s advanced search and searching with Extended Search. </p><p>Visit our listing on the Atlassian Marketplace to <a href="https://marketplace.atlassian.com/1214791">start a free trial</a>.</p></div><div></div></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><table><tr><td><h3 id="how-do-i-get-started-with-the-app">How Do I Get Started With the App? </h3><div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/-ZoaD813ZXQ"></iframe></div><p>When you install the JQL Search Extensions, it will index your entire Jira instance so that you can easily find what you need. This process will take a few minutes. Here’s what to expect in the initial setup.                             </p></td></tr></table></div><div><table><tr><td><h3 id="how-do-i-use-extended-search-for-reporting">How Do I Use Extended Search for Reporting?</h3><div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/TNntLl9SBo0"></iframe></div><p>There’s a wide array of Jira gadgets you can use for reporting. If you know how to use filters, you can use Search Extensions to create detailed reports with these gadgets. Here, we’ll show you how to use a filter in a pie chart.</p></td></tr></table></div></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><table><tr><td><h3 id="how-can-jql-search-extensions-help-my-projects">How can JQL Search Extensions help my projects?</h3><div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/tg3KHempry0"></iframe></div><div class="img-placeholder">[Unmapped block: nestedExpand]</div><p>To take full advantage of some functions, you’ll need to open the Extended Search page rather than use the advanced search bar in Jira. We’ll show you how to use a popular function that helps prevent scope creep. </p></td></tr></table></div><div><table><tr><td><h3 id="can-i-run-jql-search-extensions-custom-queries-in-jira-search">Can I run JQL Search Extensions custom queries in Jira search?</h3><div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/Vkqhn45jQQ8"></iframe></div><div class="img-placeholder">[Unmapped block: nestedExpand]</div><p>With JQL Search Extensions, you can run custom JQL queries directly in standard Jira searches. Watch the video to learn more. </p></td></tr></table></div></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><table><tr><td><h3 id="how-do-i-save-extended-search-queries-as-filters">How Do I Save Extended Search Queries As Filters?</h3><div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/I-Kn0QT18iI"></iframe></div><p>Any JQL query can be saved as a filter, so you can quickly look it up at any time. JQL filters can be used in reports and apps to make your work easier and more efficient. You save Extended Search queries the same way you save any other JQL query. We’ll show you how to do that and create a subscription to the filter.</p></td></tr></table></div><div><table><tr><td><h3 id="which-extensions-can-i-use-in-advanced-search-in-jira">Which extensions can I use in Advanced Search in Jira?</h3><div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/c27ImUmZhFs"></iframe></div><p>With JQL Search Extensions, you get more than 50 keywords and functions to expand and refine your searches. Keywords can be used directly in the advanced search bar. We’ll show you an example, here.</p></td></tr></table></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193033035/Feature+guide/">Feature guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193162930/Page+macros/">Page macros</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Document Metadata From</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2513600585" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Document Metadata From</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview</h2><p>The <strong>Document</strong> <strong>Metadata From</strong> macro retrieves metadata values from a specific Confluence page. It can be used to retrieve only one metadata value at a time. </p><h2 id="parameters">Parameters</h2><table><tr><th><p><strong>Parameter</strong></p></th><th><p><strong>Description</strong></p></th></tr><tr><td><p><strong>Space </strong><em>(required)</em></p></td><td><p>The space where the target page is located. Defaults to <strong>@self</strong>, which points to the current space.</p></td></tr><tr><td><p><strong>Page </strong><em>(required)</em></p></td><td><p>The page to retrieve the metadata from. The default value <strong>@self</strong> points to the current page.</p></td></tr><tr><td><p><strong>Value </strong><em>(required)</em></p></td><td><p>The name of the metadata to retrieve.</p></td></tr></table><h2 id="add-the-macro">Add the macro</h2><p>To add the Document Metadata Set macro,</p><ol><li><p>On a draft page, type <code>/document metadata from</code>.<br/></p><img alt="Document metadata from macro." class="doc-image" loading="lazy" src="/cms_trial/assets/23e9503f-ee1e-4fce-92b7-589d638fe165.png"/></li><li><p>Click the macro to edit the required values, and click <strong>Insert</strong>.</p></li></ol><img alt="The Insert Metadata From window showing the Space, Page, and Value fields." class="doc-image" loading="lazy" src="/cms_trial/assets/6bd6aea3-a87a-42a8-b1ad-0e0edd661b10.png"/>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

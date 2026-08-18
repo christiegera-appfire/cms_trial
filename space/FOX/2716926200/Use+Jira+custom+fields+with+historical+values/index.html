@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/FOX/602537989/Foxly+-+Backlog+Prioritization+for+Jira/">Foxly - Backlog Prioritization for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/FOX/602537989/Foxly+-+Backlog+Prioritization+for+Jira/">Foxly - Backlog Prioritization for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/FOX/602538082/Tutorials/">Tutorials</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/FOX/846594061/Connect+custom+fields+to+Foxly/">Connect custom fields to Foxly</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Use Jira custom fields with historical values</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/FOX/pages/2716926200" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Use Jira custom fields with historical values</h1>
+    <div class="page-meta">1 min read</div>
     <p>If you decide to use Jira custom fields in prioritization formulas as a replacement for existing prioritization metrics, you may want to preserve the historical values in those custom fields. This can be achieved by exporting data from Foxly and importing it into Jira using Jira’s import functionality.</p><ol><li><p>Create custom fields in Jira that mirror the priority metrics (e.g., an Ease custom field).</p><img alt="Foxly related Jira custom field details page for Ease metric" class="doc-image" loading="lazy" src="/cms_trial/assets/14dedb74-8266-45d1-adfd-5fc21b39f237.png"/></li><li><p>Add these custom fields to the appropriate Jira screens for the relevant spaces so they are visible on all work item types.</p></li><li><p>In <strong>Foxly</strong>, click the <strong>Export table in CSV</strong> button. </p><img alt="Foxly Priorities table with Export table in CSV button highlighted" class="doc-image" loading="lazy" src="/cms_trial/assets/447f9927-2c9d-4040-873c-b5b6a3d0e70f.png"/></li><li><p>In the exported file, split the work item key and summary into separate columns and save the file as a CSV.</p><img alt="Foxly exported CSV with work item key and summary split into columns" class="doc-image" loading="lazy" src="/cms_trial/assets/3b0cd8d8-a9d1-48ac-b23e-a08f1e8547c1.png"/></li><li><p>In Jira admin settings, go to <strong>System</strong> &gt; <strong>Import and Export</strong>, then click <strong>External System Import</strong>.</p></li><li><p><strong>Important:</strong> Switch to the old experience (the new experience does not allow updating existing tickets).</p><img alt="Jira External System Import page with Switch to old experience link" class="doc-image" loading="lazy" src="/cms_trial/assets/d3491c7d-a4af-4f49-b8d9-f55170581522.png"/></li><li><p>Follow the steps in the wizard and select the appropriate Jira space.</p></li><li><p>Map CSV fields to Jira fields. Make sure to map the work item key. If a work item with the same key already exists in Jira, it will be updated.</p><img alt="Jira CSV import field mapping page with work item key mapped" class="doc-image" loading="lazy" src="/cms_trial/assets/aa6c47fd-c880-4feb-a457-a29b93b9570c.png"/></li><li><p>Run the import.</p></li><li><p>In <strong>Foxly</strong>, add the newly created custom fields to the template. Do not change the formula or remove any metrics at this stage. <br/><span class="status-lozenge">IMPORTANT</span> Do NOT delete metrics until you verify that the custom fields have the same values as Foxly’s metrics.</p></li><li><p>Only after confirming that all custom fields contain the correct values can you modify the formula.</p><img alt="Foxly formula editor with custom fields added to template" class="doc-image" loading="lazy" src="/cms_trial/assets/921a7658-62dd-49c4-94f0-222ef9714465.png"/></li></ol>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

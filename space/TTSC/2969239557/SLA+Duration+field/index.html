@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud Help Center</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/35815641/Track+SLAs/">Track SLAs</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/2875654192/Custom+fields/">Custom fields</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">SLA Duration field</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TTSC/pages/2969239557" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>SLA Duration field</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>The <strong>SLA Duration</strong> custom field stores the calculated duration of selected Time to SLA metrics directly inside a Jira work item.</p><h2 id="how-to-create-an-sla-duration-field">How to create an SLA Duration field</h2><ol><li><p>Go to <strong>Apps </strong>&gt;<strong> Time to SLA</strong> &gt;<strong> Administration </strong>&gt;<strong> SLA Fields</strong>.</p></li><li><p>Click the <strong>SLA field</strong> button.</p></li><li><p>Select <strong>TTS -</strong> <strong>SLA Duration</strong>.</p><img alt="SLA field creation menu showing the TTS - SLA Duration field option selected." class="doc-image" loading="lazy" src="/cms_trial/assets/056dfcbb-571f-4756-a10a-dddec20e89c6.png"/></li><li><p>Enter a name.</p></li><li><p>Optionally, provide a description.</p></li><li><p><strong>SLA sources –</strong> Choose which SLAs this field should monitor.</p></li><li><p>Click <strong>Create</strong>.</p></li></ol><h2 id="after-creating-the-field">After creating the field</h2><p>To make the SLA field visible in work items, ensure that:</p><ul><li><p>It is in scope for the correct project and work item type</p></li><li><p>It is added to the relevant screens</p></li><li><p>It is included in the work item layout</p></li></ul><div class="panel panel-note"><p>For detailed steps, refer to Atlassian’s documentation on <a href="https://support.atlassian.com/jira-cloud-administration/docs/create-a-custom-field/"><u>creating</u></a> and <a href="https://support.atlassian.com/jira-cloud-administration/docs/find-your-custom-fields/"><u>managing fields and screens</u></a>.</p></div><h2 id="how-it-appears-in-work-items">How it appears in work items</h2><p>After you create the SLA Duration field and configure Jira, it won’t automatically be applied to all existing work items. For the custom field to attach to a work item, calculate its SLA value, and become visible in the work item navigator, dashboards, queues, or gadgets, <strong>the work item must be opened at least once</strong>.</p><p>The field becomes populated <strong>only</strong> <strong>after</strong> the work item is viewed.</p><div class="panel panel-note"><p><strong>Why does this happen?</strong></p><p>Jira custom fields are calculated and stored when a work item is accessed. They do not automatically recalculate in the background for all existing work items. Once the work item is opened:</p><ul><li><p>Time to SLA calculates the SLA value.</p></li><li><p>The custom field is updated.</p></li></ul><p>This behavior is expected and cannot be disabled.</p></div><p>Once properly configured and opened at least once, the SLA Duration field appears as a standard date field in the work item view. </p><ul><li><p>For each selected SLA, the field shows:</p><img alt="TTS SLA Duration custom field displayed in a Jira work item." class="doc-image" loading="lazy" src="/cms_trial/assets/cee90525-39a8-4e9e-8410-f7e7efdfc357.png"/><ul><li><p>The SLA name</p></li><li><p>For each selected SLA, the field shows:</p><ul><li><p>The SLA name</p></li><li><p>The duration value, depending on the SLA configuration and status</p></li></ul></li></ul></li></ul><p>The value shown in the field follows these rules:</p><ul><li><p>Standard SLAs (with goals):</p><ul><li><p><strong>Before breach:</strong> Displays the remaining duration until the SLA target is reached. The duration is formatted as: <code>Xd Xh Xm Xs</code> (days, hours, minutes, seconds).</p></li><li><p><strong>After breach</strong>: Displays the overdue duration as a negative value, indicating how much time has passed since the breach.</p><img alt="SLA Duration field showing a negative overdue value after an SLA breach." class="doc-image" loading="lazy" src="/cms_trial/assets/5a04da0f-7705-4fb9-bc52-fadfe865d042.png"/></li></ul></li><li><p>SLAs without goals or with <strong>No goal </strong>target:</p><ul><li><p>Displays a hyphen (-), because no target duration is defined.</p><img alt="SLA Duration field displaying a hyphen for an SLA configured without a goal." class="doc-image" loading="lazy" src="/cms_trial/assets/66eceb5f-f248-449c-b204-fec9f63f8647.png"/></li></ul></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

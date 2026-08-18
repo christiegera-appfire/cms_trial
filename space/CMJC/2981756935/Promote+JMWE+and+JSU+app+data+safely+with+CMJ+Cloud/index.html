@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira (CMJ) Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/194117717/Use+Cases/">Use Cases</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Promote JMWE and JSU app data safely with CMJ Cloud</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CMJC/pages/2981756935" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Promote JMWE and JSU app data safely with CMJ Cloud</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview</h2><p>Many Jira Cloud customers rely on powerful workflow apps like Jira Misc Workflow Extensions (JMWE) and Jira Suite Utilities (JSU) to automate processes, enforce governance, and reduce manual work. As Jira environments grow, teams often need to move these workflows between instances — for example, when promoting changes from test to production, consolidating instances, or supporting mergers and acquisitions.</p><p>CMJ Cloud makes it easy to move workflows that include JMWE and JSU configurations between Jira Cloud instances, helping teams standardize automation, reduce risk, and save time.</p><hr/><h2 id="the-challenge">The Challenge</h2><p>Workflows that depend on JMWE or JSU are often complex. They can contain scripts, validators, conditions, post-functions, and deeply nested configuration data. These configurations frequently reference environment-specific Jira object IDs, such as custom fields, which differ between instances. Recreating this setup manually is time-consuming and increases the risk of configuration errors. At the same time, teams need to ensure that any intentional customizations in the target environment are not accidentally overwritten.</p><p>As a result, teams either avoid reusing proven automation or spend significant effort rebuilding workflows in each environment.</p><hr/><h2 id="the-cmj-cloud-solution">The CMJ Cloud Solution</h2><p>CMJ Cloud provides built-in support for deploying workflows that include JMWE and JSU app data as part of its standard migration and deployment process. When exporting configurations, CMJ Cloud captures the full workflow structure, including app-specific settings. During deployment, it intelligently remaps Jira object references so that workflows align with the target environment.</p><p>The following step-by-step guide shows just how easy the whole process is.</p><ol><li><p><a href="/cms_trial/space/CMJC/2506522887/Create+and+manage+snapshots/">Create a snapshot</a> in the source Jira Cloud instance and include the projects that contain workflows modified by JMWE and/or JSU. CMJ Cloud automatically captures the associated workflow configurations and app data as part of the snapshot.</p></li><li><p>Review the snapshot to ensure all relevant configuration items are included. No additional app-specific adjustments are required.</p></li><li><p><a href="/cms_trial/space/CMJC/2507112493/Deploy+a+snapshot/">Deploy the snapshot</a> to the target Jira Cloud instance using the standard CMJ Cloud deployment process. During deployment, CMJ Cloud remaps object references and applies the workflow configuration while preserving protected target-side customizations.</p></li></ol><div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/uwR5qnA8ctU"></iframe></div><hr/><h2 id="jmwe-app-support">JMWE App Support</h2><p>CMJ Cloud understands how JMWE builds workflow logic for conditions, validators, and post-functions.</p><p>During deployment, CMJ Cloud safely synchronizes JMWE-generated logic with the target environment while intentionally protecting any custom scripts or JQL already configured on the target. This ensures workflows behave consistently across environments without overwriting local customizations.</p><p>Post-functions are deployed as expected, allowing teams to reuse JMWE-driven automation with confidence.</p><p><strong>Benefits:</strong></p><ul><li><p>Reuse complex JMWE automation across environments</p></li><li><p>Avoid manual script updates or reconfiguration</p></li><li><p>Reduce risk when promoting workflows to production</p></li></ul><hr/><h2 id="jsu-app-support">JSU App Support</h2><p>JSU workflows often include deeply nested rules and multiple Jira object references. CMJ Cloud handles this complexity automatically.</p><p>When exporting JSU configurations, CMJ Cloud preserves the full structure of the workflow rules. During deployment, it intelligently updates Jira object references — such as custom fields — so the workflow functions correctly in the target environment.</p><p>This allows teams to migrate even advanced JSU automation without simplifying or rebuilding their rules.</p><p><strong>Benefits:</strong></p><ul><li><p>Deploy complex JSU workflows without manual effort</p></li><li><p>Maintain workflow logic and structure across instances</p></li><li><p>Ensure correct field and object mapping every time</p></li></ul><hr/>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

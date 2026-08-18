@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/FOX/602537989/Foxly+-+Backlog+Prioritization+for+Jira/">Foxly - Backlog Prioritization for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/FOX/602537989/Foxly+-+Backlog+Prioritization+for+Jira/">Foxly - Backlog Prioritization for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/FOX/602538082/Tutorials/">Tutorials</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/FOX/602538203/Store+metric+in+a+custom+field/">Store metric in a custom field</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">How to correct discrepancies between Foxly metrics and Jira custom fields created from Foxly</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/FOX/pages/602538179" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>How to correct discrepancies between Foxly metrics and Jira custom fields created from Foxly</h1>
+    <div class="page-meta">1 min read</div>
     <p>If a Foxly metric has a custom field linked to it and is configured as <strong>required</strong> in Jira, then any update to the metric—adding, renaming, or deleting metric options (custom field options that were created before)—will cause a discrepancy.</p><p>If there is a discrepancy between a Foxly metric and Jira custom field, you will receive the following warning message when saving the prioritization template:</p><img alt="Error message in Foxly" class="doc-image" loading="lazy" src="/cms_trial/assets/e2f9f55d-19f9-4899-8c8e-325c6b27b0b0.png"/><p>Use the following steps to correct the discrepancy:</p><ol><li><p><a href="https://support.atlassian.com/jira-cloud-administration/docs/change-a-field-configuration/#:~:text=issue%20view.-,Make%20a%20field%20required%20or%20optional,-Depending%20on%20your">Make Foxly custom field not-required (optional) in Jira field configuration</a>.</p></li><li><p>Go to Foxly and uncheck the checkbox for the metric to be <strong>stored in the custom field</strong>.</p></li><li><p>Save the template.</p></li><li><p>Go back to Foxly and select <strong>store in the custom field</strong>.</p></li><li><p>Save the template.</p></li><li><p>Add the field back to Jira.</p></li><li><p>Make the field <strong>required </strong>again in Jira field configuration.</p></li></ol><img alt="How to enable Jira custom field in Foxly" class="doc-image" loading="lazy" src="/cms_trial/assets/c8f6a176-4ace-412b-b9df-a883c79f4f16.png"/><div class="panel panel-note"><p>Read more about <a href="/cms_trial/space/FOX/602538203/Store+metric+in+a+custom+field/">storing metric in a custom field</a>.</p></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

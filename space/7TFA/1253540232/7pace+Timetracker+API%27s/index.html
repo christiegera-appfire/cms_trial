@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/3511091204/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253540447/Frequently+Asked+Questions/">Frequently Asked Questions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">7pace Timetracker API's</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/7TFA/pages/1253540232" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>7pace Timetracker API's</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="what-kind-of-api-s-does-7pace-timetracker-have-and-what-are-they-used-for">What kind of API's does 7pace Timetracker have and what are they used for?</h2><p>7pace has three sets of API's:</p><ul><li><p><a href="/cms_trial/space/7TFA/1253540003/7pace+Timetracker+REST+CRUD+API+Version+3/">REST CRUD API</a> </p></li><li><p><a href="/cms_trial/space/7TFA/1253540758/7pace+Timetracker+Client+(Tracking)+API/">Client (Tracking) API</a> </p></li><li><p><a href="/cms_trial/space/7TFA/1253540266/7pace+Timetracker+Reporting+API+Version+3/">Reporting API</a></p></li></ul><p>The <a href="/cms_trial/space/7TFA/1253540003/7pace+Timetracker+REST+CRUD+API+Version+3/">REST CRUD API</a> allows you to perform standard time tracking operations such as tracking time, submitting time for approval, approving time, etc. Any operation that you perform from the UI is available through the REST CRUD subset of API's.</p><p>The REST CRUD API also allows you to get information about the following:</p><ul><li><p>Active and inactive Timetracker users</p></li><li><p>User roles and assigned licenses (and to manage them)</p></li><li><p>Activity types</p></li><li><p>Approval state of weeks<br/></p></li></ul><p>For example, you can <a href="/cms_trial/space/7TFA/1253539939/How+to+export+a+list+of+all+licensed+users/">export a list of all licensed users</a> by using the <em>users/roles</em> endpoint of the REST CRUD API, or you can fetch the approval state from a specific date with the <em>timeApproval</em> endpoint, and also use the same endpoint to send weeks for approval or revoke approval with a POST REST API call.</p><p>There is also the <em>workLogs</em> endpoint that can be used to see a list of worklogs for the current user or from all of the users, and it can also be used to create worklogs either for just one user or multiple users, or even a batch of worklogs all at once.</p><p>With the <em>activityTypes</em> endpoint you are able to see the state of the activity types in your system, their names and ID's.</p><p>The <a href="/cms_trial/space/7TFA/1253540758/7pace+Timetracker+Client+(Tracking)+API/">Client (Tracking) API</a> is used by the 7pace Timetracker web interface, as well as our downloadable desktop app. Our web client and desktop app offer a user friendly UI with several options to track time. The Client API allows you to perform the same actions as the web client and the desktop app, by utilizing a REST call. Although this may not be something that you would use on a daily basis, it allows integration and communication with third-party tools and apps. It can be used to build an integration of Timetracker with other applications.</p><p>The <a href="/cms_trial/space/7TFA/1253540266/7pace+Timetracker+Reporting+API+Version+3/">Reporting API </a>allows you to get a combined output from both 7pace Timetracker’s own data as well as Azure DevOps’ proprietary data. </p><p>This API encompasses Timetracker data such as worklogs, the work items linked to worklogs, and the ability to build queries to work items and their hierarchy.</p><p>The Timetracker Reporting API and most of the syntax supported is based on the OData framework.</p><p>We have extensive <a href="/cms_trial/space/7TFA/1253540266/7pace+Timetracker+Reporting+API+Version+3/">documentation and tutorials</a> on how to use the Reporting API to achieve your reporting needs. We also have a <a href="/cms_trial/space/7TFA/1253540063/7pace+Timetracker%27s+Reporting+Widgets+Gallery/">Widgets Gallery</a> that we continuously update with new reporting widgets that address the needs of our users.</p><p>The main thing that can be achieved with the Reporting API is to create reports which can help Timetracker users in their day to day reporting needs.</p><p>For instance you can have a report that tells you all the time that has been tracked on your work items between two dates, who tracked it, what is the work item ID, its name and the work item status it is in, and also to which budget it belongs to. For this purpose you would use the <em>workLogsWorkItems</em> endpoint as it provides data both from DevOps work items as well as Timetracker worklogs (tracked time).</p><p>To get just the Timetracker data about tracked time that you can export to be used use somewhere else, you should use the <em>workLogsOnly</em> endpoint, which is a simple and fast endpoint.</p><p>If you wish to see total tracked time rolled up to the root work item, the <em>workItemsHierarchy</em> endpoint is designed for this purpose. It will show time that has been tracked on all of the children work items rolled up and summed to the root item level.</p><p>However, to see the entire hierarchy and what was tracked on each individual work item within the hierarchy, you will need to use the workItemsHierarchyAllLevels endpoint.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

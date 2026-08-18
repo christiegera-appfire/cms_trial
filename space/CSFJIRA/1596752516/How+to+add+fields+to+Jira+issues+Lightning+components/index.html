@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1891206842/Configure/">Configure</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">How to add fields to Jira issues Lightning components</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/1596752516" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>How to add fields to Jira issues Lightning components</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="purpose">Purpose</h2><p>This article explains how to add and configure fields displayed on the Salesforce Lightning components.</p><h2 id="answer">Answer</h2><p>You can configure the available fields on the installed package. The configurable fields are highlighted below:</p><img alt="contentId-1596752516" class="doc-image" loading="lazy" src="/cms_trial/assets/5444956c-4e40-493e-b43b-ca646fbc7394.png?version=1&amp;modificationDate=1678856755031&amp;cacheVersion=1&amp;api=v2"/></div><div></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div></div><div></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><p>In the Salesforce package (Salesforce Setup &gt; Installed Packages &gt; JIRA Cloud for Salesforce, click on the <strong>Configure</strong> link), you will find a section called <strong>Available Fields</strong>, as shown in the image below:</p><div class="panel panel-warning"><p>Fields cannot be re-ordered by dragging the fields.  The Salesforce user must delete the fields then re-add them according to the correct sorted order.</p></div><img alt="contentId-1596752516" class="doc-image" loading="lazy" src="/cms_trial/assets/1b3e6e1b-a0a5-4f39-a0bc-3911e45a6817.png?version=1&amp;modificationDate=1678856754902&amp;cacheVersion=1&amp;api=v2"/><p>This section shows you what fields are being displayed in the lightning component. Also, you can add fields by pressing the <strong>Add Jira Fields</strong> button and looking for the field available on Jira that you want to add.</p><img alt="contentId-1596752516" class="doc-image" loading="lazy" src="/cms_trial/assets/2d31601c-79c9-4105-abb0-90df5932f3a3.png?version=1&amp;modificationDate=1678856754966&amp;cacheVersion=1&amp;api=v2"/><p>Once you've added the wanted field to the available fields, this can be confirmed by going back to the Lightning component and checking if the field has been added. In this example you can see that the <strong>Reporter</strong> field was added.</p><img alt="image-20241213-123929.png" class="doc-image" loading="lazy" src="/cms_trial/assets/42a838db-f0d8-435a-a526-24a228f98141.png"/></div><div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

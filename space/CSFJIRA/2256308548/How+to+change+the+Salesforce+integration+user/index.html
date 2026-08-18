@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1891206842/Configure/">Configure</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">How to change the Salesforce integration user</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/2256308548" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>How to change the Salesforce integration user</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="purpose">Purpose</h2><p>When an administrator installs Space to migrate individual pages and authorizes a Connection, the administrator will automatically be the integration user for the Connector since a Connection is authorized using the Jira administrator's Salesforce credentials.</p><p>If the user ceases to be the Jira administrator, you might want to change the integration user for the Connector. </p></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="answer">Answer</h2><p>Revoke the Connection from within both Salesforce and Jira to force creation of a new token.</p></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><ol><li><p>Log out of Salesforce first (⚠️ Important).</p></li><li><p>In your Jira instance, navigate to <strong>Jira Apps</strong> &gt; <strong>Connector for Salesforce</strong> &gt; <strong>Connections</strong> </p></li><li><p> Click <strong>Revoke Access</strong> to revoke the connection.</p></li><li><p>While on the same page, click <strong>Authorize</strong>. </p></li></ol><h2 id="authorize-the-connection">Authorize the connection</h2><ol><li><p><a href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/1873379905/Set+up+a+connection+to+Salesforce+Jira+DC#Authorize-with-the-Web-Flow-(recommended-way)"><u>Authorize the connection</u></a> - More secure and follows current best practices<br/>In case you need to set it up again, go to the detailed <a href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/1873379905">instructions</a>.</p></li><li><p>Select the environment type of your Salesforce instance: <strong>Production</strong> or <strong>Sandbox.</strong></p></li><li><p>Click <strong>Authorize</strong>.</p></li><li><p>After successfully logging into Salesforce, return to your Jira instance (do not close the Salesforce window yet). <br/>Click <strong>Menu</strong> (<div class="img-placeholder">[Unmapped macro: inline-media-image — no content to fall back on]</div>)&gt; <strong>API Access token</strong> &gt; <strong>Copy</strong>.</p></li><li><p>Return to the Salesforce window. Click <strong>Setup</strong> &gt; <strong>Installed packages</strong> &gt; <strong>Configure </strong>the Jira for Salesforce<strong> </strong>package. </p></li><li><p> Click <strong>Revoke Access.</strong> </p></li><li><p>Paste the API Access token you copied into the <strong>Access token</strong> field and click <strong>Save</strong>.</p></li></ol></div></div><p><br/></p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

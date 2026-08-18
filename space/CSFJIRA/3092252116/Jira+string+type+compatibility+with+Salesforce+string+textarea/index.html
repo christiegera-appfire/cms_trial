@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1891206842/Configure/">Configure</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Jira string type compatibility with Salesforce string textarea</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3092252116" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Jira string type compatibility with Salesforce string textarea</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="summary">Summary</h2><p>You can get Salesforce HTML formatted fields translated to Jira text area fields starting with release versions 2.36.17 of Connector for Salesforce and Jira.</p><h2 id="environment">Environment</h2><ul><li><p><a href="https://confluence.atlassian.com/support/atlassian-support-end-of-life-policy-201851003.html">Supported Jira version</a></p></li></ul><h2 id="resolution">Resolution</h2><h3 id="prerequisites">Prerequisites</h3><ul><li><p>Using Connector for Salesforce and <a href="https://confluence.atlassian.com/support/atlassian-support-end-of-life-policy-201851003.html">supported Jira version</a>.<br/></p></li><li><p>Using a Salesforce field with <strong>Text Area (Rich) </strong>type<br/>For instructions check Salesforce documentation <a href="https://help.salesforce.com/s/articleView?id=ind.doc_gen_create_custom_rich_text_fields_in_your_object.htm&amp;type=5">Create custom Rich Text Fields for your Object</a>.</p><img alt="TextArea rich.png" class="doc-image" loading="lazy" src="/cms_trial/assets/cdbeb465-1c07-4ef3-8b95-51ed916e2691.png"/></li><li><p>Using Jira field with <strong>Paragraph </strong>type</p><img alt="custom fields select.png" class="doc-image" loading="lazy" src="/cms_trial/assets/af9e33f0-7036-456e-9c30-e2f8d503fba2.png"/></li></ul></div><div></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h3 id="steps"><strong>Steps:</strong></h3><ol><li><p> Set the renderer of this particular Jira field to <strong>Wiki Style Renderer</strong></p><ol><li><p>First select the <strong>Field Configurations </strong>as illustrated below then navigate to <strong>Settings </strong>area. Click <strong>Issues</strong>.<br/></p><img alt="Settings Issues.png" class="doc-image" loading="lazy" src="/cms_trial/assets/48ec1036-8424-4cd3-8821-25de8fdadcb8.png"/><p> <br/></p></li><li><p>Set the renderer to <strong>Wiki Style Renderer. </strong>Optionally, refer to Atlassian’s <a href="https://support.atlassian.com/jira-cloud-administration/docs/specify-field-behavior/?__hstc=72543820.4e76311f874131a99198a462418b615c.1678085111437.1678938561256.1678943188858.44&amp;__hssc=72543820.27.1678943188858&amp;__hsfp=3075603085">guide</a> on setting the renderer for a particular field.<br/></p><img alt="Wiki Style Recerer.png" class="doc-image" loading="lazy" src="/cms_trial/assets/ef67f7ac-56a8-453c-9f13-156137dacb9d.png"/><p><br/></p></li></ol></li><li><p>Configure the field mapping.<br/>⚠️ Salesforce field with <strong>Text Area (Rich)</strong>  type will be labeled differently, as compared to the general <strong>Text Area </strong>type…</p><img alt="2024-11-27_12-22-56.png" class="doc-image" loading="lazy" src="/cms_trial/assets/f65f568c-143d-440e-be26-3b695b3917f4.png"/><p> <br/></p></li></ol><div class="panel panel-warning"><h3 id="known-limitations">Known Limitations</h3><p>List of common differences in the transition output between <strong>Salesforce’s HTML</strong> and <strong>Jira’s Wiki Marku</strong></p><ul><li><p>Images are not rendered</p></li><li><p>Code blocks are not rendered</p></li></ul></div></div><div></div></div><p><br/></p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490996521/Feature+guides/">Feature guides</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490997937/JQL+Support/">JQL Support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/1248591910/Enhanced+Search+View+with+JQL+Search+Extensions/">Enhanced Search View with JQL Search Extensions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Identify issues related to a service desk project</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/1248133124" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Identify issues related to a service desk project</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>This use case combines a JQL Search Extensions keyword with Power Script’s SIL Manager and Scheduler to automatically add a label to issues from Support so they are easier to view by developers.</p><div class="panel panel-note"><p>If you are not already using JQL Search Extensions, you can try out these features with a free trial license. Visit our JQL Search Extensions <a href="https://marketplace.atlassian.com/apps/1214791/jql-search-extensions-for-jira?hosting=cloud&amp;tab=overview">marketplace listing </a>to learn more.</p></div><table><tr><td><p><strong>Scenario</strong></p></td><td><p><em>A development team isn’t resolving issues coming from support in the expected time.</em></p><p><strong>Solution</strong>: Build a scheduled task that labels all issues linked to a support issue as <code>support</code> so that they will be visible in a Jira filter or a dashboard.</p></td></tr><tr><td><p><strong>JSE keyword</strong></p></td><td><p><code>linkedByIssueProject</code></p></td></tr><tr><td><p><strong>PowerScripts features</strong></p></td><td><p>SIL Manager and Scheduler</p></td></tr><tr><td><p><strong>Method</strong></p></td><td><ol><li><p>In Jira, go to <strong>Settings</strong> &gt; <strong>Apps</strong> &gt; <strong>Manage apps</strong>.</p></li><li><p>In the Apps sidebar menu, under <em>POWER SCRIPTS</em>, select <strong>SIL Manager</strong>.</p></li><li><p>On the <em>SIL Manager</em> page, select <strong>File</strong> &gt; <strong>New file</strong> to create a new file.</p></li><li><p>Add the following script to the file, and replace <code>MyProject</code> with your project details.</p><pre><code class="language-">string [] issues = selectIssues("project = MyProject AND linkedByIssueProject = SUPPORT AND (labels IS EMPTY OR labels != support)");
 for(string i in issues) {
   %issueKey%.labels += "support";
@@ -157,6 +162,64 @@ for(string i in issues) {
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

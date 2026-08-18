@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209587/JQL+Search+Extensions+-+Data+Center/">JQL Search Extensions - Data Center</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">JQL functions reference</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JQLSEARCH/pages/1865482654" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>JQL functions reference</h1>
+    <div class="page-meta">14 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p> Use this JQL functions reference to learn how to use the advanced search functions provided by <strong>JQL Search Extensions</strong>. This page explains the available functions, their syntax, and example queries to find Jira issues by project, field, attachment, comment, version, link, update, and other issue details.</p><div class="panel panel-note"><p>The instructions on this page describe how to use the functions from <a href="https://marketplace.atlassian.com/apps/1214791/jql-search-extensions-for-jira-the-jql-extensions?hosting=datacenter&amp;tab=overview">JQL Search Extensions</a>.</p><p>JQL Search Extensions are accessed from Jira’s <a href="https://confluence.atlassian.com/jirasoftwareserver/advanced-searching-939938733.html">Advanced search</a>.</p></div><h2 id="projects">  Projects</h2><div class="panel panel-note"><h3 id="movedissues-projectkey"><strong>movedIssues(projectKey)</strong></h3><p>Finds issues which moved from the project in argument. For instance: </p><pre><code class="language-">project = SEARCHSERVER AND issue in movedIssues("SEARCHCLOUD")</code></pre><p>Will find all issues which are in project SEARCHSERVER and moved from project SEARCHCLOUD. </p></div><h2 id="fields">Fields</h2><div class="panel panel-note"><h3 id="fieldmatch-jql-subquery-field-name-regexp"><strong>fieldMatch(jql-subquery, field-name, regexp)</strong></h3><p>FieldMatch can be used to find issues with field matching the regular expression in the argument. For instance:</p><pre><code class="language-">issue in fieldMatch("project = SEARCH", "description", "find issues mat*")</code></pre><p>Will find all issues with description field matching the regular expression <code>find issues mat*</code>. </p><p>The <code>asterisk *</code> matches any alphanumeric characters. It is also possible to use all regular expression constructs, such as</p><pre><code class="language-">issue in fieldMatch("project = SEARCH", "description", "find issu[a-z]{2} mat*") 
 issue in fieldMatch("project = SEARCH", "my custom field", "f[a-z]{5}</code></pre><p>This function can be used with any system or custom field.</p><p>For documentation of of regular expression constructs, refer to the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html">documentation</a> from Oracle. </p><h3 id="fieldshavesamevalue-jql-subquery-field-name1-field-name2-field-name-x"><strong>fieldsHaveSameValue(jql-subquery, field-name1, field-name2,...,field-name-x)</strong></h3><p>FieldsHaveSameValue can be used to find issues with fields having the same value. For instance: </p><pre><code class="language-">issue in fieldsHaveSameValue("version", "my-custom-field-with-version")</code></pre><p>It is possible to use multiple fields in the expression, such as below: </p><pre><code class="language-">issue in fieldsHaveSameValue("version", "my-custom-field-with-version", "one-more-field-with-version")</code></pre><p>It is also possible to add JQL subquery to the expression. It will narrow the search only to those issues which match the subquery (in the example below, are in the project DEMO and have the same value of fields version and my-custom-field-with-version).</p><pre><code class="language-">issue in fieldsHaveSameValue("project = SEARCH", "version", "my-custom-field-with-version")</code></pre><p>In case fields contain multiple values (for instance, there are many values of field version) the function will expect all values to be equal (but doesn't expect the same order). </p></div><h2 id="attachments">Attachments</h2><div class="panel panel-note"><h3 id="attachedafter"><strong>AttachedAfter</strong></h3><p>AttachedAfter can be used to find issues with attachments added after particular date. Expected date format is yyyy-MM-dd (year dash month dash day of the month) or dd-MM-YYYY</p><pre><code class="language-">issue in attachedAfter("2018-05-26")</code></pre><h3 id="attachedbefore"><strong>AttachedBefore</strong></h3><p>AttachedBefore can be used to find issues with attachments added before particular date. Expected date format is yyyy-MM-dd (year dash month dash day of the month) or dd-MM-YYYY</p><pre><code class="language-">issue in attachedBefore("2018-05-26")</code></pre><h3 id="attachedbetween"><strong>AttachedBetween</strong></h3><p>AttachedBetween can be used to find issues with attachments added between particular dates. Expected date format is yyyy-MM-dd (year dash month dash day of the month) or dd-MM-YYYY</p><pre><code class="language-">issue in attachedBetween("2018-05-26", "2018-07-01")</code></pre><h3 id="attachedondate"><strong>AttachedOnDate</strong></h3><p>AttachedOnDate can be used to find issues with attachments added on particular dates. Expected date format is yyyy-MM-dd (year dash month dash day of the month) or dd-MM-YYYY</p><pre><code class="language-">issue in attachedOnDate("2018-05-26")</code></pre><h3 id="attachedbyuser"><strong>AttachedByUser</strong></h3><p>AttachedByUser can be used to find issues with attachments added by a particular user (username is expected)</p><pre><code class="language-">issue in attachedByUser("filip")</code></pre><p>This function can be used together with membersOf to find issues attached by users who are members of a particular group.</p><pre><code class="language-">issue in attachedByUser("membersOf(employees)")</code></pre><h3 id="attachmentextension"><strong>AttachmentExtension</strong></h3><p>AttachmentExtension can be used to find issues with attachments with particular extension.</p><pre><code class="language-">issue in attachmentExtension("pdf")</code></pre><h3 id="attachmentname"><strong>AttachmentName</strong></h3><p>AttachmentName can used to find issues with attachments with particular name.</p><pre><code class="language-">issue in attachedName("documentation")</code></pre><h3 id="attachmentscountequalto"><strong>AttachmentsCountEqualTo</strong></h3><p>AttachmentsCountEqualTo can be used to find issues with particular number of attachments.</p><pre><code class="language-">issue in attachmentsCountEqualTo(2)</code></pre><h3 id="attachmentscountgreaterthan"><strong>AttachmentsCountGreaterThan</strong></h3><p>AttachmentsCountGreaterThan can be used to find issues with number of attachments greater than provided number</p><pre><code class="language-">issue in attachmentsCountGreaterThan(1)</code></pre><h3 id="attachmentscountlessthan"><strong>AttachmentsCountLessThan</strong></h3><p>AttachmentsCountLessThan can be used to find issues with number of attachments lesser than provided number</p><pre><code class="language-">issue in attachmentsCountLessThan(2)</code></pre></div><h2 id="comments">Comments</h2><div class="panel panel-note"><h3 id="commentedafter"><strong>CommentedAfter</strong></h3><p>CommentedAfter can be used to find issues with comments added after particular date. Expected date format is yyyy-MM-dd (year dash month dash day of the month) or dd-MM-YYYY</p><pre><code class="language-">issue in commentedAfter("2018-05-26")</code></pre><h3 id="commentedbefore"><strong>CommentedBefore</strong></h3><p>CommentedBefore can be used to find issues with comments added before particular date. Expected date format is yyyy-MM-dd (year dash month dash day of the month) or dd-MM-YYYY</p><pre><code class="language-">issue in commentedBefore("2018-05-26")</code></pre><h3 id="commentedbetween"><strong>CommentedBetween</strong></h3><p>CommentedBetween can be used to find issues with comments added between particular dates. Expected date format is yyyy-MM-dd (year dash month dash day of the month) or dd-MM-YYYY</p><pre><code class="language-">issue in commentedBetween("2018-05-26", "2018-07-01")</code></pre><h3 id="commentedondate"><strong>CommentedOnDate</strong></h3><p>CommentedOnDate can be used to find issues with comments added on particular dates. Expected date format is yyyy-MM-dd (year dash month dash day of the month) or dd-MM-YYYY</p><pre><code class="language-">issue in commentedOnDate("2018-05-26")</code></pre><h3 id="commentedbyuser"><strong>CommentedByUser</strong></h3><p>CommentedByUser can be used to find issues with comments added by a particular user (username is expected)</p><pre><code class="language-">issue in commentedByUser("filip")</code></pre><p>This function can be used together with membersOf to find issues commented by users who are members of a particular group.</p><pre><code class="language-">issue in commentedByUser("membersOf(employees)")</code></pre><h3 id="commentscountequalto"><strong>CommentsCountEqualTo</strong></h3><p>CommentsCountEqualTo can be used to find issues with particular number of comments.</p><pre><code class="language-">issue in commentsCountEqualTo(2)</code></pre><h3 id="commentscountgreaterthan"><strong>CommentsCountGreaterThan</strong></h3><p>CommentsCountGreaterThan can be used to find issues with number of comments greater than provided number</p><pre><code class="language-">issue in commentsCountGreaterThan(2)</code></pre><h3 id="commentscountlessthan"><strong>CommentsCountLessThan</strong></h3><p>CommentsCountLessThan can be used to find issues with number of comments lesser than provided number</p><pre><code class="language-">issue in commentsCountLessThan(2)</code></pre></div><h2 id="versions">Versions</h2><div class="panel panel-note"><h3 id="affectedversionsarchivedcountlessthan"><strong>AffectedVersionsArchivedCountLessThan</strong></h3><h3 id="fixversionsarchivedcountlessthan"><strong>FixVersionsArchivedCountLessThan</strong></h3><p>AffectedVersionsArchivedCountLessThan and FixVersionsArchivedCountLessThan can be used to find issues with number of archived versions less than provided number.</p><pre><code class="language-">issue in affectedVersionsArchivedCountLessThan(2) OR issue in fixVersionsArchivedCountLessThan(2)
 </code></pre><h3 id="affectedversionsarchivedcountequalto"><strong>AffectedVersionsArchivedCountEqualTo</strong></h3><h3 id="fixversionsarchivedcountequalto"><strong>FixVersionsArchivedCountEqualTo</strong></h3><p>AffectedVersionsArchivedCountEqualTo and FixVersionsArchivedCountEqualTo can be used to find issues with number of archived versions equal to provided number.</p><pre><code class="language-">issue in affectedVersionsArchivedCountEqualTo(2) OR issue in fixVersionsArchivedCountEqualTo(2)
@@ -185,6 +190,64 @@ assignee in userMatch("dan[a-z]{3}") // matching dan followed by three lowercase
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud) Documentation</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941853/Release+Notes/">Release Notes</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/1595769075/Release+notes+2021%E2%80%932024/">Release notes 2021–2024</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783943818/2022/">2022</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">February 28, 2022</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/783942344" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>February 28, 2022</h1>
+    <div class="page-meta">1 min read</div>
     <h2 id="support-for-cumulative-aggregation-in-flexi-charts-based-on-dates">Support for cumulative aggregation in flexi charts based on dates</h2><p><a href="/cms_trial/space/RFCDOC/783941863/The+Rich+Filter+Flexi+Charts+Gadget/">Rich Filter Flexi Charts</a> gadgets configured to display charts based on date &amp; date-time fields are now enriched with options for cumulative aggregation of data. The following <em>aggregation types </em>are available:</p><ul><li><p><strong>Period value</strong>: this is the default option (and the only one previously available) – the chart displays the values of each individual aggregation period;</p></li><li><p><strong>Cumulative trend</strong>: progressively adds the values from the previous periods, including only the issues starting with the first period of the chart;</p></li><li><p><strong>Cumulative total</strong>: progressively adds the values from the previous periods, including the issues before the first period.</p></li></ul><p>This feature is compatible with 1D and 2D date-based charts (bar, clustered bar, and stacked bar).</p><p>Example of a bar chart of <em>Story Points</em> by <em>Due date</em> with <em>Cumulative trend </em>aggregation type:</p><img alt="contentId-783942344" class="doc-image" loading="lazy" src="/cms_trial/assets/9118786a-923e-4667-a1d0-e64f70353801.png"/><p>For more information about the <em>Rich Filter Flexi Charts </em>gadget, look at its <a href="/cms_trial/space/RFCDOC/783941863/The+Rich+Filter+Flexi+Charts+Gadget/">documentation page</a>.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

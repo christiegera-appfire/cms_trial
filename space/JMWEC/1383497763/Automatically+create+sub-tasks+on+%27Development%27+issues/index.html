@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/466225276/Use+cases/">Use cases</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/2219508313/Use+Cases+for+Actions/">Use Cases for Actions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Automatically create sub-tasks on 'Development' issues</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/1383497763" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Automatically create sub-tasks on 'Development' issues</h1>
+    <div class="page-meta">5 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><table><tr><th><p><strong>Goal</strong></p></th><th><p>Automatically create sub-tasks for new Development issues.</p></th></tr><tr><th><p><strong>Scenario</strong></p></th><td><p>You want to automatically create sub-tasks for specific non-Developer teams to ensure that new or updated features are reviewed by teams that are downstream of primary development. </p></td></tr><tr><th><p><strong>Components</strong></p></th><td><p><a href="/cms_trial/space/JMWEC/465473524/Event-based+actions/">Event-based Action</a>: Issue created event, <a href="/cms_trial/space/JMWEC/466256916/Create+issue(s)/">Create issue(s)</a> post function, <a href="/cms_trial/space/JMWEC/465504849/Set+issue+fields/">Set issue fields</a> post function</p></td></tr><tr><th><p><strong>Baseline</strong></p></th><td><ul><li><p>“Development issues” are for your development team only and are limited to the issue types <strong>Story</strong> and <strong>Tasks</strong>. </p></li><li><p>Issue types such as Epics (e.g. for Product/Project Management) and Bugs (for QA) will not trigger this event. </p></li><li><p>The post functions are configured to create <strong>sub-tasks</strong> on Stories and Tasks.</p></li></ul></td></tr></table><p>In these scenarios, some examples of useful related issues or sub-tasks are:</p><ul><li><p>QA issues for testing and verification</p></li><li><p>Documentation tasks</p></li><li><p>“Review” tasks for Support teams, Marketing, or Project Management  </p></li></ul><div class="panel panel-note"><h3 id="alternate-configurations">Alternate Configurations</h3><p>Your workflows may use different organization, or you may want to use different methods of designating Development issues.</p><p>Be sure to review the <strong>Alternate Configuration</strong> callouts below for suggestions on how to modify this configuration for your specific circumstances!</p></div></div></div><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h2 id="requirements">Requirements</h2><ul><li><p>JIRA Administrator login</p></li><li><p><a href="https://marketplace.atlassian.com/apps/292/jira-misc-workflow-extensions-jmwe">Jira Misc Workflow Extensions Cloud</a></p></li><li><p>The issue types <strong>Story</strong> and <strong>Tasks</strong> are reserved for development use only</p></li></ul><h2 id="1-create-the-event-based-action">1. Create the Event-based Action</h2><ol><li><p>Log into your instance as an administrator. </p></li><li><p>Click on the <strong>Settings </strong>icon ⚙️ in the upper right corner.</p></li><li><p>Select <strong>Apps</strong>.</p></li><li><p>In the left-hand panel under <em>JIRA MISC WORKFLOW EXTENSIONS, </em>click <strong>Event-based actions</strong> and click <strong>Create new action</strong> in the upper right corner.</p></li><li><p>Give your Event-based action a name and, optionally, a description. </p></li><li><p>Under <strong>WHEN</strong>, make sure <strong>Select Event</strong> is selected. In the right-hand panel, select <strong>Issue Created</strong> (<strong>Figure 1</strong>, right). </p></li><li><p>Set the other options under <strong>WHEN</strong> as needed. </p></li><li><p>Under <strong>IF SCOPE</strong>: </p><ol><li><p>Leave <strong>Projects</strong> set to Any. </p></li><li><p>Click <strong>Issue Types</strong>.</p></li><li><p>In the upper-right corner of the right panel, click <strong>Select Issue types</strong>. </p></li><li><p>Check the boxes for <strong>Story</strong> and <strong>Task </strong>(<strong>Point 1</strong>, <strong>Figure 2</strong>, right). </p></li><li><p>Click <strong>Add </strong>(<strong>Point 2</strong>, <strong>Figure 2</strong>, right). </p></li></ol></li></ol><div class="panel panel-note"><h3 id="alternate-configuration">Alternate Configuration</h3><ul><li><p>You may use Stories and Tasks for additional teams, so you don’t want to create related issues/sub-tasks for every Story and Task <br/><br/>&lt;use custom issue types, labels to designate Development issues, or check User/Team assignment&gt;</p></li></ul></div></div><div><img alt="Event-based Action select event configuration" class="doc-image" loading="lazy" src="/cms_trial/assets/2839735e-89ec-4e2f-ac49-b7265380c517.png"/><img alt="Event-based action select issue type configuration" class="doc-image" loading="lazy" src="/cms_trial/assets/7c20cca6-981c-4a11-ae53-b5a8e0272851.png"/></div></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h2 id="2-add-the-create-issue-s-post-function">2. Add the <em>Create issue(s)</em> post function</h2><div class="panel panel-note"><p>In the first post function we will create two sub-tasks - one for the QA Team and one for Documentation. </p></div><ol><li><p>Under <strong>THEN</strong>, click <strong>Select Post-functions</strong>. </p></li><li><p>In the right-hand panel, click <strong>Create issue(s)</strong> in the list of post functions. The <a href="/cms_trial/space/JMWEC/466256916/Create+issue(s)/">Create issue(s)</a> configuration screen will open. </p></li><li><p>Leave <strong>Project</strong> as <em>Same as current issue</em>.</p></li><li><p>For <strong>Issue type</strong> select <em>Sub-task </em>(<strong>Point 1</strong>, <strong>Figure 3</strong>, right). </p></li><li><p>Leave <strong>Parent issue</strong> and <strong>Link type</strong> as the default values. </p></li><li><p>For <strong>Summary</strong> select <em>Custom value from script</em>. </p></li><li><p>Under <strong>New value</strong> enter the following script (<strong>Point 2</strong>, <strong>Figure 3</strong>, right): <br/><code>{{it}} for {{issue.fields.issuekey}} - {{issue.fields.summary}}</code></p></li><li><p>Expand the <strong>Advanced options</strong> section, then expand <strong>Actions after issue creation</strong>. </p></li><li><p>Check <strong>Create multiple issues</strong>. </p></li><li><p>Under <strong>Iterator</strong>, enter the following (<strong>Point 3</strong>, <strong>Figure 3</strong>, right) to create 2 sub-tasks (one for each value in the comma-separated list): <br/><code>QA - Testing, Documentation - Updates</code></p></li><li><p>Click <strong>Save</strong> to save your post function configuration. </p></li></ol><div class="panel panel-note"><h3 id="alternate-configuration-2">Alternate Configuration</h3><ul><li><p>You may want to automatically create related issues for other issue types &lt;expand the types of issues included in the EBA&gt;</p></li><li><p>You may  want to <strong>always</strong> create some related issues/sub-tasks, but only <strong>conditionally</strong> create others &lt;use labels to designate issues requiring QA or documentation, and check for those labels in Conditional Execution of the PFs&gt;</p></li></ul><p>Check labels for conditional sub-tasks (Nunjucks in the Iterator option)</p></div></div><div><img alt="Create issues post function configuration" class="doc-image" loading="lazy" src="/cms_trial/assets/b864ab6d-225a-407c-a919-4d8679446c5c.png"/></div></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h2 id="3-add-the-set-issue-fields-post-function">3. Add the <em>Set issue fields</em> post function</h2><div class="panel panel-note"><p>While the <strong>Create issue(s)</strong> post function enables you to copy values from the source issue to the newly created issues, it does not enable you to explicitly set field values for the new issues. To do this, we need to use the <strong>Set issue fields</strong> post function and pass the ID values for the newly created sub-tasks to the post function so that it can set values as needed. </p></div><ol><li><p>Under <strong>THEN</strong>, click <strong>Select Post-functions </strong>if it is not already selected. </p></li><li><p>Click <strong>Add Post-function</strong> in the upper-right corner of the right hand panel. </p></li><li><p>Select <strong>Set issue fields</strong> and click <strong>Add</strong>. The Set issue fields configuration screen will open. </p></li><li><p>We need to use Nunjucks to access the IDs of the issues created in Section 2, above. For <strong>Target issues</strong> select <em>Issues returned by the following Nunjucks template</em>. </p></li><li><p>In the script editor (<strong>Point 1</strong>, <strong>Figure 4</strong>, right), enter: <br/><code>{{ context.newIssueKeys }}</code></p></li><li><p>Under <strong>Fields to update</strong>, click <strong>Add</strong>. </p></li><li><p>In the panel for the new field, select <em>Description</em> under <strong>Field</strong>. </p></li><li><p>Under <strong>New value </strong>(<strong>Point 2</strong>, <strong>Figure 4</strong>, right), enter the following: </p><pre><code class="language-">This is a sub-task for issue {{ issue.fields.issuekey }}. 
 
 Please review the main issue before proceeding.</code></pre></li><li><p>Click <strong>Add </strong>in the field configuration panel (<strong>Point 3</strong>, <strong>Figure 4</strong>, right).</p></li><li><p>Click <strong>Save </strong>(<strong>Point 4</strong>, <strong>Figure 4</strong>, right). </p></li></ol><div class="panel panel-note"><h3 id="alternate-configurations-2">Alternate Configurations</h3><p>&lt;if creating Stories under epics, it may be possible to assign the Story to a Team?&gt;</p></div><h2 id="save-and-test-the-action">Save and Test the Action</h2><p> In the main Event-based Action editor, click <strong>Save </strong>to complete the configuration. To test the new action, create a new Story or Task and verify that JMWE has created two sub-tasks and has automatically set the correct Summary and Description values. </p><div class="panel panel-note"><h3 id="congratulations">Congratulations! </h3><p>You now have a surefire way to create and assign tasks to your necessary support teams. </p><p>Combine this use case with the <a href="/cms_trial/space/JMWEC/465504708/Linked+Issues+Status+Validator/">Linked Issue Status Validator</a> and you can guarantee that issues cannot be closed until all child issues (or sub-tasks) are closed!</p></div></div><div><img alt="Set issue fields post function configuration" class="doc-image" loading="lazy" src="/cms_trial/assets/58932cd5-1095-4ef9-a29c-e3b1cb937ade.png"/></div></div>
@@ -156,6 +161,64 @@ Please review the main issue before proceeding.</code></pre></li><li><p>Click <s
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

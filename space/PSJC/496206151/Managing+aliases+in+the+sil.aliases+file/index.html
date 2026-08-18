@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/496205894/Advanced+features/">Advanced features</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/496206057/Custom+fields+aliases/">Custom fields aliases</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Managing aliases in the sil.aliases file</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/496206151" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Managing aliases in the sil.aliases file</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>Creating aliases is a simple task of editing the 'sil.aliases' properties file in the Kepler Home directory. </p><p>Creating aliases is a simple task of editing the 'sil.aliases' properties file in the Kepler Home directory. This file must contain pairs in the following form: alias=customfield_id. <br/>For our example above, we should edit it and put an entry like this:</p><h4 id="sil-aliases"><strong>sil.aliases</strong></h4><pre><code class="language-"># custom fields aliases
 reportedUser=customfield_10001</code></pre><div class="panel panel-warning"><p>The <strong>sil.aliases</strong> file is NOT a SIL language file. It does not require a semi-colon and the end of each line. SIL syntax checker will not run for this file.</p></div><div class="panel panel-warning"><p>The <strong>sil.aliases</strong> file is located in the <em>kepler</em> directory inside of <em>&lt;JIRA_HOME&gt;</em>. This directory can be accessed from the SIL Manager by changing the View to be <strong>Kepler Home</strong></p></div><p>You can rewrite the script in another way and use alias instead of the custom field ID or name:</p><pre><code class="language-">if(isNotNull(reportedUser)) {
   assignee=reportedUser;
@@ -157,6 +162,64 @@ reportedUser=customfield_10001</code></pre><div class="panel panel-warning"><p>T
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

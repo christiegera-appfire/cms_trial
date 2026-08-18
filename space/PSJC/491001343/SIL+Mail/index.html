@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/1761182379/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/491001327/Troubleshooting+Power+Scripts+for+Jira+Cloud/">Troubleshooting Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">SIL Mail</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/491001343" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>SIL Mail</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="problem">Problem</h2><div class="panel panel-note"><p>Steps to follow when the <code>sendEmail()</code> function is not working.</p></div><h2 id="configuring-an-smtp-email-server">Configuring an SMTP email server</h2><p>For instructions on configuring an SMTP server on Jira, please see this Atlassian documentation on:</p><p><a href="https://confluence.atlassian.com/adminjiraserver079/configuring-an-smtp-mail-server-to-send-notifications-950288926.html">Configuring an SMTP mail server</a>.</p><h2 id="sending-a-test-email-from-jira">Sending a test email from Jira</h2><p>Test that you can send an email from Jira by sending a test message. See this Atlassian documentation for further details:<br/><a href="https://confluence.atlassian.com/jirakb/how-to-send-a-test-email-in-jira-317197303.html">How to send a Test Email in JIRA</a></p><h2 id="troubleshooting-a-gmail-account">Troubleshooting a Gmail account </h2><p>If you have Gmail configured as your SMTP mail server, you may need to change some settings on your Gmail account.</p><ol><li><p>Enable <strong>less secure</strong> apps. For more information, see this Google documentation on <a href="https://support.google.com/accounts/answer/6010255?hl=en">Less secure apps &amp; your Google Account</a></p></li><li><p>Unlock your Gmail account.</p></li></ol><p>While you may be able to access your Gmail account, chances are it has been locked for use by third-party apps (in this case, Jira) due to excessive logins. See this Google documentation on unlocking a Gmail account: <a href="https://accounts.google.com/DisplayUnlockCaptcha">DisplayUnlockCaptcha</a></p><h2 id="sendemail-troubleshooting">sendEmail() troubleshooting</h2><p>Try using a simple script to test that the configuration is set up correctly and that sendEmail() works as expected.</p><p><strong>Example sendEmail() code</strong></p><table><tr><td><p>sendEmail("first.last@example.com", "subject", "body");</p></td></tr></table><h2 id="null-sender">null sender</h2><p>If this does not work, the first thing to check is that the mail configuration is set up correctly. Check that the "Send mail via" option has a "sender" option selected. See this screenshot from the documentation:</p><img alt="Power Scripts for Jira Cloud new script creation interface" class="doc-image" loading="lazy" src="/cms_trial/assets/99f5a2f8-3e27-45ff-8588-930705880341.png"/><p>The most common error in configuration is that <strong>Null sender</strong> (the default option) is selected. It is suggested to select <strong>Container sender</strong> as this uses the least amount of system resources. For more information, see this Power Scripts documentation on <a href="/cms_trial/space/PSJC/490996015/Outgoing+Mail+configuration/">mail configuration</a>.</p><h2 id="getting-support">Getting support</h2><p>If these troubleshooting steps do not work, create a support request on our <a href="https://apps.appf.re/PSJ/support">Power Scripts Service Desk Portal</a>. Include the following information:</p><ul><li><p>Any error messages in the Jira system logs.</p></li><li><p>Any screenshots of the Mail configuration.</p></li></ul><p>To see the system logs, click <strong>Load log</strong> at the bottom of the SIL Manager. The logs are also available by navigating to <code>&lt;JIRA_HOME&gt;/logs/atlassian-jira.log</code></p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

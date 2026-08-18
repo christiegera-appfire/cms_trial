@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490996521/Feature+guides/">Feature guides</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/1165525018/Automation+(Script)+Templates/">Automation (Script) Templates</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Recurrent (Scheduled) Job Templates</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/1165525384" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Recurrent (Scheduled) Job Templates</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>Recurrent jobs are actions that occur at specified time intervals or on specific dates. These jobs are scheduled because either there is not other trigger type that can be sufficiently used, or because of other time or performance considerations. Some jobs, like jobs to trigger reindexing, may impact the performance of Jira so these can be scheduled off hours so users are not impacted. Other jobs, may rely on external factors like operations completing on external systems before the data can be synchronized. Or, another use for scheduled jobs is to create an escalation service that raises the priority on issues that are past due.</p><p>The templates will create the recurrent job by adding a new recurrent job script and its schedule to the configuration.</p><h2 id="setting-up-the-recurrent-job-templates">Setting up the Recurrent Job Templates</h2><p>Because recurrent jobs require a schedule to operate the first step will always be setting up that schedule. The options include</p><ul><li><p><strong>Every minute (starting immediately)</strong> - This option may have performance implications and should be used sparingly.</p></li><li><p><strong>Every 30 minutes (starting immediately) </strong>- A better option for high priority jobs that need to happen throughout the day.</p></li><li><p><strong>Every hour (starting immediately)</strong></p></li><li><p><strong>Every 12 hours (starting immediately)</strong></p></li><li><p><strong>Every day at 00:00 AM</strong> - midnight</p></li><li><p><strong>Every Sunday at 00:00 AM</strong></p></li><li><p><strong>Every month on the 1st at 00:00 AM</strong></p></li><li><p><strong>Every year on January 1st</strong> - A great option for creating those annual tasks that always seem to get lost.</p></li></ul><img alt="Power Scripts for Jira Cloud request traces interface" class="doc-image" loading="lazy" src="/cms_trial/assets/2e724f2d-4600-4701-8101-866e8ffab648.png"/><p>The other setting indicates which user the script should impersonate while running.</p><div class="panel panel-note"><p><strong>NOTE:</strong> The “Run as” setting is not required. However, this is a very important setting for scheduled jobs. Unlike every other type of automation, scheduled jobs are not initiated by a user action. Therefore, without a default user to impersonate, the script will be considered an anonymous user and thus may not have the proper permissions within Jira to carry out the desired operations.</p></div><h2 id="testing-the-script">Testing the Script</h2><p>Testing the script is as simple as completing the transition and checking if the recurrent job action occurred. For example, if the script was designed to create subtasks after the transition, check to see if the subtasks were created. If not, see this section about troubleshooting scripts.</p><h2 id="templates">Templates</h2><h2 id="recurrently-print-in-server-log">Recurrently Print in Server Log</h2><p>Print text in log file recurrently.</p><h3 id="inputs">Inputs</h3><table><tr><th><p><strong>Name</strong></p></th><th><p><strong>Required</strong></p></th><th><p><strong>Description</strong></p></th></tr><tr><td><p>Description</p></td><td><p>NO</p></td><td><p>The description text will be added to a comment at the head of the script so other users can be informed of the purpose of the script.</p></td></tr></table><h3 id="script">Script</h3><pre><code class="language-">logPrint("INFO", "This is a recurrent log message");</code></pre><hr/><h2 id="recurrently-send-an-email-to-all-admins">Recurrently Send an Email to all Admins</h2><p>A recurrent SIL job that will send a custom email to the desired address.</p><h3 id="inputs-2">Inputs</h3><table><tr><th><p><strong>Name</strong></p></th><th><p><strong>Required</strong></p></th><th><p><strong>Description</strong></p></th></tr><tr><td><p>From</p></td><td><p>NO</p></td><td><p>The address that the email should be sent from.</p></td></tr><tr><td><p>CC</p></td><td><p>NO</p></td><td><p>List of CC email addresses.</p></td></tr><tr><td><p>Subject</p></td><td><p>YES</p></td><td><p>The subject of the email.</p></td></tr><tr><td><p>Body</p></td><td><p>YES</p></td><td><p>The text body of the email.</p></td></tr><tr><td><p>Description</p></td><td><p>NO</p></td><td><p>The description text will be added to a comment at the head of the script so other users can be informed of the purpose of the script.</p></td></tr></table><h3 id="script-2">Script</h3><pre><code class="language-">string from = "jira@company";
 string [] cc = "otherpeople@company";
 string subject = "You said I couldn't be more annoying";
@@ -163,6 +168,64 @@ sendEmail(from, admins, cc, subject, body);</code></pre><div class="panel panel-
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

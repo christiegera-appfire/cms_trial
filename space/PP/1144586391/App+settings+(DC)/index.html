@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PP/1803714584/Planning+Poker+Help+Center/">Planning Poker</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PP/1803714584/Planning+Poker+Help+Center/">Planning Poker Help Center</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PP/1144061984/Planning+Poker+for+Jira+Data+Center/">Planning Poker for Jira Data Center</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">App settings (DC)</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PP/pages/1144586391" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>App settings (DC)</h1>
+    <div class="page-meta">2 min read</div>
     <div class="panel panel-note"><p>This page is about <strong>Planning Poker for Jira Data Center</strong>. Using<strong> Cloud</strong>? <a href="/cms_trial/space/PP/1144061974/Planning+Poker+for+Jira+Cloud/"><strong>Click here</strong></a>.</p></div><p>This page outlines the configuration options for Planning Poker for Jira. While most settings are common across both versions, a few differences exist.</p><h3 id="how-to-access-settings">How to access settings</h3><ol><li><p>Click the Jira cog icon, then <strong>Manage apps</strong> &gt; OTHER &gt; <strong>Planning Poker Configuration</strong>.</p></li><li><p>Find Planning Poker in the apps list, and click <strong>Configure</strong>.</p><img alt="contentId-1144586391" class="doc-image" loading="lazy" src="/cms_trial/assets/88d304f9-0910-403f-9c9f-2f9aa883f238.png"/></li></ol><ul><li><p><strong>Enable permissions –</strong> <br/>Use this setting to restrict access to the app for specific user groups in Jira. Users outside those groups will see a "Sorry, you don't have permissions for Planning Poker" message upon trying to access it. Keep in mind that default Jira admin groups always have access.</p></li><li><p><strong>Allow users to change mobile URL – </strong><br/>When using the mobile version of Planning Poker (as part of the Jira mobile app), users typically scan a QR code to join the game. However, in certain situations, the QR code URL may be incorrect due to the company's specific Jira configuration. Enabling this option allows users to change the mobile URL. When you click on the Mobile version button, an additional step appears to set the URL dynamically:</p></li></ul><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><img alt="contentId-1144586391" class="doc-image" loading="lazy" src="/cms_trial/assets/c1ec71a1-e737-4356-9563-75b7c2df7106.png"/></div><div><img alt="contentId-1144586391" class="doc-image" loading="lazy" src="/cms_trial/assets/eae2e3f2-a504-4250-b85f-c4dc90696286.png"/></div></div><ul><li><p><strong>Disable mobile version – </strong><br/>Completely hide the mobile version of the app (useful if your team works solely on desktops).</p></li></ul><ul><li><p><strong>Enable alternative socket transport mode – </strong> <br/>Use this when you encounter issues such as being unable to vote in Poker games or experiencing unexpected behaviors like the message "Please wait — Game Admin is choosing a story to estimate" even when you are an admin. The app uses two communication methods, and sometimes, one might be restricted in your company's network. Enabling this lets you switch to the alternative method.</p></li><li><p><strong>Hide top menu "Planning Poker" link – </strong><br/>Remove the Planning Poker link from the Jira top menu bar.</p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

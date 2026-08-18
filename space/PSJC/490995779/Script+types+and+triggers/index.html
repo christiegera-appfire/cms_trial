@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490995713/Get+started+with+Power+Scripts+for+Jira+Cloud/">Get started with Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Script types and triggers</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/490995779" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Script types and triggers</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>Exploring the ways Jira can be customized by understanding the types of scripts that can be used.</p><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>Power Scripts for Jira Cloud uses SIL scripts that integrate with specific trigger points in Jira. These trigger points determine when scripts execute in Jira processes, giving you more control over your Jira instance while reducing manual work. </p><div class="panel panel-note"><p>To effectively implement these scripts, you must have a solid understanding of core Jira concepts, such as custom fields, screens, workflows, issue types, and projects.</p></div></div></div><hr/><h2 id="hook-types-and-tasks">Hook types and tasks</h2><p>Scripts run automatically when their hooks are triggered, working seamlessly in the background. Each hook type enables different kinds of tasks. The following table shows the various hook types in Power Scripts for Jira Cloud, their trigger points within the system, descriptions, and example automation tasks that can be performed with each hook type.</p><table><tr><th><p><strong>Hook Type</strong></p></th><th><p><strong>Trigger Point</strong></p></th><th><p><strong>Description</strong></p></th><th><p><strong>Example Tasks</strong></p></th></tr><tr><td><p>Workflow hooks </p></td><td><p>Workflow transitions - before or after </p></td><td><p>Scripts triggered during workflow state changes </p></td><td><ul><li><p>Validate transitions</p></li><li><p>Update fields </p></li></ul></td></tr><tr><td><p>Issue hooks </p></td><td><p>When viewing or editing issues </p></td><td><p>Scripts triggered by issue-related events </p></td><td><ul><li><p>Modify screens</p></li><li><p>Calculate field values </p></li></ul></td></tr><tr><td><p>Scheduled hooks </p></td><td><p>At specified times </p></td><td><p>Scripts that run according to defined schedules </p></td><td><ul><li><p>Generate reports</p></li><li><p>Clean up data </p></li></ul></td></tr><tr><td><p>External hooks </p></td><td><p>In response to external events </p></td><td><p>Scripts that connect with external systems </p></td><td><ul><li><p>Integrate with other systems </p></li></ul></td></tr></table><hr/><h2 id="script-types-reference">Script types reference</h2><p>The following table outlines the main script types available in Power Scripts, describing what each component does, when it's triggered, and its primary purposes.</p><table><tr><th><p><strong>Script type</strong></p></th><th><p><strong>Description </strong></p></th><th><p><strong>Trigger point</strong></p></th><th><p><strong>Used to</strong></p></th></tr><tr><th><p><strong>Workflow Conditions/Validators</strong></p></th><td><p>Scripts that act as gatekeepers in the workflow process</p></td><td><p>Before any workflow transition</p></td><td><ul><li><p>Control transition visibility</p></li><li><p>Enforce user permissions</p></li><li><p>Implement security rules</p></li><li><p>Validate data</p></li><li><p>Prevent unauthorized actions</p></li><li><p>Prevent unauthorized actions</p></li></ul></td></tr><tr><th><p><strong>Workflow Actions (Post Functions)</strong></p></th><td><p>Scripts that execute automated actions after a transition completes</p></td><td><p>After any workflow transition</p></td><td><ul><li><p>Create sub-tasks</p></li><li><p>Copy parent data</p></li><li><p>Calculate field values</p></li><li><p>Push data to databases</p></li><li><p>Send custom notifications</p></li><li><p>Perform automated follow-up tasks</p></li></ul></td></tr><tr><th><p><strong>Listeners</strong></p></th><td><p>Scripts that monitor and respond to various system events across multiple workflows</p></td><td><p>After workflow transitions and other system events</p></td><td><ul><li><p>Monitor multiple workflows simultaneously</p></li><li><p>React to non-workflow actions (issue edits)</p></li><li><p>Respond to system events: new user creation, project creation, version creation, and issue updates.</p></li><li><p>Provide cross-workflow automation</p></li><li><p>Enable system-wide monitoring</p></li><li><p>Execute global automated responses</p></li></ul></td></tr><tr><th><p><strong>Scheduled Jobs</strong></p></th><td><p>Scripts that run automatically at a specified time interval without user interaction</p></td><td><p>At defined time intervals (daily, weekly, monthly, or custom schedules)</p></td><td><ul><li><p>Work with issues in bulk</p></li><li><p>Execute time-based tasks such as:</p><ul><li><p>Escalate priority of overdue issues</p></li><li><p>Auto-assign issues created that day</p></li></ul></li></ul></td></tr><tr><th><p><strong>JQL Keywords</strong></p></th><td><p>Prebuilt and custom functions that extend Jira's search capabilities</p></td><td><p>During JQL query execution</p></td><td><ul><li><p>Enhance Jira's native search functionality</p></li><li><p>Implement custom search keywords</p></li><li><p>Enable advanced issue-finding</p></li></ul></td></tr><tr><th><p><strong>Prebuilt Service</strong></p></th><td><p>Integration scripts that enable two-way communication with external systems</p></td><td><p>When external systems make or receive calls</p></td><td><ul><li><p>Enable real-time two-way integrations</p></li><li><p>Process incoming external system calls</p></li><li><p>Send outgoing REST calls</p></li></ul></td></tr><tr><th><p><strong>Webhooks</strong></p></th><td><p>Custom URL endpoints for external system communication</p></td><td><p>When external systems send messages</p></td><td><ul><li><p>Receive messages from external systems</p></li><li><p>Enable system-to-system integrations |</p></li></ul></td></tr><tr><th><p><strong>SIL Runner Gadget</strong></p></th><td><p>Dashboard-based tool for custom button actions</p></td><td><p>On user interaction. For example, clicking a button.</p></td><td><ul><li><p>Create custom UI buttons</p></li><li><p>Implement simple forms</p></li><li><p>Enable non-admin access to scripts</p></li></ul></td></tr><tr><th><p><strong>SIL Panel</strong></p></th><td><p>Scripts that run in a custom section within Jira issues</p></td><td><p>Within issue view</p></td><td><ul><li><p>Display custom content</p></li><li><p>Show custom charts/graphs</p></li><li><p>Present issue-specific information</p></li></ul></td></tr></table>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

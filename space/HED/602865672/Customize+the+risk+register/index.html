@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/HED/602865666/Hedge/">Hedge - Risk Management &amp; Risk Register for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/HED/602865666/Hedge/">Hedge</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/HED/602865785/Tutorials/">Tutorials</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Customize the risk register</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/HED/pages/602865672" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Customize the risk register</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 100.0fr;"><div><p>The Risk Register <em>General settings</em> page lets you customize each risk register by editing its name and owner and choosing which projects and issue types it includes. </p></div></div><img alt="Risk register settings" class="doc-image" loading="lazy" src="/cms_trial/assets/11eef2e7-5567-4bb9-bf35-a4f8d1b51ddb.png"/><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="access-general-settings-from-the-risk-register-list">Access general settings from the Risk Register list</h2><ol><li><p>In the Jira global menu, click <em><strong>Apps</strong></em> &gt; <em><strong>Risk Management </strong></em>to see the list of Risk Registers.</p></li><li><p>Click the <span class="icon-note">[ellipsis icon]</span> menu on the right side of the Risk Register that you want to customize.</p></li><li><p>Click <strong>Register settings</strong>.</p></li><li><p>Click the <strong>General settings</strong> tab.</p></li></ol></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="access-the-general-settings-from-a-risk-register-table">Access the general settings from a Risk Register table</h2><ol><li><p>From a Risk Register, click <strong>Settings</strong><em> </em>in the top right corner.</p></li><li><p>Click the <strong>General settings</strong> tab.</p></li></ol></div></div><h2 id="customize-your-risk-register">Customize your risk register</h2><img alt="General settings tab" class="doc-image" loading="lazy" src="/cms_trial/assets/c142487c-cc39-41fe-ab32-5f4eae1141b8.png"/><div class="columns" style="grid-template-columns: 100.0fr;"><div><ol><li><p>In the <strong>General settings</strong> tab, click the Risk Register attribute or field that you want to update and make your desired changes. </p><ul><li><p>You can update Name, Owner, Projects, and Issue Types attributes.</p></li></ul></li><li><p>Click <strong>Save Changes</strong>.</p></li></ol><div class="panel panel-note"><p>Select issue types that are available in your selected projects in Jira. If you select an issue type that is not added to your Jira project, you will not be able to create a risk in this project for this issue type.</p></div></div></div><h2 id="map-risk-metrics-to-jira-fields">Map risk metrics to Jira fields</h2><p>The <strong>Risk register frameworks</strong> tab of Register settings includes a <strong>Metrics</strong> section, where each metric (for example, <em>Likelihood</em> and <em>Consequence</em>) lists its value names, colors, and numeric values. Starting in version 8.0.0, you can also map a metric to a Jira field, so its value shows up alongside your everyday Jira views instead of staying inside Hedge only.</p><p>For each metric, you can either let Hedge create the matching Jira field automatically, or choose an existing Jira field to map it to.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

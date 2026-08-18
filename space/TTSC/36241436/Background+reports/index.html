@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud Help Center</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/36012079/Reports/">Reports</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Background reports</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TTSC/pages/36241436" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Background reports</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>When your report filters return a large number of results, generating the report can take some time. Background reports allow you to create reports that run asynchronously in the background, so you can continue working without interruption.</p><div class="panel panel-success"><p>If your report involves a high number of work items, we <strong>strongly recommend</strong> using background reports to avoid potential timeout errors.</p></div><img alt="image-20260714-161850.png" class="doc-image" loading="lazy" src="/cms_trial/assets/fc20eb1b-221e-4d44-9b56-740226b523c1.png"/><p>On the <strong>Background Reports</strong> page, you can:</p><ul><li><p>View details of all your background reports</p></li><li><p>Download reports in <code>.CSV</code> format</p></li><li><p>Add subscriptions for periodic reporting</p></li><li><p>Delete old or unnecessary reports</p></li></ul><h2 id="how-to-create-a-background-report">How to create a background report</h2><ol><li><p>In the Time to SLA top menu, click <strong>Reports</strong>.</p></li><li><p>Select a report type. </p></li></ol><div class="panel panel-note"><p>Background reports are not available for <strong>Status</strong> and <strong>Durations</strong> reports.</p></div><ol><li><p>Configure your report according to its type. For more details, refer to the related documentation: <a href="/cms_trial/space/TTSC/36044860/Summary+report/"><strong>Summary</strong></a>, <a href="/cms_trial/space/TTSC/36143159/Detail+report/"><strong>Detail</strong></a>.</p></li><li><p>Once you’re satisfied with your configuration, click the chevron next to <strong>Generate</strong> to reveal the dropdown menu. </p><img alt="image-20260714-152933.png" class="doc-image" loading="lazy" src="/cms_trial/assets/280057cf-e926-4d2c-af43-f2e504f7a542.png"/></li><li><p>Click <strong>Create background report</strong>. The <em>Create background report</em> screen appears.</p><img alt="Time to SLA Background reports status dialog with report actions" class="doc-image" loading="lazy" src="/cms_trial/assets/caa85bca-567b-4ae1-998b-42768a02904d.png"/></li><li><p>Assign a name (for example, <code>tts-summary-report</code>) to your report. </p></li><li><p>Click <strong>Generate</strong>.</p></li></ol><p>The report generation will start immediately in the background. You can navigate to the Background Reports to see the report status. </p><div class="panel panel-success"><p>You can create a subscription directly from your background report. For detailed instructions, refer to the <a href="https://appfire.atlassian.net/wiki/spaces/TTSC/pages/edit-v2/36012105#How-to-create-a-subscription-from-a-background-report">related documentation</a>.</p></div><h2 id="how-to-download-background-reports">How to download background reports</h2><ol><li><p>Go to the <strong>Background Reports</strong> page.</p></li><li><p>Find the report you want to download and click the actions menu button next to it.</p></li><li><p>Select <strong>Download report</strong> to start the download automatically.</p></li></ol><p>The report will be downloaded automatically in <code>.CSV</code> format.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

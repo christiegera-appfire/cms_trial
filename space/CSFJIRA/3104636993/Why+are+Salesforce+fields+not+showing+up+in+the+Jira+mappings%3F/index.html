@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3091662302/General/">General</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Why are Salesforce fields not showing up in the Jira mappings?</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3104636993" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Why are Salesforce fields not showing up in the Jira mappings?</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="purpose">Purpose</h2><p>When trying to map Salesforce fields into Jira, the fields are not showing in the mappings screen.</p><h2 id="answer">Answer</h2><p>In normal cases, the issue is explained in detail in this documentation: <a href="/cms_trial/space/CSFJIRA/1596326940/Salesforce+custom+fields+are+not+visible+for+mapping/">Salesforce custom fields are not visible for mapping</a> and is related to a formula field based on a child object which is not supported as mentioned <a href="https://apps-docs.servicerocket.com/salesforce-jira/does-the-connector-support-synchronizing-child-obj">here</a>.</p><p>If the knowledge base above do not solve the issue for you. The next solution to try is to check if the profile of the integration user does have visibility of the fields.</p><ol><li><p>Go to <strong>Setup </strong>&gt; <strong>Connected Apps OAuth Usage</strong>. </p></li><li><p>On the page, look for <strong>Salesforce &amp; JIRA Cloud Connector</strong> (or <strong>Salesforce &amp; JIRA Server Connector </strong>depending on the case).</p></li><li><p>In the <strong>User Count </strong>column, click the number and click on the user.</p></li><li><p>Check and make sure the profile shows "System Administrator".</p><img alt="system admin.png" class="doc-image" loading="lazy" src="/cms_trial/assets/9b235f8e-7f6f-4055-8f35-82c24ad9c2d5.png"/></li><li><p>Next, go to <strong>Setup</strong> &gt; in the Quick Find Box search for <strong>Object Manager</strong> and click on it.</p></li><li><p>Select the object with the fields that you want to map and click <strong>Fields &amp; Relationships</strong>.</p></li><li><p>Click the field name &gt; <strong>Edit </strong>&gt; Change Type File.</p></li><li><p>On the <strong>Establish field-level security </strong>screen, search for the profile of the integration user and make sure the visibility box is checked. Then, click <strong>Save</strong>.</p></li><li><p>Repeat "step 8". for all the fields that you want to see on the bindings.</p></li></ol></div><div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

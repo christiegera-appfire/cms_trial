@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMCFC/168855370/Overview/">Jira Misc Custom Fields (JMCF) - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/168855370/Overview/">Overview</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/465829931/Get+started+with+JMCF+for+Cloud/">Get started with JMCF for Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/465666166/Installation+Guide/">Installation Guide</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Uninstalling or Disabling on Jira Cloud</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMCFC/pages/465305705" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Uninstalling or Disabling on Jira Cloud</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><p>To uninstall the app, follow these steps:</p><ol><li><p>Log in to your Jira Cloud instance as an administrator.</p></li><li><p>Click <strong>Settings</strong> ⚙️ in the upper right corner of the screen and select <strong>Apps</strong>.</p></li><li><p>Select <strong>Manage apps</strong> and locate <strong>Jira Misc Custom Fields</strong>.</p></li><li><p>Click the app to display its details.</p></li><li><p>Click <strong>Unsubscribe </strong>or<strong> Stop Trial </strong>(depending on your subscription status).</p></li><li><p>Click <strong>Uninstall.</strong></p></li><li><p>The system displays a progress message for the operation. Once finished, the app is removed from Jira and will not display under <strong>Manage apps</strong>.</p></li></ol><p>You have uninstalled the <em>Jira Misc Custom Fields </em>app. </p><h2 id="disabling-the-app">Disabling the app</h2><p>To disable the app, follow these steps: </p><ol><li><p>Log in to your Jira Cloud instance as an administrator.</p></li><li><p>Click <strong>Settings</strong> ⚙️ in the upper right corner of the screen and select <strong>Apps</strong>.</p></li><li><p>Select <strong>Manage apps</strong> and locate <strong>Jira Misc Custom Fields</strong>.</p></li><li><p>Click on the app to display its details view.</p></li><li><p>Click on <strong>Disable</strong>.</p></li><li><p>The system displays a progress message for the operation. Once finished, the <strong>Disable </strong>button is replaced with <strong>Enable</strong>.</p></li></ol><p>You have disabled the <em>Jira Misc Custom Fields </em>app. </p></div><div><div class="panel panel-note"><p>You are viewing the documentation for <strong>Jira Cloud</strong>.</p></div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

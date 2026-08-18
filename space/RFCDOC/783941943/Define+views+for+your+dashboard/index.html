@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud) Documentation</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941917/Tutorials/">Tutorials</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Define views for your dashboard</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/783941943" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Define views for your dashboard</h1>
+    <div class="page-meta">2 min read</div>
     <div class="columns" style="grid-template-columns: 100.0fr;"><div><div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview</h2><p>By the end of this tutorial, you will know how to display several views of the issues list on the <em>Rich Filter Results</em> gadget. A view contains a list of fields to be displayed by the gadget.</p></div></div><img alt="Define views.png" class="doc-image" loading="lazy" src="/cms_trial/assets/b15341c6-7972-4562-96b8-22dba2ce0315.png"/><p>Views allow you to display large amounts of information logically organized and avoid horizontal scrolling as much as possible. You can also define different views for different situations (for example, in different contexts, you might want to focus on different fields). </p><div class="panel panel-note"><p>For this tutorial, you need to have already created:</p><ul><li><p>a <em>rich filter</em></p></li><li><p>a dashboard with one <em>Rich Filter Controller</em> gadget and one <em>Rich Filter Filter Results</em> gadget based on your <em>Rich Filter</em>.</p></li></ul><p>We have used the dashboard created in <a href="/cms_trial/space/RFCDOC/783941937/Build+a+simple+interactive+Jira+dashboard/">the previous tutorial</a>.</p></div><h3 id="add-multiple-views-to-your-rich-filter-results-gadget">Add multiple views to your <em>Rich Filter Results</em> gadget</h3><ol><li><p>Open your <em>Rich filters</em> page as described in the <a href="/cms_trial/space/RFCDOC/783941927/Create+and+access+rich+filters/">first tutorial</a>.</p></li><li><p>Click the <em>Views</em> tab.</p><img alt="Create views.png" class="doc-image" loading="lazy" src="/cms_trial/assets/0226a855-7bcb-40ea-b792-538320f46121.png"/></li><li><p>You can create a new view called <code>Requester</code> by clicking the <strong>Create view</strong> button.<br/></p><img alt="Create view_requester.png" class="doc-image" loading="lazy" src="/cms_trial/assets/625396f7-e9f7-40a5-ba37-ad9ab37a3b27.png"/></li><li><p>In the view you just created, add the columns Issue Type, Key, Priority, Summary, Reporter, and <em>Status</em>.<br/></p><img alt="Requester_view.png" class="doc-image" loading="lazy" src="/cms_trial/assets/71dcf0e4-9d22-43ad-9239-ae876575bdd4.png"/></li><li><p>Open the dashboard based on your rich filter or build a new one. The <em>Rich Filter Results</em> gadget displays the issues using the view (the list of columns) you configured in the previous step.</p><img alt="Rich Filter Result.png" class="doc-image" loading="lazy" src="/cms_trial/assets/3c5da8b0-f884-4df8-bb33-c2b5512b707a.png"/></li><li><p>Go back to the <em>Views</em> tab of your <em>Rich filters</em> page.</p></li></ol><div class="panel panel-note"><p>You can keep the dashboard open in the current tab and open the <em>Rich filters</em> page in another tab to easily switch between the two.</p></div><ol><li><p>Create another view called <code>Delivery</code><em> </em>with the columns:<em> Issue Type, Key, Priority, Summary, Assignee, Status, and Resolution</em>. Your rich filter now has two views: <em>Requester</em> and <em>Delivery</em>.</p></li></ol><img alt="Views for.png" class="doc-image" loading="lazy" src="/cms_trial/assets/fd5fb6ec-5dce-4994-9394-2623ede973ce.png"/><ol><li><p>Return to your dashboard and refresh it. The two views you have defined are now available in the <em>Rich Filter Results</em> gadget, which allows you to switch easily between views.</p></li></ol><img alt="Delivery view.png" class="doc-image" loading="lazy" src="/cms_trial/assets/4ad3aab2-dfd3-4c7e-af6d-4b40fa4aedc4.png"/><div class="panel panel-note"><p>You can reorder the columns within a view. You can also reorder the views.</p></div><h3 id="see-also">See also</h3><p><a href="/cms_trial/space/RFCDOC/783941729/Configure+views/">Configuring Views</a></p><p><a href="/cms_trial/space/RFCDOC/783941759/The+Rich+Filter+Results+Gadget/">The Rich Filter Results Gadget</a></p><p><a href="/cms_trial/space/RFCDOC/783941950/Use+working+queries+in+your+dashboard/">Use working queries in your dashboard</a></p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

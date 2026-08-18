@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMCFC/168855370/Overview/">Jira Misc Custom Fields (JMCF) - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/168855370/Overview/">Overview</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/465471226/Custom+Fields/">Custom Fields</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Scheduled recalculations</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMCFC/pages/1114997525" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Scheduled recalculations</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><p>In general, JMCF custom fields will recalculate when you open an issue view that includes the custom field; additionally, a <a href="https://appfire.atlassian.net/wiki/spaces/MCFCS/pages/713588743">Scripted Field</a> will recalculate when its dependent fields are updated. In some circumstances, however, it may be advisable to schedule a custom field to recalculate on an interval. These scenarios can include (but are not limited to): </p><ul><li><p>Jira instances with a very large number of issues, where recalculation of fields can take longer</p></li><li><p>“Mission critical” fields that are required for workflow and need to be as fresh as possible</p></li><li><p>Custom fields that need to be updated when a triggering event is not available, or </p></li><li><p>When multiple events must complete prior to the recalculation</p></li></ul><p>In all of the above scenarios, scheduling a recalculation of JMCF custom fields can supplement automatic recalculations or can be scheduled to suit your organizations processes and procedures. For example, running the recalculation of a custom field on a very large number of issues can be done overnight (during off-hours) so that the custom field values are ready for the following day. </p><h2 id="scheduling-a-recalculation">Scheduling a recalculation</h2><p>You need to create a custom field before it can be scheduled for recalculation. Once you have your custom field configured and have verified that it returns the expected data, follow these steps: </p><ol><li><p>In the upper right corner of Jira, click <strong>Settings</strong> ( ⚙️ ) and select <strong>Apps</strong>. </p></li><li><p>In the left-hand sidebar, click <strong>Jira Misc Custom Fields</strong>.</p></li><li><p>Click <strong>My custom fields</strong>.</p></li><li><p>Click the <strong>Action button</strong> ( <span class="icon-note">[png icon]</span> ) to the right of the custom field you want to schedule. Select <strong>Schedule Recalculation</strong>. </p></li><li><p>The <strong>Schedule calculation</strong> window will open (Figure 1, right).</p></li><li><p>From the pulldown menu, select the primary interval (e.g. <strong>hour</strong>, <strong>day</strong>, or <strong>week</strong>). </p></li><li><p>Configure any other options for your schedule. See <strong>Interval options</strong>, below, for more information. </p></li><li><p>Click <strong>Confirm</strong>. </p></li></ol><div class="panel panel-warning"><p><strong>Note</strong>: If you select a specific hour for your recalculation, it may not start exactly at the time selected; it will begin within an hour of the scheduled time. </p><p>Full recalculation times will vary, depending on the number of issues that need to be updated and the level of activity, both on your Jira instance and on the JMCF servers. </p></div><h2 id="interval-options">Interval options</h2><p>Calculations can not be scheduled to start at an exact time; rather, they are scheduled to start within an hour of the selected time. Further, it is  highly recommended to test your recalculation schedules to verify that they complete before the next scheduled interval (e.g. the recalculation completes within an hour when <strong>Every day at every hour</strong> is the scheduled interval). If a recalculation is still running when its next scheduled recalculation is set to start, that scheduled recalculation will be skipped. </p><div class="panel panel-success"><p>When setting your schedules, hold Ctrl (PC)/Command (Mac) and click to select multiple values within a menu (e.g. hold Ctrl/Command and click <strong>monday</strong>, <strong>wednesday</strong>, <strong>friday</strong> to set your schedule to run on those three days). </p></div><p>The interval options are: </p><ul><li><p><strong>Every hour</strong> - The recalculation will run every 60 minutes (approximately) of every day of the week. </p></li><li><p><strong>Every day</strong> - The recalculation will run every day at the selected interval: </p><ul><li><p><strong>every hour</strong> - The recalculation will run every 60 minutes (approximately).</p></li><li><p>a selected<strong> hour or hours</strong> - The recalculation will run within 60 minutes of the selected hour(s). </p></li><li><p>in the selected <strong>time zone</strong> - By default, all schedules are set using UTC. You can select an offset to schedule using your time zone. </p></li></ul></li><li><p><strong>Every week</strong> - The recalculation will run every week at the selected interval: </p><ul><li><p><strong>every day of the week </strong>or </p></li><li><p>a selected <strong>day or days</strong></p></li><li><p>at the selected <strong>hour or hours</strong></p></li><li><p>in the selected <strong>time zone</strong></p></li></ul></li></ul></div><div><div class="panel panel-note"><p>You are viewing the documentation for <strong>Jira Cloud</strong>.</p></div><table><tr><th><h3 id="on-this-page">On This Page</h3></th></tr></table><img alt="Jira Misc Custom Fields (JMCF) Cloud schedule calculation button" class="doc-image" loading="lazy" src="/cms_trial/assets/641b4f81-4324-4685-b865-4a9123b2c494.png"/></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

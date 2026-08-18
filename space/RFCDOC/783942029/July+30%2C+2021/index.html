@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud) Documentation</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941853/Release+Notes/">Release Notes</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/1595769075/Release+notes+2021%E2%80%932024/">Release notes 2021–2024</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783943820/2021/">2021</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">July 30, 2021</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/783942029" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>July 30, 2021</h1>
+    <div class="page-meta">1 min read</div>
     <h2 id="custom-values-in-rich-filter-gadgets">Custom Values in Rich Filter Gadgets</h2><p>This release introduces <em>custom values</em>, a set a features that considerably extends the capabilities of the rich filter gadgets.</p><p>Defined in the rich filter configuration, <em>custom values</em> are available as columns in views and as values in gadgets, alongside the Jira fields, providing support for <em>custom aggregation formulas</em> (sum, average, minimum and maximum, with optional JQL filtering of contributing issues) and <em>custom results display</em> (label, color and format). <em>Custom values</em> can be based on Issue Count or numeric and time-tracking fields.</p><p>All the rich filter gadgets that display results based on issue data benefit from this enhancement, including the <a href="/cms_trial/space/RFCDOC/783941863/The+Rich+Filter+Flexi+Charts+Gadget/">flexi charts gadget</a>.</p><p>For more information about this new set of features have a look at the <a href="/cms_trial/space/RFCDOC/783942033/Configure+custom+values/">Configuring Custom Values</a> documentation page.</p><h3 id="examples-of-rich-filter-gadgets-configured-to-display-custom-values">Examples of rich filter gadgets configured to display <em>custom values</em></h3><p>In the examples below we've used four custom values defined as follows:</p><ul><li><p>Resolved Story Points – the sum of the story points of the resolved issues (uses a JQL query to limit the contributing issues to the resolved ones)</p></li><li><p>Support Time Spent – the sum of the time spent for support issues, displayed in days (uses a JQL query to limit the contributing issues to bugs)</p></li><li><p>Avg Time Spent (h) – the average time spent, displayed in hours</p></li><li><p>Max Rem. Estimate – the maximum remaining estimate for the unresolved issues, displayed in days (uses a JQL query to limit the contributing issues to the unresolved ones)</p></li></ul><p>Rich Filter Simple Counter gadget displaying the four custom values:</p><img alt="contentId-783942029" class="doc-image" loading="lazy" src="/cms_trial/assets/f3d9ba36-b2bc-4542-a28d-bb9b4145c7d3.png"/><p><br/></p><p>Rich Filter Statistics gadget displaying the four custom values aggregated by assignee:</p><img alt="contentId-783942029" class="doc-image" loading="lazy" src="/cms_trial/assets/7b2444ca-e497-45c3-bfe4-71708cb0f171.png"/><p><br/></p><p>Rich Filter Flexi Charts gadget displaying a treemap chart of the custom value Support Time Spent aggregated by assignee:</p><img alt="contentId-783942029" class="doc-image" loading="lazy" src="/cms_trial/assets/5e3a5d59-f383-44b8-8b66-be07063353de.png"/>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

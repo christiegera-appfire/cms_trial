@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3092186916/Errors+and+Error+Messages/">Errors and Error Messages</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Page cannot be found when I try to re-authorize connection with Salesforce</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3091334997" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Page cannot be found when I try to re-authorize connection with Salesforce</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="summary">Summary</h2><p>When trying to reauthorize the connection I'm getting this error:</p><p>"This is probably not the page you were looking for."</p><h2 id="environment">Environment</h2><ul><li><p>Jira Cloud</p></li></ul><h2 id="diagnostics-steps">Diagnostics Steps</h2><ul><li><p>Check the error URL, make sure that it doesn't contain this string - "OAUTH_APP_ACCESS_DENIED". If it does, <a href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/470756126/This+is+probably+not+the+page+you+are+looking+for+error">proceed to this related KB page instead</a>.</p></li><li><p>Once we've confirmed that it is not the issue related to the "OAUTH" string above, we need to check the HAR file. To do so, follow Atlassian's guide for "<a href="https://confluence.atlassian.com/kb/generating-har-files-and-analyzing-web-requests-720420612.html?__hstc=72543820.ab19c70c621fe76686456a1bcc7fc053.1629983345841.1643007110666.1643081238260.349&amp;__hssc=72543820.5.1643081238260&amp;__hsfp=3471989517">Generating HAR files and analysing requests</a>"</p></li><li><p>Once the HAR file has been generated, check for the following error</p></li></ul><h4 id="error"><strong>Error</strong></h4><pre><code class="language-">Error occurred while trying to authorize the user with Salesforce: {"error":"invalid_grant","error_description":"ip restricted"}</code></pre><h2 id="cause">Cause</h2><p>This usually happens when the Salesforce instance has been configured with IP address restrictions.</p><h2 id="workaround">Workaround</h2><p>Not applicable.</p><h2 id="resolution">Resolution</h2><p>On the Salesforce instance check the following:</p><ul><li><p><strong>Org-wide: Security Controls &gt; Session Settings &gt; </strong>The option "<strong>Lock sessions to the IP address from which they originated</strong>" should be unchecked.<br/></p><img alt="contentId-3091334997" class="doc-image" loading="lazy" src="/cms_trial/assets/3dea9bec-d15e-4bbf-9fbe-681f27967171.png?version=1&amp;modificationDate=1678796163502&amp;cacheVersion=1&amp;api=v2"/></li><li><p><strong>Profile of the user: System &gt; Login IP Ranges</strong>.  If one or more ranges are listed here, verify that your IP address is on this list.</p></li></ul><p>You can view the IP addresses as logged by Salesforce by looking <strong>Setup</strong> -&gt; <strong>Login History</strong>. The entries where Login Type = “Remote Access 2.0” and Status = “Restricted IP” would correspond to failed oAuth authentication attempts by Salesforce &amp; JIRA Cloud Connector on your behalf.</p></div><div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

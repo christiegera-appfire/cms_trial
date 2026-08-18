@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMCFC/168855370/Overview/">Jira Misc Custom Fields (JMCF) - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/168855370/Overview/">Overview</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/465829931/Get+started+with+JMCF+for+Cloud/">Get started with JMCF for Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/465666166/Installation+Guide/">Installation Guide</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Installing or Re-installing on Jira Cloud</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMCFC/pages/465273103" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Installing or Re-installing on Jira Cloud</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="install-the-app">Install the app</h2><p>To install the app, follow these steps: </p><ol><li><p>Log in to your Jira Cloud instance as an administrator.</p></li><li><p>Click the <strong>Settings</strong> icon ⚙️ in the upper right corner and select <strong>Apps</strong>.</p></li><li><p>Search for ‘JMCF’ and select <strong>Jira Misc Custom Fields (JMCF)</strong>.</p></li><li><p>Click <strong>Try it free</strong>.</p></li><li><p>Click <strong>Accept &amp; Install</strong> to confirm the app installation.</p></li><li><p>The system displays a progress message for the operation.</p></li></ol><p>Click <strong>Get Started</strong> to go to the Welcome page for the app. </p><div class="panel panel-warning"><h3 id="important">Important</h3><p>After successfully installing the app, we recommend that you <a href="#">verify your Jira instance configuration</a> to make sure all JMCF features will be able to work properly.</p></div><h2 id="re-install-the-app">Re-install the app</h2><p>To uninstall and re-install the app, follow these steps (don’t skip <em>any</em>): </p><ol><li><p>Log in to your Jira Cloud instance as an administrator.</p></li><li><p>Click the <strong>Settings</strong> icon ⚙️ in the upper right corner and select <strong>Apps</strong>.</p></li><li><p>Click on <strong>Manage apps</strong> and locate <strong>Jira Misc Custom Fields</strong>.</p></li><li><p>Click on the app to display its details view.</p></li><li><p>Click <strong>Unsubscribe </strong>or<strong> Stop Trial </strong>(depending on your subscription status). </p></li><li><p>Click <strong>Uninstall.</strong></p></li><li><p>The system displays a progress message for the operation. Once finished, the app is removed from the <strong>Manage apps</strong> page.</p></li><li><p>Click on <strong>Find new apps</strong> and search for ‘JMCF’.</p></li><li><p>Click on the app to display its details view.</p></li><li><p>Click on <strong>Subscribe.</strong></p></li><li><p>Click on <strong>Accept &amp; Install</strong> to confirm the app installation.</p></li><li><p>The system displays a progress message for the operation. Once finished, the app is reinstalled.</p></li></ol><p>Click on <strong>Get Started</strong> to go to the Welcome page for the app.</p><div class="panel panel-warning"><ul><li><p>Reinstalling the app will not modify your custom fields. However, while the app is inactive, your custom fields will not recalculate, so you want to minimize the time between un-installation and re-installation of the app.</p></li><li><p>Unsubscribing and then re-subscribing to the app will have no impact on billing, as long as you unsubscribe and then re-subscribe on the same day.</p></li></ul></div></div><div><div class="panel panel-note"><p>You are viewing the documentation for <strong>Jira Cloud</strong>. </p></div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

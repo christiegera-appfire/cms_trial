@@ -176,14 +176,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490996521/Feature+guides/">Feature guides</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/723320834/Script+Snippets/">Script Snippets</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Script Snippets Code</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/723320880" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Script Snippets Code</h1>
+    <div class="page-meta">9 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>There are two types of snippets code. Syntax snippets contain code that is used to create common code syntaxes like loops or conditional statements. Functional snippets consist of code that is used to perform a function or operation such as creating a new Jira issue.</p><div class="panel panel-warning"><p>Please note that many script snippets contain notes or information that is commented out. These notes contain important information for the script user but can make the script look longer and more complicated then it actually is. If these comments are distracting to see they can be removed without impacting the script.</p><p>Comments are lines of code that start with “//” or “/*”.</p></div><h2 id="syntax-snippets">Syntax Snippets</h2><p>Syntax snippets are helpful for new or experienced script creators who are looking to quickly add functionality to a script without typing and without memorizing the specific syntax. They do not perform any action by themselves but can easily be combined with a functional snippet to create a custom script.</p><p>See this video to learn how to use syntax snippets in your code:</p><iframe src="https://demo.arcade.software/KTyJqOJ4Qr4OYJfhOyzu"></iframe><p> <strong>FOR loop objects</strong> - inserts the basic syntax for a loop that iterates through an object such as an array or array of structs. This is commonly used when importing data from CSV for JSON. See the <a href="/cms_trial/space/PSJC/434472559/Statements/">documentation about FOR loops</a> for more information.</p><details><summary>Snippet code</summary><pre><code class="language-java">for(string s in array_of_string) {
     // do something
 }</code></pre></details><p><strong>FOR loop with index</strong> - inserts the basic syntax for a loop that iterates a fixed number of times using an index. See the <a href="/cms_trial/space/PSJC/434472559/Statements/">documentation about FOR loops</a> for more information.</p><details><summary>Snippet code</summary><pre><code class="language-java">for(int i = 0; i &lt; size(array); i++) {
@@ -393,6 +398,64 @@ logPrint("INFO", "Priority for " + key + " is now :" + priority); //prints a mes
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

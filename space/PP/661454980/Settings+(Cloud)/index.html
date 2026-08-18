@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PP/1803714584/Planning+Poker+Help+Center/">Planning Poker</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PP/1803714584/Planning+Poker+Help+Center/">Planning Poker Help Center</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PP/1144061974/Planning+Poker+for+Jira+Cloud/">Planning Poker for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Settings (Cloud)</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PP/pages/661454980" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Settings (Cloud)</h1>
+    <div class="page-meta">1 min read</div>
     <div class="panel panel-note"><p>This page is about <strong>Planning Poker for Jira Cloud</strong>. Using<strong> DC</strong>? <a href="/cms_trial/space/PP/1144061984/Planning+Poker+for+Jira+Data+Center/"><strong>Click here</strong></a>.</p></div><p>This page outlines the configuration options for Planning Poker for Jira Cloud.</p><h3 id="how-to-access-global-settings">How to access global settings</h3><ol><li><p>Navigate to <strong>Apps</strong> &gt; <strong>Manage your apps</strong>. </p></li><li><p>Find Planning Poker in the apps list, and click <strong>Configure</strong>.</p><img alt="Screenshot 2024-07-29 at 14.26.46.png" class="doc-image" loading="lazy" src="/cms_trial/assets/c9091977-606c-46c4-9dd5-25512f344646.png"/></li></ol><ul><li><p><strong>Limit access to specific user groups –</strong> Use this setting to restrict access to the app for specific user groups in Jira. Users outside those groups will see a "Sorry, you don't have permissions for Planning Poker" message upon trying to access it. Keep in mind that default Jira admin groups always have access.</p></li><li><p><strong>Enable estimation from issue details –</strong> Activate the Planning Poker tab and perform estimations within the issue view for all Jira users. You'll need to select an estimation field and a card deck. Project admins can still disable or enable this feature at the project level.</p></li></ul><h3 id="how-to-access-project-settings">How to access project settings</h3><ol><li><p>Navigate to a project. </p></li><li><p>From the side menu, click <strong>Project settings</strong> &gt; <strong>Planning Poker</strong>. </p><img alt="image-20240729-112946.png" class="doc-image" loading="lazy" src="/cms_trial/assets/e6c5c457-7842-4445-a284-b7c981319c7a.png"/></li></ol><ul><li><p><strong>Show Planning Poker in board menu –</strong> Determines whether the Planning Poker tab appears in the issue view. Uncheck to hide it.</p></li><li><p><strong>Enable estimation from issue details – </strong>Overrides the global setting. Enable this option to allow estimation directly from the issue view for this specific project.</p></li><li><p><strong>Inherit global settings for estimating from issue details – </strong>Use the global settings for the estimation field and card deck instead of configuring them at the project level.</p></li></ul><div class="panel panel-note"><p>Changes to global settings will automatically apply to all projects that inherit them.</p></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

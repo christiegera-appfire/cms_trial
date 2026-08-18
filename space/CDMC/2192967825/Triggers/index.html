@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193033035/Feature+guide/">Feature guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192903639/Administration/">Administration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193066207/Workflow+elements+and+concepts/">Workflow elements and concepts</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Triggers</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2192967825" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Triggers</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview</h2><p>A <strong>workflow trigger</strong> adds flexibility and automation to your documentation process. When triggered, it can automatically perform one or more actions, such as changing the state, completing an approval, sending a custom email, or removing Confluence page restrictions.</p><h3 id="examples-of-workflow-triggers"><strong>Examples of workflow triggers:</strong></h3><ul><li><p><strong>Send a notification</strong> when a page is submitted for review.</p></li><li><p><strong>Change the page state</strong> automatically when it's edited.</p></li><li><p><strong>Assign reviewers</strong> when a page enters a specific state.</p></li><li><p><strong>Add a label or comment</strong> when a transition occurs.</p></li></ul><p>Triggers can be configured to:</p><ul><li><p>Listen for <strong>when</strong> a single workflow <code>event</code>  occurs</p></li><li><p>Check <strong>if</strong> the required <code>conditions</code> are met for the event</p></li><li><p>If met, <strong>then</strong> undertake one or more <code>actions</code></p></li></ul><h2 id="trigger-elements">Trigger elements</h2><p>Workflow triggers consist of the following elements:</p><p><a href="/cms_trial/space/CDMC/2193950329/Trigger+events/">Trigger events</a></p><p><a href="/cms_trial/space/CDMC/2193852785/Trigger+conditions/">Trigger conditions</a></p><p><a href="/cms_trial/space/CDMC/2192870598/Trigger+actions/">Trigger actions</a></p><h2 id="adding-a-trigger-to-a-workflow">Adding a trigger to a workflow</h2><p>A space administrator can add one or more workflow triggers to a custom workflow using either the <a href="/cms_trial/space/CDMC/2193162438/Visual+builder+editor/">visual editor</a> or the <a href="/cms_trial/space/CDMC/2192837873/JSON+code+editor/">code editor</a>.</p><ul><li><p>Use the <strong>Add trigger</strong> dialog box in the visual editor.</p></li></ul><img alt="image-20260625-144910.png" class="doc-image" loading="lazy" src="/cms_trial/assets/208c42e6-bda1-42cd-a905-bbecd3cdcb85.png"/><p>The event and condition are chosen from a drop-down list of available options.</p><p>You can then include one or more <strong>Actions</strong> for the trigger using the <strong>Add Action</strong> option, such as the <strong>Set Message</strong> action.</p><img alt="image-20260625-145046.png" class="doc-image" loading="lazy" src="/cms_trial/assets/bc03d686-888f-42d0-85b9-48a6b90ebdd0.png"/><p>The added trigger is automatically updated in the <a href="/cms_trial/space/CDMC/2192837873/JSON+code+editor/">code editor</a>.</p><img alt="Comala code editor with saved trigger configuration" class="doc-image" loading="lazy" src="/cms_trial/assets/9ba40da4-b095-4698-adaf-734234e189cf.png"/><p>You can also add a workflow trigger in the code editor, which includes a JSON schema to help you.</p><img alt="Comala code editor JSON schema help for trigger events" class="doc-image" loading="lazy" src="/cms_trial/assets/652d06ba-3d79-4e2d-8521-3be628c2d76f.png"/><p>You can toggle between the code editor and the visual editor. Changes made in one editor are automatically updated in the other editor.</p><p>The workflow triggers added to a workflow are listed in the visual builder.</p><img alt="image-20260625-145231.png" class="doc-image" loading="lazy" src="/cms_trial/assets/e87c4e3c-e1ca-4f2e-97ef-53a564421f8b.png"/>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

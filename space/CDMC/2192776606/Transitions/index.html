@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193033035/Feature+guide/">Feature guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192903639/Administration/">Administration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193066207/Workflow+elements+and+concepts/">Workflow elements and concepts</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Transitions</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2192776606" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Transitions</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview</h2><p><strong>Workflow transition</strong> is the action that moves a document from one <strong>workflow state</strong> to another. Transitions define the path a document follows through its lifecycle, such as from draft to review or from review to approval.</p><img alt="Workflow overview diagram showing workflow states." class="doc-image" loading="lazy" src="/cms_trial/assets/86c5afba-0005-431b-ad2b-a0021520af2c.png"/><h2 id="types-of-transitions">Types of transitions</h2><p>Each transition can be triggered manually (for example, by a user clicking a button) or automatically (for example, using a trigger or rule).</p><div class="panel panel-note"><p>You can add multiple transitions to a state, but only one of each transition type (automatic or manual) can be added to that state. Each transition is added to a specific state and includes its type and destination state.</p></div><h2 id="automatic-transitions">Automatic transitions</h2><p>These transitions occur without user interaction, based on workflow events or conditions:</p><h3 id="approved-transition">Approved transition</h3><ul><li><p>Occurs when a user (or all assigned users) approves the content.</p></li><li><p>It can only be added to a state with content review (approval).</p></li></ul><img alt="Workflow editor showing an approved transition configured for a workflow state." class="doc-image" loading="lazy" src="/cms_trial/assets/bcf0a74b-8dab-4362-9878-6746bdc4b04b.png"/><h3 id="rejected-transition">Rejected transition</h3><ul><li><p>Occurs when a user (or all assigned users) rejects the content.</p></li><li><p>Can only be added to a state that has a content review (approval).</p></li></ul><img alt="Workflow editor showing a rejected transition configured for a workflow state." class="doc-image" loading="lazy" src="/cms_trial/assets/b8547d86-c985-4e26-81c7-f579e509ba64.png"/><h3 id="updated-transition">Updated transition</h3><p>The <strong>updated</strong> transition must be added to the state. Can be added alongside other transition options, for example, a content review or a select transition.</p><ul><li><p>Occurs when a user edits and saves a change to the content.</p></li><li><p>An <strong>updated</strong> transition removes any reviewers previously assigned using the workflow dialog if the state also contains a content review.<br/></p><img alt="Workflow editor showing an updated transition configured for a workflow state." class="doc-image" loading="lazy" src="/cms_trial/assets/db54737d-c51a-4957-8f1a-97c091b17086.png"/></li></ul><div class="panel panel-note"><p>Adding or removing a label or attachment does not affect the <strong>updated</strong> transition.</p></div><h3 id="expired-transition">Expired transition</h3><p>The expired transition must be added to the state, which must be configured with a due date.</p><ul><li><p>Occurs when a due date added to the state is reached.</p></li><li><p>If no due date is added (or has been removed before the due date), no expiry occurs.</p></li><li><p>The<a href="/cms_trial/space/CDMC/2192776431/Content+expiry+workflow/"> content expiry workflow</a> has an <strong>expired</strong> transition added to the <strong>Approved</strong> state.<br/></p><img alt="Workflow editor showing an expired transition configured for a workflow state." class="doc-image" loading="lazy" src="/cms_trial/assets/aa583ff9-0d39-48d0-a3f5-b20158628588.png"/></li></ul><p>A state can have one, more than one, or all of these possible transitions. The <strong>approved</strong> and <strong>rejected</strong> transitions are only available when the state contains an approval (content review).</p><div class="panel panel-note"><p>Transitions can also occur due to a trigger action listening for a workflow event, such as a change of state or a page approval. These can be added to the workflow as a JSON trigger.</p></div><h2 id="manual-transitions">Manual transitions</h2><p>These require the user to trigger the transition:</p><ul><li><p><strong>Select</strong> – allows the user to choose from one or more destination states when transitioning the content.<br/></p><img alt="Workflow editor showing a Select transition configured with multiple destination states." class="doc-image" loading="lazy" src="/cms_trial/assets/6b35d18f-ccd4-499d-8265-ebf0d2e3c669.png"/></li></ul><h3 id="select-transition"><strong>Select transition</strong> </h3><p>A select transition moves the page to another state based on your selection.</p><ul><li><p>When a state has select transitions configured, the <em>Workflow State</em> dialog displays a <strong>Possible transitions</strong> section. Each available transition is shown with its name and destination state.</p></li><li><p>Click the transition name to move the page to the destination state.<br/></p><img alt="Workflow State Dialog displaying available select transitions for the current workflow state." class="doc-image" loading="lazy" src="/cms_trial/assets/f0dd05f3-71aa-4466-b70c-136f8c4e5d44.png"/></li><li><p>The <strong>select</strong> transition can’t be added to a state that contains an approval.</p></li></ul><p><strong>Related topics</strong></p><ul><li><p><a href="/cms_trial/space/CDMC/2193066115/States/">States</a></p></li><li><p><a href="/cms_trial/space/CDMC/2193129918/Workflow+state+dialog/">Workflow state dialog</a></p></li><li><p><a href="/cms_trial/space/CDMC/2193162438/Visual+builder+editor/">Workflow visual builder editor</a></p></li></ul><p><br/></p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

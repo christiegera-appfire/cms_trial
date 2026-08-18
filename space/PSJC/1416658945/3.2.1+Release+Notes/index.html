@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/899022918/Release+notes/">Release notes</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/3442212890/Release+notes+2024/">Release notes 2024</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">3.2.1 Release Notes</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/1416658945" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>3.2.1 Release Notes</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><img alt="Release Notes.png" class="doc-image" loading="lazy" src="/cms_trial/assets/ebbac8a4-b9d2-4330-8419-e2ffd8dc7f3f.png"/><p><strong>Release date</strong>: <time datetime="2024-10-29">October 29, 2024</time> </p><p><strong>Rushed release</strong>: a library was overwritten by an older version, preventing in certain cases the correct reporting of the errors, while interfering with the date parsing. While minor, we strive for perfection, therefore this release.</p><hr/><table><tr><th><p><strong>Contents</strong></p></th></tr><tr><td><nav class="toc"><ul><li class="toc-level-2"><a href="#bug-fixes">Bug fixes</a></li></ul></nav></td></tr></table><hr/><h2 id="bug-fixes">Bug fixes</h2><p>The following bugs are fixed in this release:</p><ul><li><p>SIL Manager problems when reporting errors</p></li><li><p>Date error when parsing a dateTime with a negative timezone</p></li><li><p>JQL Config page didn't save/take in consideration the projects at sync time </p></li></ul><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p> <span class="inline-icon" title="inline icon">▢</span> <strong>Questions and feedback</strong></p><ul><li><p>Explore exciting features, pricing updates, reviews, and more on the <a href="https://marketplace.atlassian.com/apps/43318/power-scripts-jira-workflow-automation?tab=overview&amp;hosting=cloud">Marketplace</a>.</p></li><li><p>Stuck with something? Raise a ticket with our <a href="https://appf.re/support"><u>support team</u></a>.</p></li><li><p>Do you love using our app? Let us know what you think <a href="https://marketplace.atlassian.com/apps/43318/power-scripts-jira-workflow-automation?tab=reviews&amp;hosting=cloud">here</a>.</p></li></ul></div><div><p><strong> </strong><span class="inline-icon" title="inline icon">▢</span> <strong>Credits</strong></p><p>A heartfelt thank you to our valued customers! Your incredible support and feedback inspire us to improve our apps and products continually. You are the driving force behind why we create software. We know we have the smartest customers &amp; we appreciate your trust in Power Scripts for Jira Cloud!</p></div></div><table><tr><th><p><strong>Release date</strong></p></th><td><p><time datetime="2024-10-29">October 29, 2024</time> </p></td></tr><tr><th><p><strong>Highlights</strong></p></th><td><ul><li><p><strong>Rushed release</strong></p></li><li><p>Internal library correctly included in build</p></li><li><p>Date parsing fixed</p></li><li><p>JQL Config page was not saving correctly the projects to synchronize</p></li></ul></td></tr></table><div class="img-placeholder">[Unmapped macro: fc909b09-b512-4c31-a844-dd855b0e6aae/db1c8759-c7e5-4e80-9022-d19e47b0e2b0/static/macro — no content to fall back on]</div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

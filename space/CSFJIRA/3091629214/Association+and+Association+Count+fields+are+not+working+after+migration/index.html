@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3092186639/Association+and+synchronization/">Association and synchronization</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Association and Association Count fields are not working after migration</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3091629214" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Association and Association Count fields are not working after migration</h1>
+    <div class="page-meta">1 min read</div>
     <h2 id="problem">Problem</h2><p>The <em>Association</em> and <em>Association Count</em> fields don’t update and can’t be edited after a migration. The fields seem to be locked, and they are to be used for reporting purposes or easier access to the associations related to the Jira issue.</p><h2 id="solution">Solution</h2><p>The <em>Association</em> and <em>Association Count</em> fields are custom fields created by the connector on each instance and only for that instance. These fields are locked after a migration and aren’t updated by the Connector. Instead, the Connector installed in the new instance creates its own set of fields, which need to be added to the <em>Edit Issue</em> screen<em> or View Issue</em> screen to be updated for the Connector.</p><div class="panel panel-note"><p>Add the <strong>Associations </strong>and <strong>Associations Count </strong>fields to the <em>Edit Issue</em> Screen to allow the application to populate and update them. An administrator must configure the fields in the project settings. </p><ul><li><p>If the fields are not added to the <em>Edit Issue</em> screen, they cannot be updated.</p></li><li><p>If the fields are added to the <em>View Issue</em> screen, they are editable and can be edited manually. We recommend removing these fields from the <em>View Issue </em>screen and avoiding updating them manually.</p></li><li><p>If the fields are updated manually, the app synchronizes them again when the next association-related action occurs.</p></li></ul><p>For more information regarding screen configuration, refer to <a href="https://support.atlassian.com/jira-software-cloud/docs/configure-the-issue-detail-view/">Configure the issue detail view</a>.</p></div><h2 id="related-articles">\uD83D\uDCCE Related articles</h2><ul><li><p><a href="/cms_trial/space/CSFJIRA/3092219354/Use+JQL+to+report+on+Jira+issues+with+associations/">Use JQL to report on Jira issues with associations</a> </p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

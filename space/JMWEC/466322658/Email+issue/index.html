@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465372899/Workflow+Extensions+for+Jira+Cloud/">Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465242045/Post+functions/">Post functions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Email issue</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/466322658" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Email issue</h1>
+    <div class="page-meta">7 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>A post-function that sends a notification email about the current issue or issues related to the current issue.</p><img alt="Email issue(s) post function configuration screen" class="doc-image" loading="lazy" src="/cms_trial/assets/e89167db-4eb1-4a53-8779-e13209c3f0fd.png"/><p><strong>To add 'Email issue' post-function to a transition: </strong></p><ol><li><p>Click <strong>Edit</strong> for the workflow that has the transition you wish to add the post-function on.</p></li><li><p>In the Workflow Designer, select the transition.</p></li><li><p>Click on <code>Post Functions </code>in the properties panel.</p></li><li><p>Click on <code>Add</code> <code>post function</code>.</p></li><li><p>Select <code>Email issue</code> from the list of post-functions.</p></li><li><p>Click on <code>Add</code> to add the post-function on the transition.</p></li><li><p>Select the “Target issue” (see below)</p></li><li><p>Input the subject of the Email in <code>Subject.</code></p></li><li><p>Select the recipients in <code>Recipients.</code></p></li><li><p>Click on <code>Add</code> to add the post-function to the transition.</p></li></ol><div class="columns" style="grid-template-columns: 100.0fr;"><div><div class="panel panel-note"><p>JMWE shows an error message on the issue view if any error occurs during the execution of the post-function. This message is only displayed if the current user is a Jira administrator. </p></div><p>When you add this post-function to a transition and trigger the transition, the add-on sends an Email notification about each target issue to the specified recipients.</p><h2 id="issue-s-to-operate-on">Issue(s) to operate on</h2><p>Select the issues whose recipients should receive the email. They can be:</p><ul><li><p><strong>Current issue:</strong> Select this option to send a notification email for the current issue. <em>This is the default option.</em></p></li><li><p><strong>Sub-tasks of the current issue: </strong>Select this option to send a notification email for each subtask of the current issue</p></li><li><p><strong>Parent issue of the current sub-task:</strong> Select this option to send a notification email for the parent of the current issue</p></li><li><p><strong>Issues that belong to the current issue (Epic):</strong> Select this option to send a notification email for each issue that belongs to the current Epic</p></li><li><p><strong>Epic of the current issue: </strong>Select this option to send a notification email for the Epic of the current issue</p></li><li><p><strong>Child issues of the current issue in the Portfolio hierarchy:</strong> Select this option to send a notification email for each child issue of the current issue in the Portfolio hierarchy</p></li><li><p><strong>Parent issue of the current issue in the Portfolio hierarchy:</strong> Select this option to send a notification email for the parent issue of the current issue in the Portfolio hierarchy</p></li><li><p><strong>Issues linked to the current issue through any link type:</strong> Select this option to send a notification email for each issue linked to the current issue</p></li><li><p><strong>Issues linked to the current issue through the following link type:</strong> Select this option to send a notification email for each issue linked to the current issue through a specific link type. Select the specific link type under “Issue link”</p></li><li><p><strong>Issues returned by the following Nunjucks template: </strong> Select this option to send a notification email for each issue returned by the result of a Nunjucks template. Input a Nunjucks template which is a comma-separated list of valid issue keys. For example:</p><ul><li><p><code>"TEST-1"</code></p></li><li><p><code>"TEST-1","TEST-2"</code></p></li><li><p><code>{{ issue.fields.parent.key }}</code></p></li><li><p><code>{{ issue.fields.subtasks | join(",", "key") }}</code></p></li></ul></li><li><p><strong>Issues returned by a JQL search</strong>: Select this option to send a notification email for each issue returned by a JQL search. Input a JQL search expression. For example:</p><ul><li><p><code>project = TEST</code> returns issues of the project with the key TEST</p></li><li><p><code>project = {{ issue.fields.project.key }} and assignee = {{currentUser._accountId}}</code> returns issues of a project that belong to the project with key TEST and the assignee is the current user</p></li><li><pre><code class="language-">{% if issue.fields.assignee %}
     assignee = {{issue.fields.assignee._accountId}}
 {% else %}
@@ -172,6 +177,64 @@ Regards,
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

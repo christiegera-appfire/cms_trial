@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146310010/Product+and+data+connections/">Product and data connections</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/1529219266/Custom+Reports+-+REST+API+integration/">Custom Reports - REST API integration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/1568374878/Custom+Reports+templates/">Custom Reports templates</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/2173796469/Appfire+apps/">Appfire apps</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Comala Document Management workflow and state chart</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/1955102741" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Comala Document Management workflow and state chart</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview</h2><p>The Comala Document Management workflow and state summary report lets you retrieve and visualize workflow and status information from Confluence content using a custom CQL (Confluence Query Language) expression. </p><p>The example shown on this page is for demonstration purposes only and can be adapted to fit your reporting needs.</p><div class="panel panel-note"><p>To configure and customize this report, you should be familiar with Confluence CQL and REST API concepts.</p></div><h2 id="prerequisistes">Prerequisistes</h2><ul><li><p><strong>Comala Document Management for Confluence:</strong> Ensure Comala Document Management is installed and active on your Confluence instance, as the report relies on workflow and status information provided by Comala.</p></li><li><p><strong>Dashboard Hub dashboard</strong>: You need to have a dashboard set up to add Custom Report gadgets.</p></li><li><p><strong>API token for Confluence</strong>: Create and save the API token. You will need it to set up your datasource in Dashboard Hub. You can create the API token from your <a href="https://id.atlassian.com/manage-profile/security/api-tokens">Atlassian account</a>. For more information on managing API tokens, see Atlassian’s <a href="https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/">support documentation</a>.</p></li><li><p><strong>Datasource</strong>: A Custom Reports datasource must be configured so the gadget can load data from Confluence and access custom properties.</p></li></ul><h2 id="how-to-set-up-the-confluence-datasource">How to set up the Confluence datasource</h2><p>To connect Confluence data to Dashboard Hub, you need to configure a REST API datasource.</p><ol><li><p>In Dashboard Hub, select <strong>More actions ( … ) </strong>&gt;<strong> Add datasource</strong>.</p></li><li><p>Select <strong>Custom Reports</strong>.</p></li><li><p>Configure the datasource:</p><ol><li><p><strong>Name</strong>: Provide a descriptive name to help identify the datasource later.</p></li><li><p><strong>Authentication</strong>: Use <strong>Basic Authentication</strong>.</p></li><li><p><strong>Username</strong>: Enter your Atlassian account email address.</p></li><li><p><strong>Password</strong>: Paste the Atlassian API token you generated earlier.</p></li></ol></li><li><p>Click <strong>Add</strong>.<br/></p><img alt="The Custom Report configuration page as described on this page." class="doc-image" loading="lazy" src="/cms_trial/assets/663cc470-0795-44ec-9af6-e77e78680f85.png"/></li></ol><h2 id="how-to-use-the-workflows-and-state-chart-report">How to use the Workflows and state chart report</h2><ol><li><p> Click <strong>Edit</strong> on your Dashboard Hub dashboard.</p></li><li><p>Click <strong>Add Gadget</strong>.</p></li><li><p>Select <strong>Custom Reports</strong> in the left sidebar, then select the <strong>CDM workflows and state chart</strong> report gadget.</p></li><li><p>On the gadget configuration page, the gadget name is pre-filled by default. </p></li><li><p>Under <strong>Datasources</strong>, select the Confluence Custom Reports datasource you created earlier.</p></li><li><p>Under <strong>Variables</strong>, enter:</p><ol><li><p><strong>CQL</strong> – the query defining which Confluence pages to include, for example, <code>type=page</code>.</p></li><li><p><strong>Limit</strong> – the maximum number of pages to retrieve. A preview of the report displays workflow and state statistics in a multi-pie chart.</p></li></ol></li><li><p>(Optional) To customize the report layout, fields, chart type, or styling, click <strong>Open Editor</strong> then edit the parameters you want to change.</p></li><li><p>When the report is ready to use, click <strong>Add</strong>. The report appears similar to the example below.</p><img alt="An example workflow and state chart." class="doc-image" loading="lazy" src="/cms_trial/assets/3c195d4b-ad45-4bf1-a30f-ced9d0226452.png"/></li></ol><div class="columns" style="grid-template-columns: 100.0fr;"><div><div class="panel panel-note"><p>See <a href="/cms_trial/space/RDD/2110030119/Custom+report+example/">Custom report example</a> for a video walkthrough of how to customize your report. </p></div></div></div><h2 id="see-also">See also</h2><ul><li><p><a href="/cms_trial/space/RDD/1529219266/Custom+Reports+-+REST+API+integration/">Introduction to Custom Reports</a> </p></li><li><p><a href="/cms_trial/space/RDD/1528825149/Get+started+with+Custom+Reports/">Get started with Custom Reports</a> </p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

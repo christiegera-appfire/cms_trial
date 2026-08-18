@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Migrate to Confluence Cloud</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2192967667" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Migrate to Confluence Cloud</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>Comala Document Management supports migration from Confluence <strong>Data Center</strong> to Confluence <strong>Cloud</strong> using the <em>Atlassian Confluence Cloud Migration Assistant (CCMA)</em>.</p><h2 id="choose-your-migration-guide">Choose your migration guide</h2><table><tr><th><p><strong>Migration path</strong></p></th><th><p><strong>Who this applies to</strong></p></th><th><p><strong>Guide</strong></p></th></tr><tr><td><p><strong>DC to Cloud (Forge)</strong></p></td><td><p>All customers migrating on or after July 1, 2026</p></td><td><p><a href="/cms_trial/space/CDMC/3446079850/Migrate+from+Data+Center+to+Cloud+(Forge)/">Migrate from Data Center to Cloud (Forge)</a></p></td></tr><tr><td><p><strong>DC to Cloud (Connect)</strong></p></td><td><p>Exception customers who registered with Appfire Support to migrate to the Connect version after June 30, 2026</p></td><td><p><a href="/cms_trial/space/CDMC/3446374401/Migrate+from+Data+Center+to+Cloud+(Connect)/">Migrate from Data Center to Cloud (Connect)</a></p></td></tr></table><h2 id="data-center-to-cloud-forge">Data Center to Cloud (Forge)</h2><p>As part of Atlassian's platform modernization, Comala Document Management for Cloud has been rebuilt on the Atlassian Forge platform. Starting July 1, 2026, all new Data Center to Cloud migrations use this updated architecture.</p><p>Key improvements include faster migrations, a migration dashboard with batch-level retry, resilient retries, automatic metadata migration, and no page-restriction removal required.</p><p><strong>This migration requires Comala Document Management Data Center version 9.0.0 or higher.</strong></p><p>See: <a href="/cms_trial/space/CDMC/3446079850/Migrate+from+Data+Center+to+Cloud+(Forge)/">Data Center to Forge migration guide</a></p><h2 id="data-center-to-cloud-connect">Data Center to Cloud (Connect)</h2><p>This guide applies only to exception customers who are migrating from Data Center to the Connect version after June 30, 2026. These are customers who registered their migration with Appfire Support prior to that date. This guide will be retired on October 1, 2026.</p><div class="panel panel-warning"><p>For a DC to Connect migration, the CDM Cloud app must be on <strong>v40 or lower</strong>. Upgrading to <strong>v41 or higher</strong> installs the Forge version, which makes the Connect migration no longer possible. On the Data Center side, upgrading to the latest compatible version is strongly recommended.</p></div><p>See: <a href="/cms_trial/space/CDMC/3446374401/Migrate+from+Data+Center+to+Cloud+(Connect)/">Data Center to Connect migration guide</a></p><h2 id="resources">Resources</h2><ul><li><p><a href="/cms_trial/space/CDMC/2192677102/Product+comparison/">Product comparison - Data Center vs. Cloud</a></p></li><li><p><a href="/cms_trial/space/CDMC/2200469883/Migration+help+and+support/">Migration help and support</a></p></li><li><p><a href="https://www.atlassian.com/migration/plan/cloud-guide">Atlassian Migration Guide</a></p></li><li><p><a href="https://appfire.atlassian.net/servicedesk/customer/portal/11">Contact Appfire Support</a></p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

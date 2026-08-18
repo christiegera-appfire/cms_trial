@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud) Documentation</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941853/Release+Notes/">Release Notes</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/1595769075/Release+notes+2021%E2%80%932024/">Release notes 2021–2024</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783943820/2021/">2021</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">June 4, 2021 - Initial Release</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/783941893" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>June 4, 2021 - Initial Release</h1>
+    <div class="page-meta">1 min read</div>
     <h2 id="initial-release-in-private-beta-mode">Initial Release in Private Beta Mode</h2><p>This initial release contains the core functionality of the Cloud version of <em>Rich Filters for Jira Dashboards</em>. Future releases will add new features, with priority given to features already available in the latest Server &amp; Data Center version.</p><p>Below is a high-level description of the functional coverage:</p><ul><li><p>Rich filter <a href="/cms_trial/space/RFCDOC/783941673/Configure+Rich+Filters/">configuration</a>, with support for:</p><ul><li><p><a href="/cms_trial/space/RFCDOC/783941703/Configure+static+filters/">static filters</a></p></li><li><p><a href="/cms_trial/space/RFCDOC/783941707/Configure+dynamic+filters/">dynamic filters</a> on issue fields that can take predefined values (e.g., status, priority, labels, user pickers, check-boxes, select lists, etc.)</p></li><li><p><a href="/cms_trial/space/RFCDOC/783941713/Configure+smart+filters/">smart filters</a> with labels and colors</p></li><li><p><a href="/cms_trial/space/RFCDOC/783941729/Configure+views/">views</a> based on Jira fields and smart filters</p></li><li><p><a href="/cms_trial/space/RFCDOC/783941839/Rights+and+Permissions/">rights and permissions</a></p></li></ul></li><li><p>Interactive dashboards, with support for:</p><ul><li><p><a href="/cms_trial/space/RFCDOC/783941745/The+Rich+Filter+Controller+Gadget/">controller</a> gadgets with custom quick filters layout and additional JQL query</p></li><li><p><a href="/cms_trial/space/RFCDOC/783941759/The+Rich+Filter+Results+Gadget/">results</a> gadgets with multiple views displayed as tabs</p></li><li><p><a href="/cms_trial/space/RFCDOC/783941825/The+Rich+Filter+Simple+Counter+Gadget/">simple counter</a> gadgets supporting Issue Count and aggregated numeric and time-tracking fields</p></li><li><p><a href="/cms_trial/space/RFCDOC/783941781/The+Rich+Filter+Statistics+Gadget/">one-dimensional statistics</a> gadgets supporting simultaneously multiple result columns based on Issue Count or numeric and time-tracking fields aggregated by issue fields</p></li><li><p><a href="/cms_trial/space/RFCDOC/783941803/The+Rich+Filter+Two+Dimensional+Statistics+Gadget/">two-dimensional statistics</a> gadgets with results based on Issue Count or numeric and time-tracking fields aggregated by two issue fields<br/><br/></p></li></ul></li></ul><p><br/></p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12518429/Features/">Features</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Workflow preconditions</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JSUCLOUD/pages/12518025" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Workflow preconditions</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="configuration-of-preconditions">Configuration of preconditions</h2><p><strong>JSU Automation Suite</strong> preconditions allow you to execute a <a href="/cms_trial/space/JSUCLOUD/12518401/Workflow+post+functions/">post function</a> under certain circumstances only; essentially they are conditions for the post function component of your rule. This lets you create complex behavior on your post functions, enabling Jira to work harder for you.</p><p>JSU's preconditions are a part of the post function section in Jira's workflow configuration. In the example below, a precondition is added to the ‘Clear Field Value’ post function.</p><img alt="Diagram showing the resulting action for a JSU post function if the preconditions are met or unmet." class="doc-image" loading="lazy" src="/cms_trial/assets/ef0390e3-427e-48ce-85fe-84cce79f302f.png"/><h3 id="choose-your-precondition"><br/>Choose your precondition</h3><p>In the post function configuration page, select <strong>Add Precondition</strong> then select <strong>Add</strong> for the precondition that you want to evaluate.</p><p>The following preconditions are available:</p><ul class="children-list"><li><a href="/cms_trial/space/JSUCLOUD/12517924/User+in+Groups+precondition/">User in Groups precondition</a></li><li><a href="/cms_trial/space/JSUCLOUD/12517956/Date+Compare+precondition/">Date Compare precondition</a></li><li><a href="/cms_trial/space/JSUCLOUD/12517966/Date+Expression+Compare+precondition/">Date Expression Compare precondition</a></li><li><a href="/cms_trial/space/JSUCLOUD/12517977/User+in+Roles+precondition/">User in Roles precondition</a></li><li><a href="/cms_trial/space/JSUCLOUD/12517988/User+in+Field+precondition/">User in Field precondition</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518009/Value+Field+precondition/">Value Field precondition</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518033/JQL+precondition/">JQL precondition</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518665/Fields+Required+precondition/">Fields Required precondition</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518693/Regular+Expression+precondition/">Regular Expression precondition</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518704/Date+Window+precondition/">Date Window precondition</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518805/Linked+Status+precondition/">Linked Status precondition</a></li><li><a href="/cms_trial/space/JSUCLOUD/12520152/Status+Change+precondition/">Status Change precondition</a></li></ul><img alt="Add Precondition button highlighted in the JSU Clear Field Value post function configuration page." class="doc-image" loading="lazy" src="/cms_trial/assets/2d0a2c54-20c7-4622-bf6a-67eb6b1421e6.png"/><img alt="List of available JSU preconditions." class="doc-image" loading="lazy" src="/cms_trial/assets/1011f4e4-a59f-4dd8-9a7b-3bc1a8f6dc62.png"/><h3 id="combine-multiple-preconditions">Combine multiple preconditions</h3><p>You can insert multiple preconditions and combine them using the following operators:</p><ul><li><p>AND: Previous result and the current result must be true</p></li><li><p>OR: Either the previous result or current result must be true, or both</p></li><li><p>AND NOT: The previous result must be true, and the current result must be false</p></li><li><p>OR NOT: Either the previous result must be true or the current result must be false, or both</p></li></ul><p>They are evaluated sequentially, combining the result of the previous precondition with the result from the current one. Parentheses to define precedence are not supported.</p><p>You can rearrange the precondition by dragging the line using the handle on the left.</p><p>You can also disable the precondition by unchecking the enabled flag next to the delete button. This will leave the precondition in your configuration, but it will be ignored.</p><img alt="Example setup of JSU preconditions using an If, Or, And sequence." class="doc-image" loading="lazy" src="/cms_trial/assets/d0d7a909-5c5f-41f2-bcc4-2517dbc70f3d.png"/><h3 id="the-post-function-setting">The post function setting</h3><p>Your post function is always aware of the preconditions you configured, however, you still need to select whether you want the precondition to be <code>true</code> or <code>false</code> for the function to be executed.</p><img alt="The JSU Precondition set to True in the post function configuration page." class="doc-image" loading="lazy" src="/cms_trial/assets/49154714-114e-4322-a914-3f084b874c66.png"/><h2 id="example">Example</h2><p>Say you want to tell the user to break up a large story into smaller stories. You can do this by creating an Update Any Issue Field post function and setting the precondition as described:</p><ul><li><p>IF Original Estimate &gt;= 2d</p></li><li><p>OR Story Points &gt; 8</p></li><li><p>AND Issue Type = Story</p></li></ul><p>In other words, if you have a time estimate greater than or equal to two days or the number of story points exceeds 8 and the issue is a Story, then you want to execute the post function.</p><p>In the post function, you update the issue by adding a new comment. After you save, the overview should appear similar to the following:</p><img alt="The post function summary as described in the example on this page." class="doc-image" loading="lazy" src="/cms_trial/assets/d5fdb186-70e3-4edb-9011-938f8875bf63.png"/><p>See <a href="/cms_trial/space/JSUCLOUD/12518052/Update+an+issue+only+in+certain+conditions/">Preconditions for Post Functions</a> for more use cases.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

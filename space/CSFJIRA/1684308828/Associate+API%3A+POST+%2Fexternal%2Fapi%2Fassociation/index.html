@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1685193166/API+reference/">API reference</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Associate API: POST /external/api/association</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/1684308828" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Associate API: POST /external/api/association</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 100.0fr;"><div><div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="before-you-start"><strong>Before you start</strong></h2><p>Before you start working with REST APIs, make sure you have:</p><ul><li><p>Checked the <a href="/cms_trial/space/CSFJIRA/1853817917/Authenticate+REST+APIs/">Authenticate API</a> instructions.</p></li><li><p>Use the correct Connector for Salesforce and Jira Cloud instance URL: <a href="https://sfjc.integration.appfire.app/">https://sfjc.integration.appfire.app</a>  or <a href="https://eu-sfjc.integration.appfire/">https://eu-sfjc.integration.appfir</a><a href="https://eu-sfjc.integration.appfire/"><u>e</u></a><u>.app</u>, depending on your data residency location.</p></li></ul><h2 id="endpoint-post-external-api-association-allowupsert"><strong>Endpoint: POST /external/api/association</strong>?allowUpsert={}</h2><h3 id="description"><strong>Description</strong></h3><p>The Associate API associates a Jira issue with a Salesforce record. You can specify whether the association should be view-only and configure automatic push and pull behaviors.</p><h3 id="query-parameters">Query Parameters</h3><ul><li><p><code>allowUpsert </code>(boolean, optional): Whether to allow upsert functionality (insert or update). <br/>Default: <code>false</code></p></li></ul><h3 id="example">Example</h3><pre><code class="language-json">POST /external/api/association?allowUpsert=false</code></pre><h3 id="request-body"><strong>Request body</strong></h3><ul><li><p><code>jiraIssueId</code> (string, required): the Jira issue ID is the unique identifier of the Jira issue you want to associate.</p></li><li><p><code>son</code> (string, required): Salesforce object name, for example, <code>Case</code>, <code>Account</code>, <code>Contact</code>.</p></li><li><p><code>soid</code> (string, required): Salesforce object ID for the specific record to be associated with the Jira issue.</p></li><li><p><code>viewOnly</code> (boolean, optional): Set to <code>true</code> to create a view-only association. <br/>Default: <code>false</code></p></li><li><p><code>autoPush</code> (boolean, optional): Set to <code>true</code> to enable automatic data push from Jira to Salesforce.<br/>Default: <code>false</code></p></li><li><p><code>autoPull</code> (boolean, optional): Set to <code>true</code> to enable automatic data pull from Jira to Salesforce.<br/>Default: <code>false</code></p></li></ul><h3 id="example-request-body">Example request body</h3><pre><code class="language-json">{
 	"jiraIssueId": "10173",
 	"son": "Case",
@@ -172,6 +177,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

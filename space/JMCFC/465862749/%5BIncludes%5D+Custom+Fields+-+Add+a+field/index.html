@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMCFC/168855370/Overview/">Jira Misc Custom Fields (JMCF) - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/465471159/Includes/">Includes</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">[Includes] Custom Fields - Add a field</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMCFC/pages/465862749" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>[Includes] Custom Fields - Add a field</h1>
+    <div class="page-meta">1 min read</div>
     <p>There are two paths for adding a JMCF custom field - through the <a href="/cms_trial/space/JMCFC/465471321/My+Custom+Fields/">My Custom Fields</a> page or through the native Jira <strong>Custom fields</strong> page. </p><p>To create a new field through <strong>My custom fields</strong>: </p><ol><li><p>Log into your Jira instance as an Administrator. </p></li><li><p>Click <strong>Settings</strong> ⚙️ in the upper right corner. </p></li><li><p>Select <strong>Apps</strong>. </p></li><li><p>In the left-hand panel, click <strong>Jira Misc Custom Fields</strong>. </p></li><li><p>Select <strong>My custom fields</strong>.</p></li><li><p>Click <strong>New custom field</strong> in the upper right corner. </p></li><li><p>Give the custom field a name and, optionally, a description. <strong>Note: </strong>the maximum length of both the name and description fields is 255 characters. </p></li><li><p>Select the <strong>JMCF</strong> field type and click <strong>Next</strong>. </p></li><li><p>Select the Projects and Work Item types to which the custom field should be added. Click <strong>Next</strong>. </p></li><li><p>Follow the steps in the next section to configure your custom field. </p></li></ol><p>To create a new JMCF custom field through the Jira custom fields page: </p><ol><li><p>Log into your Jira instance as an Administrator. </p></li><li><p>Click <strong>Settings</strong> ⚙️ in the upper right corner. </p></li><li><p>Select <strong>Work Items</strong>.</p></li><li><p>In the left-hand panel, click <strong>Custom fields</strong>.</p></li><li><p>Click <strong>Create custom field</strong> in the upper right corner. </p></li><li><p>In the <strong>Select a Field Type</strong> window, click <strong>Advanced</strong>. </p></li><li><p>Select the <strong>JMCF</strong> field type you want to add and click <strong>Next</strong>.</p></li><li><p>Give the custom field a name and, optionally, a description. </p></li><li><p>Click <strong>Create</strong>.</p></li><li><p>Follow the steps in the next section to configure your custom field.</p></li></ol><div class="panel panel-warning"><p><strong>Note</strong>: If you create a <strong>JMCF</strong> custom field using the native Jira custom field process, the new custom field <em>will not calculate until its </em><em><strong>Contexts have been updated</strong></em><em>; </em>this limitation applies even when the custom field is configured for the Default context. </p></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

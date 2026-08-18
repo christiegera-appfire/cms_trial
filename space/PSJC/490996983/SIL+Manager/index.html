@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490996521/Feature+guides/">Feature guides</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">SIL Manager</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/490996983" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>SIL Manager</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>The SIL Manager is the central development environment for Power Scripts in Jira Cloud. It provides the tools you need to create, edit, and manage your SIL scripts.</p><p>The SIL Manager is the central development environment for Power Scripts in Jira Cloud. It provides the tools you need to create, edit, and manage your SIL scripts.</p><h2 id="key-features">Key features</h2><p>The SIL Manager offers essential development capabilities, including:</p><ul><li><p><strong>Advanced script editor</strong>: Full-featured text editing with syntax highlighting and intelligent autocomplete.</p></li><li><p><strong>Source file management</strong>: Organize and navigate scripts across multiple directories.</p></li><li><p><strong>Script Execution</strong>: Run scripts directly from the editor with immediate feedback.</p></li><li><p><strong>Instance log viewing</strong>: Monitor script execution and debug issues in real-time.</p></li><li><p><strong>Multi-file support</strong>: Edit various file types beyond scripts, including configuration files and templates.</p></li></ul></div></div><h2 id="the-sil-manager-interface">The SIL Manager interface</h2><p>The SIL Manager serves as the central development environment where you'll spend most of your time writing and refining scripts. </p><ul><li><p>To access the SIL Manager, navigate to <strong>Administration</strong> &gt; <strong>Apps</strong> &gt; <strong>Manage apps</strong> &gt; <strong>Power Scripts</strong>  &gt; <strong>SIL Manager</strong>.<br/>Upon opening the SIL Manager, the script editor loads by default, providing immediate access to your development workspace. </p></li></ul><img alt="Power Scripts for Jira Cloud SIL Manager settings configuration" class="doc-image" loading="lazy" src="/cms_trial/assets/cdc8ef39-7c2b-436d-a5d6-5abece2fb6d8.png"/><ul><li><p>To start using the SIL manager, create a new file or open an existing script from the file tree.</p></li><li><p>You can use the <strong>Quick Start</strong> button to help you create your first script. <br/><br/>Once you open or create a file, the interface transforms into a full-featured editor where you can write and refine your scripts.</p></li></ul><img alt="Power Scripts for Jira Cloud panels configuration interface" class="doc-image" loading="lazy" src="/cms_trial/assets/067a959e-b30b-468b-9283-fbc03680292d.png"/><div class="panel panel-note"><p><strong>Technical Credits</strong>: The SIL Manager editor is built on <a href="http://ace.c9.io/">the Ace editor</a> framework.</p></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

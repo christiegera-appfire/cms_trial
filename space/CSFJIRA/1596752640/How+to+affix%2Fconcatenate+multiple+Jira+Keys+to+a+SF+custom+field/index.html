@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1891206842/Configure/">Configure</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">How to affix/concatenate multiple Jira Keys to a SF custom field</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/1596752640" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>How to affix/concatenate multiple Jira Keys to a SF custom field</h1>
+    <div class="page-meta">3 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="purpose">Purpose</h2><p>By default, you can send a Jira key to a text field which is overwritten when you have multiple associations.</p><p>This guide will explain how to add multiple Jira Keys to a Salesforce rich text field (Multiple Jira keys) using <a href="https://help.salesforce.com/s/articleView?id=sf.flow.htm&amp;language=en_US&amp;r=https%3A%2F%2Fwww.google.com%2F&amp;type=5#:~:text=A%20flow%20is%20an%20application,and%20scheduled%20actions%20from%20processes.">Salesforce Flow</a>.</p><div class="panel panel-warning"><p>Known limitations: </p><ul><li><p>By unlinking or removing an association, the Jira key will not be removed from the multiple Jira key field. This needs to be done manually.</p></li><li><p>The Salesforce Flow only works when creating Jira issues from Salesforce. If you create a Salesforce record from Jira, the Salesforce Flow will not trigger.</p></li></ul></div><div class="panel panel-warning"><p>These type of requests are out of support scope. We have tested this solution in our staging environment and we encourage you to test this solution in a sandbox environment before introducing it to your production environment.</p></div><p>Salesforce Prerequisite: </p><ul><li><p>Jira key field (text).</p></li><li><p>Multiple Jira keys (rich text).</p></li><li><p>Case object.</p></li><li><p>Salesforce Flow.</p></li></ul><h2 id="answer">Answer</h2><h2 id="salesforce-general-configuration">Salesforce General Configuration</h2><ol><li><p>In Salesforce, create a text field named "Jira Key". Set the character length of a 255 characters.</p></li><li><p>Create a rich text field named "Multiple Jira Key". Set the maximum field length of 32000. Set the <strong>Visible Lines</strong> value based on your use case.</p></li><li><p>In Jira, create a mapping for the Key field (Jira) to the Jira Key field (Salesforce). </p></li></ol><h2 id="salesforce-flow-configuration">Salesforce Flow Configuration</h2><ol><li><p>Create a <a href="https://help.salesforce.com/s/articleView?id=sf.flow.htm&amp;type=5">Salesforce Flow</a> rule similar to the image below:</p><img alt="contentId-1596752640" class="doc-image" loading="lazy" src="/cms_trial/assets/2a8424ca-183b-46ea-9581-ee2f3211a9d0.png?version=1&amp;modificationDate=1678857312188&amp;cacheVersion=1&amp;api=v2"/></li><li><p>Next, create an <a href="https://help.salesforce.com/s/articleView?id=sf.flow_ref_elements_data_update.htm&amp;language=en_US&amp;r=https%3A%2F%2Fwww.google.com%2F&amp;type=5#:~:text=Identify%20Salesforce%20records%20to%20update,set%20the%20field%20values%20individually.">Update Record</a> similar to the image below:</p><img alt="contentId-1596752640" class="doc-image" loading="lazy" src="/cms_trial/assets/0632f158-a7af-44f3-98cb-39badcd86b5a.png?version=1&amp;modificationDate=1678857312266&amp;cacheVersion=1&amp;api=v2"/></li><li><p>Set the following in the <strong>Configure Trigger</strong> section in the Salesforce Flow configuration:</p><ol><li><p>Trigger the Flow When: A record is created or updated.</p></li></ol></li><li><p>Next, set the following in the <strong>Set Entry Conditions </strong>section:</p><img alt="contentId-1596752640" class="doc-image" loading="lazy" src="/cms_trial/assets/a9f034f8-28c9-4453-9d53-25a7fcfe0811.png?version=1&amp;modificationDate=1678857312342&amp;cacheVersion=1&amp;api=v2"/></li><li><p>Follow the configuration for the <strong>When to run the Flow for Updated Records</strong> and <strong>Optimize the Flow</strong> <strong>for</strong>:</p><img alt="image-20241213-125021.png" class="doc-image" loading="lazy" src="/cms_trial/assets/382c5f75-b545-4f92-b21f-ce40a5d10d5e.png"/></li><li><p>Set the following conditions:<br/></p><ul><li><p>JIRA_Key__c is Null = False (To get the key when you create a Salesforce record from Jira.)</p></li><li><p>JIRA_Key__c is changed = True (To halt the rule from running in a loop and to only execute when the Jira key changes.)</p></li></ul></li><li><p>In the <strong>Edit Formula</strong> section set the following. This will append the Jira Key to the Multiple Jira Key:</p><pre><code class="language-">{!$Record.Multiple_Jira_Keys__c} &amp;' '&amp; {!$Record.JIRA_Key__c}</code></pre><img alt="contentId-1596752640" class="doc-image" loading="lazy" src="/cms_trial/assets/9fd08bb4-480a-45fd-b14c-5b65f8e23676.png?version=1&amp;modificationDate=1678857312504&amp;cacheVersion=1&amp;api=v2"/></li></ol><h2 id="salesforce-updates-record-configuration">Salesforce Updates Record Configuration</h2><ol><li><p>Set the following in the <strong>Jira key append </strong>section in the Updates Record configuration:</p><ol><li><p>How to Find Records to Update and Set Their Values: Specify conditions to identify records, and set fields individually.</p></li></ol></li><li><p>Next, set the following in the <strong>Set Entry Conditions </strong>section:</p><img alt="contentId-1596752640" class="doc-image" loading="lazy" src="/cms_trial/assets/0411f77d-3a7b-434d-adc5-ff5e6e54cec0.png?version=1&amp;modificationDate=1678857312592&amp;cacheVersion=1&amp;api=v2"/></li><li><p>The <strong>Value</strong> field in the image above is an example, change this to the object that you want to configure to.</p></li><li><p>You can debug the setup by going to <strong>Case RecordID</strong> &gt; <strong>Activate </strong>&gt; <strong>Save</strong>. The Multiple Jira Keys field will have this format, ex: "CSF-347 CSF-348 CSF-300".</p></li><li><p>Once the configuration is complete, Jira key field changes with a new value (from a new Jira issue created from Salesforce or any new associations). The multiple Jira key will take that new value from the Jira key field.</p><img alt="contentId-1596752640" class="doc-image" loading="lazy" src="/cms_trial/assets/78aafb3a-64e6-409f-9bc1-fe2d2682455f.png?version=3&amp;modificationDate=1715707194477&amp;cacheVersion=1&amp;api=v2"/></li></ol><h2 id="notes">Notes</h2><ul><li><p>Once the Salesforce Flow is created, you will be able to create a report in Salesforce based on the Jira keys. This enables you to see all the associated Jira keys to a Case Record.</p></li><li><p>More information about the report creation in Salesforce can be read here: <a href="https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=csfjira&amp;title=Salesforce%20Reporting%20on%20Jira%20Issue%20key&amp;linkCreation=true&amp;fromPageId=1596752640">Salesforce Reporting on Jira Issue Key</a></p></li></ul></div><div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

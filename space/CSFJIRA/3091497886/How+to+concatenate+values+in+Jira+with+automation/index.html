@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">How to concatenate values in Jira with automation</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3091497886" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>How to concatenate values in Jira with automation</h1>
+    <div class="page-meta">3 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="issue">Issue</h2><p>When Salesforce pushes an update to Jira, the field value gets overwritten instead of concatenated.</p><p>For example, the Jira <em>Account Name</em> field is mapped with the <em>Salesforce Account</em> field. Whenever the value changes in Salesforce, it overwrites the value in Jira. This makes you unable to determine the previous account name without checking the Jira issue history.</p><p>The proposed solution is to concatenate the values that changed in the <em>Account Name</em> field into another Jira text field.</p></div><div></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="before-you-start">Before you start</h2><p>Make sure that:</p><ul><li><p>You have mapped the required fields correctly. This solution allows mapping a Salesforce text field (for example <em>Account name</em>) to a Jira text field.</p></li><li><p>You have created a new Jira text field to store the concatenated value. In this example, this custom field ID is 10155, and the field name is Concatenate <em>Account name</em> from Salesforce</p></li></ul></div><div></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="instructions">Instructions</h2><ol><li><p>In Jira, navigate to <strong>Settings &gt; System &gt; Global automation.</strong></p></li><li><p>Click <strong>Create rule with AI</strong>.</p></li><li><p>Add the <strong>Field value change </strong>trigger. <br/>Edit the rule for this case:</p><ul><li><p><strong>Fields to monitor for changes</strong>, select <strong>Account name </strong></p></li><li><p>For <strong>Change type</strong>, select <strong>Any changes to the field value</strong></p></li><li><p><strong>For</strong>, select <strong>Edit issue </strong>and <strong>Create issue</strong></p></li><li><img alt="image-20240621-162723.png" class="doc-image" loading="lazy" src="/cms_trial/assets/5e49e378-80f2-42fe-8992-eb53ffb12664.png"/></li></ul></li><li><p>Add a <strong>User condition</strong> to ensure the <strong>Salesforce &amp; Jira Cloud Connector</strong> user triggered the event.</p><ul><li><p>For<strong> User</strong>, select <strong>User who triggered the event</strong></p></li><li><p>For <strong>Check to perform</strong>, select <strong>is</strong></p></li><li><p>For <strong>Criteria</strong>, select <strong>Salesforce &amp; Jira Cloud Connector</strong></p><img alt="image-20240621-162740.png" class="doc-image" loading="lazy" src="/cms_trial/assets/eac219aa-130c-4385-adff-d50fd808d7d6.png"/></li></ul></li><li><p>Implement <strong>IF ELSE</strong> blocks to cover different conditions:</p><ul><li><p>IF <br/> <code>{{fieldChange.fromString}}</code> equals Empty <br/>AND <br/><code>{{issue.customfield_10155}}</code> equals Empty </p><img alt="image-20240621-175756.png" class="doc-image" loading="lazy" src="/cms_trial/assets/e872d0d7-2687-497c-b0a1-d927eb23e88c.png"/><ul><li><p>THEN: Set the <strong>Concatenate Account name from Salesforce</strong> field with <code>{{fieldChange.toString}}</code> value.</p><img alt="image-20240621-175819.png" class="doc-image" loading="lazy" src="/cms_trial/assets/e02b17d3-cd58-4640-9fe4-70c723a155e2.png"/></li></ul></li><li><p>Set<strong> ELSE IF </strong>block:<br/><code>{{fieldChange.fromString}}</code> does not equal EMPTY<br/> AND<br/> <code>{{issue.customfield_10155}}</code> equals EMPTY</p><img alt="image-20240621-175834.png" class="doc-image" loading="lazy" src="/cms_trial/assets/8c1f07bd-5605-4380-a81c-f04f93a6abb3.png"/><ul><li><p>THEN: Edit <strong>Concatenate Account name </strong>from Salesforce field with <code>{{fieldChange.fromString}}</code>, and <code>{{fieldChange.toString}}</code> value</p><img alt="image-20240621-175847.png" class="doc-image" loading="lazy" src="/cms_trial/assets/49527f50-a2a4-4850-9491-57d8c662d1f0.png"/></li></ul></li><li><p><strong>ELSE IF</strong>: <br/><code>{{fieldChange.toString}}</code> does not equal EMPTY <br/>AND <br/><code>{{issue.customfield_10155}} </code>does not equal EMPTY <br/>AND <br/><code>{{issue.customfield_10155}} </code>does not contain <code>{{fieldChange.toString}</code></p><img alt="image-20240621-175858.png" class="doc-image" loading="lazy" src="/cms_trial/assets/1a46f4c8-bbff-482d-a23a-8710f5019236.png"/><ul><li><p>THEN: <strong>Edit Concatenate Account name</strong> from Salesforce field with <code>{{issue.customfield_10155.trim()}}</code>, and <code>{{fieldChange.toString}}</code> value.</p><img alt="image-20240621-175934.png" class="doc-image" loading="lazy" src="/cms_trial/assets/b574daca-41f3-40a9-9cd4-318e8e577915.png"/></li></ul></li><li><p><strong>ELSE IF</strong>: <br/><code>{{fieldChange.fromString}}</code> equals EMPTY <br/>AND <br/><code>{{issue.customfield_10155}}</code> does not equal EMPTY <br/>AND <br/><code>{{issue.customfield_10155}}</code> does not contain <code>{{fieldChange.toString}}</code></p><img alt="image-20240621-175945.png" class="doc-image" loading="lazy" src="/cms_trial/assets/f1bbba3b-66e3-4ddd-9bbd-7569f88fb76e.png"/><ol><li><p><strong>THEN</strong>: Edit Concatenate Account name from Salesforce field with {{issue.customfield_10155.trim()}}, {{fieldChange.toString}} value.</p><img alt="image-20240621-175956.png" class="doc-image" loading="lazy" src="/cms_trial/assets/1c22465a-6836-4e7d-af8f-3be90c186034.png"/></li></ol></li></ul></li></ol></div><div></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h3 id="automation-overview"><strong>Automation overview</strong><br/><strong> </strong> </h3><img alt="image-20240621-180448.png" class="doc-image" loading="lazy" src="/cms_trial/assets/ae0ac14c-89d6-412f-806b-92681d259afd.png"/><div class="panel panel-warning"><p><strong>Why four conditions?</strong></p><p><strong>First condition:</strong></p><ul><li><p>Only copies the new value of the <em>Account name</em> field to the<em> Concatenate Account name from Salesforce </em>field if the <em>Account name</em> previous value is NULL and the <em>Concatenate Account name from Salesforce</em> field is empty.</p></li><li><p>This covers when the Concatenate <em>Account name</em> from the S<em>alesforce field and Account name</em> field is just implemented in Jira.</p></li></ul><p><strong>Second condition:</strong></p><ul><li><p>Copies the previous and new values in the <em>Account name</em> field to the <em>Concatenate Account name from Salesforce</em> field.</p></li><li><p>This ensures the previous and new values are recorded when the <em>Concatenate Account name from Salesforce</em> field is implemented.</p></li></ul><p><strong>Third condition:</strong></p><ul><li><p>Copies the new value of the <em>Account Name</em> field, and makes sure the new value is not NULL and does not duplicate the value in the <em>Concatenate Account name from Salesforce</em> field.</p></li><li><p>This ensures that the new value of the <em>Account name</em> field is appended behind the existing value in the <em>Concatenate Account name from Salesforce </em>field and does not have a duplicate value.</p></li></ul><p><strong>Fourth condition:</strong></p><ul><li><p>Copies the new value of the <em>Account Name</em> field, and makes sure the new value does not duplicate the value in the <em>Concatenate Account name from Salesforce</em> field.</p></li><li><p>This is to ensure the new value of the <em>Account Name</em> field is appended behind the existing value in the <em>Concatenate Account name from Salesforce </em>field and has no duplicate value. It also triggers this when the <em>Account Name</em> field was previously empty.</p></li></ul></div></div><div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

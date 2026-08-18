@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud) Documentation</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941853/Release+Notes/">Release Notes</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/1595769075/Release+notes+2021%E2%80%932024/">Release notes 2021–2024</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783943820/2021/">2021</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">November 19, 2021</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/783942218" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>November 19, 2021</h1>
+    <div class="page-meta">1 min read</div>
     <h2 id="dynamic-filters-based-on-text-and-on-numbers">Dynamic filters based on text and on numbers</h2><p>Dynamic filtering, one of the mechanisms by which <a href="/cms_trial/space/RFCDOC/783941745/The+Rich+Filter+Controller+Gadget/">Rich Filter Controller</a> gadgets allow dashboard users to easily filter issues, now supports text and number fields.</p><p>In addition to dynamic filters based on text and numeric issue fields, the following special dynamic filters are also available:</p><ul><li><p><em>Contains text</em> – full-text search in all text fields: summary, environment, description, the comments of the issues, as well as all the custom text fields</p></li><li><p><em>Comment</em> – full-text search in all the comments of the issues</p></li></ul><p>To use a text or a number dynamic filter, just click on it and type a search query in the text box. The <em>text search query</em> can contain one or multiple space-separated words, or it can be an <a href="https://support.atlassian.com/jira-work-management/docs/search-syntax-for-text-fields/">advanced query</a> with wildcards, Boolean operators, etc. The <em>number search query</em> can contain one or multiple space-separated numeric values or ranges.</p><p>For more information about <em>dynamic filters</em>, have a look at <a href="/cms_trial/space/RFCDOC/783941707/Configure+dynamic+filters/">Configuring Dynamic Filters</a>.</p><img alt="contentId-783942218" class="doc-image" loading="lazy" src="/cms_trial/assets/ad311cc6-6621-487d-a86c-05a05e25b16b.png"/><img alt="contentId-783942218" class="doc-image" loading="lazy" src="/cms_trial/assets/2c41620e-d573-4a6d-bd14-d44e2520d76c.png"/><p><br/></p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

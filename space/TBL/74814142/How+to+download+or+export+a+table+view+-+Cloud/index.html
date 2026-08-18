@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74814716/Use+cases+-+cloud/">Use cases - cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74812579/Table+Plus+macro+examples+-+Cloud/">Table Plus macro examples - Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">How to download or export a table view - Cloud</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TBL/pages/74814142" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>How to download or export a table view - Cloud</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview</h2><p>This page demonstrates how to use the <a href="/cms_trial/space/TBL/74812542/Table+Plus+macro+-+Cloud/">Table Plus macro</a>, which is part of the <a href="https://appfire.atlassian.net/wiki/spaces/TBL">Advanced Tables for Confluence</a> app, to download or export (as an attachment) a CSV representation of the table view. By specifying the <em>Allow download and export </em>parameter on the macro, users are given two icons (<div class="img-placeholder">[Unmapped macro: inline-media-image — no content to fall back on]</div>) that can be clicked to download or export the current table view to a CSV file. Download places the file on the users local system, and export creates an attachment.</p><p>Though a comma (,) is used as a delimiter for the table contents by default, you can specify a different character in the <em>Export file delimiter</em>. Enter any single character to act as a delimiter in the text box. For this example, let's use the default delimiter to download the current table view.</p><img alt="Advanced Tables Table Plus macro Allow export setting" class="doc-image" loading="lazy" src="/cms_trial/assets/3a851881-587a-4cd6-a221-811c5d7f0e44.png"/><h3 id="message">Message</h3><img alt="Advanced Tables table export confirmation message" class="doc-image" loading="lazy" src="/cms_trial/assets/1f16f490-f94c-4462-b125-c29ebfc17dbf.png"/><h2 id="macro-browser-input">Macro browser input</h2><h2 id="select-this-macro">Select this macro</h2><table><tr><td><p><strong>Macro name</strong></p></td><td><p><em>Advanced Tables - Table Plus</em></p></td></tr><tr><td><p><strong>Macro syntax (Old editor)</strong></p></td><td><p><em>{table-plus}</em></p></td></tr><tr><td><p><strong>Macro syntax (New editor - case insensitive)</strong></p></td><td><p><em>/Table Plus</em></p></td></tr></table><h2 id="define-these-parameters-values">Define these parameters/values</h2><table><tr><td><p><em><strong>Auto number on each row</strong></em></p></td><td><p>On</p></td></tr><tr><td><p><em><strong>Auto total row</strong></em></p></td><td><p>On</p></td></tr><tr><td><p><em><strong>Allow download and export</strong></em></p></td><td><p>On</p></td></tr><tr><td><p><strong>Export file delimiter</strong></p></td><td><p><em>,</em></p></td></tr><tr><td><p><em><strong>Sort descending</strong></em></p></td><td><p>On</p></td></tr><tr><td><p><em><strong>Auto sort this column</strong></em></p></td><td><p>3</p></td></tr><tr><td><p><em><strong>Column types</strong></em></p></td><td><p><em>S,E,I</em></p></td></tr><tr><td><p><em><strong>Table id</strong></em></p></td><td><p><em>Product Revenue</em></p></td></tr></table><h2 id="parameters-set-in-the-macro-editor">Parameters set in the macro editor</h2><img alt="Advanced Tables Table Plus macro export settings" class="doc-image" loading="lazy" src="/cms_trial/assets/90adcb38-7d4a-4b66-92ad-a5e6431b82c9.png"/><img alt="Advanced Tables Table Plus macro export output settings" class="doc-image" loading="lazy" src="/cms_trial/assets/fed8b6b1-5574-476b-aa0b-0cb9bd8fbeaf.png"/><h2 id="wiki-markup-input-old-editor">Wiki markup input (Old editor)</h2><pre><code class="language-plaintext">{table-plus:allowExport=true|id=Product Revenue|autoNumber=true|autoTotal=true|sortDescending=true|sortColumn=3|columnTypes=S,E,FF"$0,0"}
 || Product || On Plan || Revenue ||
 | A | (/) | 325100 |
@@ -167,6 +172,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

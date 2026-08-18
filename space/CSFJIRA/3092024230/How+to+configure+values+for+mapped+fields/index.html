@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1891206842/Configure/">Configure</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">How to configure values for mapped fields</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3092024230" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>How to configure values for mapped fields</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="purpose">Purpose</h2><p>You can effectively map picklist values in Salesforce integrations by following key rules. These include understanding bi-directional and single-directional mappings, using API names for synchronization, and managing picklist value restrictions to ensure accurate data handling.</p><h2 id="answer">Answer</h2><ol><li><p>Bi-directional mapping has a one-to-one relationship. <br/></p><img alt="contentId-3092024230" class="doc-image" loading="lazy" src="/cms_trial/assets/15cd913e-8873-4b47-8685-c7d6bb6d69ef.png?version=1&amp;modificationDate=1678861604147&amp;cacheVersion=1&amp;api=v2"/></li><li><p>If the field binding is in <strong>only</strong> one direction, values could have a one-to-many relationship.</p><img alt="image-20241213-125744.png" class="doc-image" loading="lazy" src="/cms_trial/assets/88ef8657-88e6-4809-a683-84b22a60afbb.png"/></li><li><p>If the same value is mapped twice, it is also impossible to convert from single-directional field mapping to bi-directional.</p><img alt="contentId-3092024230" class="doc-image" loading="lazy" src="/cms_trial/assets/12776ee6-83fa-49bf-a996-d82c3afbc7e9.png?version=1&amp;modificationDate=1678861604438&amp;cacheVersion=1&amp;api=v2"/><img alt="image-20241213-125954.png" class="doc-image" loading="lazy" src="/cms_trial/assets/aeaf0f1b-f051-45af-8b06-decc5924a653.png"/></li><li><p>When mapping picklists values, the sync goes by API name in Salesforce.</p></li></ol><div class="panel panel-note"><p> Salesforce Picklists fields allow admins to restrict or allow values other than what's defined in the value set. If “<strong>Restrict picklist to the values defined in the value set</strong>” was set to false, values from outside of the list would appear on the dropdown.</p></div><img alt="contentId-3092024230" class="doc-image" loading="lazy" src="/cms_trial/assets/4a6524ab-8e99-4e26-aa9e-22aca8e6017b.png?version=1&amp;modificationDate=1678861604585&amp;cacheVersion=1&amp;api=v2"/></div><div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

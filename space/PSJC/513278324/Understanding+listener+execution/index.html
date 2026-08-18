@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490996521/Feature+guides/">Feature guides</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490997990/SIL+Listeners/">SIL Listeners</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Understanding listener execution</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/513278324" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Understanding listener execution</h1>
+    <div class="page-meta">4 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>This page explains how SIL listeners execute in Power Scripts for Jira Cloud, including the choice between synchronous and asynchronous execution modes. </p><p>This page explains how SIL listeners execute in Power Scripts for Jira Cloud, including the choice between synchronous and asynchronous execution modes. You'll learn when to use each execution type, how to manage multiple listeners for the same event, and important considerations like avoiding infinite loops and monitoring listener performance.</p><h2 id="synchronous-vs-asynchronous-execution">Synchronous vs Asynchronous execution</h2><p>Power Scripts for Jira Cloud operates independently from Jira and communicates through HTTP API calls. Despite this asynchronous architecture, you can configure individual listeners to execute in synchronous or asynchronous modes. </p></div></div><table><tr><th><p><strong>Execution mode</strong></p></th><th><p><strong>How it works</strong></p></th><th><p><strong>Use when</strong></p></th></tr><tr><td><p><strong>Synchronous</strong></p></td><td><ul><li><p>The script executes immediately when the event occurs.</p></li><li><p>The triggering Jira operation waits for your script to complete before proceeding.</p></li></ul><div class="panel panel-warning"><p><strong>Use with caution in Jira Cloud</strong></p><p>Synchronous listeners block the triggering Jira operation, meaning Jira waits for your script to complete before proceeding with its own process. This direct dependency can significantly impact Jira's performance and responsiveness. Long-running or failing synchronous scripts may lead to user experience degradation, timeouts, or affect the integrity of data operations.</p></div></td><td><ul><li><p>Fast issue updates are required, and your script has a short runtime.</p></li></ul></td></tr><tr><td><p><strong>Asynchronous</strong></p></td><td><ul><li><p>The script is queued for execution after the Jira operation completes.</p></li><li><p>The original Jira operation proceeds immediately without waiting.</p></li><li><p>Your script runs independently on a separate thread.</p></li></ul><div class="panel panel-note"><p>Asynchronous listeners on Cloud let you directly modify issues within Jira. This means your background scripts can still update the same issues that triggered them, but these updates happen after the original operation is complete.</p></div></td><td><ul><li><p>Short update time is not required, and your script has a long runtime.</p></li></ul><div class="panel panel-success"><p>When using asynchronous listeners, monitor and adjust the thread pool accordingly to ensure optimal performance. </p><ul><li><p>Go to <strong>Runtime </strong>&gt;<strong> Queued Tasks</strong> and track queued and executing listeners for bottlenecks.</p></li><li><p>If too many listeners queue up, consider optimizing scripts or adjusting execution timing.</p></li></ul></div></td></tr></table><h3 id="performance-recommendations"><strong>Performance recommendations</strong></h3><p>Regardless of execution type, consider these best practices:</p><ul><li><p>Minimize the number of HTTP API calls in your scripts.</p></li><li><p>Keep synchronous scripts under 30 seconds execution time.</p></li><li><p>Use asynchronous execution for any script that might take longer than 30 seconds.</p></li><li><p>Avoid complex processing in synchronous listeners to prevent user experience degradation.</p></li></ul><hr/><h2 id="execution-order-and-multiple-listeners">Execution order and multiple listeners</h2><p>You can configure multiple listeners to respond to the same event. </p><ul><li><p>For Synchronous listeners, execution order matters and affects the final result. Scripts run in the sequence you define, and each can affect the outcome for subsequent scripts.</p></li><li><p>For Asynchrnous listeners, the order only determines the triggering sequence, not the actual execution order. Since these run on separate threads, you cannot guarantee which will complete first.</p></li></ul><div class="panel panel-warning"><p>While this is possible, it's not recommended as a best practice.</p></div><p>It can be helpful to use multiple listeners when:</p><ul><li><p>Different teams are managing separate integrations for the same event.</p></li><li><p>Separating concerns (for example, one for validation, another for notifications).</p></li><li><p>Gradual migration from old listeners to new ones.</p></li></ul><h3 id="how-to-define-execution-order">How to define execution order</h3><ol><li><p>Navigate to the SIL Listeners configuration page (<strong>Power Scripts</strong> &gt; <strong>Configurations</strong> &gt; <strong>Automations</strong> &gt; <strong>Listeners</strong>).</p></li><li><p>Use the <strong>Filter by event</strong> dropdown to select the event for which you want to order existing listeners.</p></li></ol><img alt="Power Scripts for Jira Cloud upload and replace configuration" class="doc-image" loading="lazy" src="/cms_trial/assets/c234f281-b9d5-4b19-853f-22e9a64711e9.png"/><ol><li><p>Use the arrow buttons on the right side to arrange listeners in your preferred execution sequence.</p></li></ol><div class="panel panel-success"><p>Use one script per event whenever possible. This approach:</p><ul><li><p>Consolidates all execution logic in a single file.</p></li><li><p>Provides optimal performance.</p></li><li><p>Eliminates complex inter-script dependencies.</p></li><li><p>Makes debugging and maintenance much easier.</p></li></ul></div><hr/><h2 id="preventing-infinite-loops">Preventing infinite loops</h2><p>An infinite loop can occur if a listener script performs an action that subsequently triggers the same event, creating a continuous cycle. This is particularly relevant when the script's actions are performed using user credentials that Jira recognizes as legitimate event sources.</p><p>Let’s consider an example of a listener on the <strong>Issue Commented</strong> event with the following script:</p><pre><code class="language-">addComment(key, currentUser(), "One new comment!");</code></pre><p>Here’s how the loop is created: When you add a comment to an issue where this listener is active, the <code>addComment</code> function will post a new comment on behalf of your user. This new comment then triggers the <code>Issue Commented</code> event again, causing the script to run, post another comment, and so on, creating an infinite loop.</p><div class="panel panel-note"><p>Power Scripts does not automatically ignore events that it generates itself, because there are legitimate scenarios where you might want Power Scripts actions to trigger other listeners.</p></div><h3 id="prevention-guidelines">Prevention guidelines</h3><p>To stop an infinite loop, disable the listener and review your script. Some guidelines to consider include:</p><ul><li><p>When writing listener scripts, be especially careful with functions that mimic user actions or require direct user interaction, as these are particularly prone to causing infinite loops.</p></li><li><p>Organize your code to minimize unintended re-triggering of events by carefully considering the user context (<code>currentUser()</code> vs. a specific user).</p></li><li><p>Carefully consider the functions you use, especially those that interact with Jira, such as <code>addComment</code> and <code>updateIssue</code>.</p></li></ul><ul><li><p>It is always recommended to test thoroughly in development environments before deploying listeners.</p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

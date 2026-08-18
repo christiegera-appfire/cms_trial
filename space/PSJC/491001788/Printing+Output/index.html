@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434798967/Simple+Issue+Language/">Simple Issue Language</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/15731951/Getting+started+with+SIL/">Getting started with SIL</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/491001660/Scripting+basics/">Scripting basics</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Printing Output</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/491001788" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Printing Output</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>There are several functions which print output. Each one prints to a different place in Jira. This article details each.</p><h2 id="printing-to-the-sil-manager-console-or-sil-runner-gadget">Printing to the SIL Manager Console or SIL Runner Gadget</h2><ul><li><p>runnerLog()</p></li></ul><p><strong>Sample Code</strong></p><table><tr><td><pre><code class="language-">runnerLog("TEST");</code></pre></td></tr></table><p>Example output from the SIL Manager:</p><img alt="Power Scripts for Jira Cloud queued tasks interface" class="doc-image" loading="lazy" src="/cms_trial/assets/472a28dd-04e5-4e60-8ffd-0600d3096e6e.png"/><p>Example output from the SIL Runner Gadget:</p><img alt="Power Scripts for Jira Cloud scheduled job templates panel" class="doc-image" loading="lazy" src="/cms_trial/assets/5a4d7163-8b8d-4c07-b835-9d5ed6b6a0fd.png"/><p>The SIL Engine ignores the runnerLog() function when script are run from other methods other than the SIL Manager.</p><h2 id="printing-to-the-jira-system-logs">Printing to the Jira System Logs</h2><ul><li><p>print()</p></li><li><p>printLog()</p></li></ul><p><strong>Sample Code</strong></p><table><tr><td><pre><code class="language-">print("TEST");
 logPrint("INFO", "TEST");</code></pre></td></tr></table><p>Example output:</p><p><strong>Example Output</strong></p><table><tr><td><pre><code class="language-">2020-08-13 02:01:23,619-0600 pool-387-thread-1 INFO admin 765x13039x1 1jpmc0 0:0:0:0:0:0:0:1 /rest/keplerrominfo/refapp/latest/async-script/runScriptFromEditor [c.k.s.lang.functions.LogPrintFunction] TEST</code></pre></td></tr></table><h2 id="printing-to-a-file-on-the-host-system">Printing to a file on the host system</h2><ul><li><p>printInFile()</p><p><strong>Printing to the silprograms folder</strong></p><pre><code class="language-">printInFile("debug.txt", "Sample Output");</code></pre><p><strong>Printing to the silprograms folder</strong></p><pre><code class="language-">printInFile("path/to/file/debug.txt", "Sample Output");</code></pre><p><strong>Printing to a system file</strong></p><pre><code class="language-">printInFile("/path/to/system/file/debug.txt", "Sample Output");</code></pre><p><strong>Printing to a system file - Windows</strong></p><pre><code class="language-">printInFile("C:/path/to/system/file/debug.txt", "Sample Output");</code></pre></li></ul><div class="panel panel-note"><p>Remember to click on the Refresh button! </p><p>Whenever changes are made outside the SIL Manager window, click on the "Refresh" button to view the changes.</p></div><h2 id="additional-help">Additional Help</h2><p>Need help implementing this script? Talk to me directly to me by clicking on the bot on this page.</p>
   </main>
@@ -155,6 +160,64 @@ logPrint("INFO", "TEST");</code></pre></td></tr></table><p>Example output:</p><
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1874100241/Configuration/">Configuration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1873380265/Configure+settings+in+Jira/">Configure settings in Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1853653945/Configure+connection+settings/">Configure connection settings</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Filter Salesforce comments in Jira work items</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/1873380322" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Filter Salesforce comments in Jira work items</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 100.0fr;"><div><div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>Salesforce comments within Jira can be filtered by administrators using hashtags (for example,  #jira, #jira-servicedesk, #sfjc). This page shows you how to add hashtag filters and view filtered comments in Jira.</p><h2 id="before-you-start">Before you start</h2><p>Make sure you have:</p><ul><li><p>Administrator rights in Jira - only administrators can set up the integration</p></li><li><p> <a href="/cms_trial/space/CSFJIRA/1873412559/Set+up+your+integration+in+Jira/">Set up your integration to Salesforce in Jira</a> </p></li></ul></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="add-hashtag-filters-in-jira">Add hashtag filters in Jira</h2><ol><li><p>Select <strong>Apps</strong> from the left sidebar in Jira.</p></li><li><p>Next to <em>Connector for Salesforce,</em> click <strong>Menu</strong> (<span class="inline-icon" title="inline icon">▢</span>) &gt; <strong>App settings</strong>.</p><img alt="Appsettings.png" class="doc-image" loading="lazy" src="/cms_trial/assets/fd0ae13c-d058-42dc-adb5-2108efa56f19.png"/></li><li><p>Under <em>Connector for Salesforce</em>, select <strong>Connections</strong>.</p></li><li><p>Select the connection you want to configure and click <strong>Configure</strong>.</p><img alt="Connections.png" class="doc-image" loading="lazy" src="/cms_trial/assets/935cd506-f888-40a7-8cad-bfa3e6595c8a.png"/></li><li><p> On the <strong>Connection Configuration</strong> screen, scroll down until you see the <strong>Comment Tag Filter</strong> section.</p><img alt="Comments.png" class="doc-image" loading="lazy" src="/cms_trial/assets/0f815bdd-b78a-475e-ae9d-5cc185bc0fca.png"/></li><li><p>Administrators can enter the hashtags they want to use to filter comments from Salesforce.</p></li></ol><div class="panel panel-note"><p>Tags must be preceded by a <em>#</em> and separated by a space.</p></div></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="view-filtered-comments-in-jira">View filtered comments in Jira</h2><p>Filtered comments appear in a Jira work item based on the <strong>Comment Privacy</strong> settings and the hashtags configured by the administrator (see above).</p><img alt="connector-view-filtered-comments.png" class="doc-image" loading="lazy" src="/cms_trial/assets/82055f48-5bf1-4094-81cb-8c15d61501ba.png"/><p>In Salesforce, to add a hashtag to a <strong>Case Comment</strong>, simply edit the comment and add the hashtag anywhere in the comment:</p><img alt="connector-sf-casse-comment.png" class="doc-image" loading="lazy" src="/cms_trial/assets/4297d37a-c92f-450e-abfb-55496d0f80c7.png"/></div></div><h2 id="related-articles">Related articles</h2><ul><li><p><a href="/cms_trial/space/CSFJIRA/1962443468/View+Salesforce+comments+in+Jira/">Viewing Salesforce comments in Jira</a></p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

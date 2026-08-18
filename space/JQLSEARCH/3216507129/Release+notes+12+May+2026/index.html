@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/913997907/Release+notes/">Release notes</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209185/Release+notes+-+Cloud/">Release notes - Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Release notes 12 May 2026</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JQLSEARCH/pages/3216507129" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Release notes 12 May 2026</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p><strong>Release date</strong>: <time datetime="2026-05-12">May 12, 2026</time></p><p>This page outlines the updates included in the latest release of JQL Search Extensions (JSE).</p><hr/><h2 id="new-features">New features</h2><h3 id="use-jql-search-extensions-custom-functions-in-native-jira-search"><strong>Use JQL Search Extensions custom functions in native Jira search</strong></h3><p>You can now use JQL Search Extensions (JSE) custom functions directly in Jira advanced search.</p><p>Previously, JSE custom functions only worked on the <strong>Extended Search</strong> page. Using them in Jira advanced search resulted in an error.</p><img alt="JSE-custom-jql-function-error.png" class="doc-image" loading="lazy" src="/cms_trial/assets/c65418bf-80c6-48e6-ba08-70ed7bbf2529.png"/><p>You can now enter JSE custom functions directly into Jira advanced search. The app translates these functions into native JQL, so you can search without leaving your Jira search.</p><img alt="JSE-jql-custom-function-success.png" class="doc-image" loading="lazy" src="/cms_trial/assets/5c965801-5a80-4272-8216-3dc4f44a302f.png"/><p>JSE custom functions also work with other Appfire apps that use Jira advanced search, such as <strong>Jira Misc Workflow Extensions (JMWE)</strong> and <strong>BigPicture</strong>.</p><div class="panel panel-note"><p>Jira search requests time out after 25 seconds. If a query exceeds this limit, JSE continues processing it in the background. Run the search again after a few minutes to view the result.</p></div><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p><strong>Questions and feedback</strong></p><ul><li><p>Explore exciting features, pricing updates, reviews, and more on the <a href="https://marketplace.atlassian.com/apps/1214791/jql-search-extensions-for-jira?gad_source=1&amp;gad_campaignid=23805144933&amp;gbraid=0AAAAAD3qqFdFNpJMGH3OvCiSVkp84bTUa&amp;gclid=CjwKCAjwqubPBhBOEiwAzgZX2lj9KMqJNKZ8-lwilPXjWOK4IF3LFRnZz2cJQMSxz6Ujwza7BjWBxxoCxFcQAvD_BwE">Marketplace</a>.</p></li><li><p>Stuck with something? Raise a ticket through our <a href="https://appf.re/support">support portal</a>.</p></li><li><p>Do you love using our app? Let us know what you think <a href="https://marketplace.atlassian.com/apps/1214791/jql-search-extensions-for-jira?gad_source=1&amp;gad_campaignid=23805144933&amp;gbraid=0AAAAAD3qqFdFNpJMGH3OvCiSVkp84bTUa&amp;gclid=CjwKCAjwqubPBhBOEiwAzgZX2lj9KMqJNKZ8-lwilPXjWOK4IF3LFRnZz2cJQMSxz6Ujwza7BjWBxxoCxFcQAvD_BwE&amp;tab=reviews">here</a>. </p></li></ul></div><div><p><strong>Credits</strong></p><p>Thank you to our valued customers! Your incredible support and feedback inspire us to improve continuously. We appreciate your trust in JQL Search Extensions!</p></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

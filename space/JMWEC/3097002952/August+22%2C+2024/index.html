@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/1154449466/Release+notes/">Release notes</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">August 22, 2024</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/3097002952" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>August 22, 2024</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="engineering-release-1-2-33-jmwe-for-jira-cloud">Engineering Release 1.2.33 - JMWE for Jira Cloud</h2><p>This release of <strong>JMWE for Jira Cloud</strong> includes several fixes for post functions, Actions (Shared, Event-based, and Scheduled) and migrations. Additionally, several display bugs have been resolved. </p></div></div><h2 id="bug-fixes">Bug fixes</h2><p>The following bugs are fixed in this release:</p><ul><li><p><strong>Cloning an Action results in duplicate IDs for included post functions</strong></p><ul><li><p>In some configurations, Actions (Shared, Event-Based, and Scheduled) will occasionally duplicate the ID of included post functions when the Action is duplicated (using the Clone function). This results in inconsistent log files and unexpected behaviors. This has been resolved and all cloned Actions now create new post functions with unique ID values. </p></li></ul></li><li><p><strong>Clear Fields post function returns an error when encountering uneditable fields</strong></p><ul><li><p>The <a href="/cms_trial/space/JMWEC/466226128/Clear+fields/">Clear Fields</a> post function encounters an error and would terminate prematurely when it encountered uneditable fields (e.g. hidden fields or read-only fields). The post function has been updated to instead log an error (accessible through the <a href="/cms_trial/space/JMWEC/465503776/JMWE+Administration/">JMWE Administration</a> page) and then continue clearing all other fields when it encounters fields it cannot edit. </p></li></ul></li><li><p><strong>Cannot save Build-your-own Condition or Build-your-own Validator when switching from No-code to Jira Expression</strong></p><ul><li><p>When editing an existing Build-your-own Condition or Build-your-own Validator and switching the type from No-code to Jira Expression, the extension cannot be saved because the Save button is disabled. This has been resolved. </p></li></ul></li><li><p><strong>Set issue fields post function encounters an error when attempting to set more than one value for Organizations fields</strong></p><ul><li><p>The <a href="/cms_trial/space/JMWEC/465504849/Set+issue+fields/">Set issue fields</a> post function encounters an error when attempting to set the Organizations field using more than one value (using one value does not result in an error). This has been resolved. </p></li></ul></li><li><p><strong>Set issue fields post function does not update and returns an error</strong></p><ul><li><p>In some configurations, the <a href="/cms_trial/space/JMWEC/465504849/Set+issue+fields/">Set issue fields</a> post function returns an error of 'You must select a valid field” when trying to update an existing post function. This has been resolved. </p></li></ul></li><li><p><strong>Copy comments to related issues post function copies images incorrectly</strong></p><ul><li><p>When copying a comment that includes images, the Copy comments to related issues post function only copies the last image added to the source comment instead of copying all images added to the comment. This has been resolved. </p></li></ul></li><li><p><strong>Create issue(s) post function returns an error when there are no linked issues</strong></p><ul><li><p>In some configurations, the <a href="/cms_trial/space/JMWEC/466256916/Create+issue(s)/">Create issue(s)</a> post function returns and error and fails to complete when the issue that triggers the post function does not have any linked issues. This has been resolved. </p></li></ul></li><li><p><strong>Create issue(s) post function configuration screen does not display Issue Types</strong></p><ul><li><p>Occasionally the <a href="/cms_trial/space/JMWEC/466256916/Create+issue(s)/">Create issue(s)</a> configuration screen fails to display any Issue Types after selecting a Project. This has been resolved. </p></li></ul></li><li><p><strong>Missing Shared Conditions and Shared Migrations were not always reported after migration</strong></p><ul><li><p>When migrating from Jira Server/Data Center, Shared Conditions and Shared Migrations would not always be reported as un-migrated when checking the <a href="/cms_trial/space/JMWEC/465473765/Post+migration/">post migration page</a>. This has been resolved. </p></li></ul></li><li><p><strong>‘Sequence of Post-functions’ does not display all included post functions</strong></p><ul><li><p>In some circumstances, the post function <a href="/cms_trial/space/JMWEC/466322933/Sequence+of+Post-functions/">Sequence of post-functions</a> does not display all included post functions, or newly added post functions do not display correctly. This has been resolved.</p></li></ul></li><li><p><strong>Transition issue(s) post function does not open</strong></p><ul><li><p>In some circumstances, the Transition issue(s) post function configuration screen fails to load when opening an existing post function. This has been resolved. </p></li></ul></li><li><p><strong>Updated Actions do not show new configuration when re-opened</strong></p><ul><li><p>Occasionally, when saving an updated Action (Shared Action, Event-based Action, or Scheduled Action), the new configuration will not be displayed if that Action is reopened after saving. This has been resolved. </p></li></ul></li><li><p><strong>Display issues in the script editor</strong></p><ul><li><p>The script editor in several updated post function configuration screens has a display issue when editing long scripts. This has been resolved. </p></li><li><p>In some extension configuration pages, the ‘Test Jira Expression’ button is displaying outside the editor window. This has been resolved. </p></li></ul></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

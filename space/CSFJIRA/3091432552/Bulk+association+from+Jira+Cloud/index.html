@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3091727249/User+guides/">User guides</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3091760268/Work+with+associations/">Work with associations</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Bulk association from Jira Cloud</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3091432552" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Bulk association from Jira Cloud</h1>
+    <div class="page-meta">2 min read</div>
     <div class="columns" style="grid-template-columns: 100.0fr;"><div><div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>This page guides you on how to use the bulk associate feature to associate your Jira issue with multiple Salesforce object records.</p><h2 id="before-you-start">Before you start </h2><p>To use the bulk associate feature:</p><ul><li><p>You must be a Jira Cloud user with <a href="https://confluence.atlassian.com/jiracorecloud/permissions-overview-765593621.html">Edit Issue</a> permission. </p></li><li><p>You must have a connection to Salesforce. If you don’t have a connection to Salesforce, see <a href="https://appfire.atlassian.net/wiki/spaces/470745117/pages/1493172335">Set up a connection to Salesforce</a> for instructions.</p></li><li><p>You must have project binding. See <a href="/cms_trial/space/CSFJIRA/1873379785/Bind+a+space+to+a+connection+(Jira+Cloud)/">Bind the Jira project to a Salesforce connection</a>.</p></li></ul></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="configure-the-bulk-association">Configure the bulk association</h2><ol><li><p>Open a Jira issue, and from the <em>CONNECTOR FOR SALESFORCE</em> section, click <strong>Associate</strong> &gt;<strong> Bulk Associate</strong>. </p><img alt="bulk associate option on Jira issue page" class="doc-image" loading="lazy" src="/cms_trial/assets/3cd70593-adb5-4635-956a-1c656d95ac35.png"/><p> The <em>Bulk Salesforce Associate</em> page opens to <em>Step 1 of 3: Select Salesforce records</em>.</p><img alt="select Salesforce records page" class="doc-image" loading="lazy" src="/cms_trial/assets/e3eeda78-1ee3-4627-afe6-e9ea6b4fa6e0.png"/></li><li><p>Under the <em>Salesforce Object Records</em> heading, select an object type from the <strong>Object Type </strong>dropdown. The list of available object types appears. To further refine your search, enter a search term in the <strong>Search for Records</strong> field. </p></li><li><p>Select the records to associate with the Jira issue. Click a page number or <strong>Next</strong> to move through the pages of results. <br/>If you select a record from one object type and attempt to change to another object type, you will see a message indicating that your selected records will be lost. Click <strong>Yes</strong> to continue to the new object type, or <strong>No</strong> to return to the current object type.</p><img alt="sfjc-lost-object-message.png" class="doc-image" loading="lazy" src="/cms_trial/assets/ac45d1a6-b900-4ce6-94dd-361b274bdd1c.png"/></li><li><p>Click between <em>Results</em> and <em>Selected records</em> to move between the list of all results that match your search and the list of selected records.</p></li><li><p>Once you have selected all the records you want to associate with your Jira issue, click <strong>Next</strong> in the lower left side of the page.</p></li><li><p>Review the selected records. If the selected records are correct, click <strong>Next</strong> in the lower left corner to proceed to <em>Step 2 of 3: Overview</em>.</p><img alt="selected Salesforce records" class="doc-image" loading="lazy" src="/cms_trial/assets/10bab5a8-207d-4bf7-8a4d-167d93397367.png"/></li><li><p>Confirm the records you have selected are the ones you want to associate with the Jira issue. If you need to make a change, click <strong>Back</strong> to return to the <em>Step 1 of 3 </em>page. Otherwise, click <strong>Bulk Associate</strong> to associate your selected records to the Jira issue. Depending on the number of records you are associating with this Jira issue, this can take some time to complete.</p></li><li><p>When successful, you will see a success message indicating the number of successful associations between the Salesforce records and the Jira issue. If the association is not successful, you will see a message indicating the number of Salesforce records that were not associated. Click <strong>Contact support </strong>in the message box to proceed to <strong>Support</strong> where you can submit a ticket.</p><img alt="sfjc-step3.png" class="doc-image" loading="lazy" src="/cms_trial/assets/9db87fc6-c3b9-466d-bfa5-c29c75e76f61.png"/></li><li><p>Click <strong>Finish</strong> to return to the Jira issue.</p></li></ol><div class="panel panel-note"><p>Each Jira issue can be associated with a maximum of 1000 Salesforce records.</p></div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

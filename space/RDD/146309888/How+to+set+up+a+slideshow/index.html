@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309946/User+guides/">User guides</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/2117042204/Dashboards/">Dashboards</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">How to set up a slideshow</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/146309888" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>How to set up a slideshow</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>Share your dashboard panel as set of more than one slide, each one with meaningful metrics and KPIs</p><h2 id="overview">Overview</h2><p>Dashboard panels are critical to transmitting information to your team. To keep individual panels as clear as possible, avoid overcluttering your dashboards with too many gadgets. When you have a lot of information that you want to share, you can use a slideshow instead. Each slide can be used to display a meaningful metric or KPI.</p><h2 id="set-up-a-slideshow">Set up a slideshow</h2><p>To add slides to your dashboard panel, go to your <strong>Dashboard settings</strong> in the top right <strong>…</strong> menu:</p><ol><li><p>Select the <strong>Slideshow</strong> tab.</p></li><li><p>Set the <strong>Default time</strong>. This is the default length of time all slides will be displayed on the screen. When the time is up, the slides move to the next one.</p></li><li><p>Click <strong>+ Add Empty Slide</strong> to add more slides to your slideshow. You can set individual time periods for each slide. </p></li><li><p>If you need to remove an individual slide, click the <strong>Delete</strong> button.</p></li><li><p>Click <strong>Save</strong>.</p></li></ol><img alt="Dashboard Hub How to set up a slideshow Dashboard settings dialog" class="doc-image" loading="lazy" src="/cms_trial/assets/e757c4f0-ec4e-4e58-b879-67eafd84630d.png"/><h3 id="reorder-slides">Reorder slides</h3><p>To reorder the slides in your dashboard, drag the slide you want to move to your preferred order in the slideshow.</p><img alt="Dashboard Hub slideshow reorder slides screen" class="doc-image" loading="lazy" src="/cms_trial/assets/f7af4d0a-2450-41af-a7f0-b457b0b55385.jpg"/><h2 id="duplicate-a-slide">Duplicate a slide</h2><p>You can duplicate a dashboard slide from the <em>Slides</em> menu to create a copy of its layout and gadgets. Instead of rebuilding the same reporting page for every space, build it once, then duplicate and swap the filters. This option is only visible to users with Edit access.</p><p>To duplicate a dashboard slide, in Edit view, click <strong>Slides</strong> at the top of the dashboard, then click <strong>Duplicate Slide</strong>.</p><h2 id="slideshow-mode">Slideshow mode</h2><p>When you view a dashboard with more than one slide, a <strong>Play</strong> button appears in the middle of the top navigation bar. </p><div class="panel panel-note"><p>Tables in the JQL Custom Charts gadget auto-scroll when the slideshow is playing, so viewers can see the content without interaction.</p><p>Enable automatic table scrolling when the slideshow is in play mode.</p></div><p>This is also the default mode that users see when accessing to a dashboard using a public link (see <a href="/cms_trial/space/RDD/146310576/Share+a+dashboard+with+a+public+link/">Share a dashboard with a public link</a>  to learn how to share a dashboard externally). It’s optimized for large screens or TVs, check <a href="/cms_trial/space/RDD/146310022/How+to+set+up+a+wallboard/">How to set up a wallboard</a> for further information).</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMCFC/168855370/Overview/">Jira Misc Custom Fields (JMCF) - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/168855370/Overview/">Overview</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/465471188/Use+Cases/">Use Cases</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/861831309/Numeric+and+Counts/">Numeric and Counts</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Number of Times a Fix is Rejected</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMCFC/pages/465340124" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Number of Times a Fix is Rejected</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="scenario">Scenario</h2><p>Display the amount of time an issue has been in a selected status.</p><p>You require a field that displays the number of times an issue resolution has been rejected. </p><div class="panel panel-note"><p>In this example, the workflow is configured so that an issue fix is rejected when it is moved into the <strong>Rejected </strong>status. In your Jira instance, the status that represents the rejection of a fix may be different - just substitute your status value in the steps below! </p></div><h2 id="resolution">Resolution</h2><p>This solution uses the <strong>Transition Count</strong> custom field type. This custom field creates a number field that, when calculated, displays the number of times an issue has been transitioned <em>into</em> a status - in this example, the <strong>Rejected</strong> status. </p></div><div><div class="panel panel-note"><p>You are viewing the documentation for <strong>Jira Cloud</strong>.</p></div><h3 id="on-this-page">On This Page</h3></div></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h2 id="steps-to-create">Steps to Create</h2><h3 id="1-create-a-transition-count-custom-field">1. Create a <em>Transition Count</em> custom field</h3><ol><li><p>Log into your Jira instance as an Administrator. </p></li><li><p>In the upper right corner of the window, click <strong>Settings</strong> ( ⚙️ ) and select <strong>Apps</strong>. </p></li><li><p>In the left-hand sidebar, click <strong>Jira Misc Custom Fields</strong>. </p></li><li><p>Click <strong>My custom fields</strong> and in the upper right corner click <strong>New custom field</strong>. </p></li><li><p>Enter a name for your custom field and, optionally, a description. </p></li><li><p>Select <strong>Transition Count</strong> and click <strong>Next</strong>. </p></li><li><p>Select the screens to which the new custom field should be added (Figure 1, right). Click <strong>Next</strong>.</p></li><li><p>Configure the field: </p><ol><li><p>From the <strong>Transition From Status</strong> pulldown menu, select <code>Any</code> (or select the status that immediately precedes your rejection status).</p></li><li><p>From the <strong>To Status</strong> pulldown menu, select <code>Rejected</code>. </p></li></ol></li><li><p>Click <strong>Save</strong>.</p></li></ol></div><div><img alt="Jira Misc Custom Fields (JMCF) Cloud times rejected field screen association" class="doc-image" loading="lazy" src="/cms_trial/assets/327de402-0de6-4a37-b20b-fb8d09546614.png"/></div></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h3 id="2-configure-custom-field-context-optional">2. Configure Custom Field Context (Optional)</h3><p>When a custom field is created, it is added to the selected screens, but it is also added to <em>every issue type</em> and <em>every project</em>. If a custom field should only be added to specific issue types and/or projects, you need to edit the custom field context.</p><ol><li><p>Open the custom field configuration:</p><ol><li><p>From the My Custom Fields page, click the <strong>Contexts</strong> link for the new custom field.</p></li><li><p>Through the native Jira menus:</p><ol><li><p>In the upper right corner of the Jira window, click <strong>Settings</strong> ( ⚙️ ) and select <strong>Issues</strong>.</p></li><li><p>In the left-hand panel, click <strong>Custom fields</strong>.</p></li><li><p>Locate your new custom field in the list and click <strong>Action</strong> at the far right. Select <strong>Contexts and default value</strong>.</p></li></ol></li></ol></li><li><p> Update the context for your custom field as necessary: </p><ol><li><p>To add a new context, click <strong>Add new context</strong>. </p></li><li><p>To update the existing context, click <strong>Edit context</strong> or <strong>Edit Configuration</strong>.</p></li><li><p>For specific steps on modifying contexts, see this page: <a href="https://support.atlassian.com/jira-cloud-administration/docs/edit-a-custom-field-context/">https://support.atlassian.com/jira-cloud-administration/docs/edit-a-custom-field-context/</a> </p></li></ol></li></ol></div><div><img alt="Jira Misc Custom Fields (JMCF) Cloud custom field context modification dialog" class="doc-image" loading="lazy" src="/cms_trial/assets/bcb2668a-011c-4f37-86a5-779678737ed4.png"/></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

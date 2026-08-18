@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12518429/Features/">Features</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12518401/Workflow+post+functions/">Workflow post functions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Clear Field Value post function</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JSUCLOUD/pages/12518384" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Clear Field Value post function</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="panel panel-note"><p><strong>Want to try a new way of creating this post function?</strong></p><p>We’re working to make it even easier for you to build workflow rules with JSU. A simplified version of this post function is now available in our <a href="/cms_trial/space/JSUCLOUD/12517805/Universal+Rule+Builder/">Universal Rule Builder</a>, a new editor experience currently in beta.</p></div><h2 id="description">Description</h2><p>The Clear Field Value post function clears the specified field after a transition is completed. This can be a system or a custom field. The field can be on the issue in transition(within the same issue) or on a related issue, such as a subtask, a linked issue, or an issue within an Epic (during the transition on the Epic). For example, if an issue is moved to re-open, you might want to clear the fix version or due date so new values can be entered.</p><div class="panel panel-note"><p>See <a href="/cms_trial/space/JSUCLOUD/12518401/Workflow+post+functions/">Workflow post functions</a> to learn how to add a JSU post function to a Jira workflow.</p></div><h2 id="configuration">Configuration</h2><p>You can add any number of fields to be cleared. Select the <strong>Add</strong> button <code>+</code> to add additional fields to your configuration. In the example below, the <code>Flagged</code> and <code>Due Date</code> fields will be cleared following the transition.<br/></p><img alt="Screenshot of the Clear Field Value post function configuration page." class="doc-image" loading="lazy" src="/cms_trial/assets/ecc1b48f-485b-4c67-a477-fd61049fafc8.png"/><h3 id="precondition">Precondition</h3><p>If you are using preconditions with a JSU post function, they can be evaluated in the following ways:</p><ul><li><p><strong>True</strong> (Precondition must be true to execute the post function)</p></li><li><p><strong>False</strong> (Precondition must be false to execute the post function)</p></li></ul><p>Learn more about JSU preconditions in <a href="/cms_trial/space/JSUCLOUD/12518025/Workflow+preconditions/">Workflow Preconditions</a> or see our <a href="/cms_trial/space/JSUCLOUD/12518052/Update+an+issue+only+in+certain+conditions/">use cases</a> for examples.</p><h3 id="issue-relation">Issue Relation</h3><p>Several of JSU's workflow post functions have the option to define the scope of <a href="/cms_trial/space/JSUCLOUD/12518756/Related+issues/">related issues</a>. For example, you can copy a field within an issue during a post function to a subtask instead of copying it.</p><p>Related issues are identified by one of the following Jira concepts:</p><ul><li><p><strong>Issue link: </strong>You can define the link type to define which issues will be modified by the operation. If the post function includes the link type is ANY option, the operation will be performed on any linked issues.</p></li><li><p><strong>Parent / Sub-Task: </strong>The related issue is either a parent or a subtask of the issue.</p></li><li><p><strong>Epic / Issue in</strong> <strong>Epic: </strong>The other issue is either an epic related by an epic link, or is part of an epic. This is only applicable if you have Jira Software installed.</p></li><li><p><strong>JQL: </strong>Use a JQL query to retrieve the issues the post function will modify. You can use some placeholders in the JQL query, which will be replaced with the current field values of the issue in transition. For tips on writing the JQL query, see <a href="/cms_trial/space/JSUCLOUD/12518329/JQL+reference/">JQL reference</a> or our <a href="/cms_trial/space/JSUCLOUD/12518307/JQL+use+cases/">JQL Use Cases</a> for some examples.</p></li></ul><p>Learn more about issue relation concepts in the <a href="/cms_trial/space/JSUCLOUD/12518756/Related+issues/">Related issues</a> topic.</p><h3 id="perform-as-user">Perform As User</h3><p>Perform As User is a configuration option in JSU post functions. It lets you choose the user who acts on the post function when it runs. When choosing a user account to run a post function, the specified user account <strong>must</strong> <strong>have</strong> the appropriate permissions to perform the actions, such as creating an issue or adding a comment.</p><p><div class="img-placeholder">[Unmapped macro: excerpt-include — no content to fall back on]</div></p><h2 id="related-pages">Related pages</h2><ul><li><p><a href="/cms_trial/space/JSUCLOUD/12518573/Key+concepts/">Key concepts</a> </p></li><li><p><a href="/cms_trial/space/JSUCLOUD/12518025/Workflow+preconditions/">Workflow preconditions</a> </p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

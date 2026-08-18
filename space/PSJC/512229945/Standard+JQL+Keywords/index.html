@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490996521/Feature+guides/">Feature guides</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490997937/JQL+Support/">JQL Support</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Standard JQL Keywords</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/512229945" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Standard JQL Keywords</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>For best results remember to enable auto-synchronization and the corresponding category and index the issues initially, otherwise the results may not be accurate.</p><h2 id="attachments">Attachments</h2><h4 id="attachedby"><strong>attachedBy</strong></h4><p>Search issues where a specified user has attached a file to them using the attachedBy keyword.</p><table><tr><td><pre><code class="language-">attachedBy = "jdoe" AND created &gt; startOfYear()</code></pre></td></tr></table><p><em>Data type: User</em></p><h4 id="attachmentearliestdate"><strong>attachmentEarliestDate</strong></h4><p>Search issues based on the earliest date an attachment was added using attachmentEarliestDate keyword.</p><table><tr><td><pre><code class="language-">attachmentEarliestDate &lt; startOfMonth()
 //or
 attachmentEarliestDate = "2020-01-01"</code></pre></td></tr></table><p><em>Data type: Date</em></p><h4 id="attachmentlatestdate"><strong>attachmentLatestDate</strong></h4><p>Search issues based on the latest date an attachment was added using attachmentLatestDate keyword.</p><table><tr><td><pre><code class="language-">attachmentLatestDate &gt; startOfDay()</code></pre></td></tr></table><p><em>Data type: Date</em> </p><h4 id="countofattachments"><strong>countOfAttachments</strong></h4><p>Search issues based on the number of attachments it has using the countOfAttachments keyword. This can be used to determine if the issue has any attachments at all.<strong> </strong></p><table><tr><td><pre><code class="language-">project = "Test" AND countOfAttachments &gt; 0</code></pre></td></tr></table><p><em>Data type: Number</em> </p><h4 id="typeofattachment"><strong>typeOfAttachment</strong></h4><p>Search for issus that contain a specific type of attachment. This search is based on the file extension of the attachment. For example, to search for a Microsoft Word document use "doc" or "docx".</p><table><tr><td><pre><code class="language-">project = "TEST" AND typeOfAttachment = "jpg"
@@ -176,6 +181,64 @@ hasLinkType in (Blocks, Cloners)</code></pre></td></tr></table><h4 id="countofli
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

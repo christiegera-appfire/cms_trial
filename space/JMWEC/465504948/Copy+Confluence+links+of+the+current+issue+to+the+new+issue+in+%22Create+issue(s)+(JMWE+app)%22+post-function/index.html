@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465241585/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465373348/Code+snippet+articles/">Code snippet articles</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Copy Confluence links of the current issue to the new issue in "Create issue(s) (JMWE app)" post-function</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/465504948" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Copy Confluence links of the current issue to the new issue in "Create issue(s) (JMWE app)" post-function</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>This article explains how to copy remote Confluence links of<em> </em>the current issue to the new issue in <a href="/cms_trial/space/JMWEC/466256916/Create+issue(s)/">Create issue(s) (JMWE app)</a> post-function, using <a href="/cms_trial/space/JMWEC/465243039/callJira/">callJira</a> filter.</p><h2 id="instructions">Instructions</h2><ol><li><p>Navigate to the intended workflow to make the necessary changes in the edit mode.</p></li><li><p>Select the required transition.</p></li><li><p>Select the <em>Post functions </em>tab and click <code>Add post function</code>.</p></li><li><p>Select <em>Create issue(s) (JMWE app)</em> and click <code>Add</code>.</p></li><li><p>Enter the required details:<br/>Select the checkbox <strong>Add a comment to the current issue</strong><em> </em>and enter the following template in <strong>Comment</strong> to copy the remote links on the current issue to the newly created issue:</p><pre><code class="language-java">{% for link in issue | remoteLinks | filter(["application.type","com.atlassian.confluence"]) %}
 {% set dummy = "/rest/api/2/issue/:issue/remotelink" | callJira(verb="post",params={"issue":newIssueKey},body=link) %}
 {% endfor %}</code></pre></li></ol><div class="panel panel-note"><p>No comment will be added to the current issue since the template returns nothing. </p></div><img alt="JMWE for Jira Cloud create issues post function with Confluence link copying settings" class="doc-image" loading="lazy" src="/cms_trial/assets/9c566c11-bc39-4ca3-aaaa-428d3cd576aa.png"/><p>Publish the workflow to see the changes reflected on the new issue.</p><h3 id="references">References</h3><ul><li><p><a href="/wiki/spaces/JMWEC/pages/78482118/Custom+Filters#remoteLinks">remoteLinks filter</a></p></li><li><p><a href="/cms_trial/space/JMWEC/465243039/callJira/">callJira filter</a></p></li><li><p><a href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/78482179/Variables+in+Nunjucks+Templates#newIssueKey">newIssueKey variable</a></p></li><li><p><a href="/cms_trial/space/JMWEC/466322168/Tags+and+Expressions/">Tags and Expressions</a></p></li><li><p><a href="/wiki/spaces/JMWEC/pages/78482118/Custom+Filters#filter">filter</a></p></li></ul>
@@ -156,6 +161,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

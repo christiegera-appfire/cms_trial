@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/FOX/602537989/Foxly+-+Backlog+Prioritization+for+Jira/">Foxly - Backlog Prioritization for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/FOX/602537989/Foxly+-+Backlog+Prioritization+for+Jira/">Foxly - Backlog Prioritization for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/FOX/602538315/Get+started+with+Foxly+Project+Prioritization/">Get started with Foxly Project Prioritization</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Map Jira custom fields to label metrics</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/FOX/pages/775946267" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Map Jira custom fields to label metrics</h1>
+    <div class="page-meta">3 min read</div>
     <div class="panel panel-warning"><p>The <strong>Store metric in custom fields</strong> feature is disabled and will be retired soon</p><p>Due to operational changes and platform updates, the <strong>Store metric in custom fields</strong> feature is now disabled and will be permanently retired after December 10, 2025. </p><h3 id="what-s-not-changing"><strong>What’s NOT changing</strong></h3><p>Foxly’s prioritization metrics inside the app will continue to work exactly as they do today.</p><h3 id="what-is-changing"><strong>What is changing</strong></h3><ul><li><p>The <strong>Store values in a custom field</strong> feature is no longer available. The checkbox is disabled. </p></li><li><p>After 10 December 2025, Foxly will remove the <strong>Jira custom fields</strong> that were created to duplicate metric values outside the app. These fields are marked <span class="status-lozenge">locked</span>and include the description “Field dynamically added by Foxly”.</p><ul><li><p>Only places where you use these fields <strong>outside Foxly</strong> will be affected, such as JQL filters, issue screens, Jira automation, dashboards, reports, or gadgets. </p></li><li><p>Once the fields are removed, any filters, automations, or dashboards that rely on them will stop working.</p></li></ul></li></ul><h4 id="how-to-identify-which-fields-will-be-removed"><strong>How to identify which fields will be removed</strong></h4><p>To identify which fields will be removed, go to:</p><ol><li><p><strong>Jira admin settings </strong>&gt;<strong> Work items </strong>&gt;<strong> Fields </strong>&gt;<strong> type “Foxly” in the search box</strong>.</p></li><li><p>Look for Foxly-created dynamic fields with the <span class="status-lozenge">locked</span> label. <strong>Only these fields will be deleted.</strong></p></li></ol><img alt="Jira admin Fields settings filtered by Foxly showing dynamic fields with locked labels" class="doc-image" loading="lazy" src="/cms_trial/assets/743e3943-0214-4e61-8408-90afb97dd28c.png"/><h3 id="recommended-action"><strong>Recommended action</strong></h3><ul><li><p>Review your workflows, dashboards, and automations that use Foxly-created dynamic Jira fields, and update them to remove dependencies on these fields.</p></li></ul><p> You can continue using:</p><ul><li><p>Priority score fields</p></li><li><p>Your <a href="/cms_trial/space/FOX/846594061/Connect+custom+fields+to+Foxly/">own Jira custom fields</a> in prioritization formulas</p></li></ul></div><p>To keep using a label style you like in Foxly, you can map custom field values to match those labels.</p><h2 id="map-example">Map example</h2><p>To map a Jira custom field called <strong>shirt </strong>(the type of this field is short text).</p><ol><li><p>Click the <em>Priorities </em><strong>tab </strong>&gt;<strong> Customize</strong>. </p><img alt="Screenshot of the Priority Matrix showing the Customize button." class="doc-image" loading="lazy" src="/cms_trial/assets/626b388c-86ce-47f1-b21e-c3e4db023ae9.png"/></li><li><p>The settings of the prioritization template appear. In this example, the <em>Quick Wins</em><strong> </strong>template is used. Click the <strong>Effort label</strong> and select <strong>Store values in custom field</strong>. </p><img alt="Screenshot of the Effort label with example label names and values." class="doc-image" loading="lazy" src="/cms_trial/assets/5eded27d-d590-4abd-bfec-ba141a57dd7c.png"/></li><li><p>Click <strong>Save Changes</strong>.</p></li><li><p>Click <strong>Project settings </strong>&gt; <strong>Automation</strong>.</p></li><li><p>Click <strong>Create a rule</strong>.<strong> </strong>The <em>Field value changed</em><strong> </strong>section appears. </p><img alt="Screenshot of the Automation window showing the Field value changed section." class="doc-image" loading="lazy" src="/cms_trial/assets/ec4f9a65-2223-4266-8d22-4ebf3ab7c03f.png"/></li><li><p>Search and select the custom field <strong>Shirt</strong><em>, </em>then click <strong>Save</strong>.</p></li><li><p>Click <strong>Add component</strong> and select <strong>New branch </strong>&gt;<strong> Branch rule</strong>.<br/>ℹ️ With the Branch rule, you can only update a Foxly metric label when it matches the right condition.</p></li><li><p>To assign the XS label to the metric label in Foxly, use the JQL condition: </p><pre><code class="language-">"shirt[Short text]" ~ "XS"</code></pre></li><li><p>Set an action to update the label field in Foxly: </p><pre><code class="language-">{
 "fields":
 {
@@ -159,6 +164,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

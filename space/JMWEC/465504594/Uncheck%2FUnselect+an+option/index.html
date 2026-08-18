@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465241585/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465373348/Code+snippet+articles/">Code snippet articles</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Uncheck/Unselect an option</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/465504594" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Uncheck/Unselect an option</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h3 id="abstract">Abstract</h3><p>This code snippet unchecks a specific value of a standard or custom multi-valued type field (typically a <a href="/cms_trial/space/JMWEC/465505179/User-created+Custom+Fields/">multi-select field</a>). The multi-valued fields can either be a collection of objects or a set of values. While unchecking all is easy (set the field with a blank value), unchecking only a particular option/value requires code. </p><h3 id="logic">Logic</h3><p>Iterate over the array of currently selected options and add them into a new array ignoring the option that needs to be unchecked.</p><h3 id="snippet">Snippet </h3><h4 id="for-multi-select-fields">For multi-select fields:</h4><pre><code class="language-javascript">{# Dump options that do not match the search  - Requires the "Treat as JSON" option #}
 {{ issue.fields['&lt;Name of the field&gt;'] | filter({value:"&lt;Value of the option to uncheck&gt;"} , true ) | dump }}</code></pre><h4 id="placeholders">Placeholders</h4><table><tr><th><p>Placeholder</p></th><th><p>Description</p></th><th><p>Example</p></th></tr><tr><td><p><code>&lt;Name of the field</code>&gt;</p></td><td><p>Name of the field of type Checkboxes/Select list(multiple choices)</p></td><td><p><code>Tasks list</code></p></td></tr><tr><td><p><code>&lt;Value of the option to uncheck&gt;</code></p></td><td><p>Value of the option.</p></td><td><p><code>Verification done</code></p></td></tr></table><h4 id="for-multi-versions-users-components-groups-fields-e-g-fix-version-s"><strong>For </strong>multi-versions/users/components/groups fields (e.g. Fix Version/s):</h4><pre><code class="language-javascript">{# Dump values that do not match the search  - Requires the "Treat as JSON" option #}
 {{ issue.fields['&lt;Name of the multi-valued field&gt;'] | filter({name:"&lt;Value to uncheck&gt;"} , true ) | dump }}</code></pre><h4 id="placeholders-2">Placeholders</h4><table><tr><th><p>Placeholder</p></th><th><p>Description</p></th><th><p>Example</p></th></tr><tr><td><p><code>&lt;Name of the field</code>&gt;</p></td><td><p>Name of the multi-valued field</p></td><td><p><code>versions</code></p></td></tr><tr><td><p><code>&lt;Value to uncheck&gt;</code></p></td><td><p>Value of the field.</p></td><td><p><code>5.0.0</code></p></td></tr></table><h4 id="for-labels-field"><strong>For </strong>Labels field:</h4><pre><code class="language-javascript">{# Dump labels that do not match the search  - Requires the "Treat as JSON" option #}
@@ -157,6 +162,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

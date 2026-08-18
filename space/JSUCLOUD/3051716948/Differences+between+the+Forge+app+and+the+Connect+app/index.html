@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12518315/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Differences between the Forge app and the Connect app</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JSUCLOUD/pages/3051716948" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Differences between the Forge app and the Connect app</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>JSU Automation Suite for Jira Workflows has moved to <a href="https://developer.atlassian.com/platform/forge/">Atlassian’s Forge platform</a>, a major infrastructure upgrade that ensures better performance, scalability, and security compliance with Atlassian’s latest standards.</p><p>After the migration to Forge, a few changes may affect how you use the app. Below is a summary of what has changed and what you may need to do.</p><h2 id="what-s-different">What’s different</h2><h3 id="hints-tips-feature-removed">Hints &amp; Tips feature removed</h3><p>The Hints &amp; Tips help banner will no longer appear on Jira workflow pages.</p><h3 id="installation-id-replaces-cloud-id">Installation ID replaces Cloud ID</h3><p>We’ve updated how installations are identified in Forge.</p><div class="panel panel-note"><p><strong>IMPORTANT:</strong></p><p>Your previously saved user preferences in the app settings will be reset. You’ll need to reconfigure your preferences after the update.</p></div><h3 id="no-reminder-to-publish-workflows">No reminder to publish workflows</h3><p>JSU will no longer display reminders to publish workflows. You’ll need to rely on Jira’s native UI to publish workflow changes, as JSU will not prompt you to publish.</p><h2 id="what-you-need-to-do">What you need to do</h2><ul><li><p>Upgrade the app to the latest version.</p></li><li><p>Review your user preferences and reconfigure any preferences if needed.</p></li></ul><hr/><h2 id="need-help">Need help?</h2><p>If you have any questions or need assistance during this transition, our <a href="https://appf.re/help-center">support team</a> is here to help.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

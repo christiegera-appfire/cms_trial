@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192967667/Migrate+to+Confluence+Cloud/">Migrate to Confluence Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2200469883/Migration+help+and+support/">Migration help and support</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Support and troubleshooting for migration</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2193130141" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Support and troubleshooting for migration</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="migration-problem">Migration problem</h2><p>If you have a problem and the migration is unsuccessful, you should check the details and assessments in the Confluence Cloud Migration Assistant and rerun the migration.</p><img alt="contentId-2193130141" class="doc-image" loading="lazy" src="/cms_trial/assets/379118ae-53e5-4b3f-991d-5ed073c6de8d.png"/><p>If you can't resolve a migration problem using the Confluence Cloud Migration Assistant, <a href="http://appf.re/support">Appfire support </a>can review the data on your Comala Document Management app usage in your hosted instance.</p><p>To help our team help you, use the <a href="https://appfire.atlassian.net/wiki/spaces/CDML/pages/619072030">support console</a> in the Comala Document Management Server or Data Center app to download a <strong>Support package</strong> file and attach it to the <a href="http://appf.re/support">support ticket</a>.</p><h2 id="create-a-support-package-for-a-support-request">Create a support package for a support request</h2><p>For help in analyzing the use of your server instance in Comala Document Management, you can use the server app <a href="https://appfire.atlassian.net/wiki/spaces/CDML/pages/650250352">support console</a> to capture helpful information on your current usage of the Comala Document Management app.</p><ul><li><p>Create an Appfire Comala support package for each space using the <a href="https://appfire.atlassian.net/wiki/spaces/CDML/pages/650250352">document management support console</a> option in Space Tools.</p></li></ul><img alt="contentId-2193130141" class="doc-image" loading="lazy" src="/cms_trial/assets/efff1376-be08-46db-b12f-f6980158b834.png"/><p>Add the <strong>Usage data</strong> and the <strong>Support package</strong> to a related <a href="https://appfire.atlassian.net/wiki/spaces/CDML/pages/649266094">support</a> request.</p><h2 id="moving-your-page-workflows">Moving your page workflows</h2><p>Page workflows are not migrated to the cloud. If required, you can consolidate these as space workflows in two ways:</p><ul><li><p><strong>Manually</strong> - <a href="/cms_trial/space/CDMC/2192902721/Moving+your+workflows+to+the+cloud/">Consolidating the page workflow in each space</a></p></li><li><p><strong>Scripted</strong> - Bulk consolidation using the following script:</p></li></ul><p><strong>Consolidate page workflows script</strong></p><div class="panel panel-note"><p><strong>Script</strong>: <span class="inline-icon" title="inline icon">▢</span> <br/><strong>How to run it:</strong><code>python3 consolidate_page_workflows.py page-workflows.csv</code><br/><strong>Description</strong>: This script reads the CSV file containing page workflows from the <strong>Workflows Usage Report</strong> and consolidates them into space-level workflows using the Confluence REST API. When run, the script:</p><ol><li><p>Prompts you to choose the grouping logic:</p><ul><li><p><code>1</code>: Group by Space Key + Workflow Name</p></li><li><p><code>2</code>: Group by Space Key + Workflow Name + Workflow Markup</p></li></ul></li><li><p>Automatically generates a unique label for each group:<br/><code>WorkflowName</code> (cleaned) + incremental number (e.g., <code>SimpleApproval1</code>)</p></li><li><p>Sends a <code>curl</code> request per group to the Confluence REST API to perform the consolidation.</p></li></ol></div><p>In both cases, page workflows are consolidated as a label space workflow.</p><p>See: <a href="/cms_trial/space/CDMC/2192902721/Moving+your+workflows+to+the+cloud/">Moving your workflows to the cloud</a> </p><h2 id="complex-confluence-instance">Complex Confluence instance</h2><p>Some things can <a href="https://www.atlassian.com/migration/plan/cloud-guide#understand-migration-complexity">increase the complexity of your migration</a>, and you might need some help planning. For example, if the migration involves</p><ul><li><p>a large amount of data or users</p></li><li><p>multiple products and apps</p></li></ul><p>The <a href="https://www.atlassian.com/migration/plan/cloud-guide#atlassian-team">Atlassian Migration Guide </a>includes a range of resources and guides.</p><div class="panel panel-note"><p>You can contact our <a href="http://appf.re/support">Appfire support</a> team or an <a href="https://www.atlassian.com/migration/help/find-migration-partner">Atlassian Solution Partner</a> to help you find the best fit for migrating large instances or those with many users and user groups.</p></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

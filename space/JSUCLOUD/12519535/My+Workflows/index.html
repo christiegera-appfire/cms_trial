@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12518219/Get+started+with+JSU+Automation+Suite+for+Jira+for+Cloud/">Get started with JSU Automation Suite for Jira for Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/195821774/View+and+manage+workflow+rules/">View and manage workflow rules</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">My Workflows</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JSUCLOUD/pages/12519535" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>My Workflows</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>My Workflows provides a single-page overview of your saved JSU workflow rules, including the projects and transitions where they have been enabled. This lets you quickly see how JSU has been implemented across your entire instance, enabling faster workflow management, and informing any plans and changes at a glance.</p><p>You can access the <em>My Workflows</em> page directly from JSU’s Global Navigation bar or your Jira admin Apps sidebar menu.</p><img alt="Screenshot of My Workflows showing an expanded view for a project." class="doc-image" loading="lazy" src="/cms_trial/assets/4f6502fc-f9ab-411c-b08e-48503f39b43f.png"/><p>Workflow rules are listed in order by project name. Expand the project row to view a summary of your JSU workflow rule:</p><ul><li><p><strong>Rule name</strong>: the name of the component assigned, for example, <em>Create Issue Link</em>, or <em>User is in any Users</em></p></li><li><p><strong>Rule type</strong>: the type of component assigned, for example, post function, or condition</p></li><li><p><strong>Issue types</strong>: the type of issues that have been assigned the rule</p></li><li><p><strong>Transitions</strong>: the transition(s) that have been assigned for the rule action</p></li><li><p><strong>History</strong>: the last five execution results for your JSU rules. We capture results for post functions; results for conditions and validators are not yet supported. To view the Execution Log for a particular rule, select the corresponding result icon. The <a href="/cms_trial/space/JSUCLOUD/138149902/Execution+Log/">Execution Log</a> is displayed in a new tab.</p></li></ul><p>To view more information or make changes to the rule, click the <em>Rule Name</em> link to navigate directly to the corresponding workflow transition. Click <strong>Create new rule</strong> to add a new rule for an existing project workflow.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

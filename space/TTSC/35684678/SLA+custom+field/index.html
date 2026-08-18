@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud Help Center</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/1678575285/SLA+configuration/">SLA configuration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/35651691/Define+SLAs/">Define SLAs</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">SLA custom field</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TTSC/pages/35684678" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>SLA custom field</h1>
+    <div class="page-meta">4 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>You can view the target date of your SLA on the <strong>SLA panel</strong>, but you might also want to display this information in a field for better visibility. To do this, you can assign a <strong>Date Time Picker</strong> field (which you must create beforehand) as the SLA target date.</p><p>This will display the target date in the <strong>Details</strong> &gt; <strong>More Fields</strong> category in the work item view, like this:</p><img alt="Time to SLA SLA custom field configuration panel" class="doc-image" loading="lazy" src="/cms_trial/assets/b91909b5-e02b-4040-b3fc-24046e85d6bb.png"/><p>This page explains how to set a field as the SLA Target Date field.</p><h2 id="step-1-create-the-field">Step 1: Create the field</h2><p>You can use an existing field as an SLA target date, but as a best practice, we recommend creating a Date time picker type field specifically for this purpose.</p><ol><li><p>Follow the <a href="https://support.atlassian.com/jira-cloud-administration/docs/create-a-custom-field/">Atlassian documentation</a> to create a Date time picker type field.</p></li></ol><div class="panel panel-note"><p>We don't recommend using a target date for more than one SLA because the field may display inaccurate data as a result.</p></div><div class="panel panel-note"><p>If you have two different SLAs that will appear on the same work item, you shouldn't use a single field for both. Create two separate fields to avoid any mishaps.</p></div><h2 id="step-2-set-the-field-as-the-sla-target-date-field">Step 2: Set the field as the SLA target date field</h2><ol><li><p>Go to <strong>SLAs </strong>in Time to SLA<strong>.</strong></p></li><li><p>Click the settings button in the row of the SLA you want to update and select <strong>Edit</strong>.</p></li><li><p>Scroll down to the <em>SLA Custom Field</em> section and tick the <strong>Update date field in issue</strong> checkbox.</p><img alt="Time to SLA SLA custom field display in Jira issue fields" class="doc-image" loading="lazy" src="/cms_trial/assets/7c1b065c-b23b-4def-94b5-49c043cd7980.png"/></li><li><p>Select the field you want to set as the SLA target date field.</p></li><li><p>Click <strong>Save</strong>.</p></li></ol><p>That’s it! Now, all you need to do is recalculate your SLA data so that you can see the SLA target date field on your existing work items. If you don't know how, <a href="/cms_trial/space/TTSC/35456416/Recalculation/">read this article</a> to find out.</p><p>The SLA target date field will be added automatically for work items updated after this configuration.</p><div class="panel panel-note"><p><strong>Not seeing the field on your work item? </strong>You may not have added the field to the correct screens. Ensure that you have added the field that you've set as the SLA target date field to the appropriate screens.</p></div><div class="panel panel-warning"><p>The SLA Target Date field reflects the current SLA deadline. If the SLA is paused after it has already breached, the deadline will remain unchanged, and the field will not update further.</p><p>Pauses only affect the target date before the breach. After a breach occurs, the SLA remains marked as breached, and the target date is locked.</p><p>This is by design to ensure accurate and auditable SLA tracking.</p></div><hr/><h2 id="target-date-refresh-interval">Target date refresh interval</h2><p>You can enter a refresh interval (for example, 30 minutes) to determine how often you'd like the SLA Target Date field to update the target date on an SLA.</p><p>When an SLA is paused before a breach, the Target Date field stores information about how long it has been paused. This information is then used to recalculate the SLA target date, which is updated regularly during the pause. This gives you a more accurate estimate of how long it will take to complete a task.</p><div class="panel panel-note"><p>If the SLA is already breached when the pause starts, the target date will no longer be recalculated. The SLA remains marked as breached, and the target date stays fixed.</p></div><div class="panel panel-note"><p>If the target date does not change, Time to SLA will not update this value regardless of the Target Date Refresh Interval.</p><p>For example, let's imagine an SLA with a goal of 2 hours. As it continues to count, the target date remains unchanged. When the SLA stops (due to a pause before breach), the target date is pushed forward every minute. This is where the value you picked comes into play: this information is updated as often as the Target Date Refresh Interval value.</p><p>This information also appears in the work item history section.</p></div><p>To set the target date refresh interval, follow these steps:</p><ol><li><p>Open Time to SLA and click <strong>Settings </strong>&gt;<strong> Advanced</strong>.</p></li><li><p>Adjust the <strong>Target Date Refresh Interval</strong> <strong>(</strong><strong><u>In Minutes</u></strong><strong>) </strong>according to how often you want the information in your field to be updated. (Minimum: <strong>2m</strong>, Maximum: <strong>1,440</strong>m.)</p><img alt="Time to SLA SLA custom field settings page" class="doc-image" loading="lazy" src="/cms_trial/assets/393d2fb4-912d-42bf-9d71-9e95d8acb574.png"/></li><li><p>Click <strong>Save</strong>.</p></li></ol><div class="panel panel-success"><p>If your history is flooded with update notifications, you can try setting a higher target date refresh interval number to solve that problem.</p></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

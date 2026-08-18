@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490999487/Tutorials+and+recipes/">Tutorials and recipes</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490999529/Power+Scripts+recipes/">Power Scripts recipes</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">WSJF scripted field</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/854327387" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>WSJF scripted field</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="problem">Problem</h2><p>You would like to display the outcome of the <a href="https://scaledagileframework.com/wsjf/">Weight Shortest Job First</a> equation in a Jira field.</p><h2 id="example-wsjf-calculation">Example WSJF Calculation</h2><p>Weighted Shortest Job First (WSJF) is a prioritization model used to sequence work for maximum economic benefit. In SAFe, WSJF is estimated as the relative cost of delay divided by the relative job duration.</p><img alt="Power Scripts Weighted Shortest Job First (WSJF) prioritization model" class="doc-image" loading="lazy" src="/cms_trial/assets/eaf68ee9-e11d-4bc1-b0f2-6c81f8544cb1.png"/><p>The actual calculation and prioritization are more straightforward than the explanation that brings us to this point. Compare jobs (three features, in this example) for each CoD component and job size using a simple table or spreadsheet (Figure 5). As with estimating stories, larger values reflect higher uncertainty.</p><img alt="Power Scripts WSFJ job comparison for each CoD component and job size using a simple table or spreadsheet" class="doc-image" loading="lazy" src="/cms_trial/assets/802a91dc-8f72-448c-a5bc-3430ea89f3c0.png"/><h2 id="solution">Solution</h2><p>This script assumes that there are custom fields for User Business Value, Time Criticality, Risk Reduction, and Job Size and that those fields also has <a href="/cms_trial/space/PSJC/793280566/Custom+fields+support+SIL+script/">SIL aliases</a> created for them.</p><pre><code class="language-">if(isNotNull(userBusinessValue) &amp;&amp; isNotNull(timeCriticality) &amp;&amp; isNotNull(riskReduction) &amp;&amp; isNotNull(jobSize)) {
     number costOfDelay = userBusinessValue + timeCriticality + riskReduction;
     return round(costOfDelay/jobSize, 2);
@@ -157,6 +162,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/3482517944/Admin+guide/">Admin guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253540254/API+%26+Reporting/">API &amp; Reporting</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">API 2.1 Migration FAQ</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/7TFA/pages/1253540313" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>API 2.1 Migration FAQ</h1>
+    <div class="page-meta">3 min read</div>
     <div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p>API v2.1 was deprecated more than four years ago (see <a href="https://appfire.atlassian.net/wiki/x/j4C3Sg">API Important Information</a>) and now, the process of finally retiring it is ongoing. Once this API v2.1 is retired, you can no longer obtain data via this version.</p><p>This article provides answers to the questions you may have and provides guidance with the migration process to the updated and supported API versions.</p></div><div></div></div><h2 id="why-is-7pace-retiring-api-v2-1">Why is 7pace retiring API v2.1?</h2><p>Software is constantly evolving and so are its APIs. The TimeExport endpoint found in API v2.1 does not support pagination and includes all attributes in the response by default. This makes the API less than effective, which leads to occasional performance issues.</p><p>7pace provides more recent APIs that can provide the same data, but in an optimized way.</p><h2 id="when-will-api-v2-1-be-shut-down">When will API v2.1 be shut down?</h2><p>API v2.1 has been retired - stopped serving requests - on <strong>1st December, 2023</strong>. Optional prolongation period of limited length (several months) can be requested by an e-mail sent to <a href="mailto:support@7pace.com">support@7pace.com</a>. </p><h2 id="how-can-i-tell-if-i-am-sending-api-v2-1-requests">How can I tell if I am sending API v2.1 requests?</h2><p>The API endpoint and version are a part of URL that your application calls, and can be seen in the example below.</p><p><code>https://yourcompany.timehub.7pace.com/api/odata/TimeExport(StartDate='2019-06-14',EndDate='2023-06-14',PopulateTopParentColumns=null,GroupTimeByDateByUser=null,IncludeBillable=null)?api-version=2.1</code></p><h2 id="what-api-should-i-use-as-replacement">What API should I use as replacement?</h2><p>The safest way is to use the newest stable version of the API that is listed in our <a href="https://appfire.atlassian.net/wiki/x/j4C3Sg">API documentation</a>. Currently (Q3/2022) it is 3.2. </p><p>Note that the <em>TimeExport</em> endpoint no longer exists in the new APIs, you will therefore have to call different endpoints with a different structure of requests. We recommend reading the following documentation:</p><ul><li><p><a href="https://appfire.atlassian.net/wiki/x/qoG3Sg">Reporting API v3 - user guide</a></p></li><li><p><a href="https://timehub.7pace.com/apireference/?urls.primaryName=7pace%20Timetracker%20API%20documentation%20v3.1">API reference documentation</a></p></li><li><p><a href="https://appfire.atlassian.net/wiki/x/Q4C3Sg">Incremental refresh guide</a></p></li></ul><p>Choosing a specific endpoint of API v3.2 depends on your needs. The most frequent cases are listed below; the rest of the endpoints are described in the mentioned user guides.</p><ul><li><p><code>workLogsOnly</code><em> </em>endpoint is the most effective if you only need to obtain worklogs.</p></li><li><p>Choose <code>workLogsWorkItems</code><em> </em>endpoint if you also need to obtain workitems (and, optionally, information about their parent item).</p></li></ul><h2 id="will-api-v2-1-be-shut-down-for-on-prem-too">Will API v2.1 be shut down for on-prem too?</h2><p>If you run Azure DevOps and Timetracker on your own servers, you can continue using API v2.1. However, there is no guarantee that future versions of Timetracker will work with this API properly, and, troubleshooting support and bug fixing for API v2.1 are not available.</p><h2 id="what-are-the-differences">What are the differences?</h2><table><tr><td><p><strong>API version 2.1</strong></p></td><td><p><strong>API version 3.0 and higher</strong></p></td><td><p><strong>Comment</strong></p></td></tr><tr><td><p>Limited filtering (start date, end date, flags)</p></td><td><p>Advanced filtering of records (by any attribute)</p></td><td><p>We recommend obtaining only updated records for a certain time period using filtering by EditedTimestamp - see <a href="https://appfire.atlassian.net/wiki/x/Q4C3Sg">Incremental refresh guide</a>.</p></td></tr><tr><td><p>Not paginated</p></td><td><p>Paginated</p></td><td><p>Pagination is handled via <code>@odata.nextLink</code> property.<br/><br/>Certain tools like Excel or Power BI handle the pagination automatically. You have to choose <strong>Odata feed</strong> as data source.</p></td></tr><tr><td><p>API version in parameters<br/>Example: <code>?api-version=2.1</code> </p></td><td><p>API version in the base URL<br/>Example: <a href="https://time-plutus.timehub.7pace.com/api/odata/v3.1/workLogsWorkItems?$filter=EditedTimestamp%20ge%202018-01-01T00%3A00%3A00%2B01%3A00%20and%20EditedTimestamp%20lt%202022-06-08T00%3A00%3A00%2B02%3A00&amp;$expand=ParentItem%28%24select%3DSystem_Id%29&amp;$top=1000">https://url.timehub.7pace.com/api/odata/v3.2/</a> </p></td><td></td></tr><tr><td><p>Returns all object attributes (properties) by default</p></td><td><p>Explicit selection of attributes is enforced due to a newer OData standard</p></td><td><p>See the <a href="https://support.7pace.com/hc/en-us/articles/360053657211">respective documentation</a>.</p></td></tr><tr><td><p>Single <code>TimeExport</code> endpoint to rule them all</p></td><td><p>Multiple endpoints suited for different use cases</p></td><td><p>See the preceding sections for more information about endpoints.</p></td></tr></table>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

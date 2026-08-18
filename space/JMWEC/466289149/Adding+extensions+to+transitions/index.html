@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/466288774/Get+started+with+JMWE+for+Cloud/">Get started with JMWE for Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Adding extensions to transitions</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/466289149" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Adding extensions to transitions</h1>
+    <div class="page-meta">4 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="adding-extensions">Adding extensions</h2><img alt="Copy post function to Shared action button" class="doc-image" loading="lazy" src="/cms_trial/assets/49140cd6-75fa-430b-ae6d-a8f8e52523f4.png"/><p>There are three ways to create an extension (a <a href="/cms_trial/space/JMWEC/465242045/Post+functions/">Post function</a>, <a href="/cms_trial/space/JMWEC/465473735/Conditions/">Condition</a>, or <a href="/cms_trial/space/JMWEC/465474068/Validators/">Validator</a>): </p><ol><li><p>Add it directly to a transition through the Jira Workflow Editor. Each extension documentation page has specific steps for this method, including configuration information specific to that extension. </p></li><li><p> Use the <strong>Create new</strong> button on the <a href="/cms_trial/space/JMWEC/466321411/JMWE+workflow+extensions/">JMWE Workflow Extensions</a> administration page. See the <a href="https://appfire.atlassian.net/wiki/spaces/MWECS/pages/edit-v2/449839404#Create-new">Create new</a> section for more details on this method. </p></li><li><p>Copy an existing post function to a <a href="/cms_trial/space/JMWEC/466288975/Shared+actions/">Shared Action</a>. See below for more details on this method. <br/>⚠️ <strong>Note</strong>: only post functions can be copied using this method. </p></li></ol><p>Once an extension has been added to a transition, you must publish the workflow for the new extensions to take effect!</p><div class="panel panel-note"><p><strong>Post function outcome may not be visible immediately</strong></p><p>JMWE post functions are processed remotely and communicate back with Jira to update the issue. This helps ensure the stability and performance of your Jira Cloud instance; however, this also means that some updates may occur in the background after the view issue page has reloaded. A workaround is to enable the "Auto-refresh Issue" feature in the JMWE Configuration page which auto-refreshes the View Issue Screen if a change made by a JMWE post function is detected within 10 seconds after the Transition completes.</p></div><h2 id="copying-post-functions-to-a-shared-action">Copying post functions to a Shared Action</h2><p>You can copy an existing post function to a <a href="/cms_trial/space/JMWEC/466288975/Shared+actions/">Shared Action</a>, creating a copy of the post function that can then be applied to any other transition in your Jira instance through the use of the <a href="/cms_trial/space/JMWEC/466323396/Shared+Action+post-function/">Shared action post function</a>. This is a particularly useful when you have created a complex post function on a single transition, and have determined that it can be used in multiple places within your Jira projects. To copy a post function to a Shared Action: </p><ol><li><p>In your Jira instance, click <strong>Settings</strong> in the upper right corner of the screen and select <strong>Issues</strong>. </p></li><li><p>In the left-hand panel, click <strong>Workflows</strong>. </p></li><li><p>For the workflow that contains the post function you want to copy, click the <strong>Action</strong> menu ( <span class="icon-note">[actionmenu icon]</span> ) and select <strong>Edit</strong>.</p></li><li><p>Open the transition that contains the post function. </p></li><li><p>To the right of the JMWE post function name, click the <strong>Copy</strong> button (Figure 1, right). </p></li><li><p>The <strong>Add to shared action</strong> dialog will open. Select an existing Shared action from the top pulldown menu, or enter the name of a new Shared action in <strong>Name</strong>. Click <strong>Confirm</strong>. </p></li></ol><h2 id="placement-of-post-functions">Placement of post functions</h2><p>The position, or order, of a post-function in the list of post-functions for a transition is an important factor for its proper execution. When adding a new post function to a transition, you must move it to the appropriate position, which depends on the type of transition (a <strong>Create</strong> transition or a standard one) and the type of post function you configure. There are a few considerations:</p><ul><li><p><strong>On the Create transition</strong><br/>You need to place any JMWE post functions <em>after</em> the <strong>Creates the issue originally</strong> built-in post function. <em>Failure to do so will result in the creation of new issues raising an error (see </em><a href="https://ecosystem.atlassian.net/browse/ACJIRA-961">https://ecosystem.atlassian.net/browse/ACJIRA-961</a> <em> for details).</em></p></li><li><p><strong>On any regular transition</strong><br/>On a regular transition, most post functions can be placed anywhere in the list, except for post functions that transition issues (see below). However, it is advisable to always move them to the bottom of the list anyway.</p></li><li><p><strong>Transition Issue(s), Transition Parent Issue, Transition Linked Issues post functions</strong><br/>Post functions that automatically transition issues should always be placed at the end of the list of post functions. This applies to the following post functions:</p><ul><li><p><a href="/cms_trial/space/JMWEC/465242612/Transition+issue(s)/">Transition issue(s)</a></p></li><li><p><a href="/cms_trial/space/JMWEC/465242394/Transition+parent+issue+(Deprecated)/">Transition parent issue (Deprecated)</a></p></li><li><p><a href="/cms_trial/space/JMWEC/466257658/Transition+linked+issues+(Deprecated)/">Transition linked issues (Deprecated)</a></p></li></ul></li></ul><div class="panel panel-warning"><p><strong>Random post function execution order</strong> </p><p>Due to the asynchronous nature of Connect post functions, it is not possible to guarantee the order in which post functions are executed. Therefore, you should ensure that your workflows do not depend on post functions being executed in a specific order. If a specific order is required, you can handle this using either the <a href="/cms_trial/space/JMWEC/466322933/Sequence+of+Post-functions/">Sequence of Post functions</a> post function to be sure that a series of post functions run <em>in a predictable order</em> during a transition. Alternately, you can use <a href="/cms_trial/space/JMWEC/466322009/Delayed+execution/">Delayed execution</a> to delay the start of post functions that are dependent on the completion of others, but there is still no guarantee that the post function will execute in a specific order. </p></div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

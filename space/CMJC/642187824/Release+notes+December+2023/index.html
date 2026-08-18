@@ -32,14 +32,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira (CMJ) Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/194117669/Release+Notes/">Release Notes</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/992673833/Archived+release+notes/">Archived release notes</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Release notes December 2023</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CMJC/pages/642187824" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Release notes December 2023</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h3 id="december-7-2023">December 7, 2023</h3><p>We are happy to announce the release of <strong>Configuration Manager for Jira Cloud 2.0.9</strong>!</p><h2 id="highlights">Highlights</h2><ul><li><p><a href="#FEATURES">Options for sharing deployment data with Appfire's support team</a></p></li><li><p><a href="#RESOLVED">Bug fixes</a></p></li></ul></div><div><img alt="contentId-642187824" class="doc-image" loading="lazy" src="/cms_trial/assets/722080ab-2582-42f1-80b6-04a18a761858.png"/></div></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p><a href="/cms_trial/space/CMJC/194183182/Installation+guide/"><strong>Installation instructions</strong></a></p></div><div></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="updates-and-resolved-issues">Updates and Resolved Issues</h2></div><div></div></div><div class="columns" style="grid-template-columns: 33.33fr 66.66fr;"><div><img alt="contentId-642187824" class="doc-image" loading="lazy" src="/cms_trial/assets/eb45dc2a-79ed-418d-9d6d-f200ca02a65f.png"/><img alt="contentId-642187824" class="doc-image" loading="lazy" src="/cms_trial/assets/f05b0308-58f7-4692-8e9f-d62d52f49c15.png"/></div><div><h4 id="features">FEATURES</h4><ul><li><p>Now, you can share selected deployment data with Appfire’s support team for quicker issue resolution purposes.</p></li></ul><p> <a href="#Sharing-deployment-data-with-Appfire%E2%80%99s-support-team">Overview</a> </p><h4 id="resolved">RESOLVED</h4><ul><li><p>Fixed a problem where creating or updating Jira boards was failing.</p></li><li><p>Fixed a problem where the app users being migrated were all reported as unknown users.</p></li><li><p>Fixed a problem where duplicate boards were not handled correctly.</p></li><li><p>Fixed a problem with the license checks.</p></li></ul></div></div><details><summary>Previous Releases...</summary><p><a href="/cms_trial/space/CMJC/578060323/Release+notes+November+2023/">2.0.8 Release Notes</a></p><p><a href="https://appfire.atlassian.net/wiki/spaces/DCMFJC/pages/500040468">2.0.7 Release Notes</a></p><p>…</p><p><a href="https://appfire.atlassian.net/wiki/spaces/DCMFJC/pages/254574741">2.0.0 Release Notes</a></p></details><hr/><h2 id="sharing-deployment-data-with-appfire-s-support-team">Sharing deployment data with Appfire’s support team</h2><p>When support representatives from Appfire get in touch with you, you can now swiftly share deployment data with them. The purpose of this feature is to expedite the resolution of your issues. At every deployment stage, you have the option to turn data sharing on.</p><p>The choices for deployment data sharing include:</p><ul><li><p>Sharing your source Jira Cloud site configuration</p></li><li><p>Sharing the transformations you applied to the configuration before running the migration</p></li><li><p>Sharing configuration from the destination Jira Cloud site </p></li></ul><p><a href="/cms_trial/space/CMJC/642220408/Share+deployment+data+with+the+support+team/">For more information and instructions, visit the documentation.</a></p><img alt="contentId-642187824" class="doc-image" loading="lazy" src="/cms_trial/assets/c3fff922-4140-42b5-a453-49762060ebce.PNG"/><hr/><p>More improvements and bug fixes will be coming soon! Thanks! Please submit your suggestions for improvements to Appfire's <a href="https://apps.appf.re/support"><strong>Support Portal</strong></a>. We value your feedback!</p>
   </main>
   <aside class="sidebar">
@@ -169,6 +174,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

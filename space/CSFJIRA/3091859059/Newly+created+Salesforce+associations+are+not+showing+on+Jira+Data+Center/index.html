@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3092186639/Association+and+synchronization/">Association and synchronization</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Newly created Salesforce associations are not showing on Jira Data Center</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3091859059" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Newly created Salesforce associations are not showing on Jira Data Center</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="summary">Summary</h2><p>Jira will sometimes not display Salesforce associations that were recently created. This is usually caused by latency and related issues with the "Affected Versions" field values. The underlying cause is usually the “session stickiness” setting is not correctly configured in the Data Center environment.</p><h2 id="environment">Environment</h2><ul><li><p>Jira DC</p></li></ul><h2 id="diagnostics-steps">Diagnostics Steps</h2><p>Not applicable.</p><h2 id="cause">Cause</h2><p>We have found index replication lag can occur between multiple nodes, in which the <strong>create request</strong> was first sent to <strong>node A</strong>, followed by the <strong>fetch request</strong> sent to <strong>node B</strong>, just before the changes on node A get replicated onto node B. This situation is also <a href="https://confluence.atlassian.com/jirakb/index-replication-jira-data-center-troubleshooting-966676040.html?__hstc=72543820.f1ffb555b95f54caea1a9a28de23a28f.1606879596997.1618305633998.1618333033010.201&amp;__hssc=72543820.11.1618333033010&amp;__hsfp=1964150784">stated</a> by Atlassian as one of the common problems using DC.</p><h2 id="workaround">Workaround</h2><p>We currently have tested both workarounds below and they have helped</p><ul><li><p>Workaround 1</p><ul><li><p>Please configure session stickiness on your load balancers based on Atlassian’s <a href="https://confluence.atlassian.com/enterprise/jira-data-center-load-balancer-examples-781200827.html">documentation</a>.</p></li></ul></li><li><p>Workaround 2</p><ul><li><p>Please ensure that you update to  <a href="https://confluence.atlassian.com/jirasoftware/jira-software-8-12-x-release-notes-1019380834.html?__hstc=72543820.f1ffb555b95f54caea1a9a28de23a28f.1606879596997.1618305633998.1618333033010.201&amp;__hssc=72543820.11.1618333033010&amp;__hsfp=1964150784">Jira 8.12.0</a> and above, as Jira has introduced <a href="https://confluence.atlassian.com/enterprise/document-based-replication-in-jira-data-center-1021214730.html?__hstc=72543820.f1ffb555b95f54caea1a9a28de23a28f.1606879596997.1618305633998.1618333033010.201&amp;__hssc=72543820.11.1618333033010&amp;__hsfp=1964150784"><strong>Document Based Replication</strong></a> which helps to speed up replication across multiple nodes.</p></li></ul></li></ul><p>Restart Jira server and clearing all browser related cache usually is a good practice when working with cache related updates. Do ensure these are completed as well.</p><h2 id="resolution">Resolution</h2><p>Not applicable.</p></div><div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

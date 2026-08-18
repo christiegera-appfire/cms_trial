@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2139357355/Use+cases/">Use cases</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Create a two-way workflow between JSM and Salesforce on-site support</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/2139881603" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Create a two-way workflow between JSM and Salesforce on-site support</h1>
+    <div class="page-meta">4 min read</div>
     <div class="columns" style="grid-template-columns: 100.0fr;"><div><div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>As a support manager who manages locally-based support teams using Salesforce and offline support teams using Jira, you will want the two teams to share information across Jira and Salesforce seamlessly.</p><p>This use case shows you how to configure Jira and Salesforce for the online and offline support teams to provide customer the best support experience.</p></div></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div></div><div></div></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h2 id="before-you-start">Before you start</h2><p>Make sure you have:</p><ul><li><p>Installed and set up Connector for Salesforce &amp; Jira: <a href="/cms_trial/space/CSFJIRA/1873477874/Installation/">Installation</a> </p></li><li><p>Installed Jira Service Management™ (JSM) Connector for Salesforce </p></li></ul><p>You will need some basic understanding of the following Jira and Salesforce features:</p><ul><li><p><a href="https://help.salesforce.com/s/articleView?id=platform.fields_creating_picklists.htm&amp;type=5">Salesforce custom fields</a></p></li><li><p><a href="https://help.salesforce.com/s/articleView?id=platform.creating_record_types.htm&amp;type=5">Create record type in Salesforce</a> </p></li><li><p><a href="https://support.atlassian.com/jira-cloud-administration/docs/create-a-custom-field/">Jira custom fields</a></p></li></ul></div><div><iframe src="https://demo.arcade.software/cVM82NYm6r0n5bFvhAlS"></iframe></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="complete-scenario">Complete scenario</h2><p><strong> The Teams: </strong></p><ol><li><p>The Jira support team resides on Jira and uses JSM as the medium to directly communicate with customers.</p></li><li><p>The On-site support team works out of Salesforce and is dispatched to the customer’s place to troubleshoot hardware issues.</p></li></ol><p><strong> The Scenario: </strong></p><ol><li><p>The customer raises a support ticket using the JSM portal to the support team in Jira.</p></li><li><p>Jira Support team tries to resolve the issue online using email.</p></li><li><p>Jira team is able to retrieve the customer’s information using the JSM connector. Information retrieved includes the customer’s email (the <strong>Reporter’s email</strong> field). The Reporter’s email field is mapped with Salesforce’s Contact <strong>Email</strong> field.</p></li><li><p>If the L1 support team is unable to provide the resolution remotely, they can raise a ticket <strong>(Salesforce Case)</strong> to arrange the on-site visitation.</p></li><li><p>The Jira team confirms with the customer if their <em>registered </em>phone number is still in use. If it’s outdated and requires updating, the Jira support rep uses the<strong> Updated Phone Number </strong>field (<em>explained below) </em>to push the update to Salesforce’s <strong>Contact </strong>field and update the phone number.</p></li><li><p>The Salesforce team can use the updated phone number to reach out to the customer to arrange for the on-site visit.</p></li></ol></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="build-this-use-case">Build this use case</h2><h3 id="1-set-up-salesforce">1. Set up Salesforce</h3><p>In this scenario, we will be using the Case object type.</p><ol><li><p>(Optional) If needed, you can create a Record Type<em> </em>for the Support team to use and label it as <em>Support Chain.</em>)</p><ol><li><p>Navigate to <strong>Setup </strong>&gt; <strong>Object Manager </strong>&gt;<strong> Case &gt; Record Types</strong>.<strong> </strong></p></li><li><p>Click <strong>New</strong> to add a new Record Type: <strong>Support Chain</strong>.<br/>Apply a <strong>Case (Support) Layout</strong> to the record type you created.</p><img alt="Screenshot showing example Record Types." class="doc-image" loading="lazy" src="/cms_trial/assets/30aabf81-20fa-4370-b016-1a2cba462438.png"/></li></ol></li><li><p>To create custom Case fields in Salesforce for the on-site support team, navigate to <strong>Setup </strong>&gt;<strong> Object Manager </strong>&gt;<strong> Case </strong>&gt;<strong> Fields &amp; Relationships</strong>. </p></li><li><p>Click <strong>New</strong> and create:</p><ul><li><p><strong>Date of Visitation</strong> (<em>Date</em> field) to specify the appointment date after the customer agreed on it.</p></li><li><p><strong>Time Slot for Visitation</strong> (<em>Picklist</em> field) to specify the time slot for the visitation, for example, 8 AM - 10 AM or 2 PM - 4 PM.</p></li></ul></li><li><p>Select the <strong>Case (Support) Layout</strong> to include the created fields. <br/>The <strong>Support Chain</strong> record type now has custom fields specifically for the Support Team, such as the <strong>date of Visitation </strong>and<strong> the Time Slot for Visitation</strong>.</p><img alt="Screenshot showing an example New Case Support Chain." class="doc-image" loading="lazy" src="/cms_trial/assets/c3ac9be1-3f0f-4cee-b8c4-fa7db40a9b36.png"/></li></ol></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h3 id="2-set-up-jira">2. Set up Jira</h3><p><strong>Before you start: </strong></p><ul><li><p>Make sure you have a JSM project created on your Jira instance.</p></li><li><p>Create custom fields in Jira that correspond to the custom fields you've already set up in Salesforce.</p></li></ul><ol><li><p>Create custom fields in Jira.<br/>In Jira, go to <strong>Settings </strong>&gt; <strong>Work items </strong>&gt; <strong>Fields</strong> &gt; <strong>Create new field</strong>:</p><ol><li><p><strong>Updated Phone Number</strong> (<em>Short text</em> <em>plain text only </em>field)</p></li><li><p><strong>Reporter’s email </strong> (<em>Short text</em> <em>plain text only</em> field)</p></li><li><p><strong>Date of Visitation</strong> (<em>Date Picker</em> field)</p></li><li><p><strong>Time Slot for Visitation </strong><em>(Select List cascading</em> field)<br/>These fields will push data to Salesforce when the customer has changed their phone number and email, and synchronize information on the visitation time.</p><img alt="Screenshot showing the Internet issue work item in Jira." class="doc-image" loading="lazy" src="/cms_trial/assets/ba2f6257-9bf2-4f5c-9de6-63b9d1a11189.png"/></li></ol></li></ol></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h3 id="3-map-entities-and-fields-in-connector-for-salesforce-jira">3. Map entities and fields in Connector for Salesforce &amp; Jira</h3><ol><li><p>In Jira, navigate to <strong>Apps</strong> &gt; <strong>Connector for Salesforce</strong> &gt; <strong>App settings</strong> &gt; <strong>Bindings</strong>.</p></li><li><p>Click<strong> Mapping</strong> for the JSM project you’re linking it to.</p></li><li><p>Click<strong> Add Entity Mapping, </strong>and map:</p><ul><li><p>Jira <strong>Task</strong> with Salesforce <strong>Case </strong>object</p></li><li><p>Jira <strong>Task</strong> with Salesforce <strong>Contact </strong>object</p><img alt="Screenshot showing entity mapping." class="doc-image" loading="lazy" src="/cms_trial/assets/aed23134-b9f7-4c14-8310-19dc46d5dfbf.png"/></li></ul></li><li><p>Click <strong>Mappings</strong> to map the fields from Salesforce to Jira for each of the <strong>Issue types</strong>:</p><ul><li><p><strong> </strong>For<strong> Task </strong>to<strong> Case </strong>field mappings:</p><ul><li><p>Jira <strong>Summary</strong> field with the <strong>Subject</strong> field</p></li><li><p>Jira <strong>Description</strong> field with the <strong>Description</strong> field</p></li><li><p>Jira <strong>Date of Visitation</strong> field with the <strong>Date of Visitation</strong> field</p></li><li><p> Jira <strong>Time Slot for Visitation </strong>field with the <strong>Time Slot for Visitation</strong> field</p><img alt="Screenshot of mapping between Jira and Salesforce items." class="doc-image" loading="lazy" src="/cms_trial/assets/9b8d6f98-999f-49bc-9a4b-e1425848dd69.png"/></li></ul></li><li><p>For<strong> Task </strong>to<strong> Contact </strong>field mappings map:</p><ul><li><p>Jira <strong>Reporter’s email</strong> field with the <strong>Email</strong> field</p></li><li><p>Jira <strong>Updated Phone Number</strong> field with the <strong>Business</strong> <strong>Phone</strong> field</p><img alt="Screenshot showing the Task to Contact field mappings." class="doc-image" loading="lazy" src="/cms_trial/assets/7e969dc0-132a-48f3-a08c-d4567d3997c0.png"/></li></ul></li></ul></li></ol></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h3 id="4-associate-jira-task-with-salesforce-records">4. Associate Jira task with Salesforce records </h3><ol><li><p>Open the Jira task with the updated contact data.</p></li><li><p>Under <strong>Connector for Salesforce</strong> click <strong>Associate</strong>.</p><ol><li><p>Select <strong>Contact</strong> from the <strong>Obcject Type</strong> dropdown and find your Contact name.</p></li><li><p>Select <strong>Push to Salesforce then Pull from Salesforce</strong> from the <strong>After associating</strong> dropdown list to update the Contact’s data in Salesforce.</p></li></ol></li><li><p>Click <strong>Create Salesforce Object</strong> to create a <strong>Case </strong>object and push it to Salesforce.</p><img alt="Screenshot showing the associated Jira tasks for the Salesforce records." class="doc-image" loading="lazy" src="/cms_trial/assets/bf33d114-f326-49dc-bf64-712f009cc66c.png"/></li><li><p>Open Salesforce Case record.<br/>You can now see the updated email address and the phone number directly in Salesforce. </p><img alt="Screenshot of the Case Details page showing the updated email address." class="doc-image" loading="lazy" src="/cms_trial/assets/7c969858-3cd0-44e5-922d-48725536df14.png"/></li></ol></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h3 id="5-automation-for-jira"> 5. Automation for Jira</h3><p>In this particular use-case, we didn't use any Automation for Jira. However, if you wish to do so, you can refer to this link;  <a href="/cms_trial/space/CSFJIRA/1874002066/How+to+enable+status+transition+from+Salesforce+to+Jira+using+Automation+for+Jira/">How to enable status transition from Salesforce to Jira via Automation for Jira</a>  to setup your Automation to best-fit your scenario. </p></div><div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

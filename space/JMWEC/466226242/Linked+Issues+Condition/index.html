@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465372899/Workflow+Extensions+for+Jira+Cloud/">Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465473735/Conditions/">Conditions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Linked Issues Condition</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/466226242" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Linked Issues Condition</h1>
+    <div class="page-meta">4 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>A workflow condition that allows you to hide/show a particular transition from the list of available workflow actions based on the current issue's linked issues. The transition to which the condition is added is available only if these linked issues respect certain conditions.</p><div class="panel panel-warning"><ul><li><p>This condition does not work with <strong>remote links</strong> (links to Jira issues residing on another Jira instance/server).</p></li><li><p>Beware of the default "relates to" link type, which can cause confusion. The problem stems from the fact that "relates to" is both the <em>inward</em> <em>direction</em> and the <em>outward direction</em> of the "Relates" link type. We recommend that you rename one of the directions to "is related to" to avoid confusion. This can be done on the Issue Linking Jira admin page.</p></li><li><p>Jira portfolio links are not supported in Jira expressions and hence not available in the condition.</p></li></ul></div><img alt="Linked Issues configuration screen" class="doc-image" loading="lazy" src="/cms_trial/assets/c549f3f2-af53-4b0b-afab-38ba0242b5d1.png"/><p><strong>To add 'Linked Issues Condition' to a transition:</strong></p><ol><li><p>Click <strong>Edit</strong> for the workflow that has the transition you wish to configure the condition on.</p></li><li><p>In the Workflow Designer, select the transition.</p></li><li><p>Click <code>Conditions </code>in the properties panel.</p></li><li><p>Click <code>Add</code> <code>condition</code>.</p></li><li><p>Select <strong>Linked Issues Condition </strong>from the list of conditions. </p></li><li><p>Click <code>Add</code> to navigate to the <strong>Linked Issues Condition </strong>screen where you can configure the validator as needed. See <strong>Configuration details</strong>, below.</p></li><li><p>Click on <code>Add</code> to add the condition to the transition.</p></li><li><p>Publish the workflow.</p></li></ol><p>When you add this condition to a transition, the add-on checks the specified condition on the linked issues that are of the specified issue link type and issue type; all the other linked issues will be considered as satisfying the condition. You can further customize the condition using the options mentioned in the next section.</p><h2 id="configuration-details">Configuration details</h2><p>Configure the following:</p><ul><li><p><strong>What to validate</strong><br/><strong>Mode</strong>: Select one of the following conditions that the linked issues must satisfy for the transition to be hidden:</p><ul><li><p><strong>Require certain linked issues</strong>:<strong> </strong>If the linked issue(s) with the defined <strong>Issue Link Type</strong> and constraints<strong> </strong>in the <em>What to enforce on linked issues</em><strong> </strong>section do not exist, the transition is hidden.</p></li><li><p><strong>Check linked issues</strong>:<strong> </strong>If any of the linked issue(s) with the mentioned <strong>Issue Link Type </strong>exists, the transition is hidden unless the respective linked issue(s) respects the constraints defined in the <em>What to enforce on linked issues</em><strong> </strong>section.</p></li><li><p><strong>Forbid certain linked issues</strong>: If any linked issue(s) with the defined <strong>Issue Link Type </strong>and constraints in the <em>What to enforce on linked issues</em><strong> </strong>section<strong> </strong>exists, the transition is hidden.</p></li></ul></li><li><p><strong>Issue Link Type </strong>(mandatory): Select the issue link type that links the current issue to the linked issue(s) to check the specified condition against.</p></li><li><p><strong>What to enforce on linked issues</strong></p><ul><li><p><strong>Issue Type </strong>(mandatory): Select the issue type of the linked issues to check the specified condition against.</p></li><li><p><strong>Additional condition</strong>: Select one of the following:</p><ul><li><p><strong>None: </strong>Select this option to add no additional condition.</p></li><li><p><strong>At least one linked issue must satisfy the condition below:</strong> Select this option for at least one linked issue to satisfy the condition specified in <strong>Jira expression</strong>. </p></li><li><p><strong>Every linked issue must satisfy the condition below:</strong> Select this option for every linked issue to satisfy the condition specified <a href="/cms_trial/space/JMWEC/465241623/Using+Jira+Expressions/">Jira expression</a>.<br/><strong>Jira expression </strong>(displayed only when the options other than <strong>None </strong>are selected): Enter a Jira expression to be run on all linked issues. If the Jira expression evaluates to <code>true</code> for all linked issues, only then the workflow condition will pass. If it evaluates to <code>false</code> for at least one linked issue the workflow condition will fail. See <a href="/cms_trial/space/JMWEC/465241623/Using+Jira+Expressions/">How to insert information using Jira expressions</a> for more details on Jira expressions.</p></li></ul></li></ul></li></ul><hr/><h4 id="use-case">Use case</h4><p>A typical use of this workflow condition is to hide the transition on the current issue until all its linked issues satisfy certain conditions. Consider a use where you want to hide the “Start Progress” transition on the parent until it has at least one assigned subtask. To configure it: </p><ol><li><p>Add the <code>Linked Issues condition </code>to the "Start Progress" transition.</p></li><li><p>Select the issue link type <code>is Parent Of</code> from the <code>Issue Link Type</code> field.</p></li><li><p>Select the option "At least one linked issue must satisfy the condition below"</p></li><li><p>Input the Jira expression: </p><pre><code class="language-">linkedIssue.assignee !=null</code></pre></li></ol><hr/></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

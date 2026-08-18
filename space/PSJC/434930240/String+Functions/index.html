@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434798967/Simple+Issue+Language/">Simple Issue Language</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434374166/SIL+Functions+library/">SIL Functions library</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">String Functions</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/434930240" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>String Functions</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>This section contains functions that enable users to handle strings.</p><p>This section contains functions that enable users to handle strings.</p><h2 id="functions-summary">Functions Summary</h2><ul class="children-list"><li><a href="/cms_trial/space/PSJC/433000782/matchText/">matchText</a></li><li><a href="/cms_trial/space/PSJC/433000801/toUpper/">toUpper</a></li><li><a href="/cms_trial/space/PSJC/434440070/substring/">substring</a></li><li><a href="/cms_trial/space/PSJC/434472793/isAlphaNumeric/">isAlphaNumeric</a></li><li><a href="/cms_trial/space/PSJC/434507414/isNumeric/">isNumeric</a></li><li><a href="/cms_trial/space/PSJC/434507430/matches/">matches</a></li><li><a href="/cms_trial/space/PSJC/434602859/isAlpha/">isAlpha</a></li><li><a href="/cms_trial/space/PSJC/434602875/isLower/">isLower</a></li><li><a href="/cms_trial/space/PSJC/434602893/matchEnd/">matchEnd</a></li><li><a href="/cms_trial/space/PSJC/434733658/endsWith/">endsWith</a></li><li><a href="/cms_trial/space/PSJC/434799379/startsWith/">startsWith</a></li><li><a href="/cms_trial/space/PSJC/434832010/indexOf/">indexOf</a></li><li><a href="/cms_trial/space/PSJC/434832027/join/">join</a></li><li><a href="/cms_trial/space/PSJC/434864634/toLower/">toLower</a></li><li><a href="/cms_trial/space/PSJC/434897191/chop/">chop</a></li><li><a href="/cms_trial/space/PSJC/434897208/hashString/">hashString</a></li><li><a href="/cms_trial/space/PSJC/434897225/isDigit/">isDigit</a></li><li><a href="/cms_trial/space/PSJC/434897241/matchReplace/">matchReplace</a></li><li><a href="/cms_trial/space/PSJC/434930256/contains/">contains</a></li><li><a href="/cms_trial/space/PSJC/434930272/length/">length</a></li><li><a href="/cms_trial/space/PSJC/434962873/isUpper/">isUpper</a></li><li><a href="/cms_trial/space/PSJC/434962889/lastIndexOf/">lastIndexOf</a></li><li><a href="/cms_trial/space/PSJC/434962907/matchStart/">matchStart</a></li><li><a href="/cms_trial/space/PSJC/434995627/replace/">replace</a></li><li><a href="/cms_trial/space/PSJC/434995643/trim/">trim</a></li><li><a href="/cms_trial/space/PSJC/435028509/executeTemplate/">executeTemplate</a></li><li><a href="/cms_trial/space/PSJC/435028541/split/">split</a></li><li><a href="/cms_trial/space/PSJC/1554580972/allMatches/">allMatches</a></li><li><a href="/cms_trial/space/PSJC/2056683558/Encryption+and+Encoding+Functions/">Encryption and Encoding Functions</a><ul class="children-list"><li><a href="/cms_trial/space/PSJC/434374490/urlDecode/">urlDecode</a></li><li><a href="/cms_trial/space/PSJC/434440032/decrypt/">decrypt</a></li><li><a href="/cms_trial/space/PSJC/434440050/escapeHtml/">escapeHtml</a></li><li><a href="/cms_trial/space/PSJC/434507390/encrypt/">encrypt</a></li><li><a href="/cms_trial/space/PSJC/434799357/base64Decode/">base64Decode</a></li><li><a href="/cms_trial/space/PSJC/434962857/base64Encode/">base64Encode</a></li><li><a href="/cms_trial/space/PSJC/434962925/urlEncode/">urlEncode</a></li><li><a href="/cms_trial/space/PSJC/1387823405/hmacSHA1/">hmacSHA1</a></li><li><a href="/cms_trial/space/PSJC/1387888998/hmacSHA256/">hmacSHA256</a></li><li><a href="/cms_trial/space/PSJC/1424163166/rsaSHA256/">rsaSHA256</a></li></ul></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

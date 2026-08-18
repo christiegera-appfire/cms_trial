@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3092186639/Association+and+synchronization/">Association and synchronization</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Automation for Jira Status field with Salesforce Status Field</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3104276483" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Automation for Jira Status field with Salesforce Status Field</h1>
+    <div class="page-meta">4 min read</div>
     <h2 id="purpose">Purpose</h2><p>We will discuss how to map a custom Jira Status field to Salesforce Status field, and how to do automation to be able to change the Read-only Status field in Jira.</p><p>But first, there are some things needed:</p><ul><li><p>Jira Status custom field (Select List -single choice).</p></li><li><p>Values must be the same on both sides.</p></li><li><p>If values are not the same, mapping is needed.</p></li><li><p>Automation Rule.</p></li><li><p>Make sure that the transitions between the selected statuses are available as per Atlassian Documentation (<a href="https://support.atlassian.com/jira-cloud-administration/docs/work-with-issue-workflows/#Adding-a-transition-to-a-workflow).">https://support.atlassian.com/jira-cloud-administration/docs/work-with-issue-workflows/#Adding-a-transition-to-a-workflow).</a>  Else, the status in Jira will not change. The Status does not change section at the bottom of this page provides more information.</p></li></ul><p>This automation can be one way (Salesforce to Jira) and the first section will show that, Or bidirectionally by adding and changing the sync direction of the mapping (shown in Complete the loop section).</p><h2 id="answer">Answer</h2><ol><li><p>Create a Custom Field</p></li></ol><p>We will name it Jira Status and add the following Options(these options are the ones I have on my Salesforce instance. These values can be different, if they are, you will need to do value mapping and map the Salesforce Fields to their counterpart in Jira)</p><p>Jira field values</p><img alt="contentId-3104276483" class="doc-image" loading="lazy" src="/cms_trial/assets/c7357d54-eac3-47a7-8cb9-6226e8b45117.png"/><ul><li><p>Salesforce field values<br/></p><img alt="contentId-3104276483" class="doc-image" loading="lazy" src="/cms_trial/assets/76ad3332-5837-46ca-af42-0c29f6c97fe4.png"/></li></ul><ol><li><p>Binding/Mapping</p></li></ol><p>We add the field mapping with Bidirectional Sync</p><img alt="contentId-3104276483" class="doc-image" loading="lazy" src="/cms_trial/assets/dd199463-704c-4b96-83d9-3f7d21dc5249.png"/><ul><li><p>Value Mapping </p></li></ul><p>If both sides have the same values, there is no need to do the value mapping.</p><p>If the values are not the same between Jira Status and Salesforce status, we need to do value mapping. (this is an example)</p><img alt="contentId-3104276483" class="doc-image" loading="lazy" src="/cms_trial/assets/21151f36-79cb-4dd0-beac-aac21fcf9fcc.png"/><ol><li><p>Automation</p></li></ol><p>To change the Status field we use the following Automation rule.</p><p>First we need to create the rule in the cog icon → System → Automation → Global Automation (bulleted)</p><p>          Then we create the rule and as first option we choose "Field value changed"</p><p>          When : Value changes for Jira Status (Jira Status is the custom field we've created)</p><img alt="contentId-3104276483" class="doc-image" loading="lazy" src="/cms_trial/assets/3bec3974-cea9-4698-9e29-0cf223897a5e.png"/><p>Now we add an If block and as many Else-if as necessary. This is per Jira Status value ( in this example we use 4)</p><p>The If block condition type should be  "Issue Fields Condition" .</p><img alt="contentId-3104276483" class="doc-image" loading="lazy" src="/cms_trial/assets/a1459aab-22a3-4135-9392-b91795b6eed1.png"/><p>Inside the IF statement we add a THEN: transition the issue to (the first one on this example should be Backlog).</p><img alt="contentId-3104276483" class="doc-image" loading="lazy" src="/cms_trial/assets/08555226-cc48-43c7-b26d-acc0c45367ce.png"/><p>Another Else-if with Issue fields condition.</p><img alt="contentId-3104276483" class="doc-image" loading="lazy" src="/cms_trial/assets/be39cf8d-88c5-4c88-83f0-f05ab0a0b577.png"/><p>Inside the Else-IF statement we add another THEN: transition the issue to.</p><img alt="contentId-3104276483" class="doc-image" loading="lazy" src="/cms_trial/assets/a1ab56db-46f1-4e56-a557-3a50b81bfc21.png"/><p>Another Else-if with Issue fields condition and another THEN: transition the issue to.</p><img alt="contentId-3104276483" class="doc-image" loading="lazy" src="/cms_trial/assets/47ea00f3-e23e-4f23-ae53-8d045489802a.png"/><img alt="contentId-3104276483" class="doc-image" loading="lazy" src="/cms_trial/assets/039b2bf9-8efa-46cb-9737-d5fb680fdff4.png"/><p>Keep adding them till you have all the statuses like this.</p><img alt="contentId-3104276483" class="doc-image" loading="lazy" src="/cms_trial/assets/01db39cc-d5c4-4336-ab3b-b7754bcb30b9.png"/><p>After adding all the else-if blocks we need to turn the automation ON.</p><p>You can test if the automation works by changing the field in Jira. Change it to "Backlog" and the Status field should change to "Backlog". If the automation fails , check the automation audit logs.</p><p>At the end you will see that when you change the Status in Salesforce (Example: from Backlog to In Progress), it will change the Status Read-only field in Jira to that value.</p><p>Complete the loop (Heading)</p><p>To have this automation both ways (Bidirectionally and get the Status field value into Salesforce), you need to change the Mapping sync direction like this:</p><img alt="contentId-3104276483" class="doc-image" loading="lazy" src="/cms_trial/assets/121b8962-6d6c-4871-94fa-581b73493d44.png"/><p>With that configuration, the Status from Salesforce will be sent to the intermediary Jira Status field. The automation will match and change the Read-only Status Field to that value.</p><p>Then if you change the Status field in Jira, it will change the Salesforce field and the Salesforce field will update the intermediary field to the Same Status.</p><h2 id="hide-jira-status-field-from-the-edit-screen">Hide Jira Status field from the Edit Screen</h2><p>To avoid the misuse of the new Jira Status Field (since changing that field manually in Jira will change the Status field) we can hide it from the screen by using the Issue Layout.</p><ul><li><p>Go to Project Settings → Issue layout</p></li><li><p>Select the Issue Type → Edit layout</p></li><li><p>Move the Jira Status field to the right (drag and drop)</p></li></ul><p>Now the Jira Status field will be hidden.</p><h2 id="possible-errors">Possible Errors </h2><p>"Destination status could not be resolved. If using a smart-value ensure this resolves to a numeric status ID or untranslated name for issues"</p><p>When creating the Automation rule you might encounter this error. To fix this you need to change the Actor in the Automation Rule into your user or any user who has permission to apply this transition.</p><p>This could also happen if the Actor is set to someone without the permissions for Automation.</p><p>In the Automation click on "Rule Details" and change the Owner.</p><img alt="contentId-3104276483" class="doc-image" loading="lazy" src="/cms_trial/assets/3d42d337-cbcf-4290-9e50-6d34365ecac1.png"/><h2 id="status-does-not-change">Status does not change</h2><p>After the Salesforce update, if the status in Jira does not change, it means that there is no transition step available for the selected status. </p><p>Check the Jira issues if a transition to the status is available. If yes, the status is shown in the drop-down list. </p><p>Click "View workflow" to view all available transitions of the statuses in the project's workflow.</p><img alt="contentId-3104276483" class="doc-image" loading="lazy" src="/cms_trial/assets/bedb53a1-6493-4000-8d3b-af9977b3095b.png"/>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

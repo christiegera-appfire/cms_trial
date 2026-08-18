@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/1916338329/Scripting/">Scripting</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465241623/Using+Jira+Expressions/">Using Jira Expressions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Accessing the details of an issue or a transition in Jira expressions</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/466322042" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Accessing the details of an issue or a transition in Jira expressions</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>This document briefs you on how to access the details of <em>issue</em> and <em>transition</em> objects in Jira expressions, such as those available through the <a href="/cms_trial/space/JMWEC/465241693/Variables+used+in+Jira+expressions/">issue</a> and <a href="/cms_trial/space/JMWEC/465503811/Using+Nunjucks+Templates/">transition</a> variables. </p><p>Structure of an <code>issue</code> object</p><p>An issue object consists of the issue key and a collection of fields. To know the structure of the issue object (such as those available through the <code>issue </code>and <code>linkedIssue</code> variables) returned in Jira expressions:</p><ol><li><p>Go to the<a href="/cms_trial/space/JMWEC/466225418/Jira+Expressions+Editor/"> Jira expressions editor</a></p></li><li><p>Test the following code against an issue</p><pre><code class="language-javascript">issue</code></pre></li><li><p>The result shows the issue structure as a JSON.</p></li></ol><p>Not all data types are supported in Jira expressions. See <a href="https://developer.atlassian.com/cloud/jira/platform/jira-expressions-type-reference/#issue">here</a> to find all the Data types supported in Jira expressions along with their properties and methods.</p><h3 id="access-the-fields-of-an-issue">Access the fields of an issue</h3><p>To write a Jira expression that accesses the fields of an issue, the easiest way is to use the "Issue Fields" tab in the Jira expressions editor help. To see the properties and methods of the returned value use the "Data Types" tab in the editor. For example, to access the "Assignee" field of an issue using the Jira expressions:</p><ol><li><p>Click on "Issue Fields" tab.</p></li><li><p>Select the "Assignee" field from <code>Select a field; </code>the help shows you how to access the field, its sub-fields and test the field value.</p></li><li><p>Click on one of the expressions to insert it into the editor; the help shows you the supported properties and methods of the returned Data Type.</p></li></ol><p>Another way is to go to the "Data Types" tab of the Jira expressions editor and select "Issue" from "Select a Data Type" field. The help lists properties and methods of the <em>Issue</em> data type. Click on a button to insert it into the editor; hover over it to get the information. </p><h2 id="structure-of-the-transition-variable">Structure of the <code>transition</code> variable</h2><p>The <code>transition</code> variable describes the current workflow transition. It contains information about the transition that is currently happening and allows to inspect the source and target status. The transition of an issue consists of the following fields:</p><ul><li><p><code>id</code>: The transition ID (<a href="https://developer.atlassian.com/cloud/jira/platform/jira-expressions-type-reference/#number">Number</a>).</p></li><li><p><code>name</code>: The transition name (<a href="https://developer.atlassian.com/cloud/jira/platform/jira-expressions-type-reference/#string">String</a>).</p></li><li><p><code>from</code>: The current status of the issue (<a href="https://developer.atlassian.com/cloud/jira/platform/jira-expressions-type-reference/#issuestatus">IssueStatus</a>).</p></li><li><p><code>to</code>: The target status of the transition (<a href="https://developer.atlassian.com/cloud/jira/platform/jira-expressions-type-reference/#issuestatus">IssueStatus</a>)</p></li><li><p><code>hasScreen</code>: <em>true</em> if there is a screen configured for this transition, <em>false</em> otherwise (<a href="https://developer.atlassian.com/cloud/jira/platform/jira-expressions-type-reference/#boolean">Boolean</a>)</p></li></ul><p>Use the "Global Variables" tab of the Jira expressions editor to access the current transition information. </p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

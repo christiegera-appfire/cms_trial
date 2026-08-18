@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209972/JQL+Search+Extensions+(Cloud)/">JQL Search Extensions (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/1120043993/App+integrations/">App integrations</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/1151041688/Jira+Misc+Workflow+Extensions+(JMWE)/">Jira Misc Workflow Extensions (JMWE)</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Event-based actions - issue links scope</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JQLSEARCH/pages/1167262244" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Event-based actions - issue links scope</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>The following use cases use JQL Search Extensions (JSE) <a href="/cms_trial/space/JQLSEARCH/604209269/Issue+links/">issue links keywords</a> to set the scope for<a href="https://appfire.atlassian.net/wiki/x/9I__Gw"> </a><a href="https://appfire.atlassian.net/wiki/x/9I__Gw">event-</a><a href="https://appfire.atlassian.net/wiki/x/9I__Gw">based</a><a href="https://appfire.atlassian.net/wiki/x/9I__Gw"> actions</a> in JMWE.</p><h2 id="problem-to-solve">Problem to solve</h2><p>In project workflows where issues are often linked to other tasks or bugs, status updates on one issue may not automatically reach related tickets, resulting in communication delays and overlooked dependencies. For instance, when a bug is resolved, any associated tasks or customer support tickets should ideally receive an update so relevant teams can take appropriate action.</p><h2 id="solution">Solution</h2><p>Combine JQL Search Extensions with JMWE’s event-based actions to ensure timely updates and notifications on linked issues. </p><h2 id="for-issues-linked-to-bugs-comment-on-the-linked-ticket-when-resolved">For issues linked to bugs, comment on the linked ticket when resolved</h2><table><tr><td><p><strong>JSE keyword</strong></p></td><td><p><code>linkedIssueType</code></p></td></tr><tr><td><p><strong>JMWE event</strong></p></td><td><p>Issue Resolved</p></td></tr><tr><td><p><strong>JMWE action</strong></p></td><td><p>Comment Issues</p></td></tr><tr><td><p><strong>Method</strong></p></td><td><ol><li><p>In JQL Extended Search, perform a search for issues linked to bugs, for example:</p><pre><code class="language-">linkedIssueType = Bug</code></pre><p> You can refine this by adding other criteria if needed.</p><img alt="Screenshot of the Extended Search page with the query as described on this page." class="doc-image" loading="lazy" src="/cms_trial/assets/3f9fe6e6-2389-4738-8be0-a5ec60212866.png"/></li><li><p>Save the query as a filter. For this example, the filter is called <code>Issues linked to bugs</code>.</p></li><li><p>In JMWE, create or edit an <a href="https://appfire.atlassian.net/wiki/x/9I__Gw">event-based action</a> to use the <em>Issue Resolved </em>event.</p></li><li><p>Set the scope to <strong>Only apply to issues that match a JQL filter</strong>.</p></li><li><p>Click the JQL input box, then search using the filter name, for example, <code>filter="Issues linked to bugs"</code>.</p></li><li><p>Click <strong>Save</strong>. The filter is added to your event-based action configuration.</p></li><li><p>Add the <em>Comment issues</em> post function.</p></li><li><p>Save the action.</p><img alt="Screenshot of the configured JMWE Issue Resolved event as described on this page." class="doc-image" loading="lazy" src="/cms_trial/assets/e120051c-1171-4d24-8b42-25822e209bfd.png"/><p>Now, when an issue is resolved, issues meeting the JQL filter criteria are updated with the comment configured for step 7. You can apply the same use case to<a href="https://appfire.atlassian.net/wiki/x/9I__Gw"> </a><a href="https://appfire.atlassian.net/wiki/x/9I__Gw">other events</a>, for example, Issue Deleted.</p></li></ol></td></tr></table><h2 id="when-an-issue-moves-to-in-progress-change-any-linked-issue-in-the-to-do-status-to-in-progress">When an issue moves to In Progress, change any linked issue in the To Do status to In Progress</h2><table><tr><td><p><strong>JSE keyword</strong></p></td><td><p><code>linkedIssueStatus</code></p></td></tr><tr><td><p><strong>JMWE event</strong></p></td><td><p>Issue Transitioned</p></td></tr><tr><td><p><strong>JMWE action</strong></p></td><td><p>Transition Issue</p></td></tr><tr><td><p><strong>Method</strong></p></td><td><ol><li><p>In JQL Extended Search, perform a search for child issues matching a given query, for example:</p><pre><code class="language-">linkedIssueStatus = "To Do"</code></pre><img alt="Screenshot of the Extended Search page with the query as described on this page." class="doc-image" loading="lazy" src="/cms_trial/assets/2010912b-36e1-4c5e-a7ef-bbf9b77bd35c.png"/></li><li><p>Save the query as a filter. For this example, the filter is called <code>Linked issues in To Do</code>.</p></li><li><p>In JMWE, create or edit an<a href="https://appfire.atlassian.net/wiki/x/9I__Gw"> </a><a href="https://appfire.atlassian.net/wiki/x/9I__Gw">event-based action</a> to use the <em>Issue Transitioned </em>event.</p></li><li><p>Set the scope to <strong>Only apply to issues that match a JQL filter</strong>.</p></li><li><p>Click the JQL input box, then search using the filter name, for example, <code>filter="Linked issues in To Do"</code>.</p></li><li><p>Click <strong>Save</strong>. The filter is added to your event-based action configuration.</p></li><li><p>Add the <em>Transition issues</em> post function.</p></li><li><p>Save the action.</p><img alt="Screenshot of the configured JMWE Issue Transitioned event as described on this page." class="doc-image" loading="lazy" src="/cms_trial/assets/8cd01a0f-080e-406d-bb0a-7dd7a8f5df8d.png"/><p>Now, when an issue is transitioned to <span class="status-lozenge">in progess</span> linked issues meeting the JQL filter criteria are transitioned from <span class="status-lozenge">To Do</span> to <span class="status-lozenge">In progrss</span> .</p></li></ol></td></tr></table>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

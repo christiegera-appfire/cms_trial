@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/1940488291/Migration+resources/">Migration resources</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/1940488352/SIL+scripts+migration+guide/">SIL scripts migration guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/1940488576/Useful+tools+and+scripts+for+post-migration+script+adjustment/">Useful tools and scripts for post-migration script adjustment</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Known issue: Incorrect placement of validators and conditions after migration to Jira Cloud</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/2268889432" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Known issue: Incorrect placement of validators and conditions after migration to Jira Cloud</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="panel panel-note"><p>Power Scripts will be unavailable during scheduled maintenance on August 8-9, 2026. Don't start a Data Center to Cloud migration during this time. Once maintenance is complete, update both your Data Center app and Power Scripts Cloud to the latest version before starting a migration.</p></div><h3 id="overview">Overview</h3><p>This article addresses a known issue where <strong>Power Scripts</strong> experienced an incorrect migration of workflow elements when moving from a Jira Data Center or Server instance to Jira Cloud using the <strong>Jira Cloud Migration Assistant (JCMA)</strong>.</p><p>The issue causes validators and conditions to be incorrectly placed as post functions in a workflow. This can lead to unexpected behavior, such as running a script that was designed to be a validator or a condition as a post-function.</p><p>This issue has been resolved in these versions of the Power Scripts app:</p><ul><li><p>Power Scripts for Jira Cloud v. 3.2.15</p></li><li><p>Power Scripts for Jira Data Center v. 6.2.820.12 and v. 7.0.1000.7</p></li></ul><hr/><h3 id="symptoms">Symptoms</h3><p>Users affected by this issue will observe the following behavior after migrating their instance to Jira Cloud:</p><ul><li><p>Upon inspecting the workflow in the Jira Cloud workflow editor, you might see your original SIL validators and conditions listed under the <strong>Post Functions</strong> tab.</p></li></ul><hr/><h3 id="root-cause">Root Cause</h3><p>The underlying problem causing this behavior is a bug in certain versions of the Power Scripts app that was used during the JCMA migration. The migration process incorrectly handled the mapping of these workflow elements.</p><p>Specifically, the migration tool failed to properly categorize SIL workflow objects and placed them all as post functions, regardless of their original type (validator, condition, or post function). This bug has been fixed in:</p><ul><li><p>Power Scripts for Jira Cloud v. 3.2.15</p></li></ul><div class="panel panel-note"><p>See the Release notes for Power Scripts for Jira Cloud <a href="/cms_trial/space/PSJC/2229469185/3.2.15+Release+notes/">version 3.2.15</a>.</p></div><ul><li><p>Power Scripts for Jira Data Center v. 6.2.820.12 and v. 7.0.1000.7</p></li></ul><div class="panel panel-note"><p>See the Release notes for Power Scripts for Jira for <a href="https://appfire.atlassian.net/wiki/spaces/PSJ/pages/2219409409">version 6.2.820.12</a> and <a href="https://appfire.atlassian.net/wiki/spaces/PSJ/pages/2219180061">version 7.0.1000.7</a>. </p></div><hr/><h3 id="solution">Solution</h3><p>If you have already migrated to Jira Cloud and are experiencing this issue, the only solution is to manually check your workflows.</p><ol><li><p>Open the workflow editor for any affected workflows.</p></li><li><p>Go to the <strong>Post Functions</strong> tab and identify the SIL script post functions that were originally validators or conditions.</p></li><li><p> Remove the scripts that were originally validators or conditions.</p></li></ol><div class="panel panel-note"><p>If you are unable to perform the manual correction or are unsure which scripts are affected, please contact our support team. </p></div><hr/><h3 id="workaround-for-post-migration-workflow-correction">Workaround for post-migration workflow correction</h3><p>If you have already migrated to Jira Cloud and are experiencing this issue, you can manually correct your workflows. An alternative to removing the SIL scripts is to rewrite them using Jira expressions. This approach provides a long-term solution that avoids dependency on the Power Scripts app for these specific workflow elements.</p><p>To use this workaround:</p><ol><li><p>Open the workflow editor for any affected workflows.</p></li><li><p>Go to the <strong>Post Functions</strong> tab and identify the SIL script post functions that were originally validators or conditions.</p></li><li><p><strong>Create a new validator or condition</strong> in the workflow.</p></li><li><p>Instead of using a SIL script, use the Jira expression option to rewrite the logic.</p></li><li><p>Remove the old SIL script from the <strong>Post Functions</strong> tab.</p></li></ol><div class="panel panel-note"><p>For detailed information and guidance on how to write Jira expressions, refer to the official <a href="https://developer.atlassian.com/cloud/jira/service-desk/jira-expressions/">Atlassian Jira Expressions documentation</a>.</p></div><hr/><h3 id="prevention">Prevention</h3><p>The most effective way to prevent this issue is to ensure your Power Scripts apps are updated <strong>before</strong> you start the JCMA migration.</p><ul><li><p><strong>Before migrating to Jira Cloud:</strong></p><ul><li><p>Update your <strong>Power Scripts for Jira Data Center</strong> app to version <strong>6.2.820.12</strong> or <strong>7.0.1000.7</strong> (or newer).</p></li><li><p>Ensure your <strong>Power Scripts for Jira Cloud</strong> app is at version <strong>3.2.15</strong> or newer.</p></li></ul></li><li><p>After a migration, always perform a thorough check of your migrated workflows to ensure all post functions are correctly placed.</p></li></ul><hr/><h3 id="additional-information">Additional information</h3><ul><li><p><strong>When to contact support:</strong> If you have already updated to a newer version and the issue persists, or if you need assistance with manually correcting your workflows, please contact our support team.</p></li><li><p><strong>Related fixes:</strong> This issue was addressed in the specific versions mentioned above. You can view the full release notes for a complete list of fixes and improvements.</p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

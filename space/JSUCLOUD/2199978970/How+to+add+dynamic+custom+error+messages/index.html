@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12518429/Features/">Features</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/1973288961/JSU+Rule+Builder+-+Validators/">JSU Rule Builder - Validators</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">How to add dynamic custom error messages</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JSUCLOUD/pages/2199978970" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>How to add dynamic custom error messages</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>This page explains when and how to add custom messages to your JSU validation rules.</p><p>You can add dynamic custom error messages to validation rules to help users resolve failed validation steps. There are two types of custom error messages: rule-level messages and branch-level messages.</p><h3 id="rule-level-messages"><strong>Rule-level messages</strong></h3><p>Add a rule-level error message to the general rule settings to provide more context for the error. If you leave this field empty, JSU will display a default message if the validation check fails.</p><p><strong>To add a rule-level message:</strong></p><ol><li><p>In the <em>General</em> panel of the JSU Rule Builder - Validators, provide the message to display to users, for example, <code>Approver can’t be reporter</code>.<br/></p><img alt="Screen shot of the validator rule builder with a custom error message." class="doc-image" loading="lazy" src="/cms_trial/assets/6adf4fb2-7fea-4098-9bac-945071397c83.png"/><p><br/>If the validation check fails, the message displays during the transition. If there is no transition screen, the error message displays in a dialog at the bottom of the page.</p><img alt="Screenshot of a custom error message shown on a transition screen in Jira." class="doc-image" loading="lazy" src="/cms_trial/assets/7a1a4d05-ebc6-4a82-8dad-be0d587a9f27.png"/></li></ol><h3 id="branch-level-messages">Branch-level messages</h3><p>You can add error messages for individual branches in the rule to provide better context about which step failed a check. Error messages added to a branch apply to the branch, not individual validators.</p><p><strong>To add a branch-level message:</strong></p><ol><li><p>Click the <em>Validator fails</em> error panel.</p></li><li><p>In the <em>Fail with message</em> panel, add the error message to display to users. This message displays instead of the rule-level message only when the associated validation check fails. If there is no transition screen, the error message displays in a dialog at the bottom of the page.<br/></p><img alt="Screenshot of the Fail with message module in the JSU Rule Builder." class="doc-image" loading="lazy" src="/cms_trial/assets/730f0519-93dc-4d8f-950c-6e4a0c54cefa.png"/><p><br/></p></li></ol>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

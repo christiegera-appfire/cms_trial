@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434798967/Simple+Issue+Language/">Simple Issue Language</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/15731951/Getting+started+with+SIL/">Getting started with SIL</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490996499/Basic+examples+and+code+snippets/">Basic examples and code snippets</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/491001871/Code+snippets/">Code snippets</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Converting Milliseconds to Days</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/491001887" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Converting Milliseconds to Days</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>Time and dates are stored in milliseconds are stored in Jira following Java convention. How do we convert milliseconds into something useful?</p><h2 id="background">Background</h2><p>I often find it useful to begin (for sake of conversation) this post from Stack Overflow. In the accepted answer, it has a simple equation for converting <a href="https://stackoverflow.com/questions/7829571/milliseconds-to-days">milliseconds to days.</a></p><pre><code class="language-">days = milliseconds / 1000 millis in a second * 60 seconds in a minute * 60 minutes in an hour * 24 hours * 7 days</code></pre><h2 id="example-scripts">Example Scripts</h2><p>Below are some examples of how we can convert intervals into days and hours. Because of the <a href="/cms_trial/space/PSJC/496205872/Type+conversion/">Type Conversion</a> feature of SIL, both numbers and intervals can be used in an equation to calculate days, hours and minutes. The <a href="/cms_trial/space/PSJC/434766239/trunc/">trunc() function</a>returns only whole numbers.</p><table><tr><td><pre><code class="language-">number durationMillis = due - created;
 interval durationInterval = due - created;
 number days = trunc(durationMillis / (1000 * 60 * 60 * 24), 0);
@@ -167,6 +172,64 @@ runnerLog(jiraHours);</code></pre></td></tr></table><h2 id="additional-help">Add
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

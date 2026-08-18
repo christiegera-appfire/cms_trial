@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1874100241/Configuration/">Configuration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1873740233/Configure+Lightning+Web+components/">Configure Lightning Web components</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Use Jira Issues (NextGen) with Visualforce</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/1873511459" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Use Jira Issues (NextGen) with Visualforce</h1>
+    <div class="page-meta">2 min read</div>
     <div class="columns" style="grid-template-columns: 100.0fr;"><div><div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>You can configure Visualforce pages for both standard objects and custom objects in Salesforce.</p><p>The Salesforce Package provides Lightning Web Component pages to show associated Jira issues and some operation buttons to create or associate.</p><div class="panel panel-note"><p>Using the Lightning view? Check out <a href="/cms_trial/space/CSFJIRA/1873543771/Use+Jira+Issues+(NextGen)+with+Lightning+Experience/">Using Jira Issues (NextGen) with Lightning Experience</a>.</p></div><p>Ensure you have already <a href="/cms_trial/space/CSFJIRA/1758232704/Install+the+Salesforce+package+in+Salesforce/">installed the Salesforce Package</a> and <a href="/cms_trial/space/CSFJIRA/1873346949/Set+up+a+connection+to+Jira/">configured a connection</a> before continuing with this guide.</p></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="step-1-create-a-visualforce-page">Step 1: Create a Visualforce page</h2><div class="panel panel-success"><p>The package is shipped with ready-made Visualforce pages for <strong>Case</strong>. If you plan to use it for <strong>Case</strong> only, you can skip to Step 2. For other standard objects and custom objects, follow the steps in this section.</p></div><ol><li><p>Go to <strong>Setup</strong> and type <code>Visualforce Pages</code><strong> </strong>in the quick find box.</p></li><li><p>Click <strong>New</strong>.</p><img alt="Visualforce Pages.png" class="doc-image" loading="lazy" src="/cms_trial/assets/01ddc85c-fb2b-48b7-8be1-ca8baac1aa94.png"/></li><li><p>Provide a name and a label for the Visualforce page. <br/>We recommend <em>Jira Issues</em> as the label and <em>ObjectNameJiraIssuesPage</em> as the name. Replace <em>ObjectName</em><strong> </strong>accordingly. For example:<br/></p><ul><li><p><em>AccountJiraIssuesPage</em> for <strong>Account</strong></p></li><li><p><em>OpportunityJiraIssuesPage</em> for<strong> Opportunity</strong></p></li><li><p><em>MyCustomObject__cJiraIssuesPage</em> for<strong> MyCustomObject__c</strong></p><img alt="visual page.png" class="doc-image" loading="lazy" src="/cms_trial/assets/203226d4-06e3-495a-97e2-9ccf355852fc.png"/></li></ul></li><li><p>Paste the following into the <strong>Visualforce Markup </strong>editor:<br/><br/><strong>Cloud</strong></p><p><strong>JIRA Issues Visualforce Page</strong></p><pre><code class="language-xml">&lt;apex:page standardController="Case" extensions="JCFS.GenericObjectController"&gt;
     &lt;apex:includeLightning /&gt;
     &lt;div id="jiraIssuesLwcVfContainer" /&gt;
@@ -181,6 +186,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PP/1803714584/Planning+Poker+Help+Center/">Planning Poker</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PP/1803714584/Planning+Poker+Help+Center/">Planning Poker Help Center</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PP/9568480/Get+started+with+Planning+Poker/">Get started with Planning Poker</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Installation</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PP/pages/463995360" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Installation</h1>
+    <div class="page-meta">2 min read</div>
     <div class="panel panel-note"><p>This page applies to both <strong>Planning Poker for Jira Cloud</strong> and<strong> Jira Data Center</strong>.</p></div><p>Welcome to Planning Poker for Jira! We’re happy to see you here. </p><p>Planning Poker for Jira is an agile estimation tool designed by Scrum Masters for remote and co-located teams. It enables productive discussions within agile teams, leading to consensus-driven estimations. Development teams can collaboratively gauge the effort required for tasks, sub-tasks, or epics using story points, T-shirts, or customized values, all in real time.</p><p>This page contains step-by-step instructions on how to install Planning Poker for Jira.</p><h2 id="prerequisites">Prerequisites</h2><ul><li><p>You must be a Jira administrator (<a href="https://confluence.atlassian.com/adminjiracloud/managing-global-permissions-776636359.html">Cloud</a>, <a href="https://confluence.atlassian.com/jirasoftwareserver/permissions-overview-939938996.html">DC</a>) to carry out the instructions on this page.</p></li><li><p>Installing Planning Poker is like installing any other Jira app (see Managing add-ons in the Jira documentation (<a href="https://confluence.atlassian.com/adminjiracloud/managing-apps-776830283.html">Cloud</a>, <a href="https://confluence.atlassian.com/adminjiraserver/managing-apps-938846929.html">DC</a>).</p></li></ul><h2 id="how-to-install-planning-poker-for-jira-cloud">How to install Planning Poker for Jira Cloud</h2><ol><li><p>Log in to your Jira Cloud instance as a Jira Administrator.</p></li><li><p>Select the <strong>Jira</strong> <strong>Settings </strong>cog in the top right of your Jira instance and select <strong>Apps</strong>. The <em>Find New Apps</em> page displays.</p></li><li><p>Type <code>Planning Poker</code> in the search field and press <strong>Enter</strong>.</p></li><li><p>Click <strong>Try it free</strong> to install your app.</p></li><li><p>Click <strong>Start Free Trial</strong>. A confirmation message displays once it installs successfully.</p></li></ol><p>Once installed, Planning Poker will add a new menu item to the Jira top menu Apps and project sidebar. </p><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><img alt="contentId-463995360" class="doc-image" loading="lazy" src="/cms_trial/assets/a237104f-4d19-4b88-9167-b4c178385d05.png"/></div><div><img alt="contentId-463995360" class="doc-image" loading="lazy" src="/cms_trial/assets/a7b69944-627b-4429-99b4-b05aba3941c2.png"/></div></div><h2 id="how-to-install-planning-poker-for-jira-data-center">How to install Planning Poker for Jira Data Center</h2><ol><li><p>Log in to your Jira Data Center instance as a Jira Administrator.</p></li><li><p>Select the <strong>Jira</strong> <strong>Settings </strong>cog in the top right of your Jira instance and select <strong>Manage</strong> <strong>Apps</strong>. The <em>Find New Apps</em> page displays.</p></li><li><p>Type <code>Planning Poker</code> in the search field and press <strong>Enter</strong>.</p></li><li><p>Click <strong>Free trial</strong> to start installing your app.</p><img alt="contentId-463995360" class="doc-image" loading="lazy" src="/cms_trial/assets/d2890a92-6349-446d-bb28-cfcff652c056.png"/></li><li><p>Click <strong>Accept &amp; Install</strong>. A confirmation message displays once it installs successfully.</p></li></ol><p>Once installed, Planning Poker will add a new menu item in the Jira top menu and project sidebar. </p><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><img alt="contentId-463995360" class="doc-image" loading="lazy" src="/cms_trial/assets/78815e8a-4eb5-4eaa-a71d-ee0ba93ee600.png"/></div><div><img alt="contentId-463995360" class="doc-image" loading="lazy" src="/cms_trial/assets/101caaac-4bbc-4037-ba78-97e37c9297c3.png"/></div></div><h2 id="next-steps">Next steps</h2><p>All set! Check out our <a href="/cms_trial/space/PP/9568480/Get+started+with+Planning+Poker/">Get started guide</a> to begin your journey with Planning Poker for Jira.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

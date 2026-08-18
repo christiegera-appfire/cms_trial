@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193196083/Release+Notes/">Release Notes</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/3128066689/Release+Notes+2025/">Release Notes 2025</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Release notes 11th April 2025</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2193097464" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Release notes 11th April 2025</h1>
+    <div class="page-meta">1 min read</div>
     <p><strong>Release date</strong>: <time datetime="2025-04-11">April 11, 2025</time> </p><p>Our team is thrilled to announce the latest releases of Comala Document Management Cloud.</p><hr/><h2 id="enhancements">Enhancements</h2><h3 id="implement-sticky-labels">Implement sticky labels </h3><p>Labels are used to determine which workflows apply to specific pages. Previously, any user could remove these labels, potentially causing pages to lose their assigned workflows. To address this, we’ve updated the behavior so only admins can remove any workflow labels, ensuring better control and stability of workflow assignments. </p><img alt="Comala release notes April 2025 feature update" class="doc-image" loading="lazy" src="/cms_trial/assets/6c0053d2-62ce-4028-8cbb-6239f6925122.png"/><h2 id="bug-fixes">Bug Fixes</h2><p>The following issue is fixed in this release:</p><h3 id="fix-for-document-approvals-macro-in-spaces-with-page-workflows">Fix for document approvals macro in spaces with page workflows</h3><p>Resolved an issue where the Document Approvals macro failed to load in spaces where the space admin configuration included a workflow array with an empty object. The macro now loads correctly in all affected spaces.</p><h3 id="document-report-fix-missing-workflow-state-filters"><strong>Document Report - fix missing workflow state filters</strong></h3><p>Fixed an issue where certain workflow states were missing from the <strong>Document Report</strong> filters. To improve usability and accuracy, we’ve introduced a new filter selector that ensures all relevant states can be properly filtered.</p><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p> <strong>Questions and feedback</strong></p><ul><li><p>Explore exciting features, pricing updates, reviews, and more on the <a href="https://marketplace.atlassian.com/apps/142/comala-document-management?hosting=cloud&amp;tab=overview">Marketplace</a>.</p></li><li><p>Stuck with something? Raise a ticket through our <a href="https://appf.re/support">support team</a>.</p></li><li><p>Do you love using our app? Let us know what you think <a href="https://marketplace.atlassian.com/apps/142/comala-document-management?hosting=cloud&amp;tab=reviews">here</a>.</p></li></ul></div><div><p><strong> Credits</strong></p><p>Thank you to our valued customers! Your incredible support and feedback inspire us to improve continuously. We appreciate your trust in Appfire’s Comala Document Management Cloud!</p></div></div><hr/>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

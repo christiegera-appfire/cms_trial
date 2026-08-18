@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209972/JQL+Search+Extensions+(Cloud)/">JQL Search Extensions (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/1120043993/App+integrations/">App integrations</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Xray</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JQLSEARCH/pages/604209305" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Xray</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>This article describes possible use cases of JQL Search Extensions and Xray.</p><div class="panel panel-note"><p>Xray is a popular test management app for Jira. You can leverage its power with additional JQL keywords and functions that <strong>JQL Search Extensions</strong> provides.</p></div><h2 id="external-use">External use</h2><p>Xray integrates well with the Jira UI. What’s missing in Xray Cloud is good support for JQL and issue sourcing.</p><p>You can save JQL as a filter and use it in:</p><ul><li><p>dashboard gadgets</p></li><li><p>boards</p></li><li><p>Jira search - simply use this syntax <code>filter="Your filter name"</code></p></li><li><p>3rd party apps that accept filters and JQL</p></li></ul><h2 id="use-cases">Use cases</h2><h3 id="source-requirements-associated-with-tests">Source requirements associated with tests</h3><p>Standard JQL makes it possible to get requirements for one Test issue:</p><p><code>issue in linkedIssues(TST-123,"tests")</code></p><p>To get a list of requirements that match a JQL:</p><p><code>issue in linkedIssuesOfQuery("project='ACME tests' and labels=Q3", "tests")</code></p><h3 id="source-tests-associated-with-requirements">Source tests associated with requirements</h3><p>Standard JQL makes it possible to get tests for one Requirement issue:</p><p><code>issue in linkedIssues(REQ-123,"is tested by")</code></p><p>To get a list of tests that match a JQL:</p><p><code>issue in linkedIssuesOfQuery("project='ACME requirements' and labels=Q3", "is tested by")</code></p><h3 id="source-tests-associated-with-the-requirements-of-the-input-fix-versions-of-the-specified-project">Source tests associated with the requirements of the input fix versions of the specified project</h3><p>This can be achieved with the following nested query:</p><p><code>issue in linkedIssuesOfQuery("project='ACME requirements and fixVersion in ('v1.0', 'v1.1')", "is tested by")</code></p><h3 id="source-defects-created-during-the-execution-of-the-specified-test">Source defects created during the execution of the specified test</h3><p>With standard JQL you can get defects created by a single test:</p><p><code>issue in linkedIssues(TST-123,"created")</code></p><p>To get a list of defects that match a JQL:</p><p><code>issue in linkedIssuesOfQuery("project='ACME tests' and labels=Q3", "created")</code></p><h3 id="source-list-of-defects-created-during-the-execution-of-test-execution">Source list of defects created during the execution of test execution</h3><p>To get all the defects:</p><p><code>issue in linkedIssuesOfQuery("project='ACME tests' and type='Test Execution'", "created")</code></p><p>You can filter the defects by assignee:</p><p><code>issue in linkedIssuesOfQuery("project='ACME tests' and type='Test Execution'", "created") and assignee="John Doe"</code> </p><h3 id="source-defects-created-during-the-execution-of-tests-covering-the-specified-requirement">Source defects created during the execution of tests covering the specified requirement</h3><p>First create a filter, <em>Tests for requirements,</em> that matches all the tests of your requirements:</p><p><code>issue in linkedIssuesOfQuery("project='ACME tests' and labels=Q3", "tests")</code></p><p>Create another filter that matches the defects created during the tests:</p><p><code>issue in linkedIssuesOfQuery("filter='Tests for requirements'", "created")</code></p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

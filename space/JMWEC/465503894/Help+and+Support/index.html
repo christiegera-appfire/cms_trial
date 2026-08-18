@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Help and Support</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/465503894" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Help and Support</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>This section details the troubleshooting and support options provided for the <em>Jira Misc Workflow Extensions</em> add-on and is applicable to Jira admins. </p><p>If one of the post-functions provided by the <em>Jira Misc Workflow Extensions (JMWE)</em> add-on does not seem to be working as you would expect, follow these steps: </p><ol><li><p>First, check for error messages on the issue view right after triggering the transition. If any of the post-functions configured on the triggered transition fails with any error, JMWE displays a message with a link to the error log. <strong>Note</strong>: this message is visible only to the admins and is not visible on Jira Software boards and Jira Service Desk customer portals.</p></li><li><p>Second, check if there are currently any known outages or major incidents affecting the add-on. Active incidents are visible automatically on the <a href="https://innovalog.statuspage.io">status page for the JMWE add-on</a>. See below for more information.</p></li><li><p>Third, you should head to the post-function view screen to see the count of errors and warnings that occurred over the past 24 hours for that post-function. Clicking on the errors or warnings will direct you to the <a href="/cms_trial/space/JMWEC/466321741/JMWE+Logs/">JMWE Logs</a> page under the <strong>Add-ons</strong> section, which will give you detailed information on the errors and warnings for the specific post-function. In general, you can access the add-on logs on this page for errors or warnings you might have overlooked. If there are any errors or warnings, you can download the logs and investigate the errors.</p></li><li><p>Fourth, you can search our <a href="/cms_trial/space/JMWEC/465241585/Knowledge+Base/">Knowledge Base</a> and refer to the <a href="https://community.atlassian.com/t5/tag/addon-com.innovalog.jmwe.jira-misc-workflow-ex/tg-p">Atlassian Community</a> website for existing answers to any issues. You can also <a href="https://community.atlassian.com/t5/forums/postpage/choose-node/true/interaction-style/qanda?add-tags=addon-com.innovalog.jmwe.jira-misc-workflow-ex,jmwe">ask the community</a> for help with your specific problem, especially if you are looking for a solution to a specific use case.</p></li></ol><p>Lastly, if you believe you are running into a bug in the JMWE add-on, or if you would like to suggest a new feature, don't hesitate to <a href="https://appfire.atlassian.net/servicedesk/customer/portal/11">raise a support request</a> with us.</p><h3 id="automated-error-checking">Automated error checking</h3><p>Another special notification appears on this page when there are any errors detected in your logs that are related to Permission Schemes and/or some Issue Security Schemes.</p><h3 id="errors-or-and-warnings-detected-in-your-logs">Errors or/and warnings detected in your logs</h3><p>If errors and/or warnings are detected in your logs, a message box will appear on the Troubleshooting and Support page, after a slight delay. If you click on one of the numbers, the corresponding errors or warnings will start downloading.</p><p><strong>reset counters</strong> : Clicking on this link will reset the error and warnings counters, after which only new errors or warnings (appearing after the reset) will be taken into account. Thus, next time you visit this page, the message box will only appear if new warnings or errors are detected.</p><h2 id="accessing-the-innovalog-status-page">Accessing the Innovalog status page</h2><p>You can access the status page for the JMWE for Jira Cloud add-on here: <a href="https://innovalog.statuspage.io">https://innovalog.statuspage.io</a> .  This page helps in keeping you informed about outages and major incidents, if any, in the add-on. </p><p>You can subscribe to updates to this page to be notified via Email or SMS whenever a new incident is reported.</p></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/1154449466/Release+notes/">Release notes</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465473449/Release+notes+(archived)/">Release notes (archived)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465504330/Previous+Releases/">Previous Releases</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">JMWE for Jira Cloud 1.2.3-AC release notes</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/465474472" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>JMWE for Jira Cloud 1.2.3-AC release notes</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>This version brings major new features as well as many improvements:</p><h2 id="highlights-of-this-release">Highlights of this release:</h2><h2 id="shared-actions-reusing-post-function-configurations"><br/><strong>Shared Actions: reusing post-function configurations</strong></h2><p>Post-functions (or sequences of post-functions) can now be configured once and then added to multiple transitions across different workflows. You can quickly reuse common configurations, and they are much easier to maintain. Here is how it works: in the <a href="/cms_trial/space/JMWEC/466288975/Shared+actions/">Shared Actions</a>, combine one or more JMWE post-functions into an action. Then,  use the <a href="/cms_trial/space/JMWEC/466323396/Shared+Action+post-function/">Shared Action post-function</a> to add it to various transitions, even in different workflows. <a href="https://hub.appfire.com/popular-topics/workflow-and-automation/jira-misc-workflows-extensions-guide/#reusing-workflow-configurations">Read this blog post to learn more</a>.</p><h2 id="scheduled-actions-automating-post-functions-outside-of-workflows"><strong>Scheduled Actions: automating post-functions outside of workflows</strong></h2><p>Regular workflow post-functions run on transitions, but now you can schedule JMWE post-functions to run against issues returned by a JQL search. <a href="/cms_trial/space/JMWEC/466321868/Scheduled+actions/">Scheduled Actions</a> offer flexibility: you can set up many types of automation, such as workflow transitions, issue status updates, user changes, all based on your predefined schedules. <a href="https://hub.appfire.com/popular-topics/workflow-and-automation/jira-misc-workflows-extensions-guide/#scheduled-actions-for-jira">Read this blog post to learn more.</a></p><h2 id="sequence-of-post-functions-ensuring-a-predictable-post-function-execution-order"><strong>Sequence of Post-functions: ensuring a predictable post-function execution order</strong></h2><p>In Jira Cloud, during a transition, all post-functions run in parallel. This new post-function, <a href="/cms_trial/space/JMWEC/466322933/Sequence+of+Post-functions/">Sequence of Post-functions</a>, allows you to combine other JMWE post-functions into one sequence so that they can all run in a predefined order. The <em>Sequence of Post-functions</em> guarantees the order of events, and replaces the need for using delayed execution. <a href="https://hub.appfire.com/popular-topics/workflow-and-automation/jira-misc-workflows-extensions-guide/">Read this blog post to learn more.</a></p><h2 id="display-message-to-user-showing-custom-messages-on-transition"><strong>Display Message to User: showing custom messages on transition</strong></h2><p>Use the new <a href="/cms_trial/space/JMWEC/465242070/Display+Message+to+User/">Display Message to User post-function</a> to show a custom message on the issue view page to the user triggering the transition. For example, during the transition that creates a new issue, provide the user with a link to the newly created issue. </p><h2 id="easily-access-jmwe-s-top-features-with-one-click"><strong>Easily access JMWE’s top features with one click </strong></h2><p>Jira Administrators can now navigate to the new Overview (a.k.a. Admin Console) page. If you already have the new navigation system, go to Jira Misc Workflow Extensions right from Jira's top Apps menu. Or you can quickly access the Overview page by simply typing <em>gg</em> from any Jira page or by navigating to it through the Apps Admin section.</p><p><br/></p><hr/><h2 id="new-features">New features: </h2><ul><li><p>New libraries:</p><ul><li><p><a href="/cms_trial/space/JMWEC/466288975/Shared+actions/">Shared Actions</a> </p></li><li><p><a href="/cms_trial/space/JMWEC/466321868/Scheduled+actions/">Scheduled Actions</a></p></li></ul></li><li><p>New post-functions:</p><ul><li><p><a href="/cms_trial/space/JMWEC/466323396/Shared+Action+post-function/">Shared Action post-function</a> </p></li><li><p><a href="/cms_trial/space/JMWEC/466322933/Sequence+of+Post-functions/">Sequence of Post-Functions</a></p></li><li><p><a href="/cms_trial/space/JMWEC/465242070/Display+Message+to+User/">Display Message to User</a></p></li></ul></li></ul><h2 id="other-new-features-and-improvements">Other new features and improvements</h2><ul><li><p>New <code>fieldHistory</code> Nunjucks filter that returns the change history of a field</p></li><li><p>New <code>previousStatus</code> Nunjucks filter that returns the previous status of an issue, if any</p></li><li><p>A message (in the form of a "flag" at the top-right of the screen) is now displayed on the issue view when an error occurs during the execution of a post-function <em>and the current user is an admin</em></p></li><li><p>The automatic issue view update feature at the end of a transition is now fully compatible with Jira Cloud's "new issue view"</p></li><li><p>Nunjucks templates and Jira expressions in transition conditions, validators and post functions tabs are now displayed using a full-featured code viewer</p></li><li><p>Group and project role membership can now be tested in Conditions and Validators (build-your-own, conditional validation, ...)</p></li></ul><h2 id="bug-fixes">Bug fixes</h2><ul><li><p>[<a href="https://appfire.atlassian.net/browse/MWEC-472">MWEC-472</a>] - Transition History panel doesn't show all transitions if there are more than 100 field changes (Status or other) in issue history</p></li><li><p>[<a href="https://appfire.atlassian.net/browse/MWEC-473">MWEC-473</a>] - Assign to last role member post-function doesn't work if last matching role member is too far in the issue history</p></li><li><p>[<a href="https://appfire.atlassian.net/browse/MWEC-475">MWEC-475</a>] - Nunjucks Tester is broken in IE 11</p></li><li><p>[<a href="https://appfire.atlassian.net/browse/MWEC-476">MWEC-476</a>] - For some errors, the error is logged in Loggly but post function success is logged as well</p></li><li><p>[<a href="https://appfire.atlassian.net/browse/MWEC-478">MWEC-478</a>] - Field Required Validator configuration doesn't offer all eligible fields</p></li><li><p>[<a href="https://appfire.atlassian.net/browse/MWEC-479">MWEC-479</a>] - Setting the Sprint field to an empty value throws an error</p></li><li><p>[<a href="https://appfire.atlassian.net/browse/MWEC-480">MWEC-480</a>] - Error not logged when the Sprint field is set with a string</p></li><li><p>[<a href="https://appfire.atlassian.net/browse/MWEC-483">MWEC-483</a>] - Field Required Validator considers a numeric field with value 0 as EMPTY</p></li><li><p>[<a href="https://appfire.atlassian.net/browse/MWEC-486">MWEC-486</a>] - Nunjucks/Jira expressions help: examples for testing a field value are incorrect</p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

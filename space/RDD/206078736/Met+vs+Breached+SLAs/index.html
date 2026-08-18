@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146310010/Product+and+data+connections/">Product and data connections</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/2200404470/Connect+data+from+other+Appfire+products/">Connect data from other Appfire products</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/2281373700/Time+to+SLA+integration/">Time to SLA integration</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Met vs Breached SLAs</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/206078736" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Met vs Breached SLAs</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><img alt="Dashboard Hub metVsBreached" class="doc-image" loading="lazy" src="/cms_trial/assets/463b8af8-3a6f-4197-a6fb-72a272a74cb5.png"/><p><a href="/wiki/pages/resumedraft.action?draftId=206078736">MET VS BREACHED SLA</a></p><p><a href="/wiki/pages/resumedraft.action?draftId=206078736">Display the SLA status of support tickets in a clear and easy-to-read chart, to identify which tickets are breached, met, or in progress</a></p><h2 id="overview">Overview</h2><p>This gadget is designed to <strong>help support teams track and monitor the status of their service level agreements (SLAs)</strong>. With this information, teams can take the necessary actions to ensure that all SLAs are being met and customer satisfaction is maintained. Whether you're a support manager, team lead, or individual contributor, this gadget is an essential tool for keeping your SLA performance on track.</p><div class="panel panel-note"><p>This gadget requires <a href="https://appfire.atlassian.net/wiki/spaces/TTSC">https://appfire.atlassian.net/wiki/spaces/TTSC</a></p><p>Data Center version <a href="https://appfire.atlassian.net/wiki/spaces/TTS">https://appfire.atlassian.net/wiki/spaces/TTS</a> not available by default, check <a href="/cms_trial/space/RDD/1528825149/Get+started+with+Custom+Reports/">Get started with Custom Reports</a> </p></div><p>This gadget displays the SLA status of support tickets in a clear and easy-to-read chart, allowing teams to quickly identify which tickets are breached, met, or in progress.</p><img alt="Dashboard Hub met vs breach slas" class="doc-image" loading="lazy" src="/cms_trial/assets/bc3a0ed5-10e0-41c7-8377-f1eddbd394b7.png"/><div class="panel panel-note"><p>This gadget is <strong>multi-project</strong>, so you can report across your whole portfolio of projects.</p></div><h3 id="view-type">View Type</h3><p>You can select among four different visual metaphors to represent your chart: Grouped bar chart, Stacked bar chart, Stacked area chart, or the Multi-line chart.</p><div class="panel panel-note"><p>Important:</p><ul><li><p>The gadget displays the total number of SLA instances. If an issue has multiple SLAs in it, then each SLA will be counted separately.</p></li><li><p>The API token you need from Time to SLA to create a datasource requires the SLA and Issue SLA  generate to use in Dashboard Hub has to have the "SLA" and "Issue SLA" access.</p></li></ul></div><img alt="Dashboard Hub API token configuration" class="doc-image" loading="lazy" src="/cms_trial/assets/d66aec12-0d02-4522-9389-0ca43c671f5d.png"/><h2 id="configuration">Configuration</h2><p>Name your gadget meaningfully, so everyone knows at a glance what it is about and when to use it. Fill out the rest of the fields as applicable, namely:</p><ul><li><p>The <strong>datasource</strong>, select a <strong>Time to SLA</strong> datasource, remember that you have to create this datasource first.</p></li><li><p>The<strong> JQL (Jira Query Language) query or filter</strong> to filter the list of issues (see the <a href="https://support.atlassian.com/jira-software-cloud/docs/use-advanced-search-with-jira-query-language-jql/">JQL documentation</a>). If you don’t add any and click “Load”, the gadget will request all the content in the source instance, this might cause performance issues. We recommend adding at least one clause, for example, to list all the issues of the project Teams in Space use the clause <code>project = "TIS”</code>. And remember that the gadget returns the results of the query, which are not fixed and could change over time.</p></li><li><p>The <strong>SLA</strong> to display the data from, remember that these SLAs are the ones provided by the <a href="https://appfire.atlassian.net/wiki/spaces/TTSC">https://appfire.atlassian.net/wiki/spaces/TTSC</a> app.</p></li><li><p>The <strong>View Type</strong>, select between four different charts: Grouped bar chart, Stacked bar chart, Stacked area chart, or the Multi-line chart.</p></li><li><p>The <strong>Group by period of time</strong>, to display the data grouped by weeks, months, quarters or years.</p></li><li><p>The <strong>Filter by date</strong>, i.e.,<strong> </strong>the period of time you want to display in the time series of the graph. In other words, when the start date of the selected SLAs begins in the x-axis of the chart.</p></li><li><p>Finally, indicate if you want to use the current settings for all the compatible gadgets in the dashboard. This option eases the pain of configuring one by one the rest of the gadgets with the same default configuration</p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

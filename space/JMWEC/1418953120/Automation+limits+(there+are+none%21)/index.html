@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/466288774/Get+started+with+JMWE+for+Cloud/">Get started with JMWE for Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Automation limits (there are none!)</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/1418953120" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Automation limits (there are none!)</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="unlike-jira-jmwe-does-not-impose-any-limits-on-the-number-of-automations-you-can-execute">Unlike Jira, JMWE does not impose any limits on the number of automations you can execute. </h2><p>It does not matter if you are using a free tier of Jira or have an enterprise account, there are no limits. It does not matter how many workflow extensions you create, how many actions those extensions perform, or how many times those automations are triggered. </p><p>There are only two real limitations when using JMWE: </p><ol><li><p>You can only create 100 Event-based actions that utilize dynamic webhooks (see below). This is an Atlassian limitation, not an Appfire or JMWE limitation. </p></li><li><p>The physical limitations of the machine running the extension. As long as the extensions are configured correctly there should not be a time when you discover those limitations. Existing customers have hundreds of extensions running thousands of times an hour without experiencing any performance issues.</p></li></ol><div class="panel panel-note"><p>If you are experiencing any issues <a href="https://appfire.atlassian.net/servicedesk/customer/portal/11">contact us</a> and we can help! We will either help you review your scripts and the script logs to help you understand where the issues may be occurring, or increase the physical resources on the machine depending on the circumstances.</p></div><h2 id="why-this-matters">Why this matters</h2><p>The absence of execution limits in a cloud-based automation tool is vital for ensuring continuous operations, scalability, efficiency, flexibility, cost-effectiveness, and a positive user experience. It enables users to maximize the utility of the tool, adapt to changing requirements, and achieve their automation goals effectively and reliably.</p><ol><li><p><strong>Continuous Operations</strong>: Users depend on automation tools for consistent and uninterrupted service. Execution limits can disrupt this continuity by imposing restrictions on the number of tasks or processes that can be executed within a given timeframe. Without these limits, users can confidently rely on the tool to perform tasks whenever needed, ensuring continuous operations without interruptions.</p></li><li><p><strong>Scalability</strong>: Businesses and individuals often require scalable solutions that can accommodate varying workloads. Execution limits can hinder scalability by restricting the tool's ability to handle increased demands during peak times or when executing complex tasks. An absence of execution limits allows users to scale their usage according to their needs without worrying about hitting arbitrary constraints.</p></li><li><p><strong>Efficiency</strong>: Users expect efficient and timely completion of tasks when utilizing automation tools. Execution limits can introduce delays or force users to prioritize tasks, potentially impacting productivity and efficiency. By removing execution limits, the tool can operate at its full potential, completing tasks promptly without unnecessary delays.</p></li><li><p><strong>Flexibility</strong>: Users may have diverse needs and preferences when using automation tools. Execution limits can constrain the flexibility of the tool, limiting the types of tasks that can be automated or the frequency at which they can be executed. Without these limitations, users have greater flexibility to automate a wide range of tasks and customize their workflows according to their specific requirements.</p></li><li><p><strong>Cost-effectiveness</strong>: Some automation service providers impose additional charges or tiered pricing structures based on usage limits. Without execution limits, users can avoid unexpected costs associated with exceeding these limits, promoting cost-effectiveness and predictable pricing for utilizing the automation tool.</p></li><li><p><strong>User Experience</strong>: Ultimately, the user experience is paramount. Execution limits can frustrate users, leading to dissatisfaction with the service and potentially driving them to seek alternative solutions. By providing an execution-limit-free environment, the automation tool enhances the user experience, fostering satisfaction and loyalty among its users.</p></li></ol></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

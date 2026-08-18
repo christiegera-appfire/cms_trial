@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490996521/Feature+guides/">Feature guides</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490997937/JQL+Support/">JQL Support</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Enhanced Search View with JQL Search Extensions</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/1248591910" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Enhanced Search View with JQL Search Extensions</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>While Power Scripts has many advanced features to enhance searching in Jira, it requires the creation and implementation of those scripts. Also, Power Scripts does not offer an “Enhanced Search View” which allows custom JQL functions that are not available in native Jira JQL searches to be used. JQL Search Extensions is an Appfire product that offers many pre-built JQL keywords (aliases) and has a robust Enhanced Search View with many JQL functions available and can be used in combination with Power Scripts.</p><div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/K5MRDefFUuo"></iframe></div><div class="panel panel-note"><p>JQL Search Extensions is an app that extends Jira Cloud's search and reporting capabilities. It delivers additional keywords and functions not available in native Jira advanced search to improve the speed, precision, and relevance of your issue searches. Your queries can be saved as filters and used anywhere you would use a standard Jira filter. </p><p>You can <a href="https://marketplace.atlassian.com/apps/1214791/jql-search-extensions-for-jira?hosting=cloud&amp;tab=overview">start a free trial</a> of JQL Search Extensions from the Atlassian Marketplace.</p></div><h2 id="jql-search-extensions-and-power-scripts-example-use-cases">JQL Search Extensions and Power Scripts example use cases</h2><p>Here are some potential use cases and solutions that can be created by combining JQL Search Extensions and Power Scripts:</p><ul class="children-list"><li><a href="/cms_trial/space/PSJC/1248133124/Identify+issues+related+to+a+service+desk+project/">Identify issues related to a service desk project</a></li><li><a href="/cms_trial/space/PSJC/1248395291/Build+an+escalation+service/">Build an escalation service</a></li><li><a href="/cms_trial/space/PSJC/1248493583/Update+remote+links/">Update remote links</a></li><li><a href="/cms_trial/space/PSJC/1248526344/Issues+in+a+released+version+remain+open/">Issues in a released version remain open</a></li></ul><div class="panel panel-success"><p>To learn more about how JQL Search Extensions can work for you, see the <a href="https://appfire.atlassian.net/wiki/spaces/JQLSEARCH/pages/604209802">JQL Search Extensions user documentation</a>.</p></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

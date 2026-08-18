@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira (CMJ) Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/194117717/Use+Cases/">Use Cases</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Analyze freely. Deploy precisely.</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CMJC/pages/3504439478" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Analyze freely. Deploy precisely.</h1>
+    <div class="page-meta">4 min read</div>
     <h2 id="overview">Overview</h2><p>Configuration changes rarely happen in isolation. New workflows are created, automation rules evolve, permission schemes are updated, and before long, it becomes difficult to answer a simple question: </p><p><strong>What has changed, and what should I deploy?</strong></p><p>Over time, Jira environments naturally drift apart. Multiple administrators make changes, projects evolve, and it becomes increasingly difficult to know which differences are intentional, which are still being tested, and which are ready for production.</p><p>Without dedicated comparison tools, administrators are often left to manually investigate configuration differences before deciding what to deploy. CMJ Cloud helps simplify that process.</p><p>First, <a href="/cms_trial/space/CMJC/3417473252/Compare+snapshots/">compare snapshot versions</a> to understand how your Jira configuration has evolved. Then, <a href="/cms_trial/space/CMJC/2506522887/Create+and+manage+snapshots/">create a custom snapshot</a> containing only the projects and configuration elements you want to deploy.</p><p>By separating analysis from deployment, you gain greater visibility into your Jira configurations while maintaining precise control over what reaches your destination environment.</p><hr/><h2 id="example-scenario">Example scenario</h2><p>Imagine you're preparing a production release.</p><p>Over the past month, several administrators have been working in your development environment. You know that changes have been made to a few workflows and permission schemes, and that a new notification scheme has been introduced. However, you're not sure exactly which configuration objects were modified, how extensive the changes are, or whether everything is ready for production.</p><p>Rather than deploying the latest snapshot and hoping it contains only the changes you want, you first need to understand exactly what has changed.</p><p>Once you've identified the changes that are ready, you want to package only those configuration elements into your deployment, leaving everything else behind.</p><p>This is where the snapshot comparison and granular scope selection features work together.</p><hr/><h2 id="understand-what-changed">Understand what changed</h2><p>Begin by comparing two versions of the same snapshot.</p><p>Comparing snapshot versions gives you a clear view of how your Jira configuration has evolved before you make any deployment decisions. Instead of reviewing every project manually, you can immediately see which configuration elements have changed.</p><p>The comparison categorizes configuration elements using the following filters:</p><ul><li><p><strong>Unique to the source snapshot</strong> – Configuration elements that exist only in the source version.</p></li><li><p><strong>Unique to the destination snapshot</strong> – Configuration elements that exist only in the destination version.</p></li><li><p><strong>Different</strong> – Configuration elements that have changed.</p></li><li><p><strong>Identical</strong> – Configuration elements that are the same in both snapshots.</p></li></ul><img alt="image (7).png" class="doc-image" loading="lazy" src="/cms_trial/assets/f9cb57d6-fd7c-4db2-b093-cd9f5dc7666e.png"/><p>From there, you can inspect individual configuration elements to understand exactly what changed before deciding whether those changes belong in your next deployment.</p><p>Snapshot comparison is useful beyond just deployment planning. Teams also use it to validate testing, investigate unexpected configuration changes, audit environments, and monitor configuration drift over time.</p><p>Returning to our production release example, the comparison reveals that three workflows have been changed, a new notification scheme has been added, and two permission schemes have been modified. With that information, you can confidently decide which updates are ready to be included in the next release.</p><hr/><h2 id="choose-only-the-changes-you-need">Choose only the changes you need</h2><p>Once you've identified the changes you want to promote, create a new snapshot using the new granular scope selection to deploy precisely.</p><p>Instead of exporting your entire system, you can decide exactly what goes into your snapshot. Whether you're creating a full system snapshot or a targeted snapshot, you stay in control of what goes into your deployment. Choose:</p><ul><li><p><strong>Specific elements</strong> to build a targeted custom snapshot by selecting only the projects and configuration elements you need.</p></li><li><p><strong>Everything supported</strong> to create a system snapshot containing all currently supported projects and configuration elements.</p></li></ul><img alt="Screenshot 2026-07-01 at 14.33.44.png" class="doc-image" loading="lazy" src="/cms_trial/assets/51c98e9b-c5ef-48ff-a192-c875a9e3cf3f.png"/><p>CMJ automatically analyzes your selection and includes any required dependencies, so you don't need to manually identify or recreate related configuration objects. The resulting snapshot contains everything needed for the selected configuration elements to function correctly after deployment.</p><p>In most cases, custom snapshots are easier to review, validate, and troubleshoot than system snapshots while reducing the likelihood of introducing unrelated configuration changes into production.</p><p>In our example, only the updated workflows are ready for production. By selecting just those workflows, CMJ automatically includes their dependent configuration elements, creating a complete deployment package without bringing along unrelated changes from the development environment.</p><hr/><h2 id="deploy-precisely">Deploy precisely</h2><p>By the time you're ready to deploy, the difficult decisions have already been made.</p><p>You've reviewed the changes, selected only the configuration elements that belong in the release, and packaged them into a custom snapshot. Instead of deploying every change made since the last deployment, you're moving forward with only the configurations you've intentionally chosen.</p><p>The result is a deployment process that's easier to review, easier to validate, and less likely to introduce unintended configuration changes into your destination environment.</p><hr/><h2 id="bringing-it-all-together">Bringing it all together</h2><p>The <a href="/cms_trial/space/CMJC/3417473252/Compare+snapshots/">Snapshot Comparison</a> and <a href="/cms_trial/space/CMJC/2506522887/Create+and+manage+snapshots/">Granular Scope Selection</a> features are designed to work together as parts of the same workflow rather than as independent capabilities.</p><p>Snapshot comparison helps you understand how your Jira configuration has changed over time, while granular scope selection lets you act on that insight by creating custom deployment packages containing only the configuration elements you've approved.</p><p>Together, these features help teams take a more controlled approach to Jira configuration management. Rather than relying on assumptions or deploying every accumulated change, administrators can understand what has changed, make informed decisions, and deploy only the configuration elements that are ready.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

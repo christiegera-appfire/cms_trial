@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465241585/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">JMWE for JIRA Cloud doesn't work after migrating from one JIRA Cloud instance to another</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/466256604" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>JMWE for JIRA Cloud doesn't work after migrating from one JIRA Cloud instance to another</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="problem">Problem</h2><p>When you migrate from one JIRA Cloud instance to another (using Backup/Restore), most Connect add-ons, such as JMWE for JIRA Cloud, installed in your instance will stop working. If you navigate to a JMWE screen, such as a post-function configuration screen or the Troubleshooting and Support page, you will receive an "Unauthorized" error. This is due to a known JIRA Cloud bug <a href="https://ecosystem.atlassian.net/browse/AC-1528">AC-1528</a>.</p><h2 id="solution">Solution</h2><p>If you wish to continue using the old JIRA Cloud instance (such as when you have both a production and a test instance), the only solution is to reach out to <a href="https://support.atlassian.com/">Atlassian Support</a> and ask them to fix your "clientKey". Once they fix it, you should be able to <a href="/cms_trial/space/JMWEC/465503970/Installing+or+Re-installing+on+Jira+Cloud/">reinstall the add-on</a>. </p><p>If you are replacing your old instance with the new (most likely to modify the URL), please <a href="https://appfire.atlassian.net/servicedesk/customer/portal/11">contact us</a> so we can clear your existing registration and then you will be able to <a href="/cms_trial/space/JMWEC/465503970/Installing+or+Re-installing+on+Jira+Cloud/">reinstall the add-on</a>.</p><div class="panel panel-warning"><p>Reinstalling of the add-on will not modify your configured workflows. However, while the add-on is inactive, JIRA might start failing transitions which have JMWE post-functions configured, so you want to minimize the time between un-installation and re-installation of the add-on.</p></div><h2 id="related-articles">Related articles</h2><div class="img-placeholder">[Unmapped macro: contentbylabel — no content to fall back on]</div><p><br/></p><table><tr><th><p>Related issues</p></th><td><p><br/></p></td></tr></table><p><br/></p><p><br/></p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

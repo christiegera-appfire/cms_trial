@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193033035/Feature+guide/">Feature guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192903639/Administration/">Administration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193066207/Workflow+elements+and+concepts/">Workflow elements and concepts</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192967825/Triggers/">Triggers</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192870598/Trigger+actions/">Trigger actions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">set-restrictions</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2193458748" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>set-restrictions</h1>
+    <div class="page-meta">4 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview</h2><p>You can use the <strong>Set Restrictions</strong> action in a workflow trigger to remove existing Confluence page-level restrictions before applying new ones. This can be useful when an approval occurs or when a document transitions to a different workflow state. </p><img alt="Comala visual editor set view restrictions trigger with recipient examples" class="doc-image" loading="lazy" src="/cms_trial/assets/e4950af9-2b38-4ac2-9b07-b135e84c0557.png"/><p>The <strong>Set Restrictions</strong> trigger action lets you remove all existing page-level restrictions for a specific Confluence permission type and apply new restrictions in a single action.</p><p>A separate <strong>Set Restrictions</strong> action is required for each of the following:</p><ul><li><p>Removing existing <strong>view</strong> permissions and defining who can view the document</p></li><li><p>Removing existing <strong>edit</strong> permissions and specifying who can edit the document</p></li></ul><p>To remove and add both view and edit restrictions in a workflow trigger, include a <strong>Set Restrictions</strong> action for each restriction type.</p><h2 id="set-restrictions-action-parameters">Set Restrictions action parameters</h2><table><tr><th><p><strong>Action Parameter</strong></p></th><th><p><strong>Value</strong></p></th><th><p><strong>Notes</strong></p></th></tr><tr><td><p><strong>Type</strong> <span class="status-lozenge">MANDATORY</span> </p></td><td><p>Existing type of Confluence page-level permissions to be removed and added:</p><ul><li><p><strong>view</strong></p></li><li><p><strong>edit</strong></p></li></ul><div class="panel panel-note"><p>You must add a separate action for each type of permission.</p></div></td><td><p>Removes the existing specified type of permission restrictions and then restricts the<strong> </strong>permission to the specified users.</p><p>Only one type of permission can be specified in each action:</p><ul><li><p><strong>view</strong> - removes view permissions and adds <strong>view </strong>permissions for users specified in <strong>Restrictions</strong></p></li><li><p><strong>edit</strong> - removes edit permissions and adds <strong>edit </strong>permission for users specified in <strong>Restrictions</strong></p></li></ul></td></tr><tr><td><p><strong>Restrictions </strong><span class="status-lozenge">MANDATORY</span></p></td><td><p>One or more users added using one or more of the following fields</p><ul><li><p><strong>User</strong></p></li><li><p><strong>Confluence Smart Values</strong></p></li><li><p><strong>Workflow user type parameters</strong></p></li><li><p><strong>Group</strong></p></li><li><p><strong>Workflow group type parameters</strong></p></li></ul><div class="panel panel-note"><p>At least one value must be added to one of these fields.</p></div></td><td><p>Restrictions must be applied to at least one user. </p></td></tr><tr><td><p><strong>User</strong></p></td><td><p>One or more Confluence users.</p></td><td><p>List of Confluence users</p><ul><li><p>type to search and select each user</p></li></ul></td></tr><tr><td><p><strong>Confluence Smart Values</strong></p></td><td><p>One or more of the following:</p><ul><li><p><strong>@watchers</strong></p></li><li><p><strong>@creator</strong></p></li><li><p><strong>@lastUpdatedBy</strong></p></li></ul></td><td><p>List of Confluence Smart values.</p></td></tr><tr><td><p><strong>Workflow user type parameters</strong></p></td><td><p>One or more workflow group type parameters.</p></td><td><p>List of workflow user type parameters</p><ul><li><p>add each workflow parameter as <strong>@workflowuserparameter_name@</strong></p></li></ul></td></tr><tr><td><p><strong>Group</strong></p></td><td><p>One or more Confluence user groups.</p></td><td><p>List of Confluence user groups</p><ul><li><p>type to search and select each group</p></li></ul></td></tr><tr><td><p><strong>Workflow group type parameters</strong></p></td><td><p>One or more workflow group type parameters.</p></td><td><p>List of workflow user type parameters</p><ul><li><p>add each workflow parameter as <strong>@workflowgroupparameter_name@</strong></p></li></ul></td></tr></table><p>When the workflow trigger Event occurs, the trigger checks that any required Conditions are met, and if met, the <strong>Set Restrictions</strong> action removes existing Confluence page-level view or edit restrictions and adds page-level content view or edit restrictions specified in the action to the current page.</p><h2 id="set-restrictions-json-code">“set-restrictions” JSON code</h2><p>A <strong>Set Restrictions </strong>workflow trigger action added using the visual editor is automatically displayed in the workflow code editor as a <code>“set-restrictions”</code> trigger action.</p><img alt="Comala setrestrictions trigger action with restriction type options" class="doc-image" loading="lazy" src="/cms_trial/assets/2b87eda9-3aa1-44dd-8156-2334777e9f87.png"/><p>You can also use the code editor to add the workflow trigger and the <code>“set-restrictions”</code> action.</p><h2 id="set-restrictions-parameters-and-workflow-trigger-code-example">"set-restrictions" parameters and workflow trigger code example</h2><h3 id="set-restrictions"><code>"set-restrictions"</code></h3><p>The trigger action  <code>"set-restrictions"</code> removes document view or edit restrictions for all users and adds view or edit restrictions for specified users.</p><ul><li><p><strong>action (</strong><em><strong>set-restrictions</strong></em><strong>)</strong></p><ul><li><p><strong>type </strong><strong>! </strong>Type of permission to apply. Only one permission type can be added in each action.</p><ul><li><p><strong>view</strong> - remove all existing view restrictions and then assign view restrictions to one or more users or user groups</p></li><li><p><strong>edit</strong> - remove all existing edit restrictions and then assign edit restrictions to one or more users or user groups</p></li></ul></li><li><p><strong>restrictions </strong><strong>!</strong> List of users and groups with the specified type of permission. At least one user or one user group must be specified</p><ul><li><p><strong>user</strong> - comma-separated list of Confluence userIds, Confluence ser type workflow parameters, Confluence value references*, or metadata</p><ul><li><p><code>{“user”: [ “userID”, @user_parameter@, @creator, @lastUpdatedBy, @watchers ]}</code></p></li></ul></li><li><p><strong>group</strong> -  comma-separated list of Confluence groupIds, Confluence group name, group type workflow parameters, or metadata</p><ul><li><p><code>{“group”: [ “groupID”, "groupName", @group_parameter@ ]}</code></p></li></ul></li></ul></li></ul></li></ul><hr/><h3 id="mandatory-parameters">❗️ Mandatory parameters</h3><p><strong>type</strong></p><p>The <code>"type"</code> parameter value must be included. The <strong>view </strong>or <strong>edit</strong> value must be added</p><p><strong>restrictions</strong></p><p>The <code>"restrictions"</code> parameter value must be included. At least one value must be added for either the<strong> user </strong>or <strong>group</strong> parameter</p><p>Invalid values for the <strong>user </strong>or <strong>group</strong> parameter are ignored.</p><hr/><h3 id="supported-confluence-value-references">*Supported Confluence value references</h3><p>Only the following value references are supported in Confluence Cloud:</p><ul><li><p><strong>@creator</strong></p></li><li><p><strong>@watchers</strong></p></li><li><p><strong>@lastUpdatedBy</strong></p></li></ul><hr/><h3 id="example-trigger-code">Example trigger code</h3><pre><code class="language-">"triggers":
 [
 	{"event": "on-change-state",
@@ -176,6 +181,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

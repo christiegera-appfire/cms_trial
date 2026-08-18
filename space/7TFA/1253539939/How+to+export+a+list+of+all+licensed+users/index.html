@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/3482517944/Admin+guide/">Admin guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253540254/API+%26+Reporting/">API &amp; Reporting</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">How to export a list of all licensed users</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/7TFA/pages/1253539939" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>How to export a list of all licensed users</h1>
+    <div class="page-meta">1 min read</div>
     <h2 id="how-do-i-export-a-list-of-all-timetracker-licensed-users-with-their-roles">How do I export a list of all Timetracker licensed users with their roles?</h2><p>In order to get a list of all licensed users, you will need to use the Timetracker REST CRUD API and the <a href="/cms_trial/space/7TFA/1253540003/7pace+Timetracker+REST+CRUD+API+Version+3/">users/roles endpoint</a>. You can simply send an API call via Postman or another third party software to fetch the list of all licensed users with their respective roles.</p><p>The API call should look like this:</p><p>GET https://{your-organization}.timehub.7pace.com/api/rest/users/roles?api-version={version}&amp;$expand=user.displayName</p><p>We have also created an Excel template file that achieves the same purpose. You can use the attached Excel file <a href="https://appfire.atlassian.net/wiki/download/attachments/1253540003/Get%20users%20and%20roles%20-%20example.xlsx?api=v2"><strong>Get users and roles - example.xlsx</strong></a><strong> </strong>to quickly get your first report up and running. By following the instructions, you will obtain a list of all users and their roles in under five minutes.</p><p>Please be aware of certain limitations:</p><ul><li><p>The instructions inside of the Excel file only work for Windows version of Excel.</p></li><li><p>You need to have a 7pace Timetracker Administrator or a Project Collection Administrator role assigned for the REST CRUD API users/roles endpoint to work, for security reasons.<br/><em>Alternatively, you can use a token of Service Account, but this is out of scope of this manual, you can refer to </em><a href="/cms_trial/space/7TFA/1253540308/Reporting+%26+API%3A+Service+Account%2C+Reporting+%26+REST+API+and+Access+Tokens/"><em>Service Account Configuration manual</em></a><em> for more information.</em>
 </p></li></ul>
   </main>
@@ -155,6 +160,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

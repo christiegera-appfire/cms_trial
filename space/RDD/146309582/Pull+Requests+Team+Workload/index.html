@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146310010/Product+and+data+connections/">Product and data connections</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/3019735522/Connect+data+from+Atlassian+products/">Connect data from Atlassian products</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/2381316116/Integration+with+Bitbucket/">Integration with Bitbucket</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Pull Requests Team Workload</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/146309582" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Pull Requests Team Workload</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><img alt="Dashboard Hub PRs team workload" class="doc-image" loading="lazy" src="/cms_trial/assets/dc19357b-690d-454c-ba46-b41473b2e84d.png"/><p><a href="/cms_trial/space/RDD/146309582/Pull+Requests+Team+Workload/">PULL REQUESTS TEAM WORKLOAD</a></p><p><a href="/cms_trial/space/RDD/146309582/Pull+Requests+Team+Workload/">Display the leaderboards in terms of number of pull requests pending to review</a></p><h2 id="overview">Overview</h2><p>No matter the size of your team, there’s always a decision to be made when it comes to deciding <strong>who should review your pull request (PR)</strong>. The primary goal of the review process is to establish quality standards and identify bugs before deployment to production. While in small teams you might tend to choose the tech lead, in bigger teams, there are policies or rules to choose several reviewers. </p><p>This gadget displays the leaderboards in terms of the number of pull requests pending to review. Those developers with more workload than the rest, who will beg you to check this gadget the next time you have to decide who should review your code.</p><h2 id="configuration">Configuration</h2><p>Name your gadget meaningfully, so everyone knows at a glance what it is about and when to use it. Fill out the rest of the fields as applicable, namely:</p><ul><li><p>The <strong>datasource</strong> to connect to Bitbucket Pipelines. See <a href="/cms_trial/space/RDD/2381316116/Integration+with+Bitbucket/"><u>Integrations with Bitbucket</u></a> to learn more.</p></li><li><p>The <strong>repository (or repositories)</strong> where the pull requests are waiting to be reviewed.</p></li><li><p>Finally, indicate if you want to use the current settings for all the compatible gadgets in the dashboard. This option eases the pain of configuring one by one the rest of the gadgets with the same default configuration.</p></li></ul><h2 id="dashboards">Dashboards</h2><p>This gadget appears in the following dashboard: <a href="/cms_trial/space/RDD/146310016/Scrum+software+team+template/">Scrum software team template</a>. </p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

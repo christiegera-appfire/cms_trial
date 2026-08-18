@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/1940488291/Migration+resources/">Migration resources</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Power Scripts for Jira Cloud migration FAQ</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/3383754876" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Power Scripts for Jira Cloud migration FAQ</h1>
+    <div class="page-meta">5 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="panel panel-note"><p>Power Scripts will be unavailable during scheduled maintenance on August 8-9, 2026. Don't start a Data Center to Cloud migration during this time. Once maintenance is complete, update both your Data Center app and Power Scripts Cloud to the latest version before starting a migration.</p></div><h2 id="power-scripts-for-jira-cloud-migration-faq">Power Scripts for Jira: Cloud Migration FAQ</h2><h2 id="overview">Overview</h2><p>This FAQ addresses common migration questions and known limitations when migrating Power Scripts for Jira from Jira Data Center to Jira Cloud.</p><p>Because Jira Cloud uses a different architecture and execution model than Jira Data Center, some SIL scripts, workflow automations, and advanced features may require manual review, remediation, or redesign after migration.</p><hr/><h2 id="why-do-some-custom-field-automation-scripts-require-updates-after-migration">Why do some custom field automation scripts require updates after migration?</h2><p>Some Power Scripts functions that interact with Jira custom field contexts behave differently in Jira Cloud than they do in Jira Data Center.</p><p>For example, Jira Cloud custom field contexts may require specific project and issue type mappings when using functions such as <strong>admUpdateCustomFieldOptions</strong>. Customers have reported challenges when working with contexts that apply to all issue types, because Cloud functions may require issue type information that is not explicitly defined in the context.</p><p>As a result, scripts that update custom field options, retrieve context information, or manage field configurations can require review and testing after migration.</p><p>If your Data Center environment contains custom scripts that:</p><ul><li><p>Update custom field options</p></li><li><p>Manage field contexts</p></li><li><p>Retrieve issue type mappings</p></li><li><p>Automate field configuration changes</p></li></ul><p>Test those scripts in a sandbox environment before moving them to production.</p><p>For example, with the following Data Center SIL script:</p><pre><code class="language-">string cfName = "Environment";
 string[] options = {"Development", "QA", "Production"};
 admUpdateCustomFieldOptions(
@@ -161,6 +166,64 @@ admUpdateCustomFieldOptions(
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -72,14 +72,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/1940488291/Migration+resources/">Migration resources</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">SIL scripts migration guide</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/1940488352" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>SIL scripts migration guide</h1>
+    <div class="page-meta">7 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="panel panel-note"><p>Power Scripts will be unavailable during scheduled maintenance on August 8-9, 2026. Don't start a Data Center to Cloud migration during this time. Once maintenance is complete, update both your Data Center app and Power Scripts Cloud to the latest version before starting a migration.</p></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="overview">Overview</h2><p>This guide provides comprehensive instructions for migrating Power Scripts from Jira Data Center (DC) to Jira Cloud. The migration process requires careful planning and execution to ensure the continued functionality of your scripts in the cloud environment.</p><p>Power Scripts migration involves moving scripts between fundamentally different environments. Key differences include:</p><ul><li><p>Modified execution context</p></li><li><p>Different API availability</p></li><li><p>Updated security constraints</p></li><li><p>Changed performance characteristics</p></li></ul><p>The guide focuses on maintaining script functionality while adapting to cloud-specific requirements.</p><table><tr><th><p><strong>See also:</strong></p><ul><li><p><a href="/cms_trial/space/PSJC/1940488576/Useful+tools+and+scripts+for+post-migration+script+adjustment/">Useful tools and scripts for post-migration script adjustment</a></p></li><li><p><a href="/cms_trial/space/PSJC/1940488545/SIL+functions+differences+between+Jira+Data+Center+and+Cloud/">SIL functions differences between Jira DC and Cloud</a></p></li><li><p><a href="/cms_trial/space/PSJC/1940488637/Converting+Groovy+scripts+to+SIL/">How to convert Groovy scripts to SIL</a></p></li></ul></th></tr></table></div></div><hr/><h2 id="prerequisites">Prerequisites</h2><ul><li><p>Administrator access to both Jira DC and Jira Cloud instances</p></li><li><p>Inventory of existing Power Scripts</p></li><li><p>Knowledge of Simple Issue Language (SIL)</p></li><li><p>Understanding of cloud environment constraints</p></li><li><p>Review the <a href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/edit-v2/1940488352#Jira-DC-to-Cloud-script-migration-reference">Jira DC to Cloud script migration reference</a> to learn which scripts migrate successfully and which scripts require readjustment.</p></li></ul><hr/><h2 id="migration-method">Migration method</h2><p>You can use an automated or manual migration method. </p><h3 id="automated-migration">Automated migration</h3><p>For automated script migration, use a tool such as <a href="https://marketplace.atlassian.com/apps/1222010/jira-cloud-migration-assistant?tab=overview&amp;hosting=datacenter">Jira Cloud Migration Assistant</a> (JCMA) or <a href="https://marketplace.atlassian.com/apps/1211611/configuration-manager-for-jira-cmj?hosting=cloud&amp;tab=overview">Configuration Manager for Jira</a> (CMJ). When using a tool, the following consistencies help ensure script compatibility: </p><ul><li><p>Project and issue type names remain exact matches between Jira DC and Jira Cloud. This ensures project keys or issue type names used directly in scripts will continue to operate after migration.</p></li><li><p>Custom field names are preserved as exact matches between Jira DC and Jira Cloud, but custom field IDs will be different. </p><ul><li><p>If <a href="/cms_trial/space/PSJC/496206057/Custom+fields+aliases/">SIL aliases</a> were used, which is a best practice, you can update the SIL aliases settings in Power Scripts for Jira Cloud. This way, the scripts will automatically work with the new IDs.</p></li><li><p>If custom field aliases were not used, the migration is a good opportunity to start using them.</p></li></ul></li><li><p>Status and transition names remain exact matches between Jira DC and Jira Cloud. This ensures scripts using status names, transition names, or IDs should continue to operate after migration.</p></li></ul><div class="panel panel-note"><p>A critical step before using JCMA is to update your Power Scripts apps to the latest versions. This prevents a known issue where validators and conditions are incorrectly migrated as post functions. This is fixed in Power Scripts for Jira Cloud v. 3.2.15 and Power Scripts for Jira Data Center v. 6.2.820.12 and v. 7.0.1000.7. For detailed instructions on how to prevent and resolve this issue, please see our <a href="/cms_trial/space/PSJC/2268889432/Known+issue%3A+Incorrect+placement+of+validators+and+conditions+after+migration+to+Jira+Cloud/">Known issue: Incorrect placement of validators and conditions after migration to Jira Cloud</a>.</p></div><details><summary>Steps for automated script migration</summary></details><h3 id="manual-migration">Manual migration</h3><p>If you aren’t using a migration tool, scripts can still be migrated by uploading them to the SIL manager or through the <strong>Apps </strong>&gt;<strong> Power Scripts</strong> &gt; <strong>Self Help </strong>menu in Jira Cloud admin settings and then configuring them manually.</p><details><summary>Steps for manual script migration</summary></details><hr/><h2 id="post-migration-testing">Post-migration testing</h2><p>After the migration, test your scripts by performing a <a href="/cms_trial/space/PSJC/490997104/Menu+and+toolbar+items/">syntax check</a> in the SIL Manager (in Power Scripts for Jira Cloud). </p><p>If a script passes the syntax test, it means that:</p><ul><li><p>The functions shown in this code are compatible with both Jira DC and Cloud environments.</p></li><li><p>The syntax of the script it correct.</p></li><li><p>Custom field IDs are correct or have been updated in the alias file.</p></li></ul><div class="panel panel-warning"><p>Passing the syntax test does not mean the script will operate exactly the same way between Jira DC and Jira Cloud.</p></div><p>Some scripts may not work identically between DC and cloud environments and can require adjustments due to differences in project names, issue type names, JQL queries, or other script-contained information. While using migration tools (JMCA or CMJ) improves the chances of successful script migration, these elements may still need to be adjusted to ensure the scripts operate in the cloud instance as expected.</p><div class="panel panel-note"><p>See the <a href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/edit-v2/1940488352#Jira-DC-to-Cloud-script-migration-reference">Jira DC to Cloud script migration reference</a> to learn which scripts migrate from Jira DC to Cloud and which will require adjustment. </p></div><div class="panel panel-warning"><p>To avoid issues in the target cloud environment, testing all scripts after the migration is strongly recommended.</p></div><hr/><h2 id="required-post-migration-script-changes">Required post-migration script changes</h2><p>When migrated between Jira DC and Jira Cloud, the following script types require additional changes: conditions and validator scripts, Live Fields, and mail handler scripts. In addition, all existing scripted JQL functions/keywords must be updated for Jira Cloud.</p><h3 id="conditions-and-validator-scripts">Conditions and validator scripts</h3><p>Jira Cloud uses <a href="https://developer.atlassian.com/cloud/jira/software/jira-expressions/">Jira Expressions</a> language for conditions and validators; scripted conditions and validators are not currently supported in Jira Cloud. While many users find Jira Expressions challenging and time-intensive to work with, there are alternative approaches. As with other features in Jira Cloud, rather than directly converting scripts and replicating Data Center solutions, consider rethinking your approach. To learn about ways to continue using SIL scripted conditions and validators in Jira Cloud, see <a href="/cms_trial/space/PSJC/804552898/Scripted+Conditions+and+Validators+in+cloud+-+a+new+paradigm/">this article</a>.</p><details><summary>Jira Expressions example</summary><pre><code class="language-">issue.issueType.name.match('^(Dev Task)$') == null || 
 (issue.issueType.name.match('^(Dev Task)$') != null &amp;&amp; 
 issue.parent.subtasks.filter(subtask =&gt; subtask.assignee != null).length == 
@@ -254,6 +259,64 @@ if(issueExists(issueKey)) {
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

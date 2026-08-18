@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/HED/602865666/Hedge/">Hedge - Risk Management &amp; Risk Register for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/HED/602865666/Hedge/">Hedge</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/HED/602865819/Get+started+with+Hedge/">Get started with Hedge</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Make imported risks visible</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/HED/pages/792756225" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Make imported risks visible</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 100.0fr;"><div><p>If you’re unable to see your imported risks in the Risk Register, you may have filters or issue limitations blocking their visibility. To fix this, clear unnecessary filters and make sure the correct issue types are selected.</p><h2 id="clear-your-filters">Clear your filters</h2><p>If you have a different project, issue type, or any other parameters applied in the filters that don’t match your risks, you will be unable to see your risks. To fix this:</p><ol><li><p>In the Risk Register, click <strong>Clear filters</strong>. </p></li><li><p>Reapply filters, making sure to only apply filters that match the parameters of your risks.</p></li></ol></div></div><img alt="Screenshot of a Risk Register showing the Clear filters button." class="doc-image" loading="lazy" src="/cms_trial/assets/518d136e-1d99-453d-b852-cf0a940d273e.png"/><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="select-the-correct-issue-types-in-risk-register-settings">Select the correct issue types in Risk Register settings</h2><ol><li><p>In the Risk Register, click <strong>Settings</strong> &gt; <strong>General settings </strong>&gt;<strong> Issue Types. </strong></p></li><li><p>Add the issue types you want displayed on the register. Make sure the issue types you want to display are selected.</p></li></ol></div></div><img alt="Screenshot of a Risk Register showing the Settings and the Issue Types field." class="doc-image" loading="lazy" src="/cms_trial/assets/7ba365f0-0b93-49cf-9055-65aa55aa745e.png"/><div class="columns" style="grid-template-columns: 100.0fr;"><div><div class="panel panel-note"><p>Learn more about how to <a href="/cms_trial/space/HED/602865672/Customize+the+risk+register/">customize your Risk Register</a>.</p></div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -32,14 +32,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira (CMJ) Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/194117669/Release+Notes/">Release Notes</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/992673833/Archived+release+notes/">Archived release notes</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Release notes 18 September 2023</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CMJC/pages/503480776" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Release notes 18 September 2023</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h3 id="september-18-2023">September 18, 2023</h3><p>We are happy to announce the release of <strong>Configuration Manager for Jira Cloud 2.0.7</strong>!</p><h2 id="highlights">Highlights</h2><ul><li><p><a href="#IMPROVEMENTS">New logo design</a></p></li><li><p><a href="#RESOLVED">Bug fixes</a></p></li></ul></div><div><img alt="contentId-503480776" class="doc-image" loading="lazy" src="/cms_trial/assets/105413e3-afea-4807-8de5-7ab98a1593b6.png"/></div></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p><a href="/cms_trial/space/CMJC/194183182/Installation+guide/"><strong>Installation instructions</strong></a></p></div><div></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="updates-and-resolved-issues">Updates and Resolved Issues</h2></div><div></div></div><div class="columns" style="grid-template-columns: 33.33fr 66.66fr;"><div><img alt="contentId-503480776" class="doc-image" loading="lazy" src="/cms_trial/assets/8ec69318-edda-40fb-966e-c006c7b40423.png"/><img alt="contentId-503480776" class="doc-image" loading="lazy" src="/cms_trial/assets/b468c8d8-b34d-4ba9-9fa4-1bf4a770cfc4.png"/></div><div><h4 id="improvements">IMPROVEMENTS</h4><p><strong>New logo: </strong>We’ve changed the logo design of Configuration Manager for Jira. By updating our brand identity, we want to reinforce Appfire’s solution-first approach and commitment to our purpose — to be an irreplaceable part of how teams collaborate, no matter how they want to work.  </p><h4 id="resolved">RESOLVED</h4><ul><li><p>Fixed defects causing deployment failures</p></li></ul></div></div><details><summary>Previous Releases...</summary><p><a href="/cms_trial/space/CMJC/443975880/Release+notes+11+August+2023/">2.0.6 Release Notes</a></p><p><a href="https://appfire.atlassian.net/wiki/spaces/DCMFJC/pages/416711638">2.0.5 Release Notes</a></p><p>…</p><p><a href="https://appfire.atlassian.net/wiki/spaces/DCMFJC/pages/254574741">2.0.0 Release Notes</a></p></details><hr/><p>More improvements and bug fixes will be coming soon! Thanks! Please submit your suggestions for improvements to Appfire's <a href="https://apps.appf.re/support"><strong>Support Portal</strong></a>. We value your feedback!</p>
   </main>
   <aside class="sidebar">
@@ -169,6 +174,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

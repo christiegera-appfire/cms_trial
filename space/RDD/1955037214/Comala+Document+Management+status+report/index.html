@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146310010/Product+and+data+connections/">Product and data connections</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/1529219266/Custom+Reports+-+REST+API+integration/">Custom Reports - REST API integration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/1568374878/Custom+Reports+templates/">Custom Reports templates</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/2173796469/Appfire+apps/">Appfire apps</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Comala Document Management status report</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/1955037214" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Comala Document Management status report</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="overview">Overview</h2><p>The Comala Document Management report provides an overview of Confluence pages matching a given CQL query and limit, including their workflow status.</p><div class="panel panel-note"><p>To use this report, you should be familiar with Confluence REST API concepts, nested API calls, and Dashboard Hub Custom Reports.</p></div><hr/><h2 id="prerequisites">Prerequisites</h2><ul><li><p><strong>Comala Document Management for Confluence: </strong>Ensure the app is installed and active on your Confluence instance.</p></li><li><p><strong>Datasource: </strong>A Custom Reports datasource must be configured so the gadget can load data and access custom properties from Confluence.</p></li><li><p><strong>Variables: </strong>You must provide two variables when configuring the report:</p><ul><li><p><strong>CQL</strong>: The Confluence Query Language expression that defines which pages to display.</p></li><li><p><strong>Limit</strong>: The maximum number of pages to return.</p></li></ul></li></ul><ul><li><p><strong>Dashboard Hub dashboard: </strong>You need a Dashboard Hub dashboard where you can add Custom Reports gadgets.</p></li></ul><hr/><h2 id="how-to-set-up-the-datasource">How to set up the datasource</h2><p>To connect Confluence page data with Dashboard Hub you need to configure a REST API datasource in Dashboard Hub.</p><ol><li><p>In Dashboard Hub, select <strong>More actions (…) </strong>&gt;<strong> Add datasource</strong>.</p></li><li><p>Select <strong>Custom Reports</strong>.</p></li><li><p>Configure the datasource:</p><ul><li><p><strong>Name:</strong> Provide a clear name so you can easily identify this datasource later.</p></li><li><p><strong>URL:</strong> Enter your Confluence Cloud REST API base URL (for example:<br/><code>https://your-domain.atlassian.net/wiki/rest/api</code>).</p></li><li><p><strong>Authentication type:</strong> Select <strong>Bearer token</strong> or <strong>Basic Auth</strong>, depending on your Jira/Confluence configuration.</p></li><li><p><strong>Token / Credentials:</strong> Enter the required authentication details.</p></li></ul></li><li><p>Click <strong>Add</strong>.</p></li></ol><hr/><h2 id="how-to-use-the-comala-document-management-status-report">How to use the Comala Document Management status report</h2><ol><li><p>Click <strong>Edit</strong> on your Dashboard Hub dashboard.</p></li><li><p>Click <strong>Add Gadget</strong>.</p></li><li><p>Select <strong>Custom Reports</strong> in the left sidebar, then select the <strong>Appfire Comala Document Management status report</strong> gadget.</p></li><li><p>On the gadget configuration page:</p><ul><li><p>The gadget name is pre-filled by default.</p></li><li><p>Under <strong>Datasources</strong>, select the datasource you created earlier.</p></li></ul></li><li><p>Under <strong>Variables</strong>, enter:</p><ul><li><p><strong>CQL</strong> – the query defining the pages you want to display.</p></li><li><p><strong>Limit</strong> – the maximum number of pages to include.</p></li></ul></li><li><p>(Optional) To customize the report layout, fields, icons, or styling, click <strong>Open Editor</strong>.</p></li><li><p>Click <strong>Add</strong>.</p></li></ol></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><img alt="Dashboard Hub Comala Document Management status report example" class="doc-image" loading="lazy" src="/cms_trial/assets/fb69c986-f203-4340-8949-de36e304dc66.png"/></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>See <a href="/cms_trial/space/RDD/2110030119/Custom+report+example/">Custom report example</a> for a video walkthrough of how to configure your report. </p></div></div><h2 id="see-also">See also</h2><ul><li><p><a href="/cms_trial/space/RDD/1529219266/Custom+Reports+-+REST+API+integration/">Introduction to Custom Reports</a> </p></li><li><p><a href="/cms_trial/space/RDD/1528825149/Get+started+with+Custom+Reports/">Get started with Custom Reports</a> </p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

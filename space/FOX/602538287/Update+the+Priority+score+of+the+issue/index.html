@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/FOX/602537989/Foxly+-+Backlog+Prioritization+for+Jira/">Foxly - Backlog Prioritization for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/FOX/602537989/Foxly+-+Backlog+Prioritization+for+Jira/">Foxly - Backlog Prioritization for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/FOX/602538315/Get+started+with+Foxly+Project+Prioritization/">Get started with Foxly Project Prioritization</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Update the Priority score of the issue</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/FOX/pages/602538287" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Update the Priority score of the issue</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><p>The priority score is automatically calculated based on the defined scoring formula and metric assigned to the issue. To change the Priority score, you need to update the relevant metrics.</p><p>You can update and view the issue's Priority score from two places:</p><ul><li><p>In the <strong>Priorities table</strong></p></li><li><p>In the <strong>Priority score</strong> field in the issue detail</p></li></ul></div><div></div></div><h2 id="update-priorities-from-the-priorities-table">Update priorities from the Priorities table</h2><p>Navigate to the project, and in the project menu, find the <em>Priorities</em> tab. Here, you can see all the issues from the project.</p><img alt="Priorities tab" class="doc-image" loading="lazy" src="/cms_trial/assets/80f125bf-1c24-4bd0-9984-d6ed2975b049.png"/><ol><li><p>Use filters to look for the issue’s metrics you want to update.</p></li><li><p>Click <strong>Metrics</strong> and assign the value you want. The score is automatically recalculated.</p></li></ol><h2 id="update-priorities-from-the-issue-detail">Update priorities from the issue detail</h2><img alt="Screenshot of the Priorities score box." class="doc-image" loading="lazy" src="/cms_trial/assets/e4999f03-e8e0-4e2b-802f-2fe77e1118a1.png"/><p>Navigate to the issue detail. The <strong>Priority score </strong>field is in the right panel.</p><ol><li><p>Click <strong>Priority score</strong> to view the priority score.</p></li><li><p>Click <strong>Metrics</strong> and assign the values you want. The score is automatically recalculated.</p></li></ol><div class="panel panel-note"><p>The priority score of the issue only shows if all metrics are filled.</p></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

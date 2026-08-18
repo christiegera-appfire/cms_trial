@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146310010/Product+and+data+connections/">Product and data connections</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/1529219266/Custom+Reports+-+REST+API+integration/">Custom Reports - REST API integration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/1528825149/Get+started+with+Custom+Reports/">Get started with Custom Reports</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Configure a REST API datasource for Custom Reports</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/1550352515" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Configure a REST API datasource for Custom Reports</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>Adding a datasource through an API is a little different to the process you use for adding a datasource for our pre-configured connections. In this guide, we’ll walk you through creating your first Custom Report by connecting to an open REST API. You will need to follow this process for each API datasource that you want to add.</p><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div></div><div></div></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h3 id="how-to-add-a-custom-report-datasource">How to add a Custom Report datasource</h3><ol><li><p>In Dashboard Hub, select <strong>More actions</strong> (<strong>…</strong>) &gt; <strong>Add Datasource</strong>. The datasource selection window displays.</p></li><li><p>Select <strong>Custom Report</strong>. The <em>Custom Report</em> configuration form displays.</p><ol><li><p>Provide a descriptive name for the datasource.</p></li><li><p>Enter the URL of the REST API you want to connect to for the product providing the content for your report.</p></li><li><p>Select an authorization type and add the corresponding required detials. <a href="/cms_trial/space/RDD/1545601193/Authentication+types+in+Custom+Reports+datasources/">Basic Auth</a> is recommended for this example. See <a href="/cms_trial/space/RDD/1545601193/Authentication+types+in+Custom+Reports+datasources/">Authentication types in Custom Reports datasources</a> to learn more.</p></li></ol></li><li><p>Click <strong>Add</strong> to create the datasource.</p></li></ol></div><div><img alt="Dashboard Hub REST API datasource configuration form" class="doc-image" loading="lazy" src="/cms_trial/assets/4cf84473-b049-4ab7-aa32-0705f90e5601.png"/></div></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div></div><div></div></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h3 id="how-to-add-a-custom-report-gadget">How to add a Custom Report gadget</h3><ol><li><p>Click <strong>Edit</strong> in the Dashboard Hub dashboard.</p></li><li><p>Click <strong>Add Gadget</strong>.</p></li><li><p>Select the <em>Custom Report</em> gadget.</p></li><li><p>In the configuration window, select <strong>Templates </strong>if you already have a saved report. In this example, we create one with the JSON file provided below to list issues from a Jira datasource.</p></li><li><p>Select the datasource added previously. In the provided example, you need to add a Jira datasource and a JQL query Jira in the provided example.</p></li><li><p>Click <strong>Open Editor</strong>. The JSON for the fields in the datasource displays and can be configured. See <a href="/cms_trial/space/RDD/1550352515/Configure+a+REST+API+datasource+for+Custom+Reports/">How to configure the datasource</a>, below.</p></li></ol><p>Download the JSON descriptor here:</p><img alt="contentId-1550352515" class="doc-image" loading="lazy" src="/cms_trial/assets/dcd3ee80-aa3d-48e5-921d-2b389abfe25a.json5"/></div><div><p>Jira issues example. Descriptor to list Jira issues in a table:</p><pre><code class="language-json">{
   "type": "rest",
   "uri": "datasource://jira/rest/api/3/search?jql={$initial.jql}&amp;maxResults=5",
@@ -177,6 +182,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

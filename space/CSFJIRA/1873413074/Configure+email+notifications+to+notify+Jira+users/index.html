@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1874100241/Configuration/">Configuration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1873380265/Configure+settings+in+Jira/">Configure settings in Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1853653945/Configure+connection+settings/">Configure connection settings</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Configure email notifications to notify Jira users</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/1873413074" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Configure email notifications to notify Jira users</h1>
+    <div class="page-meta">4 min read</div>
     <div class="columns" style="grid-template-columns: 100.0fr;"><div><div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>You can configure Connector for Salesforce &amp; Jira to send email notifications when an event is triggered.</p><p>The setup consists of two parts:</p><ol><li><p>Specifying Jira groups to notify in Jira.</p></li><li><p>Creating and deploying the required Apex triggers in Salesforce.</p></li></ol><p>Currently, the Connector supports sending email notifications to Jira users when someone creates a Case comment.</p><h2 id="specifying-jira-groups-to-notify">Specifying Jira groups to notify</h2><p>Jira groups can be specified at the Connection level. This affects each binding and Jira project that is using the Connection.</p><ol><li><p>Select <strong>Apps</strong> from the left sidebar in Jira.</p></li><li><p>Next to <em>Connector for Salesforce,</em> click <strong>Menu</strong> (<span class="inline-icon" title="inline icon">▢</span>) &gt; <strong>App settings</strong>.</p><img alt="Appsettings.png" class="doc-image" loading="lazy" src="/cms_trial/assets/af6d1b71-9a03-46ee-b03f-c4f707383654.png"/></li><li><p>Under <em>Connector for Salesforce</em>, click <strong>Connections</strong>.</p></li><li><p>On the <em>Salesforce Connections</em> screen, navigate to the <strong>Connection</strong> you want to configure and select <strong>Configure.</strong></p></li><li><p>Under<strong> Notification Settings</strong>, choose who you want to send notifications to by selecting:</p><ul><li><p> <strong>All recipients of Issue Commented event</strong></p></li><li><p><strong>Current Assignee</strong>, <strong>Reporter</strong></p></li><li><p><strong>All Watchers</strong> </p></li><li><p><strong>All Voters</strong></p></li><li><p><strong>Groups</strong><br/>For more information about <strong>All recipients of Issue Commented event</strong>, see <em>Sending Notifications Based on a Project's Notification Scheme</em><strong>.</strong></p><img alt="contentId-1873413074" class="doc-image" loading="lazy" src="/cms_trial/assets/c4f6bbd9-4016-4a24-8fb2-8cd9ed734bb9.png"/></li></ul></li><li><p>Click <strong>Save</strong>.</p></li></ol></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="send-notifications-based-on-a-project-s-notification-scheme">Send notifications based on a project's notification scheme</h2><p>The <strong>All recipients of Issue Commented event</strong> setting allows you to enable email notifications defined within your <a href="https://confluence.atlassian.com/adminjiracloud/creating-a-notification-scheme-776636401.html">Jira's Notification Scheme</a>.</p><p>The event that is triggered is the <strong>Issue Commented</strong> event and is dependent on the Notification Scheme that is set up for the project to which the Connection is bound.</p><p>Only the following recipients are supported: </p><ul><li><p>Current Assignee</p></li><li><p>Reporter</p></li><li><p>Single User </p></li><li><p>Group</p></li><li><p>All Watchers</p></li></ul></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="create-and-deploy-apex-triggers">Create and deploy Apex triggers</h2><p>The Connector relies on <strong>Apex triggers</strong> to be informed of changes on Salesforce objects. These triggers have to be created and deployed manually in Salesforce.</p><p>For Salesforce Enterprise and Unlimited editions, the standard deployment of Apex triggers are required (see Salesforce <a href="https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_deploying.htm">Deploying Apex</a> documentation).</p></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="notify-jira-of-new-comments-on-cases">Notify Jira of new comments on cases</h2><p>This provides notifications when someone creates a comment in Salesforce.</p><p>Note that the email notification will be sent:</p><ul><li><p>Based on the <em> </em><em><strong>Comment Privacy</strong></em><em> </em>and <em> </em><em><strong>Comment Tag Filter</strong></em><em> </em>settings in the Connection configuration page.</p></li><li><p>Only to Jira issues currently associated with the <strong>Case</strong>.</p></li><li><p>Only to Jira users (in the specified groups) who have access to the associated Jira issue.</p></li></ul><p>A successful email notification may look like this:</p><img alt="contentId-1873413074" class="doc-image" loading="lazy" src="/cms_trial/assets/ec530e8a-8795-40af-8887-a2c6ee07160b.png"/></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="add-casecomment-trigger">Add CaseComment trigger</h2><p>The <em> </em><em><strong>JCFS.API.fireEvents()</strong></em><em> </em> API endpoint allows Jira to be notified of events happening in Salesforce, typically originating from Salesforce triggers.</p><p>Call <em> </em><em><strong>JCFS.API.fireEvents()</strong></em><em> </em> in an <em> </em><em><strong>after insert</strong></em><em> </em> Trigger on <em> </em><em><strong>CaseComment</strong></em><em> </em> as follows:</p><h4 id="notify-jira-of-new-comments-on-cases-2"><strong>Notify JIRA of new comments on Cases</strong></h4><pre><code class="language-java">trigger CaseCommentsCreated on CaseComment (after insert) {
 	JCFS.API.fireEvents(JCFS.Events.fromCreatedCaseComments(Trigger.new));
 }</code></pre><p>If you don't want to send all triggered CaseComment objects to Jira, you can pass a filtered <em> </em><em><strong>List&lt;CaseComment&gt;</strong></em><em> </em> to <em> </em><em><strong>JCFS.Events.fromCaseComments()</strong></em>.</p></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="test-casecomment-trigger">Test CaseComment trigger</h2><p>To get test coverage for CaseComment trigger use the provided test helper as shown:</p><h4 id="apex-test-class-for-casecomment-trigger"><strong>Apex test class for CaseComment trigger</strong></h4><pre><code class="language-java">@isTest public class CaseCommentCreatedTriggerTest {
@@ -186,6 +191,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

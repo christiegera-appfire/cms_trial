@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/994378270/Integration+guides/">Integration guides</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Slack integration</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/490995941" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Slack integration</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>SIL scripts define the message content and specify when messages are sent. The connection supports Slack's formatting options, including text styling, attachments, and color-coding, to make your notifications more readable and organized.</p></div></div><hr/><h2 id="prerequisites">Prerequisites</h2><p>Before setting up the integration, ensure you have:</p><ul><li><p>Administrator permissions in your Jira instance.</p></li><li><p>Access to create and manage Slack apps in your workspace. </p><ul><li><p>Contact your Slack administrator to request permissions.</p></li></ul></li><li><p>Basic understanding of Jira workflows and transitions.</p></li><li><p>Familiarity with JSON structures. </p><ul><li><p>This is helpful, but not required.</p></li></ul></li></ul><hr/><h2 id="procedure">Procedure</h2><p>To configure your Slack integration, follow these steps:</p><table><tr><th><p><strong>Step 1: Obtain a Slack API token</strong></p></th><td><ol><li><p>Visit the <a href="https://api.slack.com/">Slack API </a>website to create a new Slack app for your workspace, or access an existing Slack app.</p></li><li><p>Configure the app to have the necessary permissions:</p><ol><li><p><code>chat:write</code> - permission to post messages</p></li><li><p><code>channels:read </code> - permission to access channel information</p></li></ol></li><li><p>Generate and copy the API token.</p></li><li><p> Save this token securely as you'll need it for the Power Scripts configuration.</p></li></ol><div class="panel panel-note"><p>For security reasons, in Cloud environments, the Slack access token is only visible at the time of creation and cannot be viewed again later. Make sure to store it securely elsewhere in case you need it again.</p></div></td></tr><tr><th><p><strong>Step 2: Create a Slack integration in Power Scripts</strong></p></th><td><ol><li><p>In your Jira Cloud instance, go to <strong>Power Scripts</strong> &gt; <strong>Configurations</strong>.</p></li><li><p>Click the <strong>Integrations</strong> tab and select the <strong>Slack </strong>sub-tab.</p></li><li><p>Click <strong>Add Slack integration </strong>and<strong> </strong>fill in the necessary fields:</p><ul><li><p><strong>Name</strong>: Create a unique name for this integration.</p></li><li><p><strong>Access token</strong>: Enter the Slack access token you obtained in Step 1 of this procedure.</p></li></ul></li><li><p>Click <strong>Save</strong>.<br/>The integration displays as a new entry on the <em>Slack Configurations</em><em><strong> </strong></em>page. You can modify or remove a configuration at any time by clicking the <strong>Edit </strong>or <strong>Delete </strong>icons.</p></li></ol><div class="panel panel-note"><p>You can read more about internal integrations in <a href="https://api.slack.com/internal-integrations">Slack's API</a> documentation.</p></div></td></tr></table><hr/><h2 id="prepare-for-implementation">Prepare for implementation</h2><p>Before creating SIL scripts that send messages to Slack, you need to:</p><ol><li><p>Identify the target Slack channels for your notifications.</p></li><li><p>Learn the structure of Slack messages and attachments.</p></li><li><p>Understand how to reference Jira issue data in your messages.</p></li></ol><h3 id="how-to-find-your-slack-channel-id">How to find your Slack channel ID</h3><p>To send messages to a specific Slack channel, you need the channel's ID.</p><ol><li><p>Open Slack in your browser and navigate to the channel you want to use.</p></li><li><p>Reference the URL in your browser's address bar, for example:<br/><code>https://app.slack.com/client/T12345678/C12345678</code><br/>The channel ID is specified after the team ID; it starts with <code>C</code> followed by alphanumeric characters.</p></li></ol><h3 id="about-message-structure">About message structure</h3><p>SIL provides predefined structures for creating Slack messages:</p><table><tr><th><p><strong>Structure name</strong></p></th><th><p><strong>Field</strong></p></th><th><p><strong>Type</strong></p></th><th></th></tr><tr><td><p>JSlackMessage</p></td><td><p>channel</p></td><td><p>string</p></td><td><p><code>JSlackMessage.channel</code>: The Slack channel ID where the message will be posted.</p></td></tr><tr><td><p>text</p></td><td><p>string</p></td><td><p><code>JSlackMessage.text</code>: The main message text.</p></td></tr><tr><td><p>attachments</p></td><td><p>JSlackAttachment[]</p></td><td><p><code>JSlackMessage.attachments</code>: An array of formatted attachments.</p></td></tr><tr><td><p>JSlackAttachment</p></td><td><p>pretext</p></td><td><p>string</p></td><td><p><code>JSlackAttachment.pretext</code>: Text that appears above the attachment.</p></td></tr><tr><td><p>fallback</p></td><td><p>string</p></td><td><p><code>JSlackAttachment.fallback</code>: Plain text for notifications when attachments aren't supported.</p></td></tr><tr><td><p>title</p></td><td><p>string</p></td><td><p><code>JSlackAttachment.title</code>: Bold heading for the attachment.</p></td></tr><tr><td><p>title_link</p></td><td><p>string</p></td><td><p><code>JSlackAttachment.title_link</code>: URL that the title links to.</p></td></tr><tr><td><p>text</p></td><td><p>string</p></td><td><p><code>JSlackAttachment.text</code>: Main content of the attachment (supports Slack markdown).</p></td></tr><tr><td><p>color</p></td><td><p>string</p></td><td><p><code>JSlackAttachment.color</code>: Hex color code for the left border of the attachment</p></td></tr></table><hr/><h2 id="implementation-example">Implementation example</h2><p>The following example demonstrates how to use the Slack integration with Jira through SIL scripts. It shows how to create a Slack message with multiple attachments, different colors, and various text formatting styles. The first attachment demonstrates pretext and bold/strikethrough formatting, while the second attachment showcases code formatting with a different color scheme. This approach is useful for creating visually distinct sections in your notifications or for highlighting different types of information within a single message.</p><pre><code class="language-">JSlackAttachment att1;
 att1.pretext = "Optional text that appears above the attachment block";
 att1.title = "This is an example of attachment ...";
@@ -170,6 +175,64 @@ return sendIntegrationMessage("SLACK", message);</code></pre><hr/><h2 id="more-c
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

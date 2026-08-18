@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira (CMJ) Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/194117717/Use+Cases/">Use Cases</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Deploy configuration changes from Jira Cloud to Cloud</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CMJC/pages/258053021" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Deploy configuration changes from Jira Cloud to Cloud</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="deploy-project-configuration-changes-from-jira-cloud-to-cloud">Deploy project configuration changes from Jira Cloud to Cloud</h2><p><a href="/cms_trial/space/CMJC/193725041/Overview/"><strong>Configuration Manager for Jira (CMJ) Cloud</strong></a> helps you deploy project configuration changes from one <strong>Jira</strong> <strong>Cloud site to another</strong>. This article will refer to this use case as <em>"Cloud-to-Cloud"</em>.</p><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><p>For this use case, you need to create a temporary Jira Cloud site. It can be either a Jira Cloud site or a sandbox provided by Atlassian for testing purposes. The sandbox will act as a test environment where you can make changes safely, and when ready, deploy them to your production environment. <a href="https://support.atlassian.com/organization-administration/docs/manage-product-sandboxes/">Learn more about setting up Atlassian sandboxes</a>.</p></div><div><img alt="contentId-258053021" class="doc-image" loading="lazy" src="/cms_trial/assets/d1c61f67-2eae-4eaa-b1e4-0bafe15ccd7a.png"/></div></div><p>CMJ Cloud is built to protect the integrity of the destination Jira Cloud site by blocking breaking changes. The app analyzes each change that will be introduced. It then identifies the ones that aren't compatible with the destination Jira Cloud's project configurations.</p><p><a class="embed-card-link" href="https://fast.wistia.com/embed/medias/ykgkuwnuds.jsonp">https://fast.wistia.com/embed/medias/ykgkuwnuds.jsonp</a></p><h2 id="use-case-steps">Use case steps</h2><p>This section will guide you through the <em>Cloud-to-Cloud </em>use case's prerequisites and implementation phases.</p><h3 id="prerequisites">Prerequisites</h3><hr/><ul><li><p><strong>Destination Jira Cloud site</strong></p></li><li><p><strong>Source Jira Cloud site</strong>: a standard Jira Cloud site or an Atlassian sandbox, which is a replica of the destination Jira Cloud site. <a href="https://support.atlassian.com/organization-administration/docs/manage-product-sandboxes/">Learn more about setting up a sandbox</a>.</p></li><li><p><strong>Licenses:</strong> You need a <a href="/cms_trial/space/CMJC/194150417/Licensing/">valid license</a> for both the CMJ Cloud app on the destination Jira Cloud site and on the source Jira Cloud site/sandbox.</p></li><li><p><strong>Supported objects: </strong>Make sure<strong> </strong>CMJ Cloud supports the configuration elements you want to deploy to the destination Jira site, along with your projects. See the <a href="/cms_trial/space/CMJC/193855959/Supported+configuration+elements/">Supported Configuration Elements</a> document.</p></li></ul><hr/><h3 id="high-level-process">High-level process</h3><p>This section lists the high-level phases of implementing the <em>Cloud-to-Cloud</em> use case. To learn more about each phase, read our <a href="https://appfire.atlassian.net/wiki/spaces/DCMFJC/pages/255819777/Deploy+configuration+changes+from+Jira+Cloud+to+Cloud#Detailed-process">Detail process</a> guide below.</p><ul><li><p><strong>Setup:</strong> Prepare a temporary Jira Cloud site or Atlassian sandbox that mirrors the destination site.</p></li><li><p><strong>Phase 1:</strong> Bring the destination site’s configuration into the source site so you start from an identical baseline.</p></li><li><p><strong>Phase 2:</strong> Modify projects and configuration elements as needed.</p></li><li><p><strong>Phase 3:</strong> Conduct user acceptance testing (UAT) to validate that changes behave as expected.</p></li><li><p><strong>Phase 4:</strong> Export a CMJ Cloud snapshot from the source site and deploy it to the destination Jira Cloud site. <a href="/cms_trial/space/CMJC/2507112493/Deploy+a+snapshot/"><strong>Use CMJ Cloud for this purpose</strong></a><strong>.</strong></p></li></ul><hr/><h3 id="detailed-process">Detailed process</h3><p><strong>     Setup</strong></p><ul><li><p><strong>Set up</strong> a source Jira Cloud site or <a href="https://support.atlassian.com/organization-administration/docs/manage-product-sandboxes/"><strong>sandbox</strong></a> that mirrors the destination site.</p></li><li><p><strong>Install</strong> <a href="/cms_trial/space/CMJC/194183182/Installation+guide/"><strong>CMJ Cloud</strong></a> on both the source and destination sites.</p></li><li><p><strong>License CMJ Cloud</strong> and use a <a href="/cms_trial/space/CMJC/194150417/Licensing/">valid license</a> for both the destination Jira Cloud site and the source Jira Cloud site/sandbox.<br/></p><p><strong>Phase 1:</strong> <strong>Replicate the destination Jira Cloud’s configuration to the source Jira Cloud site/sandbox</strong></p></li></ul><ol><li><p>Restore the destination site's configuration to the source Jira Cloud site or copy the destination site's data into a sandbox. <a href="https://support.atlassian.com/organization-administration/docs/manage-product-sandboxes/">Learn more about copying data to the sandbox</a>.</p></li><li><p>Validate that both environments are aligned.<br/></p><p><strong>Phase 2: Make configuration changes to the source Jira Cloud site/sandbox</strong></p></li><li><p>Apply all planned project and configuration updates in the source site.<br/></p><p><strong>Phase 3: Test the configuration changes on the source Jira Cloud site/sandbox</strong></p></li><li><p>Conduct UAT with stakeholders.</p></li><li><p>Confirm that the updated configuration behaves as expected.</p></li></ol><p><span class="status-lozenge">If issues are found:</span> </p><ul><li><p>Update the configuration in the source site.</p></li><li><p>Create a new snapshot and restart the process from Phase 1 if necessary.</p></li></ul><ol><li><p>When ready, create a CMJ Cloud snapshot from the source site. <a href="/cms_trial/space/CMJC/2506522887/Create+and+manage+snapshots/">Follow the snapshot creation process described here</a>.</p></li></ol><p><strong>Phase 4</strong>: <strong>Deploy projects to the destination Jira Cloud site</strong></p><ol><li><p>Upload the snapshot from the source site to CMJ Cloud on the destination Jira Cloud site.</p></li><li><p>Proceed with the deployment. <a href="/cms_trial/space/CMJC/2507112493/Deploy+a+snapshot/">Follow the deployment process described here</a>.</p></li><li><p>Review CMJ Cloud’s <a href="/cms_trial/space/CMJC/193626781/Analyze+changes/">analysis</a>.</p></li><li><p>Finalize deployment.</p></li><li><p>(Optional) Retire or reset the temporary source site or sandbox.</p></li></ol>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

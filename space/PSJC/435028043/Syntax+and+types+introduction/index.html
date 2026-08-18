@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434798967/Simple+Issue+Language/">Simple Issue Language</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/1934458884/SIL+reference+guide/">SIL reference guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/1934229517/Fundamentals/">Fundamentals</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Syntax and types introduction</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/435028043" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Syntax and types introduction</h1>
+    <div class="page-meta">7 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="panel panel-note"><p>This page provides an overview of the basic elements of the Simple Issue Language (SIL™) scripting syntax.</p></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>Provides the foundational syntax rules of SIL and introduces the basic data types used throughout the language.</p><p>SIL is a scripting language specifically designed for Jira. It follows common programming language conventions but is tailored to work with Jira issues and workflows. SIL is the underlying scripting language of Power Scripts, Power Actions, and other apps. It is easy to learn and work with. </p><h2 id="basic-syntax-rules">Basic syntax rules</h2><ul><li><p>Every instruction must end with a semicolon <code>;</code></p></li><li><p>Comments can be written in two ways:</p><pre><code class="language-">// For single line comments
 /* For multi-line 
    comments */</code></pre></li></ul><h2 id="data-types">Data types</h2><p>Data types are templates or definitions that tell the system what kind of data can be stored. SIL uses several categories of data types.</p><h3 id="basic-data-types">Basic data types</h3><table><tr><th><p><strong>Type</strong></p></th><th><p><strong>Use for</strong></p></th></tr><tr><td><p><code>string</code></p></td><td><p>text values like <code>hello</code></p></td></tr><tr><td><p><code>boolean</code></p></td><td><p>true/false values</p></td></tr><tr><td><p><code>number</code></p></td><td><p>any numeric value</p></td></tr><tr><td><p><code>integer</code></p></td><td><p>whole numbers without decimals</p></td></tr><tr><td><p><code>byte</code></p></td><td><p>for byte values</p></td></tr><tr><td><p><code>date</code></p></td><td><p>for dates like <code>2024-10-24</code></p></td></tr><tr><td><p><code>interval</code></p></td><td><p>for time periods like <code>2d 3h</code> (two days and three hours)</p></td></tr></table></div></div><h3 id="complex-data-types">Complex data types</h3><h4 id="arrays">Arrays</h4><p>Arrays are created by adding <code>[]</code> after any basic type. The following list represents valid arrays:</p><ul><li><p><code>string[]</code> one-dimensional array of strings</p></li><li><p><code>boolean[</code> one-dimensional array of booleans</p></li><li><p><code>number[][]</code> two-dimensional array of numbers</p></li><li><p><code>integer[]</code> one-dimensional array of integers</p></li><li><p><code>date[][][]</code> three-dimensional array of dates</p></li><li><p><code>interval[]</code> one-dimensional array of intervals</p></li></ul><p>You can also create arrays for a user-defined structure:</p><ul><li><p><code>Person[][]</code> two-dimensional array of (Person) structures</p></li></ul><h4 id="key-value-arrays">Key-value arrays</h4><p>Arrays in SIL act as maps where list positions serve as keys. Key-value arrays (or maps) are declared like regular arrays.</p><p>Learn more about using the <a href="/cms_trial/space/PSJC/434962512/Operators+reference/">indexing operator</a> to create key-value maps and retrieve values from them.</p><h3 id="structures">Structures</h3><p>Structures are user-defined data types. A structure in SIL is like a container that can hold different types of data together. The syntax for defining a structure is:</p><pre><code class="language-">struct StructureName {
@@ -293,6 +298,64 @@ return n + (number)s; // Forces s to be treated as number 2 - clearly wants a nu
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

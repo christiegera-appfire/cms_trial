@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3092186916/Errors+and+Error+Messages/">Errors and Error Messages</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">I get an "Waiting for Jira data" message when there is a Salesforce field that has been modified or removed</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3092220188" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>I get an "Waiting for Jira data" message when there is a Salesforce field that has been modified or removed</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="summary">Summary</h2><p>A "Waiting for Jira data" message keeps appearing when accessing a Jira work item or trying to pull data from Salesforce.</p><p>Sometimes, even the Salesforce panel in the Jira work item would not load.<br/></p><img alt="image-20250603-122418.png" class="doc-image" loading="lazy" src="/cms_trial/assets/4d6f81e3-50d1-4d46-8e72-0c94989a7583.png"/><img alt="waiting for jira.png" class="doc-image" loading="lazy" src="/cms_trial/assets/eaca7f32-0d34-4be4-a48e-33b8574e95e7.png"/><p> ​</p><h2 id="environment">Environment</h2><ul><li><p>Jira DC</p></li><li><p>Jira Cloud</p></li></ul><h2 id="diagnostics-steps">Diagnostics steps</h2><ol><li><p>In Jira, under <strong>Connector for Salesforce</strong> app click<strong> Connections</strong>.</p></li><li><p>Click <strong>Configure </strong>next to your connection.</p></li><li><p>Click <strong>Fields</strong> for the object you are working with.</p><img alt="image-20250604-065224.png" class="doc-image" loading="lazy" src="/cms_trial/assets/28088040-73ec-420b-a2d9-5253927863f4.png"/></li><li><p> Check if one or more fields are highlighted in red.</p><img alt="image-20250604-071203.png" class="doc-image" loading="lazy" src="/cms_trial/assets/103dec3f-6e04-4cec-9644-2392beb6b7a3.png"/></li><li><p>Alternatively, click <strong>Bindings</strong>&gt; <strong>Mapping</strong> for a selected project. </p></li><li><p>Click <strong>Mappings</strong> for selected entities to check if one or more fields are highlighted in red.</p><img alt="field missing.png" class="doc-image" loading="lazy" src="/cms_trial/assets/cbebe346-97f7-449c-ad0a-1697a9cf379a.png"/></li></ol><h2 id="cause">Cause</h2><p>Some Salesforce fields might have been modified or removed.</p><h2 id="workaround">Workaround</h2><p>Not applicable.</p><h2 id="resolution">Resolution</h2><p>You need to remove the fields and mappings with the highlighted fields that are no longer available in Salesforce.</p></div><div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

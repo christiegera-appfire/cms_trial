@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud Help Center</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/1678575285/SLA+configuration/">SLA configuration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/35881090/Actions/">Actions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Use SLA actions with Jira automation</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TTSC/pages/1464075666" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Use SLA actions with Jira automation</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>The Trigger a Jira automation rule feature lets you use your SLA notifications to trigger Jira automation rules. For example, when an SLA is breached, you can automatically trigger a Jira automation rule to perform actions like adding comments to work items or creating incident reports.</p><p>This document provides step-by-step instructions on how to set up the integration between your Time to SLA notifications and Jira automation.</p><h2 id="step-1-create-a-jira-automation-rule">Step 1: Create a Jira automation rule</h2><p>Follow these instructions to create a Jira automation rule. For further details, refer to the <a href="https://support.atlassian.com/cloud-automation/docs/jira-automation-triggers/#Incoming-webhook">Atlassian documentation</a>. </p><div class="panel panel-note"><p>Atlassian <a href="https://community.atlassian.com/t5/Automation-articles/Update-on-Incoming-Webhooks-Trigger-for-Atlassian-Automation/ba-p/2921233">is updating</a> how incoming webhook triggers are routed. Any automation rules created before January 28, 2025, will continue to work until May 30, 2025, but must be migrated to the new endpoint to remain functional beyond this date. If you use incoming webhooks in your automation rules, we strongly recommend reviewing and updating them as needed.</p></div><ol><li><p>Open the Jira space where you want to apply the rule.</p></li><li><p>Go to <strong>Space settings</strong> from the side menu.</p></li><li><p>Select <strong>Automation</strong> and click <strong>Create rule </strong>&gt;<strong> Create from scratch</strong>.</p><img alt="Time to SLA Jira automation notification rule configuration" class="doc-image" loading="lazy" src="/cms_trial/assets/e4335b00-2a24-4434-92d3-45319821ed8e.png"/></li><li><p>Choose the <strong>Integrations</strong> category, then select <strong>Incoming webhook as the trigger</strong>.</p><img alt="Time to SLA Jira automation notification webhook settings" class="doc-image" loading="lazy" src="/cms_trial/assets/961635be-6514-45aa-99bb-d5f163a84196.png"/></li><li><p>Click <strong>Next</strong> and configure your needed actions. You can add multiple actions, such as sending comments, assigning work items, creating incidents, and more. </p></li></ol><div class="panel panel-note"><p>Time to SLA provides various smart values to customize your actions dynamically. You can use:</p><pre><code class="language-">slaDescription: {{webhookData.slaDescription}}
 slaValue: {{webhookData.slaValue}}
 slaStartDate: {{webhookData.slaStartDate}}
@@ -166,6 +171,64 @@ elapsedPercentage: {{webhookData.elapsedPercentage}}</code></pre></div><ol><li><
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1891206842/Configure/">Configure</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Make bulk changes to Salesforce and Jira mapping configuration by editing JSON files</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/1534263560" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Make bulk changes to Salesforce and Jira mapping configuration by editing JSON files</h1>
+    <div class="page-meta">2 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="purpose">Purpose</h2><p>As seen in the image below, mapping each Reporter field(Jira) to Owner ID(Salesforce) can take a long time. You will have to configure each field one by one manually.</p><p>By exporting the existing mapping, you can extract the issue type ID and the Salesforce objects data into a .json file. </p><p>This guide will help you use the exported JSON file to map user related fields such as assignee and reporter with new values and reimport it back into the Salesforce configuration page. </p></div><div></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="answer">Answer</h2><ol><li><p>Go to <strong>Apps</strong> &gt; <strong>Salesforce </strong>&gt; <strong>Bindings</strong> &gt; <strong>Mapping</strong> &gt; click on <strong>Export</strong> on the top right button.</p></li><li><p>You can use any open source editor, for the example, the <a href="https://notepad-plus-plus.org/downloads/">Notepad++</a> text editor is used.</p></li><li><p>Open the Notepad++ application &gt; on the navigation bar, select <strong>Plugins</strong> &gt; <strong>Plugins Admin</strong>. <br/></p><img alt="plugins.png" class="doc-image" loading="lazy" src="/cms_trial/assets/f5c49ab7-9270-4dca-b521-b03bcb1c936a.png"/></li><li><p>In the search box, type "<em>JSON</em>" and click <strong>Next</strong>.</p></li><li><p>Select "JSON Viewer" and click <strong>Install </strong>to install the latest JSON viewer available. You may be required to restart the application.</p></li><li><p>Open the unformatted .json file with the Notepad++ application. In the navigation bar, select <strong>Plugins</strong> &gt; <strong>JSON Viewer </strong>&gt;  <strong>Format JSON</strong>. <br/></p><img alt="format JSON.png" class="doc-image" loading="lazy" src="/cms_trial/assets/78007ff9-201a-4055-b8b6-37ea77f5332a.png"/></li><li><p>In the formatted .json file, search for the Jira Issue Type ID of the existing mapping. </p><img alt="ID.png" class="doc-image" loading="lazy" src="/cms_trial/assets/91c12a92-71ea-4976-b672-6e3444c4547d.png"/></li></ol><div class="panel panel-success"><p>How to get the Jira issue type ID:</p><p>Go to your <strong>Project </strong>&gt; <strong>Project settings </strong>&gt; <strong>Issues </strong>&gt; <strong>Types </strong>&gt; hover on the issue type link.</p><p>In the URL shown, the last numbers (ex, 10001) is the Jira issue type ID.</p></div><ol><li><p>Once located, scroll until you find the assignee user ID with the Salesforce Owner ID value. <br/></p><img alt="example.png" class="doc-image" loading="lazy" src="/cms_trial/assets/1357c43b-23d3-4d02-b657-97c56d070f5e.png"/></li><li><p>Copy those lines to another issue type ID. With this, you can copy the user ID data within the file to other issue type IDs without the need to map them manually in the user interface.</p></li></ol><div class="panel panel-note"><p>Make sure the lines that are copied over have opening and closing brackets, else the file import will fail.</p></div><ol><li><p> Once the file editing is complete, go to <strong>Apps</strong> &gt; <strong>Salesforce </strong>&gt; <strong>Bindings</strong> &gt; <strong>Mapping</strong> &gt; click on <strong>Import </strong>on the top right button and enter the file.<br/></p><img alt="result.png" class="doc-image" loading="lazy" src="/cms_trial/assets/cc236440-33eb-4561-8dca-c306e45e636a.png"/></li></ol></div><div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

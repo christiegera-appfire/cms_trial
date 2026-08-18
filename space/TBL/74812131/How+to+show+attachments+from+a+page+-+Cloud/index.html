@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74814716/Use+cases+-+cloud/">Use cases - cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74817969/Attachment+Table+macro+examples+-+Cloud/">Attachment Table macro examples - Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">How to show attachments from a page - Cloud</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TBL/pages/74812131" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>How to show attachments from a page - Cloud</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview</h2><div class="columns" style="grid-template-columns: 25.08fr 74.91fr;"><div><p>This page demonstrates how to use the <a href="/cms_trial/space/TBL/74812217/Attachment+Table+macro+-+Cloud/">Attachment Table macro</a>, part of the <a href="https://appfire.atlassian.net/wiki/spaces/TBL">Advanced Tables for Confluence</a> app, to display a list of attachments on the current page. This macro is similar to the <em>Attachments</em> macro that comes with Confluence, but has some additional customization capabilities.</p></div><div><p>Watch this video to see how the Attachment Table macro displays attachments from a Confluence page.</p><div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/nCGx8GNLHjQ"></iframe></div></div></div><h2 id="macro-browser-input">Macro browser input</h2><h3 id="select-this-macro">Select this macro</h3><table><tr><td><p><strong>Macro name</strong></p></td><td><p><em>Advanced Tables - Attachment table</em></p></td></tr><tr><td><p><strong>Macro syntax (Old editor)</strong></p></td><td><p><em>{attachment-table}</em></p></td></tr><tr><td><p><strong>Macro syntax (New editor - case insensitive)</strong></p></td><td><p><em>/Attachment Table</em></p></td></tr></table><h3 id="define-these-parameters-values">Define these parameters/values</h3><table><tr><td><p><em>Page to list attachments from</em></p></td><td><p>empty</p></td></tr><tr><td><p><em>Space key or space name regex</em></p></td><td><p>empty</p></td></tr></table><h3 id="screenshot">Screenshot</h3><img alt="Advanced Tables Attachment Table macro settings for attachments from a page" class="doc-image" loading="lazy" src="/cms_trial/assets/b5b8405e-5abb-476f-9fc6-207e1d80a9a1.png"/><h2 id="wiki-markup-input-old-editor">Wiki markup input (Old editor)</h2><pre><code class="language-plaintext">{attachment-table}</code></pre><h2 id="example-result">Example result</h2><img alt="Advanced Tables Attachment Table macro result with page attachments" class="doc-image" loading="lazy" src="/cms_trial/assets/1eec98ff-7667-4a91-950b-d3d9ec592d9a.jpg"/><h2 id="other-examples">Other examples</h2><p>Visit our <a href="/cms_trial/space/TBL/74814716/Use+cases+-+cloud/">full list of product examples</a> for additional inspiration!</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

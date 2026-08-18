@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/3511091204/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253540447/Frequently+Asked+Questions/">Frequently Asked Questions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Importing time (worklogs) into 7pace Timetracker</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/7TFA/pages/1253539845" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Importing time (worklogs) into 7pace Timetracker</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="importing-time-via-the-timetracker-ui-times-explorer-page">Importing time via the Timetracker UI (Times Explorer page)</h2><p>Importing worklogs via the Timetracker UI can be done from the Times Explorer page. In order to import worklogs that you have tracked outside of 7pace Timetracker, you simply copy data from the source application (like Excel) and paste it into the "Import Times" popup window of the Times Explorer page. You then associate each worklog detail to the specific field in the Timetracker database. Once verified, the imported worklogs are stored in our database.<br/>Import can be performed via the UI, but it can also be performed by using the <em><strong>workLogs</strong></em> endpoint from our <a href="/cms_trial/space/7TFA/1253540003/7pace+Timetracker+REST+CRUD+API+Version+3/">REST CRUD API</a> and also our <a href="/cms_trial/space/7TFA/1253540003/7pace+Timetracker+REST+CRUD+API+Version+3/">NPM package</a>.</p><p>If the system finds any errors, the import process will stop and the errors will display for you to correct before attempting to import again. </p><p>1. On the 7pace Timetracker menu bar, click <strong>Times Explorer</strong>.</p><p>2. On the Times Explorer page, click <strong>Import</strong>.</p><img alt="FAQ_Import_Worklog.png" class="doc-image" loading="lazy" src="/cms_trial/assets/3d4622c7-1e4a-4c35-a071-9f798bd3050d.png"/><p>The <strong>Import Times</strong> page displays:</p><img alt="FAQ_Import_Worklog_Import_Copy.png" class="doc-image" loading="lazy" src="/cms_trial/assets/1bb2aee1-1302-4eb7-903d-fa2aca928fb2.png"/><p>3. Paste the time details that you copied from the source application (like Excel). </p><img alt="FAQ_Import_Worklog_Import_Paste.png" class="doc-image" loading="lazy" src="/cms_trial/assets/88d8743e-d956-474e-8c6a-d3772114fb30.png"/><p>4. Click the <strong>Next</strong> button.</p><p>Timetracker analyzes the data that you pasted and displays it in a tabular format so you can properly associate each time detail in the column headers to the appropriate Timetracker field.</p><img alt="FAQ_Import_Worklog_Table_Format.png" class="doc-image" loading="lazy" src="/cms_trial/assets/20947998-169b-4cb1-8f33-b66cfbdd1c18.png"/><p>5. (Optional) In the far-left column, check the boxes for the time details you want to import. By default, all are selected.</p><p>6. Select the "Date Format" and the "Time Format" of your preference for the import.*</p><img alt="FAQ_Import_Worklog_Date_Time_Format.png" class="doc-image" loading="lazy" src="/cms_trial/assets/41ff8a24-35e4-4c8a-8253-aa7aa827b854.png"/><p>*<strong>Note</strong>: If you'd like to customize or change the format for your import, please find additional information at this link - <a href="https://docs.microsoft.com/en-us/dotnet/standard/base-types/custom-date-and-time-format-strings">Custom Date and Format Strings</a> - and/or simply use the most popular formats (we used standard .NET Framework DateTime object format settings):</p><p><strong>Basic Format Specifiers:</strong></p><p>mm: minutes</p><p>MM: month</p><p>dd: day of month</p><p>h: hour in format 1-12 without leading zero</p><p>hh: hour in format 1-12 with leading zero</p><p>H: hour in 24h format without leading zero</p><p>HH: hour in 24h format with leading zero</p><p>mm: minutes with leading zero</p><p>tt: am/pm designator</p><p>yyyy: year</p><p><strong>Templates for Date/Time Formats</strong></p><table><tr><td><p>Date Format</p></td><td><p>Time Format</p></td></tr><tr><td><p>MM/dd/yyyy</p></td><td><p>h:mm tt</p></td></tr><tr><td><p>dd.MM.yyyy</p></td><td><p>HH:mm</p></td></tr><tr><td><p>yyyy-MM-dd</p></td><td><p>HH:mm</p></td></tr></table><p>7. Copy-paste the <strong>Date Format</strong> and <strong>Time Format</strong> of your choice into the corresponding fields.</p><p>8. In the <strong>Column Name</strong> headers, click the dropdown arrows on each and select the appropriate header names for the time details below.</p><p>9. Click the <strong>Import Now</strong> button.</p><p>While importing, if there are any issues with the data, those issues will be highlighted and an error message will display.</p><img alt="FAQ_Import_Worklog_Error_Message.png" class="doc-image" loading="lazy" src="/cms_trial/assets/f411bda3-17bb-485a-9926-073ea080ebd0.png"/><p>10. (Optional) Check "Rows With Errors Only" to see just the rows that are causing issues in your import.</p><p>11. (Optional) After correcting your errors, if any, click the <strong>Import Now</strong> button again.</p><p>Once the time details are successfully imported, you can view these details on the "Times Explorer" page.  </p><h2 id="import-time-worklogs-via-rest-crud-api-npm-package"> <div class="img-placeholder">[Unmapped macro: anchor — no content to fall back on]</div><br/>Import Time (Worklogs) via REST CRUD API (NPM Package)</h2><p>We have created an NPM package that can be used to import worklogs which utilizes our CRUD API.</p><p><a href="https://github.com/7pace/timetracker-npm-import">timetracker-npm-import</a> is a Node.js CLI for importing worklogs(csv/excel) to 7pace Timetracker.</p><p>The NPM package is distributed ‘as is’ and will not be developed further, since it was created solely as a showcase of how to use our CRUD API.<br/></p><h2 id="import-time-worklogs-via-rest-crud-api-manually"> <div class="img-placeholder">[Unmapped macro: anchor — no content to fall back on]</div><br/>Import Time (Worklogs) via REST CRUD API Manually</h2><p>You can also manually enter worklogs for specific users by using the REST CRUD API.</p><p>The endpoint that you will need to use is the <a href="/cms_trial/space/7TFA/1253540003/7pace+Timetracker+REST+CRUD+API+Version+3/">workLogs endpoint</a> and you will have to specify the parameters in the JSON body part of your POST request, as in the example below. Please note that the length field is in seconds, so you will need to account for that:</p><pre><code class="language-">POST https://{your-organization}.timehub.7pace.com/api/rest/workLogs?api-version={version}
 
 
@@ -175,6 +180,64 @@ JSON body to create worklog:
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74814716/Use+cases+-+cloud/">Use cases - cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">How to apply filters on table data - Cloud</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TBL/pages/74813066" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>How to apply filters on table data - Cloud</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>Users can now search for some specific data with regular expressions in the tables generated with the <em>Advanced Tables for Confluence Cloud</em> macros. If the <em>Display data filter</em> option is toggled on in the macro's settings, a filter panel appears on the top of every table inside this macro. This panel contains a text box to enter the required search criteria and buttons: <em>Filter</em> to apply the search against the data rows, and, <em>Clear</em> to clear the box to start a new search. Refer to <a href="/cms_trial/space/TBL/74814629/How+to+use+regular+expressions+-+Cloud/">this article</a> to know more about regular expressions.</p><p>This page provides an example of how to use filters. Though you can use this feature with any of the macros, for this example, let's work with a <em>CSV</em> macro.</p><div class="panel panel-warning"><p>To use this feature, users must enable the <em>Display data filter</em> option from the macro editor. </p></div><h3 id="select-this-macro">Select this macro</h3><table><tr><th><p><strong>Macro name</strong></p></th><td><p><em>CSV</em></p></td></tr><tr><th><p><strong>Macro syntax (Old editor)</strong></p></th><td><p><em>{csv}</em></p></td></tr><tr><th><p><strong>Macro syntax (New editor - case insensitive)</strong></p></th><td><p><em>/CSV (Comma Separated Values)</em></p></td></tr></table><h3 id="define-these-parameters-value">Define these parameters/value</h3><table><tr><th><p><em><strong>Display data filter</strong></em></p></th><td><p>On</p></td></tr></table><h3 id="parameters-set-in-the-macro-editor">Parameters set in the macro editor</h3><p>For this example, the data from the <a href="https://appfire.atlassian.net/wiki/spaces/TBL/pages/74812593">Monthly temperatures</a> page was entered as a comma separated value list in the macro body itself.</p><img alt="Advanced Tables Table Plus macro filter parameter settings" class="doc-image" loading="lazy" src="/cms_trial/assets/9a9d62b0-91c2-4bce-9b88-2391d7a263ae.png"/><h3 id="example-result">Example result</h3><img alt="Advanced Tables filter panel displayed beside table data" class="doc-image" loading="lazy" src="/cms_trial/assets/4ee33d49-348b-4815-9a7c-43ff582ccb5e.jpg"/><h3 id="sample-filters-applied-to-the-table">Sample filters applied to the table</h3><p>The following table lists certain sample requirements, filters applied, and the resultant data:</p><table><tr><th><p><strong>Requirement</strong></p></th><th><p><strong>Filter applied</strong></p></th><th><p><strong>Result</strong></p></th></tr><tr><td><p>Display temperatures for the months of January, March, and May</p></td><td><p><strong>ja|ma</strong></p></td><td><img alt="Advanced Tables table filter example with filtered results" class="doc-image" loading="lazy" src="/cms_trial/assets/3ae0426b-719e-4bb8-8288-89a770f21a46.jpg"/></td></tr><tr><td><p>Display data with temperatures in the 60s</p></td><td><p><strong>60</strong></p></td><td><img alt="Advanced Tables table filter example with another filter selection" class="doc-image" loading="lazy" src="/cms_trial/assets/f4057e8b-f004-4923-845f-bac7ade70b40.jpg"/></td></tr><tr><td><p>Display data with temperatures in the range of 40 to 45 degrees</p></td><td><p><strong>4[0-5]</strong></p></td><td><img alt="Advanced Tables table filter example with multiple matching rows" class="doc-image" loading="lazy" src="/cms_trial/assets/ec2a311c-138f-4e6a-8beb-dfc0dd305ed2.jpg"/></td></tr><tr><td><p>Display the temperatures for the last quarter of the year</p></td><td><p><strong>ber</strong></p></td><td><img alt="Advanced Tables table filter example with filtered table output" class="doc-image" loading="lazy" src="/cms_trial/assets/8d28e102-8463-4577-9f61-7b6e5b7fefd5.jpg"/></td></tr></table>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/1916338329/Scripting/">Scripting</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465503811/Using+Nunjucks+Templates/">Using Nunjucks Templates</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Conditional Execution</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/466256678" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Conditional Execution</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><img alt="JMWE for Jira Cloud conditional execution configuration panel with rule settings" class="doc-image" loading="lazy" src="/cms_trial/assets/3da6856e-2564-4a91-9a76-3d5e3d413bc4.png"/><p>Most post-functions include an option for <strong>Conditional execution</strong>. Aside from the transition in which you include a post-function, this enables you greater control over the specific circumstances for when a post-function will (or will not) trigger. To configure Conditional Execution, you use the <strong>Condition</strong> field (Figure 1, right) with Nunjucks templates; create a Nunjucks template that evaluates to <code>true</code> (or a truthy value) and the post-function will be executed (or skipped, if you choose the Reverse option). </p><p>To add Conditional Execution to a post-function : </p><ol><li><p>Select the check box <strong>Run this post-function only if a condition is verified</strong>.</p></li><li><p>Enter a Nunjucks template that returns either <code>true</code> or <code>false</code>, as needed by your post-function logic.</p></li></ol><h2 id="expected-value-in-the-nunjucks-template">Expected value in the Nunjucks template</h2><p>The value returned by your Nunjucks template should be either a boolean value (<code>true</code> or <code>false</code>), or more generally any text that will be interpreted as either "truthy" or "falsy".</p><p><strong>Text: </strong>Any text will be interpreted as "truthy" (the equivalent of <code>true</code>) <em>except</em> for:</p><ul><li><p>A string with a literal value of ‘false’ </p></li><li><p>An empty string </p></li><li><p>Or a string consisting only of whitespaces </p></li></ul><p>For example, the following text values are considered "truthy":</p><ul><li><p><code>true</code></p></li><li><p><code>1</code></p></li><li><p><code>A string</code></p></li><li><p><code>[Object object]</code></p></li><li><p><code>[]</code></p></li></ul><p><strong>Boolean logic operators: </strong>You can use traditional boolean logic operators, such as <code>or</code>, <code>and</code> and <code>not</code>, to combine conditions. You can also use parentheses to group expressions. For example:</p><ul><li><p><code>{{ 1 == 1 or 1==2 }}</code></p></li><li><p><code>{{ issue.key == 'TEST-1' and issue.fields.subject == 'Do it' }}</code></p></li><li><p><code>{{ true and (false or true) }}</code></p></li><li><p><code>{{ not 1==1 }}</code></p></li><li><p><code>{{ issue.fields.description is null }}</code> returns <code>true</code> if the issue has no description</p></li><li><p><code>{{ issue.fields.assignee is not null }}</code> returns <code>true</code> if the issue has an Assignee</p></li></ul><p><strong>Examples of Nunjucks expressions returning a "truthy" value:</strong></p><ul><li><p><code>{{issue.fields.assignee}}</code> if the issue is assigned</p></li><li><p><code>{{issue.fields.assignee.accountId == "accountId:557058"}}</code> if the issue is assigned to the user whose accountId is "557058"</p></li><li><p><code>{{issue.fields.description is not null}}</code> if the issue's description is not empty</p></li><li><p><code>{{issue.fields.assignee and issue.fields.status.name == "In Progress"}}</code> if the issue is assigned and in the “In Progress” status</p></li></ul><h2 id="sample-use-cases-for-conditional-execution">Sample use cases for Conditional execution</h2><p>For examples on how to use Conditional execution within post-functions, please see <a href="/cms_trial/space/JMWEC/998440999/Conditional+Execution+Samples/">Conditional Execution Samples</a>. </p></div></div><p><br/></p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

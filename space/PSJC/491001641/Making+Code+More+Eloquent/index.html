@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434798967/Simple+Issue+Language/">Simple Issue Language</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/15731951/Getting+started+with+SIL/">Getting started with SIL</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/491001471/Scripting+best+practices/">Scripting best practices</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/491001626/Clean+Code/">Clean Code</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Making Code More Eloquent</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/491001641" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Making Code More Eloquent</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>Code can be just as expressive and eloquent as any professional writer. Learn how to write code that is short, to the point and easy to understand.</p><h2 id="names">Names</h2><ul><li><p>Use easily pronounceable names for variables and functions.</p></li><li><p>Don’t use letters.</p></li><li><p>Use searchable names.</p></li><li><p>Use consistent naming conventions. For example, use "get" sometimes and "fetch" other times.</p></li><li><p>Don't use numbers</p></li><li><p>Don't use prefixes</p></li><li><p>Create variables with camel case</p></li></ul><h2 id="user-defined-functions">User-defined Functions</h2><p>User-defined functions make code readable and give the reader a better sense of what the code does. </p><ul><li><p>make functions as short as possible</p></li><li><p>functions should do only one thing</p></li><li><p>no side-effects</p></li><li><p>User-defined functions should be verbs</p></li></ul><h2 id="comments">Comments</h2><p>When referencing a 3rd-party library or REST API, post the page of documentation which explains what the REST endpoint does.</p><ul><li><p>Reference documentation to REST API used.</p></li><li><p>If you arrived at a solution using documentation found online (such as an Atlassian Community post or Stack Overflow page), paste a link to that page.</p></li><li><p>While comments is a good thing, express yourself through the code, not the comments.</p></li><li><p>Don't use comments to make up for bad code.</p><ul><li><p>If you feel as if you must explain what the code is, consider refactoring it or create a new function so that it reads better.</p></li></ul></li></ul><h2 id="general-suggestions-for-writing">General Suggestions for Writing</h2><ul><li><p>As suggested in YAGNI, do not write extra code to anticipate future needs.</p></li><li><p>Avoid feature creep. While it is tempting to add features to existing code, finish the current project, then add features later.</p></li><li><p>Avoid "fancy" coding that no one else would understand. If you can refactor one line of code into three that reads better, use three lines of code.</p></li><li><p>Avoid using multiple variables when only one will do. For example, “issueKey = key” is unnecessary and makes the code more complicated.</p></li><li><p>Declare variables close to their usage.</p></li><li><p>If there are variables lines that do not change, consider putting those at the top of the script. While SIL does not, strictly speaking, support constants, it helps to learn about constants and use those variables as if they were constants. For more information, see this wikipedia page on <a href="https://en.wikipedia.org/wiki/Constant_(computer_programming)">constants</a>.</p></li><li><p>Keep lines short. Lines should be no longer than 60 to 80 characters long.</p></li><li><p>Use spaces to keep related functionality close together.</p></li><li><p>Use indentation.</p></li><li><p>Avoid files that are too long. Consider splitting longer files into shorter ones based on functionality. Better yet, refactor long pieces of code into separate files and use the <a href="/cms_trial/space/PSJC/433000499/Inclusions/">include statement</a> for import of that code.</p></li><li><p>Use git and bitbucket for version control.</p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

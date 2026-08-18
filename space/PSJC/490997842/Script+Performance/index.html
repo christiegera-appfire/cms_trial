@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490996521/Feature+guides/">Feature guides</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490997751/Performance+and+Monitoring/">Performance and Monitoring</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Script Performance</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/490997842" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Script Performance</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>The Script Performance section provides a history of script executions and shows information about the history of the scripts execution.</p><p>The Script Performance section provides a history of script executions and shows information about the history of the scripts execution. This section can be found at <strong>Power Scripts</strong> &gt; <strong>Performance Monitoring</strong> &gt; <strong>Script Performance.</strong></p><p>Information about each script includes:</p><ul><li><p><strong>Exec</strong> - Number of times script was executed</p></li><li><p><strong>Min</strong> - Fastest time script was ran and successfully completed</p></li><li><p><strong>Max</strong> - Longest time script was ran and successfully completed</p></li><li><p><strong>Avg</strong> - Average time script was ran and successfully completed</p></li><li><p><strong>Errors</strong> - The number or times a script raised an error in the logs</p></li></ul><div class="panel panel-note"><p><strong>Note: </strong>A dramatic difference between the min and max script execution time can often be seen because of logic within the script. Sometimes the script may include logic that states the script should continue to run for specific scenarios. Therefore, the best number to use to understand the cost to system performance for a script would be the <strong>average</strong> execution time.</p></div><img alt="Power Scripts for Jira Cloud script snippets panel" class="doc-image" loading="lazy" src="/cms_trial/assets/5b726c35-879c-494e-ab46-f3980ca5823a.png"/><p>Note also that first-time the engine is parsing a script it will optimize the resulting code, and this means a greater execution time. </p><p>Whenever you see  scripts name with an URL like identifier starting with <em>kepler://</em> it means scripts that are run internally, without a corresponding file. In the above example, <em>kepler://inline-sil-source</em> means scripts run from the editor.  </p><p><strong>See More</strong></p></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

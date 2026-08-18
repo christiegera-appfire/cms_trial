@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193033035/Feature+guide/">Feature guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192903639/Administration/">Administration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193066207/Workflow+elements+and+concepts/">Workflow elements and concepts</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192967825/Triggers/">Triggers</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192870598/Trigger+actions/">Trigger actions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">remove-labels</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2193787135" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>remove-labels</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview</h2><p>You can use the <strong>remove-labels action</strong> in a workflow trigger to automate the removal of one or more specified labels from a page or blog post. This workflow trigger action can help reduce inconsistencies in document labeling and reduce the manual workload for your team.</p><img alt="Comala removelabels trigger action for page only with two labels" class="doc-image" loading="lazy" src="/cms_trial/assets/993cdb01-be23-4390-909f-9860816a2b02.png"/><p>Additionally, you can configure this action to only remove labels from <strong>direct child pages</strong> of a document with the applied workflow.</p><p>When the <strong>Remove only from child pages</strong> configuration is <strong>True</strong>, the specified labels are removed from the <strong>immediate children</strong> of the page, but not from the parent page itself or any further level of child pages.</p><img alt="Comala removelabels trigger action for immediate child pages only" class="doc-image" loading="lazy" src="/cms_trial/assets/cdf307b4-8410-451d-9095-f1fb833aec95.png"/><p>When a workflow trigger event occurs, the system checks if all required conditions are met. If they are, the <strong>remove-labels</strong> action deletes one or more specified labels from the document or its immediate child pages.</p><div class="panel panel-note"><p>The workflow trigger label actions are part of a gradual rollout of new features and are not immediately available to all our customers.</p></div><h2 id="remove-labels"><code>"remove-labels"</code></h2><p>The trigger action <code>"remove-labels"</code> removes one or more specified labels from</p><ul><li><p>a document (page or blog post) with the applied workflow</p></li><li><p>the immediate direct child pages of the document with the applied workflow (but not the parent page itself or any further levels of child pages)</p></li><li><p><strong>action (</strong><em><strong>remove-labels</strong></em><strong>) </strong></p><ul><li><p><strong>labels ❗️</strong> At least one label (as a text string) must be added</p><ul><li><p>labels removed are included as an array inside square brackets [ ], for example, <code>"labels": ["public"]</code></p></li><li><p>add a comma-separated list to remove multiple labels, for example, <code>"labels": ["public", "approved"]</code></p></li></ul></li><li><p><strong>children</strong> remove the specified labels from the child pages, but not from the parent page itself or any further level of child pages</p><ul><li><p>boolean <code>true</code> or <code>false</code></p><ul><li><p>the default value is <code>"children": false</code>: specified labels are removed from the current page only</p></li><li><p>when the value is <code>"children": true</code>: specified labels are removed from the direct child pages. Labels are removed from the <strong>immediate children</strong> of the page - not from the parent page itself or any further level of child pages</p></li></ul></li></ul></li></ul></li></ul><div class="panel panel-note"><p>If the <code>"children"</code> parameter is not included in the workflow trigger code, the default value is <code>false,</code> and the specified labels are only removed from the page with the applied workflow.</p></div><h3 id="mandatory-parameters"><strong>❗️</strong>Mandatory parameters</h3><p><strong>labels</strong></p><p>At least one label value must be included.</p><h3 id="trigger-example">Trigger example</h3><pre><code class="language-">"triggers":
 [
 	{"event": "on-change-state",
@@ -182,6 +187,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

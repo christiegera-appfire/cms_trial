@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud Help Center</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/1678575285/SLA+configuration/">SLA configuration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/35651691/Define+SLAs/">Define SLAs</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Set an order for simultaneous SLA events</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TTSC/pages/740099319" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Set an order for simultaneous SLA events</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>This feature lets you control the order in which simultaneous SLA events are handled, applying to scenarios where multiple SLA conditions are met simultaneously. Previously, these events were handled randomly. Now, you can define the order of execution using the <strong>Default Event Order</strong> feature. </p><div class="panel panel-note"><p>This feature significantly impacts the calculation logic of your SLA, so it's crucial to understand your business requirements before making changes. </p><p>You must use recalculation for this to take effect on your old SLAs.</p></div><h2 id="how-to-configure-the-default-event-order">How to configure the default event order</h2><ol><li><p>Navigate to <strong>Settings </strong>&gt;<strong> Advanced</strong>.</p></li><li><p>Locate the <strong>Default Event Order</strong> option.</p></li><li><p>Use the drag-and-drop functionality to arrange the events in the order you want.</p><img alt="Time to SLA Advanced Settings page with Default Event Order drag-and-drop list" class="doc-image" loading="lazy" src="/cms_trial/assets/2fd9fd80-bbad-4221-bcbf-804c91ea0411.png"/></li><li><p>Click<strong> Save</strong> to apply the changes.</p></li></ol><p>This default order will be applied to all SLAs in your environment unless overridden.</p><h2 id="how-to-override-the-default-order-for-specific-slas">How to override the default order for specific SLAs</h2><p>If you'd like to set a different order to the simultaneous events per SLA, follow these steps:</p><ol><li><p>Go to the configuration of the specific SLA you want to modify.</p></li><li><p>Click <strong>Edit</strong>. </p></li><li><p>Scroll down and click <strong>Event Order</strong>.</p></li><li><p>Enable the <strong>Override Default Event Order</strong> option.</p><img alt="Time to SLA SLA configuration with Override Default Event Order toggle enabled" class="doc-image" loading="lazy" src="/cms_trial/assets/1f779713-6462-459d-a4e2-da5bd079811c.png"/></li><li><p>Use the drag-and-drop functionality to reorder the events for this specific SLA.</p></li><li><p>Click <strong>Save</strong> to apply the changes.</p></li></ol><h3 id="example">Example<strong> </strong></h3><p>Let's look at an example to illustrate how this feature works. Consider an SLA with the following configuration:</p><table><tr><th><p><strong>Condition</strong></p></th><th><p><strong>Value</strong></p></th></tr><tr><td><p>Start</p></td><td><p>Status <strong>is changed to</strong> TO DO</p></td></tr><tr><td><p>End</p></td><td><p>Status <strong>is changed to</strong> DONE</p></td></tr><tr><td><p>Reset</p></td><td><p>Status<strong> is changed from</strong> IN PROGRESS</p></td></tr></table><p>In a scenario where the <code>Status is changed to DONE</code> and <code>Status is changed from IN PROGRESS</code> conditions occur simultaneously, the default order might be <code>Start &gt; Resume &gt; Pause &gt; Stop &gt; Reset</code>. This default order would prioritize the <code>Stop</code> condition over the <code>Reset</code> condition.</p><p>To modify this behavior, you can edit the SLA and reorder the events. For example, changing the order to <code>Start &gt; Resume &gt; Pause &gt; Reset &gt; Stop</code> would prioritize the <code>Reset</code> condition over the <code>Stop</code> condition.</p><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><img alt="Time to SLA event order showing Start, Resume, Pause, Stop, Reset sequence" class="doc-image" loading="lazy" src="/cms_trial/assets/fbb5aab9-2989-4f8c-b76b-8acf41552076.png"/></div><div><img alt="Time to SLA event order showing Start, Resume, Pause, Reset, Stop sequence" class="doc-image" loading="lazy" src="/cms_trial/assets/dade5692-12c7-4bf2-82a1-8b5863039ffb.png"/></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud) Documentation</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783942482/User+guides/">User guides</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941673/Configure+Rich+Filters/">Configure Rich Filters</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Details configuration</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/783941695" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Details configuration</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>The <strong>Details</strong> section shows the rich filter's main properties: <strong>Name</strong>, <strong>Description</strong>, <strong>Administrators</strong>, and <strong>Base Jira filter</strong>.</p><img alt="Details.png" class="doc-image" loading="lazy" src="/cms_trial/assets/1e50fd18-c2c3-4177-a971-5d6b7f32cb13.png"/><div class="panel panel-note"><p>For convenience, this section also shows who owns the Jira filter, who it is shared with, and its JQL query. These properties cannot be edited here, but you can use the links to go to their edit pages if Jira allows you to edit them.</p></div><h2 id="editing-the-details-configuration">Editing the Details configuration</h2><ol><li><p>Navigate to the desired rich filter.</p></li><li><p>By default, you'll be directed to the <strong>Details</strong> section.</p></li><li><p>Edit the configuration as described in the following instructions:</p></li></ol><h3 id="1-change-the-name-description-administrators-or-base-jira-filter"><strong>1. Change the name, description, administrators, or base Jira filter</strong></h3><div class="panel panel-note"><p>Only <a href="/cms_trial/space/RFCDOC/783941839/Rights+and+Permissions/">Rich Filter's administrators</a> and <a href="https://support.atlassian.com/jira-cloud-administration/docs/manage-global-permissions/">Jira Administrators</a> can perform this operation.</p></div><p>Click any of the values to edit them.</p><h3 id="2-duplicate-a-rich-filter">2. <strong>Duplicate a rich filter</strong></h3><ol><li><p>Click <strong>Duplicate</strong> under the <strong>Menu</strong> at the top of the screen.</p><img alt="duplicate rich filter" class="doc-image" loading="lazy" src="/cms_trial/assets/162e0609-d766-490b-b3d4-8aac4f63ae4c.png"/></li><li><p>Type the name of the new rich filter and click <strong>Duplicate</strong>. <br/>A new rich filter identical to the first one, but with the name you have entered, is created.</p><img alt="duplicate filter.png" class="doc-image" loading="lazy" src="/cms_trial/assets/7b805f37-75e7-4d15-b8e1-5c7976b4aa5e.png"/></li></ol><h3 id="3-move-a-rich-filter-to-trash">3. <strong>Move a rich filter to trash </strong></h3><div class="panel panel-note"><p>Only <a href="/cms_trial/space/RFCDOC/783941839/Rights+and+Permissions/">Rich Filter's administrators</a> and <a href="https://support.atlassian.com/jira-cloud-administration/docs/manage-global-permissions/">Jira Administrators</a> can perform this operation.</p></div><p>Click <strong>Move to trash</strong> under the <strong>Menu</strong> at the top of the screen.</p><img alt="Delete.png" class="doc-image" loading="lazy" src="/cms_trial/assets/2a6919ac-4513-489f-be0d-de6181de6b54.png"/><p><br/></p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

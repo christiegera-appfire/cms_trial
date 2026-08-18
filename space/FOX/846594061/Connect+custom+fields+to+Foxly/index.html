@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/FOX/602537989/Foxly+-+Backlog+Prioritization+for+Jira/">Foxly - Backlog Prioritization for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/FOX/602537989/Foxly+-+Backlog+Prioritization+for+Jira/">Foxly - Backlog Prioritization for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/FOX/602538082/Tutorials/">Tutorials</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Connect custom fields to Foxly</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/FOX/pages/846594061" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Connect custom fields to Foxly</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 100.0fr;"><div><p>You can connect numeric fields (such as Story Points, Task Progress, etc.) and single-select custom fields to Foxly metrics to use them in calculating the <strong>Priority Score</strong>. </p><img alt="Screenshot of the Foxly Priorities Configuration screen." class="doc-image" loading="lazy" src="/cms_trial/assets/00f5d050-d9f9-422c-8d59-4973a86bed06.png"/></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="connect-numeric-fields-to-foxly">Connect numeric fields to Foxly</h2><p>This feature is great for synchronizing metrics such as Story Points across Jira and Foxly.</p><ol><li><p>To create a Foxly metric &lt;&gt; Jira field connection, click <strong>Configuration.</strong></p><img alt="Screenshot of the Configuration button in Foxly." class="doc-image" loading="lazy" src="/cms_trial/assets/81ca0936-cea6-4af2-af07-d0881c532ef7.png"/></li><li><p>Click <strong>+Add new metric</strong>.</p></li><li><p>A drop-down should appear under the <span class="icon-note">[edit pencil icon]</span>, but if it doesn’t, click <span class="icon-note">[edit pencil icon]</span> and select <em>Number</em>. </p><img alt="Screenshot of the Add a new metric option in Foxly Priorities Configuration." class="doc-image" loading="lazy" src="/cms_trial/assets/e12e8816-f041-4f6e-a281-a5a0065cbfd3.png"/></li><li><p>Enter a name for the metric.</p></li><li><p>Select which number-based metric you want to link to Jira. A confirmation box will appear. </p></li><li><p>Click <strong>Yes, link field</strong>.</p><img alt="Confirmation message about linking to Foxly" class="doc-image" loading="lazy" src="/cms_trial/assets/604e78f2-7d39-44d8-87a6-144806da3a45.png"/></li><li><p>Click <strong>Save changes</strong>.</p></li></ol></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>Once this connection is made, you can update the linked field in either Foxly or Jira. It will seamlessly sync to the other one, eliminating the need for complicated automation! </p></div></div><h2 id="connect-single-select-custom-fields-to-foxly">Connect single-select custom fields to Foxly</h2><p>Connect Jira custom fields to Foxly metrics and use them in calculating the <strong>Priority Score</strong>. </p><ol><li><p>To create a Foxly metric &lt;&gt; Jira custom field connection, click <strong>Configuration.</strong></p><img alt="Screenshot of the Configuration button in Foxly." class="doc-image" loading="lazy" src="/cms_trial/assets/81ca0936-cea6-4af2-af07-d0881c532ef7.png"/></li><li><p>Click <strong>+Add new metric</strong>.</p></li><li><p>A drop-down should appear under the <span class="icon-note">[edit pencil icon]</span>, but if it doesn’t, click <span class="icon-note">[edit pencil icon]</span> and select <em>Jira field</em>.</p><img alt="Screenshot of the Add a new metric option in Foxly Priorities Configuration." class="doc-image" loading="lazy" src="/cms_trial/assets/e3910943-e251-465b-ab41-546d6ff386c0.png"/></li><li><p>Enter a name for the metric.</p></li><li><p>Select which Jira custom fields you want to use. Only single-select dropdown fields are available.</p></li><li><p>When ready, click <strong>Save changes</strong>.</p></li><li><p>A confirmation box will appear. </p><img alt="Foxly app confirmation window to save changes to custom fields" class="doc-image" loading="lazy" src="/cms_trial/assets/343fc55c-cfb0-4660-ab1a-0266a68bfd1d.png"/></li><li><p>To confirm, click <strong>Save Changes</strong>. </p></li></ol>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

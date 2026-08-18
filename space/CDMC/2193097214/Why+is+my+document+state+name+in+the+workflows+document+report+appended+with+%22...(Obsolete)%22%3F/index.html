@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192776724/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Why is my document state name in the workflows document report appended with "...(Obsolete)"?</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2193097214" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Why is my document state name in the workflows document report appended with "...(Obsolete)"?</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="background">Background</h2><p>Sometimes, when accessing the Document Report, some documents might appear as shown in the report below.</p><img alt="Comala document report showing workflow states appended with Obsolete" class="doc-image" loading="lazy" src="/cms_trial/assets/6dc391a4-1599-4f5d-9e3e-99acfc728b75.png"/><p>In the above report, two documents are displayed with the current state as <strong>Review (obsolete).</strong></p><p>In addition, the state status indicator circle is grey.</p><div class="panel panel-note"><p>The grey color indicates that the document is in a confused workflow state.</p></div><h2 id="questions">Questions</h2><ul><li><p>Why does the report display a document <strong>Status</strong> with a workflow state name appended with <strong>...(obsolete)</strong>?</p></li><li><p>Why does the document <strong>Status</strong> change once it has been accessed?</p></li></ul><h2 id="explanation">Explanation</h2><p>Workflow <strong>Status</strong> is displayed as <strong>&lt;</strong><em><strong>old state name</strong></em><strong>&gt;(obsolete), </strong>and the workflow report appends the state name with <strong>...(obsolete)</strong> due to one of the following:</p><ul><li><p>A workflow is added to a document, but ’s initial state has the same name as the legacy workflow state - <strong>&lt;</strong><em><strong>old state name</strong></em><strong>&gt;</strong></p></li></ul><ul><li><p>The workflow configuration is changed and renames the <strong>&lt;</strong><em><strong>old state name</strong></em><strong>&gt; </strong>state name</p></li><li><p>a different workflow is added to the document, and the new workflow does not have a state that is the same name as the document's legacy workflow <strong>&lt;</strong><em><strong>old state name</strong></em><strong>&gt; </strong>state name</p></li><li><p>You access the Document Report before accessing the document</p></li></ul><p>In each of these changes, the state property of the document retains the old value, although there might not be any valid state name in the workflow that is now applied to the document.</p><ul><li><p>Hence, the state is displayed in the report as <strong>&lt;</strong><em><strong>old state name</strong></em><strong>&gt; (obsolete)</strong></p></li></ul><p>The new workflow initial state name is assigned to the document when either</p><ul><li><p>A user accesses the document</p></li><li><p>The workflow transitions the document to a state in the new workflow</p></li><li><p>The space workflow is initialized</p></li></ul><p>The Document Report then displays the new state name</p><ul><li><p>The state name does not include <strong>...(obsolete).</strong></p></li><li><p>The state status indicator circle is updated.</p></li></ul><div class="panel panel-note"><p> If a document's status is displayed as <strong>Not Initialized,</strong> see <a href="/cms_trial/space/CDMC/2192968035/Why+is+my+document+status+shown+as+%E2%80%9CNot+initialized%E2%80%9D+in+the+Document+Report%3F/">FAQ—Why is my document state shown as "Not initialized" in the Document Report?</a></p></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

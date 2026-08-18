@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465372899/Workflow+Extensions+for+Jira+Cloud/">Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465474068/Validators/">Validators</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Build-your-own (scripted) Validator</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/466226183" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Build-your-own (scripted) Validator</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>A workflow validator that is based on the result of a <a href="/cms_trial/space/JMWEC/465241623/Using+Jira+Expressions/">Jira expression</a>.  </p><img alt="Build-your-own Validator No Code Configuration Screen" class="doc-image" loading="lazy" src="/cms_trial/assets/cabc25e4-3b9b-449b-937c-5161bf6119a3.png"/><p>If the Jira expression returns <code>false</code>, a validation error message will be displayed. This can be used to test or compare issue fields, to test for linked issues, to check for open Sprints, among many others.</p><p>When you add this validator to a transition and attempt to trigger the transition, the extension checks the result of a logical test, comparing a field value to either another field value or to a set value. The logical test can be a <a href="/cms_trial/space/JMWEC/465241623/Using+Jira+Expressions/">Jira expression</a> entered manually, or you can build an expression using the <em>No Code</em> option (see below). If the expression returns <code>true</code> the transition will trigger; if it returns <code>false</code> or any non-boolean value, a validation error message is displayed.</p><h2 id="configure-the-validator">Configure the validator</h2><ol><li><p>Follow the steps above to add a validator to a transition. </p></li><li><p>From the list of validators, select <em>Build-your-own (scripted) Validator (JMWE app)</em>.</p></li><li><p>The <em>Build-your-own (scripted) Validator</em> page will open. Configure the validator as needed. See below for details on each of the configurations. </p></li><li><p>Click <strong>Add</strong>. </p></li></ol><div class="panel panel-warning"><p>Note that you will need to publish the workflow for the new validator to take effect. </p></div><img alt="Build-your-own Validator Jira Expression Configuration Screen" class="doc-image" loading="lazy" src="/cms_trial/assets/bccd09e2-4b6c-4c68-b380-c1f5a6d80a93.png"/><p>The following configurations are available:</p><ul><li><p><strong>Description</strong> - Give the validator a description; this will be included in the list of validators for the transition and in the <a href="/cms_trial/space/JMWEC/466321411/JMWE+workflow+extensions/">Workflow Extensions</a> administration page. </p></li><li><p><strong>No Code</strong> (Figure 1, right) - These fields will only display when <strong>Choose type</strong> is set to <em>No Code</em>. Select this option to create the validator without the need to write a Jira expression. Set each of the following options: </p><ul><li><p><strong>Field</strong> - Select the field to be tested.</p></li><li><p><strong>Operator</strong> - Select the logical operation to use in the test; for example, <em>Equals</em>, <em>Does not equal</em>, <em>is empty</em>, <em>Less than</em>, or <em>Greater than </em>(among others).</p></li><li><p><strong>Value to compare type</strong> - Select against what value the test will be evaluated:</p><ul><li><p><em>Field</em> - Compare the condition field against the value(s) of another field.</p></li><li><p><em>Text</em> - Compare the condition field against a set value.</p></li></ul></li><li><p><strong>Value to compare</strong> - Either select a field from the pulldown menu, or enter a set value.</p></li></ul></li><li><p><strong>Jira Expression</strong> (Figure 2, right) - The Jira expression editor will only display when <strong>Choose type</strong> is set to <em>Jira Expression</em>. Enter the <a href="/cms_trial/space/JMWEC/465241623/Using+Jira+Expressions/">Jira expression</a> for the logical test for the validator. If this test evaluates to <code>false</code>, the validator will fail and prevent the transition from executing. </p></li><li><p><strong>Error message</strong> - The error message that will display if the validator fails.</p></li><li><p><strong>Validator scope</strong></p><ul><li><p><strong>Conditional validation</strong> - Check this box to configure the validator to only run in specific circumstances. </p></li><li><p><strong>Condition</strong> - <em>Only visible when </em><em><strong>Conditional validation</strong></em><em>, above, is checked. </em>Enter a Jira expression; if the expression evaluates to <code>true</code>, the validator will run. </p></li><li><p><strong>Skip validation when cloning an issue</strong> - Check this option to skip the validator when an issue is being cloned. </p></li></ul></li></ul><div class="panel panel-success"><h3 id="computed-expressions">Computed Expressions</h3><img alt="Computed Expression field showing the JavaScript result of configurations" class="doc-image" loading="lazy" src="/cms_trial/assets/2b4c8b5e-ac4a-465a-949e-c6fa80cb42ee.png"/><p>If you use the <em>No Code</em> option to create your condition, the <strong>Computed Expression </strong>box (Figure 3, right) will populate with the equivalent Jira expression for your configurations. You will not be able to alter the script, but it is possible to test the script and to copy the script so it can be pasted elsewhere.</p><p>Click <strong>Test</strong> ( <span class="inline-icon" title="inline icon">▢</span> ) to open a window where you can select an issue against which the script should be tested.</p><p>Click <strong>Copy</strong> ( <span class="inline-icon" title="inline icon">▢</span> ) to copy the script to your clipboard.</p></div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146310010/Product+and+data+connections/">Product and data connections</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/3019735522/Connect+data+from+Atlassian+products/">Connect data from Atlassian products</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309921/Jira+Service+Management+and+Assets/">Jira Service Management and Assets</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Time to resolution</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/146309230" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Time to resolution</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><img alt="Dashboard Hub time to resolution" class="doc-image" loading="lazy" src="/cms_trial/assets/ae429949-8a9c-4e8e-9a4f-1cf3689999b6.png"/><p><a href="/wiki/pages/resumedraft.action?draftId=99779462">TIME TO RESOLUTION</a></p><p><a href="/wiki/pages/resumedraft.action?draftId=99779462">Display the average time to resolution for all requests in a period of time</a></p><h2 id="overview">Overview</h2><p>Graphical representations help us to understand valuable and actionable information. Service management teams need to easily confirm whether they are meeting their organizations' service level agreements (SLAs), so they can take action before any breach occurs.</p><p>One key SLA is the <strong>time to resolution</strong>: How long it takes from the moment a request is logged in the system until it is resolved. </p><p>This gadget displays the average time to resolution for all resolved requests within a specified period. It covers all request types in your service desk, and highlights the average time for all work items, and for work items of the highest priority (or any other priority you decide to include).</p><div class="panel panel-note"><p>This gadget is <strong>multi-project</strong>, so you can report across your whole portfolio of projects</p></div><p>If you hold the pointer over the graph series line, it indicates the average time to resolution for all work items for each day.</p><img alt="Dashboard Hub Time to resolution gadget" class="doc-image" loading="lazy" src="/cms_trial/assets/be7457ed-a69d-4d93-bb62-d586ed35af72.png"/><h2 id="how-work-items-are-selected">How work items are selected</h2><p>This gadget includes only work items for which the Time to Resolution SLA has been <strong>completed</strong>, meaning the SLA cycle has reached a final state (met or breached). Work items where the SLA is still running or paused are excluded.</p><h2 id="how-to-add-and-configure-the-gadget">How to add and configure the gadget</h2><ol><li><p>Click <strong>Edit</strong> in your dashboard, then click <strong>Add Gadget</strong>.</p></li><li><p>Use the <strong>Search</strong> bar in the <em>Add gadget</em> page to find the required gadget.</p></li><li><p>Click <strong>Add</strong> on the <strong>Time to resolution</strong> gadget. The configuration page displays.</p></li><li><p><strong>Name</strong> (<em>optional</em>): Edit the gadget name to make it meaningful to your team.</p></li><li><p><strong>Datasource</strong>: Select a datasource where <strong>Current</strong> indicates the Jira Service Management instance where the app is installed.</p></li><li><p><strong>Specify the work items to include</strong>:<strong> </strong>Select a JSM project and queue, or select the JQL toggle to display a JQL input field. For example, <code>project = "SD" AND priority = High</code>. To ensure only completed work items are reported on, Dashboard Hub runs the query by prepending <code>&lt;selected SLA field&gt;=completed()</code>. Remember that the gadget dynamically returns query results that can change over time as the resolution changes.</p></li><li><p><strong>Priorities</strong>: Select the priorities that you want to differentiate from the rest of the work items. You can also customise the colour of the line segments for both series.</p></li><li><p><strong>Period to retrieve</strong>: Select a number of days weeks or months.</p></li><li><p>Click <strong>Add</strong>, then save the dashboard.</p></li></ol><h2 id="integrations">Integrations</h2><ul><li><p>Jira Service Management</p></li></ul><h2 id="dashboards">Dashboards</h2><p>This gadget appears in the following dashboard: <a href="/cms_trial/space/RDD/146309962/IT+Service+Management+team+template/">IT Service Management team template</a>.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

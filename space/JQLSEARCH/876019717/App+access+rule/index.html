@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209972/JQL+Search+Extensions+(Cloud)/">JQL Search Extensions (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209802/Get+started+with+JQL+Search+Extensions+for+Jira/">Get started with JQL Search Extensions for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209677/Key+concepts/">Key concepts</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">App access rule</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JQLSEARCH/pages/876019717" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>App access rule</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="what-is-the-app-access-rule">What is the app access rule?</h2><p>The app access rule is a new Atlassian data security policy rule that allows organizations to limit access to content by third-party apps in Confluence spaces and Jira projects. The app access rule is currently available in the Early Access Programme. See, <a href="https://support.atlassian.com/security-and-access-policies/docs/app-access-rule-coverage-summary/">https://support.atlassian.com/security-and-access-policies/docs/app-access-rule-coverage-summary/</a> for more details.</p><h2 id="what-happens-if-the-app-access-rule-blocks-jql-search-extensions-for-jira">What happens if the app access rule blocks JQL Search Extensions for Jira?</h2><p>If JQL Search Extensions is on your list of blocked apps, it won’t be able to access issues in any of the restricted projects. New queries will not return any issues from restricted projects. Saved filters created before the introduction of the app access rule will not sync data from restricted projects. </p><h2 id="how-do-i-know-if-the-app-access-rule-blocks-jql-search-extensions-for-jira">How do I know if the app access rule blocks JQL Search Extensions for Jira?</h2><p>If you have an app access rule for your data security policy, JQL Search Extensions displays a warning banner on the Extended Search page and on your saved Extended Search filters page. The app does not identify which projects are restricted. Check your app access rule to determine if the rule blocks JQL Search Extensions from accessing any projects.</p><h2 id="manage-the-app-access-rule-for-jql-search-extensions-for-jira">Manage the app access rule for JQL Search Extensions for Jira</h2><p>If you want to allow the app to access projects in Jira, you can use an allow list or a block list, depending on how you have defined the default permission for the rule. You can either remove the app from a block list or add it to an allowlist. See, <a href="https://support.atlassian.com/security-and-access-policies/docs/block-app-access/">https://support.atlassian.com/security-and-access-policies/docs/block-app-access/</a> for detailed instructions.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465372899/Workflow+Extensions+for+Jira+Cloud/">Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/542803231/Deprecated+post+functions/">Deprecated post functions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Identifying all deprecated post functions</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/2453340227" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Identifying all deprecated post functions</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>There is a method by which you can identify all deprecated post functions within all workflows; however, this method requires running a Python script against the <a href="https://developer.atlassian.com/cloud/jira/platform/rest/v3/api-group-workflows/#api-rest-api-3-workflows-search-get">Jira Cloud Workflow REST API</a>. If you are not comfortable with this method, the only alternative is to work through all of your workflows one at a time using the <a href="/cms_trial/space/JMWEC/466321411/JMWE+workflow+extensions/">JMWE workflow extensions</a> Administration page. </p><p>To generate a list of all JMWE workflow extensions across all of your workflows, use the following Python script. A few things to note: </p><ul><li><p>You must supply a few variable values: </p><ul><li><p>Your base Jira Cloud domain for the <code>JIRA_BASE_URL</code> variable.</p></li><li><p>The email address with which you log into Jira Cloud, for the <code>EMAIL</code> variable.  </p></li><li><p>An API token for the <code>API_TOKEN</code> variable. If you need to generate an API token, see <a href="https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/">https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/</a>.</p></li></ul></li></ul><div class="panel panel-note"><p>The example script only returns JMWE extensions that have been added to Workflows - it does not scan any Actions for deprecated post functions. You will need to check <a href="/cms_trial/space/JMWEC/466288975/Shared+actions/">Shared actions</a>, <a href="/cms_trial/space/JMWEC/466321868/Scheduled+actions/">Scheduled actions</a>, and <a href="/cms_trial/space/JMWEC/465473524/Event-based+actions/">Event-based actions</a> separately. </p></div><h3 id="python-script">Python script</h3><pre><code class="language-python">import requests
 from collections import defaultdict
 
@@ -271,6 +276,64 @@ if __name__ == "__main__":
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

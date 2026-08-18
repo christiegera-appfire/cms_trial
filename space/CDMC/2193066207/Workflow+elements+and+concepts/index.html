@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193033035/Feature+guide/">Feature guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192903639/Administration/">Administration</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Workflow elements and concepts</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2193066207" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Workflow elements and concepts</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview</h2><p>Workflows in <strong>Comala Document Management Cloud</strong> consist of key building blocks that define how the content is reviewed, approved, and published. Understanding these elements helps you configure and manage workflows efficiently.</p><p>The workflow consists of the following elements:</p><h2 id="states">States</h2><p><strong>States</strong> represent the stages a document goes through during its lifecycle.</p><ul><li><p><em>Draft</em> → <em>In Review</em> → <em>Approved</em> → <em>Published </em>are workflow states.</p></li></ul><p>Learn more: <a href="/cms_trial/space/CDMC/2193066115/States/">States</a></p><h2 id="parameters">Parameters</h2><p><strong>Parameters</strong> are customizable variables used to configure workflow behavior.</p><p>Learn more: <a href="/cms_trial/space/CDMC/2192837939/Parameters/">Parameters</a></p><h2 id="transitions">Transitions</h2><p><strong>Transitions</strong> move a document from one state to another. Transitions can be manual (triggered by a user) or automatic (triggered by events or conditions)</p><p>Learn more: <a href="/cms_trial/space/CDMC/2192776606/Transitions/">Transitions</a></p><h2 id="approvals">Approvals</h2><p><strong>Approvals</strong> are decisions required from specific users or groups before a document can be published. It can be assigned to individuals, roles, or groups.</p><p>Learn more: <a href="/cms_trial/space/CDMC/2193195490/Approvals/">Approvals</a></p><h2 id="triggers">Triggers</h2><p>You can use <strong>workflow triggers</strong> to automate your documentation process and respond dynamically to key workflow events. For example, a trigger can automatically send an email notification when a page is submitted for review</p><p>Learn more: <a href="/cms_trial/space/CDMC/2192967825/Triggers/">Triggers</a></p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

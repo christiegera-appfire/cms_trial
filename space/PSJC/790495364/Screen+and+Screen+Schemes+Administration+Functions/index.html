@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434798967/Simple+Issue+Language/">Simple Issue Language</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434374166/SIL+Functions+library/">SIL Functions library</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434864501/Jira+Administration+Functions/">Jira Administration Functions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Screen and Screen Schemes Administration Functions</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/790495364" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Screen and Screen Schemes Administration Functions</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>This section contains functions that enable users to handle screen and screen schemes administration.</p><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p>This section contains functions that enable users to handle screen and screen schemes administration.</p><h2 id="functions-summary">Functions Summary</h2><ul class="children-list"><li><a href="/cms_trial/space/PSJC/790497410/admAddFieldToScreenTab/">admAddFieldToScreenTab</a></li><li><a href="/cms_trial/space/PSJC/790529520/admGetScreenTabNames/">admGetScreenTabNames</a></li><li><a href="/cms_trial/space/PSJC/790529764/admGetScreenTabs/">admGetScreenTabs</a></li><li><a href="/cms_trial/space/PSJC/790530249/admAddFieldToDefaultScreen/">admAddFieldToDefaultScreen</a></li><li><a href="/cms_trial/space/PSJC/790758340/admCreateScreenScheme/">admCreateScreenScheme</a></li><li><a href="/cms_trial/space/PSJC/790758380/admGetAllScreens/">admGetAllScreens</a></li><li><a href="/cms_trial/space/PSJC/790758582/admCreateScreen/">admCreateScreen</a></li><li><a href="/cms_trial/space/PSJC/790986895/admGetAllScreenSchemes/">admGetAllScreenSchemes</a></li><li><a href="/cms_trial/space/PSJC/790987285/admGetScreensByName/">admGetScreensByName</a></li><li><a href="/cms_trial/space/PSJC/791478898/admUpdateScreen/">admUpdateScreen</a></li><li><a href="/cms_trial/space/PSJC/791478908/admDeleteScreen/">admDeleteScreen</a></li><li><a href="/cms_trial/space/PSJC/791512024/admMoveFieldRelativeInTab/">admMoveFieldRelativeInTab</a></li><li><a href="/cms_trial/space/PSJC/791707753/admDeleteScreenScheme/">admDeleteScreenScheme</a></li><li><a href="/cms_trial/space/PSJC/791740479/admUpdateScreenScheme/">admUpdateScreenScheme</a></li><li><a href="/cms_trial/space/PSJC/791838963/admDeleteScreenTab/">admDeleteScreenTab</a></li><li><a href="/cms_trial/space/PSJC/791969973/admGetScreenTabFields/">admGetScreenTabFields</a></li><li><a href="/cms_trial/space/PSJC/792166481/admUpdateScreenTab/">admUpdateScreenTab</a></li><li><a href="/cms_trial/space/PSJC/792166493/admGetAllAvailableFieldsForScreen/">admGetAllAvailableFieldsForScreen</a></li><li><a href="/cms_trial/space/PSJC/792232728/admMoveScreenTab/">admMoveScreenTab</a></li><li><a href="/cms_trial/space/PSJC/792232743/admRemoveFieldFromScreenTab/">admRemoveFieldFromScreenTab</a></li><li><a href="/cms_trial/space/PSJC/792264759/admCreateScreenTab/">admCreateScreenTab</a></li><li><a href="/cms_trial/space/PSJC/792297546/admMoveFieldLastInTab/">admMoveFieldLastInTab</a></li><li><a href="/cms_trial/space/PSJC/792461357/admMoveFieldFirstInTab/">admMoveFieldFirstInTab</a></li></ul></div><div><p>Structures used:</p><h3 id="jscreenscheme">JScreenScheme</h3><pre><code class="language-">int id; // the id
 string name; // name of the scheme, must be not null
 string description; // description
@@ -222,6 +227,64 @@ return true;</code></pre></div></div>
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

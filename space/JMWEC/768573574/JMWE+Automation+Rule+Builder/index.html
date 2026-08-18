@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/466288774/Get+started+with+JMWE+for+Cloud/">Get started with JMWE for Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">JMWE Automation Rule Builder</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/768573574" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>JMWE Automation Rule Builder</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><img alt="admin-EventBasedActionEditorClean.png" class="doc-image" loading="lazy" src="/cms_trial/assets/2226343f-46c1-4fc1-89f0-05bfb4462f04.png"/><p>The <strong>JMWE Automation Rule Builder</strong> is an improved editor for building and visualizing actions for your workflows, including <a href="/cms_trial/space/JMWEC/466288975/Shared+actions/">Shared Actions</a>, <a href="/cms_trial/space/JMWEC/466321868/Scheduled+actions/">Scheduled Actions</a>, and <a href="/cms_trial/space/JMWEC/465473524/Event-based+actions/">Event-based Actions</a>. The new, two-panel layout simplifies the configuration of actions by separating the components of the action into categories on the left, and each category's configurations on the right. Using a <code>WHEN-IF-THEN</code> format, each automation rule is clearly laid out and can be created or updated quickly. </p><h2 id="where-is-the-automation-rule-builder">Where is the Automation Rule Builder?</h2><p>Currently, the Automation Rule Builder is available when configuring <a href="/cms_trial/space/JMWEC/466288975/Shared+actions/">Shared Actions</a>, <a href="/cms_trial/space/JMWEC/466321868/Scheduled+actions/">Scheduled Actions</a>, and <a href="/cms_trial/space/JMWEC/465473524/Event-based+actions/">Event-based Actions</a>. All actions - new and existing - use the new Automation Rule Builder interface. Do not worry, the updates are to the interface only! All existing actions have been preserved and can be updated without issue. </p><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h2 id="how-does-the-automation-rule-builder-work">How does the Automation Rule Builder Work? </h2><p>Each of the different actions implement the Automation Rule Builder in a slightly different way; please refer to their specific documentation for specific instructions. </p><p>Overall, the new UI is split into two side-by-side panels. The left panel is the outline of the action, formatted in a <code>WHEN-IF-THEN</code> format, includes the general configuration categories (e.g. the <strong>Schedule</strong> for a Scheduled Event or the triggering <strong>Event</strong> for an Event-Based Action). The left panel also includes general configuration options for each of the categories. When you select a configuration category in the left panel, the right panel will display the specific configuration options for that category. </p><h2 id="feature-requests">Feature Requests</h2><img alt="admin-FeatureRequest.png" class="doc-image" loading="lazy" src="/cms_trial/assets/0757d436-0113-4f0a-95ca-9dfe9049f7b5.png"/><p>The new Automation Rule Builder includes and updated feedback form for making feature requests of the development team. Using this form, you can now provide feedback on the functionality of the Automation Rule Builder!</p><p>The <strong>JMWE Feature Request</strong> form (pictured, left) is located at the bottom of the right panel of the Automation Rule Builder. Clicking the <strong>Let us know</strong> link will open the form. </p></div><div><div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/-FOF2xGCBFk"></iframe></div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253540271/Get+started/">Get started</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">7pace Timetracker for developers</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/7TFA/pages/1253540433" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>7pace Timetracker for developers</h1>
+    <div class="page-meta">1 min read</div>
     <div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/azkLs740GuY"></iframe></div><p><strong>7pace Timetracker</strong> embeds time logging directly into Azure DevOps (ADO), allowing developers to track effort on work items without breaking context or using external tools. Linking tracked time directly to completed work improves estimation accuracy, sharpens task planning, and streamlines time management.</p><h3 id="key-metrics-and-insights">Key metrics and insights</h3><ul><li><p><strong>Individual pace:</strong> Track personal productivity and velocity over time.</p></li><li><p><strong>Remaining effort:</strong> See exact remaining time left on active tasks.</p></li><li><p><strong>Sprint burndown:</strong> Automatically update burndown charts based on real effort logged.</p></li></ul><h3 id="core-features">Core features</h3><ul><li><p><strong>Flexible logging:</strong></p><ul><li><p><strong>Real-time or Retroactive:</strong> Use live timers (search and click <strong>Start</strong>) or enter/edit time post-factum.</p></li><li><p><strong>Flexible work items:</strong> Log time to specific Azure DevOps items or track effort without an ADO ID.</p></li><li><p><strong>Excel import:</strong> Easily import externally logged time into the <a href="/cms_trial/space/7TFA/1253540013/Times+Explorer/">Times Explorer</a> page.</p></li></ul></li><li><p><strong>Dedicated views:</strong></p><ul><li><p><strong>Timesheet:</strong> Features sprint board analysis, a spreadsheet-style list editor highlighting your assigned  <em>in progress</em> items, and end-of-week submission workflows.</p></li><li><p><strong>Monthly calendar:</strong> A <a href="/cms_trial/space/7TFA/1253540070/Monthly+view/">monthly page</a> for manual entry, editing, and monthly approvals.</p></li></ul></li><li><p><strong>Cross-platform access:</strong></p><ul><li><p>Native web app integrated directly within Azure DevOps.</p></li><li><p>Optional desktop apps for Windows and Mac that sync seamlessly or function independently.</p></li></ul></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

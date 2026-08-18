@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud Help Center</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/36110821/Use+cases/">Use cases</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">I want to track the time in status</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TTSC/pages/36832212" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>I want to track the time in status</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="panel panel-note"><p>🤔 <strong>Context:</strong> A manager needs to track how much time issues spend in specific workflow stages to identify delays and improve team throughput.</p><p>🌧️ <strong>User Problem:</strong> I need to understand where the bottlenecks are in our workflow. We’re not completing requests quickly enough, and I don’t have a straightforward way to measure how much time issues are spending in critical statuses like "In Progress."</p><p>☔ <strong>Solution: </strong>Creating a “Time in Status“ SLA.</p></div><p>While Time to SLA isn’t primarily used for time tracking, Kanban teams can leverage it to monitor how long tasks remain in specific statuses. By creating an SLA, like "Time in 'In Progress'", and selecting the "No target" goal type, you can track this time across your workflow. This use case lets you see how much time tasks spend under any assignee and in any status.</p><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><img alt="Time to SLA time in status configuration page" class="doc-image" loading="lazy" src="/cms_trial/assets/7e0a59f2-1296-4323-b435-8aca65aa6b21.png"/></div><div><img alt="Time to SLA time in status dialog showing status selection" class="doc-image" loading="lazy" src="/cms_trial/assets/b4208ae5-9b21-4abd-9fe1-a087a59fd264.png"/></div></div><p>For more advanced time tracking, teams can also rely on the <a href="https://appfire.atlassian.net/wiki/spaces/JEPC/pages/378636132">Enhancer Plugin for Jira</a>.</p><h2 id="problem-solved">Problem solved!</h2>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

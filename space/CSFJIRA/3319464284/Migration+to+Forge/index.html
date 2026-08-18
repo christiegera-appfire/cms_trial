@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Migration to Forge</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3319464284" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Migration to Forge</h1>
+    <div class="page-meta">2 min read</div>
     <h2 id="overview">Overview </h2><p>Appfire's Connector for Salesforce &amp; Jira Cloud has moved to Atlassian Forge, Atlassian’s most advanced cloud development platform. Atlassian is ending support for the Connect framework by December 31, 2026. Please upgrade before then to prevent permanent data loss and and app failure.</p><h2 id="how-to-upgrade-to-forge">How to upgrade to Forge</h2><p>To upgrade the app to the Forge version, you need Jira administrative privileges. Throughout the migration process, all existing data is fully preserved. The migration changes only the app framework.</p><ol><li><p>Navigate to <strong>Apps</strong> &gt; <strong>Manage apps</strong>.</p></li><li><p>Under <em>Connected apps, </em>the Connector for Salesforce &amp; Jira app displays an <strong>Update</strong> label. Click <strong>View app details</strong>.</p></li><li><p>To upgrade the app, click <strong>Accept &amp; update</strong>.</p></li><li><p>The <em>Confirm app update</em> dialog opens. Click <strong>Update</strong>.</p></li></ol><h3 id="what-happens-during-upgrade">What happens during upgrade</h3><ul><li><p>All your Salesforce-Jira connections and configurations are preserved.</p></li><li><p>No data loss occurs during the migration.</p></li><li><p>The upgrade happens with minimal interruption.</p></li><li><p>No reconfiguration required.</p></li></ul><div class="panel panel-warning"><ul><li><p>Please update to the latest version by the end of 2026 to keep your app running. If you miss the deadline, the app stops working and data syncing breaks.</p></li></ul></div><p>For more information, see: <a href="https://www.atlassian.com/blog/developer/announcing-connect-end-of-support-timeline-and-next-steps">Atlassian's official announcement on Connect end of support</a>.</p><h2 id="navigation-changes">Navigation changes</h2><h3 id="admin-pages">Admin pages</h3><div class="columns" style="grid-template-columns: 100.0fr;"><div><p> Admin pages (such as <em>Connections</em>, <em>Bindings</em>, and <em>Settings</em>) are now located in <strong>Jira admin settings </strong>under <strong>Apps</strong>.  </p><img alt="Jira admin settings " class="doc-image" loading="lazy" src="/cms_trial/assets/2b8dd33a-045c-49e1-8acc-496605e86065.png"/></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>To access administrator pages, go to <strong>Apps</strong> &gt;<strong> Connector for Salesforce and Jira Cloud </strong>&gt;<strong> App settings</strong>.</p><img alt="App settings" class="doc-image" loading="lazy" src="/cms_trial/assets/bf564327-0742-4c42-83ab-ccbaa7abcb62.png"/></div></div><h3 id="documentation-link"><strong>Documentation link</strong></h3><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>The direct documentation link from the old top-navigation dropdown has been removed. You can access documentation from the <strong>Help menu</strong> under the <strong>Jira admin settings</strong> pages.</p><img alt="Documentation link" class="doc-image" loading="lazy" src="/cms_trial/assets/8fbcc09f-d38c-436a-a77d-544875ce5ac3.png"/></div></div><h2 id="for-dc-customers">For DC customers</h2><p>The migration path has been adapted to work with the Forge framework on both the Cloud and DC sides.<br/>Before migrating from Jira Data Center to Jira Cloud, ensure you are on the latest version of Connector for Salesforce &amp; Jira in both DC and Cloud. Performing a migration from older versions of the connector on either side is not advised.</p><p>For instructions, see <a href="/cms_trial/space/CSFJIRA/2161049701/Migrate+Connector+for+Salesforce+%26+Jira+Data+Center+to+Cloud/">Migrate Connector for Salesforce &amp; Jira Data Center to Cloud</a>.</p><h2 id="support-and-resources">Support and resources</h2><p>If you have questions or need assistance with the upgrade process, our support team is here to help.</p><p>Contact our support team: <a href="https://support.appfire.com/page/support">support.appfire.com</a></p><h3 id="additional-resources">Additional resources</h3><ul><li><p><a href="/cms_trial/space/CSFJIRA/2161049701/Migrate+Connector+for+Salesforce+%26+Jira+Data+Center+to+Cloud/">Complete migration guide: DC to Cloud</a></p></li><li><p><a href="https://www.atlassian.com/blog/developer/announcing-connect-end-of-support-timeline-and-next-steps">Atlassian's Connect end of support announcement</a></p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

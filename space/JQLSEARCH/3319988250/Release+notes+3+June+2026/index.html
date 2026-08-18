@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/913997907/Release+notes/">Release notes</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209185/Release+notes+-+Cloud/">Release notes - Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Release notes 3 June 2026</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JQLSEARCH/pages/3319988250" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Release notes 3 June 2026</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p><strong>Release date</strong>: <time datetime="2026-06-03">June 3, 2026</time></p><p>This page outlines the updates included in the latest release of JQL Search Extensions (JSE).</p><hr/><h2 id="enhancements">Enhancements</h2><h3 id="use-jql-search-extensions-for-enhanced-ai-search"><strong>Use JQL Search Extensions for enhanced AI Search</strong></h3><p>JQL Search Extensions (JSE) expanded function guides and examples help AI Search generate more accurate and consistent JQL syntax.</p><img alt="AI Search interface showing a natural-language query and the generated JQL search syntax." class="doc-image" loading="lazy" src="/cms_trial/assets/369b50ad-d07b-484e-a41d-f3fd5213080c.png"/><h3 id="use-jql-search-extensions-ai-search-with-enhanced-natural-language-query"><strong>Use JQL Search Extensions AI Search with enhanced Natural Language Query </strong></h3><p>JQL Search Extensions (JSE) AI Search now better interprets complex relationships and user intent in natural language queries. Enhanced AI decision-making improves query interpretation and helps deliver more relevant results. AI Search also supports natural language queries in multiple languages.</p><h3 id="get-started-section-tutorial-availability-in-restricted-environments">Get started section - tutorial availability in restricted environments</h3><p>Added a fallback for the app’s <em>Get started</em> embedded product tutorial when iframe content is blocked. If the tutorial content can’t load, the app now displays alternate guidance instead of a blank or broken frame.</p><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p><strong>Questions and feedback</strong></p><ul><li><p>Explore exciting features, pricing updates, reviews, and more on the <a href="https://marketplace.atlassian.com/apps/1214791/jql-search-extensions-for-jira?gad_source=1&amp;gad_campaignid=23805144933&amp;gbraid=0AAAAAD3qqFdFNpJMGH3OvCiSVkp84bTUa&amp;gclid=CjwKCAjwqubPBhBOEiwAzgZX2lj9KMqJNKZ8-lwilPXjWOK4IF3LFRnZz2cJQMSxz6Ujwza7BjWBxxoCxFcQAvD_BwE">Marketplace</a>.</p></li><li><p>Stuck with something? Raise a ticket through our <a href="https://appf.re/support">support portal</a>.</p></li><li><p>Do you love using our app? Let us know what you think <a href="https://marketplace.atlassian.com/apps/1214791/jql-search-extensions-for-jira?gad_source=1&amp;gad_campaignid=23805144933&amp;gbraid=0AAAAAD3qqFdFNpJMGH3OvCiSVkp84bTUa&amp;gclid=CjwKCAjwqubPBhBOEiwAzgZX2lj9KMqJNKZ8-lwilPXjWOK4IF3LFRnZz2cJQMSxz6Ujwza7BjWBxxoCxFcQAvD_BwE&amp;tab=reviews">here</a>. </p></li></ul></div><div><p><strong>Credits</strong></p><p>Thank you to our valued customers! Your incredible support and feedback inspire us to improve continuously. We appreciate your trust in JQL Search Extensions!</p></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

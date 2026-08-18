@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3091727249/User+guides/">User guides</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3091760268/Work+with+associations/">Work with associations</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Push updates for multiple Jira Issues in bulk mode</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3091596592" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Push updates for multiple Jira Issues in bulk mode</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 100.0fr;"><div><div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>This page explains how to bulk push updates to multiple Jira Issues at once.</p><h2 id="before-you-start">Before you start</h2><p>Confirm the following Jira permission settings:</p><ul><li><p>You need to have the <strong>Bulk Change</strong> global permission.</p></li><li><p>You need to have <strong>View</strong> and <strong>Edit</strong> permissions for the related issues.</p></li></ul></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="guide">Guide</h2><ol><li><p>If you are using <em>Jira Cloud</em>, click the <strong>Apps</strong> menu at the top of the screen and under <em>CONNECTOR FOR SALESFORCE</em> select <strong>Bulk Operations</strong>.<br/>If you are using <em>Jira Data Center</em>, click the <em>CONNECTOR FOR SALESFORCE</em> menu at the top of the screen<strong> &gt;</strong> <strong>Bulk Operations</strong>.<br/>Only users with the <strong>Bulk Change</strong> permission are able to see the menu and access the <strong>Bulk Operations</strong> screen.</p></li><li><p>At the <strong>Bulk Operations</strong> screen, type in your JQL query and click <strong>Search</strong>. </p></li></ol><div class="panel panel-warning"><ul><li><p>JQL Query search in Bulk Operation will only return <strong>associated</strong> Jira issues.</p></li><li><p> The “ORDER BY’ operation does not work in the <strong>Bulk Operations</strong> JQL search.</p></li></ul></div><ol><li><p>Results based on your JQL query search are displayed in a table on the screen.<br/>If you are satisfied with your JQL Query search, click <strong>Bulk Push</strong> to update the related Salesforce records.</p><img alt="Screenshot of Bulk operations window" class="doc-image" loading="lazy" src="/cms_trial/assets/5f48ca24-08f9-42b6-9ff9-ad3239dced09.png"/><p><br/></p></li></ol></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

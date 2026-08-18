@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud Help Center</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/36012527/App+integrations/">App integrations</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">PowerBI Connector for Jira</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TTSC/pages/448299080" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>PowerBI Connector for Jira</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>The combination of Power BI Connector for Jira and Time to SLA presents a powerful opportunity to enhance your data analysis capabilities. This guide will walk you through the process of integrating Power BI with Time to SLA, enabling you to gain valuable insights into your organization's performance.</p><h2 id="before-you-begin">Before you begin</h2><ul><li><p>You must have <a href="https://marketplace.atlassian.com/apps/1221150/power-bi-connector-for-jira?hosting=cloud&amp;tab=overview">Power BI Connector for Jira</a> installed in your instance to carry out the instructions on this page. </p></li></ul><h2 id="step-1-create-a-token">Step 1: Create a token</h2><p>The configuration is done in two steps. First, you need to create a token on the Time to SLA app. Then, using the Power BI Connector app, you'll create a data source for it. </p><div class="panel panel-note"><p>To learn how to create a token, <a href="/cms_trial/space/TTSC/36209134/REST+APIs/">click here</a>. </p></div><h2 id="step-2-add-the-token">Step 2: Add the token</h2><ol><li><p>Open the Power BI Connector plugin.</p></li><li><p>From the side menu, click <strong>Tokens</strong>. </p></li><li><p>Select the <strong>Time to SLA</strong> tab.</p></li><li><p>Enter the token. </p></li><li><p>Click <strong>Validate &amp; Save</strong>.</p><img alt="Time to SLA token configuration in Power BI Connector Tokens tab" class="doc-image" loading="lazy" src="/cms_trial/assets/16c6a470-ed37-45be-8894-266280c15c1b.png"/></li></ol><p>From now on, all users who were granted permission to work with the Connector can select Time to SLA fields for export.</p><h2 id="step-3-create-a-data-source">Step 3: Create a data source</h2><ol><li><p>From the side menu, click <strong>Connectors</strong>.</p></li><li><p>Click <strong>Create a Data Source</strong>.</p></li><li><p>Select the <strong>Time to SLA</strong> tab.</p></li><li><p>Give your connector a name, and optionally, a description. </p></li><li><p>Select all work items, or use filters or JQL to narrow down the work items.</p></li><li><p>Select the fields you want to see. </p><img alt="Time to SLA data source configuration in Power BI Connector with field selection" class="doc-image" loading="lazy" src="/cms_trial/assets/f0736cf8-4e0c-4043-967e-8e4c4c7b5372.png"/></li><li><p>Click <strong>Save</strong>.</p></li></ol><p>After saving the data source, you can create various reports to fit all of your needs.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

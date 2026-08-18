@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74814716/Use+cases+-+cloud/">Use cases - cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74818011/JSON+Table+macro+examples+-+Cloud/">JSON Table macro examples - Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">How to build a JSON table from an array - Cloud</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TBL/pages/74810614" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>How to build a JSON table from an array - Cloud</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview</h2><p>This page shows how you produce a simple table from JSON data using the <a href="/cms_trial/space/TBL/74812316/JSON+Table+macro+-+Cloud/">JSON Table macro</a>, which is part of the <a href="https://appfire.atlassian.net/wiki/spaces/TBL">Advanced Tables for Confluence</a> app.</p><h2 id="macro-browser-input">Macro browser input</h2><h2 id="select-this-macro">Select this macro</h2><table><tr><td><p><strong>Macro name</strong></p></td><td><p><em>Advanced Tables - JSON Table</em></p></td></tr><tr><td><p><strong>Macro syntax (Old editor)</strong></p></td><td><p><em>{json-table}</em></p></td></tr><tr><td><p><strong>Macro syntax (New editor - case insensitive)</strong></p></td><td><p><em>/JSON Table</em></p></td></tr></table><h2 id="define-these-parameters-values">Define these parameters/values</h2><table><tr><td><p><em><strong>Paths to fields</strong></em></p></td><td><p><em>$</em></p></td></tr><tr><td><p><em><strong>Paths to fields to be included</strong></em></p></td><td><p><em>a,b,c</em></p></td></tr><tr><td><p><em><strong>Auto number on each row</strong></em></p></td><td><p>On</p></td></tr><tr><td><p><em><strong>Auto total row</strong></em></p></td><td><p>On</p></td></tr><tr><td><p>Macro body</p><p>Old editor:</p><p>New editor:</p></td><td><p><br/>[{a:10,b:20,c:30,d:40},{a:15,b:6}]<br/><br/>[{"a":10,"b":20,"c":30,"d":40},{"a":15,"b":6}]<br/></p></td></tr></table><h2 id="parameters-set-in-the-macro-editor">Parameters set in the macro editor</h2><img alt="Advanced Tables JSON Table macro settings for array data" class="doc-image" loading="lazy" src="/cms_trial/assets/548f130a-dd93-4edb-ac25-2e8a0c808472.png"/><img alt="Advanced Tables JSON Table macro with selected columns from array data" class="doc-image" loading="lazy" src="/cms_trial/assets/78165314-9c44-4524-a6c4-2ee9b62a4c49.png"/><p>The macro looks as follows before the page is published:</p><img alt="Advanced Tables simple JSON table shown in edit mode" class="doc-image" loading="lazy" src="/cms_trial/assets/2bd355ad-6984-4149-8886-57e849c8cc53.png"/><h2 id="wiki-markup-input-old-editor">Wiki markup input (Old editor)</h2><pre><code class="language-plaintext">{json-table:
 paths=$|
 fieldPaths=a,b,c|
@@ -160,6 +165,64 @@ autoTotal=true}
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

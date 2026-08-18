@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434798967/Simple+Issue+Language/">Simple Issue Language</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/1934458884/SIL+reference+guide/">SIL reference guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/1933541386/Type+management+in+SIL/">Type management in SIL</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Type conversion</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/496205872" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Type conversion</h1>
+    <div class="page-meta">7 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="panel panel-note"><p>This page covers automatic type conversion rules and behavior in Simple Issue Language (SIL™), distinct from <a href="/cms_trial/space/PSJC/435028043/Syntax+and+types+introduction/">explicit type casting</a>.</p></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><p>Covers automatic type conversion rules and behavior in SIL.</p><h2 id="type-conversion-rules">Type conversion rules</h2><p>Type conversion in SIL allows variables of different types to be automatically converted when using the assignment (=) operator. Type conversion occurs when you assign a value of one type to a variable of another type. The system tries to convert the source value into a format that matches the target type while preserving the semantic meaning of the data.</p><p>To ensure correct conversion, improve code clarity and prevent unexpected behavior, make sure to:</p><ul><li><p>Use appropriate types from the start.</p></li><li><p>Use the SIL manager to verify conversion behavior with different input types.</p></li><li><p>For complex cases, use explicit conversions instead of relying on the automatic conversion functionality.</p></li><li><p>Implement proper error handling for conversion failures. This includes providing meaningful error messages.</p></li><li><p>Use consistent formatting in all your scripts.</p></li></ul></div><div></div></div><h2 id="basic-type-conversion-matrix">Basic type conversion matrix</h2><p>The table  below shows all possible conversions between types:</p><table><tr><th><p><strong>Target type ↓ </strong></p></th><th><p><strong>Source type →</strong></p></th><th><p><strong>Notes and examples</strong></p></th></tr><tr><th><p><code>string</code><strong>*</strong></p></th><td><p><code>number</code></p></td><td><p><code>integer</code></p></td><td><p><code>boolean</code></p></td><td><p><code>byte</code></p></td><td><p><code>date</code></p></td><td><p><code>interval</code></p></td></tr><tr><th><p><code>string</code></p></th><td><p>✅ </p></td><td><p>✅ </p></td><td><p>✅ </p></td><td><p>✅ </p></td><td><p>✅ </p></td><td><p>✅ </p></td><td><p>✅ </p></td><td><p>Universal conversion target. </p></td></tr><tr><th><p><code>number</code></p></th><td><p>✅ </p></td><td><p>✅ </p></td><td><p>✅ </p></td><td><p>❌ </p></td><td><p>✅ </p></td><td><p>❌ </p></td><td><p>❌ </p></td><td><ul><li><p><code>"1" → 1.0</code></p></li><li><p><code>1 → 1.0</code></p></li><li><p>Strings must contain valid numeric values.</p></li></ul></td></tr><tr><th><p><code>integer</code></p></th><td><p>✅ </p></td><td><p>✅ </p></td><td><p>✅ </p></td><td><p>❌ </p></td><td><p>✅ </p></td><td><p>❌ </p></td><td><p>❌ </p></td><td><ul><li><p><code>"2" → 2</code></p></li><li><p><code>2.5 → 2</code></p></li><li><p>Numbers are truncated, not rounded.</p></li></ul></td></tr><tr><th><p><code>byte</code></p></th><td><p>✅ </p></td><td><p>✅ </p></td><td><p>✅ </p></td><td><p>❌ </p></td><td><p>✅ </p></td><td><p>❌ </p></td><td><p>❌ </p></td><td><ul><li><p><code>"123" → 123</code></p></li><li><p><code>123.7 → 123</code></p></li><li><p><code>-200 → 56</code></p></li></ul></td></tr><tr><th><p><code>boolean</code></p></th><td><p>✅ </p></td><td><p>✅ </p></td><td><p>✅ </p></td><td><p>✅ </p></td><td><p>❌ </p></td><td><p>❌ </p></td><td><p>❌ </p></td><td><ul><li><p><code>"true" → true</code></p></li><li><p><code>1 → true</code></p></li><li><p><code>0 → false</code></p></li><li><p>Non-zero numbers convert to <code>true</code>.</p></li></ul></td></tr><tr><th><p><code>date</code></p></th><td><p>✅ </p></td><td><p>✅ </p></td><td><p>✅ </p></td><td><p>❌ </p></td><td><p>❌ </p></td><td><p>✅ </p></td><td><p>❌ </p></td><td><ul><li><p><code>"2024-01-01" → 2024-01-01</code></p></li><li><p><code>1704067200000 → 2024-01-01</code></p></li><li><p>When converting a number to a date, the number is interpreted as milliseconds passed since the Unix epoch.</p></li></ul></td></tr><tr><th><p><code>interval</code></p></th><td><p>✅ </p></td><td><p>✅ </p></td><td><p>✅ </p></td><td><p>❌ </p></td><td><p>❌ </p></td><td><p>❌ </p></td><td><p>✅ </p></td><td><ul><li><p><code>"1h" → interval</code></p></li><li><p><code>3600000 → "1h"</code></p></li><li><p><code>"60m" → "1h"</code></p></li><li><p>When converting a number to an interval, the number is interpreted as a duration in milliseconds. This represents a time span rather than a specific point in time.</p></li></ul></td></tr></table><p>*The conversion from a string to a target type is done by parsing the string as a text representation of the target type.</p><h3 id="conversion-examples">Conversion examples</h3><pre><code class="language-">// Number conversion examples
 number n1 = "42";     // String to number: 42.0
 number n2 = 42;       // Integer to number: 42.0
@@ -260,6 +265,64 @@ f(true); // boolean automatically converted to string</code></pre>
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

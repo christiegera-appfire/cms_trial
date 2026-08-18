@@ -40,14 +40,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465372899/Workflow+Extensions+for+Jira+Cloud/">Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Delayed execution</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/466322009" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Delayed execution</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><img alt="JMWE for Jira Cloud delayed execution configuration for workflow transitions" class="doc-image" loading="lazy" src="/cms_trial/assets/da776230-5b7b-4991-b459-721b0cdfd501.png"/><h3 id="sample-use-cases-for-delayed-execution">Sample use cases for Delayed execution</h3><p><span class="icon-note">[light bulb on icon]</span> <em>On the creation of a Bug, assign it to a member of the QA team and then add the Assignee to the Watchers.</em></p><details><summary>Steps</summary><table><tr><td><ul><li><p>Create a <strong>QA</strong> project role, with the testers as its members.</p></li><li><p>Add the <em>Assign to role member </em>post-function to the transition <strong>Create</strong> of the Bug workflow.</p></li><li><p>Select <code>QA </code>as the project role to look for.</p></li></ul></td></tr></table><table><tr><td><ul><li><p>Add the <em>Copy value from field to field</em> post-function to the <strong>Create</strong> transition of the Bug workflow.</p></li><li><p>Select <code>Assignee</code> as the <code>From</code> field.</p></li><li><p>Select <code>Watchers</code> as the <code>To</code> field.</p></li><li><p>Select the <code>Delayed execution</code> option and select <code>5 sec</code> from the <code>Delay</code> drop-down.</p></li></ul></td></tr></table></details><p><span class="icon-note">[light bulb on icon]</span><em> On the approval of a Story, create subtasks for Development and QA, and transition them to In Progress status.</em></p><details><summary>Steps</summary><table><tr><td><ul><li><p>Add the <em>Create issue </em>post-function to the Approve transition of the Story workflow.</p></li><li><p>Select <code>Same as current issue</code> from the <code>Project</code> field.</p></li><li><p>Select <code>Subtask</code> from the <code>Issue type</code> field.</p></li><li><p>Select <code>Current issue</code> from the <code>Parent issue </code>field.</p></li><li><p>Repeat the above steps for the <code>Development </code>subtask.</p></li></ul></td></tr></table><table><tr><td><ul><li><p>Add the <em>Transition linked issues</em> post-function to the Approve transition of the Story workflow.</p></li><li><p>Select <code>Issue Link Type </code>as<code> is Parent of.</code></p></li><li><p>Select the <code>Delayed execution</code> option and select <code>10 sec</code> from the <code>Delay</code> drop-down.</p></li></ul></td></tr></table></details></div></div>
   </main>
   <aside class="sidebar">
@@ -177,6 +182,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

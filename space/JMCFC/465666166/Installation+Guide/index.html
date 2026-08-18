@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMCFC/168855370/Overview/">Jira Misc Custom Fields (JMCF) - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/168855370/Overview/">Overview</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/465829931/Get+started+with+JMCF+for+Cloud/">Get started with JMCF for Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Installation Guide</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMCFC/pages/465666166" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Installation Guide</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><img alt="Jira Misc Custom Fields (JMCF) Cloud product logo and branding" class="doc-image" loading="lazy" src="/cms_trial/assets/ae1b2b85-527a-4d59-b1b9-6891f92e9873.png"/><p><strong>Jira Miscellaneous Custom Fields (JMCF) for Jira Cloud</strong> is a no-code solution for adding custom fields to your Jira instance. JMCF includes advanced custom fields not available in native Jira that automatically update based on changes and actions your users perform. These custom fields include calculating the user who triggered a transition, the amount of time an issue has spent in a status, and the date (and time) when a transition occurred, among others!</p><p>The pages below will walk you through the process of installing, uninstalling, or disabling <strong>JMCF for Jira Cloud</strong> on your Jira instance.  </p><h2 id="getting-started">Getting Started</h2><ul class="children-list"><li><a href="/cms_trial/space/JMCFC/465273103/Installing+or+Re-installing+on+Jira+Cloud/">Installing or Re-installing on Jira Cloud</a></li><li><a href="/cms_trial/space/JMCFC/465305705/Uninstalling+or+Disabling+on+Jira+Cloud/">Uninstalling or Disabling on Jira Cloud</a></li></ul></div><div><div class="panel panel-note"><p>You are viewing the documentation for <strong>Jira Cloud</strong>. </p></div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

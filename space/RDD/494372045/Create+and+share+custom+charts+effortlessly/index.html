@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/401572816/Use+cases/">Use cases</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/401572854/General+use+cases+for+all+Dashboard+Hub+apps/">General use cases for all Dashboard Hub apps</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Create and share custom charts effortlessly</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/494372045" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Create and share custom charts effortlessly</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview</h2><p>Dashboard Hub simplifies the dashboard creation and sharing process. Create dashboards effortlessly by using pre-defined dashboard templates, over 60 ready-to-go metrics, and 12+ product integrations. Share your dashboards in seconds with password-protected links, making external reporting easy.</p><img alt="Dashboard Hub custom dashboard with multiple gadgets displaying Jira and project metrics" class="doc-image" loading="lazy" src="/cms_trial/assets/70fd5f9d-5c8e-41cc-bda4-7d3fbdb88a4d.webp"/><h2 id="benefits-of-custom-and-highly-shareable-dashboards">Benefits of custom and highly shareable dashboards</h2><ul><li><p><strong>Enhanced team collaboration: </strong>Your teams can create custom dashboards tailored to their specific needs. Access to real-time data and insights leads to informed decision-making and collaboration. Customization and predefined templates make it easy for teams to set up dashboards quickly, ensuring that the information displayed is relevant and actionable.</p></li><li><p><strong>Improved performance monitoring: </strong>Having access to nearly 100 metrics and 12+ integrations allows your teams to closely monitor the performance of their repositories and development processes – enabling them to identify bottlenecks, track code quality, make data-driven improvements, and proactively address issues, resulting in higher code quality and faster development cycles.</p></li><li><p><strong>Effortless external sharing: </strong>Allow your teams to easily communicate progress and project status with stakeholders, clients, or partners. Streamlines the reporting process, saving time and reducing the need for manual updates. External parties can view up-to-date information without needing access to the internal Bitbucket instance, enhancing transparency and collaboration.</p></li></ul><h2 id="how-to-start">How to start</h2><ol><li><p>Create a dashboard by selecting a name, permissions, and a pre-built template.</p></li><li><p>Configure the template gadgets. Compatible gadgets will configure automatically.</p></li><li><p>Tailor your perfect data view by adding gadgets<strong> </strong>from the <a href="/cms_trial/space/RDD/146309915/Dashboard+gadgets+-+KPIs+and+metrics/">collection of Dashboard Hub metrics</a>.</p><ul><li><p>You can also <a href="/cms_trial/space/RDD/401802479/Create+Jira+Custom+Charts/">create customized charts and metrics</a> with the JQL Custom Charts gadget.</p></li></ul></li><li><p>If you want even more customization, you can move and resize gadgets, change colors, change the slideshow, and more. Also, make sure to review the dashboard permissions.</p></li><li><p>Share the dashboard with your team using a <a href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/492273879">public link</a>.</p></li></ol><div class="panel panel-note"><p>Is there a metric your team can't find in Dashboard Hub? <a href="https://apps.appf.re/support">Make a request/suggestion for our team</a> and we might add it to upcoming releases.</p></div><div class="panel panel-note"><p><a href="/cms_trial/space/RDD/401572816/Use+cases/">Explore the use case library</a> if you want to learn more about how Dashboard Hub can help your organization.</p></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

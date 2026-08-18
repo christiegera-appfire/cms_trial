@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1891206842/Configure/">Configure</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Assign Record Types to manually or automatically created Salesforce objects from Jira</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/1596719355" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Assign Record Types to manually or automatically created Salesforce objects from Jira</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="purpose">Purpose</h2><p>Salesforce users have multiple record types for their objects and want to assign a specific record type to a Salesforce object when creating a new record, whether manually or automatically.</p><p>This article helps you understand how to select the record type during the creation process.</p><h2 id="answer">Answer</h2><ol><li><p>In Jira, click <strong>Settings</strong> (<span class="inline-icon" title="inline icon">▢</span>)&gt; <strong>Work items</strong> &gt; under <strong>Fields</strong>, click<strong> Fields. </strong> </p><img alt="Fields view" class="doc-image" loading="lazy" src="/cms_trial/assets/0ed2fa38-c71b-4eb5-aa8e-d030441e95e8.png"/></li><li><p>Click <strong>Create new field</strong>.</p></li><li><p>Search and select “<strong>Select List (Single choice)</strong>” custom field (for example <strong>Record Type</strong>).</p></li><li><p>In the <strong>Options </strong>field, add all the record types that the connector will use. </p></li><li><p>Click <strong>Create</strong>.</p></li><li><p>Then, map the custom field with the relevant project screens and click <strong>Update</strong>. </p></li><li><p>Search for the field you have created and click <strong>Contexts and default value</strong>. <br/>Edit the default value or options necessary.</p><img alt="Edit Optins.png" class="doc-image" loading="lazy" src="/cms_trial/assets/2005ca7c-1b9a-4852-ace8-f12d3d385f96.png"/><p> <br/></p></li><li><p>Map the <strong>Record Type</strong> Jira field with the <strong>Record Type ID </strong>Salesforce field. <br/></p><img alt="contentId-1596719355" class="doc-image" loading="lazy" src="/cms_trial/assets/dccc9f5e-3288-44b5-a85a-20eec0eceee0.png?version=1&amp;modificationDate=1679627845140&amp;cacheVersion=1&amp;api=v2"/></li><li><p>In Salesforce, go to <strong>Setup</strong> &gt; <strong>Object Manager</strong> &gt; <strong>Case</strong> &gt; <strong>Record types </strong>and click the <strong>Record type </strong>name. The ID of that Record type can be taken from the URL:<br/></p><img alt="ID.png" class="doc-image" loading="lazy" src="/cms_trial/assets/f5018470-1b5f-4af7-af42-b49a5a4f7a3c.png"/></li><li><p>Map the options of the <strong>Record Type</strong> field with the ID of the Case Record Types and click <strong>Save</strong>.<br/></p><img alt="Stor to Cae Configuration.png" class="doc-image" loading="lazy" src="/cms_trial/assets/5f3ceba6-e7ef-4c23-9739-fcf67197d176.png"/></li><li><p>Now, by manually or automatically creating a Salesforce Record from the association tab in Jira issues, the Record type will be assigned to the created Salesforce Objects from Jira.</p></li></ol></div><div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

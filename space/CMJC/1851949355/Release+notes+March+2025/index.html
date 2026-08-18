@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira (CMJ) Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/194117669/Release+Notes/">Release Notes</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Release notes March 2025</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CMJC/pages/1851949355" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Release notes March 2025</h1>
+    <div class="page-meta">1 min read</div>
     <p><strong>Release date</strong>: <time datetime="2025-03-11">March 11, 2025</time></p><p>Our team is thrilled to announce the latest release of Configuration Manager for Jira (CMJ) Cloud.</p><hr/><h2 id="enhancements">Enhancements</h2><h2 id="new-and-improved-analyze-phase-ui">New and improved Analyze phase UI</h2><p>We’ve redesigned the Analyze phase UI to provide a high level of detail on what will change after deployment, helping you to better understand and manage modifications. The entire deployment scope is now displayed in a card view, making it easier to navigate and review changes.</p><img alt="NEWAnalyzePhaseScreen.png" class="doc-image" loading="lazy" src="/cms_trial/assets/9f28b6e7-c4aa-4aa6-b197-78ee9fa050fd.png"/><p>Clicking any of those cards will direct you to the <em>Detailed Analysis Info Screen,</em> where you’ll see a tree view with dropdowns on the left and all the object’s info on the right. Additionally, the new interface introduces inline transformations, allowing you to make quick adjustments directly in the UI—previously only possible through a JSON file.</p><img alt="NEWViewAllScreen.png" class="doc-image" loading="lazy" src="/cms_trial/assets/a99e4720-e7b9-418b-bcac-722ad1d78b65.png"/><p>These improvements enhance visibility, streamline conflict resolution, and provide a more efficient change management experience.</p><p><a href="/cms_trial/space/CMJC/193626781/Analyze+changes/">Read more about the new Analyze phase</a></p><hr/><h2 id="bug-fixes">Bug fixes</h2><p>The following bugs are fixed in this release:</p><h2 id="missing-objects-from-downloaded-json-file">Missing objects from downloaded JSON file</h2><p>Fixed a problem with downloaded JSON files for custom mapping where they didn’t include the <strong>Resolution</strong> and <strong>Project role</strong> objects.</p><h2 id="custom-field-context-deletion">Custom field context deletion</h2><p>Fixed a bug that was wrongly marking some custom field contexts for deletion during deployment.</p><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p> <strong>Questions and feedback</strong></p><ul><li><p>Explore exciting features, pricing updates, reviews, and more on the <a href="https://marketplace.atlassian.com/apps/1211611/configuration-manager-for-jira-cmj?hosting=cloud&amp;tab=overview">Marketplace</a>.</p></li><li><p>Stuck with something? Raise a ticket through our <a href="https://appf.re/support">support portal</a>.</p></li><li><p>Do you love using our app? Let us know what you think <a href="https://marketplace.atlassian.com/apps/1211611/configuration-manager-for-jira-cmj?hosting=cloud&amp;tab=reviews">here</a>.</p></li></ul></div><div><p> <strong>Credits</strong></p><p>Thank you to our valued customers! Your incredible support and feedback inspire us to improve continuously. We appreciate your trust in Configuration Manager for Jira (CMJ) Cloud!</p></div></div><hr/>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

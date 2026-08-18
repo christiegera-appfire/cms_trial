@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465372899/Workflow+Extensions+for+Jira+Cloud/">Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465242045/Post+functions/">Post functions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Increase value of field</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/466289696" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Increase value of field</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>A workflow post-function that increases the value of a selected numerical field by one.</p><p>When you add this post-function to a transition and trigger the transition on an issue, the add-on increments the selected field value by one. </p><div class="panel panel-warning"><p><strong>Note</strong>: This post function is applicable to numerical fields only!</p></div><img alt="Increase Value of Field post function configuration screen" class="doc-image" loading="lazy" src="/cms_trial/assets/2ba9b984-488f-45c9-8b97-c001ea0ec362.png"/><p><strong>To add the 'Increase value of field' post-function to a transition : </strong></p><ol><li><p>Click <strong>Edit</strong> for the workflow that has the transition to which you wish to add the post function.</p></li><li><p>In the Workflow Designer, select the transition.</p></li><li><p>Click <strong>Post Functions</strong> in the properties panel.</p></li><li><p>Click <strong>Add post function</strong>.</p></li><li><p>Select <strong>Increase value of field</strong> from the list of post function.</p></li><li><p>Click <strong>Add</strong> to navigate to the <em>Increase value of field post-function </em>screen where you can add configuration details. See below for more information.</p></li><li><p>Click on <strong>Add</strong> to add the post function to the transition. </p></li></ol><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="options">Options</h2><p>The primary option is the field that should be increased by one. </p><ul><li><p><strong>Field</strong> - Select the field to increase.</p></li></ul><div class="panel panel-note"><p>Only one field can be selected for each instance of this post function. </p></div><h2 id="advanced-options">Advanced options</h2><p>Expand this section to see advanced configurations including conditional execution, delayed execution, and whether or not Jira will send a notification when the post function is executed.</p><h3 id="run-as">Run as</h3><h3 id="conditional-execution">Conditional execution</h3><h3 id="delayed-execution">Delayed execution</h3><h3 id="send-notifications">Send notifications</h3><p>Jira can sends notifications for the increment in the selected field value on the current issue. Check the box <strong>Allow Jira to send notifications for this change</strong> to enable notifications. </p></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

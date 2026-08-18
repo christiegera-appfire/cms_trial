@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/899022918/Release+notes/">Release notes</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/3442212890/Release+notes+2024/">Release notes 2024</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">3.2.6 Release notes</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/1563722139" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>3.2.6 Release notes</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><img alt="Release Notes.png" class="doc-image" loading="lazy" src="/cms_trial/assets/26a06d5f-c311-4809-b56e-f34136080170.png"/><p><strong>Release date</strong>: <time datetime="2024-12-19">December 19, 2024</time></p><p>Our team is thrilled to announce the latest release of Power Scripts for Jira Cloud. This release introduces some enhancements and bug fixes.</p><hr/><table><tr><th><p><strong>Contents</strong></p></th></tr><tr><td><nav class="toc"><ul><li class="toc-level-2"><a href="#enhancements">Enhancements</a></li><li class="toc-level-3"><a href="#enhanced-post-function-workflow-migration-support">Enhanced post-function workflow migration support</a></li><li class="toc-level-3"><a href="#newly-added-sil-functions">Newly added SIL functions</a></li><li class="toc-level-2"><a href="#bug-fixes">Bug fixes</a></li></ul></nav></td></tr></table><hr/><h2 id="enhancements">Enhancements</h2><h3 id="enhanced-post-function-workflow-migration-support">Enhanced post-function workflow migration support</h3><p>SIL post-functions are now automatically connected to their corresponding workflow transitions when migrating from Jira Server/Data Center to Jira Cloud using the Jira Cloud Migration Assistant (JCMA). This enhancement eliminates the need for manual reconnection of post-functions after migration, providing the following benefits:</p><ul><li><p>Seamless migration of workflow-related data.</p></li><li><p>Automatic attachment of post-function SIL files to correct transitions.</p></li><li><p>Reduced risk of configuration errors.</p></li><li><p>Significant time savings during the migration process.</p></li></ul><p><strong>Previous Behavior:</strong> Post-function SIL scripts were copied to a <em>Migrated_Post_Functions</em> folder under <code>silprograms</code> and required manual reconnection to workflow transitions.</p><p>This improvement streamlines the migration process and helps ensure data integrity when moving to Jira Cloud.</p><h3 id="newly-added-sil-functions">Newly added SIL functions</h3><ul><li><p><code>getAllAttachments</code>: gets attachment information. </p></li><li><p><code>getAttachmentMediaId</code>: retrieves an Atlassian Document Format (ADF) compatible media identifier when given an issue and its corresponding attachment ID.</p></li><li><p><code>allMatches</code>: enhances regular expression functionality by returning all capturing groups defined in the RegEx pattern. </p></li><li><p><code>allGroups()</code>:  lets you bulk update group permissions.</p></li></ul><hr/><h2 id="bug-fixes">Bug fixes</h2><p>The following bugs are fixed in this release:</p><ul><li><p>Fixed Group picker search functionality issue<br/>Fixed an issue where the Group picker search was not properly processing user input. Previously, when searching for a specific group, the search results might not include the desired group even if it existed, as the search query was not included in the API call to Atlassian. The fix ensures that search terms are properly considered when retrieving group results.</p></li><li><p>Fixed Power Scripts Validator wizard loading<br/>Resolved an intermittent issue where the Power Scripts validator wizard would not load properly when configuring new validation rules in the workflow editor.</p></li></ul><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p> <span class="inline-icon" title="inline icon">▢</span> <strong>Questions and feedback</strong></p><ul><li><p>Explore exciting features, pricing updates, reviews, and more on the Marketplace. <span class="img-placeholder" style="display:inline">[unmapped inline: placeholder]</span></p></li><li><p>Stuck with something? Raise a ticket with our <a href="https://appf.re/support"><u>support team</u></a>.</p></li><li><p>Do you love using our app? Let us know what you think here.  <span class="img-placeholder" style="display:inline">[unmapped inline: placeholder]</span></p></li></ul></div><div><p><strong> </strong><span class="inline-icon" title="inline icon">▢</span> <strong>Credits</strong></p><p>A heartfelt thank you to our valued customers! Your incredible support and feedback inspire us to improve our apps and products continually. You are the driving force behind why we create software. We appreciate your trust in <span class="img-placeholder" style="display:inline">[unmapped inline: placeholder]</span>!</p></div></div><table><tr><th><p><strong>Release date</strong></p></th><td><p><time datetime="2024-12-19">December 19, 2024</time> </p></td></tr><tr><th><p><strong>Highlights</strong></p></th><td><ul><li><p>Enhanced post-function workflow migration support</p></li><li><p>Newly added SIL functions</p></li><li><p>Fixed Group picker search functionality issue</p></li><li><p>Fixed Power Scripts Validator wizard loading wizard</p></li></ul></td></tr></table>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3092186639/Association+and+synchronization/">Association and synchronization</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">View all failed sync jobs and retry status on Salesforce</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3091957712" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>View all failed sync jobs and retry status on Salesforce</h1>
+    <div class="page-meta">2 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="summary">Summary</h2><p>Salesforce auto-sync jobs may occasionally fail due to service disruptions or other factors. As a result, it can be hard to determine if the associated Salesforce records are in sync after the disruption.</p><p>A sync feature is available that automatically retries failed auto-sync jobs. Failed jobs are automatically retried up to five times, at approximately 5, 10, 30, 60, and 90 minutes from the first failure.</p><p>Admins can also view the status of failed sync jobs, as shown in the diagnostic steps below.</p><div class="panel panel-warning"><p>This feature is disabled by default and can only be enabled by a Salesforce administrator. Refer to this page for instructions to enable it:</p><ul><li><p><a href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/470754407/Automatically+retry+failed+sync+jobs+Cloud">Automatically retry failed sync jobs</a></p></li></ul></div><h2 id="environment">Environment</h2><ul><li><p>Jira Cloud</p></li><li><p>Jira Data Center</p></li><li><p>Connector for Salesforce &amp; Jira<br/></p></li></ul><h2 id="diagnostics-steps">Diagnostics Steps</h2><p>Salesforce admins can view a list of failed and pending sync jobs with this URL:</p><p><code>{_SALESFORCE_HOST_}/lightning/o/JCFS__AutoSyncJob__c/list</code><br/></p><p>In the list, failed jobs are shown under the <em>Job Status</em> column with the status of <em>MAX_RETRIES</em>, along with relevant info in the other columns like <em>Attempts</em>, <em>First Try</em>, <em>Next Try</em>, and <em>Last Try</em>. If the retry succeeds, the sync job will no longer appear on this list.</p><img alt="contentId-3091957712" class="doc-image" loading="lazy" src="/cms_trial/assets/c7ebe9e6-6914-4c5c-b39f-0a2e17883593.png?version=1&amp;modificationDate=1678858813027&amp;cacheVersion=1&amp;api=v2"/><p>You can also click on the ID numbers under the <em>Job ID</em> column to get additional details:</p><img alt="contentId-3091957712" class="doc-image" loading="lazy" src="/cms_trial/assets/a3582065-4b8a-4122-b8ad-b7c2b99654a6.png?version=1&amp;modificationDate=1678858813241&amp;cacheVersion=1&amp;api=v2"/><h2 id="cause">Cause</h2><p>Auto-sync jobs may occasionally fail due to factors like service disruptions (for example, Internet outage or server downtime).</p><h2 id="workaround">Workaround</h2><p>Not applicable.</p><h2 id="resolution">Resolution</h2><p>The connector can be set to automatically retry failed auto-sync jobs. Failed jobs will be automatically retried up to five times, approximately 5, 10, 30, 60, and 90 minutes after the first failure.</p><p>Salesforce admins can track failed and pending sync jobs using the URL provided above.</p><div class="panel panel-warning"><p>This feature is disabled by default and can only be enabled by a Salesforce administrator. Refer to this page for instructions to enable it:</p><ul><li><p><a href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/470754407/Automatically+retry+failed+sync+jobs+Cloud">Automatically retry failed sync jobs</a></p></li></ul></div></div><div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

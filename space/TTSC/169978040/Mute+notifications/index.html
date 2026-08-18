@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud Help Center</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/1678575285/SLA+configuration/">SLA configuration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/35881090/Actions/">Actions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Mute notifications</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TTSC/pages/169978040" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Mute notifications</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>You can mute SLA notifications either by selecting issues or SLAs using Time to SLA Issue Actions.</p><h2 id="how-to-mute-notifications-in-the-work-item-view">How to mute notifications in the work item view</h2><ol><li><p>Go to the related work item and click the actions button at the top of the <em>Details</em> section.</p></li><li><p>Click <strong>Time to SLA</strong> <strong>Issue Actions</strong>. </p><img alt="Time to SLA Mute notifications page with notification settings" class="doc-image" loading="lazy" src="/cms_trial/assets/b8632632-f367-46e1-bea0-2f4c77606400.png"/></li><li><p>From the <em>Actions</em> dropdown menu, pick <strong>Mute SLA</strong>. The <em>Mute SLA Notifications</em> screen appears.</p><img alt="Time to SLA Mute notifications dialog with mute options" class="doc-image" loading="lazy" src="/cms_trial/assets/8daf1791-5ee7-4b1e-9e2a-21196fb6ca7d.png"/></li><li><p>In the <em>Mute Duration</em> section, select how long you want to mute notifications. You can mute notifications until they are manually unmuted with an action or choose an end date to unmute them automatically.</p><ul><li><p>Click<strong> Until Unmuted </strong>if you want to unmute the work item with an action later.</p></li><li><p>Click<strong> Custom </strong>to pick an end date. When this date is reached, the work item will be unmuted automatically.</p></li></ul></li><li><p>You can mute notifications by specifying work items. To do that, you have three options:</p><ul><li><p>Muting all notifications by selecting all work items.</p></li><li><p>Muting notifications by selecting the work item keys. You can also add a work item key using the <strong>Add item</strong> button. Only recently viewed work items are listed here. To populate the combo box, you can use the <code>issuekey in issueHistory() order by lastViewed DESC</code> statement, which will filter issues.</p><img alt="Time to SLA Mute notifications option in SLA panel" class="doc-image" loading="lazy" src="/cms_trial/assets/2d5af70b-7fd8-4936-aa89-b315e0feec09.png"/></li><li><p>Muting notifications for work items filtered by the JQL statement you entered.</p><img alt="Time to SLA Mute notifications confirmation message" class="doc-image" loading="lazy" src="/cms_trial/assets/edc9ef03-f4e0-4a14-ab9c-87b039a5114d.png"/></li></ul></li><li><p>You can mute notifications by specifying SLAs. To do that, you have two options:</p><ul><li><p>Muting all notifications by selecting <strong>All</strong>.</p></li><li><p>Muting notifications by selecting specific SLAs.</p><img alt="Time to SLA Mute notifications settings with user options" class="doc-image" loading="lazy" src="/cms_trial/assets/a9b7ea58-4f4a-4beb-9c64-f6e1a683d8ec.png"/></li></ul></li><li><p>Click the <strong>Done</strong> button, and your configurations will be saved.</p></li></ol><h2 id="manage-muted-sla-notifications">Manage muted SLA notifications</h2><p>To review and manage your muted SLA notifications, click <strong>Jira</strong> <strong>Settings </strong>&gt;<strong> General Settings </strong>&gt;<strong> Apps </strong>&gt;<strong> TTS Mute SLA</strong>.</p><img alt="Time to SLA Mute notifications page with multiple notification rules" class="doc-image" loading="lazy" src="/cms_trial/assets/9f7e844e-2f23-4fa0-b502-571a5f854d4e.png"/><p>Here, you can see all of your muted SLA notifications, edit them, and unmute them. You can also mute notifications using the same process described above.  </p><img alt="Time to SLA Mute notifications rule configuration details" class="doc-image" loading="lazy" src="/cms_trial/assets/4f630e9d-98e2-4a30-bee3-44124c252f82.png"/>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

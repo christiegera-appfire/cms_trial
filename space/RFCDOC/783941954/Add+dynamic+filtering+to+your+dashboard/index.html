@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud) Documentation</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941917/Tutorials/">Tutorials</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Add dynamic filtering to your dashboard</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/783941954" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Add dynamic filtering to your dashboard</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>We've already seen how to <a href="/cms_trial/space/RFCDOC/783941937/Build+a+simple+interactive+Jira+dashboard/">use </a><a href="/cms_trial/space/RFCDOC/783941937/Build+a+simple+interactive+Jira+dashboard/"><em>static filters</em></a><a href="/cms_trial/space/RFCDOC/783941937/Build+a+simple+interactive+Jira+dashboard/"> to build dashboards</a> in which users can rapidly find the issues they are looking for. We'll now focus on another filtering mechanism that is better suited for use cases, such as filtering by one or several user-selected assignees, statuses, labels, etc. By the end of this tutorial, you can add (to Rich Filter Controller gadgets) drop-down buttons (dynamic filters), which allow you to filter by such option fields.</p><img alt="Filter assignee.png" class="doc-image" loading="lazy" src="/cms_trial/assets/a0f33274-e6d8-48fd-87bd-14b8343bb949.png"/><div class="panel panel-note"><p>For this tutorial, you need to have already created:</p><ul><li><p>a <em>Rich Filter</em></p></li><li><p>a dashboard with one <em>Rich Filter Controller</em> gadget and at least one <em>Rich Filter Filter Results</em> gadget based on your Rich Filter.</p></li></ul><p>We have used the dashboard we worked with in <a href="/cms_trial/space/RFCDOC/783941950/Use+working+queries+in+your+dashboard/">the previous tutorial</a>.</p></div><h2 id="add-dynamic-filters">Add dynamic filters</h2><ol><li><p>Open the configuration page of your <em>Rich filter</em> as described in the <a href="/cms_trial/space/RFCDOC/783941927/Create+and+access+rich+filters/">first tutorial</a>.</p></li><li><p>Click the <em>Dynamic Filters</em> tab.</p></li><li><p>Add new <em>Dynamic Filters</em> based on Assignee, Priority, Status, Labels, and Resolution.<br/></p><img alt="Dynamic filters.png" class="doc-image" loading="lazy" src="/cms_trial/assets/69dad33b-2145-4c97-bcad-ed3a3d3a1453.png"/></li><li><p>Open (or refresh) the dashboard based on your rich filter or build a new one. The Rich Filter Controller gadget now displays the dynamic filters you added in the previous step. </p><img alt="apply filtr.png" class="doc-image" loading="lazy" src="/cms_trial/assets/596cfe44-4353-487a-a898-4ce6dc352417.png"/><p><br/>If you select options in any dynamic filter and then click <strong>Apply</strong>, the other gadgets in the dashboard that are based on the same rich filter will be updated to display only the issues that satisfy the selected criteria.<br/></p><img alt="FIltered priority.png" class="doc-image" loading="lazy" src="/cms_trial/assets/1a9dcd3b-ac88-4ae3-a9fa-fe7f8a410845.png"/><div class="img-placeholder">[Unmapped macro: legacy-content — no content to fall back on]</div><p><br/>You can deactivate all the active filters of the <em>Rich Filter Controller</em> gadget by clicking on the X at the bottom right.</p><img alt="clear filters.png" class="doc-image" loading="lazy" src="/cms_trial/assets/d78eb0b5-1292-484f-9be6-d4a423b5962e.png"/></li></ol><div class="panel panel-note"><p>In the rich filter configuration, you can change the order of the dynamic filters. In each Rich Filter Controller gadget, you can use this default order or customize the list of filters to be displayed by selecting the ones you want and placing them in the order you want.</p></div><h2 id="see-also">See also</h2><p><a href="/cms_trial/space/RFCDOC/783941707/Configure+dynamic+filters/">Configure Dynamic Filters</a>.</p><p><a href="/cms_trial/space/RFCDOC/783941961/Add+smart+filters+and+smart+columns+to+your+dashboard/">Add smart filters and smart columns to your dashboard</a>.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

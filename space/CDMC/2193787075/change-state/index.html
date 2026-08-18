@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193033035/Feature+guide/">Feature guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192903639/Administration/">Administration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193066207/Workflow+elements+and+concepts/">Workflow elements and concepts</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192967825/Triggers/">Triggers</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192870598/Trigger+actions/">Trigger actions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">change-state</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2193787075" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>change-state</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>You can use the <strong>Change State </strong>action in a trigger to automatically update the workflow state in response to a workflow event.</p><img alt="Comala visual editor changestate trigger with named state condition" class="doc-image" loading="lazy" src="/cms_trial/assets/787838ed-f23f-4df7-90cb-ca14dcd63fbb.png"/><p>For example, it can be used to fast-track a single reviewer’s rejection decision when multiple reviewers are assigned to an approval.</p><img alt="Comala visual editor changestate trigger on reviewer rejected event" class="doc-image" loading="lazy" src="/cms_trial/assets/9e6a80a9-2b59-459e-a92c-80b663705047.png"/><h2 id="change-state-action-parameters">Change State action parameters</h2><table><tr><th><p><strong>Action Parameter</strong></p></th><th><p><strong>Value</strong></p></th><th><p><strong>Notes</strong></p></th></tr><tr><td><p><strong>State  </strong><span class="status-lozenge">MANDATORY</span></p></td><td><p>Use the dropdown to select one of the states in the workflow.</p></td><td><p>The state options are populated by the states in the workflow.</p><div class="panel panel-note"><p>Changing the state name in the workflow might cause a validation error</p></div></td></tr></table><p>You can add a <strong>Change State</strong> action to a workflow trigger. When the workflow Event occurs, the trigger checks that any required Conditions are met, and if they are met, the <strong>Change State</strong> action forces a change of the state to a specified state.</p><p>This lets you respond flexibly to workflow events, such as when a single reviewer approves a page.</p><h2 id="change-state-json-code">“change-state” JSON code</h2><p>A <strong>Change State</strong> workflow trigger action added using the <a href="/cms_trial/space/CDMC/2193162438/Visual+builder+editor/">visual editor</a> is automatically displayed as the <code>“change-state”</code> trigger action in the workflow code editor.</p><img alt="Comala code editor changestate trigger on rejected event" class="doc-image" loading="lazy" src="/cms_trial/assets/0f18e8e7-656e-4d5f-9d36-972c7e6e1172.png"/><p>You can also use the code editor to add the workflow trigger and the <code>“change-state”</code> action.</p><h2 id="change-state-parameters-and-workflow-example-code">"change-state" parameters and workflow example code:</h2><h3 id="change-state"><code>"change-state"</code></h3><p>The trigger action <code>"change-state"</code> causes the state to change to the specified state if the provided parameters are valid.</p><ul><li><p><strong>action (</strong><em><strong>change-state</strong></em><strong>)</strong></p><ul><li><p><strong>state❗️</strong> destination workflow state for the action</p><ul><li><p>state must be a state in the workflow</p></li><li><p>state names are case-sensitive</p></li></ul></li></ul></li></ul><p><strong>❗️ Mandatory parameter</strong></p><ul><li><p><strong>state parameter</strong></p></li><li><p>state parameter must be included with a valid value for the destination state</p></li></ul><h3 id="example-trigger-code">Example trigger code</h3><pre><code class="language-">"triggers":
 [
 	{"event": "on-change-state",
@@ -178,6 +183,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

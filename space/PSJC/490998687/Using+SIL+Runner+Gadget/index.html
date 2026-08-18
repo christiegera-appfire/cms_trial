@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490996521/Feature+guides/">Feature guides</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490998486/SIL+Runner+Gadget/">SIL Runner Gadget</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490996338/SIL+Runner+Gadget+configuration/">SIL Runner Gadget configuration</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Using SIL Runner Gadget</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/490998687" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Using SIL Runner Gadget</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>When you select a script from the list, the <strong>Description</strong> field will automatically be filled in.</p><p>The <strong>Parameters</strong> field is used to pass values <strong>into</strong> your SIL™ program. To add a parameter click the <strong>Add Parameter</strong> button.</p><div class="panel panel-warning"><h3 id="notes">Notes</h3><ul><li><p>Parameter names must be unique, otherwise the most recent definition will overwrite the previous ones. This includes parameters with no name.</p></li><li><p>You can customize the gadget to be more user friendly, by asking <strong>parameters</strong> in a different way. You can find more details <a href="/cms_trial/space/PSJC/435028593/Parameter+Functions/">here</a>.</p></li></ul></div><img alt="Power Scripts for Jira Cloud gadget execution display" class="doc-image" loading="lazy" src="/cms_trial/assets/db310b57-1e3e-4ecb-af0a-97d1251fbb8f.png"/><img alt="Power Scripts for Jira Cloud webhook configuration dialog" class="doc-image" loading="lazy" src="/cms_trial/assets/8f5d14f1-7107-461f-8258-11e4a19d5ce8.png"/><p><br/>The parameters will be passed into the program using the <strong>argv</strong> variable. The values will be available using a construct like <strong>argv["parameter_name"]</strong> or <strong>argv[position].</strong> For the above example, the number of rockets can be retrieved using <strong>argv["groupname"]</strong> or <strong>argv[2]</strong>. You can reorder the parameters using drag and drop.</p><p>Once you run the script, the program console will be displayed.</p><img alt="Power Scripts for Jira Cloud webhooks management interface" class="doc-image" loading="lazy" src="/cms_trial/assets/d8a3b465-6d62-4adc-b1ca-8f32978c43a0.png"/><div class="panel panel-success"><p>You can use the <a href="/cms_trial/space/PSJC/433000617/runnerLog/">RunnerLog</a> function to print info in the console as the program runs. Note that the console buffer is limited to 512 lines every ~0.5 sec and the console will only display the latest 512 lines.</p></div><h4 id="example-code"><strong>Example code</strong></h4><pre><code class="language-">runnerLog("Preparing to start a war...");
 
 runnerLog("Building tanks...");
@@ -166,6 +171,64 @@ return "Good job! The world is now at war!";</code></pre><div class="panel panel
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

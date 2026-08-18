@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434798967/Simple+Issue+Language/">Simple Issue Language</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/15731951/Getting+started+with+SIL/">Getting started with SIL</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490996499/Basic+examples+and+code+snippets/">Basic examples and code snippets</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/491001871/Code+snippets/">Code snippets</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Using the split() Function</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/491002050" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Using the split() Function</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>Many support requests come from users who want to do some kind of text parsing. One of the most effective (and easiest!) ways of parsing scripts is by using the split() function.</p><h2 id="splitting-a-multiline-text-custom-field">Splitting a Multiline Text Custom Field</h2><p>Let's say you want to get the value of the third line a multiline text field. At first, this may seem difficult but not if we use the split() function. For example:</p><table><tr><td><pre><code class="language-">string [] textLines = split(#{textFieldMultiLine}, "\\u000A");
 string thirdLine = textLines[2];</code></pre></td></tr></table><p>As you can see by the above code that we can split up the lines by telling the SIL interpreter to look for the line feed unicode (\u000A). Since our escape character is embedded inline, we use two escape characters. </p><p>For a complete list of unicode characters, see this Wikipedia article:</p><p><a href="https://en.wikipedia.org/wiki/List_of_Unicode_characters">https://en.wikipedia.org/wiki/List_of_Unicode_characters</a> </p><h2 id="string-concatenation">String Concatenation</h2><p>Let's say you wanted to join all lines of our hypothetical multiline text field. You can either loop through all the elements and append each element together, or you can cheat and use the replace() function.</p><table><tr><td><pre><code class="language-">string [] textLines = split(#{textFieldMultiLine}, "\\u000A");
 string allTogether = replace(textLines, "|", "");</code></pre></td></tr></table><p>All this does is replace pipe separators found in an array with an empty string. The same thing can be accomplished by using the join() function:</p><table><tr><td><pre><code class="language-">string [] textLines = split(#{textFieldMultiLine}, "\\u000A");
@@ -169,6 +174,64 @@ for(i=0; i&lt;size(tabletext); i++){
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

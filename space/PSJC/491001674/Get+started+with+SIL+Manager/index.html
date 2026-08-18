@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434798967/Simple+Issue+Language/">Simple Issue Language</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/15731951/Getting+started+with+SIL/">Getting started with SIL</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/491001660/Scripting+basics/">Scripting basics</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Get started with SIL Manager</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/491001674" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Get started with SIL Manager</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="panel panel-note"><p>To navigate to the SIL Manager, click on administration (the cog) → Manage apps → SIL Manage</p></div><h2 id="step-1-create-a-file-in-the-sil-manager">Step 1 - Create a File in the SIL Manager</h2><ol><li><p>Click on "Selection".</p></li><li><p>Click on "New File".</p></li><li><p>Create a file name.</p></li><li><p>Click on the check mark or press Enter to save the file name. </p></li></ol><img alt="Power Scripts for Jira Cloud workflow configuration demo" class="doc-image" loading="lazy" src="/cms_trial/assets/2fedade6-259c-4438-8d08-92812b5806af.gif"/><h2 id="step-2-set-run-configuration">Step 2 - Set Run Configuration</h2><img alt="Power Scripts for Jira Cloud SIL Manager navigation demo" class="doc-image" loading="lazy" src="/cms_trial/assets/f821adaf-85c2-4410-9c1b-9640bdebd2fa.gif"/><h2 id="step-2-run-the-script">Step 2 - Run the Script</h2><ol><li><p>Click on the "Check" button to lint and check the code for syntax errors.</p></li><li><p>Click on the "Save button to save the file.</p></li><li><p>Click on the "Run" button to run the script.</p></li></ol><img alt="Power Scripts for Jira Cloud script execution demo" class="doc-image" loading="lazy" src="/cms_trial/assets/60f684d5-e996-4d19-93e4-3998adf2c96b.gif"/><p>At the bottom of the SIL Manager, you will see output:</p><img alt="Power Scripts for Jira Cloud workflow automation icon" class="doc-image" loading="lazy" src="/cms_trial/assets/36d15a7b-f6ee-4d7f-a46f-08fd2503f613.png"/><h2 id="syntax-errors">Syntax Errors</h2><p>To see if there are any syntax errors:</p><ol><li><p>Click on the "Check" button.</p></li><li><p>Hover over the red "X" box.</p></li></ol><img alt="Power Scripts for Jira Cloud template configuration demo" class="doc-image" loading="lazy" src="/cms_trial/assets/09472f1e-4559-4f90-86cc-74f595040889.gif"/><p>When clicking the "Run" button, the errors are displayed a the bottom of the SIL Manager.</p><img alt="Power Scripts for Jira Cloud getting started success message" class="doc-image" loading="lazy" src="/cms_trial/assets/2488e983-d488-42a0-9fb5-0470937f12d5.png"/><h2 id="additional-help">Additional Help</h2><p>Need help implementing this script? Talk to me directly to me by clicking on the bot on this page.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

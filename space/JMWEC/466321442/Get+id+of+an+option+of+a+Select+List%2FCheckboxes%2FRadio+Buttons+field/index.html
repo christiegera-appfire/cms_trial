@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465241585/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Get id of an option of a Select List/Checkboxes/Radio Buttons field</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/466321442" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Get id of an option of a Select List/Checkboxes/Radio Buttons field</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>This article provides the steps to retrieve the id of an option of a Select List field (single and multiple-choice) or a Checkboxes or a Radio Buttons field on Jira Cloud.</p><h2 id="instructions">\uD83D\uDCD8 Instructions</h2><p>Here, we’re retrieving the id of “Recurring incident” option of a <u><strong><em>Select List (single choice)</em></strong></u><strong> field </strong>called “Investigation reason”</p><ol><li><p>Log in as a Jira admin in your cloud instance.</p></li><li><p>Click on the admin icon (cog wheel) at the top right and click on “Issues”.</p><img alt="JMWE for Jira Cloud field configuration panel for custom field options" class="doc-image" loading="lazy" src="/cms_trial/assets/7e821d21-8ceb-4a10-9cec-149afe7d7e8f.png"/></li><li><p>Click on “Custom fields” under “FIELDS” in the left panel.</p><img alt="Select list options panel for JMWE for Jira Cloud custom field configuration" class="doc-image" loading="lazy" src="/cms_trial/assets/24499598-99ad-4cbc-b3a5-b508bbf8006f.png"/></li><li><p>Search for the desired field in the search box on the “Custom fields” page. Click on the three dots at the right of the target field and select “Context and default value”</p><img alt="JMWE for Jira Cloud field options interface showing selection and configuration settings" class="doc-image" loading="lazy" src="/cms_trial/assets/f92f31ec-a115-49d4-bdaf-75398623d593.png"/></li><li><p>Click on “Edit Options” on the field configuration page.</p><img alt="JMWE for Jira Cloud custom field option configuration with ID retrieval interface" class="doc-image" loading="lazy" src="/cms_trial/assets/54f28fbc-ea2d-49e1-a7cf-3432f0531e8f.png"/></li><li><p>Now, hover on the “Edit” button of the desired option(here, “Recurring incident”) and look at the URL below to find the id of this option.</p><img alt="JMWE for Jira Cloud select list field configuration showing option management" class="doc-image" loading="lazy" src="/cms_trial/assets/75d7a447-af6a-4b8c-a3fe-c14e16991acf.png"/></li></ol><p>You can follow the same process to get the id of an option of a <u><strong><em>Select List (multiple choices)</em></strong></u> or a <u><strong><em>Checkboxes</em></strong></u> or a <u><strong><em>Radio Buttons</em></strong></u> field.</p><h2 id="related-articles">\uD83D\uDCCB Related articles</h2><div class="img-placeholder">[Unmapped macro: contentbylabel — no content to fall back on]</div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

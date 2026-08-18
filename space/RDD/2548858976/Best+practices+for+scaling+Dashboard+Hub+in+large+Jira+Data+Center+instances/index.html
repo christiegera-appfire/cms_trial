@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309984/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Best practices for scaling Dashboard Hub in large Jira Data Center instances</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/2548858976" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Best practices for scaling Dashboard Hub in large Jira Data Center instances</h1>
+    <div class="page-meta">4 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>This page offers recommendations and tips for enhancing the performance of dashboards in large data center environments.</p><h2 id="1-manage-access-to-dashboard-hub-through-user-groups"><strong>1. Manage access to Dashboard Hub through user groups</strong></h2><p>While Dashboard Hub for Data Center does not currently include a dedicated permission to restrict who can <em>create dashboards</em>, you can effectively control usage and system load by limiting access to the application through Jira user groups.</p><p>We recommend the following approach:</p><ul><li><p>Start by granting access to a <strong>specific group</strong> (for example, <em>dashboard-hub-users</em> or <em>reporting-creators</em>) that includes only administrators, reporting specialists, or advanced users.</p></li><li><p>Keep Dashboard Hub restricted for general users<strong> </strong>until you confirm the system performance behaves as expected.</p></li><li><p>Gradually expand access by adding more groups as adoption increases and system metrics remain stable.</p></li></ul><p>This approach helps prevent mass dashboard creation, reduces the number of concurrent data queries, and allows your team to monitor the impact on performance in a controlled manner.</p><div class="panel panel-success"><p> Dashboard Hub for Data Center relies entirely on your existing Jira infrastructure and database. It does not use external services or storage engines, so the primary scalability factors are the number of dashboards created and the volume of data queried.</p></div><h2 id="2-roll-out-access-gradually-and-monitor-usage"><strong>2. Roll out access gradually and monitor usage</strong></h2><p>For large Jira Data Center environments, the best approach is to introduce Dashboard Hub in controlled phases. This helps your administrators and reporting teams observe adoption patterns, measure system impact, and adjust access or dashboard design if necessary.</p><p>We recommend the following staged rollout plan:</p><h3 id="phase-1-pilot-group"><strong>Phase 1: Pilot group</strong></h3><ol><li><p>Start with a small number of users (for example, Jira administrators and reporting specialists).</p></li><li><p>Validate permissions, data sources, and general dashboard performance.</p></li><li><p>Collect early feedback about usability and dashboard load times.</p></li></ol><h3 id="phase-2-power-users-and-team-leads"><strong>Phase 2: Power users and team leads</strong></h3><ol><li><p>Extend access to users who will actively create or maintain dashboards for their teams.</p></li><li><p>Encourage best practices in dashboard design (number of gadgets, slides, refresh rates).</p></li><li><p>Monitor concurrent usage during working hours.</p></li></ol><h3 id="phase-3-organization-wide-adoption"><strong>Phase 3: Organization-wide adoption</strong></h3><ol><li><p>Gradually add new user groups once stability and performance are confirmed.</p></li><li><p>Communicate internally about recommended dashboard usage limits and how to request access.</p></li></ol><h3 id="phase-4-continuous-monitoring"><strong>Phase 4: Continuous monitoring</strong></h3><ol><li><p>Periodically review which dashboards are used the most.</p></li><li><p>Archive or delete obsolete dashboards to keep the system tidy.</p></li><li><p>Adjust group permissions if some areas of the organization do not require Dashboard Hub.</p></li></ol><div class="panel panel-success"><p> Monitoring doesn’t require additional tools; you can track usage through Jira’s audit logs, and your system administrators can check app-level activity via standard Data Center monitoring tools.</p></div><h2 id="3-optimize-dashboards-for-performance-and-usability"><strong>3. Optimize dashboards for performance and usability</strong></h2><p>The number of dashboards in the system is not a direct performance concern; the main factor is the amount of data being queried and displayed when dashboards are viewed, especially if many users access them simultaneously.</p><p>To ensure a smooth experience across your instance, we recommend the following best practices:</p><ul><li><p><strong>Limit dashboard complexity: </strong>Use a maximum of three slides per dashboard, with no more than nine to ten gadgets per slide. This keeps load times predictable and prevents large concurrent data requests.</p></li><li><p><strong>Group related information logically: </strong>Instead of creating very large dashboards, split content into multiple smaller dashboards by use case, for example, <em>Team Performance</em>, <em>Project KPIs</em>, or <em>Incident Overview</em>.</p></li><li><p><strong>Avoid excessive refresh rates: </strong>If a dashboard includes gadgets with live data, for example, Jira issues or metrics from external data sources, use reasonable refresh intervals (default or higher) to reduce repeated API calls.</p></li><li><p><strong>Monitor usage patterns: </strong>If possible, identify the dashboards most often used by large groups of users and review their structure; simplifying them can improve the experience for everyone.</p></li></ul><div class="panel panel-success"><p>Performance in Dashboard Hub DC scales mainly with the number of concurrent gadget queries. Keeping dashboards concise ensures the system remains responsive even under heavy load.</p></div><h2 id="4-technical-considerations-for-large-environments"><strong>4. Technical considerations for large environments</strong></h2><p>Dashboard Hub for Data Center is designed to run entirely within your Jira infrastructure and uses Jira’s APIs to collect and visualize data (or other APIs, depending on the gadget).</p><p>Performance mainly depends on concurrent dashboard usage and the complexity of the data queries executed by gadgets. To ensure optimal performance in large environments, administrators can configure specific parameters under <strong>Global Settings </strong>→<strong> Performance Options</strong>, as described in <a href="/cms_trial/space/RDD/811106832/Manage+Performance+Options/"><u>Manage Performance Options</u></a><u>.</u></p><img alt="Dashboard Hub scaling recommendations for large Jira Data Center instances" class="doc-image" loading="lazy" src="/cms_trial/assets/dc9d876d-c295-4423-818f-0606ef40517c.png"/><h3 id="performance-options">Performance Options</h3><ul><li><p><strong>Auto refresh interval</strong></p><ul><li><p>Defines how often gadget data is automatically updated.</p></li><li><p>For large instances, it’s recommended to increase the interval (10–15 minutes) or even disable automatic refresh to reduce background API calls.</p></li><li><p>Users can still refresh dashboards manually when needed.</p></li><li><p><em>High-priority gadgets</em> are updated every minute regardless of this setting.</p></li></ul></li><li><p> <strong>Issue limit per gadget</strong></p><ul><li><p>Controls the <strong>maximum number of Jira issues</strong> returned by JQL queries.</p></li><li><p>Default: 2,500.</p></li><li><p>Reducing this limit can significantly improve chart rendering time for large issue sets.</p></li><li><p>For global or project-level dashboards, keep queries focused and indexed.</p></li></ul></li></ul><ul><li><p><strong>Maximum parallel requests</strong></p><ul><li><p>Sets the <strong>number of concurrent threads</strong> Dashboard Hub uses to request data from Jira or external sources.</p></li><li><p>Default: 6.</p></li><li><p>Increasing this value can improve load times, but it also increases CPU usage. In very large instances, it’s safer to keep this value low (2–3).</p></li></ul></li></ul><div class="panel panel-success"><p>These settings can be adjusted without downtime and allow administrators to fine-tune Dashboard Hub’s behavior to match their infrastructure’s capacity and user concurrency patterns.</p></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

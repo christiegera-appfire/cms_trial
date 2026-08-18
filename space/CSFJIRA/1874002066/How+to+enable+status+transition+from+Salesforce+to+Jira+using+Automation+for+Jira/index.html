@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1874100241/Configuration/">Configuration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1874001954/Automate+your+integration/">Automate your integration</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">How to enable status transition from Salesforce to Jira using Automation for Jira</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/1874002066" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>How to enable status transition from Salesforce to Jira using Automation for Jira</h1>
+    <div class="page-meta">4 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="purpose">Purpose</h2><p>We'll discuss how to synchronize status from Salesforce to Jira since the status field in Jira is <strong>read-only</strong>. This allows the pushing of status updates from Salesforce to Jira, thus completing the overall automated workflow process. The following are the steps to show how you can utilize Automation for Jira in conjunction with the connector to enable a more seamless workflow transition. </p><h2 id="answer">Answer</h2><p>The following knowledgebase article explains how you can utilize Automation for Jira in conjunction with the connector to enable a more seamless workflow transition.</p><p>You may incur charges for using Jira Automation. For Jira Cloud, single project rule executions do not count towards the usage. Check this documentation for more information: <a href="https://support.atlassian.com/jira-software-cloud/docs/how-is-my-usage-calculated/">How is my usage calculated?</a> You can also <a href="https://support.atlassian.com/jira-software-cloud/docs/view-your-usage/">view your usage</a> to keep track of how many executions left in the month. For Jira Server, please see guidelines <a href="https://marketplace.atlassian.com/apps/1215460/automation-for-jira-server?hosting=server&amp;tab=overview">here</a>.</p><h2 id="basics-automation-for-jira">Basics: Automation for Jira</h2><p>The main thing about automation is to create a <strong>rule</strong>. The <strong>rule</strong> in Automation for Jira consists of 4 key concepts:</p><ul><li><p>Triggers - The starting action that will be used as a reference to kick-off the automation. (The <em>Listener)</em></p></li><li><p>Conditions - This allows the user to narrow down the scope and be more specific on the required use-case.</p></li><li><p>Actions - When the Triggers and Conditions are met, this will be the one that performs the <em><strong>automation</strong></em><em>.</em></p></li><li><p>Branch Rule - This will apply the actions to all the related issues that you’ve selected/filtered.</p></li></ul><h2 id="creating-a-rule">Creating a rule</h2><p>For this example, we are creating a rule to specifically automate status transition. Automation for Jira can be used for many other use cases.</p><ol><li><p>Navigate to <strong>Settings &gt; System &gt; Global automation.</strong><br/><strong> </strong>You can also press “Cmd + K” or “.” (dot) to open up the shortcut navigator and search for “Automation”.</p><img alt="Screenshot of navigator" class="doc-image" loading="lazy" src="/cms_trial/assets/994e89dd-8110-4591-99c6-63f8b8b95f4b.png"/></li><li><p>Click <strong>Create rule</strong> on the top right.</p></li><li><p>This is where you will need to specify the <strong>Trigger.</strong></p><img alt="contentId-1874002066" class="doc-image" loading="lazy" src="/cms_trial/assets/bde4add6-b4a6-49c5-8a94-5dd6f0ecb546.png"/></li><li><p>Select <strong>Field value changed </strong>for this specific use-case to automate remote status transition.</p></li><li><p>Have a custom field configured in Jira that acts as a middle-man between Jira and Salesforce. We recommend using the <strong>Select List (Single Choice) </strong>field type as it can be an additional <em>status </em>field that can be used to sync Salesforce and Jira. We created the <strong>Remote Status Transition</strong> field as an example - see diagram below.</p></li><li><p>You can also select if you want it to be specific to a <em>Work item operation</em>: Create work item, Edit work item, Transition work item, Assign work item, or leave it blank for <em>All</em> <em>work item operations</em>.</p><img alt="2025-10-16_09-29-29.png" class="doc-image" loading="lazy" src="/cms_trial/assets/c638aa2d-ba18-43b9-8f77-48ac23ee40f7.png"/></li><li><p>After clicking <strong>Next</strong>, you can choose to add a <strong>condition, branch rule, or action</strong>.</p><img alt="2025-10-16_09-30-44.png" class="doc-image" loading="lazy" src="/cms_trial/assets/aac66873-82f3-414e-932a-f56275ba74cd.png"/></li><li><p>Select <strong>Add a condition.</strong></p><img alt="screenshot of condition" class="doc-image" loading="lazy" src="/cms_trial/assets/b9e10d95-be56-4b1c-a127-2010455fe1ac.png"/></li><li><p>From here, you can choose how to narrow down the scope. We use <strong>User condition</strong> and we select the <strong>Salesforce &amp; Jira Cloud Connector </strong>app user (at the Criteria) as the <strong>User condition.</strong></p><img alt="screenshot of fuser condition" class="doc-image" loading="lazy" src="/cms_trial/assets/57878320-1a70-4743-b9d9-063fa2790dcd.png"/></li><li><p>Step 9 will ensure that the automation will only run if the value is changed by the Salesforce and Jira Connector app.</p></li><li><p>Add an additional condition by selecting the <strong>New condition</strong> again then select the <strong>Work item fields condition</strong>.</p></li><li><p>Now, select the custom field that you’ve created. in this scenario, we will select <strong>Remote status transition</strong> and select <strong>equals</strong> to <strong>Yes</strong>. This <strong>Work item fields condition </strong>combined with the <strong>User condition</strong> (in step 9) will make sure that the automation will only run if the value of the field is changed to <strong>Yes</strong>, and the user who changes the value is the <strong>Salesforce &amp; Jira Cloud Connector </strong>app user. ⚠️ Ensure that the field is added to the “Edit” Jira Issue screen; otherwise, the Automation would not be able to detect the field changes.</p><img alt="screenshot of work item field condition" class="doc-image" loading="lazy" src="/cms_trial/assets/d9fb8895-6ac5-4b3e-bc58-fe2602b134c8.png"/></li><li><p>After saving, add a <strong>New action.</strong></p></li><li><p>From here, you can select the various types of actions that the automation can perform. Select <strong>Transition work item.</strong></p></li><li><p>Select the <strong>Destination status </strong>to the status that you want the automation to transition to.</p><img alt="screenshot of transitioning work item" class="doc-image" loading="lazy" src="/cms_trial/assets/9f0353f5-cdde-4491-ba50-873387de9ab6.png"/></li><li><p>Lastly, click <strong>Turn on rule</strong> to enable the automation.</p><img alt="contentId-1874002066" class="doc-image" loading="lazy" src="/cms_trial/assets/1ccb8cf6-2386-42ea-9b40-5501b680b1f6.png"/></li><li><p>Now, you’ll have an automation that will transition the issue status to <strong>Waiting for Jira Team</strong> whenever the following scenario occurs.</p><ol><li><p>The value for the <strong>Remote Status Transition</strong> field is updated.</p></li><li><p>The user that updates the <strong>Remote Status Transition</strong> field is the <strong>Salesforce &amp; Jira Cloud Connector </strong>app user.</p></li><li><p>The value for <strong>Remote Status Transition</strong> is changed to <strong>Yes</strong>.</p></li></ol></li></ol><h2 id="workflow-post-function-to-synergize-with-the-automation">Workflow post-function to synergize with the automation</h2><ol><li><p>Since the above automation is configured to transition the issue to a specific status based on a Select List field value, we can create a post-function to enable looping.</p></li><li><p>To do that, navigate to the project’s workflow (Project settings &gt; Workflow)</p></li><li><p>Click on a transition to the status, and click <strong>Post Functions</strong> on the right.</p><img alt="Screenshot of Post Functions option" class="doc-image" loading="lazy" src="/cms_trial/assets/94714b34-82d3-481d-a154-6683995c4625.png"/></li><li><p>From here, click on the <strong>Add post function </strong>button on the right.</p><img alt="screenshot of Add Post Function window" class="doc-image" loading="lazy" src="/cms_trial/assets/c66dc34f-d498-4f99-a533-fae2bbe03f82.png"/></li><li><p>Select <strong>Update Issue Custom Field </strong>and click <strong>Add.</strong></p><img alt="Screenshot of Post Functions to transition" class="doc-image" loading="lazy" src="/cms_trial/assets/e4724357-1c4c-4502-b011-2cc48760efdf.png"/></li><li><p>Select <strong>Remote Status Transition </strong>field and enter <strong>No</strong> for the Custom Field Value.</p><img alt="Screenshot of adding Parameters to functions" class="doc-image" loading="lazy" src="/cms_trial/assets/c54a211d-66c1-44c5-b329-5a3608c2b2b0.png"/></li><li><p>After adding the post function, remember to publish the draft of the workflow.</p></li><li><p>With the post function added, the <strong>Remote Status Transition</strong> field value will change to <strong>No</strong> whenever the transition happens, in this case, we configured the transition to <strong>In Progress</strong> status.</p></li></ol><p><br/></p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/994378270/Integration+guides/">Integration guides</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Remote systems configuration</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/490996050" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Remote systems configuration</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>You can trigger remote SIL script execution using the <code>call()</code> function, specifying the configured remote system name as a parameter, creating a powerful option for coordinating workflows across multiple Atlassian instances.</p></div></div><hr/><h2 id="how-to-add-a-remote-system">How to add a remote system</h2><ol><li><p>In your Jira Cloud instance, go to <strong>Power Scripts</strong> &gt; <strong>Configurations</strong>.</p></li><li><p>Click <strong>Integrations</strong> &gt; <strong>Remotes</strong>.</p></li><li><p>Click <strong>Add Remote </strong>and<strong> </strong>fill in the required fields:</p><ol><li><p><strong>Name</strong>: Create a unique name for this remote system.</p></li><li><p><strong>Remote URL</strong>: Enter the base URL of the remote system following the format <code>https://&lt;server&gt;:&lt;port&gt;/&lt;context&gt;</code>.</p></li><li><p><strong>Username </strong>and<strong> Password</strong>: Provide your credentials for authenticating with the remote system.</p></li><li><p>(Optional) <strong>Timeout</strong>: Specify the initial response time limit in milliseconds before the system considers the remote connection attempt failed.</p></li><li><p>(Optional) <strong>Check result</strong>: Define the interval in milliseconds between polling attempts for asynchronous remote execution results; lower values may reduce overall execution time but increase CPU usage.</p></li><li><p>(Optional) <strong>Use Proxy</strong>: Enable proxy server configuration for connecting to remote systems outside your network. When turned on, the proxy settings become available for setup.<br/>See <a href="/cms_trial/space/PSJC/490996050/Remote+systems+configuration/">How to configure the proxy settings</a> below for additional information.</p></li></ol></li><li><p>Click <strong>Save</strong>.<br/>The integration displays as a new entry on the <em>Slack Configurations</em><em><strong> </strong></em>page. </p></li></ol><hr/><h2 id="how-to-manage-remote-systems">How to manage remote systems</h2><p>You can modify or remove a configuration at any time by clicking the <strong>Edit </strong>or <strong>Delete </strong>icons. Changes to the configuration are applied immediately.</p><hr/><h2 id="how-to-configure-the-proxy-settings">How to configure the proxy settings</h2><p>If your network requires a proxy server to reach remote systems, you must configure the following proxy settings:</p><ul><li><p><strong>Proxy URL</strong>: Enter the complete URL of the proxy server.</p></li><li><p><strong>Realm</strong>: Specify the authentication realm if required by your proxy.</p></li><li><p><strong>Proxy host </strong>and<strong> Proxy port</strong>: Provide the hostname/IP address and port number of the proxy server.</p></li><li><p><strong>Proxy username</strong> and <strong>Proxy user password</strong>: Enter the username and password for proxy authentication.</p></li></ul><div class="panel panel-note"><p>Contact your network administrators to obtain the correct proxy configuration details for your environment. Simply entering placeholder values will not establish a working connection.</p></div><hr/><h2 id="more-configuration-guides">More configuration guides</h2><div class="img-placeholder">[Unmapped macro: contentbylabel — no content to fall back on]</div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

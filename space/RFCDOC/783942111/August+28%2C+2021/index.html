@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud) Documentation</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941853/Release+Notes/">Release Notes</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/1595769075/Release+notes+2021%E2%80%932024/">Release notes 2021–2024</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783943820/2021/">2021</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">August 28, 2021</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/783942111" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>August 28, 2021</h1>
+    <div class="page-meta">1 min read</div>
     <h2 id="customizations-in-rich-filter-results-views">Customizations in Rich Filter Results Views</h2><p>The views displayed by the <a href="/cms_trial/space/RFCDOC/783941759/The+Rich+Filter+Results+Gadget/">Rich Filter Results</a> gadgets can now be configured with display options for columns. Currently, the following settings are available in the <a href="/cms_trial/space/RFCDOC/783941729/Configure+views/">views configuration</a> page:</p><ul><li><p>for any column, you can choose the header of the column among the following options:</p><ul><li><p>no header,</p></li><li><p>a user-defined header,</p></li><li><p>the name or the initials of the Jira field, <a href="/cms_trial/space/RFCDOC/783941713/Configure+smart+filters/">smart filter</a> or <a href="/cms_trial/space/RFCDOC/783942033/Configure+custom+values/">custom value</a> the column is based on;</p></li></ul></li><li><p>for columns based on <a href="/cms_trial/space/RFCDOC/783941713/Configure+smart+filters/">smart filters</a>, you can choose whether the column should display the colored labels, only the colors, or only the labels of the smart filter clauses.</p></li></ul><p>These customizations give you more control over the way data is displayed in Rich Filter Results gadgets, for instance by allowing you to choose between compactness and explicitness in each view, according to the use case and context.</p><p>Example of configuration for a column based on a smart filter named High Level Status:</p><img alt="contentId-783942111" class="doc-image" loading="lazy" src="/cms_trial/assets/24c655b0-abc8-43cf-a146-a8c6fb3cf510.png"/><img alt="contentId-783942111" class="doc-image" loading="lazy" src="/cms_trial/assets/d31df31a-1a73-4862-8baa-f8aaef656e8d.png"/>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

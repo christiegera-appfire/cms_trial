@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193033035/Feature+guide/">Feature guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192903639/Administration/">Administration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193066207/Workflow+elements+and+concepts/">Workflow elements and concepts</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192967825/Triggers/">Triggers</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192870598/Trigger+actions/">Trigger actions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">add-labels</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2193458799" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>add-labels</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview</h2><p>You can use the <strong>Add Labels</strong> action in a workflow trigger to automate adding one or more labels to a page or blog post. This can help reduce inconsistencies in document labeling and reduce your team's manual workload.</p><img alt="Comala addlabels trigger action with two labels applied to page only" class="doc-image" loading="lazy" src="/cms_trial/assets/b39061c9-017a-4d68-b8ce-81ab4efc3245.png"/><p>When you set the <strong>Add only to child pages</strong> configuration to <strong>True</strong>, labels are applied to the page's <strong>immediate children</strong> but not to the parent page itself or any further level of child pages.</p><img alt="Comala addlabels trigger action with two labels applied to immediate child pages only" class="doc-image" loading="lazy" src="/cms_trial/assets/8ab42120-0a9f-4970-b8ee-d28c94a440a6.png"/><h2 id="add-labels-action-parameters">Add Labels action parameters</h2><table><tr><th><p><strong>Action Parameters</strong></p></th><th><p><strong>Value</strong></p></th><th><p><strong>Notes</strong></p></th></tr><tr><td><p><strong>Labels </strong><span class="status-lozenge">MANDATORY</span><strong> </strong></p></td><td><p>One or more Confluence labels</p></td><td><p>At least one label must be added.</p></td></tr><tr><td><p><strong>Add only to child pages</strong></p></td><td><p>Dropdown option:</p><ul><li><p><strong>False</strong> (default)</p></li><li><p><strong>True</strong></p></li></ul></td><td><p>When set to <strong>True</strong>, label(s) are added to the immediate child pages of the current page.</p></td></tr></table><p>When the workflow Event occurs, the trigger checks that any required Conditions are met, and if they are, the <strong>Add Labels</strong> action adds one or more specified labels to a document or its immediate child pages.</p><div class="panel panel-note"><p>This Add Label trigger action is part of a gradual rollout of new features and is not immediately available to all our customers.</p></div><h2 id="add-labels-json-code">“add-labels” JSON code</h2><p>An <strong>Add Restrictions</strong> workflow trigger action added using the visual editor is automatically displayed as an <code>“add-restrictions”</code> trigger action code editor.</p><img alt="Comala code editor showing addrestrictions trigger configuration" class="doc-image" loading="lazy" src="/cms_trial/assets/27567bc0-9dde-4233-abf0-67e7156e3165.png"/><p>You can also use the code editor to add the workflow trigger and the <code>“add-restrictions”</code> action.</p><h2 id="add-labels-parameters-and-workflow">"add-labels" parameters and workflow </h2><h3 id="add-labels"><code>"add-labels"</code></h3><p>The trigger action <code>"add-labels"</code> adds one or more specified labels to either</p><ul><li><p>a document (page or blog post) with the applied workflow</p></li><li><p>the immediate direct child pages of the document with the applied workflow (but not the parent page itself or any further levels of child pages)</p></li><li><p><strong>action (</strong><em><strong>add-labels</strong></em><strong>) </strong></p><ul><li><p><strong>labels ❗️</strong> At least one label (as a text string) must be added</p><ul><li><p>labels added as an array inside square brackets [ ], for example, <code>"labels": ["stale"]</code></p></li><li><p>add a comma-separated list to add multiple labels, for example, <code>"labels": ["stale", "in_review"]</code></p></li></ul></li><li><p><strong>Children </strong>add specified labels to direct child pages, but not to the parent page itself or any further level of children</p><ul><li><p>boolean <code>true</code> or <code>false</code></p></li><li><p>default value is <code>"children": false</code>, specified labels are added to the current page only</p></li><li><p>when the value is <code>"children": true</code>, specified labels are added to the direct child pages. Labels are applied only to the <strong>immediate children</strong> of the page - not to the parent page itself or any further level of child pages</p></li></ul></li></ul></li></ul><div class="panel panel-note"><p> If the <code>"children"</code> parameter is not included in the workflow trigger code, the default value <code>false</code> is used, and the specified labels are only added to the page with the applied workflow.</p></div><hr/><h3 id="mandatory-parameters"><strong>❗️</strong>Mandatory parameters</h3><p><strong>labels</strong></p><p>You must include at least one label value.</p><hr/><h3 id="workflow-trigger-example">Workflow trigger example</h3><pre><code class="language-">"triggers":
 [
 	{"event": "on-change-state",
@@ -181,6 +186,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

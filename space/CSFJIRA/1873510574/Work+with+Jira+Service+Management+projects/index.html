@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1873739795/Get+started+with+Connector+for+Salesforce+%26+Jira/">Get started with Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1873477874/Installation/">Installation</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Work with Jira Service Management projects</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/1873510574" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Work with Jira Service Management projects</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 100.0fr;"><div><div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><p>Connector for Salesforce &amp; Jira works with Jira Service Management out of the box.</p><p>However, due to a <a href="https://ecosystem.atlassian.net/browse/JSDECO-14">known bug</a> in Jira Service Management, an extra permission configuration may be required to make it work. This bug most likely affects Jira Service Management projects created prior to August 2016.</p><p>If your instance is affected, see <a href="/cms_trial/space/CSFJIRA/1596752326/Configuring+Project+Permissions+for+Project+Role+(atlassian-addons-project-access)/">Configuring Project Permissions for Project Role</a>. The guide assumes that you have installed Connector for Salesforce &amp; Jira.</p></div><div></div></div><h2 id="support-for-jsm-comments-in-cloud">Support for JSM comments in cloud</h2><p>With the latest release of Connector for Salesforce &amp; Jira (Cloud), users can now control the visibility of JSM comments through Salesforce package settings.</p><img alt="sfjc-comment.png" class="doc-image" loading="lazy" src="/cms_trial/assets/2d1f4376-1b0e-4c91-afc4-2d2dc0d06435.png"/><h2 id="limitations">Limitations</h2><p>Connector for Salesforce &amp; Jira (Server) currently does not work with the Jira Service Management comment visibility setting. </p><p>However, Jira Issue comments can be viewed in Salesforce through a dedicated Visualforce panel and Chatter. For more details about this configuration, see <a href="/cms_trial/space/CSFJIRA/1962607212/View+Jira+comments+in+Salesforce/">View Jira comments in Salesforce</a>.</p><h2 id="next-steps">Next steps</h2><p>If you have not installed the Salesforce package, go to <a href="/cms_trial/space/CSFJIRA/1758232704/Install+the+Salesforce+package+in+Salesforce/">Installing the Salesforce Package</a>.</p><p>Otherwise, view <a href="/cms_trial/space/CSFJIRA/1873379599/Set+up+a+connection+to+Salesforce+(Jira+Cloud)/">Set up a connection to Salesforce</a>.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

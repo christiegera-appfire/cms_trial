@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1873739795/Get+started+with+Connector+for+Salesforce+%26+Jira/">Get started with Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1873772649/Set+up+your+integration+in+Salesforce/">Set up your integration in Salesforce</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Add new remote site</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/1873412619" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Add new remote site</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 100.0fr;"><div><p>Add a Remote Site to allow a safe connection from Salesforce to your Jira.<br/>If you're using Jira Cloud, Salesforce must connect to an intermediary server we host.</p><div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h3 id="before-you-start"><strong>Before you start</strong></h3><p>Make sure you have:</p><ul><li><p>Administrator rights in Salesforce - only administrators can set up the integration</p></li><li><p><a href="/cms_trial/space/CSFJIRA/1873412370/Install+the+Connector+in+Jira+Cloud/"><u>Installed the Connector app in Jira</u></a></p></li><li><p><a href="/cms_trial/space/CSFJIRA/1873412559/Set+up+your+integration+in+Jira/"><u>Set up your integration in Jira</u></a></p></li><li><p><a href="/cms_trial/space/CSFJIRA/1758232704/Install+the+Salesforce+package+in+Salesforce/"><u>Installed the Jira for Salesforce package in Salesforce</u></a></p></li></ul><h3 id="configuration">Configuration</h3></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><ol><li><p>In Salesforce, in the upper right corner, click the gear icon (<span class="inline-icon" title="inline icon">▢</span>) and select <strong>Setup</strong>.</p></li><li><p>In the <strong>Quick Find</strong> box, type <code>Remote Site Settings</code>.</p><img alt="Remote Site Settings" class="doc-image" loading="lazy" src="/cms_trial/assets/5e2fb0e9-476e-46b6-aeed-eb14a75e2725.png"/></li><li><p>From the results, click <strong>Remote Site Settings</strong>.</p></li><li><p>Click <strong>New Remote Site</strong> on the <em>All Remote Sites</em> screen.</p><img alt="2025-10-15_09-07-51.png" class="doc-image" loading="lazy" src="/cms_trial/assets/0dc6a000-c5da-466c-9bce-eed676fa5b22.png"/></li><li><p>On the<strong> Remote Site Edit</strong> screen, enter the following details:<br/>To ensure connectivity regardless of your data residency location, we recommend adding two remote sites for Jira Cloud: </p><ul><li><p><strong>Remote Site Name: </strong><code>Global</code><br/><strong>Remote Site URL: </strong><code>https://sfjc.integration.appfire.app</code> (Global)</p><img alt="image-20250430-083628.png" class="doc-image" loading="lazy" src="/cms_trial/assets/0ec5ce0e-7d90-4a32-a90e-0a7210694466.png"/></li><li><p><strong>Remote Site Name: </strong><code>Europe</code><br/><strong>Remote Site URL: </strong> <code>https://eu-sfjc.integration.appfire.app</code> (Europe location)</p><img alt="2025-11-07_09-43-16.png" class="doc-image" loading="lazy" src="/cms_trial/assets/86448596-1542-4351-a8db-1ca2da23db6b.png"/></li></ul></li></ol><ol><li><p> Click <strong>Save</strong></p></li></ol></div></div><h2 id="next-steps">Next steps</h2><ul><li><p><a href="/cms_trial/space/CSFJIRA/1873379599/Set+up+a+connection+to+Salesforce+(Jira+Cloud)/">Set up a connection to Jira</a> </p></li><li><p><a href="/cms_trial/space/CSFJIRA/1873543771/Use+Jira+Issues+(NextGen)+with+Lightning+Experience/">Use Jira Issues NextGen with Lightning Experience</a> </p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

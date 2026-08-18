@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3092186916/Errors+and+Error+Messages/">Errors and Error Messages</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Salesforce shows error "Permission upgrade needed"</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3092252520" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Salesforce shows error "Permission upgrade needed"</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="purpose">Purpose</h2><p>Due to certain configurations or validations on the workflow some modifications to the Jira issues are not performed by the Connector.</p><p>When unlinking the issue from the Salesforce case, errors are triggered as shown in the images below.</p><img alt="image-20250603-135841.png" class="doc-image" loading="lazy" src="/cms_trial/assets/be2d65c1-1501-4f73-b440-9f0d071c2cab.png"/><h2 id="answer">Answer</h2><p>There are two root causes for this issue:</p><h2 id="missing-integration-user">Missing Integration user</h2><p>The integration user is missing the <strong>Edit </strong>issue permission in Jira.</p><h3 id="jira-data-center">Jira Data Center</h3><ol><li><p>In Jira, go to <strong>Project Settings </strong>&gt; <strong>Project</strong> <strong>permissions</strong>.</p></li><li><p>Click <strong>Permission Helper</strong>.</p></li><li><p>In the <em>Permission helper </em>pop-up window, select the affected issue that is unlinked, and check if the user has the <strong>Edit </strong>issue permission. </p></li><li><p>Grant the user the required permission.</p></li></ol><h3 id="jira-cloud">Jira Cloud</h3><ol><li><p>In Jira, go to <strong>Project Settings </strong>&gt; <strong>Project</strong> <strong>permissions</strong>.</p></li><li><p>Search for <em>Edit Issues</em> permission and check if the project role <strong>atlassian-addons-projects-access</strong> is listed there. </p><img alt="project permissions.png" class="doc-image" loading="lazy" src="/cms_trial/assets/d011db08-e345-4283-b80f-e71f8dc1a636.png"/></li><li><p>If the role is missing, click <strong>Actions </strong>&gt; <strong>Edit Permission</strong>.</p></li><li><p>Search for <strong>Edit Issues </strong>permission and click <strong>Update.</strong></p></li><li><p>Grant the permission to the required project role and click <strong>Update</strong>.</p></li></ol><h2 id="issue-status-is-set-to-be-not-editable-in-workflow-jira-dc-only">Issue status is set to be not editable in workflow (Jira DC only)</h2><p>The status of the issue has the property "jira.issue.editable = false"</p><ol><li><p>Read this <a href="https://confluence.atlassian.com/adminjiraserver/workflow-properties-938847526.html#:~:text=Go%20to%20Administration%20%3E%20Issues.,to%20add%20a%20property%20for.">documentation </a>to understand how to access the workflow property.</p></li><li><p>Delete the property key "jira.issue.editable = false" if it exists. </p></li></ol></div><div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

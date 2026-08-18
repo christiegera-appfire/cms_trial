@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/2117042596/Release+notes+-+Cloud/">Release notes - Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Release Notes 30 June 2025</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/2135687169" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Release Notes 30 June 2025</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p><strong>Release date</strong>: <time datetime="2025-06-30">June 30, 2025</time></p><p>Our team is thrilled to announce the latest release of the Dashboard Hub family of apps for Jira, Confluence, Bitbucket and monday.com.</p><p><span class="img-placeholder" style="display:inline">[unmapped inline: placeholder]</span></p><h2 id="enhancements">Enhancements</h2><h2 id="new-dashboards-creation-experience">New Dashboards Creation Experience</h2><p>We’ve simplified how you create dashboards! The new creation flow helps users get started faster with a cleaner interface, fewer steps, and smarter defaults. Now, it easier than ever to build meaningful dashboards in just a few clicks.</p><img alt="Dashboard Hub Release Notes 30 June 2025 dashboard preview" class="doc-image" loading="lazy" src="/cms_trial/assets/3fe9f074-8e1e-4f54-b6cc-0baeb0048266.jpg"/><h2 id="bigpicture-global-template">BigPicture Global Template</h2><p>Configure all the metrics in your <a href="/cms_trial/space/RDD/1942979108/BigPicture+PPM+Insights+template/">BigPicture PPM Insights template</a> in a single step!</p><img alt="Dashboard Hub Release Notes 30 June 2025 template preview" class="doc-image" loading="lazy" src="/cms_trial/assets/b5fac85b-f9d3-485b-b0b5-74ea778377c3.jpg"/><h2 id="jcma-dataplane-to-dashboard-hub">JCMA: Dataplane to Dashboard Hub</h2><p>The Dataplane reports <a href="https://appfire.atlassian.net/wiki/spaces/dataplane/pages/455968098">https://appfire.atlassian.net/wiki/spaces/dataplane/pages/455968098</a> and <a href="https://appfire.atlassian.net/wiki/spaces/dataplane/pages/455967412">https://appfire.atlassian.net/wiki/spaces/dataplane/pages/455967412</a> are now automatically migrated to their equivalent gadgets <a href="/cms_trial/space/RDD/1914273796/Work+Items+Entering+Status+by+Date/">Work Items Entering Status by Date</a> and <a href="/cms_trial/space/RDD/866058316/Time+in+Status/">Time in Status</a> respectively in Dashboard Hub. Reports with multiple segments (e.g., multi pie charts) are now also supported in automatic migrations.</p><p>We’ve also improved error handling and diagnostics to reduce unhandled migration cases and make troubleshooting easier.</p><h2 id="performance-improvements">Performance Improvements</h2><ul><li><p>New rendering engine for charts for a better performance.</p></li></ul><h2 id="misc">Misc</h2><ul><li><p>Line charts have drill-through capabilities now.</p></li></ul><hr/><h2 id="bug-fixes">Bug fixes</h2><p>The following bugs are fixed in this release:</p><ul><li><p>Gadgets now correctly display weeks with zero counts even when the filter range starts with a zero-count week.</p></li><li><p>In some cases, if the app hadn’t been accessed for a while, the previously selected dashboard failed to load on first access.</p></li><li><p>Export to PNG in gadgets used on native Jira dashboards now works correctly.</p></li><li><p>Some JQL searches returning more than 100 issues were not sorted.</p></li><li><p>JQL failed in Custom Reports within Confluence macros.</p></li><li><p>Dashboards accessed via the Jira Service Management Customer Portal failed to load in cases where a high number of customers (large groups) were granted access.</p></li><li><p> The <strong>Met vs Breached SLA</strong> gadget (Time to SLA integration) was not displaying data and showed broken or incorrect legend labels.</p></li><li><p>Chart configuration options (hiding results or changing colors) were not always displayed.</p></li></ul><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p> <strong>Questions and feedback</strong></p><ul><li><p>Explore exciting features, pricing updates, reviews, and more on the <a href="https://marketplace.atlassian.com/apps/1223898/dashboard-hub-pro-chart-report-diagram-external-share?hosting=cloud&amp;tab=overview">Marketplace</a>.</p></li><li><p>Stuck with something? Raise a ticket through our <a href="https://appf.re/support">support portal</a>.</p></li><li><p>Do you love using our app? Let us know what you think <a href="https://marketplace.atlassian.com/apps/1223898/dashboard-hub-pro-chart-report-diagram-external-share?hosting=cloud&amp;tab=reviews">here</a>.</p></li></ul></div><div><p><strong>Credits</strong></p><p>Thank you to our valued customers! Your incredible support and feedback inspire us to improve continuously. We appreciate your trust in the Dashboard Hub family of apps!</p></div></div><hr/>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

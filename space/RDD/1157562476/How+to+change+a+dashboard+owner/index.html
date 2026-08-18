@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309946/User+guides/">User guides</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/2116583951/Admin+settings/">Admin settings</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">How to change a dashboard owner</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/1157562476" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>How to change a dashboard owner</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 100.0fr;"><div><div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview</h2><p>This page explains how to change the owner of a dashboard. </p><div class="panel panel-note"><p>You must be a Jira administrator to change the dashboard owner. </p></div></div></div><img alt="Dashboard Hub change dashboard owner dialog" class="doc-image" loading="lazy" src="/cms_trial/assets/f8540ac8-7308-4e6b-a8ae-ad135a4970d9.png"/><p>When the original dashboard creator isn’t available or no longer with an organization, you can lose the ability to update important dashboards used internally or <a href="/cms_trial/space/RDD/146310576/Share+a+dashboard+with+a+public+link/">shared</a> with external stakeholders. Administrators can change the owner of any dashboard, even private dashboards:</p><ul><li><p>Bulk owner change for faster maintenance.</p></li><li><p>Search dashboards filtering by text, with public links, by owner, or by deactivated or deleted users.</p></li><li><p>Disable public links.</p></li><li><p>Sort by title, owner, public link, created, and updated dates.</p></li></ul><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div></div><div></div></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h2 id="change-dashboard-owner">Change Dashboard Owner </h2><ol><li><p>Go to Dashboard Hub App Settings.</p></li><li><p>Select <strong>Change Dashboard Owner</strong>.</p></li><li><p>Select the checkbox next to the dashboard you want to change. </p></li><li><p>Click <strong>Change Owner </strong>in the bottom right corner. </p></li></ol></div><div><img alt="Change Dashboard Owner Tab" class="doc-image" loading="lazy" src="/cms_trial/assets/39f78165-2552-4ce1-b97e-e6ec61b682de.png"/></div></div><img alt="Dashboard Hub dashboard details with Change owner button" class="doc-image" loading="lazy" src="/cms_trial/assets/12381f70-abc4-4f9a-8ff0-badbb12c343c.png"/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><ol><li><p>Type the name of the user you would like to make the new owner. </p></li><li><p>Click <strong>Change owner</strong>. </p></li></ol></div><div><img alt="Dashboard Hub change owner dropdown for selecting a new dashboard owner" class="doc-image" loading="lazy" src="/cms_trial/assets/c19ad4b3-2d3a-4f12-9544-6acb301f0342.png"/></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

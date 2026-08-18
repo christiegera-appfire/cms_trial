@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud) Documentation</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783942482/User+guides/">User guides</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941673/Configure+Rich+Filters/">Configure Rich Filters</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Configure dynamic filters</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/783941707" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Configure dynamic filters</h1>
+    <div class="page-meta">7 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="about-dynamic-filters"><div class="img-placeholder">[Unmapped macro: anchor — no content to fall back on]</div><strong>About dynamic filters</strong></h2><p>Dynamic filters allow you to filter the collection of issues displayed by rich filter gadgets. Dynamic filters are based on Jira fields and allow filtering issues by field values. Once configured, the dynamic filters can be displayed in <em>Rich Filter Controller</em> gadgets:</p><ul><li><p>as buttons with drop-down menus in the case of option fields;</p></li><li><p>as date input fields with a date picker for date and date time fields.</p></li></ul><p>When a dynamic filter is activated in a Rich Filter Controller gadget, all the other gadgets in the same dashboard, which are based on the same rich filter, apply the selected criteria.</p><img alt="dynamic_filter dashboard.png" class="doc-image" loading="lazy" src="/cms_trial/assets/f81dd455-9367-45d8-a44a-b59dfd8a9ea2.png"/><h2 id="dynamic-filter-types"><div class="img-placeholder">[Unmapped macro: anchor — no content to fall back on]</div><strong>Dynamic filter types</strong></h2><img alt="Dynamic filters.png" class="doc-image" loading="lazy" src="/cms_trial/assets/11acd996-bf38-4af4-833e-75994d2aa546.png"/><p>There are four types of dynamic filters, depending on the kind of fields they are based on:</p><h2 id="option-based-dynamic-filters">Option-based dynamic filters</h2><p>Option-based dynamic filters are used for fields that can take predefined values: checkboxes, select lists (single or multi-select), status, priority, labels, user pickers, etc. Controller gadgets display each dynamic filter as a button with a drop-down menu, providing a list of options from which users can select the ones they want to filter.<br/>When activated, dynamic filters limit the results to only the issues that match the selected options. If more than one option is selected, the filters will keep the issues that match <em>any</em> of the selected values (in JQL syntax, the conditions on the selected options are <code>OR</code>ed together, then the resulting clause is <code>AND</code>ed with the other JQL clauses).</p><img alt="apply filtr.png" class="doc-image" loading="lazy" src="/cms_trial/assets/0ceebfd1-15ae-4d4d-8dfa-e4b4dddccb4f.png"/><div class="panel panel-success"><p>The list of options in the drop-down menu is populated only with the values in the issues returned by the base Jira filter. This means that the list doesn’t show options defined by the field configurations, but they do not occur among your issues. Not showing irrelevant options improves the user experience. For example, this is very useful if you add a dynamic filter for the <em>Assignee</em> field – the drop-down menu displays only the users who have at least one issue assigned.</p><p>When you click a dynamic filter option, the button turns into a search box, making it easier to find the options you are looking for. The options can be checked / unchecked one by one with a click or as a range using Shift + click. These mechanisms are particularly useful for fields with a large number of options.</p></div><h2 id="date-dynamic-filters">Date dynamic filters</h2><p>Date dynamic filters are used for date and date time fields, both system fields (created, updated, resolution date) and custom fields. Date filters allow users to limit the results to only the issues with the date field value on, before, or after a date or between two dates.<br/>Each dynamic filter has two date inputs: <em>From</em> and <em>To</em>:</p><ol><li><p>If only <strong>From</strong> is filled, then only the issues having values on or after the <strong>From</strong> date are kept;</p></li><li><p>If only <strong>To</strong> is filled, then only the issues having values on or before the <strong>To</strong> date are kept;</p></li><li><p>If both <em><strong>From</strong></em> and <strong>To</strong> are filled, only the issues with values between the <em>From</em> and <em>To</em> dates (both inclusive) are kept. If <strong>From</strong> and <strong>To</strong> are filled with the same date, then only the issues having values on that date are kept.</p></li></ol><p>The inputs <em>From </em>/ <em>To</em> can be selected from a date picker or entered manually as a calendar date (<code>yyyy/MM/dd</code> or <code>yyyy-MM-dd</code>) or as a time relative to the present (for example, <code>5d</code> or -<code>4w 2d</code>).</p><img alt="date filter.png" class="doc-image" loading="lazy" src="/cms_trial/assets/78e0ee43-562e-480f-8f8c-c6c916d04dfc.png"/><img alt="due date.png" class="doc-image" loading="lazy" src="/cms_trial/assets/c8dbdf44-3f25-4d83-9d90-3cdd28a52100.png"/><div class="panel panel-success"><p>If you want to use <em>now</em> as an input in <em>From </em>or <em>To</em>, you can enter the value <code>0d</code>.</p></div><h2 id="text-dynamic-filters">Text dynamic filters</h2><p>Text dynamic filters are used for string and text fields, system fields (such as summary and description), and custom fields. Text filters don’t use a menu—instead, they display a text box for the search query input. When activated, text dynamic filters limit the results to only the issues that match the search query, that is, that contain the entered text.</p><p>Jira has two text searchers, one for exact string search and one for full-text search. Each dynamic filter will use the searcher associated with the underlying field. Advanced full-text search features such as wildcard searches and Boolean operators are supported – see Jira’s <a href="https://support.atlassian.com/jira-work-management/docs/search-syntax-for-text-fields/">documentation page</a> for the syntax.</p><img alt="COntain text.png" class="doc-image" loading="lazy" src="/cms_trial/assets/c005fc43-416b-4a0d-b930-82e8896550c0.png"/><div class="panel panel-success"><p>Besides issue fields, there are two extra text dynamic filters that you can add to your rich filters:</p><ul><li><p><em>Contains text</em> – full-text search in all text fields: summary, environment, description, the comments of the issue, as well as all the custom text fields</p></li><li><p><em>Comment</em> – full-text search in all the comments on the issue.</p></li></ul></div><p>When configuring dynamic filters on fields of type Short text, you can also choose the <strong>Filter behavior:</strong></p><ul><li><p><strong>Text search</strong> - Searches issues by keywords</p></li><li><p><strong>Select values</strong> - Displays a dropdown with a list of values to choose from</p></li></ul><h2 id="number-dynamic-filters"><strong>Number dynamic filters</strong></h2><p>Number dynamic filters are used for custom number fields, such as <strong>Story Points</strong> or <strong>Business Value</strong>, and the number of votes or watchers. Number filters display a text box for the search query input. The search query can contain one or multiple space-separated terms (numeric values or ranges) as described below:<br/></p><ol><li><p>Search by <em>value</em>: enter one or several space-separated values to search for – for example, <code>1 2 3</code> for the issues having the values 1, 2, or 3;</p></li><li><p>Search by <em>comparison</em>: the operators <code>&lt;</code>, <code>&gt;</code>, <code>&lt;=</code>, and <code>&gt;=</code> are accepted – for example, <code>&gt;=1</code> for the issues having values greater than or equal to 1;</p></li><li><p>Search by <em>range</em>: use the form <code>a:b</code> to search by values between a and b included – e.g., <code>1:10</code> for issues having values between 1 and 10;</p></li><li><p>Search by <em>empty</em> or <em>not empty</em>: type <code>empty</code> for issues with the field empty or “!empty“ for issues with the field empty.</p></li></ol><p>At execution, the terms are joined using OR operators. For example, the query <code>1 2 &lt;0 4:8</code> returns the issues having the values 1 or 2, or values less than 0, or in the range 4–8. </p><img alt="Story points.png" class="doc-image" loading="lazy" src="/cms_trial/assets/be56429d-1d8a-478f-ad83-09b8a9481748.png"/><h2 id="other-dynamic-filters">Other dynamic filters</h2><h3 id="key"><strong>Key</strong></h3><p>The Key dynamic filter lets you search for work items based on their key. In the controller, the filter displays a box for entering a work item key or words from its summary. When activated, it limits results to the selected work items.</p><h3 id="parent"><strong>Parent</strong></h3><p>The Parent dynamic filter lets you search for work items based their parent. </p><h3 id="linked-issues"><strong>Linked Issues </strong> </h3><p>The Linked Issues dynamic filter returns all work items that are linked to the work items you select.</p><h2 id="adding-and-editing-dynamic-filters"><div class="img-placeholder">[Unmapped macro: anchor — no content to fall back on]</div><strong>Adding and editing</strong><strong> dynamic filters</strong></h2><p>You can add new and existing dynamic filters in the <em>Dynamic filters</em> section of your rich filter.</p><img alt="dynamic_filters_.png" class="doc-image" loading="lazy" src="/cms_trial/assets/653037cb-1b80-428f-8e51-bc4a1a29df69.png"/><div class="panel panel-success"><p>When using Rich Filters across multiple projects with different types (for example, Jira Software, Jira Product Discovery, JWM), you can encounter duplicate field names, such as multiple "Customer" fields, in dropdown menus.</p><p>To help you distinguish between fields with the same name, the app shows additional information in tooltips when you hold the pointer over any field in dropdown menus:</p><ul><li><p>Field type appears in brackets (for example, "Customer [text]")</p></li><li><p>Custom field ID is added when duplicates still exist (for example, "Customer [text] cf[12345]")</p></li></ul></div><p>The <em>Dynamic filters</em> section of your rich filter lets you perform the following operations:</p><h3 id="1-add-a-dynamic-filter"><strong>1. Add a dynamic filter</strong></h3><ol><li><p>Click <strong>Pick a field...</strong> at the bottom of the page. A drop-down menu is displayed, showing all the supported fields.</p></li></ol><img alt="contentId-783941707" class="doc-image" loading="lazy" src="/cms_trial/assets/c79dab03-72bf-4e66-b120-7f7a47f9c36d.png"/><ol><li><p>You can either scroll down or use the search to find the field you want to add as a new dynamic filter.</p></li></ol><img alt="contentId-783941707" class="doc-image" loading="lazy" src="/cms_trial/assets/4205e4a9-cbfa-4559-bca4-489692f6943a.png"/><div class="panel panel-note"><p>You can add up to 100 dynamic filters in each rich filter</p></div><h3 id="2-edit-a-dynamic-filter"><strong>2. Edit a dynamic filter</strong></h3><p>This configuration is available only for option-based dynamic filters. </p><ol><li><p>To open the edit dialog, click the  <strong>Edit</strong> (<span class="inline-icon" title="inline icon">▢</span> ) icon next to the dynamic filter.</p></li></ol><img alt="contentId-783941707" class="doc-image" loading="lazy" src="/cms_trial/assets/7166c744-2c31-4712-985e-e2dc638bb149.png"/><ol><li><p>The <em>Edit</em> dialog lets you:</p></li></ol><ul><li><p>Edit the <strong>Filter name</strong> displayed in the dynamic filter. You can keep the <strong>Field name</strong>, display only <strong>Field initials</strong>, or set a <strong>Custom</strong> name.</p></li><li><p><strong>Reverse options order</strong> displayed in the dynamic filter drop-down.</p><img alt="edit_dynamic filter.png" class="doc-image" loading="lazy" src="/cms_trial/assets/752d8e48-8643-4c7e-a0e3-91288ff34f87.png"/></li></ul><h3 id="3-delete-a-dynamic-filter">3. <strong>Delete a dynamic filter</strong></h3><p>Click the <strong>Delete </strong>(<span class="inline-icon" title="inline icon">▢</span>) icon next the dynamic filter.</p><img alt="contentId-783941707" class="doc-image" loading="lazy" src="/cms_trial/assets/cb609e6b-0e7c-4d42-aea4-b0841453ece4.png"/><h3 id="4-reorder-the-dynamic-filter"><strong>4. Reorder the dynamic filter</strong></h3><p>Hold the pointer over the vertical <strong>Grid</strong> (<span class="inline-icon" title="inline icon">▢</span>)  icon, then drag the dynamic filter up or down to its new position.</p><img alt="contentId-783941707" class="doc-image" loading="lazy" src="/cms_trial/assets/1cc4c34f-dc15-4b76-99fa-64ea114387d2.png"/><div class="panel panel-note"><p>When the dynamic filters of this rich filter are displayed by <em>Controller</em> gadgets, they are shown in the order configured in this section by default. </p></div><p><br/></p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

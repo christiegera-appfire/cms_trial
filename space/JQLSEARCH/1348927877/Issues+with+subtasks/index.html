@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209972/JQL+Search+Extensions+(Cloud)/">JQL Search Extensions (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209395/JQL+functions+and+keywords+reference/">JQL functions and keywords reference</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Issues with subtasks</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JQLSEARCH/pages/1348927877" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Issues with subtasks</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="panel panel-note"><p>The examples on this page describe how to build a JQL search using <a href="https://marketplace.atlassian.com/plugins/jql-extensions/cloud/overview">JQL Search Extensions</a>.</p></div><h2 id="issues-with-subtasks-jql-functions">Issues with subtasks JQL functions</h2><div class="panel panel-note"><p><strong>JQL functions</strong> are accessible from the <a href="/cms_trial/space/JQLSEARCH/604209464/Extended+Search/">Extended Search</a> page or <a href="/cms_trial/space/JQLSEARCH/604209567/Extended+Search+filters/">Extended Search filters</a> in Jira advanced search. When using functions, the issues returned are based on the subquery defined in parentheses.</p></div><h3 id="parentsofsubtasksinquery">parentsOfSubtasksInQuery()</h3><p>For a given JQL subquery, it finds the parents of the resulting subtasks.</p><p><strong>Examples</strong></p><p><code>issue in parentsOfSubtasksInQuery("status='To Do'") and status='Done'</code> finds finished issues that have unfinished subtasks<br/><code>issue in parentsOfSubtasksInQuery("assignee=currentUser()")</code> finds parents of my subtasksSubtasks JQL keywords</p><h2 id="issues-with-subtasks-jql-keywords">Issues with subtasks JQL keywords</h2><h3 id="subtaskscount">subtasksCount</h3><p>Search for issues that have a particular number of subtasks. </p><p><strong>Supported operators</strong></p><table><tr><th><p>=</p></th><th><p>!=</p></th><th><p>~</p></th><th><p>!~</p></th><th><p>&gt;</p></th><th><p>&gt;=</p></th><th><p>&lt;</p></th><th><p>&lt;=</p></th><th><p>IS</p></th><th><p>IS NOT</p></th><th><p>IN</p></th><th><p>NOT IN</p></th><th><p>WAS</p></th><th><p>WAS IN</p></th><th><p>WAS NOT</p></th><th><p>WAS NOT IN</p></th><th><p>CHANGED</p></th></tr><tr><td><p>✅</p></td><td><p>✅</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td></tr></table><p><strong>Examples</strong></p><p>Find issues with subtasks.</p><pre><code class="language-">subtasksCount &gt; 0 </code></pre><h3 id="subtasksummary">subtaskSummary</h3><p>Search for issues that have subtasks where the summary contains particular text. </p><p><strong>Supported operators</strong></p><table><tr><th><p>=</p></th><th><p>!=</p></th><th><p>~</p></th><th><p>!~</p></th><th><p>&gt;</p></th><th><p>&gt;=</p></th><th><p>&lt;</p></th><th><p>&lt;=</p></th><th><p>IS</p></th><th><p>IS NOT</p></th><th><p>IN</p></th><th><p>NOT IN</p></th><th><p>WAS</p></th><th><p>WAS IN</p></th><th><p>WAS NOT</p></th><th><p>WAS NOT IN</p></th><th><p>CHANGED</p></th></tr><tr><td><p>❌</p></td><td><p>❌</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td></tr></table><p><strong>Examples</strong>:</p><p>Find issues in which the subtask summary contains the text <code>Test</code>.</p><pre><code class="language-">subtaskSummary ~ "Test"  </code></pre><h3 id="subtaskkey">subtaskKey</h3><p>Search for issues that have subtasks with a particular key. </p><p><strong>Supported operators</strong></p><table><tr><th><p>=</p></th><th><p>!=</p></th><th><p>~</p></th><th><p>!~</p></th><th><p>&gt;</p></th><th><p>&gt;=</p></th><th><p>&lt;</p></th><th><p>&lt;=</p></th><th><p>IS</p></th><th><p>IS NOT</p></th><th><p>IN</p></th><th><p>NOT IN</p></th><th><p>WAS</p></th><th><p>WAS IN</p></th><th><p>WAS NOT</p></th><th><p>WAS NOT IN</p></th><th><p>CHANGED</p></th></tr><tr><td><p>✅</p></td><td><p>✅</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td></tr></table><p><strong>Examples</strong></p><p>Find issues with a subtask with key ABC-123.</p><pre><code class="language-">subtaskKey = ABC-123</code></pre><h3 id="subtaskpriority">subtaskPriority</h3><p>Search for issues that have subtasks with a particular priority.</p><p><strong>Supported operators</strong></p><table><tr><th><p>=</p></th><th><p>!=</p></th><th><p>~</p></th><th><p>!~</p></th><th><p>&gt;</p></th><th><p>&gt;=</p></th><th><p>&lt;</p></th><th><p>&lt;=</p></th><th><p>IS</p></th><th><p>IS NOT</p></th><th><p>IN</p></th><th><p>NOT IN</p></th><th><p>WAS</p></th><th><p>WAS IN</p></th><th><p>WAS NOT</p></th><th><p>WAS NOT IN</p></th><th><p>CHANGED</p></th></tr><tr><td><p>✅</p></td><td><p>✅</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td></tr></table><p><strong>Examples</strong></p><p>Find issues with subtasks that have a Blocker priority. </p><pre><code class="language-">subtaskPriority = Blocker</code></pre><h3 id="subtaskissuetype">subtaskIssueType</h3><p>Search for issues that have subtasks with a particular issue type.</p><p><strong>Supported operators</strong></p><table><tr><th><p>=</p></th><th><p>!=</p></th><th><p>~</p></th><th><p>!~</p></th><th><p>&gt;</p></th><th><p>&gt;=</p></th><th><p>&lt;</p></th><th><p>&lt;=</p></th><th><p>IS</p></th><th><p>IS NOT</p></th><th><p>IN</p></th><th><p>NOT IN</p></th><th><p>WAS</p></th><th><p>WAS IN</p></th><th><p>WAS NOT</p></th><th><p>WAS NOT IN</p></th><th><p>CHANGED</p></th></tr><tr><td><p>✅</p></td><td><p>✅</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td></tr></table><p><strong>Examples</strong> </p><p>Find issues with subtasks with the issue type Spike.</p><pre><code class="language-">subtaskIssueType = Spike</code></pre><h3 id="subtaskstatus">subtaskStatus</h3><p>Search for issues that have subtasks with a particular status.</p><p><strong>Supported operators</strong></p><table><tr><th><p>=</p></th><th><p>!=</p></th><th><p>~</p></th><th><p>!~</p></th><th><p>&gt;</p></th><th><p>&gt;=</p></th><th><p>&lt;</p></th><th><p>&lt;=</p></th><th><p>IS</p></th><th><p>IS NOT</p></th><th><p>IN</p></th><th><p>NOT IN</p></th><th><p>WAS</p></th><th><p>WAS IN</p></th><th><p>WAS NOT</p></th><th><p>WAS NOT IN</p></th><th><p>CHANGED</p></th></tr></table><table><tr><th><p>=</p></th><th><p>!=</p></th><th><p>~</p></th><th><p>!~</p></th><th><p>&gt;</p></th><th><p>&gt;=</p></th><th><p>&lt;</p></th><th><p>&lt;=</p></th><th><p>IS</p></th><th><p>IS NOT</p></th><th><p>IN</p></th><th><p>NOT IN</p></th><th><p>WAS</p></th><th><p>WAS IN</p></th><th><p>WAS NOT</p></th><th><p>WAS NOT IN</p></th><th><p>CHANGED</p></th></tr><tr><td><p>✅</p></td><td><p>✅</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td></tr></table><p><strong>Examples</strong> </p><p>Find issues that have subtasks in progress. </p><pre><code class="language-">subtaskStatus = "In Progress"</code></pre><h3 id="subtaskstatuscategory">subtaskStatusCategory</h3><p>Search for issues that have subtasks with a particular status category.</p><p><strong>Supported operators</strong></p><table><tr><th><p>=</p></th><th><p>!=</p></th><th><p>~</p></th><th><p>!~</p></th><th><p>&gt;</p></th><th><p>&gt;=</p></th><th><p>&lt;</p></th><th><p>&lt;=</p></th><th><p>IS</p></th><th><p>IS NOT</p></th><th><p>IN</p></th><th><p>NOT IN</p></th><th><p>WAS</p></th><th><p>WAS IN</p></th><th><p>WAS NOT</p></th><th><p>WAS NOT IN</p></th><th><p>CHANGED</p></th></tr><tr><td><p>✅</p></td><td><p>✅</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td></tr></table><p><strong>Examples</strong></p><p>Find issues that have subtasks in the To Do status.</p><pre><code class="language-">subtaskStatusCategory = "To Do"</code></pre>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

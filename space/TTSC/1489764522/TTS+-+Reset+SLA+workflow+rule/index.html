@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud Help Center</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">TTS - Reset SLA workflow rule</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TTSC/pages/1489764522" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>TTS - Reset SLA workflow rule</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>Time to SLA provides a single rule (previously, post function) called <strong>TTS - Reset SLA</strong>, which enables you to reset SLA timers based on specific workflow transitions in Jira. </p><p>Here’s how to configure and use this post function:</p><ol><li><p>Go to <strong>Work items</strong> &gt; <strong>Workflows</strong> for the relevant project and select the workflow where you’d like to add the post function.</p></li><li><p>Click the actions icon next to it and select <strong>Edit</strong>.</p></li><li><p>Select the transition where you want the SLA reset to occur. For example, if you want the SLA to reset when transitioning from <code>To Do</code> to <code>In Progress</code>, locate the specific transition within the workflow.</p></li><li><p>Click <strong>Add rule</strong>.</p><img alt="Time to SLA reset SLA workflow rule configuration page" class="doc-image" loading="lazy" src="/cms_trial/assets/3dd7c39c-0d05-420c-a14f-af9eb0464780.png"/></li><li><p>Select <code>TTS - Reset SLA</code> from the list. </p><img alt="Time to SLA reset SLA workflow rule action dialog" class="doc-image" loading="lazy" src="/cms_trial/assets/06617f0f-cdeb-42e7-8ccd-f6e0d3da85c0.png"/></li><li><p>After selecting <em>TTS - Reset SLA</em>, you’ll have several options to configure its behavior:</p><img alt="Time to SLA reset SLA workflow rule final configuration screen" class="doc-image" loading="lazy" src="/cms_trial/assets/6caafe73-3250-4ded-8f70-c163374d3ac2.png"/><ul><li><p><strong>Reset type:</strong></p><ul><li><p><strong>Restart current SLA</strong>: Resets the SLA timer, starting it from the beginning.</p></li><li><p><strong>Invalidate current SLA</strong>: Puts the SLA on hold until the next start condition is met.</p></li></ul></li><li><p><strong>Behavior on finished SLAs</strong> (only applies if the SLA has already completed):</p><ul><li><p><strong>Do nothing</strong>: Leaves the SLA as-is.</p></li><li><p><strong>Reset SLA durations and restart SLA</strong>: Resets the timer and starts the SLA from scratch.</p></li><li><p><strong>Reset SLA durations and invalidate previous cycles</strong>: Resets the timer and marks the previous cycle as invalid.</p></li></ul></li><li><p><strong>Select SLA(s)</strong>:</p><ul><li><p><strong>All SLAs</strong>: Applies the reset to all SLAs associated with the issue.</p></li><li><p><strong>Selected SLAs</strong>: Allows you to choose specific SLAs to apply the reset to.</p></li></ul></li></ul></li><li><p>Click <strong>Add</strong>.</p></li><li><p>Click <strong>Update workflow</strong> to save your changes.</p></li></ol>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

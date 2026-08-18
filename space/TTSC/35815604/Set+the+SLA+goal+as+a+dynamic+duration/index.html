@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud Help Center</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/1678575285/SLA+configuration/">SLA configuration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/35651691/Define+SLAs/">Define SLAs</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/35390901/SLA+goals/">SLA goals</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Set the SLA goal as a dynamic duration</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TTSC/pages/35815604" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Set the SLA goal as a dynamic duration</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>Dynamic duration is a Jira custom field. When you enter a time string here, Time to SLA will set the SLA duration as the input entered in this field.</p><p>This lets users enter different SLA goals for each work item. If you have changing SLA durations per work item, you can use this function to set SLA duration dynamically. The SLA clock will count according to this field.</p><h3 id="step-1-create-the-field">Step 1: Create the field</h3><p>To set an SLA goal as a Dynamic duration, you need to create a field that will store the SLA duration beforehand. This field will appear only in the screens you select while creating the field, regardless of whether you designate the SLA goal as Dynamic duration or not.</p><ol><li><p>Open <strong>Jira</strong> <strong>Settings</strong> &gt; <strong>Work items</strong>.</p></li><li><p>Click <strong>Fields</strong> in the side menu.</p></li><li><p>Click <strong>Create new field</strong>. </p></li><li><p>For <strong>Field type</strong>, select <strong>Short text</strong> <strong>(plain text only)</strong>.</p><img alt="Time to SLA dynamic duration goal configuration page" class="doc-image" loading="lazy" src="/cms_trial/assets/a88695b0-2b2e-4a16-adb0-4f45852c2efe.png"/></li><li><p>Give the field a <strong>Name</strong>.</p></li><li><p>Click <strong>Create. </strong></p></li><li><p>Go to the field you created, click the actions button, then select <strong>Add field to screen</strong>.</p></li><li><p>Tick the screens on which you want the duration field to appear. The field will <strong>only</strong> be in the screens that you selected.</p></li><li><p>Click <strong>Update</strong>.</p></li></ol><p>Now, you can see the field you’ve created<strong> </strong>in the Dynamic duration dropdown menu while defining or updating an SLA.</p><h3 id="step-2-set-the-sla-goal-as-a-dynamic-duration">Step 2: Set the SLA goal as a Dynamic duration</h3><ol><li><p>While defining the SLA, go to the<strong> SLA Goals </strong>section<strong>.</strong></p></li><li><p>Click <strong>+ Add goal</strong>.</p></li><li><p>Fill out the goal requirements. </p></li><li><p>For <em>Goal Target Type</em>, select <strong>Dynamic Duration</strong>. The <em>Field</em> dropdown appears.</p></li><li><p>Click the dropdown menu to see all of the possible date fields, and select the field you created in the first step.</p><img alt="Time to SLA dynamic duration field selection dialog" class="doc-image" loading="lazy" src="/cms_trial/assets/b4da74c7-e935-47c6-8baa-cf540ed750e4.png"/></li></ol><p>Your Dynamic duration has been set.</p><h3 id="optional-set-a-default-value-in-the-duration-custom-field">(Optional) Set a default value in the duration custom field</h3><ol><li><p>Open <strong>Jira Settings</strong> &gt; <strong>Work items </strong>&gt; <strong>Fields</strong>.</p></li><li><p>Click the actions button in the row of the<strong> </strong>duration field you created.<strong> </strong> </p></li><li><p>Select<strong> Contexts and default values</strong>. The <em>Configure custom field</em><strong> </strong>page displays.</p></li><li><p>Click <strong>Edit Default Value. </strong>The <em>Jira Set Custom Field Defaults</em><strong> </strong>screen displays.</p><img alt="Time to SLA dynamic duration goal settings with selected field" class="doc-image" loading="lazy" src="/cms_trial/assets/a0513571-7e6b-44e0-ae16-510564b3906a.png"/></li><li><p>Enter a value for the duration field.</p><img alt="Time to SLA dynamic duration validation message" class="doc-image" loading="lazy" src="/cms_trial/assets/b0756a97-ea67-44e0-87d4-f01293a88105.png"/></li><li><p>Click<strong> Set Default</strong>.</p></li></ol>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

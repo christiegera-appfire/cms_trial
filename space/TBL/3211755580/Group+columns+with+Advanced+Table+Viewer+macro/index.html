@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74812514/Featured+macros+-+Cloud/">Featured macros - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/1531117698/Advanced+Table+Viewer+macro/">Advanced Table Viewer macro</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Group columns with Advanced Table Viewer macro</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TBL/pages/3211755580" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Group columns with Advanced Table Viewer macro</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>The Advanced Table Viewer macro provides a column grouping feature that lets you interactively group and organize table data on the Confluence page.</p><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h2 id="column-grouping-overview">Column grouping overview</h2><ul><li><p>Column grouping can be enabled in macro setup mode.</p></li><li><p>Once enabled, you can group and remove column grouping in setup mode and in the Confluence page Edit and View mode.</p></li><li><p>Grouping changes made in page view and edit mode are session-only and will not be saved to the grouping configuration.</p></li><li><p>On every page refresh, the column grouping configured in macro setup mode is applied.</p></li></ul></div><div><div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/lpcHVGEQ6OY"></iframe></div></div></div><hr/><h2 id="configure-grouping">Configure grouping</h2><div class="img-placeholder">[Unmapped macro: refined-tab — no content to fall back on]</div><div class="panel panel-note"><p>You need edit permissions to access the setup mode.</p></div><ul><li><p>To group columns, edit the macro to open the setup mode. Refer to <a href="/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/">Set up the Advanced Table Viewer macro features</a>.</p><img alt="Advanced Tables edit macro option for column grouping" class="doc-image" loading="lazy" src="/cms_trial/assets/6c873fce-5199-4d2d-b0df-4dbe1a990c67.jpg"/></li></ul><ul><li><p>To start grouping, click <strong>Enable grouping</strong> (<span class="inline-icon" title="inline icon">▢</span>).</p><img alt="Advanced Tables Enable grouping option in setup mode" class="doc-image" loading="lazy" src="/cms_trial/assets/456ecb4e-20b9-4c9a-980d-204c795373aa.jpg"/></li><li><p>Once enabled, hover over any column header, and you will see the grouping icon.</p></li><li><p>On the column you want to group, click the grouping icon to group table data by that column.</p><img alt="Advanced Tables Group by this column option in the table header" class="doc-image" loading="lazy" src="/cms_trial/assets/7c624cff-426f-46f0-95fd-c06f3db73645.jpg"/></li><li><p>You can nest grouping across multiple columns, up to one less than the total number of columns. The nesting hierarchy follows the order in which columns are selected.</p></li><li><p>The grouped column headers have a dark gray background in comparison to other column headers to indicate grouping.</p><img alt="Advanced Tables column grouping shown in setup mode" class="doc-image" loading="lazy" src="/cms_trial/assets/600fc1ed-d415-4dbf-8822-bdf995f1e980.jpg"/></li><li><p>Click <strong>Save</strong> and <strong>Publish</strong> the page.</p></li><li><p>You can view the configured column grouping in both edit and view modes on the Confluence page.</p><img alt="Advanced Tables grouped column table shown in page view" class="doc-image" loading="lazy" src="/cms_trial/assets/42fac36a-f834-4691-ae10-fe699cd47ba4.jpg"/></li></ul><div class="img-placeholder">[Unmapped macro: refined-tab — no content to fall back on]</div><ul><li><p>To disable column grouping for all columns in the table, edit the macro and click Disable grouping (<span class="inline-icon" title="inline icon">▢</span>).</p><img alt="Advanced Tables grouping disabled in column menu" class="doc-image" loading="lazy" src="/cms_trial/assets/a81a8411-caf5-472e-aefa-46d09e527375.jpg"/></li><li><p>To disable grouping on a specific column, click the grouping icon in that column’s header.</p><img alt="Advanced Tables Remove group option in column menu" class="doc-image" loading="lazy" src="/cms_trial/assets/98e83ece-8ea7-4f9e-a4fe-8aaeeea2306b.jpg"/></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

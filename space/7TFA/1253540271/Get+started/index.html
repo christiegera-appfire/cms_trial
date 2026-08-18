@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Get started</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/7TFA/pages/1253540271" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Get started</h1>
+    <div class="page-meta">3 min read</div>
     <div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/MrPPDyVSdN8"></iframe></div><p>7pace Timetracker is a professional, full-featured time recording and management solution that seamlessly integrates with Azure DevOps (ADO) Server (on-prem) and ADO Services (cloud). 7pace Timetracker allows software teams in small to enterprise-sized companies to plan, estimate, and record time directly in ADO without leaving your environment.</p><p>After installing 7pace Timetracker (cloud) to your ADO Services account, the 7pace Timetracker menu is part of your ADO Services side menu bar. 7pace Timetracker consists of a web server interface that lets you add, edit, import, export, approve, and manage the time of individual team members and the whole team. You also have the option to download either the <a href="/cms_trial/space/7TFA/1253539951/7pace+Desktop+App/">Windows or Mac</a> app. These apps can be installed on your local system, allowing you to select a work item and then track time spent on that particular work item using a stopwatch-style interface.</p><div class="panel panel-success"><p>The ability to track time without associating it with specific work items is on by default, allowing users to track time on non-work-related or impromptu items. You can change this within the <em>Settings</em> page of 7pace Timetracker &gt; <em>Rules</em> -&gt; <em>Tracking Details</em>.</p></div><p>The <a href="/cms_trial/space/7TFA/1253540454/7pace+Timetracker+for+Azure+DevOps+Web+App/">web app</a> is available in ADO, allowing you to track any work item without additional action. You can use multiple desktops, run the <a href="/cms_trial/space/7TFA/1253539951/7pace+Desktop+App/">Windows or Mac app</a> everywhere, or just open your browser; you'll see a synced time interface that you can control from wherever you are.</p><p>7pace Timetracker has its own permission and subscription management, is fully customizable, and will work with even the most complex work item template (WIT).</p><h2 id="email-notifications">📧 Email notifications</h2><p>If you leave your desk and forget to turn off time tracking, 7pace Timetracker can be configured to send an email notification when the system stops tracking due to inactivity. All users can set up their personal preferences for email notifications within the <em>Settings</em> page.</p><p>For more information, please see the <a href="/cms_trial/space/7TFA/1253540033/General+Settings/">Time Tracking</a> article in our user documentation.</p><h2 id="app-api">⚙️ App API</h2><p>Our App <a href="/cms_trial/space/7TFA/1253540266/7pace+Timetracker+Reporting+API+Version+3/">API</a> is now fully documented and available to the public. You can develop an app or connect 7pace Timetracker to existing automation in your IT landscape.</p><p>For more information, check the <a href="/cms_trial/space/7TFA/1253540266/7pace+Timetracker+Reporting+API+Version+3/">7pace Timetracker API Reference</a>.</p><h2 id="work-item-automation-in-7pace-timetracker">🤖 Work item automation in 7pace Timetracker</h2><p>When you click <strong>Work Item Automation</strong> within 7pace Timetracker's <strong>Settings</strong> page, you can control the integration of 7pace Timetracker with ADO's time management capabilities.</p><p>For more information, please see <a href="/cms_trial/space/7TFA/1253540033/General+Settings/">Work Item Automation: 7pace Timetracker</a>.</p><h2 id="help-and-support-how-to-get-it-where-to-find-it">❓ Help and support: How to get it, where to find it</h2><p>You can check out our <a href="/cms_trial/space/7TFA/1253540447/Frequently+Asked+Questions/">Frequently Asked Questions</a> (FAQs) or the latest <a href="/cms_trial/space/7TFA/1253539885/Release+Notes/">Release History</a>. You can also  <a href="https://support.7pace.com/hc/en-us/community/topics/115000004506-Issue-Reports">Report an issue</a>.</p><h2 id="7pace-timetracker-demo-video">🎥 7pace Timetracker demo video</h2><div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/b5CnMLyE8ms"></iframe></div><p>Watch this video for answers to these questions:</p><ul><li><p>How can I add time to 7pace Timetracker?</p></li><li><p>Why am I seeing a ‘this door is locked’ message?' (User management basics)</p></li><li><p>How do I compare estimations with actual time spent?</p></li><li><p>What are budgets, and what do they help us do?</p></li><li><p>What are the functionalities of reporting? </p></li><li><p>How do we use 7pace Timetracker to track their internally billable (chargeback) software development work?</p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

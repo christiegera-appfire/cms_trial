@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud Help Center</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/36110821/Use+cases/">Use cases</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">I want to trigger Jira automation from SLA events</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TTSC/pages/3407446166" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>I want to trigger Jira automation from SLA events</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="panel panel-note"><p>🤔 <strong>Context: </strong>A Jira admin wants SLA events to start existing Jira automation rules so the team can connect SLA performance with their wider Jira workflows.</p><p>🌧️ <strong>User problem: </strong>Many teams already use Jira automation to move work items, add labels, create subtasks, notify stakeholders, or update custom fields. However, SLA events often need to be part of those workflows too. If an SLA is breached or about to breach, the team may want Jira to create an escalation task, move the work item to a different queue, or alert a project lead. Without a direct way to trigger automation from SLA events, admins may need to rely on manual updates or create complicated workarounds.</p><p>☔ <strong>Solution: </strong>Using<strong> </strong>Time to SLA Actions! </p></div><p>The Actions feature allows you to trigger Jira automation from SLA actions. You can choose the SLA, select the goals, define the SLA event that should trigger the action, and connect it with Jira automation.</p><p>For example, when a First response SLA breaches, Time to SLA can trigger a Jira automation rule that adds an <code>SLA breached</code> label, creates a follow-up task for the team lead, moves the work item into an escalation queue, and notifies the project owner. This lets teams use SLA events as the starting point for broader automated processes in Jira.</p><p><a href="/cms_trial/space/TTSC/3308945429/Create+actions/"><strong>Time to SLA Jira automation action configuration</strong></a></p><h2 id="problem-solved">Problem solved!</h2>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

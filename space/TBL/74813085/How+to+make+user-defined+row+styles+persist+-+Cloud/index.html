@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74814716/Use+cases+-+cloud/">Use cases - cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">How to make user-defined row styles persist - Cloud</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TBL/pages/74813085" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>How to make user-defined row styles persist - Cloud</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>This page provides an example to enforce user-defined styles for rows. For this example, let's consider <a href="https://appfire.atlassian.net/wiki/spaces/TBL/pages/74812593">Monthly Temperatures table</a> for which you want to set styles of various rows, including the header row.</p><h3 id="select-this-macro">Select this macro</h3><table><tr><td><p><strong>Macro name</strong></p></td><td><p><em>Table Plus</em></p></td></tr><tr><td><p><strong>Macro syntax (Old editor)</strong></p></td><td><p><em>{table-plus}</em></p></td></tr><tr><td><p><strong>Macro syntax (New editor - case insensitive)</strong></p></td><td><p><em>/Table Plus</em></p></td></tr></table><h3 id="define-these-parameters-values">Define these parameters/values</h3><table><tr><td><p><em><strong> Row styles</strong></em></p><p>(Comma separated styles)</p></td><td><p><em>font-size:160%;padding:20px;border: 5px solid #c1c7d0, color:green;font-size:125%;padding-top:25px, background:lightblue;color:red;border: 2.5px dotted black, font-style:italic;font-size:175%;padding-left:35px</em></p></td></tr><tr><td><p><em><strong>Apply row style to individual cell</strong></em></p></td><td><p>On</p></td></tr></table><h3 id="parameters-set-in-the-macro-editor">Parameters set in the macro editor</h3><img alt="Advanced Tables Table Plus macro settings for row styles" class="doc-image" loading="lazy" src="/cms_trial/assets/8c85b1d9-7378-4edf-9584-f65ce079170c.png"/><h3 id="example-result">Example result</h3><p>When the <em>Apply row style to individual cell</em> is off, certain styles for cell padding or borders are not applied due to the existing default Confluence styles as shown:</p><img alt="Advanced Tables table before userdefined row styles" class="doc-image" loading="lazy" src="/cms_trial/assets/802e2594-e6b1-48d0-a373-13a665e8ae66.png"/><p>When the <em>Apply row style to individual cell</em> is toggled on, the table is displayed with all the specified styles are applied after overriding the default Confluence styles as shown:</p><img alt="Advanced Tables table after userdefined row styles persist" class="doc-image" loading="lazy" src="/cms_trial/assets/4c439335-fe0e-469b-9475-b5b8cb690fcd.png"/>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

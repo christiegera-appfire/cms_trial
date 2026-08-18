@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira (CMJ) Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/193823429/Features+and+options/">Features and options</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/2507112493/Deploy+a+snapshot/">Deploy a snapshot</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Manage custom fields contexts</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CMJC/pages/193692433" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Manage custom fields contexts</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="custom-field-context-deletion">Custom field context deletion</h2><p>We aim to manage custom field contexts and their options with maximum precision as possible during the:</p><ul><li><p><strong>cloud-to-cloud</strong> Jira configuration deployments, and</p></li><li><p><strong>server-to-cloud</strong> Jira migrations.</p></li></ul><p>Yet, sometimes, you might face the following error in the<strong> Analyze</strong> phase of the migration/deployment wizard:</p><p><code>'Custom field context with id 'context_id' and name 'context_name' will be deleted with its options from the destination. Deletion will cause a loss of the option values in issues. See how to resolve this case in our documentation.'</code></p><p>In these cases, the migration stops with the error above. To prevent the deletion case and error from occurring, you’ll  need to configure the contexts in your Jira systems.</p><p>This page explains how we evaluate the source and destination contexts to find out if they match. This will give you the tools to avoid such situations.</p><h2 id="how-configuration-manager-evaluates-and-matches-source-and-destination">How Configuration Manager evaluates and matches source and destination</h2><p>For each custom field, Configuration Manager for Jira (CMJ) Cloud exports the contexts of the projects in the deployment/migration scope. These are either the global contexts or the contexts for the projects in the migration/deployment scope.</p><p>The contexts in the deployment/migration scope don't contain references to projects outside the scope. Even if such are present on the source Jira instance, CMJ Cloud won't include them in the deployment/migration.</p><div class="panel panel-note"><h3 id="what-happens-if-a-context-must-be-deleted-from-the-destination">What happens if a context must be deleted from the destination?</h3><p>More specific is the situation when a context with references to multiple projects needs to be deleted from the destination Jira Cloud during the deployment. In that case, CMJ Cloud removes only the references to the projects in the migration/deployment scope. </p><p>While comparing the source and target contexts, you identify them by the projects they are assigned to. Suppose we have a source context assigned to projects A, B, and C. On the destination, we have a context assigned to projects C, D, and E.</p><p>You start a migration/deployment, add projects to it, and that source context ends up inside the scope. CMJ Cloud compares the source and destination contexts in the analysis phase. It identifies that project C is assigned to both source and destination contexts. The app removes project C from the destination context and adds the source context as a new context for projects A, B, and C to the destination.</p><p>The problem comes when you have a destination context, and all its projects are present in a source context. Then, CMJ Cloud attempts to execute its logic from above to remove the source projects from the destination context. This leaves the destination context without any projects, and it automatically becomes a global context. CMJ Cloud can't let that happen on the destination, as a project can have only a single global context. That's why it stops the deployment on the Analyze changes phase and shows you the error about the potential consequences of deletion.</p><p>Global contexts are never deleted from the destination Jira sites, which may affect many projects.</p></div><h2 id="how-to-resolve-the-context-deletion-error">How to resolve the context deletion error</h2><p>If the context deletion works for you, we recommend removing the context from the custom fields it's assigned to on the destination Jira Cloud manually.</p><p>Remember that deleting a context is an issue only for custom fields with options. It's a problem as the values of the options in issues will be gone together with the context.</p><p>If deleting the context isn't an option for you, we recommend making adjustments to the source Jira instance. You need to make sure the projects you're deploying/migrating won't cause such an error. Refer to the logic we explained in the previous section when making the changes to the source instance.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud) Documentation</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941853/Release+Notes/">Release Notes</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/1595769075/Release+notes+2021%E2%80%932024/">Release notes 2021–2024</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783943820/2021/">2021</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">September 13, 2021</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/783942167" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>September 13, 2021</h1>
+    <div class="page-meta">1 min read</div>
     <h2 id="more-customizations-in-rich-filter-results-views">More Customizations in Rich Filter Results Views</h2><p>In a recent release, we introduced <a href="/cms_trial/space/RFCDOC/783942111/August+28%2C+2021/">display options for columns</a> configured in the views of the <a href="/cms_trial/space/RFCDOC/783941759/The+Rich+Filter+Results+Gadget/">Rich Filter Results</a> gadgets. We have continued this effort and now these options include new settings.</p><p>Value formatting options and custom aggregation formulas were already available in rich filter gadgets using <a href="/cms_trial/space/RFCDOC/783942033/Configure+custom+values/">custom values</a>. Creating a custom value is very useful when you want to reuse it in several gadgets (e.g., Rich Filter Results, Rich Filters Statistics, etc.). However, if you only need to customize these settings in a given view, you can now do this directly from the <a href="/cms_trial/space/RFCDOC/783941729/Configure+views/">view configuration</a>, without creating a custom value. This speeds up and simplifies the configuration process for such use cases.</p><p>The new settings, available when configuring columns in views, are:</p><ul><li><p>for columns based on numeric and time-tracking fields, you can choose the format of the values (including the total if enabled) among the following options:</p><ul><li><p>For numeric fields:</p><ul><li><p>Thousand separators on/off</p></li><li><p>Number of decimals: none or maximum 3, 2 or 1 or exactly 3, 2 or 1</p></li></ul></li><li><p>For time-tracking fields:</p><ul><li><p>Jira's time display format</p></li><li><p>Days, hours, minutes or seconds</p></li></ul></li></ul></li><li><p>for columns supporting totals, you now have four more options for the aggregation formula (in addition to sum): none, average, minimum, and maximum.</p></li><li><p>for columns based on <a href="/cms_trial/space/RFCDOC/783941713/Configure+smart+filters/">smart filters</a> configured to display the labels of the smart filter clauses (colored or not), you now have the additional option to display the labels in rectangles of the same width.</p></li></ul><p>For more information about these new settings have a look at the <a href="/cms_trial/space/RFCDOC/783941729/Configure+views/">Configuring views</a> documentation page.</p><p>Example of configuration for a column based on a numeric field named Story Points:</p><img alt="contentId-783942167" class="doc-image" loading="lazy" src="/cms_trial/assets/695d48e0-6376-4f4f-acf9-90df3c8d5238.png"/><p><br/></p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

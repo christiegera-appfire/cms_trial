@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3092186916/Errors+and+Error+Messages/">Errors and Error Messages</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Endless loading animation when adding a new Salesforce object</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3091367983" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Endless loading animation when adding a new Salesforce object</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="summary">Summary</h2><p>The load animation spins endlessly when adding the Salesforce objects and fails to complete the action. </p><img alt="add salesforce error.png" class="doc-image" loading="lazy" src="/cms_trial/assets/53c8e002-24ea-4d2d-a162-be866814be5a.png"/><h2 id="environment">Environment</h2><ul><li><p>Jira Data Center</p></li><li><p>Jira Cloud</p></li></ul><h2 id="diagnostics-steps">Diagnostics Steps</h2><ol><li><p>In Jira, go to <strong>Apps </strong>&gt; <strong>Salesforce </strong>&gt;<strong> Connections </strong>&gt;<strong> Configure </strong>&gt;<strong> Add Salesforce Object.</strong></p></li><li><p>Select a Salesforce Object to add.</p></li><li><p>Enable <strong>Import Layout</strong> option and click <strong>Next</strong>.</p></li><li><p>The load animation goes on endlessly without completing the action.</p></li></ol><h2 id="cause">Cause</h2><p>Due to multiple Record Types configured in the Salesforce object, when the import layout option is enabled, the connector does not have the capability to select the correct Record Type of the object that has the layout that needs to be imported.</p><p>This results in the connector getting stuck in an endless loading cycle.</p><h2 id="workaround">Workaround</h2><ul><li><p>N/A</p></li></ul><h2 id="resolution">Resolution</h2><ol><li><p>Disable the <strong>Import layout </strong>option when adding Salesforce objects to your Jira connection.</p></li><li><p>Click <strong>Next </strong>to manually add the fields to the compact layout. </p></li></ol><p>For more information regarding the compact layout, check "Step 9" of this <a href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/470754669">documentation</a>.</p></div><div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

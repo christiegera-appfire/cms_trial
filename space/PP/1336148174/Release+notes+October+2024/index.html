@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PP/1803714584/Planning+Poker+Help+Center/">Planning Poker</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PP/1803714584/Planning+Poker+Help+Center/">Planning Poker Help Center</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PP/1159103478/Release+notes%E2%80%8E/">Release notes‎</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PP/1159300293/Cloud/">Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Release notes October 2024</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PP/pages/1336148174" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Release notes October 2024</h1>
+    <div class="page-meta">1 min read</div>
     <p><strong>Release date</strong>: <time datetime="2024-10-01">October 1, 2024</time></p><p>Our team is thrilled to announce the latest release of Planning Poker for Jira Cloud.</p><hr/><h2 id="enhancements">Enhancements</h2><p>Appfire is excited to introduce the following updates to Planning Poker for Jira Cloud.</p><h3 id="improved-ticket-view">Improved ticket view</h3><p>A new toggle is now available, allowing you to hide tickets that have already been estimated. This gives you a cleaner view, focusing only on tickets that still require estimation.</p><img alt="image-20241001-101733.png" class="doc-image" loading="lazy" src="/cms_trial/assets/73c13fac-23e8-4951-a7a6-d9e3e1367687.png"/><h3 id="game-cloning-with-admins-and-estimators">Game cloning with admins and estimators</h3><p>When cloning a finished game, admins and estimators are now automatically populated. This enhancement ensures you don’t have to manually assign permissions, streamlining the process for managing the cloned game.</p><img alt="image-20241001-102121.png" class="doc-image" loading="lazy" src="/cms_trial/assets/5e877b59-dcfe-4e1f-ac79-5cc09da9942d.png"/><h3 id="average-score-display">Average score display</h3><p>Moderators can now view the average score directly in the estimation view. This feature eliminates the need for manual calculations, making it easier and faster to pick the final estimate.</p><img alt="image-20241001-102348.png" class="doc-image" loading="lazy" src="/cms_trial/assets/e15a47f2-cec5-4e4e-9035-e4734b65e8e4.png"/><h3 id="avatars-with-tooltips">Avatars with tooltips</h3><p>To make it easier to identify who voted, a tooltip now appears when hovering over avatars, giving you quick insights during the voting process.</p><img alt="contentId-1336148174" class="doc-image" loading="lazy" src="/cms_trial/assets/cd1f3fbe-cc7e-4212-9087-f32b97e3b569.png"/><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p> <strong>Questions and feedback</strong></p><ul><li><p>Explore exciting features, pricing updates, reviews, and more on the <a href="https://marketplace.atlassian.com/apps/1212495/planning-poker?hosting=cloud&amp;tab=overview">Marketplace</a>.</p></li><li><p>Stuck with something? Raise a ticket with our <a href="https://appf.re/support">support team</a>.</p></li><li><p>Do you love using our app? Let us know what you think <a href="https://marketplace.atlassian.com/apps/1212495/planning-poker?hosting=cloud&amp;tab=reviews">here</a>.</p></li></ul></div><div><p><strong> </strong> <strong>Credits</strong></p><p>A heartfelt thank you to our valued customers! You are the driving force behind why we create software. We appreciate your trust in Planning Poker.</p></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

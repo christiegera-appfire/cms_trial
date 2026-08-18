@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465503776/JMWE+Administration/">JMWE Administration</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Use case templates</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/2196245303" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Use case templates</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>The <strong>Use case templates</strong> page of the JMWE Administration pages lists more than 30 prebuilt configurations covering many of the most common use cases for JMWE. These provide quick installation of Event-based actions, Scheduled actions, and other workflow automations. </p><div class="panel panel-note"><p><strong>Note</strong>: some Use Case templates may require customization for your specific instance.</p></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h2 id="filter-and-search">Filter and search</h2><p>The top of the <strong>Use Case templates</strong> page includes tools for finding a template to suit your needs, including: </p><ul><li><p><strong>Type filter</strong> - Use the pulldown menu to select the type of automation you’re seeking, such as Event-based actions, Scheduled actions, and post functions. </p></li><li><p><strong>Search</strong> - Search by template name and description. </p></li></ul><h2 id="apply-a-template">Apply a template</h2><p>To use a template in your JMWE automations, click <strong>Apply use case</strong>. JMWE will open to the configuration screen appropriate to the template selected. For example, the Automation Rule Builder will open for Event-based actions and Scheduled actions, or a window will open prompting you to select a Project, Workflow, and Transition when using a post function template. </p><div class="panel panel-note"><p>A few points to keep in mind when implementing Use case templates: </p><ul><li><p>Many templates require specific configurations for your instance; for example, you may need to select a Project or workflow to which the template should be applied. </p></li><li><p>It is <strong>highly recommended</strong> that you review all configurations for the template before saving it to your instance. </p></li><li><p>Thorough testing should be done, preferably in a test instance, before implementing templates in a Production environment. </p></li></ul></div></div><div><img alt="JMWE for Jira Cloud use case templates administration with template selection" class="doc-image" loading="lazy" src="/cms_trial/assets/fa70cbc1-2c61-422b-b92d-0348556ee8ba.png"/></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

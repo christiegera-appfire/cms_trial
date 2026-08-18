@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193033035/Feature+guide/">Feature guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192903639/Administration/">Administration</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">App scope and permissions</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2192870224" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>App scope and permissions</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview</h2><p>Each app for Confluence Cloud (like Comala Document Management) has to be configured with a specific <a href="https://developer.atlassian.com/platform/forge/manifest-reference/scopes-forge/">scope</a>.</p><div class="panel panel-note"><p>Scopes allow an app to request a particular level of access to an Atlassian product.</p></div><p>The app configures this automatically during installation. This adds the <strong>Comala Document Management app user </strong>as an individual user in <strong>Global permissions</strong>.</p><p>To manage global permissions:</p><ol><li><p>Click the gear icon in the top-right corner of your Confluence site to open <em>Confluence Administration</em>. </p></li><li><p>In the left-hand navigation, under <strong>Settings</strong>, select<strong> Permissions &gt; Site permissions. </strong><br/></p><img alt="Site permissions page showing the Comala Document Management app user in the user permissions list." class="doc-image" loading="lazy" src="/cms_trial/assets/8b3626e7-461e-4f9d-bf4b-e92db1c3920e.png"/></li></ol><p>The automatic configuration also adds the <strong>Comala Document Management</strong> <strong>app user</strong> as an individual user for each space in the <strong>Space permissions</strong> screen<strong>. </strong>The app system user is assigned all individual user permissions for the space except <strong>Restrictions Add/Delete</strong>, <strong>Archive</strong>, <strong>Delete own</strong>, and <strong>Space Export</strong>.</p><img alt="Space permissions page showing the Comala Document Management app user with assigned space permissions." class="doc-image" loading="lazy" src="/cms_trial/assets/a3758222-f31d-4f0d-97f3-6201688441de.png"/><p>Within an instance, a global administrator can limit the actions the app performs:</p><ul><li><p>Changes in scope by a global administrator can affect the global permissions for the app system user and the functioning of the app in the instance.</p></li><li><p>Changes in the individual space permissions for the app system user (due to either the global change or a space administrator change) may affect the functioning of the app in that space.</p></li><li><p>Page restrictions added to content prior to applying an app workflow to the content can cause an error.</p></li></ul><h2 id="pages-with-page-level-restrictions">Pages with page-level restrictions</h2><p>You need <strong>view</strong> and <strong>edit</strong> permissions on the page to use the applied workflow.</p><p>If page restrictions don’t include the <strong>Comala Document Management app user</strong>, the workflow won’t run on those pages, for example, when a page is created or updated.</p><p>You can configure how <strong>Comala Document Management </strong>handles restricted pages using the content restriction controls in <a href="/cms_trial/space/CDMC/2193129643/Global+administration/">Global administration</a> and <a href="/cms_trial/space/CDMC/2192776249/Space+administration/">Space administration</a>.</p><h2 id="permissions-message">Permissions message</h2><p>Space or page-level restrictions can prevent the app from working correctly. When this occurs, the following message is displayed when the app attempts to initialize the state byline on the page.</p><img alt="Comala initialization message showing required permissions" class="doc-image" loading="lazy" src="/cms_trial/assets/d2833396-8b67-4511-9bf7-3978d03dda83.png"/><p>To resolve this, ensure the Comala Document Management app add-on user (or, in some cases, the current user) is added to the space permissions and any page restrictions, then refresh the page.</p><p><strong>Related topics</strong></p><ul><li><p><a href="/cms_trial/space/CDMC/2193129643/Global+administration/">Global administration</a></p></li></ul><ul><li><p><a href="/cms_trial/space/CDMC/2192776249/Space+administration/">Space administration</a></p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

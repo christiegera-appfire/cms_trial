@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193196083/Release+Notes/">Release Notes</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/3128066689/Release+Notes+2025/">Release Notes 2025</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Release notes 29th July 2025</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2268135527" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Release notes 29th July 2025</h1>
+    <div class="page-meta">2 min read</div>
     <p><strong>Release date</strong>: <time datetime="2025-07-29">July 29, 2025</time></p><p>Our team is thrilled to announce the latest releases of Comala Document Management Cloud.</p><hr/><h2 id="bug-fixes">Bug Fixes</h2><h3 id="document-approvals-macro-not-displayed-when-workflow-is-active-in-space-settings"><strong>Document Approvals macro not displayed when workflow is active in space settings</strong></h3><p>Resolved an issue where the <strong>Document Approvals</strong> macro was not visible on the editor or published page when the workflow was enabled through <strong>Space Settings</strong>. The macro now displays correctly in both views when a space-level workflow is active.</p><h3 id="updated-the-font-size-in-space-workflows-and-workflow-builder"><strong>Updated the font size in Space Workflows and Workflow Builder</strong></h3><p>Following a recent update from Atlassian that increased the default text font size by 1px, the UI in <strong>Space Workflows</strong> and the <strong>Workflow Builder</strong> has been adjusted to maintain consistent layout, spacing, and visual alignment.</p><h3 id="page-workflow-removal-option-disabled-for-page-creator"><strong>Page workflow removal option disabled for page creator</strong></h3><p>Resolved an issue where users with <strong>Edit</strong> permissions were unable to remove an applied workflow from a page they created. The <strong>Remove Workflow</strong> option was incorrectly disabled. This issue has been fixed. </p><h3 id="missing-expiration-column-in-document-report"><strong>Missing expiration column in Document Report</strong></h3><p>The <strong>Expiration</strong> column was previously excluded from the <strong>Document Report</strong>. This has now been resolved, and the column is now visible, allowing users to view expiration details as expected.</p><h3 id="inaccurate-status-filtering-in-document-states-report"><strong>Inaccurate status filtering in Document States Report</strong></h3><p>Resolved an issue where the <strong>Document States Report</strong> sometimes failed to filter results based on the selected status. The filtering logic has been improved to ensure more accurate and consistent results.</p><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p> <strong>Questions and feedback</strong></p><ul><li><p>Explore exciting features, pricing updates, reviews, and more on the <a href="https://marketplace.atlassian.com/apps/142/comala-document-management?hosting=cloud&amp;tab=overview">Marketplace</a>.</p></li><li><p>Stuck with something? Raise a ticket through our <a href="https://appf.re/support">support team</a>.</p></li><li><p>Do you love using our app? Let us know what you think <a href="https://marketplace.atlassian.com/apps/142/comala-document-management?hosting=cloud&amp;tab=reviews">here</a>.</p></li></ul></div><div><p> <strong>Credits</strong></p><p>Thank you to our valued customers! Your incredible support and feedback inspire us to improve continuously. We appreciate your trust in Appfire’s Comala Document Management Cloud!</p></div></div><hr/>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

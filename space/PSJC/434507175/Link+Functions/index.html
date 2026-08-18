@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434798967/Simple+Issue+Language/">Simple Issue Language</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434374166/SIL+Functions+library/">SIL Functions library</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434374224/Jira+Integration+Functions/">Jira Integration Functions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Link Functions</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/434507175" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Link Functions</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>This section contains functions that enable users to handle links.</p><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p>This section contains functions that enable users to handle links. There are 2 kinds of links: structure links (like “blocks“, or “depends on“) and external links (<em>Web Links</em> also named <em>Remote Links</em>)</p><h2 id="functions-summary">Functions Summary</h2><ul class="children-list"><li><a href="/cms_trial/space/PSJC/434602750/getIssueLinksDetail/">getIssueLinksDetail</a></li><li><a href="/cms_trial/space/PSJC/434799241/linkIssue/">linkIssue</a></li><li><a href="/cms_trial/space/PSJC/434864417/createWebLink/">createWebLink</a></li><li><a href="/cms_trial/space/PSJC/434995421/linkedIssues/">linkedIssues</a></li><li><a href="/cms_trial/space/PSJC/434995439/unlinkIssue/">unlinkIssue</a></li><li><a href="/cms_trial/space/PSJC/957940055/getWebLink/">getWebLink</a></li><li><a href="/cms_trial/space/PSJC/958071114/deleteWebLink/">deleteWebLink</a></li><li><a href="/cms_trial/space/PSJC/958333364/updateWebLink/">updateWebLink</a></li><li><a href="/cms_trial/space/PSJC/958955774/getWebLinksForIssue/">getWebLinksForIssue</a></li></ul></div><div><p>Structures used:</p><p><strong>JIssueLink </strong>- the structural links</p><pre><code class="language-">integer id;
 string name;
 integer direction;
@@ -171,6 +176,64 @@ string statusIconLink;</code></pre></div></div>
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

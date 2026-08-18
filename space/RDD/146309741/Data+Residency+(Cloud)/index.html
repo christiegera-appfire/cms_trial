@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309984/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146310544/Security/">Security</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Data Residency (Cloud)</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/146309741" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Data Residency (Cloud)</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>Learn where your data is hosted with automated data residency</p><h2 id="overview">Overview</h2><p>With Atlassian Cloud products (<a href="https://www.atlassian.com/software/data-residency">Standard, Premium and Enterprise subscriptions</a>) data residency is available when you create the instance. You can specify where your content and data are hosted.</p><p>The importance of data residency is paramount to meet organizational and regulatory data compliance requirements. This is even more important in regulated industries like government, banking, insurance, telecommunications, transportation, life sciences, healthcare, energy, agriculture, construction, defense or postal services.</p><h2 id="how-to-enable-data-residency-in-dashboard-hub">How to enable data residency in Dashboard Hub</h2><p>The storage is done automatically based on your current location: Global, Australia, Europe or USA (read Atlassian’s <a href="https://support.atlassian.com/security-and-access-policies/docs/understand-data-residency/">Understand data residency</a> for more information).</p><div class="panel panel-note"><p><strong>If you already installed Dashboard Hub, you have to uninstall and install again</strong> (for installations done before 23rd June 2022, when this mechanism was released for the first time). No data is going to be lost.</p></div><h2 id="how-to-view-where-your-data-is-hosted">How to view where your data is hosted</h2><p>Regions cannot be chosen, since these are based on your current location. To view where your product data is hosted, you need to have organization admin permissions:</p><ol><li><p>Go to <a href="http://admin.atlassian.com/">admin.atlassian.com</a>. Select your organization if you have more than one.</p></li><li><p>Select <strong>Data management</strong> &gt; <strong>Data residency</strong>.</p></li></ol><img alt="Dashboard Hub Atlassian data residency locations" class="doc-image" loading="lazy" src="/cms_trial/assets/9a2769b2-d64b-4887-a9c8-cca05c250fc3.png"/><p>Based on your current location, Dashboard Hub services and data are in the following regions:</p><table><tr><th><p><strong>Location</strong></p></th><th><p><strong>AWS regions</strong></p></th><th><p><strong>Dashboard Hub regions</strong></p></th></tr><tr><td><p><strong>Global</strong></p></td><td><ul><li><p>Asia Pacific (Singapore and Sydney)</p></li><li><p>Europe (Frankfurt and Ireland)</p></li><li><p>US (US East and US West)</p></li></ul></td><td><ul><li><p>Services in Europe (Frankfurt)</p></li><li><p>Data in Europe (Frankfurt)</p></li></ul></td></tr><tr><td><p><strong>Australia</strong></p></td><td><ul><li><p>Asia Pacific (Sydney)</p></li></ul></td><td><ul><li><p>Services in Europe (Frankfurt)</p></li><li><p>Data in Europe (Frankfurt)</p></li></ul></td></tr><tr><td><p><strong>Europe</strong></p></td><td><ul><li><p>Europe (Frankfurt and Ireland)</p></li></ul></td><td><ul><li><p>Services in Europe (Frankfurt)</p></li><li><p>Data in Europe (Frankfurt)</p></li></ul></td></tr><tr><td><p><strong>USA</strong></p></td><td><ul><li><p>US (US East and US West)</p></li></ul></td><td><ul><li><p>Services in US (N. Virginia)</p></li><li><p>Data in US East (Ohio)</p></li></ul></td></tr></table><img alt="Dashboard Hub Data Residency (Cloud) data residency configuration" class="doc-image" loading="lazy" src="/cms_trial/assets/767865a9-9445-44fc-929f-f8b9651facbc.png"/><div class="panel panel-note"><p>Do you need a new region? <a href="https://roninpixels.atlassian.net/servicedesk/customer/portal/7">Contact us</a></p></div><p>If you want to learn more about what we store, see our <a href="/cms_trial/space/RDD/146310544/Security/">Security</a> page.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

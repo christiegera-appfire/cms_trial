@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193033035/Feature+guide/">Feature guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192870271/Apply+workflows/">Apply workflows</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">At page/blog level</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2192838126" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>At page/blog level</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview </h2><p>Page-level workflows in Comala Document Management let you apply a workflow to an individual page or blog post instead of applying it across the entire space.</p><p>For a workflow to be available as a page-level workflow, it must meet the following conditions:</p><ul><li><p>The workflow must be listed in the space’s workflow list.</p></li><li><p>All workflows on the <em>Space Workflows</em> page must be <strong>disabled</strong> (if enabled, they’re treated as space workflows).</p></li><li><p>The workflow must have <strong>no labels</strong> configured (if labels are defined, they are used for automatic label-based initialization).</p></li><li><p>Page-level workflows can’t be applied when a space-level workflow is active. Space-level workflows take priority over page-level workflows.</p></li></ul><h2 id="add-a-workflow-to-a-page">Add a workflow to a page </h2><ol><li><p>Go to the page where you want to apply the workflow.</p></li><li><p>Click the <strong>Document Management</strong> status indicator in the page byline to open the <em>Workflow State</em> dialog.</p></li><li><p>Select <strong>Apply to Content</strong> in the <em>Workflow State</em> dialog to apply the workflow to that page.</p></li></ol><img alt="Workflow State Dialog with the Apply to Content and Apply to Space options." class="doc-image" loading="lazy" src="/cms_trial/assets/d82018cd-c9d2-48fb-95f2-3d07f6cd024e.png"/><ol><li><p>The available page workflows are displayed in the dialog. Select the required workflow.</p></li><li><p>Click <strong>Apply Workflow</strong>.<br/></p><img alt="Apply Workflow dialog showing the list of available page workflows." class="doc-image" loading="lazy" src="/cms_trial/assets/25a248c6-9b05-4736-a6e0-88d69753bd24.png"/></li></ol><p>The initial state of the workflow is displayed in the page byline. For example, the page transitions to the <em>Review</em> state as defined in the workflow.</p><img alt="Workflow state dialog displaying the applied workflow and current Review state." class="doc-image" loading="lazy" src="/cms_trial/assets/2c1c9ab5-0576-421f-9c25-a31e384eac5a.png"/><div class="panel panel-note"><ul><li><p>Only one workflow can be active on a page at a time. Remove the existing workflow before adding a new one.</p></li><li><p>Copying a page doesn’t carry over its workflow state or page-level workflow assignment. Apply the workflow separately after copying.</p></li><li><p>To remove a page workflow, open the <em>Workflow State</em> dialog and select <strong>Remove Workflow</strong> from the <strong>Actions</strong> menu. </p></li></ul><p>See the <a href="/cms_trial/space/CDMC/2193129918/Workflow+state+dialog/">Workflow state dialog</a> page for more details on managing workflows from the dialog.</p></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

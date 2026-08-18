@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira (CMJ) Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/193823429/Features+and+options/">Features and options</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Create and manage snapshots</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CMJC/pages/2506522887" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Create and manage snapshots</h1>
+    <div class="page-meta">4 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h3 id="what-s-included-in-a-snapshot">What’s included in a snapshot</h3><p>A snapshot is a packaged state of your Jira Cloud projects and their configuration elements that you can export and later deploy to any Jira Cloud site. Snapshots let you prepare, review, and reuse configurations without immediately running a deployment.</p><p>Snapshots support the configuration elements <a href="/cms_trial/space/CMJC/193855959/Supported+configuration+elements/">listed here</a>.</p><hr/><h3 id="prerequisites">Prerequisites</h3><p>Before creating a snapshot:</p><ul><li><p>Install and license CMJ Cloud on your Jira Cloud site.</p></li><li><p>Make sure you have <strong>Site admin</strong> or <strong>Organization admin</strong> permissions.</p></li><li><p>Use a supported Jira Cloud plan (Standard, Premium, or Enterprise).</p></li><li><p>Have an Atlassian <strong>API token</strong> for your Atlassian account.</p></li></ul><hr/><h3 id="create-a-snapshot">Create a snapshot</h3><p>The following video will show you just how easy it is to create a CMJ snapshot.</p><div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/H2qY2aKH0xg"></iframe></div><p>Alternatively, you can follow our step-by-step guide for some more detailed explanations:</p><ol><li><p>In your Jira Cloud site, go to <strong>Apps &gt; Configuration Manager &gt; Snapshots</strong>.</p></li><li><p>If you haven’t created or uploaded any snapshots yet, you’ll see a <strong>New snapshot</strong> button on the page. Otherwise, you can use the <strong>New Snapshot</strong> button in the top-right corner to create a snapshot.</p><img alt="Snapshots page showing the New snapshot button used to create a new snapshot." class="doc-image" loading="lazy" src="/cms_trial/assets/278eaae0-784f-40a8-afbb-8cbd79bd6183.png"/></li><li><p>On the <em>New snapshot</em> page, choose what you want to capture:</p><ul><li><p><strong>Specific elements</strong> – Select individual projects and configuration elements for a custom snapshot.</p></li><li><p><strong>Everything supported</strong> – Include all currently supported projects and configuration elements in the snapshot.</p></li></ul></li></ol><img alt="New snapshot scope page with the Specific elements and Everything supported options available for creating a snapshot." class="doc-image" loading="lazy" src="/cms_trial/assets/03c344d8-8f16-4c9b-babf-28b913ce23b7.png"/><ol><li><p>Enter a name for your snapshot.</p></li><li><p>If you selected:</p><ul><li><p><strong>Specific elements</strong> - click <strong>Select</strong> below the snapshot name field and choose the projects and configuration elements you want to include in the snapshot.<br/>💡 <em>You only need to select the items you want to include. Any required dependencies are added automatically during snapshot creation. </em><a href="#How-dependencies-work"><em>Learn more</em></a></p><img alt="Configuration elements selector for choosing items to include in a snapshot." class="doc-image" loading="lazy" src="/cms_trial/assets/b8f26565-6f71-445a-89d1-38abceac4600.png"/></li><li><p><strong>Everything supported</strong> - proceed to the next step.</p></li></ul></li></ol><ol><li><p>When you’re ready with your selections, click <strong>Next</strong>.</p></li><li><p>You’ll move to the last part of the creation process, where you have to write a <strong>Description</strong> for the snapshot.</p><img alt="Take snapshot page with the Description and Label field for the snapshot." class="doc-image" loading="lazy" src="/cms_trial/assets/3590b18e-ea9e-4e8b-badd-f2be28e7e85a.png"/></li><li><p>(Optional) Add a label in the <strong>Labels</strong> field.</p><img alt="Take snapshot page showing the optional Description and Labels fields filled in before taking a snapshot." class="doc-image" loading="lazy" src="/cms_trial/assets/2cc582dc-236d-4599-aeec-f54ae8464362.png"/></li><li><p>Finally, click <strong>Take snapshot</strong> to start the export process.</p></li><li><p>After the snapshot is created, you'll be taken to the <strong>Snapshot Summary</strong> tab, where you can review the snapshot details and the number of configuration elements it contains. You can also switch to the <strong>Scope</strong> tab to review all the projects and configuration elements included in the snapshot.</p></li></ol><hr/><h3 id="how-dependencies-work">How dependencies work</h3><p>When creating a snapshot using <strong>Specific elements</strong>, you only need to select the projects and configuration elements you want to include.</p><p>During snapshot creation, CMJ automatically analyzes your selection and includes any required dependencies. This helps ensure that the deployed configuration works as expected, without requiring you to manually recreate missing components.</p><p>For example, if you select a workflow, CMJ also includes the configuration elements that the workflow depends on, such as statuses, screens, and workflow schemes.</p><p>After the snapshot is created, you can review all included configuration elements on the <strong>Summary</strong> and <strong>Scope</strong> tabs.</p><hr/><h3 id="manage-snapshots">Manage snapshots</h3><p>In the <em>Snapshots</em> page, you can view a list of all your snapshots that have either been created or uploaded to the current Jira Cloud instance. You can use the search bar and the associated filters (Projects, Boards, Status, Created) to easily navigate to specific snapshots.</p><p>Additionally, you can use the manage options (…) for each snapshot to take the following actions:</p><ul><li><p><strong>Take snapshot</strong> to update the data for your snapshot’s scope (Cloud snapshots only)</p></li><li><p><strong>Deploy</strong> a snapshot to this or another Jira Cloud instance.</p></li><li><p><strong>Open</strong> a snapshot to review its details in the <em>Snapshot summary</em> screen.</p></li><li><p><strong>Delete</strong> a snapshot you no longer need.</p></li></ul><img alt="Snapshots list showing the Manage options menu." class="doc-image" loading="lazy" src="/cms_trial/assets/b93b2f30-4cae-45f7-a885-68c7792a94b1.png"/><hr/><h3 id="snapshot-scope-summary-screen">Snapshot scope summary screen</h3><p>When you open a snapshot from the list, you’ll see its details. Here, you can use the <strong>Take Snapshot</strong> button to create an up-to-date version of this snapshot with the exact same scope. If any projects or configuration elements are no longer available in your Jira Cloud instance, they’ll also be removed from your snapshot scope when a new version is created.</p><p>On the <em>Summary</em> tab, you’ll have the following sections:</p><p><strong>Details</strong></p><p>Here you can find information like the snapshot’s description, labels (if any), status, source instance, creation date, and who created it.</p><p><strong>Deployments</strong></p><p>In this section, you can find information on whether and where the snapshot has been deployed. Also, you can use the <strong>Deploy</strong> button to start a deployment with this snapshot scope.</p><p><strong>Configurations</strong></p><p>This section contains information about what configuration elements are included in the snapshot scope and how many of each you can find. <a href="#What%E2%80%99s-included-in-a-snapshot">Learn more about the supported configuration elements</a></p><img alt="Summary tab displaying snapshot details and a summary of included configuration elements." class="doc-image" loading="lazy" src="/cms_trial/assets/aa3c5dd0-2dce-47ea-979c-800dd4b36c5b.png"/><p>On the <em>Comparison</em> tab, you can analyze the differences between two versions of the same snapshot scope. <a href="https://support.appfire.com/space/CMJC/3417473252/Compare+snapshots">Learn more about comparisons</a></p><img alt="Comparison tab that can show differences between two versions of the same snapshot." class="doc-image" loading="lazy" src="/cms_trial/assets/0dab1cca-1df4-42b8-8d18-adbbc17c1646.png"/><p>On the <em>Scope</em> tab, you’re able to view the snapshot’s original scope and whether any changes have occurred to it (for example, in the screenshot below, you can see that one of the projects has been deleted and is no longer available for this version of the snapshot scope). When you create a new snapshot version, you’ll be using the exact scope you find here; you won’t need to select anything.</p><img alt="Scope tab listing the spaces and configuration elements included in the snapshot scope." class="doc-image" loading="lazy" src="/cms_trial/assets/23a1a861-9c50-44d5-97c4-dc442882ff9c.png"/>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

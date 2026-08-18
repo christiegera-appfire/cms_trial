@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74816002/Release+notes/">Release notes</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Release notes April 2025</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TBL/pages/1946223576" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Release notes April 2025</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p><strong>Release date</strong>: <time datetime="2025-04-19">April 19, 2025</time></p><p>Our team is thrilled to announce the latest release of Advanced Tables for Confluence.</p><p>Version: 2.2.0</p><hr/><h2 id="new-features">New features</h2><h2 id="advanced-table-viewer-macro">Advanced Table Viewer <span class="status-lozenge">BETA</span> macro</h2><p>The Advanced Table Viewer <span class="status-lozenge">BETA</span> macro now provides the column property to rename the table column heading. </p><h3 id="rename-heading">Rename heading</h3><ul><li><p>The macro setup mode provides the <strong>Rename heading</strong> feature. For details, refer to <a href="/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/">Setup the Advanced Table Viewer macro [Beta] features</a>.</p></li><li><p>To change the name of a column, navigate to <strong>Edit column</strong> ( <span class="inline-icon" title="inline icon">▢</span> ) &gt; <strong>Rename heading </strong>and provide the new column heading. For more information, refer to <a href="/cms_trial/space/TBL/1940817034/Rename+the+table+column+name+with+Advanced+Table+Viewer+macro/">Rename the table column name with Advanced Table Viewer macro [Beta] - cloud</a>.</p><img alt="Advanced Table Viewer showing the rename heading feature." class="doc-image" loading="lazy" src="/cms_trial/assets/80b4353c-6085-4df0-9b3d-67a8bc557b24.jpg"/></li></ul><hr/><h2 id="enhancements">Enhancements</h2><h2 id="advanced-table-viewer-macro-2">Advanced Table Viewer <span class="status-lozenge">BETA</span> macro</h2><h3 id="download-button">Download button</h3><p>The download icon is replaced with a button to clearly indicate the download action.</p><img alt="Download button for the Table Viewer." class="doc-image" loading="lazy" src="/cms_trial/assets/d4586f85-e161-41bf-85a1-429e83e16acb.jpg"/><h3 id="contextual-messages-to-improve-usability">Contextual messages to improve usability</h3><p>The Advanced Table Viewer macro displays contextual messages based on the current mode and user actions within the macro. To know more about modes and contextual messages, refer to the <a href="/cms_trial/space/TBL/1765245023/Advanced+Table+Viewer+macro+glossary/">Advanced Table Viewer macro glossary</a>.</p><img alt="Setup mode" class="doc-image" loading="lazy" src="/cms_trial/assets/e37cea9f-0715-4cde-8c9a-a57d6144ed36.jpg"/><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p> <strong>Questions and feedback</strong></p><ul><li><p>Explore exciting features, pricing updates, reviews, and more on the <a href="https://marketplace.atlassian.com/apps/197/advanced-tables-for-confluence?hosting=cloud&amp;tab=overview">Marketplace</a>.</p></li><li><p>Stuck with something? Raise a ticket through our <a href="https://appf.re/support">support portal</a>.</p></li><li><p>Do you love using our app? Let us know what you think <a href="https://marketplace.atlassian.com/apps/197/advanced-tables-for-confluence?hosting=cloud&amp;tab=reviews">here</a>.</p></li></ul></div><div><p><strong>Credits</strong></p><p>Thank you to our valued customers! Your incredible support and feedback inspire us to improve continuously. We appreciate your trust in Advanced Tables for Confluence!</p></div></div><hr/><table><tr><th><p><strong>Release date</strong></p></th><td><p><time datetime="2025-04-19">April 19, 2025</time> </p></td></tr><tr><th><p><strong>Highlights</strong></p></th><td><ul><li><p>New feature</p><ul><li><p>Advanced Table Viewer macro <span class="status-lozenge">Beta</span> - Rename column heading</p></li></ul></li><li><p>Enhancement</p><ul><li><p>The download icon is replaced with a download button.</p></li><li><p>Contextual messages to improve usability</p></li></ul></li></ul></td></tr></table>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

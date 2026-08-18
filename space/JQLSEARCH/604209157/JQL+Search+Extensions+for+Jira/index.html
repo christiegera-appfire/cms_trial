@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">JQL Search Extensions for Jira</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JQLSEARCH/pages/604209157" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>JQL Search Extensions for Jira</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><img alt="contentId-604209157" class="doc-image" loading="lazy" src="/cms_trial/assets/763eedba-70e4-4ca8-8400-21e7a23ca8b6.png"/><h2 id="discover-a-powerful-new-way-to-search-jira-generate-reports-and-automate-workflows">Discover a powerful new way to search Jira, generate reports, and automate workflows</h2><p>Unleash the full power of JQL with 50+ JQL search extensions. Our professional indexing service gives you the power to quickly search and filter issues, generate reports and dashboards, and create new automations.</p><h2 id="jql-search-extensions-for-jira-cloud">JQL Search Extensions for Jira Cloud</h2><table><tr><th><h3 id="get-started"><strong>Get started</strong></h3><img alt="icon-feature-setup-purple-light.png" class="doc-image" loading="lazy" src="/cms_trial/assets/3a1ee17f-475d-47d4-9c5b-4448d5e43272.png"/><p>Everything you need to get started with our Cloud app</p></th><td><h3 id="functions-and-keywords-reference"><strong>Functions and keywords reference </strong></h3><img alt="icon-feature-documentation-purple-light.png" class="doc-image" loading="lazy" src="/cms_trial/assets/6920f18a-cbcc-4e8a-b3d1-848cfc66a637.png"/><p>Complete list and examples of all the functions and keywords in our Cloud app</p></td></tr></table><hr/><h2 id="jql-search-extensions-for-jira-data-center">JQL Search Extensions for Jira Data Center</h2><table><tr><th><h3 id="get-started-2"><strong>Get started</strong></h3><img alt="icon-feature-setup-purple-light.png" class="doc-image" loading="lazy" src="/cms_trial/assets/3a1ee17f-475d-47d4-9c5b-4448d5e43272.png"/><p>Everything you need to get started with our Cloud app</p></th><td><h3 id="functions-reference"><strong>Functions reference </strong></h3><img alt="icon-feature-documentation-purple-light.png" class="doc-image" loading="lazy" src="/cms_trial/assets/6920f18a-cbcc-4e8a-b3d1-848cfc66a637.png"/><p>Complete list and examples of all the functions in our Data Center app</p></td></tr></table><hr/><table><tr><td><h3 id="migrations">Migrations</h3><img alt="icon-feature-cloud-purple-light.png" class="doc-image" loading="lazy" src="/cms_trial/assets/117b0502-e11d-4ada-bdc0-72469bf4ff3f.png"/><p>What you need to know if you use JQL Search Extension on Jira Server or Data Center, and you are migrating to Jira Cloud</p></td><td><h3 id="help-and-support">Help and support</h3><img alt="icon-feature-support-purple-light.png" class="doc-image" loading="lazy" src="/cms_trial/assets/f88a49cd-e596-46eb-a092-cfb8ced212ca.png"/><p>Answers to common questions and where to go for assistance with the app, migrations, and feature requests</p></td></tr></table>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

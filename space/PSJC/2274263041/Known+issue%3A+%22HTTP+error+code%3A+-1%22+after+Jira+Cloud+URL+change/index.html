@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/1761182379/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/491001327/Troubleshooting+Power+Scripts+for+Jira+Cloud/">Troubleshooting Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Known issue: "HTTP error code: -1" after Jira Cloud URL change</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/2274263041" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Known issue: "HTTP error code: -1" after Jira Cloud URL change</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><hr/><h3 id="overview">Overview</h3><p>This article addresses a known issue where users of <strong>Power Scripts for Jira Cloud</strong> encounter an <code>HTTP error code: -1</code> after their Jira Cloud site's URL is changed. The error prevents users from accessing most Power Scripts UI elements and can cause automations to fail.</p><p>This issue typically occurs shortly after Jira URL renaming (for example, <code>oldname.atlassian.net</code> to <code>newname.atlassian.net</code>). The Power Scripts app, which stores the Jira site's URL for internal communication, is unable to successfully connect to the renamed Jira instance, leading to a connection error.</p><hr/><h3 id="symptoms">Symptoms</h3><p>Users experiencing this issue will observe the following behaviors:</p><ul><li><p>An <code>HTTP error code: -1</code> message appears in the Power Scripts UI.</p></li><li><p>Inability to access most Power Scripts pages, such as SIL Manager.</p></li><li><p>Power Scripts automations might fail to run.</p></li><li><p>The error message appears in an overlay on the screen, often obscuring the entire app UI.</p></li></ul><p>You might see an error message similar to this:</p><pre><code class="language-">HTTP error code: -1. Path :</code></pre><hr/><h3 id="root-cause">Root cause</h3><p>The underlying problem is a dependency on Atlassian Jira Cloud's behavior during a URL change. When you rename your Jira Cloud URL, Jira is expected to send a Site rename event to notify all installed apps of the change. However, in some cases, this event is not triggered or delivered to the Power Scripts app. As a result, the app is not notified that the base URL has changed and continues to reference outdated configuration data tied to the old URL. This leads to a connection failure and the <code>HTTP error code: -1</code> message.</p><hr/><h3 id="solution">Solution</h3><p>The most reliable way to fix this issue is to reinstall the app. This forces the app to register with the new Jira Cloud URL and re-establish a secure connection.</p><div class="panel panel-note"><p>Due to recent changes introduced by Atlassian’s new Cloud Billing Engine, you might not be able to uninstall and reinstall apps with active subscriptions.</p></div><p>Here are the steps to resolve this issue.</p><h4 id="step-1-uninstall-the-app"><strong>Step 1: Uninstall the app</strong></h4><ol><li><p>In Jira, click the <strong>Settings</strong> gear icon and select <strong>Apps</strong>.</p></li><li><p>Go to <strong>Manage apps</strong>.</p></li><li><p>In the list, find the app you want to remove and click its dropdown icon.</p></li><li><p>Depending on the available action, do this:</p><ul><li><p>If the <strong>Uninstall </strong>button is available, confirm the action.</p></li><li><p>If the <strong>Uninstall</strong> button is unavailable or greyed out, click <strong>Manage subscription</strong>, cancel the app, wait until the cancellation completes, then return to uninstall.</p></li></ul></li></ol><div class="panel panel-warning"><p>When you cancel your subscription, the app is scheduled for deletion after a 30-day cancellation period. To expedite this, you must contact Atlassian's billing team directly.</p><p>See the Atlassian support article <a href="https://support.atlassian.com/jira/kb/cant-uninstall-apps-after-cancellation/">Can't uninstall Jira Cloud apps after cancellation</a> for more information.</p></div><h4 id="step-2-reinstall-the-app"><strong>Step 2: Reinstall the app</strong></h4><ol><li><p>In Jira, click the <strong>Apps</strong> menu at the top and select <strong>Explore apps</strong> (or <strong>Find new apps</strong>).</p></li><li><p>Use the search bar to find the desired app.</p></li><li><p>Click <strong>Try it free</strong> (or <strong>Get app</strong>), select your Jira Cloud site if prompted, and confirm installation.</p></li><li><p>Once installed, complete any required setup or grant permissions if prompted.</p></li></ol><hr/><h3 id="prevention">Prevention</h3><p>This issue is a direct result of a Jira Cloud URL change. To prevent it, you must be prepared to reinstall the Power Scripts app immediately following the change.</p><ul><li><p><strong>Plan ahead:</strong> If you plan to rename your Jira Cloud URL, inform your administrators that an app reinstall will be required as part of the post-migration checklist.</p></li><li><p><strong>Post-migration checklist:</strong> Always include reinstalling Power Scripts in your checklist after  Jira URL renaming.</p></li><li><p><strong>Testing:</strong> After a URL change, verify that all app functions are working properly by navigating to the Power Scripts UI.</p></li></ul><hr/><h3 id="additional-information">Additional Information</h3><ul><li><p><strong>When to contact support:</strong> If the problem persists after you have reinstalled the app, or if you are unable to uninstall the app, please contact our support team.</p></li><li><p><strong>Atlassian documentation:</strong> For more information on the updated process for uninstalling Jira Cloud apps, see <a href="https://support.atlassian.com/jira/kb/cant-uninstall-apps-after-cancellation/">Atlassian documentation</a>.</p></li><li><p><strong>Future fixes:</strong> We are actively investigating ways to make the app more resilient to Jira URL changes, but the current recommended resolution is to perform a fresh installation of the app.</p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

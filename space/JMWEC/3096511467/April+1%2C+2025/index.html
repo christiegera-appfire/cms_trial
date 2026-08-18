@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/1154449466/Release+notes/">Release notes</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">April 1, 2025</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/3096511467" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>April 1, 2025</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="feature-release-jmwe-for-jira-cloud-1-2-41">Feature Release - JMWE for Jira Cloud 1.2.41</h2><p><strong>Release date</strong>: April 1, 2025</p><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>This release of <strong>JMWE for Jira Cloud</strong> includes updates to post functions for “Run as” options previously missing, and the options to ignore deactivated users when assigning newly created issues. Additionally, the Automation Rule Builder now includes a <strong>Recommended</strong> section for post functions, helping surface the most commonly used post functions based on your Action name, description, and other post functions currently added. </p></div></div><hr/><img alt="JMWE for Jira Cloud changelog showing recommended post functions for workflow configuration" class="doc-image" loading="lazy" src="/cms_trial/assets/13c3a535-ee41-44dd-942e-222cd51f30bd.png"/><h2 id="enhancements">Enhancements</h2><h2 id="actions">Actions</h2><h3 id="recommended-post-functions">Recommended post functions</h3><p>All Actions (Scheduled, Shared, and Event-based) now include a <strong>Recommended </strong>section when adding new post functions. These recommendations are currently based on the most commonly used post functions.</p><h2 id="extensions">Extensions</h2><h3 id="added-option-to-ignore-deactivated-users">Added option to ignore deactivated users</h3><p>The <a href="/cms_trial/space/JMWEC/466256916/Create+issue(s)/">Create issue(s)</a> post function has been updated to include an option to ignore deactivated users. This option has been added when assigning the newly created issues and populating any User fields in the newly created issue.  </p><h2 id="bug-fixes">Bug fixes</h2><p>The following bugs are fixed in this release:</p><ul><li><p><strong>‘Copy issue fields’ post function copies Customer Request Type key instead of name</strong> - In some configurations, the Copy issue fields post function copies the key value for the Customer Request Type field to the new field instead of copying the name value. This has been fixed. </p></li><li><p><strong>Action link in Display Message links to the wrong issue</strong> - Using the <a href="/cms_trial/space/JMWEC/465242070/Display+Message+to+User/">Display Message to User</a> post function that includes an Action Link to a newly-created issue (using <code>context.newIssueKey</code>) creates a link to the wrong issue. This has been resolved. </p></li><li><p><strong>Scheduled Actions incorrectly allow blank spaces in Run As configuration</strong> - The <a href="/cms_trial/space/JMWEC/466321868/Scheduled+actions/">Scheduled Action</a> editor incorrectly allows a value of only blank spaces when configuring the <strong>Run As</strong> option using the <strong>User from Script</strong> option. This has been resolved. </p></li><li><p><strong>‘Set issue field’ post function fails for some custom fields</strong> - When used with some third-party apps, the <a href="/cms_trial/space/JMWEC/465504849/Set+issue+fields/">Set issue fields</a> post function fails to set the external app’s custom fields. This has been resolved. </p></li><li><p><strong>User Property editor remains in edit mode</strong> - In some circumstances, the User Property editor remains in edit mode after saving changes; there is no data loss, only a lack of UI updates. This has been resolved.</p></li><li><p><strong>Expand All/Collapse All buttons do not function</strong> - In some circumstances, the <strong>Expand All</strong> and <strong>Collapse All</strong> buttons in the <strong>Post Function</strong> section of the <a href="/cms_trial/space/JMWEC/768573574/JMWE+Automation+Rule+Builder/">Automation Rule Builder</a> are not functional. This has been fixed. </p></li></ul><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p><strong>Questions and feedback</strong></p><ul><li><p>Explore exciting features, pricing updates, reviews, and more on the <u>Marketplace</u>.</p></li><li><p>Stuck with something? Raise a ticket with our <u>support team</u>.</p></li><li><p>Do you love using our app? Let us know what you think <u>here</u>.</p></li></ul></div><div><p><strong>Credits</strong></p><p>A heartfelt thank you to our valued customers! Your incredible support and feedback inspire us to improve our apps and products continually. You are the driving force behind why we create software. We appreciate your trust in JMWE!</p></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

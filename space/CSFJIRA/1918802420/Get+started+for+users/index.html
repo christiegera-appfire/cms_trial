@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3091727249/User+guides/">User guides</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Get started for users</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/1918802420" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Get started for users</h1>
+    <div class="page-meta">2 min read</div>
     <div class="columns" style="grid-template-columns: 100.0fr;"><div><div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>When you open Connector for Salesforce in Jira, the <strong>Get started</strong> page guides you through the key features and helps you quickly set up your first association.</p><h2 id="before-you-start">Before you start</h2><ul><li><p>You must be a Jira user with the Edit Issue permission. </p></li><li><p>Your administrator has created a <a href="/cms_trial/space/CSFJIRA/1873379785/Bind+a+space+to+a+connection+(Jira+Cloud)/">binding between Jira space and a Salesforce connection</a>.</p></li></ul><iframe src="https://demo.arcade.software/QEM4ETvWREEF5g2ylOyt"></iframe></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="associate-jira-issue-with-a-salesforce-record">Associate Jira issue with a Salesforce record</h2><p>Associating a Jira issue with a Salesforce record creates a direct link between the two, making it easy to track progress, share updates, and maintain visibility across teams. Instead of switching between systems or manually sharing updates, you can access relevant information from within Jira or Salesforce.</p><ol><li><p>Click<strong> Associate Jira issue.</strong></p><img alt="image-20260320-061229.png" class="doc-image" loading="lazy" src="/cms_trial/assets/9508fce4-ba7e-478c-841b-d3599ff8d099.png"/></li><li><p>In the <strong>Associate Jira issue</strong> window, search for a Jira issue you want to associate.</p></li><li><p>Select the issue.</p></li><li><p>Click <strong>Go to Jira issue.</strong><br/>The selected Jira issue opens.</p></li><li><p>Go to the <strong>Connector for Salesforce Associations</strong> tab.</p></li></ol><p>Follow the detailed instructions to <a href="/cms_trial/space/CSFJIRA/3092284964/Associate+a+Salesforce+record+from+Jira/">associate a Salesforce record from Jira</a>.</p></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="bulk-associate-from-jira">Bulk associate from Jira</h2><p>If you manage multiple Jira issues related to a single Salesforce record, the bulk association feature helps you save time by linking multiple issues simultaneously. This is especially useful for large projects where different Jira issues correspond to different aspects of a Salesforce case, opportunity, or account.</p><ol><li><p>Click<strong> Associate Jira issue</strong>.</p></li><li><p>Search and select a Jira issue you want to associate in the <strong>Associate Jira issue</strong> pop-up window.</p></li><li><p>Click <strong>Go to Jira issue.</strong><br/>The selected Jira issue opens.</p></li><li><p>Go to the <strong>Connector for Salesforce Associations</strong> tab.</p></li></ol><p>Follow detailed instructions to <a href="/cms_trial/space/CSFJIRA/3091432552/Bulk+association+from+Jira+Cloud/">Bulk association from Jira</a>.</p></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="create-a-salesforce-record-from-jira">Create a Salesforce record from Jira</h2><p>You can also create a Salesforce record directly from Jira.</p><ol><li><p>Click<strong> Associate Jira issue</strong>.</p></li><li><p>Search and select a Jira issue for which you want to create a Salesforce record in the <strong>Associate Jira issue</strong> pop-up window.</p></li><li><p>Click <strong>Go to Jira issue.</strong><br/>The selected Jira issue opens.</p></li><li><p>Go to the <strong>Connector for Salesforce Associations</strong> tab.</p></li></ol><p>Follow detailed instructions to <a href="/cms_trial/space/CSFJIRA/3091465546/Create+a+Salesforce+record+from+Jira/">Create a Salesforce record from Jira</a>.</p></div></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div></div><div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

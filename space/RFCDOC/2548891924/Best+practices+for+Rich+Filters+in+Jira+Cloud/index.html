@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud) Documentation</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783942482/User+guides/">User guides</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783942350/Migrate+to+Cloud/">Migrate to Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783942143/Feature+parity+%E2%80%93+Cloud+vs+Data+Center+comparison/">Feature parity – Cloud vs Data Center comparison</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Best practices for Rich Filters in Jira Cloud</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/2548891924" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Best practices for Rich Filters in Jira Cloud</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>There are several key differences between Rich Filters Data Center and Rich Filters for Jira Cloud, as listed on the <a href="/cms_trial/space/RFCDOC/783942143/Feature+parity+%E2%80%93+Cloud+vs+Data+Center+comparison/">Feature Parity</a> page. Here, you can find a list of best practices that can help you work around these differences and get the most out of Rich Filters in the Cloud environment.</p><h2 id="related-pages">Related pages:</h2><p><a href="https://appfire.atlassian.net/wiki/spaces/RFP/pages/803406935">How to Migrate to Cloud</a></p><p><a href="/cms_trial/space/RFCDOC/783942143/Feature+parity+%E2%80%93+Cloud+vs+Data+Center+comparison/">Feature parity</a></p><h2 id="best-practices">Best practices</h2><p>The following list outlines practical tips for building Rich Filters and dashboards in Jira Cloud, including JQL recommendations, dashboard design, and date-specific guidance. Following these practices helps ensure dashboards stay fast, accurate, and within platform limits.</p><h3 id="1-base-filter-design">1. Base filter design</h3><p><strong>Keep filters fast and focused</strong></p><ul><li><p>Avoid overly broad queries:</p><pre><code class="language-">project = ABC</code></pre></li><li><p>Prefer narrow, relevant queries:</p><pre><code class="language-">project = ABC AND statusCategory != Done AND updated &gt;= -90d</code></pre></li><li><p>Exclude inactive or old work items to stay below the 50,000 work item limit.</p></li></ul><p><strong>Break large filters into smaller, purpose-built filters</strong></p><ul><li><p>Instead of a single large filter:</p><pre><code class="language-">project = ABC</code></pre></li><li><p>Create multiple targeted filters:</p><pre><code class="language-">project = ABC AND issuetype = Bug
 project = ABC AND issuetype = Story
 project = ABC AND issuetype = Task</code></pre></li><li><p>Combine them in dashboards using Rich Filters views or smart counters.</p></li></ul><hr/><h3 id="2-use-smart-filters">2. Use smart filters</h3><p><strong>Simplify dashboard interactivity</strong></p><ul><li><p>Use smart filters instead of long JQL statements.</p></li><li><p>Example: “Priority Grouping” smart filter values:</p><ul><li><p>High: <code>priority in (Highest, High)</code></p></li><li><p>Medium: <code>priority = Medium</code></p></li><li><p>Low: <code>priority in (Low, Lowest)</code></p></li></ul></li></ul><p>This keeps base filters clean while giving users flexible filtering.</p><hr/><h3 id="3-relative-dates-and-time-filters">3. Relative dates and time filters</h3><p><strong>Use relative dates instead of fixed dates</strong></p><ul><li><p>Avoid static dates:</p><pre><code class="language-">updated &gt;= "2024-01-01"</code></pre></li><li><p>Prefer dynamic ranges:</p><pre><code class="language-">updated &gt;= -30d
@@ -163,6 +168,64 @@ RF - ABC - View: Leadership</code></pre></li></ul><p><strong>Use views to separa
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

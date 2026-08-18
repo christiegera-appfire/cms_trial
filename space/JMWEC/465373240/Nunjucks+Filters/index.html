@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/1916338329/Scripting/">Scripting</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465503811/Using+Nunjucks+Templates/">Using Nunjucks Templates</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Nunjucks Filters</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/465373240" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Nunjucks Filters</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>Nunjucks filters are functions that can be applied to variables in a Nunjucks script; they can be used to format values, return values, and filter or find values within variables.  Filters are called with a pipe operator (|) and can take arguments.</p><p>This page details some of the Nunjucks filters included with <strong>Jira Miscellaneous Workflow Extension (JMWE)</strong>. These custom filters are specific to JMWE and extend the native Nunjucks filters; anywhere you can use Nunjucks in JMWE supports all native Nunjucks filters. More information on native filters can be found <a href="http://mozilla.github.io/nunjucks/templating.html#builtin-filters"><strong>here</strong></a>. </p><h2 id="currency">currency</h2><p>The <strong>currency </strong>filter formats a number as a monetary amount. It takes the optional, <em>symbol </em>parameter, whose default value is <code>$.</code></p><p><strong>For example:</strong></p><p><code>{{ 100 | currency }}</code> returns<code> $100</code></p><p><code>{{ 3000 | currency("€") }}</code> returns <code>€3000</code></p><h2 id="dump">dump</h2><p>The <code>dump</code> filter dumps an object as a JSON string into the template.</p><p><strong>For example:</strong></p><p><code>{{ issue.fields.reporter | dump(2) }}</code> dumps the Reporter user object in "pretty" JSON format, using 2 spaces as indentation.</p><p><code>{{ issue.fields.fixVersions | dump }}</code> dumps the array of Fix Version/s of the issue in un-prettyfied JSON format.</p><h2 id="filter">filter</h2><p>Filters an array, searching for either a value (e.g., string) or an object based on the value of a field. It supports using regular expressions to filter. </p><p><strong>For example: </strong></p><p><code>{{ issue.fields.fixVersions | filter({name: “3.0”}) }}</code> returns the object representing version 3.0</p><h2 id="find-criteria">find(criteria)</h2><p>Finds the first element of an array matching the condition, searching for either a value (e.g. string) or an object based on the value of a field. This supports using regular expressions to find. </p><p><strong>For example:</strong></p><p><code>{{ issue.fields.labels | find(“test”) }}</code> returns <code>test</code> if the issue’s labels field contains the test label. Otherwise it returns an empty string. </p><h2 id="find-path-value">find(path, value)</h2><p>Finds the first element of an array of objects for which the value at the specified field path matches the <code>value</code> parameter. This supports using regular expressions to find. </p><p><strong>For example: </strong></p><p><code>{{ issue.fields.comment.comments | find(“author.active”, true) | field(“body”) }}</code> returns the body text of the first comment made by an <strong>active</strong> user. </p><h2 id="first">first</h2><p>The <code>first</code> filter gets the first value/object in the array.</p><p><strong>For example:</strong></p><p><code>{{ issue.fields.fixVersions | first }}</code> returns the first Fix Version/s object of the issue.</p><p><code>{{ issue.fields.labels | first }}</code> returns the first label of the issue.</p><h2 id="join">join</h2><p>The <code>join</code> filter returns a string which is a concatenation of strings. </p><p><strong>For example:</strong></p><p><code>{{ issue.fields.fixVersions | join("," , "name") }} </code>joins the <em>names</em> of the Fix Version/s, separated by commas. For example: <code>1,1.0,2.0</code></p><h2 id="last">last</h2><p>The <code>last</code> filter gets the last value/object in the array. </p><p><strong>For example:</strong></p><p><code>{{ issue.fields.components | last }}</code> returns the last component object of the issue.</p><p><code>{{ issue.fields.labels | last }}</code> returns the last label of the issue.</p><h2 id="percent">percent</h2><p>The <strong>percent </strong>filter formats a number as a percentage. It takes the optional, <em>decimals </em>parameter, whose default value is <code>0</code>.</p></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/3482517944/Admin+guide/">Admin guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253540254/API+%26+Reporting/">API &amp; Reporting</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">7pace Timetracker's Reporting API "This set of parameters is not allowed" error</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/7TFA/pages/1253539892" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>7pace Timetracker's Reporting API "This set of parameters is not allowed" error</h1>
+    <div class="page-meta">2 min read</div>
     <div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h2 id="problem">Problem<strong> </strong></h2><p>Why do I get a <em>This set of parameters is not allowed</em> in the request error in 7pace Timetracker's Reporting API and how do I avoid it?</p></div><div></div></div><h2 id="probable-cause">Probable cause</h2><p>The Odata library used for the Odata API has been updated because the new version contains important improvements. However, some of the improvements lead to broken compatibility.</p><p>Since the 7.5.0 version, the Odata library does not allow users to select the whole object – only specific properties. Currently, work is being done to find a workaround to fix that and to allow queries to keep working, but unfortunately, according to this <a href="https://github.com/OData/WebApi/pull/2320">information from GitHub</a>, it is not possible. Given that the Odata library developers are unlikely to change this back, it is only possible to provide ways to modify the query.</p><h2 id="solution">Solution</h2><p>The most likely answer is that you are trying to use the <strong>Budget</strong> or <strong>Work Item</strong> field in the <code>$select</code> filter of your OData request. </p><p>For example: <code>api/odata/v3.0/workLogsWorkItems?$select=WorkItem</code></p><p>Currently, you cannot put <strong>Work Item</strong> or <strong>Budget</strong> fields in a select statement to get the whole Work Item or Budget objects with all their fields. You can only select certain fields of these objects by putting them in the select statement. </p><p>For example: <code>api/odata/v3.0/workLogsWorkItems?$select=WorkItem/System_Id</code></p><p>If you need more than one property, please type them out, separated by commas.</p><p>For example: <code>api/odata/v3.0/workLogsWorkItems?$select=WorkItem/System_Id,WorkItem/BudgetAssignmentType,WorkItem/System_AreaId</code></p><p>If you need to see all fields, please remove the <code>$select</code> statement from the query to see the full object in the response. </p><p><strong>Fix standard widgets</strong></p><p>Go to the widget configuration panel and replace OData Query.</p><p><strong>Tracks of today</strong> widget</p><table><tr><th><p>Before:</p><p><code>$orderby=Timestamp desc&amp;$top=100&amp;$select=WorkItemId,Timestamp,PeriodLength,User,ActivityType,WorkItem,Comment</code></p></th><th><p>After:</p><p><code>$orderby=Timestamp desc&amp;$top=100&amp;$select=WorkItemId,Timestamp,PeriodLength,User,ActivityType,WorkItem/System_Title,WorkItem/System_WorkItemType,WorkItem/System_TeamProject,Comment</code></p></th></tr></table><p><strong>Tracks of yesterday</strong> widget</p><table><tr><th><p>Before:</p><p><code>$orderby=Timestamp desc&amp;$top=100&amp;$select=WorkItemId,Timestamp,PeriodLength,User,ActivityType,WorkItem,Comment</code></p></th><th><p>After:</p><p><code>$orderby=Timestamp desc&amp;$top=100&amp;$select=WorkItemId,Timestamp,PeriodLength,User,WorkItem/System_Title,WorkItem/System_WorkItemType,WorkItem/System_TeamProject,Comment</code></p></th></tr></table><p><strong>Latest Worklogs</strong> widget</p><table><tr><th><p>Before:</p><p><code>$orderby=Timestamp desc&amp;$top=100&amp;$select=WorkItemId,Timestamp,PeriodLength,User,ActivityType,WorkItem,Comment</code></p></th><th><p>After:</p><p><code>$orderby=Timestamp desc&amp;$top=100&amp;$select=WorkItemId,Timestamp,PeriodLength,User,ActivityType,WorkItem/System_Title,WorkItem/System_WorkItemType,WorkItem/System_TeamProject,Comment</code></p></th></tr></table><p>If you require additional assistance or have any remaining questions, please contact us at support@7pace.com and let us know your specific use case. </p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

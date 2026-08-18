@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1874100241/Configuration/">Configuration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1873740233/Configure+Lightning+Web+components/">Configure Lightning Web components</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Configure Lightning Experience components</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/1873969162" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Configure Lightning Experience components</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 100.0fr;"><div><div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>The Salesforce Package features the Lightning Experience component, which lets you use the Lightning App Builder to create customized page layouts. The components show Jira information and operation buttons to create or associate, as well as Jira comments related to the associated Jira issues. </p><p>This page explains how to configure Lightning Experience components for both standard and custom objects in Salesforce.</p><div class="panel panel-note"><p>Using the Classic view? Check out <a href="/cms_trial/space/CSFJIRA/1873445794/Configure+Visualforce+components/">Configuring Visualforce components</a>.</p></div></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="before-you-start">Before you start</h2><p>Before continuing, ensure you have already:</p><ul><li><p><a href="/cms_trial/space/CSFJIRA/1758232704/Install+the+Salesforce+package+in+Salesforce/">Installed the Salesforce package</a></p></li><li><p><a href="/cms_trial/space/CSFJIRA/1873346949/Set+up+a+connection+to+Jira/">Configured a connection</a></p></li><li><p><a href="https://help.salesforce.com/articleView?id=domain_name_overview.htm&amp;type=5">Configured Salesforce subdomain</a></p></li><li><p>Published the Salesforce domain</p></li></ul><div class="panel panel-note"><p>If the Salesforce domain has not been published yet,  custom components are not displayed in the <strong>Edit Page</strong> section.</p></div></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="use-the-lightning-app-builder-to-configure-a-custom-page-layout">Use the Lightning App Builder to configure a custom page layout</h2><ol><li><p>In your Salesforce, load a record page.</p></li><li><p>Click <strong>Settings</strong> &gt; <strong>Edit Page</strong>.</p><img alt="contentId-1873969162" class="doc-image" loading="lazy" src="/cms_trial/assets/df5193ac-7c64-46b6-9723-9f323001a494.png"/><p>The Lightning App Builder loads.</p></li><li><p>In the sidebar, scroll to the bottom to find the following two components:</p><ul><li><p><strong>Jira Comments</strong></p></li><li><p><strong>Jira Issues</strong></p><img alt="2025-10-15_13-25-21.png" class="doc-image" loading="lazy" src="/cms_trial/assets/b40129b0-3f61-4a72-9ef8-24ff12261ec3.png"/></li></ul></li><li><p>Drag the components onto the desired location for your page layout.</p><img alt="drag components to the desired location for your page layout" class="doc-image" loading="lazy" src="/cms_trial/assets/bb8458a2-b424-434f-a171-8cd1a089ec48.gif"/></li><li><p>After you've placed the components in the desired locations for your page layout, click <strong>Activation...</strong> to <a href="https://help.salesforce.com/articleView?id=lightning_app_builder_customize_lex_pages_activate.htm&amp;type=0">set your Lightning page assignment</a>.</p></li><li><p>When you're done setting the page assignment, click <strong>Save</strong>.</p></li><li><p>Now, when you load a record page, you are able to see Jira issues associated with the record, along with their comments.</p><img alt="Jira issue and comments associated with Salesforce object" class="doc-image" loading="lazy" src="/cms_trial/assets/6f7d95e9-19a9-4a65-8e6d-2512fcd2b7d1.png"/><p><br/>When you create a new Jira issue or associate it with an existing one, the Jira comments section automatically reflects the changes.</p></li></ol></div></div><h2 id="next-steps">Next steps</h2><ul><li><p><a href="/cms_trial/space/CSFJIRA/3091792703/Create+a+Jira+work+item+from+Salesforce/">Create a Jira Issue from Salesforce</a></p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

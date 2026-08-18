@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2161049701/Migrate+Connector+for+Salesforce+%26+Jira+Data+Center+to+Cloud/">Migrate Connector for Salesforce &amp; Jira Data Center to Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Step 2 - Prepare your Jira Data Center migration data</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/2160754916" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Step 2 - Prepare your Jira Data Center migration data</h1>
+    <div class="page-meta">2 min read</div>
     <div class="columns" style="grid-template-columns: 100.0fr;"><div><div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>In this step, you will prepare your Jira Data Center migration data from the Connector for Salesforce &amp; Jira (Data Center) to the Connector for Salesforce &amp; Jira (Cloud).</p><h2 id="before-you-start">Before you start</h2><ul><li><p>You have reviewed <a href="/cms_trial/space/CSFJIRA/2160984266/Step+1+-+Plan+out+your+migration/">Step 1 - Plan out your migration</a>.</p></li><li><p>You have administrator access to the following platforms:</p><ul><li><p>Your Jira Data Center instance.</p></li><li><p>Your Jira Cloud site.</p></li><li><p>Your Salesforce organization.</p></li></ul></li></ul></div></div><h2 id="prepare-jira-data-center-data-for-migration">Prepare Jira Data Center data for migration</h2><ol><li><p>Make sure an integration user is set up for the Connector for Salesforce &amp; Jira. If one does not exist, follow the documentation on <a href="https://appfire.atlassian.net/wiki/spaces/477986818/pages/2560820245"><u>how to create an integration user account</u></a>.</p></li><li><p>Log in to your Jira Cloud instance.Log in to your Jira Cloud site.</p><ol><li><p>Select <strong>Apps</strong> from the left sidebar in Jira.</p></li><li><p>Next to <em>Connector for Salesforce,</em> click <strong>Menu</strong> (<span class="inline-icon" title="inline icon">▢</span>) &gt; <strong>App settings</strong>.</p></li><li><p>Click <strong>Migration Hub</strong> in the left menu.</p></li><li><p>On the <em>Migration Hub</em> page, click <strong>Get Started</strong> to register a webhook that enables the cloud Connector for Salesforce &amp; Jira app to receive data from the Connector for Salesforce &amp; Jira Data Center.</p><img alt="Get started migration" class="doc-image" loading="lazy" src="/cms_trial/assets/329a8ad2-c4dd-4cf9-841d-43bc42a5dd4a.png"/></li><li><p>A confirmation message appears.</p><img alt="csfjira-success-register.png" class="doc-image" loading="lazy" src="/cms_trial/assets/7419e908-a9fb-4719-9c1d-05e18c9f8ff8.png"/></li></ol></li><li><p>To prepare your Connector for Salesforce &amp; Jira app data, you must run the Jira Cloud Migration Assistant (JCMA) to choose the projects, users, and groups you want to migrate. Open the JCMA by navigating to <strong>Jira Administration &gt; System &gt; Migrate to cloud</strong>.</p></li><li><p>In the app assessment, select Connector for Salesforce &amp; Jira as <strong>Needed in cloud</strong>.</p><img alt="assess apps" class="doc-image" loading="lazy" src="/cms_trial/assets/fae4190c-5b3e-4b9e-9b52-a26644ea7d58.png"/></li><li><p>Accept the agreement for the app migration to allow Connector for Salesforce &amp; Jira to access your data. If you skip this step, the migration will fail.</p><img alt="Agree to app migration" class="doc-image" loading="lazy" src="/cms_trial/assets/36cee55a-1791-4ec2-b8f1-ea5a04b26970.png"/></li><li><p>Follow the instructions in <a href="https://support.atlassian.com/migration/docs/use-the-jira-cloud-migration-assistant-to-migrate/">Atlassian's JCMA Migration Guide</a> to run your migration.</p></li><li><p>Monitor the migration status in the <em>Migration dashboard</em>. </p></li><li><p>Wait until the status shows <strong>Migration complete </strong>before proceeding.</p><img alt="Migrations dashboards" class="doc-image" loading="lazy" src="/cms_trial/assets/d33e2dbf-04dd-48e1-ac3f-6be1c1bc7e7b.png"/></li></ol><h2 id="next-steps">Next steps</h2><ul><li><p>Switch to Jira Cloud to import the migrated data to the Connector for Salesforce &amp; Jira Cloud.</p></li></ul><p><div class="img-placeholder">[Unmapped macro: ui-button — no content to fall back on]</div></p><p><br/></p><p><br/></p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

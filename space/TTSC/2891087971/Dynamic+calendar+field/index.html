@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud Help Center</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/35815641/Track+SLAs/">Track SLAs</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/2875654192/Custom+fields/">Custom fields</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Dynamic calendar field</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TTSC/pages/2891087971" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Dynamic calendar field</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>The <strong>TTS – Dynamic calendar</strong> custom field lets you select a goal calendar directly from a Jira work item.</p><p>Instead of assigning a fixed calendar inside the SLA configuration, you can let users dynamically define which calendar should apply to a specific work item.</p><h2 id="use-cases">Use cases</h2><p>Use <strong>Dynamic calendar</strong> when:</p><ul><li><p>Your teams operate in different time zones</p></li><li><p>Different customers require different working-hour definitions</p></li><li><p>You want flexibility without duplicating SLA goals</p></li></ul><p>By allowing calendar selection directly from the work item, you can manage complex SLA requirements with a cleaner and more scalable configuration.</p><h2 id="how-it-works">How it works</h2><p>When the <a href="/cms_trial/space/TTSC/35390901/SLA+goals/"><strong>Select calendar via Jira issue</strong></a><a href="/cms_trial/space/TTSC/35390901/SLA+goals/"> option</a> is enabled in an SLA goal:</p><ul><li><p>Time to SLA reads the calendar value from the <strong>TTS – Dynamic Calendar</strong> field.</p></li><li><p>The selected calendar is used to calculate the SLA for that specific work item.</p></li><li><p>Each work item can therefore follow a different working schedule.</p></li></ul><h2 id="step-1-create-a-dynamic-calendar-field">Step 1: Create a Dynamic Calendar field</h2><ol><li><p>Go to <strong>Apps </strong>&gt;<strong> Time to SLA</strong> &gt;<strong> Administration </strong>&gt;<strong> SLA Fields</strong>.</p></li><li><p>Click the <strong>SLA field </strong>button.</p></li><li><p>Select <strong>TTS -</strong> <strong>SLA Dynamic Calendar</strong>.</p><img alt="Time to SLA Dynamic calendar field setup panel" class="doc-image" loading="lazy" src="/cms_trial/assets/da931de6-f5d4-41f4-a9c1-74f6ebb89764.png"/></li><li><p>Enter a name.</p></li><li><p>Optionally, provide a description.</p></li><li><p>Click <strong>Create</strong>.</p></li></ol><h2 id="step-2-enable-calendar-selection-in-your-sla">Step 2: Enable calendar selection in your SLA</h2><p>After adding the field:</p><ol><li><p>Open your SLA configuration.</p></li><li><p>In the goal settings, enable <strong>Select calendar via Jira issue</strong>.</p></li></ol><div class="panel panel-note"><p>For full goal configuration details, see the <a href="/cms_trial/space/TTSC/35390901/SLA+goals/">SLA goals</a> documentation.</p></div><p>Time to SLA will then use the calendar selected in the work item field instead of the static calendar defined in the goal.</p><h2 id="how-it-appears-in-work-items">How it appears in work items</h2><p>After you create the SLA Dynamic calendar field and configure Jira, it won’t automatically be applied to all existing work items. For the custom field to attach to a work item, calculate its SLA value, and become visible in the work item navigator, dashboards, queues, or gadgets, <strong>the work item must be opened at least once</strong>.</p><p>The field becomes populated <strong>only</strong> <strong>after</strong> the work item is viewed.</p><div class="panel panel-note"><p><strong>Why does this happen?</strong></p><p>Jira custom fields are calculated and stored when a work item is accessed. They do not automatically recalculate in the background for all existing work items. Once the work item is opened:</p><ul><li><p>Time to SLA calculates the SLA date.</p></li><li><p>The custom field is updated.</p></li><li><p>The update appears in the work item history (However, custom field value changes do not appear in the Jira work item history).</p></li></ul><p>This behavior is expected and cannot be disabled.</p></div><p>Once properly configured and opened at least once, the SLA Dynamic calendar field appears as a standard date field in the work item view.</p><img alt="Time to SLA Dynamic calendar field configuration with date options" class="doc-image" loading="lazy" src="/cms_trial/assets/2260e015-c57d-4bbe-8cba-a9dc20c400ea.png"/>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

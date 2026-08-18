@@ -40,14 +40,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud) Documentation</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783942482/User+guides/">User guides</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783942350/Migrate+to+Cloud/">Migrate to Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">FAQ migration to Cloud</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/2435776722" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>FAQ migration to Cloud</h1>
+    <div class="page-meta">7 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h3 id="1-how-can-i-improve-my-dashboard-loading-speed"><strong>1. How can I improve my dashboard loading speed?</strong></h3><p>The most effective way to optimize performance is to focus your dashboards on the most important information. We recommend:</p><ul><li><p>Review your current dashboards and remove gadgets you rarely use</p></li><li><p>Split large dashboards into smaller, focused ones</p></li><li><p>Upgrade to the latest browser versions</p></li><li><p>Use recent workstations (above i5 processors) </p></li></ul><h3 id="2-why-does-my-dashboard-take-time-to-load-initially"><strong>2. Why does my dashboard take time to load initially?</strong></h3><p>Dashboards with multiple gadgets and high data volumes (that is, high number of issues, fields and JQL queries) require time to set up during initial load. The good news is that, once loaded, data refreshes happen much faster! The data is refreshed every time you filter in the controller, and you can also trigger it with the optimized refresh button in the controller.</p><h3 id="3-how-long-should-i-expect-my-dashboard-to-load"><strong>3. How long should I expect my dashboard to load?</strong></h3><p>Initial load times vary significantly based on your specific configuration, including the number and complexity of gadgets and your data volume. Typically, the load takes between a few seconds and a few tens of seconds. For a better sense of expected performance in your environment, feel free to reach out to our support team.</p><h3 id="5-will-performance-improve-over-time"><strong>5. Will performance improve over time?</strong></h3><p>Yes! We continually optimize performance and are exploring ways to further enhance the loading experience. Keep in mind that dashboard loading performance is heavily dependent on the performance and limitations of Jira's APIs.</p><h3 id="6-does-my-internet-connection-affect-dashboard-speed"><strong>6. Does my Internet connection affect dashboard speed?</strong></h3><p>Unless it’s very slow or unstable, your Internet connection typically has minimal impact on dashboard loading, as most processing happens in your browser and in Atlassian’s Cloud. Computer performance is usually the primary factor, though individual configurations can vary.</p><h3 id="7-who-can-i-contact-for-help-optimizing-my-dashboards"><strong>7. Who can I contact for help optimizing my dashboards?</strong></h3><p>Our support team is here to help! Every environment is unique, and performance can be affected by many factors specific to your setup. Contact us so we can investigate your specific case and provide personalized recommendations that apply to your situation.</p><h3 id="8-how-to-find-rich-filters-with-sql-in-your-dc-instance">8. How to find rich filters with SQL in your DC instance</h3><ol><li><p><strong>SQL to find the rich filters that haven’t been used since the 2.2 upgrade</strong></p><p>This query displays all rich filters sorted by the last time they were used, starting with the oldest. Filters with a NULL last used date appear first. A NULL value means the rich filter hasn’t been used since the app was updated to version 2.2.</p></li><li><p>A rich filter is considered <em>used</em> when it’s edited or when a gadget that uses it is loaded.</p><p>The query was validated with MySQL. You might need to make small adjustments if you are using a different database.</p><p>Paste the query below into an SQL console:</p></li></ol><details><summary>Click here to see the SQL</summary><pre><code class="language-">SELECT * FROM AO_24D977_QRFRFE0
 ORDER BY 
   CASE WHEN LAST_USED_DATE IS NULL THEN 0 ELSE 1 END,
@@ -261,6 +266,64 @@ fetchAllResults().then(results =&gt; {
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

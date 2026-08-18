@@ -32,14 +32,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146310010/Product+and+data+connections/">Product and data connections</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/3019735522/Connect+data+from+Atlassian+products/">Connect data from Atlassian products</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309921/Jira+Service+Management+and+Assets/">Jira Service Management and Assets</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">SLA by Project</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/146310495" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>SLA by Project</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><img alt="Dashboard Hub daily stats" class="doc-image" loading="lazy" src="/cms_trial/assets/96575303-c580-47cb-b3bd-2cb8f2b54bcf.png"/><p><a href="/wiki/pages/resumedraft.action?draftId=99780142">SLA BY PROJECT</a></p><p><a href="/wiki/pages/resumedraft.action?draftId=99780142">Display information about a specific SLA in service management projects during a specific period of time</a></p><h2 id="overview">Overview</h2><p>A Service Level Agreement (SLA) is a contract for your customers, where you basically set the goals for how fast you will manage customer requests. And a good service is driven by these goals, used to measure the level of your service. When you have several service management projects, it is useful to see a comparison between the different metrics in different projects with the same SLA as the baseline. So you can easily track through the whole organization how well or badly you are meeting your SLA</p><p>This gadget displays information about a specific SLA in service management projects during a specific period of time. </p><div class="panel panel-note"><p>The SLA reports reflect<strong> </strong>100% met when no requests are opened during the reported time period.</p></div><p>For the selected period of time, where:</p><ul><li><p>The <strong>SLA</strong> section: <strong>SLA Met.</strong> The % of those requests that met the selected SLA.</p></li><li><p>The <strong>Requests</strong> section:</p><ul><li><p><strong>Created</strong> requests. All the new requests created in that service management project during that time.</p></li><li><p><strong>Resolved</strong> requests. All the resolved requests in that service management project during that time.</p></li></ul></li><li><p>The <strong>Open</strong> section: Lists the request count of the issue types in those projects.</p></li></ul><p>In the right part of the gadget, the grand totals of created and resolved requests for all the projects in the specified period of time.</p><img alt="Dashboard Hub sla by project" class="doc-image" loading="lazy" src="/cms_trial/assets/30f439fb-7505-477b-9e8c-13d18edda9e3.png"/><div class="panel panel-note"><p>The donut chart represents the % of total requests either met or breached for all the projects. A project could indicate 100% met with 0 requests and other indicate 100% met with 50 requests. The percentage in the chart will be calculated based on the total number of requests across all projects.</p></div><h2 id="configuration">Configuration</h2><p>Name your gadget meaningfully, so everyone knows at a glance what it is about and when to use it. Fill out the rest of the fields as applicable, namely:</p><ul><li><p>The datasource, where <em>Current</em> indicates the Jira Service Management instance where the app is installed.</p></li><li><p>The projects to avoid loading every single project in your instance, select the preferred ones.</p></li><li><p>The SLA you want to track across all your projects. </p></li><li><p>The period of time you want to display the requests (when they were created and/or resolved).</p></li><li><p>Finally, indicate if you want to use the current settings for all the compatible gadgets in the dashboard. This option eases the pain of configuring one by one the rest of the gadgets with the same default configuration</p></li></ul><h2 id="integrations">Integrations</h2><ul><li><p><span class="icon-note">[jira service management icon]</span></p></li></ul><details><summary>Jira Service Management</summary><div class="img-placeholder">[Unmapped macro: contentbylabel — no content to fall back on]</div></details><p>We are working on our growing catalog of <a href="/cms_trial/space/RDD/146309915/Dashboard+gadgets+-+KPIs+and+metrics/">Dashboard gadgets - KPIs and metrics</a> and <a href="/cms_trial/space/RDD/146310010/Product+and+data+connections/">Product and data connections</a>, but contact us you want us to expedite a specific one, visit our <a href="/cms_trial/space/RDD/146309984/Help+and+support/">Help and support</a>.</p><h2 id="dashboards">Dashboards</h2><p>This gadget appears in the following dashboard: <a href="/cms_trial/space/RDD/146309962/IT+Service+Management+team+template/">IT Service Management team template</a>.</p>
   </main>
   <aside class="sidebar">
@@ -169,6 +174,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

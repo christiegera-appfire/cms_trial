@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146310010/Product+and+data+connections/">Product and data connections</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/1529219266/Custom+Reports+-+REST+API+integration/">Custom Reports - REST API integration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/1568374878/Custom+Reports+templates/">Custom Reports templates</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Simple table: users</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/1955954694" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Simple table: users</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="overview">Overview</h2><p>Create a <strong>Simple Table </strong>for demo purposes based on the api <code>https://tinyurl.com/mw23fjxx</code>. </p><p>Display a mix of raw and customized cells to demonstrate rendering custom elements inside a table, such as a formatted name column.</p></div><div></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="features">Features</h2><ul><li><p>Load from a simple public rest api <span class="status-lozenge">datasource unneeded</span>.</p></li><li><p>Render a table. </p></li><li><p>Customize certain cells to render some flexible representation (for example, name column). </p></li></ul></div><div></div></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h2 id="setup">Setup</h2><h3 id="add-the-custom-reports-gadget">Add the Custom Reports gadget</h3><ol><li><p>Navigate to your <strong>Dashboard Hub</strong> app.</p></li><li><p>If you have not created a dashboard,</p><ol><li><p>Click the dashboard dropdown in the left corner or in the <span class="icon-note">[Blue elipse icon]</span> action menu in the right corner, and select <strong>Create dashboard.</strong></p></li><li><p>Name your dashboard, and click <strong>Create</strong>.</p></li><li><p>Click <strong>Add Gadget.</strong></p></li></ol></li><li><p>If you already have a dashboard created, click <strong>Edit.</strong></p></li><li><p>Click <strong>Add Gadget</strong>.</p></li><li><p>Navigate to the <strong>Custom Reports</strong> section in the left side navigation panel.</p></li><li><p>Locate the <strong>Simple Table</strong> gadget, click <strong>Add,</strong> and click <strong>Open Editor</strong>.</p></li></ol></div><div><p><a class="embed-card-link" href="https://app.arcade.software/share/44HuILVNB14wGqkihGZo">https://app.arcade.software/share/44HuILVNB14wGqkihGZo</a></p></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h3 id="configure">Configure </h3><ul><li><p>No datasource or variables are needed. </p></li></ul><div class="panel panel-note"><p>See <a href="/cms_trial/space/RDD/2110030119/Custom+report+example/">Custom report example</a> for a video walkthrough of how to customize your reports. </p></div></div><div></div></div><p>See also:</p><p><a href="/cms_trial/space/RDD/1529219266/Custom+Reports+-+REST+API+integration/">Custom Reports - REST API integration</a> </p><p><a href="/cms_trial/space/RDD/1528825149/Get+started+with+Custom+Reports/">Get started with Custom Reports</a> </p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

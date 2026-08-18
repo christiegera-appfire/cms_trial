@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490996521/Feature+guides/">Feature guides</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">SIL Listeners</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/490997990" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>SIL Listeners</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>SIL Listeners automatically execute custom scripts when specific Jira events occur. </p><p>SIL Listeners automatically execute custom scripts when specific Jira events occur. They serve as integration points that help synchronize your Jira instance with external systems, enforce business rules, or automate workflows.</p><h2 id="how-listeners-work">How listeners work</h2><p>When a Jira event occurs (such as creating an issue or adding a comment), Power Scripts detects the event and executes your configured listener script. </p><p>At its core, a listener is defined by two elements:</p><ul><li><p>The script the listener executes.</p></li><li><p>The events it's configured to react to.</p></li></ul><p>Power Scripts for Jira Cloud operates independently from Jira and communicates through HTTP API calls, making all interactions inherently asynchronous. However, you can configure individual listeners to execute in two modes:</p><ul><li><p><strong>Synchronous execution</strong>: The script runs immediately and can affect the triggering operation.</p></li><li><p><strong>Asynchronous execution</strong>: The script runs in the background without blocking Jira operations.</p></li></ul><div class="panel panel-note"><p>For detailed guidance on choosing the right execution mode, see <a href="/cms_trial/space/PSJC/513278324/Understanding+listener+execution/">Understanding Synchronous vs Asynchronous execution</a>.</p></div><hr/><h3 id="in-this-section"> In this section:</h3><ul class="children-list"><li><a href="/cms_trial/space/PSJC/490998110/Listener+configuration/">Listener configuration</a></li><li><a href="/cms_trial/space/PSJC/490998238/Understanding+listener+script+context/">Understanding listener script context</a></li><li><a href="/cms_trial/space/PSJC/490998290/Listener+implementation+examples/">Listener implementation examples</a></li><li><a href="/cms_trial/space/PSJC/513278324/Understanding+listener+execution/">Understanding listener execution</a></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

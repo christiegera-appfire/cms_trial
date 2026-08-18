@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465372899/Workflow+Extensions+for+Jira+Cloud/">Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/542803231/Deprecated+post+functions/">Deprecated post functions</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/2162262242/Resolving+deprecated+post+functions/">Resolving deprecated post functions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Copy field value from linked issues (Deprecated)</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/466322381" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Copy field value from linked issues (Deprecated)</h1>
+    <div class="page-meta">6 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="replacing-this-post-function">Replacing this post function</h2><p>This post function has been replaced with the <a href="/cms_trial/space/JMWEC/466323304/Copy+issue+fields/">Copy issue fields</a> post function. Use the table below to migrate your configuration; settings should be migrated to the new post function exactly as they exist in the obsolete one, except where noted.</p><div class="panel panel-success"><p>The obsolete post function could only be configured to copy a single field value. The current post function can be configured to copy multiple fields within a single post function. If you have several individual <strong>Copy field value from linked issues</strong> post functions in the same project, they can be grouped together into a single <strong>Copy issue fields</strong> post function.</p></div><table><tr><th><p><strong>Configuration option</strong></p></th><th><p><strong>Migrate to</strong></p></th><th><p><strong>Notes</strong></p></th></tr><tr><td><div class="panel panel-note"><p>The <strong>Copy issue fields</strong> post function includes additional options for the source issue and destination issue of the fields to be copied.</p></div></td><td><p>Source issue(s)</p></td><td><p>If the obsolete post function is set to <strong>Any</strong>, use <strong>Issues linked to the current issue through any link type</strong>.</p><p>If the obsolete post function is set to a specific link type, select <strong>Issues linked to the current issue through the following link type</strong>, and set the <strong>Issue link</strong> field to the appropriate link type.</p></td></tr><tr><td><p>Destination issue(s) → Current issue</p></td><td></td></tr><tr><td><p>Source field</p></td><td><p>Fields to copy → Source field</p></td><td><p>For each instance of <strong>Copy field value from linked issues</strong>, add a field by clicking the <strong>Add</strong> button. </p></td></tr><tr><td><p>Destination field</p></td><td><p>Fields to copy → Destination field</p></td></tr><tr><td><p>Issue Link Type</p></td><td><p>Fields to copy → Destination issue(s)</p></td><td></td></tr><tr><td><p>Options → Copy only if not set</p></td><td><p>Fields to copy → Additional options → Set only if field is empty</p></td><td></td></tr><tr><td><p>Options → Create missing value(s)</p></td><td></td><td></td></tr><tr><td><p>Options → Ignore empty values</p></td><td></td><td></td></tr><tr><td><p>Options → Add value(s) to the issue</p></td><td></td><td></td></tr><tr><td><p>Options → Send notifications</p></td><td><p>Advanced options → Settings → Allow Jira to send notifications for this change</p></td><td></td></tr><tr><td><p>Advanced options → Settings → Run as</p></td><td><p>Advanced options → Settings → Run as</p></td><td></td></tr><tr><td><p>Advanced options → Settings → Run this post-function only if a condition is verified</p></td><td><p>Advanced options → Settings → Run this post-function only if a condition is verified</p></td><td></td></tr><tr><td><p>Advanced options → Settings → Delay the execution of this post-function</p></td><td><p>Advanced options → Settings → Delay the execution of this post-function</p></td><td></td></tr></table><p>A workflow post-function that sets the value(s) of a selected field to the value(s) from the same/different field of an issue linked to the current issue through a selected link type.</p><p><strong>To add the 'Copy field value from linked issues' post-function to a transition : </strong></p><ol><li><p>Click <strong>Edit</strong> for the workflow that has the transition you wish to add the post-function on.</p></li><li><p>In the Workflow Designer, select the transition.</p></li><li><p>Click on <code>Post Functions </code>in the properties panel.</p></li><li><p>Click on <code>Add</code> <code>post function</code>.</p></li><li><p>Select <code>Copy field value from linked issues</code> from the list of post-functions.</p></li><li><p>Click on <code>Add</code> to add the post-function on the transition.</p><img alt="JMWE for Jira Cloud workflow transition function for copying linked issue field values" class="doc-image" loading="lazy" src="/cms_trial/assets/250489f8-e740-4a92-b47a-d08750aa6c0d.png"/></li><li><p>Select the field from the <code>Field</code> drop-down.</p></li><li><p>Select the destination field from the <code>Destination field</code> drop-down. See below for information on this option.</p></li><li><p>Select the link from the <code>Issue Link Type</code> drop-down.</p></li><li><p>Click on <code>Add</code> to add the post-function to the transition.</p></li><li><p>After adding, move the post-function to the appropriate position according to <a href="https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=mwecs&amp;title=Adding%20post%20functions%20to%20transitions&amp;linkCreation=true&amp;fromPageId=449905227">Placing post-functions in a transition</a> document.</p></li></ol><div class="panel panel-note"><p>JMWE shows an error message on the issue view if any error occurs during the execution of the post-function. <em>This message is displayed only if the current user is a Jira administrator. </em></p></div><p>When you add this post-function to a transition and trigger the transition, the add-on sets the value(s) of a selected field to the value(s) from the same/different field of issue(s) linked to the current issue through the selected link type.</p><p>When there is more than one linked issue, by default the value will be copied from one (random) linked issue. But when the <strong>Add value(s) to the issue</strong> option is selected, value(s) from all the linked issues will be appended to the current issue.</p><h3 id="options">Options</h3><ul><li><p><strong>Destination field: </strong>Allows copying to a different field than the source field. For example, automatically add the Reporter of the parent Epic to the Watchers of a User Story. Note that if the source field is read-only, you cannot select <code>Same as source field</code> in this option.</p></li></ul><ul><li><p><strong>Copy only if not set: </strong>Sets the value(s) of the selected field of the current issue, only when the field is empty on the current issue.</p></li></ul><ul><li><p><strong>Create missing value(s): </strong>Allows creating any missing Component/s or Version/s while setting or copying a field that expects Versions or Components. Note this is applicable for version and component fields.</p></li></ul><ul><li><p><strong>Ignore empty values: </strong>Will not set (clear) the selected field of the current issue, if the value from the linked issues is empty or null.</p></li></ul><ul><li><p><strong>Add value(s) to the issue: </strong>Appends value(s) from the same/different field of each linked issue to the selected field of the current issue. This is applicable only to multi-valued fields.</p></li></ul><ul><li><p><strong>Send notifications: </strong>Jira sends notifications for the change in the selected field value on the current issue. You can control the default value of the <code>"Send notifications"</code> option in the <strong>Configuration</strong> page under JMWE administration. Click <a href="/cms_trial/space/JMWEC/465503776/JMWE+Administration/">here</a> for more information.</p></li></ul><h3 id="conditional-execution">Conditional execution</h3><p>To execute this post-function based on the result of a Nunjucks template see <a href="/cms_trial/space/JMWEC/466256678/Conditional+Execution/">Conditional execution</a>.</p><h3 id="run-as">Run As</h3><ul><li><p><strong>Run as current user: </strong>The current user will be the author of the field change.</p></li></ul><ul><li><p><strong>Run as add-on user: </strong>The add-on user will be the author of the field change. </p></li></ul><ul><li><p><strong>Run as this user: </strong>Any user selected in this field will be the author of the field change.</p></li></ul><div class="panel panel-warning"><p>Running this post-function as any user other than the "Add-on user" is discouraged</p><p>If you select any option other than "Run as add-on user", so that the change appears to be done by the current user or a specific user, the following must be true:</p><ul><li><p>The <em>destination</em> field must be present on the Edit screen applicable to the issue being modified</p></li><li><p>The selected user must have the <strong>Edit issues</strong> permission on the issue being modified.</p></li></ul></div><h3 id="delayed-execution">Delayed execution</h3><div class="panel panel-note"><p>Note that you can use this function to copy a field from the</p><ul><li><p>parent issue of a sub-task by using the built-in <code>is Subtask of </code>link type and vice versa using the <code>is Parent of</code> link type</p></li><li><p>Epic of an issue by using the built-in <code>belongs to Epic</code> link type and vice-versa using the <code>is Epic of</code> link type</p></li><li><p>Parent of the portfolio hierarchy by using the <code>belongs to Initiative</code> link type and vice-versa using the <code>is Initiative of</code> link type</p></li></ul></div><hr/><h3 id="use-case">Use case</h3><p>A typical use case for this workflow is to copy values of fields from issues linked to the current issue. Consider a use case where you want to copy Fix Version/s field from the Epic to a Story, while creating a Story. To configure this:</p><ol><li><p>Add the <em>Copy field value from linked issues </em>post-function to the <strong>Create</strong> transition of the Story workflow.</p></li><li><p>Choose the <code>has Epic</code> link type.</p></li><li><p>Select <code>Fix Version/s</code> in <code>Source Field</code>.</p></li><li><p>Select <code>Same as source field</code> in the <code>Destination field</code>.</p></li></ol><p>See <a href="/wiki/spaces/MWECS/pages/78481302/Use+cases+for+post-functions#Copy-field-value-from-linked-issues">here</a> for more use cases</p><p><br/></p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

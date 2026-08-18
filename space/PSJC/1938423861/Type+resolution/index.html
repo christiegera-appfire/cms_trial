@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434798967/Simple+Issue+Language/">Simple Issue Language</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/1934458884/SIL+reference+guide/">SIL reference guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/1933541386/Type+management+in+SIL/">Type management in SIL</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Type resolution</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/1938423861" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Type resolution</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>Details how SIL determines the resulting type from operations involving multiple data types and resolves type conflicts.</p><p>When evaluating an operation, SIL follows this three-step type resolution process:</p><table><tr><th><p><strong>Step 1:</strong><br/><strong>Direct match</strong></p></th><td><p>If the RHS type is valid for the operation, it proceeds immediately. The result is calculated as described in the operator table.</p></td></tr><tr><th><p><strong>Step 2:</strong><br/><strong>Type conversion</strong></p></th><td><p>When SIL encounters a convertible type on the right-hand side (RHS), it tries to convert it to valid types in the same order that valid types are listed in the <a href="/cms_trial/space/PSJC/434962512/Operators+reference/">Operatros reference</a> tables. This is important because it determines which type conversion is attempted first. See <a href="/cms_trial/space/PSJC/1938423861/Type+resolution/">Type conversion example</a> below.</p></td></tr><tr><th><p><strong>Step 3:</strong><br/><strong>Error handling</strong></p></th><td><p>If the RHS type is neither valid nor convertible, the program stops with an error.</p></td></tr></table><h3 id="type-conversion-example">Type conversion example</h3><p>Here’s a practical example for the <code>+</code> operator with LHS type <code>number</code>.</p><pre><code class="language-">// Valid types (in order):
 // 1. number
 // 2. integer
@@ -161,6 +166,64 @@ x += "42";              // RHS is string (a convertible type)
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

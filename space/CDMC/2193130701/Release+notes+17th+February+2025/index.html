@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193196083/Release+Notes/">Release Notes</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/3128066689/Release+Notes+2025/">Release Notes 2025</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Release notes 17th February 2025</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2193130701" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Release notes 17th February 2025</h1>
+    <div class="page-meta">2 min read</div>
     <p><strong>Release date</strong>: <time datetime="2025-02-17">February 17, 2025</time> </p><p>Our team is thrilled to announce the latest releases of Comala Document Management Cloud.</p><p>This release introduces the ability to <strong>activate multiple workflows in a space</strong> and apply them <strong>conditionally using a content label filter</strong>. One or more workflows can be automatically applied to document types within the same space.</p><hr/><h2 id="new-feature">New feature</h2><h3 id="activate-multiple-space-workflows-and-apply-them-by-label">Activate multiple space workflows and apply them by label</h3><p><span class="status-lozenge">GRADUAL rollout</span> </p><p>A space administrator can <a href="https://appfire.atlassian.net/wiki/spaces/CDMCD/pages/1751810236">activate multiple space workflows</a> in the app space settings and apply them conditionally using <strong>labels</strong>.</p><img alt="Comala document report with multiple active workflows" class="doc-image" loading="lazy" src="/cms_trial/assets/a99ac576-1ff4-427f-87f1-49f6ef65eb17.png"/><ul><li><p><strong>Multiple active workflows</strong>: You can enable more than one workflow at the same time</p></li><li><p><strong>Label-based workflow application</strong>: Each workflow can be assigned a <strong>content label</strong>, ensuring it applies only to pages with that label.</p></li><li><p><strong>Priority order</strong>: Workflows are applied in the order defined in the app space settings, following their label conditions</p></li></ul><p>Additionally, when a label is added to a workflow in the app space settings, the workflow cannot be applied as a page workflow.</p><p>This feature enables different documentation processes within the same space by automatically applying the appropriate workflow based on labels. It reduces confusion by ensuring that each document follows the correct workflow without manual selection, improving efficiency and compliance.</p><div class="panel panel-note"><p>The ability to activate multiple workflows and apply them conditionally by the content label is part of a gradual rollout of new features. It is not immediately available to all our customers.</p></div><h3 id="document-report-displays-the-applied-workflow">Document report displays the applied workflow</h3><p>The <a href="https://appfire.atlassian.net/wiki/spaces/CDMCD/pages/1388216988">document report</a> now includes the name of each workflow applied to a document in a space. </p><img alt="Comala document report with multiple workflows and notinitialized pages" class="doc-image" loading="lazy" src="/cms_trial/assets/7da45f3d-df88-4213-b5b3-bd3e1dc94f19.png"/><p>This update lets you see which active space workflow is applied to a document. All pages in the space are displayed, but if no active workflow is applied, no workflow name is displayed, and the document has a <strong>Status</strong> of <strong>Not Initialized.</strong></p><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p> <strong>Questions and feedback</strong></p><ul><li><p>Explore exciting features, pricing updates, reviews, and more on the <a href="https://marketplace.atlassian.com/apps/142/comala-document-management?hosting=cloud&amp;tab=overview">Marketplace</a>.</p></li><li><p>Stuck with something? Raise a ticket through our <a href="https://appf.re/support">support team</a>.</p></li><li><p>Do you love using our app? Let us know what you think <a href="https://marketplace.atlassian.com/apps/142/comala-document-management?hosting=cloud&amp;tab=reviews">here</a>.</p></li></ul></div><div><p><strong> Credits</strong></p><p>Thank you to our valued customers! Your incredible support and feedback inspire us to improve continuously. We appreciate your trust in Appfire’s Comala Document Management Cloud!</p></div></div><hr/>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

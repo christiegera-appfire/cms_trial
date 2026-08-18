@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465241585/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Get ID of a Priority</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/466256368" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Get ID of a Priority</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>This article provides the steps to retrieve the ID of a Priority on Jira Cloud.</p><h2 id="instructions">\uD83D\uDCD8 Instructions</h2><p>Here, we’re retrieving the ID of “Medium” Priority.</p><ol><li><p>Log in as a Jira admin in your cloud instance.</p></li><li><p>Click on the admin icon (cog wheel) at the top right and click on “Issues”.</p><img alt="JMWE for Jira Cloud field configuration panel for priority and option settings" class="doc-image" loading="lazy" src="/cms_trial/assets/0533ebcc-3534-4fff-9361-43553bfb2f38.png"/></li><li><p>Click on “Priorities” under “ISSUE ATTRIBUTES” in the left panel.</p><img alt="Priority options list for JMWE for Jira Cloud field configuration" class="doc-image" loading="lazy" src="/cms_trial/assets/679035d4-0d47-4dbe-b4f3-81cac833f85d.png"/></li><li><p>Click “Edit” next to the desired priority (“Medium” in the given screenshot).</p><img alt="JMWE for Jira Cloud priority configuration interface with ID management options" class="doc-image" loading="lazy" src="/cms_trial/assets/cdfcae1d-ffae-445a-90fe-0e1d678e40f9.png"/></li><li><p>The ID of this priority is the number after "?id=" at the end of the URL.</p><img alt="JMWE for Jira Cloud priority field setup showing configuration and selection options" class="doc-image" loading="lazy" src="/cms_trial/assets/d2e5829d-746a-4e7d-a83d-ca33941cfae0.png"/></li></ol><h2 id="related-articles">\uD83D\uDCCB Related articles</h2><div class="img-placeholder">[Unmapped macro: contentbylabel — no content to fall back on]</div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

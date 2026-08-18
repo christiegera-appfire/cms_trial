@@ -56,14 +56,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1891206842/Configure/">Configure</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3091695538/Permissions+and+Profile+settings/">Permissions and Profile settings</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">"Create Jira Issues" and "Associate" buttons are visible to admins only</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/2256275346" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>"Create Jira Issues" and "Associate" buttons are visible to admins only</h1>
+    <div class="page-meta">1 min read</div>
     <h2 id="summary">Summary</h2><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div></div><div></div></div><p>Under Salesforce Lightning Experience, the <strong>Create Jira Issues</strong> and <strong>Associate</strong> buttons are only visible to admins. </p><img alt="contentId-2256275346" class="doc-image" loading="lazy" src="/cms_trial/assets/801e14a4-b81a-4bee-a142-77cf17ca839c.png"/><h2 id="environment">Environment</h2><ul><li><p>Jira Cloud</p></li><li><p>Jira DC</p></li></ul><h2 id="cause">Cause</h2><details><summary>Cloud</summary><p>The user's profile doesn't have the<strong> Apex Class</strong> access permission enabled for JCFS classes.</p></details><details><summary>DC</summary><p>The user's profile doesn't have the<strong> Apex Class</strong> access permission enabled for JSFS classes.</p></details><h2 id="resolution">Resolution</h2><details><summary>Cloud</summary><ol><li><p>Identify the users who aren't able to see the <strong>Create Jira Issues</strong> and <strong>Associate</strong> buttons.<br/>In Salesforce, go to <strong>Setup &gt; Users &gt; Profiles &gt;</strong> click on the users' profile.</p></li><li><p>Look for and edit <strong>Enabled Apex Class Access</strong>.</p></li><li><p>Make sure all JCFS classes have been added to the <strong>Enabled Apex Classes</strong> column.</p><img alt="contentId-2256275346" class="doc-image" loading="lazy" src="/cms_trial/assets/ee5565e1-bdad-48f4-9c89-2e13c43c99a4.png"/><img alt="contentId-2256275346" class="doc-image" loading="lazy" src="/cms_trial/assets/737eff63-b558-4612-9c4c-29be39c74f60.png"/></li></ol></details><details><summary>DC</summary><ol><li><p>Identify the users who aren't able to see the <strong>Create Jira Issues</strong> and <strong>Associate</strong> buttons.<br/>In Salesforce, go to <strong>Setup &gt; Users &gt; Profiles &gt;</strong> click on the users' profile.</p></li><li><p>Look for and edit <strong>Enabled Apex Class Access</strong>.</p></li><li><p>Make sure all JSFS classes have been added to the <strong>Enabled Apex Classes</strong> column.</p><img alt="contentId-2256275346" class="doc-image" loading="lazy" src="/cms_trial/assets/bd770262-d671-4a7c-96dc-0fda753c35f8.png"/><img alt="contentId-2256275346" class="doc-image" loading="lazy" src="/cms_trial/assets/7409f2c1-6d71-48de-9bc2-77217a88e9a3.png"/></li></ol></details><p><br/></p>
   </main>
   <aside class="sidebar">
@@ -193,6 +198,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

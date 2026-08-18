@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192776724/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Transfer a workflow between Confluence cloud sites</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2192870534" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Transfer a workflow between Confluence cloud sites</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="scenario">Scenario</h2><p>I want to transfer my workflows from a test Confluence Cloud site to a production site. Is there a way to export workflows to a file and import them into the production environment, or do I need to recreate them manually?</p><h2 id="solution">Solution</h2><p>You don't need to use an import/export tool. To transfer your workflow from one Confluence Cloud site to another Confluence Cloud site is a manual procedure.</p><ul><li><p>Copy the JSON code of your Comala workflow from the code editor in the cloud test site space.</p></li><li><p>Create a new workflow in the production space in your cloud production site.</p></li><li><p>Paste the code you previously copied in place of the JSON code of the newly created workflow.</p></li></ul><p>You need space administrator permission in the test space and the production space.</p><p>If you require the workflow in additional spaces in your production site, as above, copy and paste the workflow JSON code into the other space.</p><h2 id="steps">Steps</h2><p><strong>Copy the workflow template JSON code in the test space</strong></p><p>To open the code editor for the workflow in the test space document management dashboard,</p><ol><li><p>Use the <strong>Actions</strong> menu option to edit with the code editor</p></li></ol><img alt="Comala custom workflow with code editor icon selected for transfer" class="doc-image" loading="lazy" src="/cms_trial/assets/cd204bdc-52f6-4848-9082-a6d7dfdf5603.png"/><ol><li><p>Highlight the workflow template JSON code in the code editor and copy the JSON code to the clipboard.</p></li></ol><img alt="Comala code editor with custom workflow JSON definition" class="doc-image" loading="lazy" src="/cms_trial/assets/2635abd7-7cd2-464c-b331-03f0c9b6d48a.png"/><p>To create a new workflow in the production space</p><ol><li><p>Choose the <strong>Create new workflow</strong> option in the production space document management dashboard.</p></li><li><p>Click the <strong>Code Editor</strong> icon in the visual editor.</p></li></ol><img alt="Comala workflow builder create workflow with code editor toggle" class="doc-image" loading="lazy" src="/cms_trial/assets/864f6d20-c248-46e6-8483-5c4c9c00ad8c.png"/><p>In the code editor,</p><ol><li><p>Paste the copied JSON code to replace the existing workflow code. </p></li><li><p>Click <strong>Save</strong> and then <strong>Exit.</strong></p></li></ol><img alt="Comala code editor create new workflow with paste area highlighted" class="doc-image" loading="lazy" src="/cms_trial/assets/4b604d1b-5899-4a6d-bea0-d0fb90fd565b.png"/><p>The workflow is now added as a custom workflow in the production space document management dashboard.</p><div class="panel panel-note"><p>This is a manual process for each workflow. It is also the same process when moving a workflow template from one space to another space in the same Confluence Cloud site.</p></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

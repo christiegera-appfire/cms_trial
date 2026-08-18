@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/2117042596/Release+notes+-+Cloud/">Release notes - Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Release notes 25 June 2026</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/3367829671" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Release notes 25 June 2026</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p><strong>Release date</strong>: <time datetime="2026-06-25">June 25, 2026</time></p><p>This page outlines the updates included in the latest release of the Dashboard Hub family of apps.</p><hr/><h2 id="new-features">New features</h2><h2 id="jql-custom-segments">JQL Custom Segments </h2><p>The new JQL Custom Segments gadget lets you compare custom subsets of Jira data on a single chart. Define a base JQL query, then add up to 10 named segments, each with its own JQL or saved filter, then view them side by side as bars, lines, areas, or pie slices. It works like the Jira Custom Charts gadget, but instead of grouping by a single Jira field, each segment has its own query, so you can compare across criteria that don’t map to any one field. This replaces the need to set up multiple separate gadgets to compare different views of the same data. You can also add an <em>All</em> segment to compare your subsets against the full base query, while the automatic <em>Other</em> segment groups any work items not covered by your named segments.</p><img alt="JQL Custom Segment gadget rendered as a bar chart in Dashboard Hub." class="doc-image" loading="lazy" src="/cms_trial/assets/45808cc3-bf78-4348-a929-d53794eca097.png"/><p>Use a single gadget to explore subsets of the same data, such as:</p><ul><li><p><strong>Team comparison</strong>: Compare bug counts by priority across teams. Base JQL: <code>type = Bug</code>. Segments: <code>team = "Alpha", team = "Beta", team = "Gamma"</code>.</p></li><li><p><strong>Component breakdown</strong>: Visualize work in progress across components. Base JQL: <code>status = "In Progress"</code>. Segments: one per component.</p></li><li><p><strong>Benchmark your work</strong>: See how your work compares to the rest of the team. Create a segment for <code>assignee = currentUser()</code> and let the <a href="https://support.appfire.com/space/RDD/3362816011/JQL+Custom+Segments#The-Other-segment"><em><u>Other</u></em></a><a href="https://support.appfire.com/space/RDD/3362816011/JQL+Custom+Segments#The-Other-segment"><u> segment</u></a> provide the contrast.</p></li><li><p><strong>Total versus subset</strong>: Show a Total baseline alongside specific segments. One segment with an empty JQL field represents the entire base query.</p></li></ul><p>See <a href="https://apps.appf.re/dh/doc/jira-segments">JQL Custom Segments</a> to learn more.</p><hr/><h2 id="bug-fixes">Bug fixes</h2><p>The following bugs are fixed in this release:</p><ul><li><p><strong>Dashboard macro in Confluence</strong>: Resolved an issue where text was unreadable when using dark mode.</p></li><li><p><strong>Dashboard creation</strong>: Resolved an issue where a new dashboard was created every time a user navigated to Dashboard Hub within a Jira project, resulting in duplicate dashboards. </p></li><li><p><strong>Jira Custom Charts gadget</strong>: Resolved an issue where users were unable to scroll down in the 2D Pivot Table view when results exceeded the initial visible rows. </p></li><li><p><strong>Progress Tracker gadget</strong>: Resolved an issue where the app attempted to load filters that weren’t available, but not required for data visualization.</p></li></ul><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p><strong>Questions and feedback</strong></p><ul><li><p>Explore exciting features, pricing updates, reviews, and more on the <a href="https://marketplace.atlassian.com/apps/1223898/dashboard-hub-pro-charts-reports-time-in-status-for-jira?hosting=cloud&amp;tab=overview">Marketplace</a>. </p></li><li><p>Stuck with something? Raise a ticket through our <a href="https://appf.re/support">support portal</a>.</p></li><li><p>Do you love using our app? Let us know what you think <a href="https://marketplace.atlassian.com/apps/1223898/dashboard-hub-pro-charts-reports-time-in-status-for-jira?hosting=cloud&amp;tab=reviews">here</a>. </p></li></ul></div><div><p><strong>Credits</strong></p><p>Thank you to our valued customers. Your support and feedback inspire us to keep improving. We appreciate your trust in Dashboard Hub!</p></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

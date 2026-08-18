@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/466225276/Use+cases/">Use cases</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/2982412312/With+Configuration+Manager+for+Jira+(CMJ)/">With Configuration Manager for Jira (CMJ)</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Safely deploy workflow automations across Jira Cloud instances with CMJ Cloud</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/2983657491" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Safely deploy workflow automations across Jira Cloud instances with CMJ Cloud</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><table><tr><th><p><strong>Goal</strong></p></th><th><p>Copy workflow automations from one Cloud instance to another Cloud instance. </p></th></tr><tr><th><p><strong>Scenario</strong></p></th><td><p>You want to migrate Jira Misc Workflow Extension (JMWE) automations from one Jira Cloud instance to another Cloud instance without manually copying the configurations. </p></td></tr><tr><th><p><strong>Components</strong></p></th><td><p>Configuration Manager for Jira (CMJ), JMWE workflow post functions, conditions, or validators. </p><div class="panel panel-note"><p><strong>Note</strong>: Migration of JMWE Actions (Event-based, Scheduled, or Shared) is not currently supported using CMJ. </p></div></td></tr><tr><th><p><strong>Baseline</strong></p></th><td><ul><li><p>Configuration Manager for Jira is installed on both instances. </p></li></ul></td></tr></table><p>Picture this: you are using <strong>Jira Misc Workflow Extensions (JMWE)</strong> and already rely on it to build powerful workflow automations in Jira Cloud. As those workflows evolve and their functionality is requested in other projects, your team needs a reliable way to move them between environments, such as promoting tested changes to production, standardizing automation across multiple Jira sites, or even supporting larger platform migrations.</p><p><strong>Configuration Manager for Jira (CMJ) Cloud</strong> provides a safe and easy way to move workflows that include <strong>JMWE</strong> configurations between Jira Cloud instances. Instead of manually recreating automation or risking configuration drift between environments, teams can package and deploy their workflows in a controlled and repeatable way.</p><hr/><h2 id="why-cmj-cloud">Why CMJ Cloud</h2><p><strong>CMJ Cloud</strong> is designed to safely move Jira configuration between environments, including workflows enhanced by popular marketplace apps such as <strong>JMWE</strong> and <strong>JSU</strong>. By understanding how these apps structure their configuration, CMJ Cloud can deploy workflows without breaking references, overwriting important scripts, or requiring manual fixes after deployment.</p><p>For those already using JMWE, CMJ Cloud unlocks a faster, safer, and more scalable way to manage Jira Cloud changes across environments.</p><hr/><h2 id="jmwe-app-support">JMWE App Support</h2><p>CMJ Cloud understands how JMWE builds workflow logic for conditions, validators, and post functions.</p><p>During deployment, CMJ Cloud safely synchronizes JMWE-generated logic with the target environment while intentionally protecting any custom scripts or JQL already configured on the target. This ensures workflows behave consistently across environments without overwriting local customizations.</p><p>Post functions are deployed as expected, allowing teams to reuse JMWE-driven automation with confidence.</p><p><strong>Benefits:</strong></p><ul><li><p>Reuse complex JMWE automation across environments</p></li><li><p>Avoid manual script updates or reconfiguration</p></li><li><p>Reduce risk when promoting workflows to production</p></li></ul><hr/><h2 id="step-by-step-guide">Step-by-step guide</h2><p><strong>CMJ Cloud</strong> provides built-in support for deploying workflows that include <strong>JMWE</strong> app data as part of its standard migration and deployment process. When exporting configurations, <strong>CMJ Cloud</strong> captures the full workflow structure, including app-specific settings. During deployment, it intelligently remaps Jira object references so that workflows align with the target environment.</p><p>The following step-by-step guide shows just how easy the whole process is.</p><ol><li><p><a href="https://appfire.atlassian.net/wiki/spaces/CMJC/pages/194183182"><u>Install</u></a> and <a href="https://marketplace.atlassian.com/apps/1211611/configuration-manager-for-jira-cmj?hosting=cloud&amp;tab=overview"><u>license CMJ Cloud</u></a> on your Jira Cloud instances. You’ll need a valid license for both the source and target sites.</p></li><li><p><a href="https://appfire.atlassian.net/wiki/spaces/CMJC/pages/2506522887"><u>Create a snapshot</u></a> in the source Jira Cloud instance and include the projects that contain workflows enhanced by <strong>JMWE</strong>. <strong>CMJ Cloud</strong> automatically captures the associated workflow configurations and app data as a part of the snapshot.</p></li><li><p>Review the snapshot to ensure all relevant configuration items are included. No additional app-specific adjustments are required.</p></li><li><p><a href="https://appfire.atlassian.net/wiki/spaces/CMJC/pages/2507112493"><u>Deploy the snapshot</u></a> to the target Jira Cloud instance using the standard CMJ Cloud deployment process. During deployment, CMJ Cloud remaps object references and applies the workflow configuration while preserving protected target-side customizations.</p></li></ol><p><a class="embed-card-link" href="https://appfire.wistia.com/medias/e3u7xci8jl">https://appfire.wistia.com/medias/e3u7xci8jl</a></p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

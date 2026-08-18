@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74814716/Use+cases+-+cloud/">Use cases - cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74812579/Table+Plus+macro+examples+-+Cloud/">Table Plus macro examples - Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">How to format the Auto Total row for numeric columns - Cloud</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TBL/pages/74813253" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>How to format the Auto Total row for numeric columns - Cloud</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview</h2><div class="columns" style="grid-template-columns: 29.64fr 70.36fr;"><div><p>This page outlines an example of how to style the row with totals of numeric columns using the <a href="/cms_trial/space/TBL/74812542/Table+Plus+macro+-+Cloud/">Table Plus macro</a>, <a href="/cms_trial/space/TBL/74812384/CSV+(Comma+Separated+Values)+macro+-+Cloud/">CSV (Comma Separated Values) macro</a>, or <a href="/cms_trial/space/TBL/74812217/Attachment+Table+macro+-+Cloud/">Attachment Table macro</a>, which are part of the <a href="https://appfire.atlassian.net/wiki/spaces/TBL">Advanced Tables for Confluence</a> app. This example assumes your data itself contains the formatting you want, such as comma separators and dollar signs. The instructions given on this page ensure that when you choose to have a row with totals of numeric columns, it too is similarly styled.</p></div><div><p>Watch this video for details on configuring the Table Plus to perform the most common functions, including adding up columns and filtering.</p><div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/Ejr1wtvjl14"></iframe></div></div></div><h2 id="macro-browser-input">Macro browser input</h2><h3 id="select-any-of-the-macros">Select any of the macros</h3><table><tr><td><p><strong>Macro name</strong></p></td><td><ul><li><p><em>Advanced Tables - CSV Table</em></p></li><li><p><em>Advanced Tables - Table Plus</em></p></li><li><p><em>Advanced Tables - Attachment Table</em></p></li></ul></td></tr><tr><td><p><strong>Macro syntax (Old editor)</strong></p></td><td><ul><li><p><em>{csv}</em></p></li><li><p><em>{table-plus}</em></p></li><li><p>{attachment-table}</p></li></ul></td></tr><tr><td><p><strong>Macro syntax (New editor - case insensitive)</strong></p></td><td><ul><li><p><em>/Table Plus</em></p></li><li><p><em>/CSV (Comma Separated Values)</em></p></li><li><p><em>/Attachment Table</em></p></li></ul></td></tr></table><h3 id="define-these-parameters-values">Define these parameters/values</h3><table><tr><td><p><em><strong>Auto total numeric columns</strong></em></p></td><td><p>On</p></td></tr><tr><td><p><em><strong>Column types</strong></em></p></td><td><p><em>s,f"0,0",f"$0,0.00"</em></p></td></tr></table><div class="panel panel-note"><ul><li><p>Due to the values set in the <a href="/cms_trial/space/TBL/74814225/Column+types+-+Cloud/">Column types</a> parameter, the Auto Total row also follows the same column types.</p></li><li><p>See <a href="/cms_trial/space/TBL/74814193/How+to+change+the+format+of+numeric+columns+-+Cloud/">Formatting options for numeric rows</a> for a full list of available formatting options.</p></li></ul></div><h3 id="parameters-set-in-the-macro-editor">Parameters set in the macro editor</h3><img alt="Advanced Tables Table Plus macro auto total row settings" class="doc-image" loading="lazy" src="/cms_trial/assets/b1999305-75c0-404a-853b-787e9a4f3cf5.png"/><img alt="Advanced Tables Table Plus macro numeric column settings for auto total row" class="doc-image" loading="lazy" src="/cms_trial/assets/3f778d7d-7a3b-46c3-95f7-835e96145887.png"/><h2 id="wiki-markup-input-old-editor">Wiki markup input (Old editor)</h2><p>For a table built using the <a href="/cms_trial/space/TBL/74812384/CSV+(Comma+Separated+Values)+macro+-+Cloud/">CSV (Comma Separated Values) macro</a>:</p><pre><code class="language-plaintext">{csv:output=wiki|autoTotal=true|columnTypes=s,f"0,0",f"$0,0.00"}
 "Item","Units","Revenue"
 "Kazoos","1,368","$4,074.25"
@@ -159,6 +164,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

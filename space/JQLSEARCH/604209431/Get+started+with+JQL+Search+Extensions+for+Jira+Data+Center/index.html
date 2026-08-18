@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209587/JQL+Search+Extensions+-+Data+Center/">JQL Search Extensions - Data Center</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Get started with JQL Search Extensions for Jira Data Center</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JQLSEARCH/pages/604209431" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Get started with JQL Search Extensions for Jira Data Center</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>To get started with JQL Search Extensions for Jira Data Center (JSE):</p><ol><li><p>Install the latest version of JQL Search Extensions for Jira Data Center.</p></li><li><p>In Jira, go to <a href="/cms_trial/space/JQLSEARCH/604209431/Get+started+with+JQL+Search+Extensions+for+Jira+Data+Center/">Advanced Search</a>.</p></li><li><p>Start typing the JQL query: <code>issue in</code>.</p></li><li><p>Jira autocompletes your query, and you can choose the required function. For example, you can run the query <code>issue in linksCountGreaterThan(2)</code>.</p></li></ol><p>See the full list of JQL functions in the JQL functions <a href="https://appfire.atlassian.net/l/cp/CDfkTFku">reference documentation</a>.</p><div class="panel panel-note"><p>You must start your queries with <code>issue in</code> to use the functions.</p></div><h2 id="install-jse-for-jira-data-center">Install JSE for Jira Data Center </h2><ol><li><p>Log in to your instance of <strong>Jira</strong> as an administrator.</p></li><li><p>Select <strong>Settings</strong> &gt; <strong>Manage Apps</strong>.</p></li><li><p>Select <strong>Find new apps</strong> from the left sidebar menu.</p></li><li><p>On the <em>Find new apps</em> page, use the search bar to find the version JQL Search Extensions for Jira that you need.</p></li><li><p>Click <strong>Free trial</strong> to start the trial or <strong>Buy now</strong> to purchase a license.</p></li><li><p>Click <strong>Accept and install</strong> on the confirmation page.</p></li><li><p>You’ll be prompted to log in to your MyAtlassian account.</p></li><li><p>Enter your credentials and click <strong>Generate license</strong>.</p></li><li><p>Once the license key is generated, select <strong>Apply license</strong> to get started with the app. If you're using an older version of UPM, you can copy and paste the license into your Jira instance.</p></li></ol><p>If required, can also find the older versions of <strong>JQL Search Extensions for Jira</strong> compatible with your instance on the <a href="https://marketplace.atlassian.com/apps/1214791/jql-search-extensions-for-jira/version-history?versionHistoryHosting=dataCenter">version history page</a> on our Marketplace listing.</p><h2 id="enter-a-query-in-advanced-search-in-jira">Enter a query in Advanced search in Jira</h2><ol><li><p>In the top navigation bar in Jira, select <strong>Issues</strong> &gt; <strong>Search for issues</strong>. The JQL Advanced search page displays.</p></li><li><p>Enter <code>issue in</code> followed by the JSE function that you want to use, for example, <code>commentsCountGreaterThan("4")</code> to find issues that have more than four comments.</p></li></ol><p><strong>See an example in the interactive walkthrough:</strong></p><iframe src="https://demo.arcade.software/ddfe63s4wQThHgn5tRmw"></iframe>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

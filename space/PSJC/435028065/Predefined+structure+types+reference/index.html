@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434798967/Simple+Issue+Language/">Simple Issue Language</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/1934458884/SIL+reference+guide/">SIL reference guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/1933541401/Reference+documentation/">Reference documentation</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Predefined structure types reference</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/435028065" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Predefined structure types reference</h1>
+    <div class="page-meta">8 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>This reference lists the predefined structure types used in Simple Issue Language (SIL) for Power Scripts for Jira Cloud. Use it to identify the fields, data types, and return structures returned by SIL functions across Jira products.</p><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><p> SIL, detailing their fields, data types, and the specific functions that return them when working with Jira, Jira Service Managemet, and Jira Software.</p><p>SIL provides two categories of structure types:</p><ul><li><p>Predefined structures are built-in structure types that come with SIL and are designed to interface with specific Jira functionalities. Each predefined structure maps to a corresponding Jira object model and is used by specific SIL functions for operations like HTTP requests, workflow management, and issue tracking.</p></li><li><p>Custom structures are structure types you can create to model custom data relationships and organize complex data. Custom structures follow the same syntax rules as predefined structures and can be created using the structure definition syntax detailed in the <a href="https://appfire.atlassian.net/wiki/spaces/PSJ/pages/15487006/Syntax+and+types+introduction#Structures">Structures</a> section on the <a href="https://appfire.atlassian.net/wiki/spaces/PSJ/pages/15487006">Syntax and types introduction</a> page.</p></li></ul></div><div></div></div><div class="panel panel-note"><p>All structures in SIL operate in a detached state, meaning that modifying structure fields only exists within your script. The changes don't get saved to Jira. For example, if you modify fields in a project version structure, the actual project version in Jira remains unchanged. This makes it safe to manipulate structure data in your scripts without affecting the real Jira data.</p></div><hr/><h2 id="how-to-use-the-reference-tables">How to use the reference tables</h2><p>This page provides a full list of the predefined structures used in SIL. Here’s a breakdown of the information you can find in the tables:</p><table><tr><th><p><strong>Table column</strong></p></th><th><p><strong>Description</strong></p></th></tr><tr><td><p>Name</p></td><td><p>This is the unique identifier for the structure type.</p></td></tr><tr><td><p>Fields</p></td><td><p>These are named properties that hold data within the structure.</p></td></tr><tr><td><p>Field types</p></td><td><p>The data type for each field. Can be one of the following: </p><ul><li><p>Basic types (<code>string</code>, <code>number</code>, <code>integer</code>, <code>boolean</code>, <code>date</code>)</p></li><li><p>Arrays (marked with <code>[]</code>)</p><ul><li><p>Other structure types (like a field of type HttpHeader in HttpRequest)</p></li></ul></li></ul></td></tr><tr><td><p>Returned by function</p></td><td><p>Predefined structures serve as return types for specific SIL functions. When you call these functions, they return data organized in the corresponding structure format.</p></td></tr></table><h4 id="example">Example</h4><p>This is example shows the <code>JComment</code> structure, which has seven fields of <code>string</code> and <code>date</code> type.</p><pre><code class="language-">struct JComment {
     string id;            // Field name: id, Type: string
     string text;          // Field name: text, Type: string 
@@ -162,6 +167,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

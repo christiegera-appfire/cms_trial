@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193033035/Feature+guide/">Feature guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192903639/Administration/">Administration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193066207/Workflow+elements+and+concepts/">Workflow elements and concepts</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Parameters</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2192837939" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Parameters</h1>
+    <div class="page-meta">4 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview</h2><p>In Comala Document Management, <strong>workflow parameters</strong> are placeholders that allow flexible values to be added to a workflow. They let you reuse the same workflow across different spaces without changing it.</p><p>The space administrator can set workflow parameter values for each space, allowing you to add and use those values without changing the workflow. This makes your workflow easier to manage and more adaptable across teams. </p><div class="panel panel-note"><p>You cannot use a workflow parameter as a value for another workflow parameter.</p></div><h2 id="where-can-you-use-workflow-parameters">Where can you use workflow parameters</h2><p>You can reference workflow parameters in the following areas:</p><ul><li><p><strong>Approvals</strong>: Use parameters to dynamically define reviewers.</p></li><li><p><strong>States</strong>: Apply parameters to set values, such as state expiry dates.</p></li><li><p><strong>Triggers</strong>: Include parameters in trigger actions that support dynamic values.</p></li></ul><h2 id="parameter-types">Parameter types</h2><p>You can customize a workflow by adding one or more workflow parameters. When creating a parameter, you need to choose from several supported data types, depending on the kind of value you need. These parameters help make your workflows more flexible and reusable.</p><ul><li><p><strong>String</strong>: A plain text value consisting of letters, numbers, or symbols.</p></li><li><p><strong>User</strong>: One or more Confluence usernames. Use this type to assign specific people to tasks or approvals.</p></li><li><p><strong>Group</strong>: One or more Confluence group names. Use this type to assign roles to teams or permission groups.</p></li><li><p><strong>Duration</strong>: A period or a specific date. Often used for setting state expiry or deadlines.</p></li><li><p><strong>List</strong>: A predefined set of values. Users can choose from this list when setting the parameter.</p></li></ul><h2 id="add-a-parameter">Add a parameter</h2><p>To add a parameter to your workflow:</p><ol><li><p>Log in to your Confluence space. </p></li><li><p>Choose <strong>Comala document management</strong> under <em>Space Apps</em>.<br/></p><img alt="Comala Document Management listed under Space apps." class="doc-image" loading="lazy" src="/cms_trial/assets/f55df949-0da8-4bfa-96db-cf4e9d5159a4.png"/></li><li><p>Click <strong>Create new workflow</strong> or edit an existing custom workflow. For example, when editing an existing workflow, click the <strong>Edit</strong> icon next to the workflow you want to edit. <br/></p><img alt="Workflow list with the Edit option for an existing workflow." class="doc-image" loading="lazy" src="/cms_trial/assets/2ebcc3f2-3dff-4605-94d3-938c671cf7c4.png"/><p>This opens the <a href="/cms_trial/space/CDMC/2193162438/Visual+builder+editor/">visual builder editor</a>. </p></li><li><p>In the visual builder editor, click <strong>Parameters</strong> to add or edit a parameter.</p></li><li><p>You can click the existing parameter value and edit it, or click <strong>+ Add Parameter</strong> to create a new parameter. <br/></p><img alt="Parameters panel in the visual builder editor showing existing parameters." class="doc-image" loading="lazy" src="/cms_trial/assets/9e4f8a1e-7212-4c80-b19e-c22babf5cca0.png"/></li><li><p>In the <strong>Add parameter </strong>dialog, enter the following details.</p><ul><li><p><strong>Name:</strong> Enter a unique name for your parameter.</p></li><li><p><strong>Type: </strong>Select a <a href="#Parameter-types">parameter type</a>.</p></li><li><p><strong>Label: </strong>Enter a descriptive label for your parameter.</p></li><li><p><strong>Initial value:</strong> Enter an initial value. When the workflow is first applied, this value is set by default. </p></li><li><p><strong>Description:</strong> Enter a description for your parameter.</p></li><li><p><strong>Scope</strong>: The <code>scope</code> attribute defines where a parameter’s value is accessible. This allows greater flexibility and control over how workflow parameters behave across a space or a specific page. See <a href="#Scope-options">scope options</a> below for more details.<br/></p><img alt="Add parameter dialog showing the Name, Type, Label, Initial value, Description, and Scope fields." class="doc-image" loading="lazy" src="/cms_trial/assets/844571b4-b7dc-4056-a4bc-375f9a832333.png"/></li></ul></li></ol><h3 id="scope-options"><strong>Scope options</strong></h3><p>If<strong> Scope</strong> = <strong>Workflow</strong> (Default)</p><ul><li><p>The parameter is available <strong>wherever the workflow is applied</strong>.</p></li><li><p>If the workflow is applied at the <strong>space level</strong>, the parameter is shared across all pages using that workflow in the space.</p></li><li><p>If the workflow is applied at the <strong>page level</strong>, the parameter is available only to that page.</p></li></ul><p><strong>Multiple workflows in the same space:</strong></p><p>Each workflow can use the same parameter name with <strong>independent values</strong>.</p><p><strong>Example:</strong></p><ul><li><p><code>WorkflowA</code>: <code>Param1 = value1</code> → All pages using WorkflowA read <code>value1</code></p></li><li><p><code>WorkflowB</code>: <code>Param1 = value2</code> → All pages using WorkflowB read <code>value2</code></p></li></ul><p>If <strong>Scope = Page</strong></p><ul><li><p>The parameter value is <strong>specific to each page</strong>.</p></li><li><p>You can view and edit these values directly in the <a href="/cms_trial/space/CDMC/2193129918/Workflow+state+dialog/">workflow dialog</a> on the page.</p></li><li><p>Useful when the same workflow needs to behave differently depending on the page context.</p></li></ul><p>See <a href="#Manage-workflow-parameters">Manage workflow parameters</a> for more details.</p><h2 id="working-with-page-parameters">Working with page parameters</h2><h3 id="page-parameters-and-space-settings"><strong>Page parameters and space settings</strong></h3><p>Page parameters with <code>scope=page</code> are not displayed in the <strong>Workflow Parameters</strong> form within <strong>Space Settings</strong>. You can only edit them at the individual page level. </p><img alt="Workflow Parameters page in Space Settings displaying page-level parameter values." class="doc-image" loading="lazy" src="/cms_trial/assets/c47b73f6-1857-48d3-894a-ebcc0a52c399.png"/><h3 id="initializing-page-parameters"><strong>Initializing page parameters</strong></h3><p>If page parameters have <strong>not yet been configured</strong> for a page, opening the <strong>workflow dialog</strong> displays a <strong>Parameters initialization message</strong>.<br/>This message includes:</p><ul><li><p>A brief prompt explaining that the parameters need to be set.</p></li><li><p>A <strong>Page Parameters</strong> button to begin initialization.<br/></p><img alt="Workflow dialog with the Page Parameters button." class="doc-image" loading="lazy" src="/cms_trial/assets/a33e02ba-e941-4cef-941d-3fe830ae54af.png"/></li></ul><h3 id="setting-page-parameters-values"><strong>Setting Page Parameters values</strong></h3><p>After clicking the <strong>Parameters</strong> button:</p><ul><li><p>A form appears listing all <strong>page-level parameter fields</strong>.</p></li><li><p>If initialization values are defined in the workflow, they will be pre-filled in the form.</p></li><li><p>Users can review and customize these values before the workflow proceeds.</p></li></ul><img alt="Page Parameters dialog with Document Group Reviewers field and the Save Parameters button." class="doc-image" loading="lazy" src="/cms_trial/assets/ad1ac90c-f504-490c-9e59-f22d8ca00557.png"/><h2 id="manage-workflow-parameters">Manage workflow parameters</h2><p>Workflow parameters can be edited directly through the <a href="/cms_trial/space/CDMC/2193129918/Workflow+state+dialog/">workflow dialog</a> on the page. </p><div class="panel panel-note"><p>This option is displayed when:</p><ul><li><p>There is no active space workflow in the space.</p></li><li><p>A page workflow that includes one or more workflow parameters is applied to the page </p></li></ul></div><p> To manage workflow parameters on the page workflow</p><ol><li><p>Add a workflow to a page as a page workflow</p></li><li><p>Once the workflow is added, you can edit its parameters in the <em>workflow dialog </em>on the page. <br/>Click the <strong>Workflow</strong> <strong>state byline &gt; three-dot menu</strong> (<span class="inline-icon" title="inline icon">▢</span>) &gt; <strong> Page Parameters </strong></p></li></ol><ol><li><p>In the <em>Workflow Parameters</em> dialog box, the current parameters values are displayed.  Edit the required values for the applied workflow.</p></li><li><p>Click <strong>Save Parameters</strong>. <br/></p><img alt="Page Parameters option selected from the Workflow dialog and the Page Parameters dialog underneath." class="doc-image" loading="lazy" src="/cms_trial/assets/296587fc-46a8-4361-8c97-89a051d3bc85.png"/><p><br/></p><p><strong>Related topics</strong></p><ul><li><p><a href="/cms_trial/space/CDMC/2193162438/Visual+builder+editor/">Workflow builder visual editor</a></p></li><li><p><a href="/cms_trial/space/CDMC/2193129918/Workflow+state+dialog/">Workflow state dialog</a></p></li><li><p><a href="/cms_trial/space/CDMC/2193195490/Approvals/">Approvals</a></p></li></ul><p><br/></p></li></ol>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

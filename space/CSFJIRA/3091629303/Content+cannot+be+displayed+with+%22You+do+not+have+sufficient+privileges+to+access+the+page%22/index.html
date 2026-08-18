@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3092186916/Errors+and+Error+Messages/">Errors and Error Messages</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Content cannot be displayed with "You do not have sufficient privileges to access the page"</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3091629303" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Content cannot be displayed with "You do not have sufficient privileges to access the page"</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="summary">Summary</h2><p>When trying to access the Jira Visualforce page user sees the following error.</p><img alt="contentId-3091629303" class="doc-image" loading="lazy" src="/cms_trial/assets/b71d3a47-5660-428b-ab69-6f6321de20b4.png?version=1&amp;modificationDate=1678792064684&amp;cacheVersion=1&amp;api=v2"/><p>This error message can appear even if the user profile has the Apex access class enabled, as mentioned in the following page - <a href="/cms_trial/space/CSFJIRA/2256275346/%22Create+Jira+Issues%22+and+%22Associate%22+buttons+are+visible+to+admins+only/">"Create Jira Issues" and "Associate" Buttons are visible to admins only)</a>. </p><h2 id="environment">Environment</h2><ul><li><p>Jira Cloud</p></li><li><p>Jira DC</p></li></ul><h2 id="diagnostics-steps">Diagnostics Steps</h2><p>Not applicable.</p><h2 id="cause">Cause</h2><p>This issue is usually related to users not having their profile enabled in the Security settings of the Visualforce Page as shown in the image below:</p><img alt="Security settings of the Visualforce Page.png" class="doc-image" loading="lazy" src="/cms_trial/assets/6cebb6cc-d1bc-4aa7-bf20-58db74440e45.png"/><h2 id="workaround">Workaround</h2><p>Not applicable.</p><h2 id="resolution">Resolution</h2><p>This can be fixed in the Visualforce page security configuration. In Salesforce, go to <strong>Setup &gt;</strong> (on the quick find box) <strong> Visualforce Page &gt; 'Your_VisualforcePage' &gt; Security </strong>as shown below:</p><img alt="contentId-3091629303" class="doc-image" loading="lazy" src="/cms_trial/assets/d5a49f7e-8d9f-4a3b-811b-595f7c50e099.png"/><p>Under <strong>JiraIssuesCasePage</strong>, add the profile of the users affected by this as shown below:</p><img alt="contentId-3091629303" class="doc-image" loading="lazy" src="/cms_trial/assets/df50a429-32a7-4c2a-8491-255ef12e4a34.png?version=1&amp;modificationDate=1678792064374&amp;cacheVersion=1&amp;api=v2"/></div><div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

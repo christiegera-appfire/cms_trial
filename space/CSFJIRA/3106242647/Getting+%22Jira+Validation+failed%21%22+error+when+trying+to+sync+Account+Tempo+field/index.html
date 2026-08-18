@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3092186916/Errors+and+Error+Messages/">Errors and Error Messages</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Getting "Jira Validation failed!" error when trying to sync Account Tempo field</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3106242647" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Getting "Jira Validation failed!" error when trying to sync Account Tempo field</h1>
+    <div class="page-meta">1 min read</div>
     <h2 id="summary">Summary</h2><p>You are unable to sync the Account Tempo field with the Account Id Salesforce field and hit to a "Jira validation failed!" error. This article provides the steps to sync the Account Tempo field with the account ID Salesforce field.</p><h2 id="environment">Environment</h2><ul><li><p>Jira Data Center</p></li><li><p>Jira Cloud</p></li></ul><h2 id="diagnostics-steps">Diagnostics Steps</h2><p>When the Account Tempo field is synced with the Account ID Salesforce field you will receive the following error from Tempo within the HAR file:</p><pre><code class="language-">"JIRA validation failed!": "io.tempo.jira__account": "Can not construct instance of java.lang.Long from String value '0014x00001N7ENZAA3': not a valid Long value\n at [Source: N/A; line: -1, column: -1]"
 </code></pre><h2 id="cause">Cause</h2><p>Tempo will not be able to update the Tempo Account field without mapping the ID values of the Account Tempo field with the Salesforces Account Id values.</p><h2 id="workaround">Workaround</h2><ul><li><p>N/A</p></li></ul><h2 id="resolution">Resolution</h2><ol><li><p>Refer to <a href="https://apidocs.tempo.io/">Tempo's REST API Documentation (4.0)</a> to get the ID values of the Tempo account.</p></li><li><p>Map the Tempo Account with the Account ID(Salesforce) and map the ID values.</p></li><li><p>In Jira, add the Tempo Account ID and map it to the Salesforce Account ID, then click <strong>Save</strong>.<br/></p><img alt="contentId-3106242647" class="doc-image" loading="lazy" src="/cms_trial/assets/1b879ef7-1dbc-404b-ba3f-34dbf736c065.png"/></li><li><p>You will be able to sync the Tempo "Account" field with your Salesforce accounts successfully.</p></li></ol>
   </main>
@@ -155,6 +160,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

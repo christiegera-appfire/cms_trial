@@ -40,14 +40,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490999487/Tutorials+and+recipes/">Tutorials and recipes</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/491002144/Rich+text+formatting+guide+for+Jira+Cloud/">Rich text formatting guide for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/1222738099/Utility+scripts/">Utility scripts</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Generic HTTP Request (reusable script include)</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/1222737996" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Generic HTTP Request (reusable script include)</h1>
+    <div class="page-meta">5 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>Simplify the process of connecting to external resources using REST.</p><h2 id="problem">Problem</h2><p>Making an extremal HTTP request is an extremely common task. Much of the work to prepare to send the request is identical from script to script. </p><h2 id="solution">Solution</h2><p>The easiest way to solve this is to use a include like this one so that the code does not need to be created every time. Another benefit of a script like this is that more time and attention can be placed in areas like logging and debugging.</p><h2 id="script-components">Script components</h2><h3 id="httpresult-struct">httpResult struct</h3><p>The purpose of this struct is to break up the data returned into 3 pieces of information required to process the call:</p><ol><li><p>Was the call successful?</p></li><li><p>If the call failed, why did it fail?</p></li><li><p>If the call succeeded, get the data</p></li></ol><h4 id="httpresult-struct-2"><strong>httpResult struct</strong></h4><pre><code class="language-">struct _httpResult {
     boolean success;
     string message;
@@ -326,6 +331,64 @@ function genericRestCall(string url, string method, string data, HttpRequest req
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

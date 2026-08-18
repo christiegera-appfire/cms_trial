@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1874100241/Configuration/">Configuration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1873740233/Configure+Lightning+Web+components/">Configure Lightning Web components</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Configure Visualforce components</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/1873445794" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Configure Visualforce components</h1>
+    <div class="page-meta">3 min read</div>
     <div class="columns" style="grid-template-columns: 100.0fr;"><div><div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>The Salesforce Package provides a set of Visualforce pages to show associated Jira issues and some operation buttons to create or associate. It also provides a page to view Jira comments related to the associated Jira issues. </p><p>This page guides you on how to configure Visualforce pages for both standard objects and custom objects in Salesforce.</p><div class="panel panel-note"><p>Using the Lightning view? Check out <a href="/cms_trial/space/CSFJIRA/1873969162/Configure+Lightning+Experience+components/">Configuring Lightning Experience components</a>.</p></div><p>Ensure that you have already <a href="/cms_trial/space/CSFJIRA/1758232704/Install+the+Salesforce+package+in+Salesforce/">installed the Salesforce Package</a> and <a href="/cms_trial/space/CSFJIRA/1873346949/Set+up+a+connection+to+Jira/">configured a connection</a> before continuing with this guide.</p></div></div><h2 id="create-a-visualforce-page">Create a Visualforce page</h2><div class="panel panel-note"><p>The package is shipped with ready-made Visualforce pages for <strong>Case</strong>. If you plan to use it for <strong>Case</strong> only, you can skip to <a href="/cms_trial/space/CSFJIRA/1873445794/Configure+Visualforce+components/">Add a Visualforce page to an Object Layout</a>. For other standard objects and custom objects, follow the steps in this section.</p></div><h3 id="create-a-jira-issues-visualforce-page">Create a Jira Issues Visualforce page</h3><ol><li><p>Go to <strong>Setup</strong> and type <code>Visualforce Page</code><strong> </strong>in the <strong>Quick Find </strong>box.</p></li><li><p>Click <strong>New</strong>.</p><img alt="Visualforce Pages.png" class="doc-image" loading="lazy" src="/cms_trial/assets/60411820-293f-45d6-bcb7-1397436dba42.png"/></li><li><p>Provide a name and a label for the Visualforce page. <br/>We recommend using <strong>Jira Issues</strong> as the label and <em><strong>ObjectName</strong></em><strong>JiraIssuesPage </strong>as the name. Replace <em><strong>ObjectName </strong></em>accordingly. For example:</p><ul><li><p><em><strong>Account</strong></em><strong>JiraIssuesPage </strong>for <strong>Account</strong></p></li><li><p><em><strong>Opportunity</strong></em><strong>JiraIssuesPage </strong>for<strong> Opportunity</strong></p></li><li><p><em><strong>MyCustomObject__c</strong></em><strong>JiraIssuesPage </strong>for<strong> MyCustomObject__c</strong></p><img alt="visual page.png" class="doc-image" loading="lazy" src="/cms_trial/assets/a6a6830d-d604-4d9a-8aaa-8f017ec2e16d.png"/></li></ul></li><li><p>Paste the following into the <strong>Visualforce Markup </strong>editor:<br/><strong>Cloud</strong></p><p><strong>JIRA Issues Visualforce Page</strong></p><pre><code class="language-xml">&lt;apex:page standardController="ObjectName" extensions="JCFS.GenericObjectController"&gt;
     &lt;JCFS:JiraIssuesComponent son="{!son}" soid="{!soid}"&gt;&lt;/JCFS:JiraIssuesComponent&gt;
 &lt;/apex:page&gt;</code></pre><p><strong>Server</strong></p><p><strong>JIRA Issues Visualforce Page</strong></p><pre><code class="language-xml">&lt;apex:page standardController="ObjectName" extensions="JSFS.GenericObjectController"&gt;
@@ -162,6 +167,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

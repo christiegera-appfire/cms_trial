@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/1916338329/Scripting/">Scripting</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465241623/Using+Jira+Expressions/">Using Jira Expressions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Variables used in Jira expressions</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/465241693" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Variables used in Jira expressions</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>Context variables (as mentioned in <a href="https://developer.atlassian.com/cloud/jira/platform/jira-expressions/#syntax-and-semantics">Jira expressions official documentation</a>) are available depending on the context in which the Jira expression is evaluated. JMWE makes the <code>issue, transition </code>and<code> user </code>variables available to Jira expressions.</p><h3 id="customerrequest-variable"><strong>customerRequest variable</strong></h3><p>The customerRequest variable is used to insert data from the current customer request. Only applies when the current issue is a Jira Service Desk customer request. Returns <code>null </code>otherwise.</p><p><strong>For example:</strong></p><p><code>customerRequest.issue.key == issue.key</code></p><h3 id="servicedesk-variable"><strong>serviceDesk variable</strong></h3><p>The serviceDesk variable provides information about the Service Desk to which the current customer request belongs. Only applies when the current issue is a Jira Service Desk customer request. Returns <code>null </code>otherwise.</p><p><strong>For example:</strong></p><p><code>serviceDesk.id == 9</code></p><h3 id="issue-variable"><strong>issue variable</strong></h3><p>The <code>issue </code>variable is used to insert data of the issue being transitioned. You can access the issue data (fields) either by</p><ul><li><p>looking up at its properties and methods that are displayed under the "Data Types" tab of the Jira expressions editor when you insert (click on the variable) the <code>issue</code> variable into the editor or</p></li><li><p>selecting the field you wish to access from the "Issue Fields" tab of the Groovy expression editor </p></li></ul><p><strong>For example:</strong></p><p><code>issue.labels</code> returns an array of label values, e.g. <code>[ "Blue","Red" ]</code></p><p><code>issue.reporter.displayName </code>returns the <code>display Name </code>of the reporter, e.g. <code>Carter</code></p><h3 id="originalissue-variable"><strong>originalIssue variable</strong></h3><p>The <code>originalIssue </code>variable is used to insert data from the current issue as it was <em>before the transition started</em>. This is useful to determine which fields were changed on the transition screen. You can access the issue data (fields) either by</p><ul><li><p>looking up at its properties and methods that are displayed under the "Data Types" tab of the Jira expressions editor when you insert (click on the variable) the <code>issue</code> variable into the editor or</p></li><li><p>selecting the field you wish to access from the "Issue Fields" tab of the Jira expression editor </p></li></ul><div class="panel panel-warning"><p>Note you cannot test this variable in the Jira expression tester.</p></div><p><strong>For example:</strong></p><p><code>originalIssue.labels</code> returns an array of label values before the transition started, e.g. <code>[ "Blue","Red" ]</code></p><p><code>originalIssue.assignee.displayName</code> returns the display name of the Assignee before the transition started, e.g. <code>Carter</code></p><h3 id="transition-variable"><strong>transition variable</strong></h3><p>The <code>transition </code>variable is used to insert information of the transition being executed. You can access the transition information under "Current Transition" section in the "Global Variables" tab of the Jira expressions editor. Click on a button to insert the expression into the editor. You can also find the properties and methods of the <code>transition</code> variable from the "Data Types" tab by selecting "Transition" under "Select a Data type".</p><p><strong>For example:</strong></p><p><code>transition.name</code> returns the name of the current transition, e.g. <code>Start Progress</code></p><p><code>transition.hasScreen</code> indicates whether there is a screen configured for this transition</p><h3 id="user-variable"><strong>user variable</strong></h3><p>The <code>user </code>variable is used to insert information about the current user, i.e. the user triggering the transition. You can access the current user information under "Current User" section in the "Global Variables" tab of the Jira expressions editor. Click on a button to insert the expression into the editor.</p><p>You can also find the properties and methods of the <code>user</code> variable from the "Data Types" tab by selecting "User" under "Select a Data type".</p><p><strong>For example:</strong></p><p><code>user.accountId</code> returns the <code>accountId</code> of the user triggering the transition, e.g. <code>accountId:5ca5b1469a000c1180956957. </code></p><p><code>user.groups</code> returns the list of names for all the groups to which the current user belongs.</p><p><code>user.groups.includes("jira-users") </code>returns <code>true</code> if the current user is a member of the "jira-users" group.</p><p><code>user.groupIds.includes("418a6fa4-d69e-4e0a-90ef-a25ef56xxxxx") </code>returns <code>true</code> if the current user is a member of the group with the ID "418a6fa4-d69e-4e0a-90ef-a25ef56xxxxx".</p><p><code>user.getProjectRoles(issue.project) returns the list of project roles the current user belongs to in the issue's project</code></p><p><code>user.getProjectRoles(new Project("TEST"))</code> returns the list of project roles the current user belongs to in the project with key TEST</p><p><code>user.getProjectRoles(issue.project).some(pr =&gt; </code><a href="http://pr.name">pr.name</a><code> == "Developers") </code>returns <code>true</code> if the current user is a member of the "Developers" project role in the issue's project.</p><div class="panel panel-warning"><p>The <code>groups</code> and <code>getProjectRoles(project)</code> methods are applicable to Jira Standard Single-User picker type fields (like Assignee, Reporter, etc) <em>only</em>. They are not applicable to custom fields of Single-User picker type. This is because Jira expressions don't return "real" user objects for custom fields. </p></div><p><br/></p><p><br/></p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

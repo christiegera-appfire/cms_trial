@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2139357355/Use+cases/">Use cases</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Create a two-way workflow between Jira work items and Salesforce Manufacturing request</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/2139357389" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Create a two-way workflow between Jira work items and Salesforce Manufacturing request</h1>
+    <div class="page-meta">4 min read</div>
     <div class="columns" style="grid-template-columns: 100.0fr;"><div><div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>As a Manufacturing Manager, you'll often need to have access to the inventory management team to request resupply of stocks. When you are working on Salesforce and the inventory management team is working on Jira, you'll want a seamless workflow between these two divisions.</p><p>This use case shows you how to build a bidirectional workflow between Salesforce and Jira using Connector for Salesforce &amp; Jira.</p></div></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h2 id="before-you-start">Before you start</h2><p>Make sure you have:</p><ul><li><p><a href="/cms_trial/space/CSFJIRA/1758232704/Install+the+Salesforce+package+in+Salesforce/">Installed the Salesforce package</a></p></li><li><p><a href="/cms_trial/space/CSFJIRA/1873346949/Set+up+a+connection+to+Jira/">Configured a connection</a></p></li></ul><p>You will need some basic understanding of the following Jira and Salesforce features:</p><ul><li><p><a href="https://support.atlassian.com/jira-cloud-administration/docs/create-a-custom-field/">Jira custom field</a></p></li><li><p><a href="https://help.salesforce.com/s/articleView?id=platform.fields_creating_picklists.htm&amp;type=5">Salesforce custom fields</a></p></li><li><p><a href="https://developer.salesforce.com/files/accessibility/customize-a-salesforce-object/picklists-field-dependencies/index.html">Salesforce field dependencies</a></p></li><li><p><a href="/cms_trial/space/CSFJIRA/1873413246/Configuring+Jira+cascading+fields+to+work+with+Salesforce+dependent+fields/">Configure Jira cascading fields to work with Salesforce dependent fields</a></p></li></ul></div><div><iframe src="https://demo.arcade.software/9FFsI1uf1P5oO9aegaNW"></iframe></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="complete-scenario">Complete scenario</h2><p><strong>The Teams:</strong></p><ol><li><p>The team that resides on Salesforce is the team that is in charge of receiving manufacturing requests.</p></li><li><p>The team that resides on Jira is the team that is working on stock and inventory management.</p></li></ol><p><strong>The Scenario:</strong></p><ol><li><p>A customer reaches out to the organization seeking to manufacture a custom door frame. The team in Salesforce receive the request from the customer.</p></li><li><p>The team in Salesforce raised a case that is synced with Jira issue to request for resupply of inventory.</p></li><li><p>The Jira team can communicate with the Manufacturing team in Salesforce through the synced Jira issue.</p></li></ol></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="build-this-use-case">Build this use case</h2><h3 id="1-set-up-salesforce">1. Set up Salesforce</h3><p>In this scenario, we will be using the Case object type.</p><ol><li><p>To facilitate communication among Salesforce-using teams, create a <strong>Record Type</strong> in Salesforce and label it as <em>Supply Chain</em><strong>.</strong></p></li><li><p>Navigate to <strong>Setup </strong>&gt; <strong>Object Manager </strong>&gt;<strong> Case &gt; Record Types</strong>.<strong> </strong></p></li><li><p>Click <strong>New</strong> to add a new Record Type: <strong>Supply Chain</strong>.<br/>Apply a proper page layout to the record type you created.</p><img alt="Screenshot showing the Supply Chain Record Type you just created." class="doc-image" loading="lazy" src="/cms_trial/assets/b70eadc2-ee22-4d11-9a33-61d2912ab8ef.png"/></li><li><p>Having two <strong>Record Types</strong> allows you to create cases with different page layouts, similar to <em>Work Item Types</em> in Jira.</p><img alt="Screenshot of the Legal Case and Supply Chain Record Types." class="doc-image" loading="lazy" src="/cms_trial/assets/15d391a3-6f2c-43a9-8e00-3ec8074761fb.png"/></li><li><p>To create custom Case fields in Salesforce, navigate to <strong>Setup </strong>&gt;<strong> Object Manager </strong>&gt;<strong> Case </strong>&gt;<strong> Fields &amp; Relationships</strong>. </p></li><li><p>Click <strong>New</strong> and create:</p><ul><li><p><strong>ItemFamily</strong> (<em>Picklist</em> field)</p></li><li><p><strong>Item Request #1</strong> (<em>Picklist Multi-Select</em> field) </p></li><li><p><strong>Item Request #1 Amount</strong> (<em>Picklist Multi-Select</em> field) </p></li></ul></li><li><p>Click <strong>Field Dependencies </strong>to create a dependency<strong> </strong>for <strong>Item Family </strong>and <strong>Item Request #1</strong>. This will allow <strong>Item Request #1 </strong>field to display different values depending on the value selected for the <strong>Item Family </strong>field.</p><img alt="edit field dependency page showing an example Item Family and Item Request." class="doc-image" loading="lazy" src="/cms_trial/assets/df7bf7cf-2724-4a92-9023-60c77919f665.png"/><p>The <strong>Supply Chain</strong> record type now has custom fields for the Manufacturing Team, such as: <strong>Item Request #1 </strong>and <strong>Item Request #1 Amount</strong>.</p></li></ol><img alt="Screenshot showing New Case Supply Chain with custom fields for the Manufacturing Team.." class="doc-image" loading="lazy" src="/cms_trial/assets/49e4a225-efe9-4bec-9182-efe2d2003a96.png"/></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h3 id="2-set-up-jira">2. Set up Jira</h3><p>Create custom fields in Jira that correspond to the custom fields you've already set up in Salesforce.</p><ol><li><p>In Jira, go to <strong>Settings </strong>&gt; <strong>Work items </strong>&gt; <strong>Fields</strong> &gt; <strong>Create new field</strong>.</p></li><li><p>Create these fields:</p><ul><li><p><strong>Item Request #1</strong> (<em>Select List Cascading field)</em> </p></li><li><p><strong>Item Request #1 Amount</strong><em> (Number field)</em><strong> </strong>type </p></li><li><p><strong>Item Request #2</strong> (<em>Select List Cascading field)</em> </p></li><li><p><strong>Item Request #2 Amount</strong><em> (Number field)</em><strong> </strong>type </p></li></ul></li></ol><h3 id="3-map-entities-and-fields-in-connector-for-salesforce-jira">3. Map entities and fields in Connector for Salesforce &amp; Jira</h3><ol><li><p>In Jira, navigate to <strong>Apps</strong> &gt; <strong>Connector for Salesforce</strong> &gt; <strong>App settings</strong> &gt; <strong>Bindings</strong>.</p></li><li><p>Click <strong>Mapping </strong>for the project you’re linking it to.</p></li><li><p>Click<strong> Add Entity Mapping, </strong>and map Jira work type with Salesforce objects:</p><ul><li><p>Jira <strong>Task</strong> with Salesforce <strong>Case </strong>object</p></li></ul></li><li><p>Click <strong>Mappings</strong> to map the fields from Salesforce to Jira for each of the <strong>Issue types</strong>. We can map cascading fields.</p><ol><li><p>Jira <strong>Description</strong> field with the <strong>Description</strong> field</p></li><li><p>Jira <strong>Item Request #1</strong>  field with the <strong>ItemFamily</strong> and the dependent <strong>Item Request #1</strong>  field</p></li><li><p>Jira <strong>Item Request #1 Amount</strong> field with the <strong>Item Request #1 Amount</strong> field</p></li><li><p>Jira <strong>Item Request #2</strong>  field with the <strong>ItemFamily</strong> and the dependent <strong>Item Request #2</strong>  field</p></li><li><p>Jira <strong>Item Request #2 Amount</strong> field with the <strong>Item Request #2 Amount</strong> field</p><img alt="2025-11-25_14-11-23.png" class="doc-image" loading="lazy" src="/cms_trial/assets/f5960902-e10c-442b-ad11-294f9c733984.png"/></li></ol></li></ol></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h3 id="4-associate-jira-task-with-salesforce-records">4. Associate Jira task with Salesforce records</h3><ol><li><p>Open the Jira task with the request.</p></li><li><p>Under <strong>Connector for Salesforce</strong> click <strong>Associate</strong>.</p><ol><li><p>Select <strong>Case</strong> from the <strong>Object Type</strong> dropdown and find your Salesforce record.</p></li><li><p>Select <strong>Push to Salesforce then Pull from Salesforce</strong> from the <strong>After associating</strong> dropdown list to update the data in Salesforce.</p></li></ol></li></ol><h3 id="5-automation-for-jira">5. Automation for Jira </h3><p>In this particular use-case, we didn't use any Automation for Jira. However, if you wish to do so, you can refer to this link; <a href="/cms_trial/space/CSFJIRA/1874002066/How+to+enable+status+transition+from+Salesforce+to+Jira+using+Automation+for+Jira/">How to enable status transition from Salesforce to Jira via Automation for Jira</a> to set up your Automation to best-fit your scenario. </p></div></div><ul><li><p><a href="/cms_trial/space/CSFJIRA/1873413246/Configuring+Jira+cascading+fields+to+work+with+Salesforce+dependent+fields/">Configure Jira cascading fields to work with Salesforce dependent fields</a> </p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

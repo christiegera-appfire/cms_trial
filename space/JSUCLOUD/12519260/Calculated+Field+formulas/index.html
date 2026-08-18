@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12518429/Features/">Features</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12518401/Workflow+post+functions/">Workflow post functions</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12520029/Calculated+Field+post+function/">Calculated Field post function</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Calculated Field formulas</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JSUCLOUD/pages/12519260" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Calculated Field formulas</h1>
+    <div class="page-meta">5 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="formulas">Formulas</h2><p>Formulas are constructed by combining operators, values, and functions in a way that yields a single value. Different elements in the formula give different numbers of values:</p><ul><li><p>Literal values, fields, and mathematical functions all result in<strong> one value</strong></p></li><li><p>Relation functions can result in <strong>multiple values</strong>, depending on the number of issues that are involved</p></li><li><p>Operators or aggregating functions <strong>reduce multiple values into one</strong></p></li></ul><p>A formula must result in a single value, so <code>subtasks('Quantity')</code> is invalid, but <code>sum(subtasks('Quantity'))</code> is valid.</p><h3 id="literal-values">Literal values</h3><p> You can use constant values in your formulas; their format determines their type.</p><h3 id="number">Number</h3><p>To use a number constant, use the number itself, for example, <code>12000</code> or <code>42.86</code>.</p><h3 id="text">Text</h3><p>Text is required for certain functions. Text cannot be used to calculate something. To make a text value, use single quotes <code>'</code>, for example <code>'this is a text'</code> or <code>'causes'</code>.</p><h3 id="fields">Fields</h3><p>You can use any custom field of type <em>number</em>, or text fields that contain a number. JSU converts texts that consist only of a number to a number type.</p><p>To use a custom field, type its name, for example, <code>Budget</code> or <code>Quantity</code>. </p><div class="panel panel-note"><p>If your field’s name contains spaces or special characters, you must surround it with double quotes, for example, <code>“Story Points”</code>. Quotes are optional for values without spaces or special characters, for example,  <code>"Quantity"</code>.</p></div><h3 id="operators">Operators</h3><p>Operators combine two values. The following operators are supported:</p><table><tr><th><p><strong>Operator</strong></p></th><th><p><strong>Description</strong></p></th><th><p><strong>Example</strong></p></th></tr><tr><td><p><code>+</code></p></td><td><p>Addition</p></td><td><p><code>12 + Quantity</code></p></td></tr><tr><td><p><code>-</code></p></td><td><p>Subtraction</p></td><td><p><code>15 - Rating</code></p></td></tr><tr><td><p><code>*</code></p></td><td><p>Multiplication</p></td><td><p><code>Result * Factor</code></p></td></tr><tr><td><p><code>/</code></p></td><td><p>Division</p></td><td><p><code>"Write off percentage" / 100</code></p></td></tr><tr><td><p><code>^</code></p></td><td><p>Potentiation: Raises the first value to the power of the second, e. g. 28</p></td><td><p><code>2 ^ 8</code></p></td></tr><tr><td><p><code>%</code></p></td><td><p>Percentage: As on a calculator, you can add or subtract a percentage to/from a value.</p></td><td><p><code>Price - 10%</code></p></td></tr></table><h2 id="parentheses">Parentheses</h2><p>Parentheses can be used to group operations to override operator precedence. <code>2 * 3 + 3</code> equals 9, but <code>2 * (3 + 3)</code> equals 12.</p><h2 id="functions">Functions</h2><p>Functions are versatile. We provide the following types:</p><ul><li><p><strong>Mathematical </strong>functions enable more calculations.</p></li><li><p><strong>Aggregating </strong>functions, allow you to combine multiple values into one; this is necessary to reduce the results of some relation functions.</p></li><li><p><strong>Relation </strong>functions fetch values from other related issues so you can get values from subtasks, for example.</p></li></ul><div class="panel panel-warning"><p>Jira automatically rounds values to three decimal places. Keep this in mind when you require precise results.</p></div><table><tr><th><p><strong>Mathematical Function</strong></p></th><th><p><strong>Description</strong></p></th><th><p><strong>Example</strong></p></th></tr><tr><td><p><code>round(number, decimals)</code></p></td><td><p>Rounds the passed value to the specified number of significant decimal digits.</p></td><td><ul><li><p><code>round(15.386, 2)</code> = <code>15.39</code> </p></li><li><p><code>round(15.5, 0)</code> = <code>16</code></p></li></ul></td></tr><tr><td><p><code>floor(number)</code></p></td><td><p>Rounds the passed value to the nearest lower integer.</p></td><td><ul><li><p><code>floor(16.34)</code> = <code>16</code></p></li></ul></td></tr><tr><td><p><code>ceiling(number)</code></p></td><td><p>Rounds the passed value to the nearest higher integer.</p></td><td><ul><li><p><code>ceiling(16.34)</code> = <code>17</code></p></li></ul></td></tr><tr><td><p><code>abs(number)</code></p></td><td><p>Gives the absolute value, i. e. the positive value.</p></td><td><ul><li><p><code>abs(-15)</code> = <code>15</code></p></li><li><p><code>abs(15)</code> = <code>15</code></p></li></ul></td></tr><tr><td><p><code>signum(number)</code></p></td><td><p>Normalises negative values to -1, zero to 0, and positive values to 1.</p></td><td><ul><li><p><code>signum(-255)</code> = <code>-1</code></p></li><li><p><code>signum(0)</code> = <code>0</code></p></li><li><p><code>signum(135)</code> = <code>1</code></p></li></ul></td></tr><tr><td><p><code>mod(dividend, divisor)</code></p></td><td><p>Calculates the remainder of the dividend when divided by the divisor.</p></td><td><ul><li><p><code>mod(13, 2)</code> = <code>1</code></p></li></ul></td></tr><tr><td><p><strong>Aggregating Function</strong></p></td><td><p><strong>Description</strong></p></td><td><p><strong>Example</strong></p></td></tr><tr><td><p><code>sum(number…)</code></p></td><td><p>Sum of the passed values</p></td><td><ul><li><p><code>sum(1, 4, 5)</code> = <code>10</code></p></li></ul></td></tr><tr><td><p><code>avg(number…)</code></p></td><td><p>Average of the passed values</p></td><td><ul><li><p><code>avg(3, 5, 7)</code> = <code>5</code></p></li></ul></td></tr><tr><td><p><code>min(number…)</code></p></td><td><p>Smallest of the passed values</p></td><td><ul><li><p><code>min(-12, 0, 346)</code> = <code>-12</code></p></li></ul></td></tr><tr><td><p><code>max(number…)</code></p></td><td><p>Largest of the passed values</p></td><td><ul><li><p><code>max(-135, 0, 1)</code> = <code>1</code></p></li></ul></td></tr><tr><td><p><strong>Relation Function</strong></p></td><td><p><strong>Description</strong></p></td><td><p><strong>Example</strong></p></td></tr><tr><td><p><code>subtasks(field)</code></p></td><td><p>Retrieves the values of the passed field from all subtasks.</p><div class="panel panel-note"><p>Must be aggregated before using outside of a function.</p></div></td><td><ul><li><p><code>avg(subtasks("Story Points"))</code></p></li></ul></td></tr><tr><td><p><code>parent(field)</code></p></td><td><p>Retrieves the values of the passed field from the parent of a subtask.</p></td><td><ul><li><p><code>parent("Quantity")</code></p></li></ul></td></tr><tr><td><p><code>issuesInEpic(field)</code></p></td><td><p>Retrieves the values of the passed field from all issues in an epic.</p><div class="panel panel-note"><p>Must be aggregated before using outside of a function.</p></div></td><td><ul><li><p><code>min(issuesInEpic("Budget"))</code></p></li></ul></td></tr><tr><td><p><code>epic(field)</code></p></td><td><p>Retrieves the values of the passed field from the epic of an issue.</p></td><td><ul><li><p><code>epic("Price")</code></p></li></ul></td></tr><tr><td><p><code>linkedIssues(linkName, field)</code></p></td><td><p>Retrieves the values of the passed field from all linked issues.</p><div class="panel panel-note"><p>Must be aggregated before using outside of a function.</p></div><div class="panel panel-warning"><p>The link type must be given in single quotes: <code>‘causes’</code></p></div></td><td><ul><li><p><code>max(linkedIssues('causes', "Percentage"))</code></p></li></ul></td></tr></table><h2 id="advanced-use-cases">Advanced use cases</h2><h3 id="setting-a-boundary-on-values">Setting a boundary on values</h3><p>What if you must ensure the value of the Calculated Field “Price” stays above 0, but is at most 20? A minimum bound can be set by using <code>max</code> and a maximum using <code>min</code>. The price is calculated using the “Net Price” field and the “VAT” field.</p><ol><li><p>First, we calculate the price, which can be done using <code>"Net Price” + VAT%</code>.</p></li><li><p>We then want to set the upper bound of 20, so we get <code>min(”Net Price” + VAT%, 20)</code>.</p></li><li><p>Finally, we need the lower bound, so we get <code>max(min(”Net Price”) + VAT%, 20), 1)</code>.</p></li></ol><h3 id="ensuring-entered-numbers-are-integers">Ensuring entered numbers are integers</h3><p>You have a field requesting the “Number of Participants” on a transition screen. Your subsequent calculations require this number to be an integer. To ensure this, you use a Calculated Field post function on the same transition.</p><ol><li><p>The post function will write to the “Number of Participants” field.</p></li><li><p>We want to operate on the same field, so we start with the formula <code>“Number of Participants”</code>.</p></li><li><p>We then want to ensure that it is a whole number; we do this by rounding. We round up in this case: <code>ceiling(”Number of Participants”)</code>.</p></li></ol><p>If the number is already a whole number, it is unchanged. If someone enters <code>15.3</code> for example, it is rounded up to the next whole number, and we get <code>16</code>.<br/>Because we write the result to the same field during the transition, for example, <code>Number of Participants</code>, the same field is adjusted with a whole number input.</p><h2 id="multiple-values">Multiple values</h2><p>The mathematical functions can also operate on multiple values that are returned by the relation functions. For example,  you can round all the values returned by a subtask.</p><p><code>avg(round(subtasks('Number of Affected Systems'), 0))</code></p><p>The functions accept the lists in the following ways:</p><ul><li><p><code>round(number_list, decimals)</code></p></li><li><p><code>floor(number_list)</code></p></li><li><p><code>ceiling(number_list)</code></p></li><li><p><code>abs(number_list)</code></p></li><li><p><code>signum(number_list)</code></p></li><li><p><code>mod(dividend_list, divisor)</code></p></li></ul><p>The function is then applied to each element in the list, and a list with the new values is returned. The mathematical functions do not reduce the list in size; the only way to do that is to use an aggregating function.</p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

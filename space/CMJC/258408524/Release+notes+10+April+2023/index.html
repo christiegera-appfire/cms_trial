@@ -32,14 +32,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira (CMJ) Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/194117669/Release+Notes/">Release Notes</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/992673833/Archived+release+notes/">Archived release notes</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Release notes 10 April 2023</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CMJC/pages/258408524" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Release notes 10 April 2023</h1>
+    <div class="page-meta">3 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h3 id="april-10-2023">April 10, 2023</h3><p>We are excited to announce the release of <strong>Configuration Manager for Jira Cloud 2.0.0</strong>!</p><p>Upgrading to Configuration Manager for Jira Cloud 2.0.0 is free for all customers.</p><h2 id="highlights">Highlights</h2><ul><li><p><a href="#FEATURES">Cloud-to-cloud is live now! Deploy project configurations between Jira Cloud </a><a href="#FEATURES">sites</a></p></li></ul></div><div><img alt="contentId-258408524" class="doc-image" loading="lazy" src="/cms_trial/assets/a397b50f-e48e-4a0a-92b2-128898a35b6d.png"/></div></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p><a href="/cms_trial/space/CMJC/194183182/Installation+guide/"><strong>Installation instructions</strong></a></p></div><div></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="updates-and-resolved-issues">Updates and Resolved Issues</h2></div><div></div></div><div class="columns" style="grid-template-columns: 33.33fr 66.66fr;"><div><img alt="contentId-258408524" class="doc-image" loading="lazy" src="/cms_trial/assets/f8b41aeb-8671-4ce8-af2b-805b5c359176.png"/></div><div><h4 id="features">FEATURES</h4><ul><li><p>Use <a href="https://marketplace.atlassian.com/apps/1211611/configuration-manager-for-jira-cmj?hosting=cloud&amp;tab=overview">Configuration Manager for Jira (CMJ) Cloud</a> to deploy project configurations and the configuration elements associated with them from one Jira Cloud site to another (a.k.a. <strong>cloud-to-cloud </strong>deployments).</p></li></ul><p> <a href="#Deploy-project-configurations-between-Jira-Cloud-sites">Overview</a></p></div></div><details><summary>Previous Releases...</summary><p><a href="/cms_trial/space/CMJC/193593962/Release+notes+11+October+2021/">1.1.2 Release Notes</a> </p><p><a href="/cms_trial/space/CMJC/193855942/Release+notes+1+October+2021/">1.0.0 Release Notes</a> </p></details><hr/><h2 id="deploy-project-configurations-between-jira-cloud-sites">Deploy project configurations between Jira Cloud sites</h2><h3 id="configuration-change-management">Configuration &amp; change management</h3><p>Now, you can use CMJ Cloud also to:</p><ul><li><p><strong>deploy new project configurations</strong> from one Jira Cloud site to another, and</p></li><li><p><strong>deploy changes </strong>from a source Jira Cloud to projects and configuration elements in a destination Jira Cloud.</p></li></ul><div class="panel panel-note"><p><strong>Projects' issues</strong> <strong>can't be deployed</strong> from one Jira Cloud site to another yet.</p></div><p>Deploying project configurations also affects Jira configuration elements referring to them. The configuration elements referring to a project can be custom fields, workflows, screens, users, etc.</p><p>To ensure the project's proper functioning at the destination, CMJ Cloud will also:</p><ul><li><p>add configuration elements to the destination, and</p></li><li><p>modify configuration elements in the destination</p></li></ul><p> if they refer to project configurations that will be deployed.</p><p><a href="/cms_trial/space/CMJC/193725041/Overview/">View full documentation</a></p><div class="panel panel-note"><p><strong>Service Management </strong>projects can't be added to a deployment as they aren’t supported yet.</p></div><img alt="contentId-258408524" class="doc-image" loading="lazy" src="/cms_trial/assets/4cedf9b6-e43a-4789-9477-3f6900c3b7ad.PNG"/><h3 id="installation-prerequisites">Installation &amp; prerequisites</h3><p>You need to install CMJ Cloud on <strong>both Jira Cloud sites </strong>to be able to perform configuration deployments. After the installation, you need to provide one license token for the source Jira Cloud site and another one for the destination Jira Cloud site. If your source Jira Cloud site is a production instance, you’ll need a production license for it too.</p><p>After the installation, you need to:</p><ul><li><p>have <strong>two separate license tokens</strong>, one token for the source and another token for the destination,</p></li><li><p>have <strong>site-admin permissions</strong> on both Jira Cloud sites, and</p></li><li><p>authorize your administrative credentials using an Atlassian account<a href="/cms_trial/space/CMJC/193594026/Authorize+with+API+token/"> API token</a> in CMJ Cloud’s UI.</p></li></ul><p>For more information, please check out the detailed <a href="/cms_trial/space/CMJC/193659801/Prerequisites/">prerequisites</a>, <a href="/cms_trial/space/CMJC/194183182/Installation+guide/">installation, </a>and <a href="/cms_trial/space/CMJC/194150417/Licensing/">licensing</a> instructions.</p><h3 id="intuitive-ui-to-deploy-configuration">Intuitive UI to deploy configuration</h3><p>After installing the app, you can configure your deployment by selecting projects and boards to upload. The deployment will automatically include the workflows, custom fields, screens, and other configuration elements associated with the projects in the scope. </p><div class="panel panel-note"><p>See the <a href="/cms_trial/space/CMJC/193855959/Supported+configuration+elements/">complete list</a> of configuration elements we’re able to deploy currently.</p></div><h3 id="deep-configuration-analysis">Deep configuration analysis</h3><p>CMJ Cloud performs a deep configuration analysis by comparing the configuration elements in the source and destination Jira Cloud sites. This analysis detects errors, warnings, and conflicts between the two sites.</p><p>Errors and conflicts stop a deployment, whereas warnings don’t. You need to resolve the reported errors and conflicts to continue a blocked deployment.</p><p>Errors are major problems with the configuration. Conflicts are problems between source and destination configuration elements. If unresolved, they would break the project configurations in the destination. Warnings are minor issues detected that won’t introduce breaking changes.</p><h3 id="transformations-during-deployment">Transformations during deployment</h3><p>CMJ Cloud allows you to rename the projects, workflows, workflow schemes, and filters added to the deployment scope. You can also change project keys during deployment.</p><p>The app adds the edited source projects, workflows, and filters as new configurations on the destination. This way, the destination configuration elements matching source elements by type, name, or id won't be modified.</p><hr/><p>More improvements and bug fixes will be coming soon! Thanks! Please submit your suggestions for improvements to Appfire’s <a href="https://apps.appf.re/support"><strong>Support Portal</strong></a>. We value your feedback!</p>
   </main>
   <aside class="sidebar">
@@ -169,6 +174,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

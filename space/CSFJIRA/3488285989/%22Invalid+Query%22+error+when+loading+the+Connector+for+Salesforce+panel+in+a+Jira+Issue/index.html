@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3092186916/Errors+and+Error+Messages/">Errors and Error Messages</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">"Invalid Query" error when loading the Connector for Salesforce panel in a Jira Issue</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3488285989" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>"Invalid Query" error when loading the Connector for Salesforce panel in a Jira Issue</h1>
+    <div class="page-meta">2 min read</div>
     <h2 id="summary">Summary</h2><p>Users may encounter an <strong>"Invalid Query"</strong> error when loading the <strong>Connector for Salesforce</strong> panel in a Jira issue. This occurs when the Connector queries a Salesforce field that is no longer available or accessible, such as a deleted, renamed, or feature-dependent field.</p><div class="panel panel-note"><p>If you encounter this error <strong>while configuring a connection</strong>, refer to <a href="https://support.appfire.com/space/CSFJIRA/3156836381/An+%22Invalid+Query!%22+Error+pops+up+when+configuring+connection+in+Jira">https://support.appfire.com/space/CSFJIRA/3156836381/An+%22Invalid+Query!%22+Error+pops+up+when+configuring+connection+in+Jira</a> instead.</p></div><h2 id="environment">Environment</h2><ul><li><p>Product: Connector for Salesforce &amp; Jira</p></li><li><p>Hosting: Cloud</p></li><li><p>Related vendor(s): Salesforce, Jira</p></li></ul><h2 id="problem">Problem</h2><ul><li><p>An "<strong>Invalid Query</strong>" error message pops up when accessing a Jira Issue.</p></li><li><p>The <strong>Connector for Salesforce</strong> panel is infinitely loading.</p></li><li><p>The browser network tab shows a <code>400 Bad Request</code> for the <code>associatedObjects</code> API endpoint.</p></li></ul><img alt="image-20260728-000034.png" class="doc-image" loading="lazy" src="/cms_trial/assets/5cb02cdb-71bd-46bb-a03e-b664781c4772.png"/><h2 id="cause">Cause</h2><p>The connection configuration includes a field in its "Fields" list that is either:</p><ol><li><p><strong>Deleted/Renamed:</strong> The field was removed/renamed from the Salesforce object but remains in the Connector's configuration.</p></li><li><p><strong>Feature Disabled:</strong> This can also occur when the queried field belongs to a Salesforce feature that has been disabled for the object. For example, the <code>LastActivityDate</code> field requires <strong>Allow Activities</strong> to be enabled.</p></li></ol><h2 id="solution">Solution</h2><p>To resolve this, you must remove the problematic field from the Connection configuration:</p><ol><li><p>Navigate to <strong>Apps</strong> &gt; <strong>Connector for Salesforce</strong> &gt; <strong>Connections</strong>.</p></li><li><p>Locate the affected connection and click <strong>Configure</strong>.</p></li><li><p>Find the Salesforce Object causing the error (e.g., "Sales Request" or <code>Research_Assessment__c</code>).</p></li><li><p>Click on the <strong>Fields</strong> button for that object.</p></li><li><p>Review the field list and identify any invalid fields (shown in red), or fields that no longer exist in Salesforce.</p><img alt="image-20260728-001200.png" class="doc-image" loading="lazy" src="/cms_trial/assets/8f0a405b-e406-44ec-ad81-cdbb9da71744.png"/></li><li><p><strong>Remove</strong> the problematic field(s) from the selection.</p></li><li><p>Click <strong>Apply Changes</strong> at the bottom of the configuration page to save.</p></li></ol><h3 id="validation-steps">Validation steps</h3><ul><li><p>Refresh the Jira issue page and expand the “Connector for Salesforce” panel.</p></li></ul><h2 id="before-contacting-support">Before contacting Support</h2><p>If the issue persists after following the steps above, collect the following information before contacting Support:</p><ul><li><p><strong>Connection Export:</strong> Go to the Connection configuration and provide the JSON export of the settings.</p></li><li><p><strong>Salesforce Object Details:</strong> A screenshot of the Object Manager details for the affected Salesforce object.</p></li></ul><h2 id="related-articles">Related articles</h2><ul><li><p><a href="https://support.appfire.com/space/CSFJIRA/3156836381/An+%22Invalid+Query!%22+Error+pops+up+when+configuring+connection+in+Jira">https://support.appfire.com/space/CSFJIRA/3156836381/An+%22Invalid+Query!%22+Error+pops+up+when+configuring+connection+in+Jira</a> </p></li><li><p><a href="https://support.appfire.com/space/CSFJIRA/1873347420/Configure+Salesforce+objects+and+fields+in+connection+search+results">https://support.appfire.com/space/CSFJIRA/1873347420/Configure+Salesforce+objects+and+fields+in+connection+search+results</a> </p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

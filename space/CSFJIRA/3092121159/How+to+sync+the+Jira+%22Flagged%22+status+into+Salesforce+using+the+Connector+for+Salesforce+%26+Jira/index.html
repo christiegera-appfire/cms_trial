@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3092186639/Association+and+synchronization/">Association and synchronization</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">How to sync the Jira "Flagged" status into Salesforce using the Connector for Salesforce &amp; Jira</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3092121159" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>How to sync the Jira "Flagged" status into Salesforce using the Connector for Salesforce &amp; Jira</h1>
+    <div class="page-meta">2 min read</div>
     <h2 id="problem">Problem</h2><p>Users want to automatically reflect the <strong>Flagged</strong> status of a Jira work item (such as a Task, Story, Bug, or Epic) into a field in Salesforce. However, even though the work item is marked as <strong>Flagged</strong> in Jira, the corresponding field in Salesforce remains <strong>empty</strong> or does not display the expected value.</p><h2 id="solution">Solution</h2><p>To sync the <strong>Flagged</strong> status into Salesforce, follow this approach:</p><ol><li><p>Understand the<strong> Flagged </strong>field<strong> </strong>behavior in Jira.</p><ul><li><p>If a Jira work item is flagged, the value of the <strong>Flagged</strong> field is set to <strong>"Impediment</strong>.”</p></li><li><p>If the Jira work item is <strong>not flagged</strong>, the field remains <strong>empty</strong>.</p></li></ul></li><li><p><strong> </strong>Create a new <strong>Text </strong>field in Jira.</p><ol><li><p>In Jira, go to <strong>Settings </strong>&gt;<strong> Work Items </strong>&gt; <strong>Fields</strong>.</p></li><li><p>Create a<strong> Text Field</strong> (e.g., <code>Jira Flagged Status</code>).</p></li><li><p>Add this custom field to the <strong>Create</strong> and <strong>Edit</strong> screens for the relevant work types.</p></li><li><p>Optionally, include it in the <strong>View</strong> screen.</p></li></ol></li><li><p>Map the<strong> Custom Field</strong> in Connector for Jira &amp; Salesforce.</p><ol><li><p>Go to <strong>Jira </strong>&gt;<strong> Apps </strong>&gt;<strong> Connector for Salesforce </strong>&gt;<strong> Bindings </strong>&gt;<strong> Mappings</strong>.</p></li><li><p>Map the custom Jira text field (for example, <code>Jira Flagged Status</code>) to the appropriate <strong>Salesforce field</strong> (for example, a text or boolean field).<br/>Example mapping:</p><img alt="2025-09-24_07-34-11.png" class="doc-image" loading="lazy" src="/cms_trial/assets/4c93c670-3d53-480b-9e67-d6726dd76329.png"/></li></ol></li><li><p>Configure<strong> Value mapping </strong>for<strong> </strong>the<strong> Flagged </strong>field<strong>.</strong></p><ol><li><p>Navigate to the <strong>Field Mapping Configuration</strong>.</p></li><li><p>Map the values as follows:<br/><code>yes</code> value in Jira mapped to <code>true</code> value in Salesforce<br/><code>no</code> value in Jira mapped to <code>false</code> value in Salesforce<br/>This ensures that flagged work items in Jira are represented accurately in Salesforce.<br/>Example mapping:</p><img alt="values configuration for field mapping" class="doc-image" loading="lazy" src="/cms_trial/assets/0a02e1a6-0d5f-4aa1-88a7-389302b77c7b.png"/></li></ol></li><li><p>Automate the<strong> Flagged</strong> field update<strong> </strong>in Jira.</p><p>To ensure the custom field in Jira is updated when a work item is flagged:</p><ol><li><p>Go to <strong>Jira </strong>&gt;<strong> Settings </strong>&gt;<strong> System </strong>&gt;<strong> Global Automation </strong>&gt;<strong> Create Rule</strong>.</p></li><li><p>Click <strong>Create from scratch</strong>.</p></li><li><p>Configure a rule as follows:</p><ul><li><p><strong>Trigger</strong>: Field value changed → <strong>Flagged</strong>.</p><img alt="Field value changed" class="doc-image" loading="lazy" src="/cms_trial/assets/ab8162da-f80c-43e7-972c-54ffe15f4b7b.png"/></li><li><p>Add <strong>Condition</strong>: <br/>IF Flagged = <strong>"Impediment"</strong>, update the custom text field with <strong>"Yes"</strong>.</p><img alt="If block example" class="doc-image" loading="lazy" src="/cms_trial/assets/f1126816-cd69-47d9-b806-22d92fb8b10b.png"/></li><li><p><strong>THEN Add an action</strong>: <strong>Edit work item</strong> → Select the Jira custom field and set the value to “yes”</p><img alt="Edit work item with the value set to yes" class="doc-image" loading="lazy" src="/cms_trial/assets/c27da9f2-950d-46a6-9956-843edf23c9a7.png"/></li><li><p><strong>Condition</strong>: click <strong>Add else</strong> &gt;  <strong>Add condition</strong> &gt; <strong>Work item fields condition </strong>and set it:</p><ul><li><p><strong>Field</strong>: <strong>Flagged</strong></p></li><li><p><strong>Condition</strong>: <strong>is empty</strong></p><img alt="2025-09-23_14-19-49.png" class="doc-image" loading="lazy" src="/cms_trial/assets/8ecb663f-2cc2-45bd-ac46-50c39d53e096.png"/></li></ul></li><li><p><strong>THEN: Add an action</strong>: <strong>Edit work item</strong>: Select the Jira custom field and set the value to “no”</p><img alt="Edit work item example" class="doc-image" loading="lazy" src="/cms_trial/assets/4c71f879-d8d3-4290-b279-05fd5efd22bd.png"/></li></ul></li></ol></li></ol><p>Here is an overview of the Automation:</p><img alt="Automation overview" class="doc-image" loading="lazy" src="/cms_trial/assets/35a904e8-de1b-4312-bb26-51408f85555b.png"/><p><strong>Result</strong>:</p><ol><li><p>When flagging a Jira issue, the <strong>custom text field</strong> is updated to <strong>"yes</strong>." If not, the value will be <strong>“no”</strong></p></li><li><p>This triggers the <strong>Auto-Push</strong> to Salesforce, and the corresponding Salesforce field will display the value <strong>"true" or “no” </strong>depending on the Flagged field value.</p></li></ol><div class="panel panel-note"><ul><li><p>The <strong>Auto-Push</strong> feature must be enabled in the Jira-Salesforce connector so the changes can sync automatically.</p></li><li><p>This solution provides a clear and automated method to reflect the <strong>Flagged</strong> status in Salesforce without manual intervention.</p></li></ul></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

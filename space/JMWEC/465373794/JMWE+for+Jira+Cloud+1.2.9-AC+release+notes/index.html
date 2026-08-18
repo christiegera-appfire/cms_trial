@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/1154449466/Release+notes/">Release notes</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465473449/Release+notes+(archived)/">Release notes (archived)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465504330/Previous+Releases/">Previous Releases</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">JMWE for Jira Cloud 1.2.9-AC release notes</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/465373794" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>JMWE for Jira Cloud 1.2.9-AC release notes</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>This version brings the following changes:</p><h3 id="new-feature">New feature:</h3><ul><li><p>New <code>organizations</code> Nunjucks filter to return the list of Organizations a user belongs to</p></li></ul><h3 id="improvements">Improvements:</h3><ul><li><p>All field selection dropdown menus have been replaced with field “pickers” to make it easier to select a field in a long list of fields</p></li><li><p>The Create Issue(s) post-function now ignores errors when adding entity properties to the current issue, when the issue is not editable</p></li></ul><h3 id="bug-fixes">Bug fixes:</h3><ul><li><p><a href="https://appfire.atlassian.net/browse/MWEC-670">MWEC-670</a> Transitions Tab doesn't work in NextGen Projects</p></li><li><p><a href="https://appfire.atlassian.net/browse/MWEC-665">MWEC-665</a> Transition comment not copied by the "Create Issue" post-function inside a Sequence or Shared Action</p></li><li><p><a href="https://appfire.atlassian.net/browse/MWEC-653">MWEC-653</a> Field Required Validator doesn't handle comment field properly</p></li><li><p><a href="https://appfire.atlassian.net/browse/MWEC-637">MWEC-637</a> Copy comments to related issues doesn't prevent copying copies of comments back to the original issue</p></li><li><p><a href="https://appfire.atlassian.net/browse/MWEC-636">MWEC-636</a> Copy Comments to Related Issues doesn't work with "current comment" for event-based actions</p></li><li><p><a href="https://appfire.atlassian.net/browse/MWEC-632">MWEC-632</a> If two Event-based actions listening to fields changes run at the same time, only one works</p></li><li><p><a href="https://appfire.atlassian.net/browse/MWEC-626">MWEC-626</a> Create Issue(s) post-function fails in a Scheduled Action</p></li><li><p><a href="https://appfire.atlassian.net/browse/MWEC-624">MWEC-624</a> Delete issue post function returns 400 error when deleting multiple sub-tasks</p></li><li><p><a href="https://appfire.atlassian.net/browse/MWEC-604">MWEC-604</a> Field Required Validator (JMWE app) should test for attachments added on the transition screen</p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

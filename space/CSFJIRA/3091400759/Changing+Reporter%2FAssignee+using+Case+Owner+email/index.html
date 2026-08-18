@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3092186639/Association+and+synchronization/">Association and synchronization</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Changing Reporter/Assignee using Case Owner email</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3091400759" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Changing Reporter/Assignee using Case Owner email</h1>
+    <div class="page-meta">3 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="purpose">Purpose</h2><p>To change a Jira issue's Assignee or Reporter, you are required to set the value mapping between the Jira User field and the Salesforce Case Owner. This documentation will help to provide an alternative workaround by using the Owner's email address.</p><h2 id="answer">Answer</h2><h2 id="configuration-in-salesforce">Configuration in Salesforce</h2><ol><li><p>Go to <strong>Setup &gt; Object Manager &gt;</strong> search for the desired <strong>Object</strong> (for example, Opportunity).</p></li><li><p>Click to configure the Object, under <strong>Fields &amp; Relationships</strong>, click <strong>New</strong>.</p></li><li><p>Select <strong>Formula</strong> to capture the Case Owner's email address and click <strong>Next</strong>.</p></li><li><p>Insert the <strong>Field Label</strong> and <strong>Field Name</strong> value. Then, choose the <strong>Text </strong>option. Click <strong>Next</strong> to proceed.</p></li><li><p>Click the <strong>Insert Field</strong> button and design your field. Click <strong>Insert</strong> and press <strong>Next</strong> until you reach last page.</p><img alt="Inseft field.png" class="doc-image" loading="lazy" src="/cms_trial/assets/f53ee637-f2ce-4090-af25-e5b3d2dd9607.png"/></li><li><p>Click <strong>Save</strong> to complete your custom field configuration. Confirm that the email address is now populated in the Salesforce Record.</p></li></ol></div><div></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="configuration-in-jira">Configuration in Jira</h2><ol><li><p>Create a <strong>Short Text</strong> <a href="https://support.atlassian.com/jira-cloud-administration/docs/create-a-custom-field/">custom field</a> (link for custom field in Jira. In this example it is named "Jira User".</p></li><li><p>Go to <strong>Apps &gt; Salesforce &gt; Bindings &gt;</strong> select <strong>Mappings</strong> on an issue type and map the Jira field with the Salesforce field created.<br/></p><img alt="owner email.png" class="doc-image" loading="lazy" src="/cms_trial/assets/9dc6518a-e70e-4de4-86f6-7eea2cc88cbb.png"/></li><li><p>Save the configuration and confirm that the email address is populated in Jira when the data is pulled from Salesforce.</p></li></ol></div><div></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="configuration-in-jira-automation">Configuration in Jira Automation </h2><ol><li><p>Select a project and navigate from <strong>Project Settings &gt; Automation</strong>.</p></li><li><p>Create a new rule with <strong>Trigger </strong>is <strong>Issue updated</strong>.</p></li><li><p>Add a new component and select <strong>New Condition &gt; Issue Fields Condition</strong>. Choose the Jira Field and set the condition as <strong>is not empty</strong>.</p></li><li><p>Add another component and select <strong>New Action &gt; Send Web Request</strong></p></li><li><p>Set the <strong>Web Request URL</strong> with the URL according to your Jira environment:</p><ol><li><p>Jira Cloud:<br/>&lt;JiraBaseURL&gt;/rest/api/3/user/search?query={{issue.&lt;customField_Id&gt;}}</p></li><li><p>Jira Server:<br/>&lt;JiraBaseURL&gt;/rest/api/2/user/search?username={{issue.&lt;customField_Id&gt;}}</p></li><li><p>To find the Custom Field ID, you can refer to How to find the id for custom field(s)? documentation. Link for "<a href="https://confluence.atlassian.com/jirakb/how-to-find-id-for-custom-field-s-744522503.html?__hstc=72543820.dca6847bc67d72cb12dda09618bcbbf0.1610352968903.1663293812024.1663296455536.959&amp;__hssc=72543820.27.1663296455536&amp;__hsfp=3395054717">How to find the id for custom field(s)? documentation.</a>”</p></li></ol></li><li><p>Before proceeding further, create an API token using a user that has the right permissions for the project based on the article below <strong>(This step is not required for Jira Server &amp; Data Center):</strong></p><ol><li><p><a href="https://support.atlassian.com/atlassian-account/docs/manage-api-tokens-for-your-atlassian-account/?__hstc=72543820.dca6847bc67d72cb12dda09618bcbbf0.1610352968903.1663293812024.1663296455536.959&amp;__hssc=72543820.27.1663296455536&amp;__hsfp=3395054717">Manage API tokens for your Atlassian account</a>.</p></li></ol></li><li><p>Copy the API token and encode it with the username. You can use this <a href="https://www.base64encode.net/">third-party site </a>to encode it. </p></li><li><p>In the website's text box, arrange the username and the token in the following format:</p><ol><li><p>Jira Cloud:<br/>&lt;username&gt;:&lt;APIToken&gt;</p></li><li><p>Jira Server:<br/>&lt;username&gt;:&lt;password&gt;</p></li></ol></li><li><p>Click <strong>Encode</strong> and copy the result back to the Jira Automation page.</p></li><li><p>In the <strong>Headers</strong> section, set the name as <strong>Authorization</strong>.</p></li><li><p>Set the <strong>Value</strong> with the following format, paste the encoded data from step 9 in the "&lt;encodedToken&gt;" portion of the text:<br/>Basic &lt;encodedToken&gt;</p></li><li><p>Set the <strong>HTTP Method</strong> to <strong>GET</strong> and tick the <strong>Delay execution</strong> option.</p></li><li><p>The configuration up to this point will look like the following:<br/></p><img alt="contentId-3091400759" class="doc-image" loading="lazy" src="/cms_trial/assets/0b055cb2-0463-4caf-a9bc-6f3d3b64c42b.png"/><p>Click <strong>Validate your web request configuration</strong> and validate an issue from your project. The expected result is "HTTP 200 OK."</p></li><li><p>Add the last component &gt; <strong>New Action &gt; Edit Issue</strong>.</p></li><li><p><strong>Do not select</strong> any field, instead expand the <strong>More Options</strong> section.</p></li><li><p>In the text box, add the following:</p><ol><li><p>Jira Cloud:<br/>{<br/>   "fields": {<br/>       "reporter":{"id":"{{webhookResponse.body.accountid}}"}<br/>   }<br/>}</p></li><li><p>Jira Server:<br/>{<br/>   "fields": {<br/>       "reporter":{"name":"{{<a href="http://webhookResponse.body.name">webhookResponse.body.name</a>}}"}<br/>   }<br/>}<br/>You can change the value between Assignee” or “Reporter” depending on your configuration.</p></li></ol></li><li><p>Save the automation and publish it.</p></li></ol></div><div></div></div><h2 id="related-information">Related Information</h2><ul><li><p><a href="/cms_trial/space/CSFJIRA/3091400759/Changing+Reporter%2FAssignee+using+Case+Owner+email/">Changing the Reporter and Assignee of an Issue</a></p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

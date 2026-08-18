@@ -32,14 +32,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira (CMJ) Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/194117669/Release+Notes/">Release Notes</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/992673833/Archived+release+notes/">Archived release notes</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Release notes November 2023</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CMJC/pages/578060323" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Release notes November 2023</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h3 id="3-november-2023">3 November 2023</h3><p>We are happy to announce the release of <strong>Configuration Manager for Jira (CMJ) Cloud 2.0.8</strong>!</p><h2 id="highlights">Highlights</h2><ul><li><p><a href="#FEATURES">Configuration Manager remembers the last used destination Jira Cloud sites</a></p></li><li><p><a href="#RESOLVED">Bug fixes</a></p></li></ul></div><div><img alt="contentId-578060323" class="doc-image" loading="lazy" src="/cms_trial/assets/caf35313-09b1-451d-af23-b0b9f6726a6c.png"/></div></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p><a href="/cms_trial/space/CMJC/194183182/Installation+guide/"><strong>Installation instructions</strong></a></p></div><div></div></div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><h2 id="updates-and-resolved-issues">Updates and Resolved Issues</h2></div><div></div></div><div class="columns" style="grid-template-columns: 33.33fr 66.66fr;"><div><img alt="contentId-578060323" class="doc-image" loading="lazy" src="/cms_trial/assets/86034764-fe10-4af3-9222-93068f19be31.png"/><img alt="contentId-578060323" class="doc-image" loading="lazy" src="/cms_trial/assets/f9519740-161f-4b37-8fee-2c9b6110dfe3.png"/></div><div><h4 id="features">FEATURES</h4><ul><li><p>Now, CMJ Cloud <strong>remembers the last ten</strong> <strong>destination</strong><strong> </strong>Jira Cloud sites you had entered during deployments.</p></li></ul><p> <a href="#Remembering-the-last-used-destination-Jira-Cloud-sites">Overview</a></p><h4 id="resolved">RESOLVED</h4><ul><li><p>Fixed a problem where deployment was failing with the <em>‘Permission scheme already exists’</em> error.</p></li><li><p>Fixed a problem where deployment was failing with the <em>‘The value has to be provided’</em> during custom field context creation.</p></li><li><p>Fixed a problem where deployment was failing as CMJ Cloud was attempting to delete the current user from the “site-admin” group.</p></li><li><p>Fixed a problem where deployment was failing during board creation.</p></li><li><p>Fixed a problem where deployment was failing with the <em>“Please select a valid project role”</em> error.</p></li><li><p>Fixed a problem where deployment was failing during user creation with the <em>‘A user with that username already exists’</em> error.</p></li><li><p>Fixed a problem where deployment was failing as CMJ Cloud was attempting to create a second global context.</p></li></ul></div></div><details><summary>Previous Releases...</summary><p><a href="/cms_trial/space/CMJC/503480776/Release+notes+18+September+2023/">2.0.7 Release Notes</a></p><p><a href="https://appfire.atlassian.net/wiki/spaces/DCMFJC/pages/439484420">2.0.6 Release Notes</a></p><p>…</p><p><a href="https://appfire.atlassian.net/wiki/spaces/DCMFJC/pages/254574741">2.0.0 Release Notes</a></p></details><hr/><h2 id="remembering-the-last-used-destination-jira-cloud-sites">Remembering the last used destination Jira Cloud sites</h2><p>When you enter a destination Jira Cloud site and trigger the <em>analysis</em> of a deployment, CMJ Cloud stores the destination URL. It can remember up to 10 destination Jira Cloud sites. Afterward, when you start a new migration, CMJ Cloud offers you the remembered URLs for ease and convenience.</p><img alt="contentId-578060323" class="doc-image" loading="lazy" src="/cms_trial/assets/ae9175a5-275c-47d9-84ae-340546fa9b74.PNG"/><hr/><p>More improvements and bug fixes will be coming soon! Thanks! Please submit your suggestions for improvements to Appfire’s <a href="https://apps.appf.re/support"><strong>Support Portal</strong></a>. We value your feedback!</p>
   </main>
   <aside class="sidebar">
@@ -169,6 +174,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

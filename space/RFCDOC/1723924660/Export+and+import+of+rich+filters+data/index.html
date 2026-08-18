@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud) Documentation</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783942482/User+guides/">User guides</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941673/Configure+Rich+Filters/">Configure Rich Filters</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941683/Manage+Rich+Filters/">Manage Rich Filters</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Export and import of rich filters data</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/1723924660" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Export and import of rich filters data</h1>
+    <div class="page-meta">1 min read</div>
     <div class="columns" style="grid-template-columns: 100.0fr;"><div><div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>The <strong>Export to Backup</strong> bulk operation allows Jira administrators to create backup files containing rich filter configurations. These backup files can be <strong>imported</strong> on the same Jira instance or a copy of it, ensuring that referenced Jira object IDs remain consistent.</p></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h3 id="export-rich-filters">Export Rich Filters</h3><ol><li><p>Go to the<strong> </strong>Rich filters <strong>Bulk ops </strong>screen.</p></li><li><p>Check all the filters you would like to export.</p></li><li><p>Select <strong>Export to Backup</strong> to generate a backup file.</p></li></ol><img alt="contentId-1723924660" class="doc-image" loading="lazy" src="/cms_trial/assets/2f78b547-ef41-46f5-a1aa-66a971b882ef.png"/></div></div><h3 id="import-rich-filters">Import Rich Filters</h3><p>Jira administrators can import rich filter backups in the following ways:</p><ol><li><p><strong>Clone Rich Filters</strong></p><ul><li><p>Creates new rich filters using the backup configuration.</p></li><li><p>Assign new IDs to rich filters and their sub-objects (such as static filters).</p></li><li><p>Enables cloning within a Jira instance or transferring rich filters to a copy of the instance (e.g., staging to production).</p></li></ul></li></ol><div class="panel panel-note"><p>The rich filter transfer use case does not apply to dashboards using rich filters. Any rich filter gadgets in the destination instance—whether existing or transferred separately—will not automatically reference the transferred rich filters.</p></div><ol><li><p><strong>Restore Rich Filters with Original IDs</strong></p><ul><li><p>Works only within the same Jira instance.</p></li><li><p>Restores rich filters exactly as exported, preserving their original IDs.</p></li><li><p>Ensures that dashboards and rich filter gadgets remain functional without manual updates.</p></li></ul></li></ol><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>To access the <strong>Import from backup</strong> screen: </p><ol><li><p>Go to the<strong> </strong>Rich filters <strong>Home </strong>screen.</p></li><li><p>Click <strong>Import </strong>in the side navigation menu. </p></li><li><p>Select <strong>Import from backup. </strong></p></li></ol></div></div><p><br/></p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

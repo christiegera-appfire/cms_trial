@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/1916338329/Scripting/">Scripting</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465241623/Using+Jira+Expressions/">Using Jira Expressions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Jira Expressions Editor</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/466225418" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Jira Expressions Editor</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p><strong>JMWE for Jira Cloud</strong> provides an editor for Jira expressions in the conditions and validators configuration screens, and anywhere that a condition can be entered. The Jira editor includes syntax checking, automatic keyword highlighting, variables, and comments, among others. Additionally, the editor includes an inline help system detailing standard fields, blocks, tags, and global variables.</p><p>The Jira expression editor in JMWE Cloud is available for all input fields that support such expressions. This editor includes a number of features for creating Jira expressions, including:</p><ul><li><p>Automatic code indenting</p></li><li><p>Syntax checking</p></li><li><p>Keyword colors</p></li><li><p>Comments and variables</p></li><li><p>Find and Replace</p></li><li><p>Keyboard shortcuts<br/></p></li></ul><img alt="JMWE for Jira Cloud Jira expressions editor with basic configuration interface" class="doc-image" loading="lazy" src="/cms_trial/assets/fdca15dc-e73f-4eb2-9b5d-08596f0c53a3.png"/><p>The Jira expression editor includes the following functions across the top of the editor window: </p><ul><li><p><strong>Find</strong> - Search the current expression code. Includes searching by regular expression. Hit <strong>Enter</strong> to perform the search.</p></li><li><p><strong>Find next</strong> - Locate the next occurrence of the search. </p></li><li><p><strong>Replace</strong> - Find and replace text within the current expression code. Enter a search term and hit <strong>Enter</strong>, then enter the replacement term. Hit <strong>Enter</strong> again to perform the search and confirm each replacement. </p></li><li><p><strong>Lookup user…</strong> - Search for a user ID to insert into the expression code.</p></li><li><p><strong>Lookup group…</strong> - Search for a group ID to insert into the expression code.  </p></li><li><p><strong>Test Jira expression…</strong> - Run a test of the Jira expression. Results will be displayed below the editor. </p></li></ul><h2 id="inline-help">Inline Help</h2><p>The editor also includes a Help section below the expression field. The Help tabs include basic instructions for creating Jira expressions, as well as links to more detailed information. Additionally, some of the tabs include shortcuts for inserting common expression elements and issue fields. The Help section has the following tabs: </p><p><strong>Expected Value</strong> - <em>Not available in the Jira expression tester.</em> This tab lists the possible expected value for the expression.</p><p><strong>Jira expressions - </strong>This tab has a brief introduction to Jira expressions and links to the official documentation.</p><p><strong>Global Variables - </strong>This tab lists the Global variables that are available for Jira expressions. Hover over any button to get more information and click on it to insert it into the editor. For more information, see <a href="/cms_trial/space/JMWEC/465241693/Variables+used+in+Jira+expressions/">Variables used in Jira expressions</a>.</p><p><strong>Issue Fields - </strong>This tab lists the value of almost any field of an issue in a Jira expression. To find out how to access a field, select the field and the help editor displays a few Nunjucks expressions for accessing the field values and sub-fields using the field id. </p><p><strong>Data types - </strong>This tab lists the properties of a data type returned by the tested script or the data type selected.</p><p><strong>More help - </strong>This menu gives you access to additional help pages.</p><h2 id="jira-expression-tester">Jira Expression Tester</h2><p>JMWE includes a tool for testing Jira expressions; with this tool, an expression can be built and tested before adding it to a condition or validator configuration. The tool is available through the <em>JIRA MISC WORKFLOW EXTENSION</em> section of Jira App Administration. For more information, see Template Tester. </p></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

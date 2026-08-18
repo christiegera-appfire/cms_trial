@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74817747/Common+table+capabilities+-+Cloud/">Common table capabilities - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74815166/Augments+-+Cloud/">Augments - Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">How to add a row number with augments - Cloud</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TBL/pages/74812684" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>How to add a row number with augments - Cloud</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview</h2><p>This page shows how you can use augments to add a column of row numbers in a CSV table, except for the header row.</p><h2 id="macro-browser-input">Macro browser input</h2><h3 id="select-this-macro">Select this macro</h3><table><tr><td><p><strong>Macro name</strong></p></td><td><p><em>Advanced Table - CSV Table</em></p></td></tr><tr><td><p><strong>Macro syntax (Old editor)</strong></p></td><td><p>{csv}</p></td></tr><tr><td><p><strong>Macro syntax (New editor - case insensitive)</strong></p></td><td><p><em>/CSV (Comma Separated Values)</em></p></td></tr></table><h3 id="define-these-parameters-values">Define these parameters/values</h3><table><tr><td><p><em><strong>Output format</strong></em></p></td><td><p><em>wiki</em></p></td></tr><tr><td><p><em><strong>Columns to display</strong></em></p></td><td><p><em>,Product,Sales</em></p></td></tr><tr><td><p><em><strong>Augments to data row values</strong></em></p></td><td><p><em>%#%</em></p></td></tr></table><h3 id="screenshot">Screenshot</h3><img alt="Advanced Tables CSV data used to add row numbers" class="doc-image" loading="lazy" src="/cms_trial/assets/9ca2374c-c8c3-4844-b13b-ca2499a40f88.jpg"/><h2 id="wiki-markup-input-old-editor">Wiki markup input (Old editor)</h2><pre><code class="language-plaintext">{csv:columns=,Product, Sales|augments=%#%}
 Product, Sales
 ABC, 1000
@@ -158,6 +163,64 @@ XYZ, 2000
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud) Documentation</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941853/Release+Notes/">Release Notes</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/1595769075/Release+notes+2021%E2%80%932024/">Release notes 2021–2024</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783943818/2022/">2022</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">November 9, 2022</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/783942851" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>November 9, 2022</h1>
+    <div class="page-meta">1 min read</div>
     <h2 id="new-flexi-chart-type-word-cloud">New flexi chart type: Word cloud</h2><p><a href="/cms_trial/space/RFCDOC/783941863/The+Rich+Filter+Flexi+Charts+Gadget/">Flexi charts</a> now have a new <em>Chart type</em> option for 1D charts named <em>Word Cloud</em>. Like <em>Bar</em> and <em>Line</em> charts, <em>Word cloud</em> charts support overlapping and non-overlapping groups of issues but have a non-sequential layout, similar to the layout of <em>Treemap</em> charts. This means that you can use <em>Word cloud</em> as an alternative to <em>Bar</em> and <em>Line</em> types for charts by labels or other multiple-selection fields (<em>Treemap</em> charts, as well as <em>Donut</em>, <em>Pie</em> and <em>Gauge</em> charts, don't support these fields since they display slices, which must not overlap).</p><h2 id="quick-tables-in-time-series-chart-and-created-vs-resolved-chart-gadgets">Quick tables in Time Series Chart and Created vs Resolved Chart gadgets</h2><p>In statistics gadgets, quick <em>charts </em>allow you to easily display charts for a visual representation of your statistics values. Similarly, in charts gadgets, <em>quick tables </em>allow you to easily display tables with all the values used in the charts. In this release we have added quick tables in two rich filter chart gadgets: <a href="/cms_trial/space/RFCDOC/783942364/The+Rich+Filter+Time+Series+Chart+Gadget/">Time Series Chart</a> and <a href="/cms_trial/space/RFCDOC/783942386/The+Rich+Filter+Created+vs+Resolved+Chart+Gadget/">Created vs Resolved Chart</a> (very soon we will add quick tables in the <a href="/cms_trial/space/RFCDOC/783941863/The+Rich+Filter+Flexi+Charts+Gadget/">Flexi Charts</a> gadget as well). Click on the corresponding icon at the bottom-right of the gadget to toggle the quick table on and off.</p><h2 id="support-for-assets-objects-fields-in-rich-filter-results-views-statistics-and-dynamic-filters">Support for Assets objects fields in Rich Filter Results views, statistics, and dynamic filters</h2><p>The custom fields of type <a href="https://support.atlassian.com/jira-service-management-cloud/docs/what-is-the-assets-objects-field/"><em>Assets objects</em></a>, which link issues to objects in <a href="https://support.atlassian.com/jira-service-management-cloud/docs/what-is-assets-in-jira-service-management-cloud/">Assets for Jira Service Management</a>, are now available:</p><ul><li><p>as columns in <a href="/cms_trial/space/RFCDOC/783941729/Configure+views/">views</a>, to be displayed in <a href="/cms_trial/space/RFCDOC/783941759/The+Rich+Filter+Results+Gadget/">Rich Filter Results</a> gadgets;</p></li><li><p>as <em>Statistic type</em> in the statistics and flexi charts gadgets: <a href="/cms_trial/space/RFCDOC/783941781/The+Rich+Filter+Statistics+Gadget/">Rich Filter Statistics</a>, <a href="/cms_trial/space/RFCDOC/783941803/The+Rich+Filter+Two+Dimensional+Statistics+Gadget/">Rich Filter Two Dimensional Statistics</a>, and <a href="/cms_trial/space/RFCDOC/783941863/The+Rich+Filter+Flexi+Charts+Gadget/">Rich Filter Flexi Charts</a>;</p></li><li><p>as <a href="/cms_trial/space/RFCDOC/783941707/Configure+dynamic+filters/">dynamic filters</a>, allowing you to filter the issues on your dashboard.</p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

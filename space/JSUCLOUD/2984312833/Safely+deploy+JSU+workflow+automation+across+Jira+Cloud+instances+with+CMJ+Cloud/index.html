@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12518487/Use+cases/">Use cases</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Safely deploy JSU workflow automation across Jira Cloud instances with CMJ Cloud</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JSUCLOUD/pages/2984312833" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Safely deploy JSU workflow automation across Jira Cloud instances with CMJ Cloud</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><hr/><table><tr><td><p><strong>Goal</strong></p></td><td><p>Copy workflow automations from one Cloud instance to another Cloud instance.</p></td></tr><tr><td><p><strong>Scenario</strong></p></td><td><p>You want to migrate <strong>Jira Suite Utilities (JSU)</strong> automations from one Jira Cloud instance to another Cloud instance without manually copying the configurations.</p></td></tr><tr><td><p><strong>Components</strong></p></td><td><p><strong>Configuration Manager for Jira (CMJ)</strong>, JSU workflow post functions, conditions, or validators.</p><div class="panel panel-note"><p><strong>Note</strong>: Migration of JMWE Actions (Event-based, Scheduled, or Shared) is not currently supported using CMJ.</p></div></td></tr><tr><td><p><strong>Scope</strong></p></td><td><ul><li><p>Configuration Manager for Jira is installed on both instances.</p></li><li><p> The workflows containing the JSU automations exist on both the source and target instances.</p></li></ul></td></tr></table><p>Picture this: you are using <strong>Jira Suite Utilities (JSU)</strong> and already rely on it to build powerful workflow automations in Jira Cloud. As those workflows evolve and their functionality is requested in other projects, your team needs a reliable way to move them between environments, such as promoting tested changes to production, standardizing automation across multiple Jira sites, or even supporting larger platform migrations.</p><p><strong>Configuration Manager for Jira (CMJ) Cloud</strong> provides a safe and easy way to move workflows that include <strong>JSU</strong> configurations between Jira Cloud instances. Instead of manually recreating automation or risking configuration drift between environments, teams can package and deploy their workflows in a controlled and repeatable way.</p><hr/><h2 id="why-cmj-cloud">Why CMJ Cloud</h2><p><strong>CMJ Cloud</strong> is designed to safely move Jira configuration between environments, including workflows enhanced by popular marketplace apps such as <strong>JMWE</strong> and <strong>JSU</strong>. By understanding how these apps structure their configuration, <strong>CMJ Cloud</strong> can deploy workflows without breaking references, overwriting important scripts, or requiring manual fixes after deployment.</p><p>For customers already using <strong>JSU</strong>, <strong>CMJ Cloud</strong> unlocks a faster, safer, and more scalable way to manage Jira Cloud changes across environments.</p><hr/><h2 id="jsu-app-support">JSU App Support</h2><p><strong>JSU</strong> workflows often include deeply nested rules and multiple Jira object references. CMJ Cloud handles this complexity automatically.</p><p>When exporting <strong>JSU</strong> configurations, <strong>CMJ Cloud</strong> preserves the full structure of the workflow rules. During deployment, it intelligently updates Jira object references — such as custom fields — so the workflow functions correctly in the target environment.</p><p>This allows teams to migrate even advanced <strong>JSU</strong> automation without simplifying or rebuilding their rules.</p><p><strong>Benefits:</strong></p><ul><li><p>Deploy complex <strong>JSU</strong> workflows without manual effort</p></li><li><p>Maintain workflow logic and structure across instances</p></li><li><p>Ensure correct field and object mapping every time</p></li></ul><hr/><h2 id="step-by-step-guide">Step-by-step guide</h2><p><strong>CMJ Cloud</strong> provides built-in support for deploying workflows that include <strong>JSU</strong> app data as part of its standard migration and deployment process. When exporting configurations, <strong>CMJ Cloud</strong> captures the full workflow structure, including app-specific settings. During deployment, it intelligently remaps Jira object references so that workflows align with the target environment.</p><p>The following step-by-step guide shows just how easy the whole process is.</p><ol><li><p><a href="https://appfire.atlassian.net/wiki/spaces/CMJC/pages/194183182">Install</a> and <a href="https://marketplace.atlassian.com/apps/1211611/configuration-manager-for-jira-cmj?hosting=cloud&amp;tab=overview"><u>license </u></a><a href="https://marketplace.atlassian.com/apps/1211611/configuration-manager-for-jira-cmj?hosting=cloud&amp;tab=overview"><strong><u>CMJ Cloud</u></strong></a> on your Jira Cloud instances. You’ll need a valid license for both sites you want to move data between.</p></li><li><p><a href="https://appfire.atlassian.net/wiki/spaces/CMJC/pages/2506522887"><u>Create a snapshot</u></a> in the source Jira Cloud instance and include the projects that contain workflows modified by <strong>JSU</strong>. <strong>CMJ Cloud</strong> automatically captures the associated workflow configurations and app data as part of the snapshot.</p></li><li><p>Review the snapshot to ensure all relevant configuration items are included. No additional app-specific adjustments are required.</p></li><li><p><a href="https://appfire.atlassian.net/wiki/spaces/CMJC/pages/2507112493"><u>Deploy the snapshot</u></a> to the target Jira Cloud instance using the standard <strong>CMJ Cloud</strong> deployment process. During deployment, <strong>CMJ Cloud</strong> remaps object references and applies the workflow configuration while preserving protected target-side customizations.</p></li></ol><p><a class="embed-card-link" href="https://appfire.wistia.com/medias/e3u7xci8jl">https://appfire.wistia.com/medias/e3u7xci8jl</a></p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

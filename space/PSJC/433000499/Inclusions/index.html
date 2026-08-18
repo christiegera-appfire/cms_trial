@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434798967/Simple+Issue+Language/">Simple Issue Language</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/1934458884/SIL+reference+guide/">SIL reference guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/1934229517/Fundamentals/">Fundamentals</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Inclusions</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/433000499" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Inclusions</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="panel panel-note"><p>This page explains how to use include statements in Simple Issue Language (SIL) programs.</p></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>Describes how to incorporate external code and resources into SIL programs to promote code reuse and modularity.</p><p>The <code>include</code> statement in SIL lets you import and execute code from other SIL files. This can improve readability and make your code more manageable.</p><p>You can use the <code>include</code> statement to:</p><ul><li><p>Import entire libraries of user-defined functions (UDFs).</p></li><li><p>Break down large programs into manageable components.</p></li><li><p>Share common functionality across multiple scripts.</p></li></ul></div></div><h2 id="syntax">Syntax</h2><p>Inclusions in SIL use the following syntax:</p><pre><code class="language-">include "path/to/file.incl";</code></pre><p>Here are some key points to remember when using inclusions in your SIL programs:</p><ul><li><p>Include statements must appear at the beginning of your program before any user-defined function definitions.</p></li><li><p>File paths can be relative or absolute.</p></li><li><p>Relative paths are resolved relative to the defined <code>sil.home</code> environment variable (typically the <strong>silprograms</strong> directory in the SIL Manager).</p></li><li><p>To maintain consistency, consider using the <code>.incl</code> extension for included files. </p></li></ul><div class="panel panel-note"><p>For more information, see  <a href="/cms_trial/space/PSJC/435028021/Structure+of+a+SIL+program/">Structure of a SIL program</a>.</p></div><hr/><h2 id="variable-visibility">Variable visibility</h2><p>There are two categories of variables you can use in the <strong>included programs</strong>.</p><table><tr><th><p><strong>Variable category</strong></p></th><th><p><strong>Definition</strong></p></th><th><p><strong>Example</strong></p></th></tr><tr><th><p>Local</p></th><td><p>These are the variables you define in the body of the included program. They are accessible throughout the included file, the main program, and any other program that uses the included code.</p></td><td><h4 id="file-incl"><strong>file.incl</strong></h4><pre><code class="language-">// Define a simple increment function
 function increment(int x) {
   return x + 1;
@@ -177,6 +182,64 @@ number b = a + increment(2);
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

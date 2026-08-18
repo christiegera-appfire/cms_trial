@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490999487/Tutorials+and+recipes/">Tutorials and recipes</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490999529/Power+Scripts+recipes/">Power Scripts recipes</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Create story subtasks and close them when story is closed</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/490999802" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Create story subtasks and close them when story is closed</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="problem">Problem</h2><p>You want to create story subtasks and close them when the story is closed.</p><h2 id="solution">Solution</h2><div class="panel panel-success"><p>The following script runs on an<strong> Issue Created</strong> event listener. </p></div><p>When you create either a <strong>Story</strong>, <strong>New Feature</strong>, or <strong>Improvement</strong>, subtasks oriented to modern application development are automatically created.</p><p>Also, the <strong>Component</strong> field is set to the value equivalent to the issue type. This is because the use case assumes that all area-specific tasks should be automatically assigned to the team member specialized in that area. For example, if you have one database developer on your team, it is preferred that all database subtasks be automatically assigned to that developer. </p><p>This requires to:</p><ul><li><p>set up the <strong>Components</strong> field in your project to precisely map to your subtask issue types,</p></li><li><p>ensure the issue is automatically assigned to the component owner. </p></li></ul><div class="panel panel-note"><p>This is handled in the project configuration, not within this script.</p></div><h4 id="script-createappdevsubtasks-sil">Script - CreateAppDevSubtasks.sil</h4><pre><code class="language-">string [] subTaskIssueTypes="Visual Design|UI/UX|Front-End Development|API|Back-End Development|Database";
 
 if(project=="SMSW") {
@@ -213,6 +218,64 @@ for(string issue in issues) {
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

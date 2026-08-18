@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/466225276/Use+cases/">Use cases</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/2219508313/Use+Cases+for+Actions/">Use Cases for Actions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">When a duplicate work item is linked, close duplicate and comment</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/2219999820" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>When a duplicate work item is linked, close duplicate and comment</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><table><tr><th><p><strong>Goal</strong></p></th><th><p>When an existing work item is identified and linked as a duplicate to another work item, add a comment to the duplicate issue and automatically close it. </p></th></tr><tr><th><p><strong>Scenario</strong></p></th><td><p>An existing work item has been identified as a duplicate of another work item. When adding a <code>duplicates</code> link to the work item, a comment should be added for auditability and the duplicate work item should be closed. </p></td></tr><tr><th><p><strong>Components</strong></p></th><td><p><a href="/cms_trial/space/JMWEC/465473524/Event-based+actions/">Event-based action</a>: Issue linked event, <a href="/cms_trial/space/JMWEC/466322568/Comment+issue(s)/">Comment issue(s)</a> post function, <a href="/cms_trial/space/JMWEC/465242612/Transition+issue(s)/">Transition issue(s)</a> post function</p></td></tr><tr><th><p><strong>Baseline</strong></p></th><td><ul><li><p>The link type <em>duplicates/is duplicated by</em> must exist. </p></li><li><p>The work item with the Outward link - <strong>duplicates</strong>, in this example - is the work item that will have the comment added and will be closed. </p></li><li><p>The <strong>Done </strong>status should be accessible from all other status values (enable the option <strong>Allow all statuses to transition to this one</strong>). See <strong>Workflow configuration</strong> below for more info.  </p></li></ul></td></tr></table></div></div><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h2 id="requirements">Requirements</h2><ul><li><p>JIRA Administrator login</p></li><li><p><a href="https://marketplace.atlassian.com/apps/292/jira-misc-workflow-extensions-jmwe">Jira Misc Workflow Extensions Cloud</a></p></li></ul><h2 id="workflow-configuration">Workflow configuration</h2><p>For this use case to function as designed, it is best to configure the <strong>Done</strong> status in your workflow to be accessible from all other statuses in your workflow. This is to enable the event-based action to close the duplicate issue, no matter what status it has when it is identified as a duplicate. If the <strong>Done</strong> status is not widely accessible, the Transition issue(s) post-function may fail depending on when the work item is linked as a duplicate.</p><h2 id="1-create-the-event-based-action">1. Create the Event-based Action</h2><p><div class="img-placeholder">[Unmapped macro: multiexcerpt-include-macro — no content to fall back on]</div></p></div><div><img alt="JMWE for Jira Cloud event selection interface for duplicate work item management" class="doc-image" loading="lazy" src="/cms_trial/assets/9daa1645-ffb9-4896-a067-3a93348242fb.png"/></div></div><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><h2 id="2-add-the-comment-issue-s-post-function">2. Add the <em>Comment issue(s)</em> post-function </h2><ol><li><p>Under <strong>THEN</strong>, click <strong>Select Post-functions</strong>.</p></li><li><p>In the right-hand panel, select <strong>Comment issue(s)</strong> in the list of post-functions. The <a href="/cms_trial/space/JMWEC/466322568/Comment+issue(s)/">Coment issue(s)</a> configuration screen will open.</p></li><li><p>For <strong>Target issues</strong>, select <em>Current issue </em>(<strong>Point 1</strong>, <strong>Figure 2</strong>, right)<em>. </em></p></li><li><p>For <strong>Comment</strong>, in the script editor, enter the following (<strong>Point 2</strong>, <strong>Figure 2</strong>, right): </p><pre><code class="language-">This work item has been flagged as duplicate of: 
 
 {{ issue | linkedIssues( "duplicates", ["key"] )}} - {{ issue | linkedIssues( "duplicates", ["summary"] )}} 
@@ -158,6 +163,64 @@ This work item will be closed.</code></pre></li><li><p>Click <strong>Save</stron
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

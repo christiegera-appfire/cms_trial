@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434798967/Simple+Issue+Language/">Simple Issue Language</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434374166/SIL+Functions+library/">SIL Functions library</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/1387463302/Excel+Functions/">Excel Functions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">excelAddRow</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/1387430152" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>excelAddRow</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="description">Description</h2><p>
  Adds a new row to a sheet in a workbook.
  </p><p>Adds a new row to a sheet in a workbook.</p><table><tr><td><p><strong>Syntax</strong></p></td><td><p>excelAddRow(workbookFID, [worksheet_name,] rowIndex)</p></td><td><p><strong>Package</strong></p></td><td><p>excel</p></td></tr><tr><td><p><strong>Alias</strong></p></td><td></td><td><p><strong>Pkg Usage</strong></p></td><td><p>addRow(workbookFID, [worksheet_name,] rowIndex)</p></td></tr></table><h2 id="parameters">Parameters</h2><table><tr><th><p>Parameter name</p></th><th><p>Type</p></th><th><p>Required</p></th><th><p>Description</p></th></tr><tr><td><p>workbookFID</p></td><td><p>Integer</p></td><td><p>Yes</p></td><td><p>The file id of the open workbook. The file id is returned from running the excelOpenWorkbook() routine.</p></td></tr><tr><td><p>worksheet_name</p></td><td><p>String</p></td><td><p>No</p></td><td><p>The name of a worksheet in the worbook where the row should be added to.</p></td></tr><tr><td><p>rowIndex</p></td><td><p>Integer</p></td><td><p>No</p></td><td><p>The row index that the new row should be added to.</p></td></tr></table><h2 id="return-type">Return Type</h2><p><strong>Boolean</strong></p><p>Returns true if the operation was successful, false otherwise.</p><h2 id="example">Example</h2><p>Add a new row and data to an existing workbook.</p><pre><code class="language-javascript">use "excel";
@@ -162,6 +167,64 @@ closeWorkbook(fid);</code></pre><div class="panel panel-warning"><p>Click <a hre
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

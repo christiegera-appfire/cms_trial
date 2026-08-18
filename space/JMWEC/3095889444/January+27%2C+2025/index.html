@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/1154449466/Release+notes/">Release notes</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">January 27, 2025</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/3095889444" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>January 27, 2025</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="engineering-release-jmwe-for-jira-cloud">Engineering Release - JMWE for Jira Cloud</h2><p>This release of <strong>JMWE for Jira Cloud</strong> includes several fixes for post functions, Actions (Shared, Event-based, and Scheduled), and migrations. Additionally, several display bugs have been resolved. </p></div></div><h2 id="bug-fixes">Bug fixes</h2><p>The following bugs are fixed in this release:</p><ul><li><p><strong>New Issue Transition Experience breaks JMWE Validators</strong> - The new Jira Issue Transition Experience was causing JMWE Validators to fail. This has been resolved. </p></li><li><p><strong>‘Return to Previous Status’ not working</strong> - In some configurations, the <a href="/cms_trial/space/JMWEC/1023803395/Return+to+Previous+Status/">Return to Previous Status</a> failed to correctly transition issues; a new option has been added for “Return to previous distinct status” which will help guarantee issues are transitioned correctly. </p></li><li><p><strong>‘Set issue fields’ post function fails to remove Organization value</strong> - When configured to remove the value for the <strong>Organization</strong> field, the <a href="/cms_trial/space/JMWEC/465504849/Set+issue+fields/">Set issue fields</a> post function fails to remove an existing value. This has been resolved. </p></li><li><p><strong>‘Create issue’ post function incorrectly allows newline characters</strong> - The <a href="/cms_trial/space/JMWEC/466256916/Create+issue(s)/">Create issue(s)</a> post function was incorrectly allowing newline characters in the Summary field, causing the error message <code>Incorrect request: {"summary":"The summary is invalid because it contains newline characters."}</code>. This has been resolved. </p></li><li><p><strong>‘Copy comments’ post function copies incorrect comment</strong> - When there were more than 100 comments on the source issue, the <a href="/cms_trial/space/JMWEC/465474211/Copy+comments+to+related+issues/">Copy comments to related issues </a>post function copied the wrong comment. This has been resolved. </p></li><li><p><strong>‘Copy issue fields’ doubles copied attachments</strong> - In some configurations, the <a href="/cms_trial/space/JMWEC/466323304/Copy+issue+fields/">Copy issue fields</a> post function was doubling any copied attachments. This has been resolved. </p></li><li><p><strong>‘Return to Previous Status’ post function migration is missing errors</strong> - After migration using either JCMA or CMJ, the <a href="/cms_trial/space/JMWEC/1023803395/Return+to+Previous+Status/">Return to Previous Status</a> post function does not correctly display an error message detailing missing options. The post function on Data Center includes the option “Use a transition if one is available” where JMWE Cloud does not support this option; the migrated post function should display a warning about the missing option so that it can be corrected post-migration. This has been resolved. </p></li><li><p><strong>Post functions using JQL search not triggering </strong>- Under some configurations, post functions using the option <strong>Issues returned by the following JQL Search</strong> to identify issues would not trigger correctly. This has been resolved.</p></li><li><p><strong>JMWE Workflow Extension page showed empty workflows</strong> - In some circumstances, the <a href="/cms_trial/space/JMWEC/466321411/JMWE+workflow+extensions/">JMWE Workflow Extensions</a> administration page included workflows with no extensions in the <strong>Workflow</strong> pulldown menu; selecting a Workflow with no extensions caused the extensions list to never load or return an empty list. This has been resolved - empty Workflows should no longer be available from the pulldown.  </p></li><li><p> <strong>The ‘Download logs’ button did not initiate a download</strong> - The <a href="/cms_trial/space/JMWEC/466321741/JMWE+Logs/">JMWE Logs</a> administration page includes a <strong>Download logs</strong> button, which did not always initiate a download but instead opened a new page with the logs in the requested format. This has been resolved. </p></li><li><p><strong>Watchers</strong> <strong>field not correctly identified in Jira Expressions</strong> - There was a disconnect between JMWE referencing the <strong>Watchers</strong> field and what the Jira API returned, causing some Jira Expressions to fail, or fail to return results. This has been resolved. </p></li><li><p><strong>‘fieldHistory’ Nunjucks function returns null values for Asset fields</strong> - JSM Asset field values were not being returned correctly by the Nunjucks function <strong>fieldHistory()</strong>. This has been resolved. </p></li><li><p><strong>Linked type “is Initiative of” not working</strong> - The Issue Hierarchy link type “is Initiative of” was not working when used in most post functions. This has been resolved. </p></li><li><p><strong>Testing ‘Build-your-own’ Condition or Validator causes incorrect success message</strong> - When testing a No-code Build-your-own (scripted) <a href="/cms_trial/space/JMWEC/465474365/Build-your-own+(scripted)+Condition/">Condition</a> or <a href="/cms_trial/space/JMWEC/466226183/Build-your-own+(scripted)+Validator/">Validator</a>, a ‘Data successfully updated' message was incorrectly displayed (this did not affect the Condition or Validator and did not affect the testing result). This has been resolved.  </p></li><li><p><strong>Validator always fails with Asset and User fields</strong> - When using both a custom Asset field and a User Picker field, a <a href="/cms_trial/space/JMWEC/465242701/Field+Required+Validator/">Field Required Validator</a> was always failing even when both fields were valid. This has been resolved. </p></li><li><p><strong>Action menus don’t close after selecting an option</strong> - In some circumstances, the Action Menu did not close after selecting an option. This has been resolved.  </p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

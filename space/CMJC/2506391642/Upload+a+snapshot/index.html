@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira (CMJ) Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/193823429/Features+and+options/">Features and options</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Upload a snapshot</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CMJC/pages/2506391642" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Upload a snapshot</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h3 id="when-to-upload-a-snapshot">When to upload a snapshot</h3><p>You can upload snapshots to Configuration Manager for Jira (CMJ) Cloud when they’ve been created in another Jira Data Center instance. This lets you move configurations across environments and reuse them in your current Jira Cloud site.</p><p>Uploaded snapshots behave like locally created ones: you can view their summary, delete them, or deploy them to another Cloud site. However, you cannot create new versions for them, since their scope is adjusted from a Jira Data Center instance. Additionally, the uploaded snapshots cannot contain any issues or issue data.</p><hr/><h3 id="upload-a-snapshot">Upload a snapshot</h3><ol><li><p>In your Jira Cloud site, go to <strong>Apps &gt; Configuration Manager &gt; Snapshots</strong>.</p></li><li><p>Select <strong>Upload</strong>.</p><img alt="Upload-snapshot.png" class="doc-image" loading="lazy" src="/cms_trial/assets/1180f289-de60-4189-abf0-c1277705ad7d.png"/></li><li><p>Browse and select the exported snapshot file from your system.</p></li><li><p>The file will begin uploading.</p></li><li><p>The snapshot will enter a <span class="status-lozenge">PROcessing</span> state, which could take up to several minutes.</p><img alt="Screenshot 2025-11-07 at 11.54.44.png" class="doc-image" loading="lazy" src="/cms_trial/assets/115df684-a456-4b2f-90e7-c3619c0dd33f.png"/></li><li><p>After the snapshot is completely processed, the status will switch to <span class="status-lozenge">Done</span> and all of its metadata will be available in the snapshot summary screen.</p></li></ol><p>The snapshot will be added to your <strong>Snapshots list</strong>. Additionally, snapshots from the same Jira Data Center instance will be automatically grouped in the same scope.</p><hr/>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

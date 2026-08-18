@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309347/Get+started+with+Dashboard+Hub/">Get started with Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309457/Dashboard+Hub+for+Confluence+features/">Dashboard Hub for Confluence features</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Dashboard macro for Confluence</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/146309561" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Dashboard macro for Confluence</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>Insert an existing or new Dashboard Hub dashboard with this macro in any Confluence page</p><h2 id="overview">Overview</h2><p>A macro for Confluence that lets you insert a whole dashboard, so your reports look better than ever. The <em>Dashboard Hub dashboard</em> macro adds reporting capabilities to your Confluence pages by:</p><ul><li><p>Inserting any existing dashboard</p></li><li><p>Allowing the creation of a new dashboard</p></li><li><p>Enjoying the integration of metrics from several products: Confluence, Jira Work Management, Jira Software, Jira Service Management, Insight, Bitbucket, Opsgenie, StatusPage, Time to SLA, monday.com, Projectrak (by DEISER)…</p></li><li><p>Displaying animated slideshows</p></li></ul><h2 id="basic-use">Basic use</h2><p>To add a macro to your page:</p><ol><li><p>In the editor toolbar in Confluence, click <strong>Insert</strong>.</p></li><li><p>Select the <em>Dashboard Hub dashboard</em> macro from the list of macros.</p></li><li><p>Select the required dashboard from the list that displays or create a new one.</p></li><li><p>Click <strong>Add</strong>.</p></li></ol><div class="panel panel-success"><p>Shortcuts to display the same list you see by clicking insert in the editor toolbar:</p><p><strong>Cloud</strong>: Type / on the page</p><p><strong>Data Center</strong>: Type { on the page </p></div><table><tr><th><p>Selected from the macro browser</p></th><td><p><em>Dashboard Hub dashboard</em></p></td></tr><tr><th><p>Markup shortcut </p></th><td><p><code>/dashboard hub dashboard</code></p></td></tr></table><img alt="Dashboard Hub Dashboard macro for Confluence dashboard preview" class="doc-image" loading="lazy" src="/cms_trial/assets/3d629da0-bca7-40da-a73c-7d40107b7cb4.jpg"/><ul><li><p><strong>Select dashboard</strong>: Choose one of the existing dashboards in your instance.</p></li><li><p><strong>Create dashboard</strong>: Create a dashboard either using one of the provided templates, or from scratch.</p></li></ul><p>Either of the two options allows the edition of that dashboard to add or remove metrics or charts. </p><img alt="Dashboard Hub Dashboard macro for Confluence dashboard preview" class="doc-image" loading="lazy" src="/cms_trial/assets/97262e41-40f6-466c-b05d-ca98e7b3dc9d.jpg"/><h2 id="slideshow">Slideshow</h2><p>To activate the slideshow mode, hover over the top of the dashboard and click the play button. The slides will change automatically based on the dashboard's slideshow configuration.</p><div class="panel panel-note"><p>The slideshow mode presents the slides of a dashboard in a sequence that changes based on the intervals set in the dashboard settings. Read <a href="/cms_trial/space/RDD/146309888/How+to+set+up+a+slideshow/">How to set up a slideshow</a> for more info.</p></div><img alt="Dashboard Hub Dashboard macro for Confluence dashboard preview" class="doc-image" loading="lazy" src="/cms_trial/assets/1499ea83-7305-4d18-9834-5647e001a779.jpg"/><h2 id="see-also">See also</h2><div class="img-placeholder">[Unmapped macro: contentbylabel — no content to fall back on]</div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

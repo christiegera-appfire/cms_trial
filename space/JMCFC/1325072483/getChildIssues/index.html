@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMCFC/168855370/Overview/">Jira Misc Custom Fields (JMCF) - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/168855370/Overview/">Overview</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/1325596783/APIs/">APIs</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/1325301787/issue+APIs/">issue APIs</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">getChildIssues</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMCFC/pages/1325072483" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>getChildIssues</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><table><tr><td><h2 id="syntax"><strong>Syntax</strong></h2></td><td><h2 id="api-issue-getchildissues-issue">api.issue.getChildIssues(issue)</h2></td><td><h2 id="category"><strong>Category</strong></h2></td><td><h2 id="issue">issue</h2></td></tr></table><div class="panel panel-warning"><p><strong>Note</strong>: Access to fields on related issues is now possible through the <a href="/cms_trial/space/JMCFC/1326022692/getParentIssue/">getParentIssue</a>, getChildIssues, and <a href="/cms_trial/space/JMCFC/1798209737/getLinkedIssues/">getLinkedIssues</a> APIs. However, updates to any related issue fields will <strong>not</strong> trigger a recalculation of the scripted field!</p></div><h2 id="description">Description</h2><p>Get all Child issues for a given issue.</p><h2 id="parameters">Parameters</h2><table><tr><th><p>Parameter name</p></th><th><p>Type</p></th><th><p>Required</p></th><th><p>Description</p></th></tr><tr><td><p>issue</p></td><td><p>Object</p></td><td><p>Yes</p></td><td><p>Issue object</p><p>The issue of interest. For the current issue, use <code>issue</code>. For related issues, see <a href="/cms_trial/space/JMCFC/1326022692/getParentIssue/">getParentIssue</a>, <a href="/cms_trial/space/JMCFC/1325072483/getChildIssues/">getChildIssue</a>, or <a href="/cms_trial/space/JMCFC/1798209737/getLinkedIssues/">getLinkedIssues</a>.</p></td></tr></table><h2 id="returns">Returns</h2><div class="panel panel-note"><p>Returns a Promise to the value; you must use <code>await</code>.</p></div><p>Returns an array of issue objects that can be used in subsequent issue API calls. </p><p>Other issue APIs are not able to access a list of issues; when trying to access the values of Child issues, you must either reference the desired Child issue using its index - <code>childIssues[0]</code> for example - or loop through the Child issues object. </p></div><div><div class="panel panel-note"><p>You are viewing the documentation for <strong>Jira Cloud</strong>.</p></div></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193033035/Feature+guide/">Feature guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192903639/Administration/">Administration</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Built-in workflow templates</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2193129668" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Built-in workflow templates</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="overview">Overview</h2><p>Comala Document Management includes three built-in workflow templates to help you get started with document review and approval processes. These templates are available as <a href="/cms_trial/space/CDMC/2276786309/Global+workflows/">Global workflows</a> and can be linked or copied to any space.</p><h2 id="available-templates">Available templates</h2><ul><li><p><strong>Basic Approval Workflow</strong> - a simple review and approval process with Draft, Review, and Approved states.</p></li><li><p><strong>Content Expiry Workflow</strong> - includes an expiration period on the Approved state. When the expiry date is reached, the document transitions to an Expired state for re-review.</p></li><li><p><strong>Quality Management System Workflow</strong> - a structured workflow designed for regulated environments, with e-signature authentication required for approvals.</p></li></ul><h2 id="use-built-in-templates-in-a-space">Use built-in templates in a space</h2><p>Built-in templates are managed under <em>Global Workflows</em>. To use a template in your space, link or copy it from the <em>Space Workflows</em> tab:</p><ul><li><p><strong>Link</strong> - creates a reference to the global workflow. A linked workflow can't be edited at the space level and automatically syncs future updates.</p></li><li><p><strong>Copy</strong> - creates an independent copy that you can edit without affecting the original template.</p></li></ul><p>See <a href="/cms_trial/space/CDMC/2276786309/Global+workflows/">Global workflows</a> for detailed steps on linking and copying workflows.</p><div class="panel panel-note"><p>Built-in templates are fully editable. You can customize them to match your process or delete them to keep your workflow list clean. Deleted templates can't be restored through the app, so consider the impact on existing space configurations before deleting.</p></div><h3 id="related-topics"><strong>Related topics</strong></h3><ul><li><p><a href="/cms_trial/space/CDMC/2276786309/Global+workflows/">Global workflows</a></p></li><li><p><a href="/cms_trial/space/CDMC/2192776249/Space+administration/">Space administration</a></p></li><li><p><a href="/cms_trial/space/CDMC/2193033075/At+space+level/">Apply workflows at space level</a></p></li><li><p><a href="/cms_trial/space/CDMC/2193162438/Visual+builder+editor/">Visual builder editor</a></p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

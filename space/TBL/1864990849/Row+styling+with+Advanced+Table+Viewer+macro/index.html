@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74812514/Featured+macros+-+Cloud/">Featured macros - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/1531117698/Advanced+Table+Viewer+macro/">Advanced Table Viewer macro</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Row styling with Advanced Table Viewer macro</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TBL/pages/1864990849" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Row styling with Advanced Table Viewer macro</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>The Advanced Table Viewer macro provides a row styling feature to apply custom row styles to table rows using a simple selection interface.</p><ul><li><p>You can configure row styling only in the macro setup mode.</p></li><li><p>When row styling is enabled, you can choose colors to apply row colors and highlight table rows.</p></li></ul><h2 id="configure-row-styling">Configure row styling</h2><div class="img-placeholder">[Unmapped macro: refined-tab — no content to fall back on]</div><div class="panel panel-note"><p>You need edit permissions to access the setup mode.</p></div><p>To enable row styling:</p><ul><li><p>Edit the macro to open the setup mode. Refer to <a href="/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/">Set up the Advanced Table Viewer macro features</a>.</p></li><li><p>Enable the <strong>Row styling</strong> option.</p></li><li><p>Once you enable the row styling option, the row styling features appear in the right side panel.</p><img alt="Advanced Tables row styling settings in Advanced Table Viewer" class="doc-image" loading="lazy" src="/cms_trial/assets/118b8067-9155-475b-96a1-1966c40591cf.jpg"/></li></ul><div class="img-placeholder">[Unmapped macro: refined-tab — no content to fall back on]</div><p>The row styling includes two features: <strong>Row coloring</strong> and <strong>Row highlighting</strong>.</p><ul><li><p>Enable <strong>Row coloring</strong> to see the <strong>Change color</strong> option for Header, Odd, and Even to define the colors of table rows.</p><ul><li><p><strong>Header</strong>: Defines the color for the table header.</p></li><li><p><strong>Odd</strong>: Defines the color for the Odd rows of the table.</p></li><li><p><strong>Even</strong>: Defines the color for the even rows of the table.</p></li></ul></li><li><p>To choose a color for the header, odd, and even rows of the table, click the <strong>Change color</strong> palette for each and choose the color.</p></li><li><p>Preview the chosen row colors in the left panel.</p><img alt="Advanced Tables row coloring settings in Advanced Table Viewer" class="doc-image" loading="lazy" src="/cms_trial/assets/dba76955-2f55-421c-bdf6-4dfa0d0cbd69.jpg"/></li></ul><div class="img-placeholder">[Unmapped macro: refined-tab — no content to fall back on]</div><p>The row styling includes two features: <strong>Row coloring</strong> and <strong>Row highlighting</strong>.</p><ul><li><p>Enable<strong> Row highlighting</strong> to define a hover color for table rows.</p></li><li><p>Click the <strong>Change color</strong> palette for the <strong>Hover</strong> option and choose the color to highlight rows.</p><img alt="Advanced Tables row highlight hover color settings" class="doc-image" loading="lazy" src="/cms_trial/assets/56bd01ef-bedc-4443-97da-de0d37106985.jpg"/></li><li><p>Once you choose the hover color, hover over the table rows in the left panel to preview the row highlighting.</p><img alt="Advanced Tables row highlight settings in Advanced Table Viewer" class="doc-image" loading="lazy" src="/cms_trial/assets/eb77ebb9-487d-4a86-a3d6-34d7f7558675.jpg"/></li><li><p>To save the row styling changes, click <strong>Save </strong>and update the page.</p></li></ul><div class="img-placeholder">[Unmapped macro: refined-tab — no content to fall back on]</div><p>Confluence page view and edit mode:</p><ul><li><p>The table displays the selected colors for the header, odd, and even rows. Hover over the table rows to view the row highlighting.</p><img alt="Advanced Tables row styles shown on a page in view mode" class="doc-image" loading="lazy" src="/cms_trial/assets/85329082-9925-4dcc-99b2-f25508368ffc.jpg"/></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

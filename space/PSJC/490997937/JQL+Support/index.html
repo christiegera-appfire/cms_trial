@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490996521/Feature+guides/">Feature guides</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">JQL Support</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/490997937" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>JQL Support</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>Power Scripts for Jira Cloud can enhance your ability to search for issues using JQL. It allows you to perform powerful and unique searches, tailored to your specific needs.</p><p>However, it’s important to point out the difference between a traditional, server-hosted JQL function and a Cloud-hosted JQL keyword. In Cloud-based environments, everything is asynchronous. Jira and Power Scripts are hosted on different platforms, and they communicate using HTTPS calls.</p><p>Integration on Cloud is based on keywords, each of which encompasses specific search functionality. A JQL <strong>keyword</strong> is metadata for an issue that has been evaluated and saved in Jira prior to the JQL search, asynchronously.</p><p>By default, auto-synchronization of keywords is disabled. It is recommended to enable auto-synchronization if you want to harness the true power of this feature. Details can be found on the <a href="/cms_trial/space/PSJC/490997967/Keyword+Syncing/">Keyword Syncing page</a>.</p><img alt="Power Scripts for Jira Cloud JQL support interface" class="doc-image" loading="lazy" src="/cms_trial/assets/8b584392-ac6d-44eb-85fd-884400062b5c.png"/><div class="panel panel-note"><p>Enabling auto-synchronization is not the only required step. For JQL searches to be accurate, you need to synchronize the collections or issues you want to query at least one time. You can complete the synchronization by adding projects and project categories for the entire Jira instance. </p></div><img alt="Power Scripts for Jira Cloud JQL project addition dialog" class="doc-image" loading="lazy" src="/cms_trial/assets/33c82ff8-4e29-4227-b9c4-88724bb7a04e.png"/><p>The synchronization process can take a long time, depending on the number of enabled JQL keywords and the number of issues.</p><h2 id="what-to-synchronize">What to synchronize</h2><p>Power Scripts offers you either predefined keywords or custom ones. For optimal performance, only enable the ones you want to use. </p><p>The standard keywords can be enabled on a category basis. For example, you can’t control individual keywords; instead, you need to enable the entire category.</p><img alt="Power Scripts for Jira Cloud standard JQL keywords interface" class="doc-image" loading="lazy" src="/cms_trial/assets/f24d8837-c725-40da-9b20-f5277aaa95f7.png"/><p>For a complete list of standard predefined JQL keywords, refer to the <a href="/cms_trial/space/PSJC/512229945/Standard+JQL+Keywords/">Standard JQL keywords</a> page.</p><p> <a href="/cms_trial/space/PSJC/490997951/Custom+Keywords/">Custom keywords</a> are synchronized only if you enable them from their tab. </p><h3 id="additional-info">Additional Info</h3><ul class="children-list"><li><a href="/cms_trial/space/PSJC/490997951/Custom+Keywords/">Custom Keywords</a></li><li><a href="/cms_trial/space/PSJC/490997967/Keyword+Syncing/">Keyword Syncing</a></li><li><a href="/cms_trial/space/PSJC/512229945/Standard+JQL+Keywords/">Standard JQL Keywords</a></li><li><a href="/cms_trial/space/PSJC/1248591910/Enhanced+Search+View+with+JQL+Search+Extensions/">Enhanced Search View with JQL Search Extensions</a><ul class="children-list"><li><a href="/cms_trial/space/PSJC/1248133124/Identify+issues+related+to+a+service+desk+project/">Identify issues related to a service desk project</a></li><li><a href="/cms_trial/space/PSJC/1248395291/Build+an+escalation+service/">Build an escalation service</a></li><li><a href="/cms_trial/space/PSJC/1248493583/Update+remote+links/">Update remote links</a></li><li><a href="/cms_trial/space/PSJC/1248526344/Issues+in+a+released+version+remain+open/">Issues in a released version remain open</a></li></ul></li></ul></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490996521/Feature+guides/">Feature guides</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490996983/SIL+Manager/">SIL Manager</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">SIL Manager settings</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/490997655" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>SIL Manager settings</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>Configure the SIL Manager to match your development preferences and workflow. These settings control the editor's appearance, behavior, and functionality to create an optimal scripting environment.</p><p>You access the SIL Manager settings from the <strong>File</strong> menu on the main menu bar.</p><img alt="Power Scripts for Jira Cloud panel configuration dialog" class="doc-image" loading="lazy" src="/cms_trial/assets/16b9a654-14e5-4a92-b03b-2df940bdc1a2.png"/></div></div><p>Use these settings to configure the SIL Manager according to your preferences:</p><table><tr><td><p><strong>Editor appearance</strong></p></td></tr><tr><td><p><strong>Theme</strong></p></td><td><p>Choose the SIL Manager visual appearance and color scheme.</p></td></tr><tr><td><p><strong>Font size</strong></p></td><td><p>Adjust editor text size.</p></td></tr><tr><td><p><strong>File type handling</strong></p></td></tr><tr><td><p><strong>Treat files with no extension as</strong></p></td><td><p>Sets the default file type for files without an extension. Default is SIL, but you can change this to any supported file type.</p></td></tr><tr><td><p><strong>Treat files with unknown extension as</strong></p></td><td><p>Sets the default file type for files with unrecognized extensions. The default is Text, but you can change this to any supported file type.</p></td></tr><tr><td><p><strong>Content and behavior</strong></p></td></tr><tr><td><p><strong>Placeholder</strong></p></td><td><p>Customize default text in empty files. The default is "Code goes here...". Useful for organizational reminders like scripting standards or file descriptions.</p></td></tr><tr><td><p><strong>Enable autocomplete</strong></p></td><td><p>Turn function name suggestions on/off. Suggests SIL functions while typing and shows required parameters. Press Enter to insert highlighted suggestion.</p></td></tr><tr><td><p><strong>Live autocomplete</strong></p></td><td><p>Enable real-time suggestions while typing. When disabled, suggestions only appear when pressing Ctrl+Space.</p><div class="panel panel-note"><p>For more keyboard shortcuts, see <a href="/cms_trial/space/PSJC/490997515/Keyboard+Shortcuts/">this page</a>.</p></div></td></tr><tr><td><p><strong>Display options</strong></p></td></tr><tr><td><p><strong>Show gutter</strong></p></td><td><p>Control visibility of the gray column on the left containing line numbers, error messages, and fold widgets.</p></td></tr><tr><td><p><strong>Show line numbers</strong></p></td><td><p>Display/hide line numbers in the gutter without removing the entire gutter.</p></td></tr><tr><td><p><strong>Show fold widgets</strong></p></td><td><p>Enable/disable code folding controls that allow hiding (folding) and showing (unfolding) code sections by toggling the widget.</p></td></tr><tr><td><p><strong>Show print margin</strong></p></td><td><p>Display/hide the 80-character margin line that indicates where text might get cut off when printed. Also serves as a visual reminder that long lines should be broken into multiple lines for readability. The margin position cannot be adjusted.</p></td></tr><tr><td><p><strong>Show non-printing characters</strong></p></td><td><p>Display/hide invisible characters like line breaks/returns and tab marks. Useful for inspecting data files with unwanted characters.</p></td></tr><tr><td><p><strong>Highlight active line</strong></p></td><td><p>Shade the line where the cursor is positioned to help track location while reading or editing. </p><div class="panel panel-note"><p>The highlight color is controlled by the selected theme and cannot be configured separately.</p></div></td></tr><tr><td><p><strong>Show file type tags</strong></p></td><td><p>Display/hide file type indicators (SIL, TEXT) in the file tree.</p></td></tr><tr><td><p><strong>Code formating </strong></p></td></tr><tr><td><p><strong>Use spaces for tabs</strong></p></td><td><p>When enabled (default), uses multiple spaces (4 by default) instead of tab characters (ASCII character #9) for indentation. This ensures consistent appearance across different editors since there is no standard definition of tab size.</p></td></tr><tr><td><p><strong>Tab size</strong></p></td><td><p>Number of character spaces a tab represents (4 by default). This provides adequate indentation visibility for code, compared to the traditional 8-space definition which is designed for written text rather than code.</p></td></tr></table>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465372899/Workflow+Extensions+for+Jira+Cloud/">Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465474068/Validators/">Validators</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Linked Issues Status Validator</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/465504708" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Linked Issues Status Validator</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>A workflow validator which ensures that the current issue's linked issues have a status value matching the status values you’ve configured.</p><img alt="JMWE for Jira Cloud linked issues status validator configuration with status checking" class="doc-image" loading="lazy" src="/cms_trial/assets/305db11c-f0a3-4bfc-84b0-ae9984d247b0.png"/><p>When you add this validator to a transition and trigger the transition, the extension validates the specified condition against the <strong>Status</strong> of the linked issue(s) (existing and ones added during the transition). If the condition is not met, the transition fails, and an error message.</p><div class="columns" style="grid-template-columns: 100.0fr;"><div><div class="panel panel-note"><p><strong>Note</strong>: The list of statuses displayed under the <code>Statuses</code> field has all the statuses across different workflows. This is because the workflow of an issue and that of its linked issues can be different.</p></div><h2 id="configure-the-validator">Configure the validator</h2><ol><li><p>Follow the steps above to add a validator to a transition.</p></li><li><p>From the list of validators, select <em>Build-your-own (scripted) Validator (JMWE app)</em>.</p></li><li><p>The <em>Build-your-own (scripted) Validator</em> page will open. Configure the validator as needed. See below for details on each of the configurations.</p></li><li><p>Click <strong>Add</strong>.</p></li></ol><div class="panel panel-warning"><p>Note that you will need to publish the workflow for the new validator to take effect.</p></div><p>The following configurations are available:</p><ul><li><p><strong>Issue Link Type</strong> - Select the issue link type that links the current issue to the linked issues to check the specified condition against. Leave "Any (default option)" for no restrictions.</p></li><li><p><strong>Mode </strong>- Select one of the following conditions to be run on the linked issue(s) for the transition to be enabled:</p><ul><li><p><strong>All issues must be in the selected statuses below</strong> </p></li><li><p><strong>At least one issue must be in one of the selected statuses below</strong></p></li><li><p><strong>No issue must be in one of the selected statuses below</strong></p></li><li><p><strong>At least one issue must not be in one of the selected statuses below</strong></p></li></ul></li><li><p><strong>Issue Type </strong>- Select the issue type of the linked issue(s) to check the specified condition against. Leave "Any (default option)" for no restrictions.</p></li><li><p><strong>Statuses </strong>- Select one or more statuses from the available list against which to check the issues.</p></li><li><p><strong>Error message</strong> - The error message that will display if the validator fails.</p></li><li><p><strong>Validator scope</strong></p><ul><li><p><strong>Conditional validation</strong> - Check this box to configure the validator to only run in specific circumstances.</p></li><li><p><strong>Condition</strong> - <em>Only visible when </em><strong><em>Conditional validation</em></strong><em>, above, is checked. </em>Enter a Jira expression; if the expression evaluates to <code>true</code>, the validator will run.</p></li><li><p><strong>Skip validation when cloning an issue</strong> - Check this option to skip the validator when an issue is being cloned.</p></li></ul></li></ul></div></div>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

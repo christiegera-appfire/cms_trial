@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/434798967/Simple+Issue+Language/">Simple Issue Language</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/15731951/Getting+started+with+SIL/">Getting started with SIL</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490996499/Basic+examples+and+code+snippets/">Basic examples and code snippets</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/491001871/Code+snippets/">Code snippets</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Retrieving Data From a Separate File</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/491002129" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Retrieving Data From a Separate File</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p>It is a good idea to keep data (such as JSON) and queries (such as SQL) in a separate file. The reason for this is because the data tends to read better. This article discusses techniques for keeping data in a separate file and how to import the data into a SIL script.</p><h2 id="using-readfromtextfile-to-import-data">Using readFromTextFile() to Import Data</h2><p>You can keep almost any kind of data in a separate file--CSV, JSON, SQL queries, JQL queries and even other scripts such as Groovy or SIL.</p><ol><li><p>Using readFromTextFile() is fairly straightforward. Simply pass the path and file name of the file you wish to read from. For example, the following will read from a file called “nameOfFile.txt” directly from the “silprograms” directory. <br/><code>string fileContents = readFromTextFile("nameOfFile.txt");</code><br/><br/>The silprograms directory contains all SIL scripts. The silprograms folder is found in the &lt;JIRA_HOME&gt;/silprograms directory.</p></li></ol><p>2.  To reference a file inside a folder of the silprograms folder, use the relative path beginning after the silprograms folder. Do not use any preceding forward slashes. For example:</p><p><code>string fileContents = readFromTextFile("FirstFolder/SecondFolder/nameOfFile.txt");</code></p><p>3. To reference a file using the full path, begin with a forward slash from the root directory. For example:</p><p><code>string fileContents = readFromTextFile("/path/to/JIRA_HOME/nameOfFile.txt");</code></p><div class="panel panel-note"><p>Note that there are no forward slashes at the beginning of a relative path. Dot slash notation “./” is not supported.</p></div><h2 id="using-the-replace-function">Using the replace() Function</h2><p>Using the replace() function is absolutely essential if we want to treat data values as a variable. In our example below, let’s say we want to create a custom template. To create a variable in the target file, wrap the variable name in curly braces using the following format: <code>${&lt;name of variable goes here&gt;}</code>.  </p><p>In our target file, <code>template.txt</code>, we have something like:</p><p><code>Three ducks in a ${nameOfVariable}.</code></p><p>We want our phrase to say, “Three ducks in a row”. Our code would look like:</p><pre><code class="language-">string phrase = readFromTextFile("template.txt");
 phrase = replace(phrase, "${nameOfVariable}", "row");
 runnerLog(phrase);</code></pre><p>In the script, "${nameOfVariable}" is replaced by “template”. The output would be:</p><p><code>Three ducks in a row.</code></p><h2 id="additional-help">Additional Help</h2><p>Need help implementing unit tests on your script? Talk to me directly to me by clicking on the bot on this page.</p>
@@ -156,6 +161,64 @@ runnerLog(phrase);</code></pre><p>In the script, "${nameOfVariable}" is replaced
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

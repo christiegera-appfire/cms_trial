@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">JMWE for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/78479493/Jira+Misc+Workflow+Extensions+for+Jira+Cloud/">Jira Misc Workflow Extensions for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465241585/Knowledge+Base/">Knowledge Base</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMWEC/465373348/Code+snippet+articles/">Code snippet articles</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Code snippet to get the date, time when the issue was moved to a specific status</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/465474587" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Code snippet to get the date, time when the issue was moved to a specific status</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><p><strong>Requirement: </strong></p><p>Nunjucks code snippet to retrieve the date, time when the issue was moved to a specific status.</p><p><strong>Solution:</strong></p><p>If the issue was moved to the desired status <em><u>multiple times</u></em>:</p><p><strong>Case 1:</strong> Code to get the date, time when the issue was <em><u>last</u></em> moved to the desired status:</p><pre><code class="language-java">{{ issue | fieldHistory("status") | filter(["to_string","STATUS_NAME"]) | last | field("date") | date }}</code></pre><p><strong>Case 2:</strong> Code to get the date, time when the issue was <em><u>first</u></em> moved to the desired status:</p><pre><code class="language-java">{{ issue | fieldHistory("status") | filter(["to_string","STATUS_NAME"]) | first | field("date") | date }}</code></pre><p>Replace <code>STATUS_NAME</code> with the desired status name (as-is → case sensitive and no trailing/leading white spaces)</p><p>This Nunjucks code can be added in <a href="https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=jmwec&amp;title=Post-functions&amp;linkCreation=true&amp;fromPageId=465474587">workflow </a><a href="https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=jmwec&amp;title=Post-functions&amp;linkCreation=true&amp;fromPageId=465474587"><em>post-functions</em></a> (and Actions)</p><h3 id="references">References</h3><ul><li><p><a href="/cms_trial/space/JMWEC/465503811/Using+Nunjucks+Templates/">Using Nunjucks Templates</a></p></li><li><p><a href="/wiki/spaces/JMWEC/pages/78482118/Custom+Filters#fieldHistory">fieldHistory</a></p></li><li><p><a href="/wiki/spaces/JMWEC/pages/78482118/Custom+Filters#filter">filter</a></p></li><li><p><a href="/cms_trial/space/JMWEC/465373240/Nunjucks+Filters/">last</a></p></li><li><p><a href="/cms_trial/space/JMWEC/465373240/Nunjucks+Filters/">first</a></p></li><li><p><a href="/wiki/spaces/JMWEC/pages/78482118/Custom+Filters#field">field</a></p></li><li><p><a href="/wiki/spaces/JMWEC/pages/78482118/Custom+Filters#date">date</a></p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

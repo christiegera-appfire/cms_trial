@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira (CMJ) Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/193921273/Get+started+with+Configuration+Manager+for+Jira+for+Cloud/">Get started with Configuration Manager for Jira for Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Licensing</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CMJC/pages/194150417" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Licensing</h1>
+    <div class="page-meta">1 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="licenses-needed-to-deploy-project-configurations-between-jira-cloud-sites">Licenses needed to deploy project configurations between Jira Cloud sites</h2><p>To deploy project configurations between two Jira Cloud sites, you need to:</p><ul><li><p>install Configuration Manager for Jira (CMJ) Cloud on both sites, and</p></li><li><p>provide a separate license token for CMJ Cloud in each Jira Cloud site.</p></li></ul><p>Appfire will provide you with these tokens upon purchase. Check the deployment scenario's <a href="/cms_trial/space/CMJC/193659801/Prerequisites/">prerequisites</a> and <a href="/cms_trial/space/CMJC/194183182/Installation+guide/">installation</a> instructions to learn more.</p><h2 id="licenses-needed-to-migrate-projects-from-jira-server-dc-to-jira-cloud">Licenses needed to migrate projects from Jira Server/DC to Jira Cloud</h2><p>To migrate your projects and issues from Jira Server/DC to Jira Cloud, you need to use two apps:</p><ul><li><p>the <a href="https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=CMT&amp;title=Installation%20and%20upgrade">Cloud Migration Tool</a> app, and</p></li><li><p>the <a href="/cms_trial/space/CMJC/194183182/Installation+guide/">Configuration Manager for Jira (CMJ) Cloud</a> app.</p></li></ul><p>Cloud Migration Tool is <strong>free </strong>to use on your source Jira Server/DC instance, but you must install and <strong>pay </strong>for CMJ Cloud on your Jira Cloud site. You'll need a <strong>separate license token </strong>for each destination Jira Cloud site where you want to migrate your projects and issues.</p><p>In summary:</p><ul><li><p><strong>Cloud Migration Tool is a free app</strong>. You don't need a license after installation.</p></li><li><p><strong>CMJ Cloud is a licensed app. </strong>You need to have a separate license token for each Jira Cloud site where you plan to install and use it.</p></li></ul>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

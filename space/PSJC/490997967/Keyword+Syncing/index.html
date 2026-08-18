@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490996521/Feature+guides/">Feature guides</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/490997937/JQL+Support/">JQL Support</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Keyword Syncing</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/490997967" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>Keyword Syncing</h1>
+    <div class="page-meta">2 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="initial-synchronization">Initial Synchronization</h2><p>When you first decide to use the JQL feature, you must trigger an initial synchronization. First, you need to decide what to index: projects, project categories, or the global level. It’s recommended to index only what you need, so you may want to add projects and project categories to meet your needs:</p><img alt="Power Scripts for Jira Cloud JQL project configuration dialog" class="doc-image" loading="lazy" src="/cms_trial/assets/77e09cfc-0805-4eb2-b05f-47ba93cfc425.png"/><p>After defining what to index, click <strong>Save &amp; Synchronize</strong>.<br/>If you need to synchronize the entire Jira instance, ensure that you don't have any projects or project categories added, then click <strong>Synchronize</strong>.</p><p>After beginning the synchronization, the progress bar under <strong>Synchronize</strong> will display the synchronization completion percentage and the number of process issues, relative to the total number of issues to be indexed.</p><img alt="Power Scripts for Jira Cloud JQL keyword synchronization interface" class="doc-image" loading="lazy" src="/cms_trial/assets/9eb6a4a0-83c4-4fc4-9eb4-53b35e0aea1a.png"/><p>Depending on the number of issues and the complexity of your search scripts, synchronization may take some time. </p><h2 id="automatic-synchronization">Automatic Synchronization</h2><p>Since a JQL keyword is metadata for an issue that has been evaluated and saved before a JQL search, there must be a way to keep those keywords up to date with the issue data. This is done automatically using system event listeners when <strong>auto-synchronization is turned on</strong>. The keywords get updated when events are triggered for an issue, including:</p><ul><li><p>Issue created event</p></li><li><p>Issue updated event</p></li><li><p>Issue deleted event</p></li><li><p>Issue link created event</p></li><li><p>Issue link deleted event</p></li><li><p>Issue commented event</p></li><li><p>Issue comment updated event</p></li><li><p>Issue comment deleted event</p></li></ul><p>For example, the issue link keywords will be updated when an issue link creation/update event is triggered. Power Scripts attempts to keep the keywords up to date; however, keep in mind that Jira and Power Scripts are separate products with a network in between.</p><img alt="Power Scripts for Jira Cloud keyword sync status display" class="doc-image" loading="lazy" src="/cms_trial/assets/286aa382-44d6-4ad8-9240-24d481693736.png"/><h2 id="manual-synchronization">Manual Synchronization</h2><p>Keywords may become unsynchronized when:</p><ul><li><p>There is a network failure between Jira and Power Scripts.</p></li><li><p>Power Scripts was performing maintenance tasks (booting, reconfiguring, or installing a new version) when Jira triggered events. As a result, those events are lost.</p></li><li><p>Jira was unavailable to publish the results of the keyword calculation, for any given reason, and therefore, the updates Power Scripts pushes are lost.</p></li></ul><p>It is therefore recommended to run a manually triggered synchronization (using the <strong>Synchronize</strong> button) from time to time to avoid incorrect results for your users. The update will not block users from working, and Jira will continue to operate normally. Updates are processed as they become available to Power Scripts.<br/></p>
   </main>
   <aside class="sidebar">
@@ -154,6 +159,64 @@
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 

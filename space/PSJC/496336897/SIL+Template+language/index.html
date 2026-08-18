@@ -17,14 +17,19 @@
     <a class="top-nav-brand" href="/cms_trial/">Appfire Docs</a>
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
-      <a href="/cms_trial/search/">Search</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
 </div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/496205894/Advanced+features/">Advanced features</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">SIL Template language</span></nav>
+      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/496336897" target="_blank" rel="noopener">Open in Confluence</a>
+    </div>
     <h1>SIL Template language</h1>
+    <div class="page-meta">3 min read</div>
     <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p>The SIL Template Language allows you to quickly build large amounts of text, or HTML, using a template that can be populated using dynamic variables.</p><h2 id="template-language">Template Language</h2><p>The template language need appeared in early versions of SIL™. Creating real mail templates was not very easy, and the SIL™ programmer had to resort to all kind of artificial constructs for that. Especially, repetitive constructs were hard to embed in the body of the mail, and they needed to be built in the script before inserting them into the mail, with all necessary escapes, making the process of sending that mail cluttered.</p><p>The first step in creating a real template language was done with the (unpublished) app SIL™ on-the-fly Reporter, at version 3.x. However, this initial development was aimed at that app only, and in version 4.x a substantial effort has been employed to put STL at the base of the apps, near SIL™ so it can be used from all the places and all apps.</p><p>That being said, STL (SIL Template Language) should not be confounded with C++ STL (Standard Template Library). They are different beasts.</p><h2 id="how-it-works">How It Works </h2><p>The idea of the STL is simple:</p><ol><li><p>Template is provided by the user. The user writes embedded code within it.</p></li><li><p>The code is translated into a fully executable SIL™ script, buffered in memory.</p></li><li><p>The SIL interpreter is called on the given script. The script is executed and the result is gathered in a special area, in memory.</p></li><li><p>The result is retrieved and used wherever is needed.</p></li></ol><p>The technique is resembling the JSP (Java Server Pages) technique.</p><h2 id="syntax">Syntax</h2><p>The syntax used is backward compatible with the previous versions of templates, so you can expand the use of STL immediately over your old templates.</p><table><tr><th><p>Token(s)</p></th><th><p>Explanation</p></th><th><p>STL Example</p></th></tr><tr><td><p><strong>$!</strong>expression<strong>$</strong></p></td><td><p>Translates the expression into SIL exactly as it is</p></td><td><p>$!for (number i = 0; i&lt;o; i++) $</p></td></tr><tr><td><p><strong>$</strong>output<strong>$</strong></p></td><td><p>outputs the string expression in the result</p></td><td><p>$assignee$</p></td></tr><tr><td><p><strong>\$</strong></p></td><td><p>the $ character ($ needs to be escaped now)</p></td><td><p>\$</p></td></tr></table><p>An example is represented below: </p><h4 id="stl-example"><strong>STL Example</strong></h4><pre><code class="language-">&lt;html&gt;
 &lt;body&gt;
 Hello $reporter$ from $custName$, the sender $sender$ announces you that the assignee for issue $key$ is $assignee$ and that work has started
@@ -184,6 +189,64 @@ return _stl__done();</code></pre><p>The STL generator keeps track of the line nu
       });
     });
   });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
 })();
 </script>
 
