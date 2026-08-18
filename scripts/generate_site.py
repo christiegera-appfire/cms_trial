@@ -93,24 +93,57 @@ NAV_SHELL_TEMPLATE = """
 """
 
 
-def build_nav_tree(parent_id, pages_by_parent, space_key, titles, active_id, valid_ids, path_prefix="", depth=0, max_depth=4):
+def build_ancestors(active_id, parent_of):
+    """Walks upward from the active page through parent_id links, returning
+    the set of every ancestor's ID (not including active_id itself). Used
+    to decide which nav branches should be force-expanded by default —
+    only the path to the current page, not every branch in the space."""
+    ancestors = set()
+    current = active_id
+    seen = set()  # guards against a malformed/cyclic parent_id chain
+    while current in parent_of and current not in seen:
+        seen.add(current)
+        current = parent_of[current]
+        if current:
+            ancestors.add(current)
+    return ancestors
+
+
+def build_nav_tree(parent_id, pages_by_parent, space_key, titles, active_id, valid_ids, ancestors, path_prefix="", depth=0, max_depth=6):
     child_ids = [c for c in pages_by_parent.get(parent_id, []) if c in valid_ids]
     if not child_ids or depth > max_depth:
         return ""
     items = []
     for cid in child_ids:
         cls = ' class="active"' if cid == active_id else ""
-        sub = build_nav_tree(cid, pages_by_parent, space_key, titles, active_id, valid_ids, path_prefix, depth + 1, max_depth)
-        items.append(f'<li><a href="{page_url(cid, space_key, titles, path_prefix)}"{cls}>{html.escape(titles[cid], quote=False)}</a>{sub}</li>')
+        sub = build_nav_tree(cid, pages_by_parent, space_key, titles, active_id, valid_ids, ancestors, path_prefix, depth + 1, max_depth)
+        label = f'<a href="{page_url(cid, space_key, titles, path_prefix)}"{cls}>{html.escape(titles[cid], quote=False)}</a>'
+        if sub:
+            # A branch with children becomes a native <details> disclosure —
+            # zero JS needed, and it degrades gracefully if JS is ever off.
+            # Only open by default if this branch is on the path to the
+            # active page; every other branch starts collapsed, which is
+            # what actually makes a 1,000+ page space usable instead of
+            # rendering every single page's nav link on every page load.
+            open_attr = " open" if (cid in ancestors or cid == active_id) else ""
+            items.append(f"<li><details{open_attr}><summary>{label}</summary>{sub}</details></li>")
+        else:
+            items.append(f"<li>{label}</li>")
     return f"<ul>{''.join(items)}</ul>"
 
 
-def build_nav(pages_by_parent, space_key, titles, valid_ids, roots, active_id, path_prefix=""):
+def build_nav(pages_by_parent, space_key, titles, valid_ids, roots, active_id, path_prefix="", ancestors=None):
+    ancestors = ancestors or set()
     top_items = []
     for rid in roots:
         cls = ' class="active"' if rid == active_id else ""
-        sub = build_nav_tree(rid, pages_by_parent, space_key, titles, active_id, valid_ids, path_prefix)
-        top_items.append(f'<li><a href="{page_url(rid, space_key, titles, path_prefix)}"{cls}>{html.escape(titles[rid], quote=False)}</a>{sub}</li>')
+        sub = build_nav_tree(rid, pages_by_parent, space_key, titles, active_id, valid_ids, ancestors, path_prefix)
+        label = f'<a href="{page_url(rid, space_key, titles, path_prefix)}"{cls}>{html.escape(titles[rid], quote=False)}</a>'
+        if sub:
+            open_attr = " open" if (rid in ancestors or rid == active_id) else ""
+            top_items.append(f"<li><details{open_attr}><summary>{label}</summary>{sub}</details></li>")
+        else:
+            top_items.append(f"<li>{label}</li>")
     return f"<ul>{''.join(top_items)}</ul>"
 
 
@@ -121,7 +154,22 @@ def render_top_nav(brand, path_prefix=""):
     )
 
 
-def page_shell(title, meta_description, nav_html, page_count, body_html, brand, widget_html, canonical_url, path_prefix="", noindex=False, extra_head=""):
+def render_page_toc_panel(headings):
+    """Real, always-present 'On this page' panel built from the page's
+    actual headings — unlike the inline {toc} macro (which only appears
+    if the Confluence author happened to insert one), this shows up on
+    every page that has any headings at all, matching the real site's
+    persistent right-rail TOC."""
+    if not headings:
+        return ""
+    items = "".join(
+        f'<li class="toc-level-{h["level"]}"><a href="#{h["id"]}">{html.escape(h["text"], quote=False)}</a></li>'
+        for h in headings
+    )
+    return f'<div class="page-toc"><div class="page-toc-title">On this page</div><ul>{items}</ul></div>'
+
+
+def page_shell(title, meta_description, nav_html, page_count, body_html, brand, widget_html, canonical_url, path_prefix="", noindex=False, extra_head="", toc_html=""):
     safe_title = html.escape(title or "", quote=False)
     safe_brand_name = html.escape(brand.get("name", "Docs"), quote=False)
     safe_desc = html.escape(meta_description or "", quote=True)
@@ -164,6 +212,7 @@ def page_shell(title, meta_description, nav_html, page_count, body_html, brand, 
     {body_html}
   </main>
   <aside class="sidebar">{nav_shell}</aside>
+  <aside class="page-toc-rail">{toc_html}</aside>
 </div>
 {widget_html}
 {ADVANCED_TABLES_SCRIPT}
@@ -211,7 +260,8 @@ def load_includes(pages):
     includes = {}
     for p in pages:
         if p["title"] and p["title"].startswith("_") and p.get("adf"):
-            includes[p["title"]] = adf_to_html(p["adf"])
+            html_str, _headings = adf_to_html(p["adf"])
+            includes[p["title"]] = html_str
     return includes
 
 
@@ -257,10 +307,12 @@ def build_space(data_path, out_dir, brand, base_url="", path_prefix="", support_
     media_map = {k: f"{path_prefix}/{v}" for k, v in data.get("media", {}).items()}
 
     pages_by_parent = {}
+    parent_of = {}
     for p in data["pages"]:
         parent = p.get("parent_id")
         if parent:
             pages_by_parent.setdefault(parent, []).append(p["id"])
+            parent_of[p["id"]] = parent
 
     roots = [
         p["id"] for p in data["pages"]
@@ -285,7 +337,7 @@ def build_space(data_path, out_dir, brand, base_url="", path_prefix="", support_
         out_path = os.path.join(out_dir, url_path.strip("/"), "index.html")
 
         try:
-            body_html = adf_to_html(
+            body_html, page_headings = adf_to_html(
                 p["adf"],
                 unresolved_includes=includes,
                 link_titles=titles,
@@ -299,7 +351,8 @@ def build_space(data_path, out_dir, brand, base_url="", path_prefix="", support_
             meta_desc = generate_meta_description(p["adf"])
             faq_schema = build_faq_schema(body_html)
 
-            nav_html = build_nav(pages_by_parent, space_key, titles, valid_ids, roots, p["id"], path_prefix)
+            ancestors = build_ancestors(p["id"], parent_of)
+            nav_html = build_nav(pages_by_parent, space_key, titles, valid_ids, roots, p["id"], path_prefix, ancestors)
             canonical_url = f"{base_url.rstrip('/')}{href_path}" if base_url else ""
 
             html_out = page_shell(
@@ -314,6 +367,7 @@ def build_space(data_path, out_dir, brand, base_url="", path_prefix="", support_
                 path_prefix=path_prefix,
                 noindex=noindex,
                 extra_head=faq_schema,
+                toc_html=render_page_toc_panel(page_headings),
             )
             has_schema = bool(faq_schema)
             snippet = BeautifulSoup(body_html, "html.parser").get_text(" ", strip=True)[:200]
@@ -352,6 +406,7 @@ def build_space(data_path, out_dir, brand, base_url="", path_prefix="", support_
 """
             has_schema = False
             snippet = "This page failed to build."
+            page_headings = []
 
         os.makedirs(os.path.dirname(out_path), exist_ok=True)
         with open(out_path, "w") as f:
