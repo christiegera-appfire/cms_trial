@@ -375,14 +375,21 @@ def render_extension(node, ctx, inline=False):
         label = (macro_params.get("summary", {}) or {}).get("value", "").strip() or "Button"
         params_raw = (macro_params.get("params", {}) or {}).get("value", "")
         config = decode_aura_params(params_raw)
-        # No URL field observed in real test data (the button had no
-        # destination configured) — checked defensively anyway, since a
-        # real linked button presumably has one under one of these names.
-        url = config.get("url") or config.get("href") or config.get("link")
+        # Confirmed against real data: a linked button's url field can be a
+        # nested object (e.g. {"href": "...", "target": "..."}), not always
+        # a plain string like our test button (which had no link at all).
+        # Handle both shapes rather than assuming one.
+        url_raw = config.get("url") or config.get("href") or config.get("link")
+        if isinstance(url_raw, dict):
+            url = url_raw.get("href") or url_raw.get("url") or url_raw.get("value")
+        elif isinstance(url_raw, str):
+            url = url_raw
+        else:
+            url = None
         bg_color = ((config.get("states", {}) or {}).get("idle", {}) or {}).get("colors", {}).get("background", {})
         bg = bg_color.get("light") if isinstance(bg_color, dict) else None
         style = f' style="background-color:{esc(bg)}"' if bg else ""
-        if url:
+        if url and isinstance(url, str):
             safe_url = html.escape(url, quote=True)
             return f'<a class="aura-button" href="{safe_url}"{style}>{esc(label)}</a>'
         return f'<span class="aura-button aura-button-static"{style}>{esc(label)}</span>'
