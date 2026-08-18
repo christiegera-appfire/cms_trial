@@ -72,10 +72,22 @@ def page_url(page_id, space_key, titles, path_prefix=""):
     return f"{path_prefix}/space/{space_key}/{page_id}/{title_segment}/"
 
 
+TOP_NAV_TEMPLATE = """
+<header class="top-nav">
+  <div class="top-nav-inner">
+    <a class="top-nav-brand" href="{path_prefix}/">{brand_name}</a>
+    <nav class="top-nav-links">
+      <a href="{path_prefix}/product-directory/">Product directory</a>
+      <a href="{path_prefix}/search/">Search</a>
+    </nav>
+  </div>
+</header>
+"""
+
+
 NAV_SHELL_TEMPLATE = """
 <div class="brand"><span class="brand-mark">{brand_name}</span></div>
 <div class="brand-tag">{tagline}</div>
-<a class="product-directory-link" href="{path_prefix}/product-directory/">Product directory</a>
 <p class="pilot-note">{count} pages in this space, fetched live from Confluence via API.</p>
 <nav>{nav_items}</nav>
 """
@@ -102,6 +114,13 @@ def build_nav(pages_by_parent, space_key, titles, valid_ids, roots, active_id, p
     return f"<ul>{''.join(top_items)}</ul>"
 
 
+def render_top_nav(brand, path_prefix=""):
+    return TOP_NAV_TEMPLATE.format(
+        brand_name=html.escape(brand.get("name", "Docs"), quote=False),
+        path_prefix=path_prefix,
+    )
+
+
 def page_shell(title, meta_description, nav_html, page_count, body_html, brand, widget_html, canonical_url, path_prefix="", noindex=False, extra_head=""):
     safe_title = html.escape(title or "", quote=False)
     safe_brand_name = html.escape(brand.get("name", "Docs"), quote=False)
@@ -113,6 +132,7 @@ def page_shell(title, meta_description, nav_html, page_count, body_html, brand, 
         nav_items=nav_html,
         path_prefix=path_prefix,
     )
+    top_nav = render_top_nav(brand, path_prefix)
     if noindex:
         # Explicit "don't index this" beats silence. A missing sitemap or
         # canonical tag doesn't stop Google from crawling a publicly
@@ -137,6 +157,7 @@ def page_shell(title, meta_description, nav_html, page_count, body_html, brand, 
 {extra_head}
 </head>
 <body>
+<div id="top-nav-mount">{top_nav}</div>
 <div class="shell">
   <main class="content">
     <h1>{safe_title}</h1>
@@ -295,6 +316,7 @@ def build_space(data_path, out_dir, brand, base_url="", path_prefix="", support_
                 extra_head=faq_schema,
             )
             has_schema = bool(faq_schema)
+            snippet = BeautifulSoup(body_html, "html.parser").get_text(" ", strip=True)[:200]
         except Exception as e:
             # A single page's rendering bug used to crash the ENTIRE
             # multi-space build — confirmed the hard way when one Aura
@@ -329,11 +351,12 @@ def build_space(data_path, out_dir, brand, base_url="", path_prefix="", support_
 </html>
 """
             has_schema = False
+            snippet = "This page failed to build."
 
         os.makedirs(os.path.dirname(out_path), exist_ok=True)
         with open(out_path, "w") as f:
             f.write(html_out)
-        built.append((href_path, p["title"], has_schema))
+        built.append((href_path, p["title"], has_schema, space_key, space_name, snippet))
 
     return space_key, space_name, roots, titles, len(pages), built
 
@@ -370,11 +393,20 @@ def write_space_picker(out_dir, spaces_info, brand, path_prefix="", base_url="",
   <h2>{html.escape(space_name, quote=False)}</h2>
   <p>{page_count} pages</p>
 </a>""")
+    top_nav = render_top_nav(brand, path_prefix)
     body = f"""
-<h1>{brand.get('name', 'Docs')}</h1>
-<p class="space-picker-intro">{brand.get('tagline', '')}</p>
+<section class="hero">
+  <h1>{brand.get('name', 'Docs')}</h1>
+  <p class="hero-subtitle">{brand.get('tagline', '')}</p>
+  <form class="hero-search" action="{path_prefix}/search/" method="get">
+    <input type="search" name="q" placeholder="Search Appfire products...">
+    <button type="submit">Search</button>
+  </form>
+</section>
+<div class="picker-body">
 <a class="product-directory-cta" href="{path_prefix}/product-directory/">Browse the full Appfire app directory →</a>
 <div class="space-grid">{''.join(cards)}</div>
+</div>
 """
     # Same noindex/canonical handling as every other page on the site — this
     # was missing here specifically, a real gap given this page lists every
@@ -397,6 +429,7 @@ def write_space_picker(out_dir, spaces_info, brand, path_prefix="", base_url="",
 {extra_head}
 </head>
 <body>
+{top_nav}
 <div class="shell shell-full"><main class="content content-full">{body}</main></div>
 </body>
 </html>
@@ -405,7 +438,7 @@ def write_space_picker(out_dir, spaces_info, brand, path_prefix="", base_url="",
         f.write(html_out)
 
 
-def write_product_directory(out_dir, spaces_info, path_prefix="", base_url="", noindex=False):
+def write_product_directory(out_dir, spaces_info, brand, path_prefix="", base_url="", noindex=False):
     """Writes the app directory page (originally a standalone Refined-hosted
     page) at /product-directory/. The one real enhancement over the
     original: apps whose space has actually been migrated to this pipeline
@@ -421,6 +454,7 @@ def write_product_directory(out_dir, spaces_info, path_prefix="", base_url="", n
     html_out = PRODUCT_DIRECTORY_TEMPLATE.replace(
         "__LOCAL_SPACES_JSON__", json.dumps(local_spaces)
     )
+    html_out = html_out.replace("<body>", f"<body>\n{render_top_nav(brand, path_prefix)}", 1)
 
     if noindex:
         html_out = html_out.replace(
@@ -442,6 +476,134 @@ def write_product_directory(out_dir, spaces_info, path_prefix="", base_url="", n
         f.write(html_out)
 
 
+def write_search_index(out_dir, all_built):
+    """A lightweight JSON index of every real page — title, url, space,
+    snippet — searched entirely client-side in the browser. This is real,
+    working search, not a copy of Refined's: that page's actual
+    functionality depends on Refined's own proprietary AI backend and an
+    authenticated Confluence session, neither of which exists outside
+    Refined's own infrastructure. This is a genuinely different, simpler
+    mechanism (client-side substring matching), styled to look similar."""
+    index = [
+        {"title": title, "url": url_path, "space_key": space_key, "space_name": space_name, "snippet": snippet}
+        for url_path, title, _has_schema, space_key, space_name, snippet in all_built
+    ]
+    with open(os.path.join(out_dir, "search-index.json"), "w") as f:
+        json.dump(index, f)
+
+
+def write_search_page(out_dir, brand, path_prefix=""):
+    """Real, working search — client-side, built from search-index.json.
+    Styled to resemble the real site's search page (platform-style filter
+    checkboxes, "Showing X of Y results", highlighted match terms, result
+    cards with a space badge) without depending on anything Refined-specific."""
+    top_nav = render_top_nav(brand, path_prefix)
+    html_out = f"""<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Search | {html.escape(brand.get("name", "Docs"), quote=False)}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{path_prefix}/styles.css">
+</head>
+<body>
+{top_nav}
+<div class="shell shell-full">
+<main class="content content-full">
+<h1>Search {html.escape(brand.get("name", "Docs"), quote=False)}</h1>
+<form id="search-form" class="search-bar">
+  <input type="search" id="search-input" placeholder="Search by title or content...">
+</form>
+<div class="search-layout">
+  <aside class="search-filters">
+    <div class="search-filters-title">SPACE</div>
+    <div id="space-filter-list"></div>
+  </aside>
+  <div class="search-results-area">
+    <p id="search-count" class="search-count"></p>
+    <div id="search-results"></div>
+  </div>
+</div>
+</main>
+</div>
+<script>
+(function () {{
+  var INDEX_URL = "{path_prefix}/search-index.json";
+  var input = document.getElementById("search-input");
+  var resultsEl = document.getElementById("search-results");
+  var countEl = document.getElementById("search-count");
+  var spaceFilterList = document.getElementById("space-filter-list");
+  var allPages = [];
+  var activeSpaces = {{}};
+
+  function highlight(text, term) {{
+    if (!term) return escapeHtml(text);
+    var idx = text.toLowerCase().indexOf(term.toLowerCase());
+    if (idx === -1) return escapeHtml(text);
+    return escapeHtml(text.slice(0, idx)) + "<mark>" + escapeHtml(text.slice(idx, idx + term.length)) + "</mark>" + escapeHtml(text.slice(idx + term.length));
+  }}
+  function escapeHtml(s) {{
+    var div = document.createElement("div");
+    div.textContent = s;
+    return div.innerHTML;
+  }}
+
+  function render() {{
+    var term = input.value.trim();
+    var anySpaceFilterActive = Object.keys(activeSpaces).some(function (k) {{ return activeSpaces[k]; }});
+    var matches = allPages.filter(function (p) {{
+      var matchesTerm = !term || p.title.toLowerCase().indexOf(term.toLowerCase()) !== -1 || p.snippet.toLowerCase().indexOf(term.toLowerCase()) !== -1;
+      var matchesSpace = !anySpaceFilterActive || activeSpaces[p.space_key];
+      return matchesTerm && matchesSpace;
+    }});
+    countEl.textContent = "Showing " + Math.min(matches.length, 50) + " of " + matches.length + " results";
+    resultsEl.innerHTML = matches.slice(0, 50).map(function (p) {{
+      return '<a class="search-result-card" href="' + p.url + '">' +
+        '<h3>' + highlight(p.title, term) + '</h3>' +
+        '<p>' + highlight(p.snippet, term) + '</p>' +
+        '<span class="search-result-badge">' + escapeHtml(p.space_name) + '</span>' +
+        '</a>';
+    }}).join("");
+  }}
+
+  function buildSpaceFilters() {{
+    var spaces = {{}};
+    allPages.forEach(function (p) {{ spaces[p.space_key] = p.space_name; }});
+    spaceFilterList.innerHTML = Object.keys(spaces).sort().map(function (key) {{
+      return '<label class="search-filter-checkbox"><input type="checkbox" data-space="' + key + '"> ' + escapeHtml(spaces[key]) + '</label>';
+    }}).join("");
+    spaceFilterList.querySelectorAll("input[type=checkbox]").forEach(function (cb) {{
+      cb.addEventListener("change", function () {{
+        activeSpaces[cb.dataset.space] = cb.checked;
+        render();
+      }});
+    }});
+  }}
+
+  fetch(INDEX_URL)
+    .then(function (r) {{ return r.json(); }})
+    .then(function (data) {{
+      allPages = data;
+      buildSpaceFilters();
+      var params = new URLSearchParams(window.location.search);
+      var q = params.get("q");
+      if (q) input.value = q;
+      render();
+    }});
+
+  input.addEventListener("input", render);
+  document.getElementById("search-form").addEventListener("submit", function (e) {{ e.preventDefault(); }});
+}})();
+</script>
+</body>
+</html>
+"""
+    out_path = os.path.join(out_dir, "search", "index.html")
+    os.makedirs(os.path.dirname(out_path), exist_ok=True)
+    with open(out_path, "w") as f:
+        f.write(html_out)
+
+
 def write_sitemap(out_dir, base_url, all_built):
     """Real sitemap.xml listing every page — helps Google discover and
     prioritize the new site efficiently, which matters more once the old
@@ -452,7 +614,7 @@ def write_sitemap(out_dir, base_url, all_built):
         return
     urls = "".join(
         f"<url><loc>{base_url.rstrip('/')}{url_path}</loc></url>"
-        for url_path, _title, _has_schema in all_built
+        for url_path, _title, _has_schema, _space_key, _space_name, _snippet in all_built
     )
     sitemap = (
         '<?xml version="1.0" encoding="UTF-8"?>'
@@ -576,7 +738,7 @@ def build_from_config(config_path=CONFIG_FILE, data_dir=DATA_DIR, out_dir=OUT_DI
     elif len(spaces_info) > 1:
         write_space_picker(out_dir, spaces_info, brand, path_prefix, base_url, noindex)
 
-    write_product_directory(out_dir, spaces_info, path_prefix, base_url, noindex)
+    write_product_directory(out_dir, spaces_info, brand, path_prefix, base_url, noindex)
 
     # all_built's paths already include path_prefix (built by build_space),
     # so base_url here must stay a BARE origin (no subpath) — combining
@@ -585,6 +747,8 @@ def build_from_config(config_path=CONFIG_FILE, data_dir=DATA_DIR, out_dir=OUT_DI
     if not noindex:
         write_sitemap(out_dir, base_url, all_built)
     write_robots_txt(out_dir, base_url, path_prefix, noindex=noindex)
+    write_search_index(out_dir, all_built)
+    write_search_page(out_dir, brand, path_prefix)
 
     return all_built
 
@@ -599,6 +763,6 @@ if __name__ == "__main__":
 
     built = build_from_config(config_path=args.config, data_dir=args.data_dir, out_dir=args.out)
     print(f"Built {len(built)} pages total from {args.config}:")
-    for url_path, title, has_schema in built:
+    for url_path, title, has_schema, _space_key, _space_name, _snippet in built:
         tag = " [+FAQPage schema]" if has_schema else ""
         print(f"  - {url_path}  ({title}){tag}")
