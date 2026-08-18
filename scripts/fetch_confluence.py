@@ -28,6 +28,13 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 
 import requests
 
+# Real docs screenshots/diagrams are always well under this — anything
+# bigger is almost certainly a video or some other large binary that isn't
+# a normal inline documentation image, and downloading it would risk
+# blowing past GitHub's hard 100MB-per-file push limit (confirmed against
+# a real 1.4GB .avi that got swept up as if it were a screenshot).
+MAX_ATTACHMENT_SIZE_BYTES = 20 * 1024 * 1024  # 20MB
+
 API_VERSION = "v2"
 
 MEDIA_TYPE_EXT = {
@@ -230,6 +237,16 @@ def process_page_attachments(base_url, auth, page_id, assets_dir):
         if not download_path:
             continue
 
+        file_size = att.get("extensions", {}).get("fileSize")
+        if file_size and file_size > MAX_ATTACHMENT_SIZE_BYTES:
+            print(
+                f"WARNING: skipping oversized attachment '{att.get('title', file_id)}' "
+                f"({file_size / (1024*1024):.1f}MB, over the {MAX_ATTACHMENT_SIZE_BYTES // (1024*1024)}MB limit) "
+                f"— will show as a placeholder rather than a real image.",
+                file=sys.stderr,
+            )
+            continue
+
         title = att.get("title", file_id)
         ext = os.path.splitext(title)[1]
         if not ext:
@@ -338,6 +355,32 @@ def fetch_one_space(site, space_key, out_path, assets_dir, auth, skip_images=Fal
     print(f"Wrote {out_path}")
 
 
+def remove_oversized_files(*dirs, max_bytes=95 * 1024 * 1024):
+    """Defense-in-depth backstop: scans for and deletes any file over
+    max_bytes before staging, in case something unexpectedly large ever
+    slips past the size check in process_page_attachments (e.g. fileSize
+    missing from the API response for some attachment). Kept comfortably
+    under GitHub's real 100MB hard limit rather than exactly at it."""
+    for d in dirs:
+        if not os.path.isdir(d):
+            continue
+        for root, _dirs, files in os.walk(d):
+            for name in files:
+                path = os.path.join(root, name)
+                try:
+                    size = os.path.getsize(path)
+                except OSError:
+                    continue
+                if size > max_bytes:
+                    print(
+                        f"WARNING: removing oversized file before commit: {path} "
+                        f"({size / (1024*1024):.1f}MB) — this should have been caught "
+                        f"earlier; investigate why it wasn't.",
+                        file=sys.stderr,
+                    )
+                    os.remove(path)
+
+
 def commit_space_progress(space_key, data_dir, assets_dir):
     """Commits and pushes just-fetched data for one space immediately, not
     at the end of the whole run. This exists because of a real failure
@@ -353,6 +396,7 @@ def commit_space_progress(space_key, data_dir, assets_dir):
     with no actual content changes since last time) — this is the normal
     case for most spaces on most runs, not an error."""
     try:
+        remove_oversized_files(data_dir, assets_dir)
         subprocess.run(["git", "add", "-A", "--", data_dir, assets_dir], check=True)
         result = subprocess.run(["git", "diff", "--cached", "--quiet"])
         if result.returncode == 0:
