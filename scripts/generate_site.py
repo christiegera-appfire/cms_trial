@@ -46,6 +46,14 @@ _AURA_TABS_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "aura
 with open(_AURA_TABS_PATH) as _f:
     AURA_TABS_SCRIPT = _f.read()
 
+_COPY_CODE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "copy_code_widget.html")
+with open(_COPY_CODE_PATH) as _f:
+    COPY_CODE_SCRIPT = _f.read()
+
+_SEARCH_SHORTCUT_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "search_shortcut_widget.html")
+with open(_SEARCH_SHORTCUT_PATH) as _f:
+    SEARCH_SHORTCUT_TEMPLATE = _f.read()
+
 _PRODUCT_DIR_TEMPLATE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "templates", "product_directory_template.html")
 with open(_PRODUCT_DIR_TEMPLATE_PATH) as _f:
     PRODUCT_DIRECTORY_TEMPLATE = _f.read()
@@ -78,7 +86,7 @@ TOP_NAV_TEMPLATE = """
     <a class="top-nav-brand" href="{path_prefix}/">{brand_name}</a>
     <nav class="top-nav-links">
       <a href="{path_prefix}/product-directory/">Product directory</a>
-      <a href="{path_prefix}/search/">Search</a>
+      <a href="{path_prefix}/search/">Search <kbd>⌘K</kbd></a>
     </nav>
   </div>
 </header>
@@ -169,7 +177,49 @@ def render_page_toc_panel(headings):
     return f'<div class="page-toc"><div class="page-toc-title">On this page</div><ul>{items}</ul></div>'
 
 
-def page_shell(title, meta_description, nav_html, page_count, body_html, brand, widget_html, canonical_url, path_prefix="", noindex=False, extra_head="", toc_html=""):
+def render_breadcrumb(active_id, parent_of, titles, space_key, space_name, space_home_url, path_prefix=""):
+    """Root-to-current breadcrumb trail (Space > Ancestor > ... > Current
+    Page), reusing the same parent_of walk-up used for the collapsible
+    nav's ancestor detection — just presented linearly instead of as a
+    tree. A gap flagged early in this project, now cheap to build since
+    the underlying ancestor-chain logic already exists."""
+    chain = []
+    current = active_id
+    seen = set()
+    while current and current not in seen:
+        seen.add(current)
+        chain.append(current)
+        current = parent_of.get(current)
+    chain.reverse()  # walk-up gives leaf-to-root; breadcrumb needs root-to-leaf
+
+    parts = []
+    if space_home_url:
+        parts.append(f'<a href="{space_home_url}">{html.escape(space_name, quote=False)}</a>')
+    else:
+        parts.append(html.escape(space_name, quote=False))
+
+    for i, pid in enumerate(chain):
+        title = html.escape(titles.get(pid, "Untitled"), quote=False)
+        if i == len(chain) - 1:
+            parts.append(f'<span aria-current="page">{title}</span>')  # current page — not a link
+        else:
+            parts.append(f'<a href="{page_url(pid, space_key, titles, path_prefix)}">{title}</a>')
+
+    return '<nav class="breadcrumb" aria-label="Breadcrumb">' + ' <span class="breadcrumb-sep">/</span> '.join(parts) + '</nav>'
+
+
+def estimate_reading_time(body_html):
+    """Standard 200 words/minute estimate, computed from the page's actual
+    rendered text — free, since we already strip HTML for the search
+    snippet elsewhere; this just does the same extraction for a different
+    purpose."""
+    text = BeautifulSoup(body_html, "html.parser").get_text(" ", strip=True)
+    word_count = len(text.split())
+    minutes = max(1, round(word_count / 200))
+    return f"{minutes} min read"
+
+
+def page_shell(title, meta_description, nav_html, page_count, body_html, brand, widget_html, canonical_url, path_prefix="", noindex=False, extra_head="", toc_html="", breadcrumb_html="", reading_time="", confluence_edit_url=""):
     safe_title = html.escape(title or "", quote=False)
     safe_brand_name = html.escape(brand.get("name", "Docs"), quote=False)
     safe_desc = html.escape(meta_description or "", quote=True)
@@ -208,7 +258,12 @@ def page_shell(title, meta_description, nav_html, page_count, body_html, brand, 
 <div id="top-nav-mount">{top_nav}</div>
 <div class="shell">
   <main class="content">
+    <div class="page-actions-row">
+      {breadcrumb_html}
+      {'<a class="open-in-confluence" href="' + confluence_edit_url + '" target="_blank" rel="noopener">Open in Confluence</a>' if confluence_edit_url else ''}
+    </div>
     <h1>{safe_title}</h1>
+    <div class="page-meta">{reading_time}</div>
     {body_html}
   </main>
   <aside class="sidebar">{nav_shell}</aside>
@@ -217,6 +272,8 @@ def page_shell(title, meta_description, nav_html, page_count, body_html, brand, 
 {widget_html}
 {ADVANCED_TABLES_SCRIPT}
 {AURA_TABS_SCRIPT}
+{COPY_CODE_SCRIPT}
+{SEARCH_SHORTCUT_TEMPLATE.replace("__SEARCH_URL__", path_prefix + "/search/")}
 </body>
 </html>
 """
@@ -281,7 +338,7 @@ def render_children_list(parent_id, pages_by_parent, space_key, titles, valid_id
     return f"<ul class='children-list'>{''.join(items)}</ul>"
 
 
-def build_space(data_path, out_dir, brand, base_url="", path_prefix="", support_portal_url=None, noindex=False, multiexcerpt_registry=None):
+def build_space(data_path, out_dir, brand, base_url="", path_prefix="", support_portal_url=None, noindex=False, multiexcerpt_registry=None, confluence_site=""):
     """Builds one space's pages. Returns (space_key, roots, titles, built_list) —
     the caller needs space_key/roots/titles to build the top-level home page
     once it knows about every space, not just this one.
@@ -354,6 +411,9 @@ def build_space(data_path, out_dir, brand, base_url="", path_prefix="", support_
             ancestors = build_ancestors(p["id"], parent_of)
             nav_html = build_nav(pages_by_parent, space_key, titles, valid_ids, roots, p["id"], path_prefix, ancestors)
             canonical_url = f"{base_url.rstrip('/')}{href_path}" if base_url else ""
+            space_home_url = page_url(roots[0], space_key, titles, path_prefix) if roots else ""
+            breadcrumb_html = render_breadcrumb(p["id"], parent_of, titles, space_key, space_name, space_home_url, path_prefix)
+            confluence_edit_url = f"https://{confluence_site}/wiki/spaces/{space_key}/pages/{p['id']}" if confluence_site else ""
 
             html_out = page_shell(
                 title=p["title"],
@@ -368,6 +428,9 @@ def build_space(data_path, out_dir, brand, base_url="", path_prefix="", support_
                 noindex=noindex,
                 extra_head=faq_schema,
                 toc_html=render_page_toc_panel(page_headings),
+                breadcrumb_html=breadcrumb_html,
+                reading_time=estimate_reading_time(body_html),
+                confluence_edit_url=confluence_edit_url,
             )
             has_schema = bool(faq_schema)
             snippet = BeautifulSoup(body_html, "html.parser").get_text(" ", strip=True)[:200]
@@ -434,7 +497,52 @@ def write_redirect(out_dir, target_url, title, brand):
         f.write(redirect_html)
 
 
-def write_space_picker(out_dir, spaces_info, brand, path_prefix="", base_url="", noindex=False):
+_MONTH_NAMES = {
+    "january": 1, "february": 2, "march": 3, "april": 4, "may": 5, "june": 6,
+    "july": 7, "august": 8, "september": 9, "october": 10, "november": 11, "december": 12,
+}
+
+
+def find_recent_release_notes(all_built, limit=12):
+    """Detects release-notes-style pages by title pattern across every
+    space, parses a real (month, year) out of the title text itself where
+    possible (e.g. "Release notes April 2025"), and returns the most
+    recent ones sorted chronologically — without needing any new fetch
+    data, since the date is already sitting in the title as text. Falls
+    back to placing undated matches at the end rather than guessing."""
+    pattern = re.compile(r"\b(" + "|".join(_MONTH_NAMES.keys()) + r")\s+(\d{4})\b", re.IGNORECASE)
+    candidates = []
+    for url_path, title, _has_schema, space_key, space_name, _snippet in all_built:
+        if "release notes" not in title.lower():
+            continue
+        match = pattern.search(title)
+        if match:
+            month_num = _MONTH_NAMES[match.group(1).lower()]
+            year_num = int(match.group(2))
+            sort_key = (year_num, month_num)
+        else:
+            sort_key = (0, 0)  # undated matches sort to the end, not guessed at
+        candidates.append((sort_key, title, url_path, space_key, space_name))
+
+    candidates.sort(key=lambda c: c[0], reverse=True)
+    return candidates[:limit]
+
+
+def render_whats_new_section(all_built, path_prefix=""):
+    entries = find_recent_release_notes(all_built)
+    if not entries:
+        return ""
+    items = "".join(
+        f'<a class="whats-new-item" href="{url_path}">'
+        f'<span class="whats-new-space">{html.escape(space_name, quote=False)}</span>'
+        f'<span class="whats-new-title">{html.escape(title, quote=False)}</span>'
+        f"</a>"
+        for _sort_key, title, url_path, space_key, space_name in entries
+    )
+    return f'<section class="whats-new"><h2>What\'s New Across Appfire Products</h2><div class="whats-new-list">{items}</div></section>'
+
+
+def write_space_picker(out_dir, spaces_info, brand, path_prefix="", base_url="", noindex=False, all_built=None):
     """Real landing page listing every configured space as a card, used once
     there's more than one — a single-space redirect no longer makes sense
     once there's an actual choice to present. This is the page that makes
@@ -449,6 +557,7 @@ def write_space_picker(out_dir, spaces_info, brand, path_prefix="", base_url="",
   <p>{page_count} pages</p>
 </a>""")
     top_nav = render_top_nav(brand, path_prefix)
+    whats_new_html = render_whats_new_section(all_built or [], path_prefix)
     body = f"""
 <section class="hero">
   <h1>{brand.get('name', 'Docs')}</h1>
@@ -459,6 +568,7 @@ def write_space_picker(out_dir, spaces_info, brand, path_prefix="", base_url="",
   </form>
 </section>
 <div class="picker-body">
+{whats_new_html}
 <a class="product-directory-cta" href="{path_prefix}/product-directory/">Browse the full Appfire app directory →</a>
 <div class="space-grid">{''.join(cards)}</div>
 </div>
@@ -737,6 +847,7 @@ def build_from_config(config_path=CONFIG_FILE, data_dir=DATA_DIR, out_dir=OUT_DI
     base_url = config.get("base_url", "")
     path_prefix = config.get("path_prefix", "").rstrip("/")
     noindex = config.get("noindex", False)
+    confluence_site = config.get("confluence_site", "")
     if noindex:
         print("noindex mode is ON — every page gets a noindex meta tag, robots.txt disallows everything, no sitemap.xml is written.")
     if path_prefix:
@@ -777,6 +888,7 @@ def build_from_config(config_path=CONFIG_FILE, data_dir=DATA_DIR, out_dir=OUT_DI
             support_portal_url=space_cfg.get("support_portal_url"),
             noindex=noindex,
             multiexcerpt_registry=multiexcerpt_registry,
+            confluence_site=confluence_site,
         )
         all_built.extend(built)
         spaces_info.append((sk, space_name, roots, titles, page_count))
@@ -791,7 +903,7 @@ def build_from_config(config_path=CONFIG_FILE, data_dir=DATA_DIR, out_dir=OUT_DI
                 brand,
             )
     elif len(spaces_info) > 1:
-        write_space_picker(out_dir, spaces_info, brand, path_prefix, base_url, noindex)
+        write_space_picker(out_dir, spaces_info, brand, path_prefix, base_url, noindex, all_built)
 
     write_product_directory(out_dir, spaces_info, brand, path_prefix, base_url, noindex)
 
