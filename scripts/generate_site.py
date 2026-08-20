@@ -28,7 +28,7 @@ from urllib.parse import quote
 from bs4 import BeautifulSoup
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from adf_transform import adf_to_html, generate_meta_description, build_multiexcerpt_registry
+from adf_transform import adf_to_html, generate_meta_description, build_multiexcerpt_registry, build_excerpt_registry
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))  # repo root
 CONFIG_FILE = os.path.join(ROOT, "sites.json")
@@ -288,10 +288,20 @@ def page_shell(title, meta_description, nav_html, page_count, body_html, brand, 
 
 
 def build_faq_schema(body_html):
+    """Confirmed a real bug the hard way: a page whose expand-block content
+    included an unmapped macro was embedding literal placeholder text
+    ("[Unmapped macro: contentbylabel — no content to fall back on]") as
+    if it were a genuine FAQ answer, in real Google-facing JSON-LD
+    structured data. Filtering this out here means ANY future unmapped
+    macro is automatically protected against polluting SEO data, not just
+    the ones already known about — the fix targets the symptom (broken
+    placeholder text reaching structured data) rather than each macro
+    that could cause it."""
     soup = BeautifulSoup(body_html, "html.parser")
     details = soup.find_all("details")
     if not details:
         return ""
+    unmapped_markers = ("[Unmapped macro:", "[Unmapped block:", "[unmapped inline:")
     entities = []
     for d in details:
         summary = d.find("summary")
@@ -301,6 +311,8 @@ def build_faq_schema(body_html):
         d_copy = BeautifulSoup(str(d), "html.parser")
         d_copy.find("summary").decompose()
         answer_text = d_copy.get_text(" ", strip=True)
+        if not answer_text or any(marker in answer_text for marker in unmapped_markers):
+            continue
         entities.append({
             "@type": "Question",
             "name": question,
@@ -346,7 +358,7 @@ def render_children_list(parent_id, pages_by_parent, space_key, titles, valid_id
     return f"<ul class='children-list'>{''.join(items)}</ul>"
 
 
-def build_space(data_path, out_dir, brand, base_url="", path_prefix="", support_portal_url=None, noindex=False, multiexcerpt_registry=None, confluence_site=""):
+def build_space(data_path, out_dir, brand, base_url="", path_prefix="", support_portal_url=None, noindex=False, multiexcerpt_registry=None, confluence_site="", excerpt_registry=None):
     """Builds one space's pages. Returns (space_key, roots, titles, built_list) —
     the caller needs space_key/roots/titles to build the top-level home page
     once it knows about every space, not just this one.
@@ -408,6 +420,9 @@ def build_space(data_path, out_dir, brand, base_url="", path_prefix="", support_
                 link_titles=titles,
                 media_map=media_map,
                 multiexcerpt_registry=multiexcerpt_registry,
+                path_prefix=path_prefix,
+                excerpt_registry=excerpt_registry,
+                current_space_key=space_key,
             )
             if "<!--CHILDREN_MACRO-->" in body_html:
                 children_html = render_children_list(p["id"], pages_by_parent, space_key, titles, valid_ids, path_prefix)
@@ -513,9 +528,10 @@ _MONTH_NAMES = {
 
 
 _RELEASE_BOILERPLATE_PATTERNS = [
-    re.compile(r"^Release date:\s*[^.]*\.\s*", re.IGNORECASE),
+    re.compile(r"^Release date\s*:\s*[^.]*\.\s*", re.IGNORECASE),
     re.compile(r"^This page outlines the updates included in the latest release of [^.]*\.\s*", re.IGNORECASE),
     re.compile(r"^Skip the reading and watch this quick[^.]*\.\s*", re.IGNORECASE),
+    re.compile(r"^Our team is thrilled to announce the latest release of [^.]*\.\s*", re.IGNORECASE),
 ]
 
 
@@ -1027,9 +1043,12 @@ def build_from_config(config_path=CONFIG_FILE, data_dir=DATA_DIR, out_dir=OUT_DI
         space_data_paths[space_key] = data_path
         with open(data_path) as f:
             space_data = json.load(f)
+        for p in space_data.get("pages", []):
+            p["_space_key"] = space_key
         all_raw_pages.extend(space_data.get("pages", []))
 
     multiexcerpt_registry = build_multiexcerpt_registry(all_raw_pages)
+    excerpt_registry = build_excerpt_registry(all_raw_pages)
 
     all_built = []
     spaces_info = []
@@ -1048,6 +1067,7 @@ def build_from_config(config_path=CONFIG_FILE, data_dir=DATA_DIR, out_dir=OUT_DI
             noindex=noindex,
             multiexcerpt_registry=multiexcerpt_registry,
             confluence_site=confluence_site,
+            excerpt_registry=excerpt_registry,
         )
         all_built.extend(built)
         spaces_info.append((sk, space_name, roots, titles, page_count))
