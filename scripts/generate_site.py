@@ -119,6 +119,19 @@ def build_ancestors(active_id, parent_of):
 
 
 def build_nav_tree(parent_id, pages_by_parent, space_key, titles, active_id, valid_ids, ancestors, path_prefix="", depth=0, max_depth=6):
+    # Grandchildren-and-deeper (depth >= 2 here: depth 0 builds a
+    # top-level section's direct children/"pages", depth 1 builds a
+    # page's own children/"grandchildren" per the design spec's naming)
+    # only ever render for a branch that's actually on the path to the
+    # active page. Every other branch stops at one level, full stop — not
+    # just collapsed-but-clickable. Confirmed via the design spec as the
+    # actual mechanism that keeps a 1,145-page space (Power Scripts)
+    # navigable: a merely collapsed-by-default tree still means every
+    # branch COULD be expanded to reveal its own deep subtree, which is a
+    # very different (and much heavier) DOM than one where unrelated
+    # branches are truly capped.
+    if depth >= 2 and parent_id not in ancestors and parent_id != active_id:
+        return ""
     child_ids = [c for c in pages_by_parent.get(parent_id, []) if c in valid_ids]
     if not child_ids or depth > max_depth:
         return ""
