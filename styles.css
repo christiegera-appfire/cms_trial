@@ -12,44 +12,52 @@
 @import url('https://use.typekit.net/eah5sfj.css');
 
 :root {
-  --font: "area-normal", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  /* Every value below now points at the REAL Appfire Design System tokens
+     (imported in tokens.css, loaded before this file) instead of the
+     reverse-engineered approximations this started as. Every existing
+     rule in this file that references these variable names picks up the
+     correct real values automatically — nothing else needed to change. */
+  --font: var(--font-sans);
 
-  --bg-page:      #0b0f16;
-  --bg-page-2:    #0a0d13;
-  --bg-card:      rgba(12, 17, 28, 0.9);
-  --bg-card-hover:rgba(12, 17, 28, 0.95);
-  --bg-surface:   rgba(12, 17, 28, 0.6);
-  --bg-surface-lo:rgba(12, 17, 28, 0.4);
-  --bg-footer:    #000000;
+  --bg-page:      var(--doc-bg);
+  --bg-page-2:    var(--doc-bg-sub);
+  --bg-card:      var(--doc-card);
+  --bg-card-hover:var(--doc-card-hover);
+  --bg-surface:   var(--doc-bg-sub);
+  --bg-surface-lo:var(--doc-bg-sub);
+  --bg-footer:    var(--doc-bg);
 
-  --chrome-06: rgba(215, 222, 234, 0.06);
-  --chrome-10: rgba(215, 222, 234, 0.10);
-  --chrome-14: rgba(215, 222, 234, 0.14);
-  --chrome-20: rgba(215, 222, 234, 0.20);
-  --chrome-26: rgba(215, 222, 234, 0.26);
+  --chrome-06: var(--doc-line-soft);
+  --chrome-10: var(--doc-line-soft);
+  --chrome-14: var(--doc-line);
+  --chrome-20: var(--doc-line);
+  --chrome-26: var(--doc-line);
 
-  --text-primary: #ffffff;
-  --text-high:    rgba(255, 255, 255, 0.92);
-  --text-body:    rgba(255, 255, 255, 0.85);
-  --text-mid:     rgba(255, 255, 255, 0.60);
-  --text-muted:   rgba(255, 255, 255, 0.50);
-  --text-dim:     rgba(255, 255, 255, 0.35);
+  --text-primary: var(--doc-fg);
+  --text-high:    var(--doc-fg);
+  --text-body:    var(--doc-fg-sub);
+  --text-mid:     var(--doc-fg-sub);
+  --text-muted:   var(--doc-fg-faint);
+  --text-dim:     var(--doc-fg-faint);
 
-  --accent:        #397bff;
-  --accent-hover:  #2d6ae0;
-  --accent-faint:  rgba(57, 123, 255, 0.10);
-  --accent-subtle: rgba(57, 123, 255, 0.15);
-  --accent-border: rgba(57, 123, 255, 0.25);
-  --accent-text:   #7eb3ff;
+  /* Real spec note: on dark surfaces, use blue-200 (--doc-accent) rather
+     than raw Flow blue (--af-flow / #397BFF) — the design system flags
+     Flow as failing contrast checks in exactly this context. */
+  --accent:        var(--doc-accent);
+  --accent-hover:  var(--af-flow);
+  --accent-faint:  var(--doc-accent-soft);
+  --accent-subtle: var(--doc-accent-soft);
+  --accent-border: var(--scale-blue-600);
+  --accent-text:   var(--doc-accent);
 
-  --ok-bg: rgba(26, 122, 74, 0.15);   --ok-border: rgba(26, 122, 74, 0.25);   --ok-text: #5ecc8e;
-  --warn-bg: rgba(184, 110, 0, 0.15); --warn-border: rgba(184, 110, 0, 0.25); --warn-text: #ffc970;
-  --bad-bg: rgba(192, 57, 43, 0.15);  --bad-border: rgba(192, 57, 43, 0.25);  --bad-text: #ff8f7e;
+  --ok-bg: var(--background-accent-teal-subtlest);   --ok-border: var(--scale-teal-600);   --ok-text: var(--text-success-default);
+  --warn-bg: var(--background-accent-orange-subtlest); --warn-border: var(--scale-orange-600); --warn-text: var(--text-accent-orange);
+  --bad-bg: var(--scale-red-800);  --bad-border: var(--scale-red-600);  --bad-text: var(--text-danger-default);
 
-  --radius: 18px;
-  --radius-sm: 10px;
-  --shadow-sm: 0 2px 8px rgba(0,0,0,.18);
-  --shadow-md: 0 8px 28px rgba(0,0,0,.35);
+  --radius: var(--radius-lg);
+  --radius-sm: var(--radius-md);
+  --shadow-sm: var(--doc-shadow);
+  --shadow-md: var(--doc-shadow);
 }
 
 * { box-sizing: border-box; }
@@ -497,10 +505,16 @@ th {
   justify-content: space-between;
 }
 .top-nav-brand {
-  font-size: 18px;
-  font-weight: 700;
-  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 12px;
   text-decoration: none;
+}
+.top-nav-docs-label {
+  font-size: 15px;
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: -0.01em;
 }
 .top-nav-links {
   display: flex;
@@ -871,7 +885,12 @@ mark {
   height: 22px;
   width: auto;
   vertical-align: middle;
-  margin-right: 8px;
+}
+.top-nav-divider {
+  width: 1px;
+  height: 20px;
+  background: rgba(184, 182, 189, 0.24);
+  display: inline-block;
 }
 .space-card-icon {
   height: 36px;
