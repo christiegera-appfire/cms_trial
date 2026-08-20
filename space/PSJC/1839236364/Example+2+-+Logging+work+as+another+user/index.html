@@ -31,18 +31,18 @@
     </div>
     <h1>Example 2 - Logging work as another user</h1>
     <div class="page-meta">2 min read</div>
-    <p>Using Forms and Wizards and the power of SIL, you can do a lot of things with your Jira. For example, you can log work on behalf of another user.</p><p>For this, you can configure a form with one step:</p><img alt="Power Scripts for Jira Cloud forms and wizards configuration interface" class="doc-image" loading="lazy" src="/cms_trial/assets/1e141ccc-17a8-4d3a-9328-b1da8214c414.png"/><p>The form will be always enabled and it's essentially a script asking for a confirmation that we want to log work for another user. If the answer to the confirmation question on the first screen is "yes", then the action will be enabled, otherwise the action will be disabled.</p><p>The form contains a confirmation question and on its Action screen we save the selected value:</p><ul><li><p>Screen script:</p><pre><code class="language-">use "poweraction";
+    <p>Using Forms and Wizards and the power of SIL, you can do a lot of things with your Jira. For example, you can log work on behalf of another user.</p><p>For this, you can configure a form with one step:</p><img alt="Power Scripts for Jira Cloud forms and wizards configuration interface" class="doc-image" loading="lazy" src="/cms_trial/assets/1e141ccc-17a8-4d3a-9328-b1da8214c414.png"/><p>The form will be always enabled and it's essentially a script asking for a confirmation that we want to log work for another user. If the answer to the confirmation question on the first screen is "yes", then the action will be enabled, otherwise the action will be disabled.</p><p>The form contains a confirmation question and on its Action screen we save the selected value:</p><ul><li><p>Screen script:</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">use "poweraction";
 setActionTitle("Are you sure?");
 createRadioGroup("Sure?", {"yes", "no"}, "yes", false, true, "You are about to log work on behalf of another user. This may have certain consequences. Are you sure you want to do this?");
-setExecuteButtonText("Submit");</code></pre></li><li><p>Action script:</p><pre><code class="language-">use "poweraction";
+setExecuteButtonText("Submit");</code></pre></div></li><li><p>Action script:</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">use "poweraction";
 string option = getSingleValue(argv, "Sure?");
-setAttribute("option", option);</code></pre></li></ul><p>The Condition script for the step would look like this:</p><pre><code class="language-">use "poweraction";
+setAttribute("option", option);</code></pre></div></li></ul><p>The Condition script for the step would look like this:</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">use "poweraction";
 number ENABLED = 1;
 number DISABLED = 2;
 number HIDDEN = 3;
 
 string option = getAttribute("option");
-return option == "yes" ? ENABLED : HIDDEN;</code></pre><p>In the Screen script we configure the fields that we need to log the work:</p><pre><code class="language-">use "poweraction";
+return option == "yes" ? ENABLED : HIDDEN;</code></pre></div><p>In the Screen script we configure the fields that we need to log the work:</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">use "poweraction";
 setActionTitle("Log work as user");
 
 createUserPicker("User", currentUser(), false, true, "");
@@ -51,7 +51,7 @@ createDateTimePicker("Date Started", currentDate(), false, false, "");
 createRadioGroup("Remaining Estimate", {"Adjust automatically", "Use existing estimate"},"Adjust automatically", false);
 createTextArea("Work Description", "", false);
 
-setExecuteButtonText("Done");</code></pre><p>In the Action script we retrieve the values from the screen and add the worklog:</p><pre><code class="language-">use "poweraction";
+setExecuteButtonText("Done");</code></pre></div><p>In the Action script we retrieve the values from the screen and add the worklog:</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">use "poweraction";
 string user = getSingleValue(argv, "User");
 interval timeSpent = getSingleValue(argv, "Time Spent");
 date startDate = getDateValue(argv, "Date Started");
@@ -62,7 +62,7 @@ if (estimate == "Adjust automatically") {
     addWorklogAdjustEstimate(key, user, timeSpent, startDate, comment);
 } else {
     addWorklogExistingEstimate(key, user, timeSpent, startDate, comment);
-}</code></pre><img alt="Power Scripts for Jira Cloud worklog form configuration" class="doc-image" loading="lazy" src="/cms_trial/assets/bcec7f62-f28d-4e9f-aa99-27ee3d6aa85e.png"/><p>That's it!</p><p>That's how the implementation looks like in the ticket:</p><table><tr><td><img alt="Power Scripts for Jira Cloud user worklog input form" class="doc-image" loading="lazy" src="/cms_trial/assets/1cdd3e0f-890e-44b9-973b-010d4459b1cc.png"/></td></tr><tr><td><img alt="Power Scripts for Jira Cloud worklog submission confirmation" class="doc-image" loading="lazy" src="/cms_trial/assets/e410d5c4-7cea-4cff-a074-b99e38b251c3.png"/></td></tr></table>
+}</code></pre></div><img alt="Power Scripts for Jira Cloud worklog form configuration" class="doc-image" loading="lazy" src="/cms_trial/assets/bcec7f62-f28d-4e9f-aa99-27ee3d6aa85e.png"/><p>That's it!</p><p>That's how the implementation looks like in the ticket:</p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><td><img alt="Power Scripts for Jira Cloud user worklog input form" class="doc-image" loading="lazy" src="/cms_trial/assets/1cdd3e0f-890e-44b9-973b-010d4459b1cc.png"/></td></tr><tr><td><img alt="Power Scripts for Jira Cloud worklog submission confirmation" class="doc-image" loading="lazy" src="/cms_trial/assets/e410d5c4-7cea-4cff-a074-b99e38b251c3.png"/></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>

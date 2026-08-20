@@ -31,7 +31,7 @@
     </div>
     <h1>Perform searches with LDAP</h1>
     <div class="page-meta">1 min read</div>
-    <div class="columns" style="grid-template-columns: 100.0fr;"><div><div class="panel panel-note"><p>The following solution was kindly provided by Stefano Gevinti.</p></div><h2 id="problem">Problem</h2><p>When creating an issue, you want to first assign it to the manager of the current user, to enable them to review it. However, the manager role is not natively defined in Jira (for example, as a project admin). This makes it necessary to access the Lightweight Directory Access Protocol (LDAP).</p><h2 id="solution">Solution</h2><p>Enter the below script.</p><div class="panel panel-note"><p>This workflow action (post function) should be the last in the call chain when creating an issue.</p></div><h4 id="create-postfunction-sil"><strong>create_postfunction.sil</strong></h4><pre><code class="language-java">string mgr = ldapUserRecord("manager", "(sAMAccountName=" + currentUser() + ")"); //get the current user's manager DN
+    <div class="columns" style="grid-template-columns: 100.0fr;"><div><div class="panel panel-note"><p>The following solution was kindly provided by Stefano Gevinti.</p></div><h2 id="problem">Problem</h2><p>When creating an issue, you want to first assign it to the manager of the current user, to enable them to review it. However, the manager role is not natively defined in Jira (for example, as a project admin). This makes it necessary to access the Lightweight Directory Access Protocol (LDAP).</p><h2 id="solution">Solution</h2><p>Enter the below script.</p><div class="panel panel-note"><p>This workflow action (post function) should be the last in the call chain when creating an issue.</p></div><h4 id="create-postfunction-sil"><strong>create_postfunction.sil</strong></h4><div class="code-block"><div class="code-block-header"><span class="code-block-lang">java</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-java">string mgr = ldapUserRecord("manager", "(sAMAccountName=" + currentUser() + ")"); //get the current user's manager DN
 string cnUser = substring(mgr, 0, indexOf(mgr,",")); //establish the cn, this is the manager user (that may depend on your setup)
 string mgrUserName = ldapUserRecord("sAMAccountName", cnUser); //again, a lookup in the Active Directory to get the manager
 
@@ -42,7 +42,7 @@ if(userExists(mgrUserName)) { //make sure this is defined in JIRA
 } else {
  //fallback to project admin
  assignee = projectPM(project);
-}</code></pre><p>Now <a href="#">configure the LDAP</a>. </p><div class="panel panel-warning"><p>This solution assumes that the Windows account name is the same one used to access Jira. This depends on the AD setup.</p></div></div></div>
+}</code></pre></div><p>Now <a href="#">configure the LDAP</a>. </p><div class="panel panel-warning"><p>This solution assumes that the Windows account name is the same one used to access Jira. This depends on the AD setup.</p></div></div></div>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>

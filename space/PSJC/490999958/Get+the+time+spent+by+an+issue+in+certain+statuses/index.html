@@ -30,8 +30,8 @@
       <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/490999958" target="_blank" rel="noopener">Open in Confluence</a>
     </div>
     <h1>Get the time spent by an issue in certain statuses</h1>
-    <div class="page-meta">1 min read</div>
-    <div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="problem">Problem</h2><p>You want to measure the amount of time an issue spent in certain statuses.</p><h2 id="solution">Solution</h2><p><strong>Writing the code</strong></p><p>The following SIL™ code does all the magic:</p><pre><code class="language-">function getStatusesTimeSpent(string issueKey) {
+    <div class="page-meta">2 min read</div>
+    <div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="problem">Problem</h2><p>You want to measure the amount of time an issue spent in certain statuses.</p><h2 id="solution">Solution</h2><p><strong>Writing the code</strong></p><p>The following SIL™ code does all the magic:</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">function getStatusesTimeSpent(string issueKey) {
     // function that returns a map with key status and value total time spent
     interval[] result;
     string[] statusHistory = fieldHistory(issueKey, "status");
@@ -70,8 +70,8 @@
     
     return result;
 }
-</code></pre><p>You then just have to call getStatusesTimeSpent function, giving the desired issue key as parameter and you will get an array containing all statuses in which the issue was, as well as the total time spent for each status:</p><pre><code class="language-">string[] timeSpentInStatuses = getStatusesTimeSpent("DEMO-1");
-return timeSpentInStatuses[1]; // will return a time interval spent in status "Open" for issue "DEMO-1"</code></pre><div class="panel panel-note"><p>Note that you can access time spent for each status only by its id.</p><p>You can see the corresponding ids for your statuses either by looking directly into the jira database, in the issuestatus table, either from the Status administration section in Jira, by hovering over the edit link of each status and see the id parameter in the corresponding url.</p></div></div></div>
+</code></pre></div><p>You then just have to call getStatusesTimeSpent function, giving the desired issue key as parameter and you will get an array containing all statuses in which the issue was, as well as the total time spent for each status:</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">string[] timeSpentInStatuses = getStatusesTimeSpent("DEMO-1");
+return timeSpentInStatuses[1]; // will return a time interval spent in status "Open" for issue "DEMO-1"</code></pre></div><div class="panel panel-note"><p>Note that you can access time spent for each status only by its id.</p><p>You can see the corresponding ids for your statuses either by looking directly into the jira database, in the issuestatus table, either from the Status administration section in Jira, by hovering over the edit link of each status and see the id parameter in the corresponding url.</p></div></div></div>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>

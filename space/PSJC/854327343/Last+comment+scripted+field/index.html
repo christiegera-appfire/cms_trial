@@ -31,16 +31,16 @@
     </div>
     <h1>Last comment scripted field</h1>
     <div class="page-meta">1 min read</div>
-    <h2 id="problem">Problem</h2><p>You want to show the last comment made on an issue as a custom field so that it will display in the issue results list or on an issue sidebar.</p><h2 id="solution">Solution</h2><h3 id="display-comment-text-only">Display comment text only</h3><pre><code class="language-">JComment lastComm = getLastComment(key);
-return lastComm.text;</code></pre><p>The field will display nothing if no comments have been made on the issue.</p><h3 id="display-comment-text-only-with-default-for-no-comment">Display comment text only with default for no comment</h3><pre><code class="language-">JComment lastComm = getLastComment(key);
+    <h2 id="problem">Problem</h2><p>You want to show the last comment made on an issue as a custom field so that it will display in the issue results list or on an issue sidebar.</p><h2 id="solution">Solution</h2><h3 id="display-comment-text-only">Display comment text only</h3><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">JComment lastComm = getLastComment(key);
+return lastComm.text;</code></pre></div><p>The field will display nothing if no comments have been made on the issue.</p><h3 id="display-comment-text-only-with-default-for-no-comment">Display comment text only with default for no comment</h3><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">JComment lastComm = getLastComment(key);
 
 if(isNotNull(lastComm.author)) {
     return lastComm.text;
 } else {
     return "No comment has been left on this issue.";
-}</code></pre><h3 id="display-the-authors-name-followed-by-the-comment-text">Display the authors name followed by the comment text</h3><pre><code class="language-">JComment lastComm = getLastComment(key);
-return userKeyToDisplayName(lastComm.author) + ": " + lastComm.text;</code></pre><p>Example output: <code>Jonathan Muse: I don’t understand why Jon always gets the last taco.</code></p><h3 id="display-the-authors-name-followed-by-comment-date-and-text">Display the authors name followed by comment date and text</h3><pre><code class="language-">JComment lastComm = getLastComment(key);
-return userKeyToDisplayName(lastComm.author) + + " (" + formatDate(lastComm.created, "MM-dd-yyyy") + "): " + lastComm.text;</code></pre><p>Example output: <code>Jonathan Muse (03-25-2024): I don’t understand why Jon always gets the last taco.</code></p>
+}</code></pre></div><h3 id="display-the-authors-name-followed-by-the-comment-text">Display the authors name followed by the comment text</h3><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">JComment lastComm = getLastComment(key);
+return userKeyToDisplayName(lastComm.author) + ": " + lastComm.text;</code></pre></div><p>Example output: <code>Jonathan Muse: I don’t understand why Jon always gets the last taco.</code></p><h3 id="display-the-authors-name-followed-by-comment-date-and-text">Display the authors name followed by comment date and text</h3><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">JComment lastComm = getLastComment(key);
+return userKeyToDisplayName(lastComm.author) + + " (" + formatDate(lastComm.created, "MM-dd-yyyy") + "): " + lastComm.text;</code></pre></div><p>Example output: <code>Jonathan Muse (03-25-2024): I don’t understand why Jon always gets the last taco.</code></p>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>

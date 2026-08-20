@@ -31,7 +31,7 @@
     </div>
     <h1>Incoming Mail Processing Functions</h1>
     <div class="page-meta">1 min read</div>
-    <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><ul class="children-list"><li><a href="/cms_trial/space/PSJC/1001521294/attachAllFilesFromEmail/">attachAllFilesFromEmail</a></li><li><a href="/cms_trial/space/PSJC/1001324700/attachFileFromEmail/">attachFileFromEmail</a></li><li><a href="/cms_trial/space/PSJC/1002045477/getIncomingEmail/">getIncomingEmail</a></li><li><a href="/cms_trial/space/PSJC/1004503227/getRawIncomingEmail/">getRawIncomingEmail</a></li><li><a href="/cms_trial/space/PSJC/1001881719/saveAllAttachmentsFromEmail/">saveAllAttachmentsFromEmail</a></li><li><a href="/cms_trial/space/PSJC/1002307615/saveAttachmentFromEmail/">saveAttachmentFromEmail</a></li></ul></div><div><p>As opposed to the server routines, we use full structures here because we have access to the whole email.</p><h3 id="incomingmail"><strong>IncomingMail</strong></h3><pre><code class="language-">string subject;
+    <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><ul class="children-list"><li><a href="/cms_trial/space/PSJC/1001521294/attachAllFilesFromEmail/">attachAllFilesFromEmail</a></li><li><a href="/cms_trial/space/PSJC/1001324700/attachFileFromEmail/">attachFileFromEmail</a></li><li><a href="/cms_trial/space/PSJC/1002045477/getIncomingEmail/">getIncomingEmail</a></li><li><a href="/cms_trial/space/PSJC/1004503227/getRawIncomingEmail/">getRawIncomingEmail</a></li><li><a href="/cms_trial/space/PSJC/1001881719/saveAllAttachmentsFromEmail/">saveAllAttachmentsFromEmail</a></li><li><a href="/cms_trial/space/PSJC/1002307615/saveAttachmentFromEmail/">saveAttachmentFromEmail</a></li></ul></div><div><p>As opposed to the server routines, we use full structures here because we have access to the whole email.</p><h3 id="incomingmail"><strong>IncomingMail</strong></h3><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">string subject;
 string body;
 string htmlBody;
 string [] to;
@@ -44,11 +44,11 @@ string contentType;
 date sentAt;
 date receivedAt;
 int size;
-IncomingMail [] embeddedMessages;</code></pre><h3 id="incomingemailheader">IncomingEmailHeader</h3><pre><code class="language-">string name;
-string value;</code></pre><h3 id="incomingemailattachment">IncomingEmailAttachment</h3><pre><code class="language-">string fileName;
+IncomingMail [] embeddedMessages;</code></pre></div><h3 id="incomingemailheader">IncomingEmailHeader</h3><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">string name;
+string value;</code></pre></div><h3 id="incomingemailattachment">IncomingEmailAttachment</h3><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">string fileName;
 string contentType;
 int size;
-byte [] content;</code></pre><h3 id="example-usage"><strong>Example usage</strong></h3><p>Standard processing:</p><pre><code class="language-">IncomingEmail mail = getIncomingEmail();
+byte [] content;</code></pre></div><h3 id="example-usage"><strong>Example usage</strong></h3><p>Standard processing:</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">IncomingEmail mail = getIncomingEmail();
 
 string issueKey = mail.subject;
 if(issueExists(issueKey)) {
@@ -70,7 +70,7 @@ if(issueExists(issueKey)) {
     fields += {"reporter", getUserByEmail(mail.from).key};
     
     createIssue("SCRUM", "", "Task", summary , "Minor", description, {}, "", "", fields);
-}</code></pre></div></div>
+}</code></pre></div></div></div>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>

@@ -31,7 +31,7 @@
     </div>
     <h1>Reschedule issues</h1>
     <div class="page-meta">1 min read</div>
-    <div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="problem">Problem</h2><p>You want the project lead to reschedule issues in one simple step which includes entering the fix versions, an assignee and an optional comment.</p><h2 id="solution">Solution</h2><h2 id="create-the-action">Create the action</h2><p>Begin by creating the <strong>Reschedule</strong> action.</p><img alt="Power Scripts for Jira Cloud REST webhooks interface" class="doc-image" loading="lazy" src="/cms_trial/assets/747079fb-5f25-4e23-85ba-370417049ecb.png"/><h2 id="condition-script">Condition script</h2><p>Next, enter the following code to set the action as available only for the project lead and applicable only to issues that are not <strong>Resolved</strong> or <strong>Closed</strong>.</p><h4 id="condition-script-2"><strong>Condition script</strong></h4><pre><code class="language-">number ENABLED = 1;
+    <div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="problem">Problem</h2><p>You want the project lead to reschedule issues in one simple step which includes entering the fix versions, an assignee and an optional comment.</p><h2 id="solution">Solution</h2><h2 id="create-the-action">Create the action</h2><p>Begin by creating the <strong>Reschedule</strong> action.</p><img alt="Power Scripts for Jira Cloud REST webhooks interface" class="doc-image" loading="lazy" src="/cms_trial/assets/747079fb-5f25-4e23-85ba-370417049ecb.png"/><h2 id="condition-script">Condition script</h2><p>Next, enter the following code to set the action as available only for the project lead and applicable only to issues that are not <strong>Resolved</strong> or <strong>Closed</strong>.</p><h4 id="condition-script-2"><strong>Condition script</strong></h4><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">number ENABLED = 1;
 number DISABLED = 2;
 number HIDDEN = 3;
 
@@ -39,7 +39,7 @@ if(projectPM(project) == currentUser() &amp;&amp; status != "Resolved" &amp;&amp
  return ENABLED;
 }
 
-return HIDDEN;</code></pre><h2 id="screen-script">Screen script</h2><p>Next, enter the below script to prompt the user to select fix versions and a new assignee (the default value is the initial assignee), and enter a comment.</p><h4 id="screen-script-2"><strong>Screen script</strong></h4><pre><code class="language-">string TEXT = "TEXT";
+return HIDDEN;</code></pre></div><h2 id="screen-script">Screen script</h2><p>Next, enter the below script to prompt the user to select fix versions and a new assignee (the default value is the initial assignee), and enter a comment.</p><h4 id="screen-script-2"><strong>Screen script</strong></h4><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">string TEXT = "TEXT";
 string TEXT_DISABLED = "TEXT_DISABLED";
 string [] fields;
 
@@ -58,7 +58,7 @@ fields = addElement(fields, "Comment");
 fields = addElement(fields, TEXT);
 fields = addElement(fields, "");
 
-return fields; </code></pre><p>This code renders the following screen.</p><img alt="Power Scripts for Jira Cloud right side panel interface" class="doc-image" loading="lazy" src="/cms_trial/assets/867b0f62-b79d-410d-8407-a8ea254b720a.png"/><div class="panel panel-success"><p>Assigning a string value that contains pipes to a string array splits the original string at the position of each pipe. Thus, you can use <strong>1.0|2.0</strong> as a value for <strong>Fix Versions</strong> to set multiple values.</p></div><h2 id="action-script">Action script</h2><p>Enter the following Action script.</p><h4 id="action-script-2"><strong>Action script</strong></h4><pre><code class="language-">string [] fvers = getElement(argv, 1);
+return fields; </code></pre></div><p>This code renders the following screen.</p><img alt="Power Scripts for Jira Cloud right side panel interface" class="doc-image" loading="lazy" src="/cms_trial/assets/867b0f62-b79d-410d-8407-a8ea254b720a.png"/><div class="panel panel-success"><p>Assigning a string value that contains pipes to a string array splits the original string at the position of each pipe. Thus, you can use <strong>1.0|2.0</strong> as a value for <strong>Fix Versions</strong> to set multiple values.</p></div><h2 id="action-script">Action script</h2><p>Enter the following Action script.</p><h4 id="action-script-2"><strong>Action script</strong></h4><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">string [] fvers = getElement(argv, 1);
 string newAssignee = getElement(argv, 3);
 string comment = getElement(argv, 5);
 
@@ -66,7 +66,7 @@ fixVersions = fvers;
 assignee = newAssignee;
 if(isNotNull(comment)){
 	addComment(key, currentUser(), comment);
-}</code></pre></div></div>
+}</code></pre></div></div></div>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>

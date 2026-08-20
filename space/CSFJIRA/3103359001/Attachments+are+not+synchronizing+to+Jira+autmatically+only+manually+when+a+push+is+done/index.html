@@ -31,7 +31,7 @@
     </div>
     <h1>Attachments are not synchronizing to Jira autmatically only manually when a push is done</h1>
     <div class="page-meta">1 min read</div>
-    <h2 id="problem">Problem</h2><p>You have followed the documentation to synchronize attachments  (<a href="/cms_trial/space/CSFJIRA/3091695099/Work+with+attachments+in+Salesforce/">Work with attachments in Salesforce</a> ). However, attachments only synchronize when you manually push them to Jira. You created the Apex trigger based on the documentation, but it doesn't seem to work.</p><h2 id="solution">Solution</h2><p>Depending on the system configuration, the Attachment might be disabled, and the File object might be using the Attachment label in the UI. This means the Apex trigger for the Attachment object won't work because the system uploads files to the File object rather than the Attachment object.</p><p>To enable the auto synchronization for the File object, add the trigger shown below:</p><pre><code class="language-">trigger ContentDocumentLinkTrigger on ContentDocumentLink (after insert) {
+    <h2 id="problem">Problem</h2><p>You have followed the documentation to synchronize attachments  (<a href="/cms_trial/space/CSFJIRA/3091695099/Work+with+attachments+in+Salesforce/">Work with attachments in Salesforce</a> ). However, attachments only synchronize when you manually push them to Jira. You created the Apex trigger based on the documentation, but it doesn't seem to work.</p><h2 id="solution">Solution</h2><p>Depending on the system configuration, the Attachment might be disabled, and the File object might be using the Attachment label in the UI. This means the Apex trigger for the Attachment object won't work because the system uploads files to the File object rather than the Attachment object.</p><p>To enable the auto synchronization for the File object, add the trigger shown below:</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">trigger ContentDocumentLinkTrigger on ContentDocumentLink (after insert) {
     Map&lt;String, Set&lt;Id&gt;&gt; sObjectsByType = new Map&lt;String, Set&lt;Id&gt;&gt;();
     Map&lt;String, List&lt;SObject&gt;&gt; sObjectsToBePushed = new Map&lt;String, List&lt;SObject&gt;&gt;(); 
     for (ContentDocumentLink contentDocumentLink : Trigger.new) {
@@ -54,7 +54,7 @@ for(String sObjectType : sObjectsByType.keySet()) {
 
 if (sObjectsToBePushed.size() &gt; 0) {
     JSFS.API.pushUpdatesToJiraWithMap(sObjectsToBePushed, Trigger.old);
-}</code></pre>
+}</code></pre></div>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>

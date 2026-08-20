@@ -31,14 +31,14 @@
     </div>
     <h1>Copy watchers to sub-tasks</h1>
     <div class="page-meta">1 min read</div>
-    <div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/41okKkC4n3o"></iframe></div><p>Call this script on a set schedule. The script adds the watchers from the parent issue to all subtasks.</p><pre><code class="language-">string [] keys = selectIssues("key in silJQLList(\"silJql_IssuesWithSubtasks.sil\", \"Project = EX\") AND statusCategory not in (Done)");
+    <div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/41okKkC4n3o"></iframe></div><p>Call this script on a set schedule. The script adds the watchers from the parent issue to all subtasks.</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">string [] keys = selectIssues("key in silJQLList(\"silJql_IssuesWithSubtasks.sil\", \"Project = EX\") AND statusCategory not in (Done)");
 
 for(string k in keys) {
     for(string s in subtasks(k)) {
         
         %s%.watchers += %k%.watchers;
     }
-}</code></pre><div class="panel panel-note"><p>The JQL script can be replaced with the predefined <a href="/cms_trial/space/PSJC/490997937/JQL+Support/">hasSubtasks</a> JQL function.</p></div><p>This script is used in silJQL to return a list of all issues with subtasks. It takes a JQL search as parameter. </p><p>It is recommended to use <strong>silJQLList</strong>, for example, the key in silJQLList("silJql_IssuesWithSubtasks.sil", "Project = EX").</p><pre><code class="language-">string [] keys = selectIssues(argv[0]);
+}</code></pre></div><div class="panel panel-note"><p>The JQL script can be replaced with the predefined <a href="/cms_trial/space/PSJC/490997937/JQL+Support/">hasSubtasks</a> JQL function.</p></div><p>This script is used in silJQL to return a list of all issues with subtasks. It takes a JQL search as parameter. </p><p>It is recommended to use <strong>silJQLList</strong>, for example, the key in silJQLList("silJql_IssuesWithSubtasks.sil", "Project = EX").</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">string [] keys = selectIssues(argv[0]);
 string [] ret;
 for(string k in keys) {
     if(size(subtasks(k)) != 0) {
@@ -46,7 +46,7 @@ for(string k in keys) {
     }
 }
 
-return ret;</code></pre>
+return ret;</code></pre></div>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>

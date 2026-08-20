@@ -30,8 +30,8 @@
       <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/1548747137" target="_blank" rel="noopener">Open in Confluence</a>
     </div>
     <h1>Nodes as building blocks for Custom Reports</h1>
-    <div class="page-meta">4 min read</div>
-    <div class="columns" style="grid-template-columns: 100.0fr;"><div><p>The report editor lets you design and structure reports tailored to your needs. This page explains the existing nodes; the foundational building blocks of Custom Reports.</p></div></div><h3 id="structure-of-a-custom-report">Structure of a Custom Report</h3><p>The report is organized as a hierarchical tree of nodes. Each node is enclosed between curly braces <code>{}</code> and classified by type.</p><table><tr><th><p><strong>Node types</strong></p></th><th><p><strong>Description</strong></p></th><th><p><strong>Example node</strong></p></th><th><p><strong>Explanation</strong></p></th></tr><tr><td><p>Text</p></td><td><p>Allows you to display plain text with customizable styles. For example, you can adjust: font size, color, and alignment. </p></td><td><pre><code class="language-json">{
+    <div class="page-meta">5 min read</div>
+    <div class="columns" style="grid-template-columns: 100.0fr;"><div><p>The report editor lets you design and structure reports tailored to your needs. This page explains the existing nodes; the foundational building blocks of Custom Reports.</p></div></div><h3 id="structure-of-a-custom-report">Structure of a Custom Report</h3><p>The report is organized as a hierarchical tree of nodes. Each node is enclosed between curly braces <code>{}</code> and classified by type.</p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p><strong>Node types</strong></p></th><th><p><strong>Description</strong></p></th><th><p><strong>Example node</strong></p></th><th><p><strong>Explanation</strong></p></th></tr><tr><td><p>Text</p></td><td><p>Allows you to display plain text with customizable styles. For example, you can adjust: font size, color, and alignment. </p></td><td><div class="code-block"><div class="code-block-header"><span class="code-block-lang">json</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-json">{
     type: 'text',
     text: 'Welcome to Custom Reports!',
     style: {
@@ -39,7 +39,7 @@
       marginBottom: 20,
       lineHeight: 1.5,
       color: '#555',
-}</code></pre></td><td><ul><li><p><code>fontSize</code>: sets the size of the font</p></li><li><p><code>text</code>: enter the text here</p></li><li><p><code>marginBottom</code>: sets the bottom margin of an element</p></li><li><p><code>lineHeight</code>: specifies the height of a line</p></li><li><p><code>color</code>: sets the color of the text</p></li></ul></td></tr><tr><td><p>Link</p></td><td><p>Allows you to create clickable links. Customize the URL and the text.</p></td><td><pre><code class="language-json">{
+}</code></pre></div></td><td><ul><li><p><code>fontSize</code>: sets the size of the font</p></li><li><p><code>text</code>: enter the text here</p></li><li><p><code>marginBottom</code>: sets the bottom margin of an element</p></li><li><p><code>lineHeight</code>: specifies the height of a line</p></li><li><p><code>color</code>: sets the color of the text</p></li></ul></td></tr><tr><td><p>Link</p></td><td><p>Allows you to create clickable links. Customize the URL and the text.</p></td><td><div class="code-block"><div class="code-block-header"><span class="code-block-lang">json</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-json">{
   type: 'link',
   href: 'https://example.com',
   style: {
@@ -47,22 +47,22 @@
 }
                                             {
                                                 type: 'text',
-                                                text: 'Click here for example',</code></pre></td><td><ul><li><p><code>href</code>: the url that the link is pointed at</p></li><li><p><code>color</code>: sets the link color</p></li></ul></td></tr><tr><td><p>SVG</p></td><td><p>Displays scalable vector graphics. Adjust the size, colors, and other properties to create custom visualizations.</p></td><td><pre><code class="language-json">{
+                                                text: 'Click here for example',</code></pre></div></td><td><ul><li><p><code>href</code>: the url that the link is pointed at</p></li><li><p><code>color</code>: sets the link color</p></li></ul></td></tr><tr><td><p>SVG</p></td><td><p>Displays scalable vector graphics. Adjust the size, colors, and other properties to create custom visualizations.</p></td><td><div class="code-block"><div class="code-block-header"><span class="code-block-lang">json</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-json">{
   type: 'svg',
   src: '/app/assets/images/illustrations/appfire-icon.svg',
   style: {
       'path.fill': '#000',
       'path.stroke': '#000',
-}</code></pre></td><td><ul><li><p><code>src</code>: path to the svg location </p></li><li><p><code>class</code>: CSS classes from provided stylesheet or stylesheet node</p></li><li><p><code>style[]</code>: Styles defined in JS-CSS style</p></li></ul></td></tr><tr><td><p>Image</p></td><td><p>Displays images from a URL. You can adjust the size and add alt text for accessibility.</p></td><td><pre><code class="language-json">{ 
+}</code></pre></div></td><td><ul><li><p><code>src</code>: path to the svg location </p></li><li><p><code>class</code>: CSS classes from provided stylesheet or stylesheet node</p></li><li><p><code>style[]</code>: Styles defined in JS-CSS style</p></li></ul></td></tr><tr><td><p>Image</p></td><td><p>Displays images from a URL. You can adjust the size and add alt text for accessibility.</p></td><td><div class="code-block"><div class="code-block-header"><span class="code-block-lang">json</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-json">{ 
   type: 'image', 
   src: 'https://example.com/{id}.jpg', 
   alt: 'img {id}', 
   style: { width: 100 } 
-  }</code></pre></td><td><ul><li><p><code>src</code>: Interpolated property for the image source</p></li><li><p><code>alt</code>: alt-text to improve accessibility</p></li><li><p><code>class</code>: CSS classes from provided stylesheet</p></li></ul></td></tr><tr><td><p>Progress</p></td><td><p>Displays progress bars. You can customize the appearance and behavior to show completion status.</p></td><td><pre><code class="language-json"> {
+  }</code></pre></div></td><td><ul><li><p><code>src</code>: Interpolated property for the image source</p></li><li><p><code>alt</code>: alt-text to improve accessibility</p></li><li><p><code>class</code>: CSS classes from provided stylesheet</p></li></ul></td></tr><tr><td><p>Progress</p></td><td><p>Displays progress bars. You can customize the appearance and behavior to show completion status.</p></td><td><div class="code-block"><div class="code-block-header"><span class="code-block-lang">json</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-json"> {
   type: 'progress',
   class: 'card',
   value: '60',
-  }</code></pre></td><td><ul><li><p><code>variant</code>: circular, linear</p></li><li><p><code>value</code>: Value to display</p></li><li><p><code>minValue</code>: Minimum progress value </p></li><li><p><code>maxValue</code>: Maximum progress value</p></li><li><p><code>background</code>: Show background</p></li><li><p><code>backgroundPadding</code>: specifies the origin position of a background image</p></li></ul></td></tr><tr><td><p>Chart</p></td><td><p>Displays data in graphical form. You can create bar, line, and area charts to visualize information. The PieChart node is also available for proportion-based data.</p></td><td><pre><code class="language-json">{
+  }</code></pre></div></td><td><ul><li><p><code>variant</code>: circular, linear</p></li><li><p><code>value</code>: Value to display</p></li><li><p><code>minValue</code>: Minimum progress value </p></li><li><p><code>maxValue</code>: Maximum progress value</p></li><li><p><code>background</code>: Show background</p></li><li><p><code>backgroundPadding</code>: specifies the origin position of a background image</p></li></ul></td></tr><tr><td><p>Chart</p></td><td><p>Displays data in graphical form. You can create bar, line, and area charts to visualize information. The PieChart node is also available for proportion-based data.</p></td><td><div class="code-block"><div class="code-block-header"><span class="code-block-lang">json</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-json">{
   type: 'chart',
   options: {
     chart: { width: 300, height: 200 },
@@ -88,7 +88,7 @@
       },
     ],
   },
-}</code></pre></td><td><ul><li><p><code>options[]</code>:</p><ul><li><p><code>chart[]</code>:</p></li><li><p><code>cartesianGrid[]</code>:</p></li><li><p><code>legend[]</code>:</p></li><li><p><code>xAxis[]</code>:</p></li><li><p><code>yAxis[]</code>:</p></li><li><p><code>tooltip[]</code>:</p></li></ul></li><li><p><code>data[]</code>:</p><ul><li><p><code>categories</code>: List of categories for the x axis</p></li><li><p><code>series</code>:</p><ul><li><p><code>chartType</code></p></li><li><p><code>name</code></p></li><li><p><code>stroke</code></p></li><li><p><code>fill</code></p></li><li><p><code>label</code></p></li><li><p><code>data</code></p></li></ul></li></ul></li></ul></td></tr><tr><td><p>Table</p></td><td><p>Allow for structured data display. Customize columns and rows to fit your needs.</p></td><td><pre><code class="language-json">{
+}</code></pre></div></td><td><ul><li><p><code>options[]</code>:</p><ul><li><p><code>chart[]</code>:</p></li><li><p><code>cartesianGrid[]</code>:</p></li><li><p><code>legend[]</code>:</p></li><li><p><code>xAxis[]</code>:</p></li><li><p><code>yAxis[]</code>:</p></li><li><p><code>tooltip[]</code>:</p></li></ul></li><li><p><code>data[]</code>:</p><ul><li><p><code>categories</code>: List of categories for the x axis</p></li><li><p><code>series</code>:</p><ul><li><p><code>chartType</code></p></li><li><p><code>name</code></p></li><li><p><code>stroke</code></p></li><li><p><code>fill</code></p></li><li><p><code>label</code></p></li><li><p><code>data</code></p></li></ul></li></ul></li></ul></td></tr><tr><td><p>Table</p></td><td><p>Allow for structured data display. Customize columns and rows to fit your needs.</p></td><td><div class="code-block"><div class="code-block-header"><span class="code-block-lang">json</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-json">{
   type: 'table',
   columns: [
     { header: 'Name', accessor: 'name' },
@@ -96,7 +96,7 @@
     // { header: 'Age', accessor: 'age', cell: { type: 'text', text: '{age} years' } },
     { header: 'Age in hours', accessor: 'age', cell: [{ type: 'text', text: '{age * 365 * 24} hours' }] },
   ],
-}</code></pre></td><td><ul><li><p><code>class</code>: CSS classes from provided stylesheet or stylesheet node</p></li><li><p><code>style[]</code>: Styles defined in JS-CSS style</p></li><li><p><code>path</code>: JSON path for the selection, it must be an array</p></li><li><p><code>columns[]</code>:</p><ul><li><p><code>header</code>: String representing the title header in the table</p></li><li><p><code>accessor</code>: JSON path expression to access the data in EACH row</p></li><li><p><code>cell[]</code>: Child nodes, customizing the body of the cell to any structure</p></li></ul></li></ul></td></tr><tr><td><p>List</p></td><td><p>Lists display items from an array. Customize the appearance and layout to suit your report.</p></td><td><pre><code class="language-json">{
+}</code></pre></div></td><td><ul><li><p><code>class</code>: CSS classes from provided stylesheet or stylesheet node</p></li><li><p><code>style[]</code>: Styles defined in JS-CSS style</p></li><li><p><code>path</code>: JSON path for the selection, it must be an array</p></li><li><p><code>columns[]</code>:</p><ul><li><p><code>header</code>: String representing the title header in the table</p></li><li><p><code>accessor</code>: JSON path expression to access the data in EACH row</p></li><li><p><code>cell[]</code>: Child nodes, customizing the body of the cell to any structure</p></li></ul></li></ul></td></tr><tr><td><p>List</p></td><td><p>Lists display items from an array. Customize the appearance and layout to suit your report.</p></td><td><div class="code-block"><div class="code-block-header"><span class="code-block-lang">json</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-json">{
   type: 'list',
   path: '$',
   item: {
@@ -109,7 +109,7 @@
         borderRadius: 5,
   },
   text: 'List item: {$}',
-}</code></pre></td><td><ul><li><p><code>item[]</code>: Child nodes</p></li><li><p><code>class</code>: CSS classes from provided stylesheet or stylesheet node</p></li><li><p><code>style[]</code>: Styles defined in JS-CSS style</p></li></ul></td></tr><tr><td><p>REST</p></td><td><p>Fetches data from an API. You can specify the URL and customize the data display. You can also create datasources to reuse configurations or to protect credentials. See <a href="/cms_trial/space/RDD/1550352515/Configure+a+REST+API+datasource+for+Custom+Reports/">Configure a REST API datasource for Custom Reports</a>.</p></td><td><pre><code class="language-json">{
+}</code></pre></div></td><td><ul><li><p><code>item[]</code>: Child nodes</p></li><li><p><code>class</code>: CSS classes from provided stylesheet or stylesheet node</p></li><li><p><code>style[]</code>: Styles defined in JS-CSS style</p></li></ul></td></tr><tr><td><p>REST</p></td><td><p>Fetches data from an API. You can specify the URL and customize the data display. You can also create datasources to reuse configurations or to protect credentials. See <a href="/cms_trial/space/RDD/1550352515/Configure+a+REST+API+datasource+for+Custom+Reports/">Configure a REST API datasource for Custom Reports</a>.</p></td><td><div class="code-block"><div class="code-block-header"><span class="code-block-lang">json</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-json">{
   type: 'rest',
   uri: 'https://pokeapi.co/api/v2/pokemon?limit=5',
   children: [
@@ -134,7 +134,7 @@
                 ],
             },
         ],
-    }</code></pre></td><td><ul><li><p><code>uri</code>: property to form the uri</p></li><li><p><code>refresh</code>: Active mode: refresh on any change or wait for submission</p></li><li><p><code>id</code>: rest id </p></li><li><p><code>path</code>: JSON path applied to the downloaded data</p></li><li><p><code>method</code>: Rest method to use: GET by default. or POST</p></li><li><p><code>headers[]</code>: REST headers</p></li><li><p><code>queryParams[]</code>:</p></li><li><p><code>children[]</code> Child nodes</p></li></ul></td></tr><tr><td><p>GraphQL</p></td><td><p>A precise alternative to REST that lets you make specific requests to GraphQL endpoints, for example, a Compass endpoint.</p></td><td><pre><code class="language-">{
+    }</code></pre></div></td><td><ul><li><p><code>uri</code>: property to form the uri</p></li><li><p><code>refresh</code>: Active mode: refresh on any change or wait for submission</p></li><li><p><code>id</code>: rest id </p></li><li><p><code>path</code>: JSON path applied to the downloaded data</p></li><li><p><code>method</code>: Rest method to use: GET by default. or POST</p></li><li><p><code>headers[]</code>: REST headers</p></li><li><p><code>queryParams[]</code>:</p></li><li><p><code>children[]</code> Child nodes</p></li></ul></td></tr><tr><td><p>GraphQL</p></td><td><p>A precise alternative to REST that lets you make specific requests to GraphQL endpoints, for example, a Compass endpoint.</p></td><td><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">{
   type: 'graphql',
   uri: 'datasource://compass',
   query: 'query GetComponents {\
@@ -157,7 +157,7 @@
   children: [
     { type: 'json' },
   }
-}</code></pre></td><td><ul><li><p><code>uri</code>: property to form the uri</p></li><li><p><code>path</code>: JSON path applied to the downloaded data</p></li><li><p><code>children[]</code> Child nodes</p></li></ul></td></tr></table>
+}</code></pre></div></td><td><ul><li><p><code>uri</code>: property to form the uri</p></li><li><p><code>path</code>: JSON path applied to the downloaded data</p></li><li><p><code>children[]</code> Child nodes</p></li></ul></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>

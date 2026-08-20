@@ -31,10 +31,10 @@
     </div>
     <h1>silUnit Annotations</h1>
     <div class="page-meta">3 min read</div>
-    <h2 id="background">Background </h2><p>As you may have gathered from the name, "silUnit" was inspired by JUnit, the testing suite for Java. Just as found in JUnit, silUnit makes use of annotations to lets the silUnit suite know which functions are intended as tests or features such as running functions before each tests. Below is a brief description of each supported annotation and what they do.</p><h2 id="test-test">/** TEST **/ - Test</h2><p>This basic annotation lets the silUnit Suite know that the function that follows is intended as a test. For example:</p><table><tr><td><pre><code class="language-">/** TEST **/
+    <h2 id="background">Background </h2><p>As you may have gathered from the name, "silUnit" was inspired by JUnit, the testing suite for Java. Just as found in JUnit, silUnit makes use of annotations to lets the silUnit suite know which functions are intended as tests or features such as running functions before each tests. Below is a brief description of each supported annotation and what they do.</p><h2 id="test-test">/** TEST **/ - Test</h2><p>This basic annotation lets the silUnit Suite know that the function that follows is intended as a test. For example:</p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><td><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">/** TEST **/
 function itSaysHello() {
     assertEquals(sayHello(), "hello");
-}</code></pre></td></tr></table><h2 id="before-function-to-be-run-once"> /** BEFORE **/ - Function to Be Run Once</h2><p>This annotation tells the silUnit Suite that the function is to be run once before the rest of the tests. This is useful if you would like to set up one scenario before testing functions in a series. For example:</p><table><tr><td><pre><code class="language-">include "Includes/_silUnit.incl";
+}</code></pre></div></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><h2 id="before-function-to-be-run-once"> /** BEFORE **/ - Function to Be Run Once</h2><p>This annotation tells the silUnit Suite that the function is to be run once before the rest of the tests. This is useful if you would like to set up one scenario before testing functions in a series. For example:</p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><td><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">include "Includes/_silUnit.incl";
  
  
 number value;
@@ -57,7 +57,7 @@ function incrementOnce() {
 function incrementAgain() {
     value++;
     assertEquals(value, 2);
-}</code></pre></td></tr></table><h2 id="after-function-to-be-run-once-after-a-series-of-tests">/** AFTER **/ - Function to Be Run Once After a Series of Tests</h2><p>The "AFTER" annotation tells the silUnit Suite to run the function after the tests have been completed. This is useful to change the value tested to its original state. Let's say, for example, that we would like to do some testing on a custom field, but would like for that value to return to its original state. We could first use the "BEFORE" annotation to set up the test, then the "AFTER" annotation to set the value back to the original. In the example below, imagine we have a custom field called "textField" and we would like to set the value of textField, test that the transaction was successful, then revert the value of textField to its original state.</p><table><tr><td><pre><code class="language-">include "Includes/_silUnit.incl";
+}</code></pre></div></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><h2 id="after-function-to-be-run-once-after-a-series-of-tests">/** AFTER **/ - Function to Be Run Once After a Series of Tests</h2><p>The "AFTER" annotation tells the silUnit Suite to run the function after the tests have been completed. This is useful to change the value tested to its original state. Let's say, for example, that we would like to do some testing on a custom field, but would like for that value to return to its original state. We could first use the "BEFORE" annotation to set up the test, then the "AFTER" annotation to set the value back to the original. In the example below, imagine we have a custom field called "textField" and we would like to set the value of textField, test that the transaction was successful, then revert the value of textField to its original state.</p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><td><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">include "Includes/_silUnit.incl";
  
 string key = "DEMO-1";
 string originalValue;
@@ -76,7 +76,7 @@ function setToOriginalValue() {
 function setTextField() {
     %key%.textField = "test";
     assertEquals(key.textField, "test");
-}</code></pre></td></tr></table><h2 id="beforeeach-function-to-be-run-once-before-every-test"><br/>/** BEFOREEACH **/ - Function to Be Run Once Before Every Test</h2><p>The "BEFOREEACH" annotation tells the silUnit Suite to run the following function once before each test. Let's say we wanted to reset the value of a custom field before every test. The code would look something like:</p><table><tr><td><pre><code class="language-">include "Includes/_silUnit.incl";
+}</code></pre></div></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><h2 id="beforeeach-function-to-be-run-once-before-every-test"><br/>/** BEFOREEACH **/ - Function to Be Run Once Before Every Test</h2><p>The "BEFOREEACH" annotation tells the silUnit Suite to run the following function once before each test. Let's say we wanted to reset the value of a custom field before every test. The code would look something like:</p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><td><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">include "Includes/_silUnit.incl";
  
 string key = "DEMO-1";
  
@@ -95,7 +95,7 @@ function setToHello() {
 function setToTest() {
     %key%.textField = "test";
     assertEquals(key.textField, "test");
-}</code></pre></td></tr></table><h2 id="aftereach-function-to-be-run-once-after-every-test"><br/>/** AFTEREACH **/ - Function to Be Run Once After Every Test</h2><p>The "AFTEREACH" annotation tells the silUnit Suite to run the following function once after every test. This is useful for cleanup after every test.</p><table><tr><td><pre><code class="language-">include "Includes/_silUnit.incl";
+}</code></pre></div></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><h2 id="aftereach-function-to-be-run-once-after-every-test"><br/>/** AFTEREACH **/ - Function to Be Run Once After Every Test</h2><p>The "AFTEREACH" annotation tells the silUnit Suite to run the following function once after every test. This is useful for cleanup after every test.</p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><td><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">include "Includes/_silUnit.incl";
  
 string key = "DEMO-1";
  
@@ -114,7 +114,7 @@ function setToHello() {
 function setToTest() {
     %key%.textField = "test";
     assertEquals(key.textField, "test");
-}</code></pre></td></tr></table><h2 id="additional-help">Additional Help</h2><p>Need help implementing unit tests on your script? Talk to me directly to me by clicking on the bot on this page. </p>
+}</code></pre></div></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><h2 id="additional-help">Additional Help</h2><p>Need help implementing unit tests on your script? Talk to me directly to me by clicking on the bot on this page. </p>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>

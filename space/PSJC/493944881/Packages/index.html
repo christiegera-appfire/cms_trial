@@ -31,13 +31,13 @@
     </div>
     <h1>Packages</h1>
     <div class="page-meta">2 min read</div>
-    <p>With the advent of SIL 5.8.0.0 we introduced packages for our ever-growing library of functions. The logic behind it is that for many of the addons what we already had, we had to introduce functions / functions following some naming convention ( for instance, for Power Dashboards Reports and Gadgets all functions started with ‘<em>reporting_’</em>). We really hope to save you some typing.</p><p>A function must have a name, but it may also have a package and a ‘short’ name. To call it, either </p><ol><li><p>you must declare that you use that package and simply call it by the ‘short’ name, or</p></li><li><p>you may simply call it by its 'long' name, as you did before introduction of packages.</p></li></ol><p>As it is now, you cannot introduce yourself a new package via the language itself. If you really need such a feature, let us know.</p><h2 id="example">Example</h2><p>Let’s see a very simple example: <a href="/cms_trial/space/PSJC/434602716/fileOpen/">fileOpen </a>function lives within the ‘<em>file</em>' package, and has the short name ‘<em>open</em>’. The full name of the function is actually '<em>fileOpen</em>’. Check the docs, people, we added for such functions the package information in that little table above!</p><p>To use it by the short name, all we have to do is:</p><pre><code class="language-java">use "file"; //announce the package usage
+    <p>With the advent of SIL 5.8.0.0 we introduced packages for our ever-growing library of functions. The logic behind it is that for many of the addons what we already had, we had to introduce functions / functions following some naming convention ( for instance, for Power Dashboards Reports and Gadgets all functions started with ‘<em>reporting_’</em>). We really hope to save you some typing.</p><p>A function must have a name, but it may also have a package and a ‘short’ name. To call it, either </p><ol><li><p>you must declare that you use that package and simply call it by the ‘short’ name, or</p></li><li><p>you may simply call it by its 'long' name, as you did before introduction of packages.</p></li></ol><p>As it is now, you cannot introduce yourself a new package via the language itself. If you really need such a feature, let us know.</p><h2 id="example">Example</h2><p>Let’s see a very simple example: <a href="/cms_trial/space/PSJC/434602716/fileOpen/">fileOpen </a>function lives within the ‘<em>file</em>' package, and has the short name ‘<em>open</em>’. The full name of the function is actually '<em>fileOpen</em>’. Check the docs, people, we added for such functions the package information in that little table above!</p><p>To use it by the short name, all we have to do is:</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">java</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-java">use "file"; //announce the package usage
 
 const string filename = "afile.txt";
 
 int fid = open(filename); //short name
 // the following line will still work, but the above seems IOHO cleaner:
-//int fid = fileOpen(filename); //long name</code></pre><p>That may not seem much, but, if you look at the Excel Connector, for instance, you will see why we love this feature.</p><pre><code class="language-java">use "excel";
+//int fid = fileOpen(filename); //long name</code></pre></div><p>That may not seem much, but, if you look at the Excel Connector, for instance, you will see why we love this feature.</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">java</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-java">use "excel";
 
 int fid = openWorkbook("test.xlsx"); //excelOpenWorkbook
 
@@ -53,7 +53,7 @@ setCell(fid, 12001, 0, 1);
 setCell(fid, "Value 2", "Data", 0, 0);
 setCell(fid, 20010, "Data", 0, 1);
 
-closeWorkbook(fid); //save it</code></pre>
+closeWorkbook(fid); //save it</code></pre></div>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
