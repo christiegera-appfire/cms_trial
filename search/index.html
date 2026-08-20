@@ -27,7 +27,7 @@
 </form>
 <div class="search-layout">
   <aside class="search-filters">
-    <div class="search-filters-title">SPACE</div>
+    <div class="search-filters-title">PRODUCT AREA</div>
     <div id="space-filter-list"></div>
   </aside>
   <div class="search-results-area">
@@ -40,12 +40,18 @@
 <script>
 (function () {
   var INDEX_URL = "/cms_trial/search-index.json";
+  var SPACE_TO_AREA = {"JMWEC": "Workflow & automation", "JSUCLOUD": "Workflow & automation", "PSJC": "Workflow & automation", "JMCFC": "Workflow & automation", "FOX": "Agile & planning", "PP": "Agile & planning", "POKERADO": "Agile & planning", "HED": "Agile & planning", "TTSC": "Time & SLA", "7TFJ": "Time & SLA", "7TFA": "Time & SLA", "RDD": "Reporting & dashboards", "RFCDOC": "Reporting & dashboards", "JQLSEARCH": "Reporting & dashboards", "CDMC": "Documents & content", "TBL": "Documents & content", "CSFJIRA": "Admin & integrations", "CMJC": "Admin & integrations", "SPM": "Other apps"};
+  var AREA_ORDER = ["Workflow & automation", "Agile & planning", "Time & SLA", "Reporting & dashboards", "Documents & content", "Admin & integrations", "Other apps"];
   var input = document.getElementById("search-input");
   var resultsEl = document.getElementById("search-results");
   var countEl = document.getElementById("search-count");
   var spaceFilterList = document.getElementById("space-filter-list");
   var allPages = [];
-  var activeSpaces = {};
+  var activeAreas = {};
+
+  function areaFor(spaceKey) {
+    return SPACE_TO_AREA[spaceKey] || "Other apps";
+  }
 
   function highlight(text, term) {
     if (!term) return escapeHtml(text);
@@ -61,11 +67,11 @@
 
   function render() {
     var term = input.value.trim();
-    var anySpaceFilterActive = Object.keys(activeSpaces).some(function (k) { return activeSpaces[k]; });
+    var anyAreaFilterActive = Object.keys(activeAreas).some(function (k) { return activeAreas[k]; });
     var matches = allPages.filter(function (p) {
       var matchesTerm = !term || p.title.toLowerCase().indexOf(term.toLowerCase()) !== -1 || p.snippet.toLowerCase().indexOf(term.toLowerCase()) !== -1;
-      var matchesSpace = !anySpaceFilterActive || activeSpaces[p.space_key];
-      return matchesTerm && matchesSpace;
+      var matchesArea = !anyAreaFilterActive || activeAreas[areaFor(p.space_key)];
+      return matchesTerm && matchesArea;
     });
     countEl.textContent = "Showing " + Math.min(matches.length, 50) + " of " + matches.length + " results";
     resultsEl.innerHTML = matches.slice(0, 50).map(function (p) {
@@ -77,15 +83,18 @@
     }).join("");
   }
 
-  function buildSpaceFilters() {
-    var spaces = {};
-    allPages.forEach(function (p) { spaces[p.space_key] = p.space_name; });
-    spaceFilterList.innerHTML = Object.keys(spaces).sort().map(function (key) {
-      return '<label class="search-filter-checkbox"><input type="checkbox" data-space="' + key + '"> ' + escapeHtml(spaces[key]) + '</label>';
+  function buildAreaFilters() {
+    // Only show areas that actually have at least one page in the index —
+    // avoids an empty, useless checkbox for an area with no real content.
+    var presentAreas = {};
+    allPages.forEach(function (p) { presentAreas[areaFor(p.space_key)] = true; });
+    var orderedPresent = AREA_ORDER.filter(function (name) { return presentAreas[name]; });
+    spaceFilterList.innerHTML = orderedPresent.map(function (name) {
+      return '<label class="search-filter-checkbox"><input type="checkbox" data-area="' + escapeHtml(name) + '"> ' + escapeHtml(name) + '</label>';
     }).join("");
     spaceFilterList.querySelectorAll("input[type=checkbox]").forEach(function (cb) {
       cb.addEventListener("change", function () {
-        activeSpaces[cb.dataset.space] = cb.checked;
+        activeAreas[cb.dataset.area] = cb.checked;
         render();
       });
     });
@@ -95,7 +104,7 @@
     .then(function (r) { return r.json(); })
     .then(function (data) {
       allPages = data;
-      buildSpaceFilters();
+      buildAreaFilters();
       var params = new URLSearchParams(window.location.search);
       var q = params.get("q");
       if (q) input.value = q;
