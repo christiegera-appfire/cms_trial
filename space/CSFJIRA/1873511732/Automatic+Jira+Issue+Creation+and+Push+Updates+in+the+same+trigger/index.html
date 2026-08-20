@@ -31,7 +31,7 @@
     </div>
     <h1>Automatic Jira Issue Creation and Push Updates in the same trigger</h1>
     <div class="page-meta">2 min read</div>
-    <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h2 id="one-trigger-per-object">One trigger per object</h2><p>If you have one Apex trigger listening to multiple events (e. g. <strong>after insert</strong> and <strong>after update</strong>) you can still use the Apex API to create Jira issues and/or push updates to Jira. Sometimes, though, you want to call the API conditionally based on the actual event. In that case you can do so by adding some checks per case:</p><h4 id="casetrigger"><strong>CaseTrigger</strong></h4><pre><code class="language-java">trigger CaseTrigger on Case (after insert, after update) {
+    <h2 id="one-trigger-per-object">One trigger per object</h2><p>If you have one Apex trigger listening to multiple events (e. g. <strong>after insert</strong> and <strong>after update</strong>) you can still use the Apex API to create Jira issues and/or push updates to Jira. Sometimes, though, you want to call the API conditionally based on the actual event. In that case you can do so by adding some checks per case:</p><h4 id="casetrigger"><strong>CaseTrigger</strong></h4><pre><code class="language-java">trigger CaseTrigger on Case (after insert, after update) {
     if (Trigger.isInsert &amp;&amp; Trigger.isAfter) {
         JCFS.API.createJiraIssue('10000', '10002');
     }

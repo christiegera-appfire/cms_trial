@@ -31,7 +31,7 @@
     </div>
     <h1>Sum up story points for issues in an Epic</h1>
     <div class="page-meta">1 min read</div>
-    <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="problem">Problem</h2><p>You want to have a field that contains the sum of all the story points under an Epic.</p><h2 id="solution">Solution</h2><p>Create a scripted field that calculates the total story points by checking if the current issue is an Epic, then finding all child issues and summing their story point values. The script only processes issues with story points greater than 0 to avoid null value errors.</p></div></div><h3 id="script">Script</h3><pre><code class="language-">integer sum = 0;
+    <div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="problem">Problem</h2><p>You want to have a field that contains the sum of all the story points under an Epic.</p><h2 id="solution">Solution</h2><p>Create a scripted field that calculates the total story points by checking if the current issue is an Epic, then finding all child issues and summing their story point values. The script only processes issues with story points greater than 0 to avoid null value errors.</p></div></div><h3 id="script">Script</h3><pre><code class="language-">integer sum = 0;
 if(issueType == "Epic") {
     for(string i in selectIssues("parent = " + key)) {
         if(i.storyPoints &gt; 0) {

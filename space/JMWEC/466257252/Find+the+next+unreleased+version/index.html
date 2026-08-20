@@ -31,13 +31,13 @@
     </div>
     <h1>Find the next unreleased version</h1>
     <div class="page-meta">1 min read</div>
-    <div class="img-placeholder">[Unmapped macro: aura-html — no content to fall back on]</div><h3 id="abstract">Abstract</h3><p>This code snippet fetches the next unreleased version available for the current issue</p><h3 id="logic">Logic</h3><p>Access the available versions for the issue and filter the next unreleased version by the version date</p><h3 id="snippet">Snippet</h3><pre><code class="language-javascript">{% set vers = {} %}
+    <h3 id="abstract">Abstract</h3><p>This code snippet fetches the next unreleased version available for the current issue</p><h3 id="logic">Logic</h3><p>Access the available versions for the issue and filter the next unreleased version by the version date</p><h3 id="snippet">Snippet</h3><pre><code class="language-javascript">{% set vers = {} %}
 {% for v in issue | projectInfo | field("versions") %}
   {% if not v.released and (not vers.releaseDate or vers.releaseDate &gt;= v.releaseDate) %}
     {% set vers = v %}
   {% endif %}
 {% endfor %}
-{{vers.name}}</code></pre><h3 id="placeholders">Placeholders</h3><p>N/A</p><p>Examples</p><p>The output of this code is a String representing a Version which you could use in a template, for example, to set a Version picker field in:</p><ul><li><p>one of the Set Field Value post-functions</p></li><li><p>one of the Transition issue post-functions on the transition screen, if any</p></li><li><p>the Create issue post-function under Set fields of new issue section</p></li></ul><h3 id="references">References</h3><ul><li><p><a href="/cms_trial/space/JMWEC/465503811/Using+Nunjucks+Templates/">Using Nunjucks Templates</a></p></li><li><p><a href="/wiki/spaces/MWECS/pages/78482118/Custom+Filters#projectInfo">projectInfo filter</a></p></li><li><p><a href="/wiki/spaces/MWECS/pages/78482118/Custom+Filters#field">field filter</a></p></li></ul><h3 id="related-articles">Related articles</h3><div class="img-placeholder">[Unmapped macro: contentbylabel — no content to fall back on]</div><p><br/></p>
+{{vers.name}}</code></pre><h3 id="placeholders">Placeholders</h3><p>N/A</p><p>Examples</p><p>The output of this code is a String representing a Version which you could use in a template, for example, to set a Version picker field in:</p><ul><li><p>one of the Set Field Value post-functions</p></li><li><p>one of the Transition issue post-functions on the transition screen, if any</p></li><li><p>the Create issue post-function under Set fields of new issue section</p></li></ul><h3 id="references">References</h3><ul><li><p><a href="/cms_trial/space/JMWEC/465503811/Using+Nunjucks+Templates/">Using Nunjucks Templates</a></p></li><li><p><a href="/wiki/spaces/MWECS/pages/78482118/Custom+Filters#projectInfo">projectInfo filter</a></p></li><li><p><a href="/wiki/spaces/MWECS/pages/78482118/Custom+Filters#field">field filter</a></p></li></ul><h3 id="related-articles">Related articles</h3><p><br/></p>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
