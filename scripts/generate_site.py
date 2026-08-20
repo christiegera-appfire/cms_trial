@@ -55,6 +55,10 @@ _SEARCH_SHORTCUT_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)),
 with open(_SEARCH_SHORTCUT_PATH) as _f:
     SEARCH_SHORTCUT_TEMPLATE = _f.read()
 
+_TOC_SCROLLSPY_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "toc_scrollspy_widget.html")
+with open(_TOC_SCROLLSPY_PATH) as _f:
+    TOC_SCROLLSPY_SCRIPT = _f.read()
+
 _PRODUCT_DIR_TEMPLATE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "templates", "product_directory_template.html")
 with open(_PRODUCT_DIR_TEMPLATE_PATH) as _f:
     PRODUCT_DIRECTORY_TEMPLATE = _f.read()
@@ -295,6 +299,7 @@ def page_shell(title, meta_description, nav_html, page_count, body_html, brand, 
 {AURA_TABS_SCRIPT}
 {COPY_CODE_SCRIPT}
 {SEARCH_SHORTCUT_TEMPLATE.replace("__SEARCH_URL__", path_prefix + "/search/")}
+{TOC_SCROLLSPY_SCRIPT}
 </body>
 </html>
 """
@@ -648,119 +653,191 @@ def get_product_icon_html(space_key, path_prefix="", css_class="", alt_text=""):
     return ""
 
 
-def write_space_picker(out_dir, spaces_info, brand, path_prefix="", base_url="", noindex=False, all_built=None, featured_spaces=None, external_links=None):
-    """Real landing page listing every configured space, used once there's
-    more than one — a single-space redirect no longer makes sense once
-    there's an actual choice to present.
+def load_product_areas(path="product-areas.json"):
+    """Loads the provisional product-area taxonomy Claude Design built
+    from the real brand kit — the one piece of metadata Confluence can't
+    supply on its own. Explicitly draft/placeholder content pending real
+    sign-off (per the file's own $comment), not a finalized decision."""
+    if not os.path.exists(path):
+        return {"areas": []}
+    with open(path) as f:
+        return json.load(f)
 
-    Layout: a 2/3-width main column (a handful of featured products as
-    larger cards, everyone else below in alphabetical order) alongside a
-    1/3-width right rail (recent release notes with real summaries, not
-    just titles). featured_spaces is an explicit editorial choice from
-    config — which 3 products get the spotlight isn't something to guess
-    at automatically (Refined's own "top products" picks aren't the 3
-    biggest by any objective metric either, they're curated) — but if
-    it's not set, falls back to the 3 largest by page count as a
-    reasonable default rather than leaving it empty.
 
-    external_links covers products whose documentation lives entirely
-    outside this pipeline (JXL's docs live at jxl.app, not in Confluence)
-    — these get a real card that just links out, rather than needing a
-    fake space with no actual content. They deliberately aren't part of
-    all_built, so they never show up in search or What's New, since
-    there's no real fetched content behind them to index."""
-    external_links = external_links or []
+def map_spaces_to_areas(spaces_info, external_links, areas_data):
+    """Groups real spaces (and external links) into their product area,
+    matching by space key. Any space the taxonomy doesn't yet cover — SPM
+    was added to this pipeline after the taxonomy file was built — still
+    needs to be reachable somewhere, per the taxonomy's own explicit
+    policy: never drop a space silently just because it predates the
+    categorization. Falls back to an "Other apps" group rather than
+    hiding it."""
     info_by_key = {s[0]: s for s in spaces_info}
     external_by_key = {e["key"]: e for e in external_links}
+    all_known_keys = set(info_by_key.keys()) | set(external_by_key.keys())
+    covered_keys = set()
 
-    if featured_spaces:
-        featured_keys = [k for k in featured_spaces if k in info_by_key or k in external_by_key]
-    else:
-        # Auto-default only ranks real spaces by page count — an external
-        # link has no page count to rank by, so it only gets featured if
-        # explicitly requested in config, never auto-selected.
-        featured_keys = [
-            s[0] for s in sorted(spaces_info, key=lambda s: s[4], reverse=True)[:3]
-        ]
-    featured_set = set(featured_keys)
+    area_groups = []
+    for area in areas_data.get("areas", []):
+        area_spaces = []
+        for entry in area["spaces"]:
+            key = entry["key"]
+            covered_keys.add(key)
+            if key in info_by_key:
+                area_spaces.append(("real", info_by_key[key]))
+            elif key in external_by_key:
+                e = external_by_key[key]
+                area_spaces.append(("external", (e["key"], e["name"], e["url"])))
+        area_groups.append({**area, "resolved_spaces": area_spaces})
 
-    def real_card_html(space_key, space_name, roots, titles, page_count, featured=False):
-        home = page_url(roots[0], space_key, titles, path_prefix) if roots else f"{path_prefix}/space/{space_key}/"
-        icon_size_class = "space-card-icon-lg" if featured else "space-card-icon"
-        icon_html = get_product_icon_html(space_key, path_prefix, icon_size_class, space_name)
-        key_or_icon = icon_html if icon_html else f'<div class="space-card-key">{space_key}</div>'
-        card_class = "space-card space-card-featured" if featured else "space-card"
-        return f"""
-<a class="{card_class}" href="{home}">
-  {key_or_icon}
-  <h2>{html.escape(space_name, quote=False)}</h2>
-  <p>{page_count} pages</p>
+    unassigned_keys = all_known_keys - covered_keys
+    if unassigned_keys:
+        other_spaces = []
+        for key in sorted(unassigned_keys):
+            if key in info_by_key:
+                other_spaces.append(("real", info_by_key[key]))
+            else:
+                e = external_by_key[key]
+                other_spaces.append(("external", (e["key"], e["name"], e["url"])))
+        area_groups.append({
+            "id": "other",
+            "name": "Other apps",
+            "icon": "apps",
+            "tint": "--af-flow",
+            "blurb": "Not yet sorted into a product area.",
+            "resolved_spaces": other_spaces,
+        })
+
+    return area_groups
+
+
+def render_area_card(area, path_prefix=""):
+    count = len(area["resolved_spaces"])
+    return f"""
+<a class="area-card" href="{path_prefix}/apps/{area['id']}/" style="--area-tint: var({area['tint']})">
+  <span class="material-symbols-outlined area-card-icon">{area['icon']}</span>
+  <h3>{html.escape(area['name'], quote=False)}</h3>
+  <p>{html.escape(area.get('blurb', ''), quote=False)}</p>
 </a>"""
 
-    def external_card_html(key, name, url, featured=False):
-        icon_size_class = "space-card-icon-lg" if featured else "space-card-icon"
-        icon_html = get_product_icon_html(key, path_prefix, icon_size_class, name)
-        key_or_icon = icon_html if icon_html else f'<div class="space-card-key">{key}</div>'
-        card_class = "space-card space-card-external"
-        if featured:
-            card_class += " space-card-featured"
-        safe_url = html.escape(url, quote=True)
-        # target="_blank" here deliberately, unlike internal links — this
-        # genuinely leaves the site for a separate product's own domain,
-        # not a same-ecosystem navigation the way Get Help does.
-        return f"""
-<a class="{card_class}" href="{safe_url}" target="_blank" rel="noopener">
-  {key_or_icon}
-  <h2>{html.escape(name, quote=False)}</h2>
-  <p class="space-card-external-label">External documentation ↗</p>
-</a>"""
 
-    featured_cards_html = []
-    for k in featured_keys:
-        if k in info_by_key:
-            featured_cards_html.append(real_card_html(*info_by_key[k], featured=True))
-        elif k in external_by_key:
-            e = external_by_key[k]
-            featured_cards_html.append(external_card_html(e["key"], e["name"], e["url"], featured=True))
-    featured_cards = "".join(featured_cards_html)
+def write_area_directory_page(out_dir, area, all_areas, brand, path_prefix="", base_url="", noindex=False):
+    """One directory page per product area — /apps/<areaId>/ — showing
+    only that area's real spaces. No page counts anywhere, per spec's
+    explicit "do not reintroduce a stats row" instruction."""
+    cards = []
+    for kind, data in area["resolved_spaces"]:
+        if kind == "real":
+            space_key, space_name, roots, titles, page_count = data
+            home = page_url(roots[0], space_key, titles, path_prefix) if roots else f"{path_prefix}/space/{space_key}/"
+            icon_html = get_product_icon_html(space_key, path_prefix, "space-card-icon", space_name)
+            key_or_icon = icon_html if icon_html else f'<div class="space-card-key">{space_key}</div>'
+            cards.append(f'<a class="space-card" href="{home}">{key_or_icon}<h2>{html.escape(space_name, quote=False)}</h2></a>')
+        else:
+            key, name, url = data
+            icon_html = get_product_icon_html(key, path_prefix, "space-card-icon", name)
+            key_or_icon = icon_html if icon_html else f'<div class="space-card-key">{key}</div>'
+            safe_url = html.escape(url, quote=True)
+            cards.append(
+                f'<a class="space-card space-card-external" href="{safe_url}" target="_blank" rel="noopener">'
+                f'{key_or_icon}<h2>{html.escape(name, quote=False)}</h2>'
+                f'<p class="space-card-external-label">External documentation ↗</p></a>'
+            )
 
-    rest_items = []
-    for s in spaces_info:
-        if s[0] not in featured_set:
-            rest_items.append((s[1].lower(), real_card_html(*s)))
-    for e in external_links:
-        if e["key"] not in featured_set:
-            rest_items.append((e["name"].lower(), external_card_html(e["key"], e["name"], e["url"])))
-    rest_items.sort(key=lambda item: item[0])  # alphabetical by display name, real spaces and external links mixed together
-    rest_cards = "".join(html_str for _sort_key, html_str in rest_items)
+    tabs = "".join(
+        f'<a href="{path_prefix}/apps/{a["id"]}/" class="{"active" if a["id"] == area["id"] else ""}">{html.escape(a["name"], quote=False)}</a>'
+        for a in all_areas
+    )
+
+    top_nav = render_top_nav(brand, path_prefix)
+    body = f"""
+<nav class="area-tabs">{tabs}</nav>
+<div class="picker-body">
+<h1>{html.escape(area['name'], quote=False)}</h1>
+<p class="hero-subtitle">{html.escape(area.get('blurb', ''), quote=False)}</p>
+<div class="space-grid">{''.join(cards)}</div>
+</div>
+"""
+    extra_head = '<meta name="robots" content="noindex, nofollow">' if noindex else (
+        f'<link rel="canonical" href="{base_url.rstrip("/")}{path_prefix}/apps/{area["id"]}/">' if base_url else ""
+    )
+    html_out = f"""<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>{html.escape(area['name'], quote=False)} | {brand.get("name", "Docs")}</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{path_prefix}/tokens.css">
+<link rel="stylesheet" href="{path_prefix}/styles.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
+{extra_head}
+</head>
+<body>
+{top_nav}
+<div class="shell shell-full"><main class="content content-full">{body}</main></div>
+</body>
+</html>
+"""
+    out_path = os.path.join(out_dir, "apps", area["id"], "index.html")
+    os.makedirs(os.path.dirname(out_path), exist_ok=True)
+    with open(out_path, "w") as f:
+        f.write(html_out)
+
+
+def write_space_picker(out_dir, spaces_info, brand, path_prefix="", base_url="", noindex=False, all_built=None, featured_spaces=None, external_links=None, areas_data=None):
+    """Real landing page, rebuilt to match the actual Claude Design
+    prototype: a gradient hero, category cards organized by product area
+    (not a flat list of every app), and a "recent activity" + "can't find
+    it" section — replacing the earlier featured/alphabetical layout
+    entirely. Product areas are Claude Design's own provisional taxonomy
+    (product-areas.json), explicitly draft content pending real sign-off,
+    not a finalized decision made here."""
+    external_links = external_links or []
+    areas_data = areas_data or {"areas": []}
+    area_groups = map_spaces_to_areas(spaces_info, external_links, areas_data)
+
+    area_cards = "".join(render_area_card(a, path_prefix) for a in area_groups)
 
     top_nav = render_top_nav(brand, path_prefix)
     whats_new_html = render_whats_new_section(all_built or [], path_prefix)
+
+    tagline = brand.get("tagline", "")
     body = f"""
 <section class="hero">
-  <h1>{brand.get('name', 'Docs')}</h1>
-  <p class="hero-subtitle">{brand.get('tagline', '')}</p>
-  <form class="hero-search" action="{path_prefix}/search/" method="get">
-    <input type="search" name="q" placeholder="Search Appfire products...">
-    <button type="submit">Search</button>
-
-  </form>
-</section>
-<div class="picker-layout">
-  <div class="picker-main">
-    <a class="product-directory-cta" href="{path_prefix}/product-directory/">Browse the full Appfire app directory →</a>
-    <div class="space-grid space-grid-featured">{featured_cards}</div>
-    <div class="space-grid">{rest_cards}</div>
+  <div class="hero-bloom"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Appfire documentation</p>
+    <h1 class="hero-h1">We build the tools. <span class="hero-h1-accent">You bring the fire.</span></h1>
+    <p class="hero-sub">Setup guides, configuration reference, and troubleshooting for every Appfire app on Atlassian, Azure DevOps, and monday.com — kept in sync with Confluence.</p>
+    <div class="hero-buttons">
+      <a class="hero-btn-primary" href="{path_prefix}/product-directory/">Browse all apps <span class="material-symbols-outlined">arrow_forward</span></a>
+      <a class="hero-btn-secondary" href="#recent-activity">What's new</a>
+    </div>
   </div>
-  <aside class="picker-sidebar">
-    {whats_new_html}
-  </aside>
+</section>
+<div class="picker-body">
+  <div class="section-head-row">
+    <div>
+      <h2 class="section-head">Start where your work lives</h2>
+      <p class="section-sub">Pick a product area, then the app.</p>
+    </div>
+    <a class="section-head-link" href="{path_prefix}/product-directory/">All apps A–Z →</a>
+  </div>
+  <div class="area-grid">{area_cards}</div>
+
+  <div id="recent-activity" class="activity-row">
+    <div class="activity-list">
+      <h2 class="section-head">Recent activity</h2>
+      {whats_new_html}
+    </div>
+    <div class="cant-find-it">
+      <h2>Can't find it?</h2>
+      <p>Try these instead.</p>
+      <a href="{path_prefix}/search/">Search all documentation →</a>
+    </div>
+  </div>
 </div>
 """
-    # Same noindex/canonical handling as every other page on the site — this
-    # was missing here specifically, a real gap given this page lists every
-    # real product name and would otherwise be the one page NOT protected
-    # during the trial phase while everything else correctly was.
     if noindex:
         extra_head = '<meta name="robots" content="noindex, nofollow">'
     elif base_url:
@@ -776,6 +853,7 @@ def write_space_picker(out_dir, spaces_info, brand, path_prefix="", base_url="",
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="{path_prefix}/tokens.css">
 <link rel="stylesheet" href="{path_prefix}/styles.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined">
 {extra_head}
 </head>
 <body>
@@ -786,6 +864,9 @@ def write_space_picker(out_dir, spaces_info, brand, path_prefix="", base_url="",
 """
     with open(os.path.join(out_dir, "index.html"), "w") as f:
         f.write(html_out)
+
+    for area in area_groups:
+        write_area_directory_page(out_dir, area, area_groups, brand, path_prefix, base_url, noindex)
 
 
 def write_product_directory(out_dir, spaces_info, brand, path_prefix="", base_url="", noindex=False):
@@ -803,6 +884,18 @@ def write_product_directory(out_dir, spaces_info, brand, path_prefix="", base_ur
 
     html_out = PRODUCT_DIRECTORY_TEMPLATE.replace(
         "__LOCAL_SPACES_JSON__", json.dumps(local_spaces)
+    )
+    # This template started as a fully self-contained file with its own
+    # embedded <style> block, so it never had reason to load our own
+    # stylesheets. But injecting the shared top-nav here (below) means it
+    # now needs tokens.css/styles.css too — without them, .top-nav-logo's
+    # sizing rule doesn't exist on this page at all, and the raw SVG
+    # renders at its full intrinsic size instead of the intended 22px.
+    html_out = html_out.replace(
+        "</head>",
+        f'<link rel="stylesheet" href="{path_prefix}/tokens.css">\n'
+        f'<link rel="stylesheet" href="{path_prefix}/styles.css">\n</head>',
+        1,
     )
     html_out = html_out.replace("<body>", f"<body>\n{render_top_nav(brand, path_prefix)}", 1)
 
@@ -1036,6 +1129,7 @@ def build_from_config(config_path=CONFIG_FILE, data_dir=DATA_DIR, out_dir=OUT_DI
     confluence_site = config.get("confluence_site", "")
     featured_spaces = config.get("featured_spaces")
     external_links = config.get("external_links", [])
+    areas_data = load_product_areas()
     if noindex:
         print("noindex mode is ON — every page gets a noindex meta tag, robots.txt disallows everything, no sitemap.xml is written.")
     if path_prefix:
@@ -1095,7 +1189,7 @@ def build_from_config(config_path=CONFIG_FILE, data_dir=DATA_DIR, out_dir=OUT_DI
                 brand,
             )
     elif len(spaces_info) > 1:
-        write_space_picker(out_dir, spaces_info, brand, path_prefix, base_url, noindex, all_built, featured_spaces, external_links)
+        write_space_picker(out_dir, spaces_info, brand, path_prefix, base_url, noindex, all_built, featured_spaces, external_links, areas_data)
 
     write_product_directory(out_dir, spaces_info, brand, path_prefix, base_url, noindex)
 
