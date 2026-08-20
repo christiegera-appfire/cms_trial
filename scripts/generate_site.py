@@ -351,10 +351,31 @@ def rewrite_internal_links(body_html, space_key, titles, valid_ids, path_prefix=
     return str(soup)
 
 
+def is_hidden_organizational_page(title):
+    """Confirmed against real content: this covers two distinct naming
+    conventions doing the same job (a reusable snippet, meant to be
+    referenced via the native Include Page macro, not read directly) —
+    a leading underscore ("_Footer") and a "[Includes] ..." bracket
+    prefix (used in JMCFC and likely other spaces). Also hides the
+    literal "Includes" organizational parent page itself, whose own
+    content is just an internal authoring note ("These are subpages and
+    sections that repeat throughout the documentation"), not real
+    reader-facing content."""
+    if not title:
+        return False
+    if title.startswith("_"):
+        return True
+    if title.startswith("[Includes]"):
+        return True
+    if title.strip().lower() == "includes":
+        return True
+    return False
+
+
 def load_includes(pages):
     includes = {}
     for p in pages:
-        if p["title"] and p["title"].startswith("_") and p.get("adf"):
+        if is_hidden_organizational_page(p["title"]) and p.get("adf"):
             html_str, _headings = adf_to_html(p["adf"])
             includes[p["title"]] = html_str
     return includes
@@ -394,7 +415,7 @@ def build_space(data_path, out_dir, brand, base_url="", path_prefix="", support_
     space_key = data.get("space_key", "SPACE")
     space_name = data.get("space_name", space_key)
 
-    pages = [p for p in data["pages"] if p.get("adf") and not (p["title"] or "").startswith("_")]
+    pages = [p for p in data["pages"] if p.get("adf") and not is_hidden_organizational_page(p["title"])]
     titles = {p["id"]: p["title"] for p in pages}
     valid_ids = set(titles.keys())
     includes = load_includes(data["pages"])
@@ -403,16 +424,32 @@ def build_space(data_path, out_dir, brand, base_url="", path_prefix="", support_
 
     pages_by_parent = {}
     parent_of = {}
+    position_by_id = {p["id"]: p.get("position") for p in data["pages"]}
     for p in data["pages"]:
         parent = p.get("parent_id")
         if parent:
             pages_by_parent.setdefault(parent, []).append(p["id"])
             parent_of[p["id"]] = parent
 
-    roots = [
-        p["id"] for p in data["pages"]
-        if p["id"] in valid_ids and (p.get("parent_id") not in valid_ids)
-    ]
+    def position_sort_key(page_id):
+        # Pages with a real position sort first, ascending by that value;
+        # pages missing one (a real, documented Atlassian quirk — some
+        # migrated pages report position: null) sort after all of those,
+        # preserving their original relative order rather than crashing
+        # on a None comparison or scattering them arbitrarily.
+        pos = position_by_id.get(page_id)
+        return (pos is None, pos if pos is not None else 0)
+
+    for parent_id in pages_by_parent:
+        pages_by_parent[parent_id].sort(key=position_sort_key)
+
+    roots = sorted(
+        (
+            p["id"] for p in data["pages"]
+            if p["id"] in valid_ids and (p.get("parent_id") not in valid_ids)
+        ),
+        key=position_sort_key,
+    )
 
     widget_html = GET_HELP_WIDGET_TEMPLATE.replace(
         "__SUPPORT_PORTAL_URL__",
@@ -807,7 +844,7 @@ def write_space_picker(out_dir, spaces_info, brand, path_prefix="", base_url="",
   <div class="hero-bloom"></div>
   <div class="hero-content">
     <p class="hero-eyebrow">Appfire documentation</p>
-    <h1 class="hero-h1">We build the tools. <span class="hero-h1-accent">You bring the fire.</span></h1>
+    <h1 class="hero-h1">We build the tools.<br><span class="hero-h1-accent">You bring the fire.</span></h1>
     <p class="hero-sub">Setup guides, configuration reference, and troubleshooting for every Appfire app on Atlassian, Azure DevOps, and monday.com — kept in sync with Confluence.</p>
     <div class="hero-buttons">
       <a class="hero-btn-primary" href="{path_prefix}/product-directory/">Browse all apps <span class="material-symbols-outlined">arrow_forward</span></a>
@@ -935,11 +972,21 @@ def write_search_index(out_dir, all_built):
         json.dump(index, f)
 
 
-def write_search_page(out_dir, brand, path_prefix=""):
+def write_search_page(out_dir, brand, path_prefix="", area_groups=None):
     """Real, working search — client-side, built from search-index.json.
-    Styled to resemble the real site's search page (platform-style filter
-    checkboxes, "Showing X of Y results", highlighted match terms, result
-    cards with a space badge) without depending on anything Refined-specific."""
+    Filters group by the same product areas shown on the landing page
+    (not one checkbox per individual space) — matches the landing page's
+    own categorization rather than presenting a second, different way of
+    slicing the same 19 spaces."""
+    area_groups = area_groups or []
+    space_to_area = {}
+    for area in area_groups:
+        for kind, data in area["resolved_spaces"]:
+            if kind == "real":
+                space_key = data[0]
+                space_to_area[space_key] = area["name"]
+    area_names_ordered = [a["name"] for a in area_groups]
+
     top_nav = render_top_nav(brand, path_prefix)
     html_out = f"""<!doctype html>
 <html lang="en">
@@ -960,7 +1007,7 @@ def write_search_page(out_dir, brand, path_prefix=""):
 </form>
 <div class="search-layout">
   <aside class="search-filters">
-    <div class="search-filters-title">SPACE</div>
+    <div class="search-filters-title">PRODUCT AREA</div>
     <div id="space-filter-list"></div>
   </aside>
   <div class="search-results-area">
@@ -973,12 +1020,18 @@ def write_search_page(out_dir, brand, path_prefix=""):
 <script>
 (function () {{
   var INDEX_URL = "{path_prefix}/search-index.json";
+  var SPACE_TO_AREA = {json.dumps(space_to_area)};
+  var AREA_ORDER = {json.dumps(area_names_ordered)};
   var input = document.getElementById("search-input");
   var resultsEl = document.getElementById("search-results");
   var countEl = document.getElementById("search-count");
   var spaceFilterList = document.getElementById("space-filter-list");
   var allPages = [];
-  var activeSpaces = {{}};
+  var activeAreas = {{}};
+
+  function areaFor(spaceKey) {{
+    return SPACE_TO_AREA[spaceKey] || "Other apps";
+  }}
 
   function highlight(text, term) {{
     if (!term) return escapeHtml(text);
@@ -994,11 +1047,11 @@ def write_search_page(out_dir, brand, path_prefix=""):
 
   function render() {{
     var term = input.value.trim();
-    var anySpaceFilterActive = Object.keys(activeSpaces).some(function (k) {{ return activeSpaces[k]; }});
+    var anyAreaFilterActive = Object.keys(activeAreas).some(function (k) {{ return activeAreas[k]; }});
     var matches = allPages.filter(function (p) {{
       var matchesTerm = !term || p.title.toLowerCase().indexOf(term.toLowerCase()) !== -1 || p.snippet.toLowerCase().indexOf(term.toLowerCase()) !== -1;
-      var matchesSpace = !anySpaceFilterActive || activeSpaces[p.space_key];
-      return matchesTerm && matchesSpace;
+      var matchesArea = !anyAreaFilterActive || activeAreas[areaFor(p.space_key)];
+      return matchesTerm && matchesArea;
     }});
     countEl.textContent = "Showing " + Math.min(matches.length, 50) + " of " + matches.length + " results";
     resultsEl.innerHTML = matches.slice(0, 50).map(function (p) {{
@@ -1010,15 +1063,18 @@ def write_search_page(out_dir, brand, path_prefix=""):
     }}).join("");
   }}
 
-  function buildSpaceFilters() {{
-    var spaces = {{}};
-    allPages.forEach(function (p) {{ spaces[p.space_key] = p.space_name; }});
-    spaceFilterList.innerHTML = Object.keys(spaces).sort().map(function (key) {{
-      return '<label class="search-filter-checkbox"><input type="checkbox" data-space="' + key + '"> ' + escapeHtml(spaces[key]) + '</label>';
+  function buildAreaFilters() {{
+    // Only show areas that actually have at least one page in the index —
+    // avoids an empty, useless checkbox for an area with no real content.
+    var presentAreas = {{}};
+    allPages.forEach(function (p) {{ presentAreas[areaFor(p.space_key)] = true; }});
+    var orderedPresent = AREA_ORDER.filter(function (name) {{ return presentAreas[name]; }});
+    spaceFilterList.innerHTML = orderedPresent.map(function (name) {{
+      return '<label class="search-filter-checkbox"><input type="checkbox" data-area="' + escapeHtml(name) + '"> ' + escapeHtml(name) + '</label>';
     }}).join("");
     spaceFilterList.querySelectorAll("input[type=checkbox]").forEach(function (cb) {{
       cb.addEventListener("change", function () {{
-        activeSpaces[cb.dataset.space] = cb.checked;
+        activeAreas[cb.dataset.area] = cb.checked;
         render();
       }});
     }});
@@ -1028,7 +1084,7 @@ def write_search_page(out_dir, brand, path_prefix=""):
     .then(function (r) {{ return r.json(); }})
     .then(function (data) {{
       allPages = data;
-      buildSpaceFilters();
+      buildAreaFilters();
       var params = new URLSearchParams(window.location.search);
       var q = params.get("q");
       if (q) input.value = q;
@@ -1201,7 +1257,7 @@ def build_from_config(config_path=CONFIG_FILE, data_dir=DATA_DIR, out_dir=OUT_DI
         write_sitemap(out_dir, base_url, all_built)
     write_robots_txt(out_dir, base_url, path_prefix, noindex=noindex)
     write_search_index(out_dir, all_built)
-    write_search_page(out_dir, brand, path_prefix)
+    write_search_page(out_dir, brand, path_prefix, map_spaces_to_areas(spaces_info, external_links, areas_data))
 
     return all_built
 
