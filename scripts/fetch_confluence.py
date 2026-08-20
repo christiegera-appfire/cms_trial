@@ -111,6 +111,7 @@ def normalize_page(raw_page):
         "id": raw_page.get("id"),
         "title": raw_page.get("title"),
         "parent_id": raw_page.get("parentId"),
+        "position": raw_page.get("position"),
         "version": raw_page.get("version", {}).get("number"),
         "adf": adf,
     }
