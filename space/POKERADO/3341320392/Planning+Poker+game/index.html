@@ -31,7 +31,7 @@
     </div>
     <h1>Planning Poker game</h1>
     <div class="page-meta">1 min read</div>
-    <p>A <strong>Planning Poker game</strong> is a collaborative estimation session where your team estimates the effort or complexity of work items using a shared card deck (Fibonacci, T-shirt sizes, S/M/L, or custom values). Participants vote privately, then reveal and discuss until the team reaches an estimate.</p><h2 id="roles">Roles</h2><ul><li><p><strong>Moderator</strong> — controls the session: starts and flips rounds, resets votes, and submits the final estimate to Azure DevOps.</p></li><li><p><strong>Estimator</strong> — votes on work items using the configured card deck.</p></li><li><p><strong>Spectator</strong> — observes the session without voting. Typically Product Owners or stakeholders who want visibility without influencing the estimate.</p></li></ul><h2 id="game-lifecycle">Game lifecycle</h2><p>Configure the session (name, estimation method, sync or async mode), assign roles, select work items, and launch. See <a href="/cms_trial/space/POKERADO/3315008376/Create+game/">Create game</a> for the full walkthrough.</p><p>Related pages:</p><p><div class="img-placeholder">[pagetree macro — dynamic multi-level tree, not yet built]</div></p>
+    <p>A <strong>Planning Poker game</strong> is a collaborative estimation session where your team estimates the effort or complexity of work items using a shared card deck (Fibonacci, T-shirt sizes, S/M/L, or custom values). Participants vote privately, then reveal and discuss until the team reaches an estimate.</p><h2 id="roles">Roles</h2><ul><li><p><strong>Moderator</strong> — controls the session: starts and flips rounds, resets votes, and submits the final estimate to Azure DevOps.</p></li><li><p><strong>Estimator</strong> — votes on work items using the configured card deck.</p></li><li><p><strong>Spectator</strong> — observes the session without voting. Typically Product Owners or stakeholders who want visibility without influencing the estimate.</p></li></ul><h2 id="game-lifecycle">Game lifecycle</h2><p>Configure the session (name, estimation method, sync or async mode), assign roles, select work items, and launch. See <a href="/cms_trial/space/POKERADO/3315008376/Create+game/">Create game</a> for the full walkthrough.</p>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
@@ -218,6 +218,52 @@
     var tag = el.tagName.toLowerCase();
     return tag === "input" || tag === "textarea" || el.isContentEditable;
   }
+})();
+</script>
+
+<!-- Real TOC scroll-spy — highlights the currently-visible heading in the
+     "On this page" panel as the reader scrolls. Harmless no-op if there's
+     no .page-toc on the page (most pages with few/no headings). -->
+<script>
+(function () {
+  var tocLinks = document.querySelectorAll(".page-toc a[href^='#']");
+  if (!tocLinks.length) return;
+
+  var headingMap = {};
+  var headings = [];
+  tocLinks.forEach(function (link) {
+    var id = link.getAttribute("href").slice(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headingMap[id] = link;
+      headings.push(heading);
+    }
+  });
+  if (!headings.length) return;
+
+  var activeLink = null;
+  function setActive(id) {
+    var link = headingMap[id];
+    if (!link || link === activeLink) return;
+    if (activeLink) activeLink.classList.remove("active");
+    link.classList.add("active");
+    activeLink = link;
+  }
+
+  // rootMargin biases toward the upper third of the viewport, so a
+  // heading is marked "current" once it's crossed into the reading area,
+  // not only once it's scrolled to the very top edge.
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) setActive(entry.target.id);
+    });
+  }, { rootMargin: "-15% 0px -75% 0px", threshold: 0 });
+
+  headings.forEach(function (h) { observer.observe(h); });
+
+  // Sets the first heading active immediately on load, rather than
+  // leaving the TOC with nothing highlighted until the reader scrolls.
+  setActive(headings[0].id);
 })();
 </script>
 
