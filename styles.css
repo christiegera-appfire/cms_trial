@@ -73,19 +73,43 @@ html, body {
 }
 
 .shell {
-  display: flex;
+  display: grid;
+  grid-template-columns: 288px minmax(0, 1fr) 232px;
+  align-items: start;
   min-height: 100vh;
+}
+/* These breakpoints are load-bearing, not cosmetic — per design spec, with
+   two fixed side rails the content column absorbs 100% of any viewport
+   shortfall and collapses to an unreadable measure without them. TOC goes
+   first (less essential than navigation), then the tree at narrower still. */
+@media (max-width: 1320px) {
+  .shell {
+    grid-template-columns: 288px minmax(0, 1fr);
+  }
+  .page-toc-rail {
+    display: none;
+  }
+}
+@media (max-width: 1000px) {
+  .shell {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .sidebar {
+    display: none;
+  }
 }
 
 /* ---------- Sidebar ---------- */
 .sidebar {
-  width: 280px;
-  flex-shrink: 0;
   background: var(--bg-page-2);
   border-right: 1px solid var(--chrome-14);
   color: var(--text-body);
   padding: 28px 22px 40px;
-  order: -1; /* visually first (left) even though it's second in the HTML source */
+  order: -1; /* visually first (left) even though it's second in the HTML source, for SEO content-first ordering */
+  position: sticky;
+  top: 64px;
+  height: calc(100vh - 64px);
+  overflow-y: auto;
 }
 
 .content {
@@ -175,7 +199,6 @@ html, body {
 
 /* ---------- Content ---------- */
 .content {
-  flex: 1;
   padding: 48px 56px 80px;
   max-width: 800px;
 }
@@ -495,11 +518,19 @@ th {
 .top-nav {
   background: var(--bg-page);
   border-bottom: 1px solid var(--chrome-14);
-  padding: 16px 32px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 40;
 }
 .top-nav-inner {
+  width: 100%;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 32px;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -704,13 +735,16 @@ mark {
 
 /* Right-side "On this page" TOC panel */
 .page-toc-rail {
-  width: 220px;
-  flex-shrink: 0;
   padding: 28px 22px 40px;
+  position: sticky;
+  top: 64px;
+  height: calc(100vh - 64px);
+  overflow-y: auto;
 }
 .page-toc {
-  position: sticky;
-  top: 28px;
+  /* No longer needs its own sticky positioning — the outer .page-toc-rail
+     container handles that now that the header has a fixed, known height
+     to offset against. */
 }
 .page-toc-title {
   font-size: 11px;
