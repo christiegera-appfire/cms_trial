@@ -84,7 +84,7 @@ def page_url(page_id, space_key, titles, path_prefix=""):
 TOP_NAV_TEMPLATE = """
 <header class="top-nav">
   <div class="top-nav-inner">
-    <a class="top-nav-brand" href="{path_prefix}/">{logo_html}{brand_name}</a>
+    <a class="top-nav-brand" href="{path_prefix}/">{logo_html}<span class="top-nav-divider"></span><span class="top-nav-docs-label">Docs</span></a>
     <nav class="top-nav-links">
       <a href="{path_prefix}/product-directory/">Product directory</a>
       <a href="{path_prefix}/search/">Search <kbd>⌘K</kbd></a>
@@ -158,10 +158,12 @@ def build_nav(pages_by_parent, space_key, titles, valid_ids, roots, active_id, p
 
 def render_top_nav(brand, path_prefix=""):
     logo_html = ""
-    if os.path.exists(os.path.join("product-icons", "appfire-logo.svg")):
-        logo_html = f'<img class="top-nav-logo" src="{path_prefix}/product-icons/appfire-logo.svg" alt="" loading="lazy"> '
+    if os.path.exists(os.path.join("brand-assets", "appfire-lockup-white.svg")):
+        logo_html = f'<img class="top-nav-logo" src="{path_prefix}/brand-assets/appfire-lockup-white.svg" alt="Appfire" loading="lazy">'
+    elif os.path.exists(os.path.join("product-icons", "appfire-logo.svg")):
+        # Fallback to whatever was available before the real brand assets arrived
+        logo_html = f'<img class="top-nav-logo" src="{path_prefix}/product-icons/appfire-logo.svg" alt="Appfire" loading="lazy">'
     return TOP_NAV_TEMPLATE.format(
-        brand_name=html.escape(brand.get("name", "Docs"), quote=False),
         path_prefix=path_prefix,
         logo_html=logo_html,
     )
@@ -254,6 +256,7 @@ def page_shell(title, meta_description, nav_html, page_count, body_html, brand, 
 <title>{safe_title} | {safe_brand_name}</title>
 <meta name="description" content="{safe_desc}">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{path_prefix}/tokens.css">
 <link rel="stylesheet" href="{path_prefix}/styles.css">
 {robots_tag}
 {canonical_tag}
@@ -460,6 +463,7 @@ def build_space(data_path, out_dir, brand, base_url="", path_prefix="", support_
 <meta charset="utf-8">
 <title>{safe_title} | {html.escape(brand.get("name", "Docs"), quote=False)}</title>
 <meta name="robots" content="noindex, nofollow">
+<link rel="stylesheet" href="{path_prefix}/tokens.css">
 <link rel="stylesheet" href="{path_prefix}/styles.css">
 </head>
 <body>
@@ -741,6 +745,7 @@ def write_space_picker(out_dir, spaces_info, brand, path_prefix="", base_url="",
 <meta charset="utf-8">
 <title>{brand.get("name", "Docs")}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{path_prefix}/tokens.css">
 <link rel="stylesheet" href="{path_prefix}/styles.css">
 {extra_head}
 </head>
@@ -820,6 +825,7 @@ def write_search_page(out_dir, brand, path_prefix=""):
 <meta charset="utf-8">
 <title>Search | {html.escape(brand.get("name", "Docs"), quote=False)}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="{path_prefix}/tokens.css">
 <link rel="stylesheet" href="{path_prefix}/styles.css">
 </head>
 <body>
