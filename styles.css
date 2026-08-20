@@ -216,6 +216,7 @@ h2 {
   font-size: 22px;
   margin: 34px 0 12px;
   color: var(--text-high);
+  scroll-margin-top: 120px;
 }
 
 h3 {
@@ -223,6 +224,7 @@ h3 {
   font-size: 17px;
   margin: 24px 0 8px;
   color: var(--text-high);
+  scroll-margin-top: 120px;
 }
 
 p { margin: 0 0 14px; color: var(--text-body); }
@@ -767,6 +769,11 @@ mark {
   border-left: 2px solid transparent;
   padding-left: 10px;
 }
+.page-toc li a.active {
+  border-left-color: var(--doc-accent);
+  color: var(--doc-accent);
+  font-weight: 800;
+}
 .page-toc li a:hover {
   color: var(--text-primary);
   border-left-color: var(--accent);
@@ -1132,4 +1139,345 @@ pre:hover .copy-code-btn {
 .page-properties th {
   background: transparent;
   width: 30%;
+}
+
+/* ===== Docs home redesign (Claude Design spec) ===== */
+
+.material-symbols-outlined {
+  font-family: "Material Symbols Outlined";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  vertical-align: middle;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  background: #090A0F;
+  padding: 96px 36px 84px;
+}
+.hero-bloom {
+  position: absolute;
+  inset: -40% -10% auto -10%;
+  height: 520px;
+  filter: blur(40px);
+  pointer-events: none;
+  background:
+    radial-gradient(50% 60% at 22% 40%, rgba(57,123,255,.55), transparent 70%),
+    radial-gradient(45% 55% at 72% 30%, rgba(169,125,255,.42), transparent 70%),
+    radial-gradient(40% 50% at 50% 80%, rgba(255,153,108,.28), transparent 70%);
+}
+.hero-content {
+  position: relative;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+.hero-eyebrow {
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--af-beam);
+  margin-bottom: 16px;
+}
+.hero-h1 {
+  font-size: 76px;
+  font-weight: 300;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  max-width: 16ch;
+  color: #FFFFFF;
+  margin: 0 0 24px;
+}
+.hero-h1-accent {
+  font-weight: 800;
+  background: var(--scale-gradient-orangeYellow);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+.hero-sub {
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.6;
+  max-width: 56ch;
+  color: #CFCCD4;
+  margin: 0 0 40px;
+}
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+}
+.hero-btn-primary,
+.hero-btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 48px;
+  padding: 0 22px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 800;
+  text-decoration: none;
+}
+.hero-btn-primary {
+  background: #FFFFFF;
+  color: #090A0F;
+}
+.hero-btn-primary:hover {
+  background: #E6E3EC;
+  text-decoration: none;
+}
+.hero-btn-primary .material-symbols-outlined {
+  font-size: 18px;
+}
+.hero-btn-secondary {
+  border: 1px solid rgba(184,182,189,.28);
+  color: #FFFFFF;
+}
+.hero-btn-secondary:hover {
+  background: rgba(184,182,189,.10);
+  text-decoration: none;
+}
+
+.picker-body {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 72px 36px 96px;
+}
+.section-head-row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+.section-head {
+  font-size: 36px;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  margin: 0 0 6px;
+}
+.section-sub {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--doc-fg-sub);
+  margin: 0;
+}
+.section-head-link {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--doc-accent);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.area-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 20px;
+  margin-bottom: 64px;
+}
+.area-card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: 1px solid var(--doc-line);
+  border-radius: 12px;
+  background: var(--doc-card);
+  padding: 24px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.area-card:hover {
+  box-shadow: var(--doc-shadow);
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+.area-card-icon {
+  font-size: 26px;
+  color: var(--area-tint);
+}
+.area-card h3 {
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--doc-fg);
+  margin: 0;
+}
+.area-card p {
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: var(--doc-fg-sub);
+  margin: 0;
+}
+
+.activity-row {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+.activity-list .whats-new-list {
+  margin-top: 16px;
+}
+.cant-find-it {
+  background: var(--doc-bg-sub);
+  border: 1px solid var(--doc-line);
+  border-radius: 12px;
+  padding: 24px;
+}
+.cant-find-it h2 {
+  font-size: 20px;
+  font-weight: 800;
+  margin: 0 0 8px;
+}
+.cant-find-it p {
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--doc-fg-sub);
+  margin: 0 0 16px;
+}
+.cant-find-it a {
+  display: block;
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--doc-accent);
+  text-decoration: none;
+  margin-bottom: 10px;
+}
+
+/* Area directory pages (/apps/<areaId>/) */
+.area-tabs {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  padding: 16px 36px;
+  border-bottom: 1px solid var(--doc-line);
+  max-width: 1600px;
+  margin: 0 auto;
+}
+.area-tabs a {
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--doc-fg-sub);
+  text-decoration: none;
+}
+.area-tabs a.active {
+  color: var(--doc-fg);
+  background: var(--doc-card);
+}
+.area-tabs a:hover {
+  color: var(--doc-fg);
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .hero-h1 { font-size: 48px; }
+  .hero-sub { font-size: 17px; }
+  .activity-row { grid-template-columns: 1fr; }
+}
+
+/* Wide table pattern — applied to every table, per spec, since Confluence
+   tables arrive with arbitrary column counts. */
+.wide-table-wrapper {
+  border: 1px solid var(--doc-line);
+  border-radius: 12px;
+  overflow: hidden;
+  margin: 16px 0;
+}
+.wide-table-scroll {
+  overflow-x: auto;
+}
+.wide-table-wrapper table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 860px;
+  margin: 0;
+}
+.wide-table-wrapper th {
+  text-align: left;
+  padding: 12px 16px;
+  font-size: 12px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--doc-fg-faint);
+  background: var(--doc-bg-sub);
+  border-bottom: 1px solid var(--doc-line);
+}
+.wide-table-wrapper td {
+  padding: 12px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--doc-fg-sub);
+  border-bottom: 1px solid var(--doc-line-soft);
+}
+/* First column of both head and body stays pinned while the rest scrolls */
+.wide-table-wrapper th:first-child,
+.wide-table-wrapper td:first-child {
+  position: sticky;
+  left: 0;
+  white-space: nowrap;
+}
+.wide-table-wrapper th:first-child {
+  background: var(--doc-bg-sub);
+}
+.wide-table-wrapper td:first-child {
+  background: var(--doc-card);
+}
+.wide-table-note {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--doc-fg-faint);
+  text-align: center;
+  padding: 8px 0;
+  margin: 0;
+  background: var(--doc-bg-sub);
+}
+
+/* Code block — header bar with language label and a real, always-visible
+   Copy button, not hover-to-reveal. */
+.code-block {
+  border: 1px solid var(--doc-line);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 16px 0;
+}
+.code-block-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 14px;
+  background: var(--doc-bg-sub);
+  border-bottom: 1px solid var(--doc-line);
+}
+.code-block-lang {
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--doc-fg-faint);
+}
+.code-block .copy-code-btn {
+  position: static;
+  opacity: 1;
+  font-size: 11px;
+  font-weight: 800;
+}
+.code-block pre {
+  margin: 0;
+  padding: 16px;
+  background: var(--doc-code-bg);
+  overflow-x: auto;
+}
+.code-block pre code {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--doc-fg);
 }
