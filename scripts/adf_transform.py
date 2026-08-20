@@ -397,7 +397,97 @@ def render_extension(node, ctx, inline=False):
     if key == "aura-tab-collection":
         return render_aura_tab_group(node, ctx)
 
-    # MultiExcerpt is a Forge/ecosystem app, not a native Confluence macro —
+    if key == "aura-html":
+        params_raw = (macro_params.get("params", {}) or {}).get("value", "")
+        config = decode_aura_params(params_raw)
+        html_code = config.get("htmlCode", "") or ""
+        css_code = config.get("cssCode", "") or ""
+        if "legacy-redirect-notice" in html_code:
+            # Confirmed against real content: a "this content moved to
+            # support.appfire.com" banner, added to point Confluence
+            # readers toward the old Refined-hosted site. Rendering it
+            # here would be actively backwards — this new pipeline IS the
+            # intended long-term replacement for exactly the place this
+            # banner points to. It's meta-content about the migration
+            # itself, not real product documentation, so it's suppressed
+            # rather than rendered.
+            return ""
+        output = html_code
+        if css_code:
+            output = f"<style>{css_code}</style>{output}"
+        return output
+
+    if key == "contentbylabel":
+        # Native Confluence macro that dynamically lists other pages
+        # matching a label/CQL query. Confirmed via real content (PSJC's
+        # SIL function reference pages use this for "See also" links to
+        # related functions). Real support would need page labels, which
+        # aren't currently fetched — a real feature to add later, not
+        # something to fake. For now this suppresses cleanly rather than
+        # showing broken placeholder text, which was actually leaking into
+        # Google-facing FAQ structured data before this fix.
+        return ""
+
+    if key == "livesearch":
+        # Native Confluence macro embedding a live, JS-driven search box
+        # scoped to specific spaces — meaningless in a static site with no
+        # Confluence backend behind it. Rather than just suppressing it,
+        # this points to our own real, working search page instead, which
+        # is a genuinely better replacement, not just a safe fallback.
+        search_url = f"{ctx.get('path_prefix', '')}/search/"
+        return f'<a class="livesearch-replacement" href="{search_url}">Search our docs →</a>'
+
+    if key == "anchor":
+        # Native Confluence macro creating a same-page jump target. Our
+        # link-rewriting doesn't resolve in-page "#anchor-name" references
+        # to begin with, so a real anchor id wouldn't currently be linked
+        # to from anywhere — suppressing cleanly avoids a visible broken
+        # placeholder for something with no functional effect either way.
+        return ""
+
+    if key == "excerpt":
+        # Native Confluence excerpt — distinct from MultiExcerpt (a
+        # separate Forge app). Confirmed against real content: this macro
+        # supports a "hidden" flag, same concept as MultiExcerpt's, which
+        # suppresses the excerpt at its OWN definition site while still
+        # letting excerpt-include pull the content in elsewhere (the
+        # registry captures it regardless, via the pre-scan). A
+        # non-hidden excerpt is just normal visible content, rendered
+        # inline as-is.
+        hidden = (macro_params.get("hidden", {}) or {}).get("value") == "true"
+        if hidden:
+            return ""
+        return "".join(render_block(c, ctx) for c in (content or []))
+
+    if key == "excerpt-include":
+        # Confirmed against real content: the source page is referenced
+        # by TITLE (via an unusual empty-string parameter key), resolved
+        # within the including page's own space by default — genuinely
+        # different from MultiExcerpt's include, which always carries an
+        # explicit source pageId and never needs to know its own context.
+        title_ref = (macro_params.get("", {}) or {}).get("value", "").strip()
+        excerpt_name = (macro_params.get("name", {}) or {}).get("value", "").strip()
+        registry = ctx.get("excerpt_registry") or {}
+        space_key = ctx.get("current_space_key")
+
+        source_page_id = None
+        if title_ref and space_key:
+            source_page_id = registry.get("title_to_page_id", {}).get((space_key, title_ref))
+
+        raw_content = None
+        if source_page_id:
+            if excerpt_name:
+                raw_content = registry.get("by_page_and_name", {}).get((str(source_page_id), excerpt_name))
+            if raw_content is None:
+                raw_content = registry.get("by_page_unnamed", {}).get(str(source_page_id))
+
+        if raw_content is not None:
+            return "".join(render_block(c, ctx) for c in raw_content)
+        return (
+            f'<div class="img-placeholder">[Excerpt "{esc(excerpt_name)}" from page '
+            f'"{esc(title_ref)}" not found]</div>'
+        )
+
     # its extensionKey is a long, installation-specific path
     # (e.g. "47fa61b6-.../4d8fa66b-.../static/multiexcerpt-fast-inline-macro")
     # rather than a short fixed string, and its own parameters live under
@@ -612,6 +702,74 @@ def render_toc(headings):
     return f'<nav class="toc"><ul>{items}</ul></nav>'
 
 
+def build_excerpt_registry(pages):
+    """Pre-scans every page's RAW ADF for native Confluence "excerpt"
+    macro definitions (extensionKey == "excerpt", extensionType
+    com.atlassian.confluence.macro.core) — distinct from MultiExcerpt,
+    which is a separate Forge/ecosystem app with its own different
+    extensionKeys and a reference-by-explicit-pageId convention.
+
+    Confirmed against real content: native excerpt-include references its
+    source by PAGE TITLE (e.g. "Get started"), not by ID, and Confluence
+    resolves an unqualified title within the including page's OWN space
+    by default — so this also builds a (space_key, title) -> page_id
+    index, which MultiExcerpt never needed since it always carries an
+    explicit pageId.
+
+    `pages` must have "_space_key" injected onto each page dict by the
+    caller, since raw page data alone doesn't carry which space it came
+    from once flattened across all spaces.
+
+    Returns a dict with three indexes:
+      - by_page_and_name: {(page_id, excerpt_name): raw_adf_content} for
+        named excerpts (a page can define more than one).
+      - by_page_unnamed: {page_id: raw_adf_content} — the first excerpt
+        found with no name parameter, used as the fallback default when
+        an include doesn't specify (or can't match) a name.
+      - title_to_page_id: {(space_key, title): page_id} for resolving an
+        excerpt-include's title reference.
+    """
+    by_page_and_name = {}
+    by_page_unnamed = {}
+    title_to_page_id = {}
+
+    for p in pages:
+        space_key = p.get("_space_key")
+        title = p.get("title")
+        page_id = p.get("id")
+        if space_key and title and page_id:
+            title_to_page_id[(space_key, title)] = page_id
+
+    def walk(node, page_id):
+        if not isinstance(node, dict):
+            return
+        if node.get("type") == "bodiedExtension":
+            attrs = node.get("attrs", {}) or {}
+            key = attrs.get("extensionKey", "") or ""
+            if key == "excerpt":
+                params = attrs.get("parameters", {}) or {}
+                macro_params = params.get("macroParams", {}) or {}
+                name = (macro_params.get("name", {}) or {}).get("value", "").strip()
+                content = node.get("content", [])
+                if name:
+                    by_page_and_name[(str(page_id), name)] = content
+                elif page_id not in by_page_unnamed:
+                    by_page_unnamed[str(page_id)] = content
+        for child in (node.get("content") or []):
+            walk(child, page_id)
+
+    for p in pages:
+        adf = p.get("adf")
+        if adf:
+            walk(adf, p.get("id"))
+
+    return {
+        "by_page_and_name": by_page_and_name,
+        "by_page_unnamed": by_page_unnamed,
+        "title_to_page_id": title_to_page_id,
+    }
+
+
 def build_multiexcerpt_registry(pages):
     """Pre-scans every page's RAW ADF (before any rendering) for
     MultiExcerpt definitions, building two lookup indexes:
@@ -663,7 +821,7 @@ def build_multiexcerpt_registry(pages):
     return {"by_uuid": by_uuid, "by_name": by_name}
 
 
-def adf_to_html(adf_doc, unresolved_includes=None, link_titles=None, media_map=None, multiexcerpt_registry=None):
+def adf_to_html(adf_doc, unresolved_includes=None, link_titles=None, media_map=None, multiexcerpt_registry=None, path_prefix="", excerpt_registry=None, current_space_key=None):
     """
     adf_doc: parsed JSON dict with {"type": "doc", "version": 1, "content": [...]}
              (i.e. the `body.atlas_doc_format.value`, already json.loads()'d, from
@@ -692,6 +850,9 @@ def adf_to_html(adf_doc, unresolved_includes=None, link_titles=None, media_map=N
         "link_titles": link_titles,
         "media_map": media_map,
         "multiexcerpt_registry": multiexcerpt_registry or {},
+        "path_prefix": path_prefix,
+        "excerpt_registry": excerpt_registry or {},
+        "current_space_key": current_space_key,
         "headings": [],
         "heading_ids": set(),
     }
