@@ -274,6 +274,77 @@ def decode_aura_params(raw_value):
         return {}
 
 
+def group_flat_marker_sequence(content, marker_key, param_extractor):
+    """Generic version of the flat marker+content grouping pattern first
+    solved for Aura Tab Group — several different macro families
+    (Refined's own step/expand macros included) use the exact same
+    structure: a content-free marker extension holding just a label,
+    with everything that follows it (until the next marker) being that
+    item's real content, all sitting flat in the parent's content array
+    rather than nested. param_extractor(child_attrs) -> label lets each
+    caller pull whatever field it actually cares about (a step number, an
+    expand title, etc.) without duplicating the grouping logic itself."""
+    groups = []
+    current_label = None
+    current_nodes = []
+    for child in content:
+        child_attrs = child.get("attrs", {}) or {}
+        if child.get("type") == "extension" and child_attrs.get("extensionKey") == marker_key:
+            if current_label is not None:
+                groups.append((current_label, current_nodes))
+            current_label = param_extractor(child_attrs)
+            current_nodes = []
+        elif current_label is not None:
+            current_nodes.append(child)
+    if current_label is not None:
+        groups.append((current_label, current_nodes))
+    return groups
+
+
+def render_refined_steps(node, ctx):
+    """Refined's own numbered-step macro (distinct from Confluence's native
+    step macros) — confirmed against real content: each step's NUMBER is
+    already given directly as the marker's "text" param (not something we
+    need to auto-generate), with the actual instructional text following
+    as flat sibling content."""
+    content = node.get("content", []) or []
+    steps = group_flat_marker_sequence(
+        content, "refined-step",
+        lambda attrs: ((attrs.get("parameters", {}) or {}).get("macroParams", {}) or {}).get("text", {}).get("value", "").strip(),
+    )
+    if not steps:
+        return ""
+    items = "".join(
+        f'<li class="refined-step"><span class="refined-step-number">{esc(number)}</span>'
+        f'<div class="refined-step-content">{"".join(render_block(c, ctx) for c in nodes)}</div></li>'
+        for number, nodes in steps
+    )
+    return f'<ol class="refined-steps">{items}</ol>'
+
+
+def render_refined_expands(node, ctx):
+    """Refined's own expand/accordion macro (distinct from Confluence's
+    native expand macro, which we already handle separately) — same flat
+    marker+content structure, with each marker's "title" param giving the
+    real question/summary text directly. Rendered as native <details>, same
+    approach as the native expand macro — a real, if simplified,
+    trade-off: Refined's own version supports a strict one-open-at-a-time
+    accordion mode, which native <details> elements don't replicate, but
+    <details> needs no custom JS and degrades safely."""
+    content = node.get("content", []) or []
+    items_grouped = group_flat_marker_sequence(
+        content, "refined-expand",
+        lambda attrs: ((attrs.get("parameters", {}) or {}).get("macroParams", {}) or {}).get("title", {}).get("value", "").strip(),
+    )
+    if not items_grouped:
+        return ""
+    items = "".join(
+        f"<details><summary>{esc(title)}</summary>{''.join(render_block(c, ctx) for c in nodes)}</details>"
+        for title, nodes in items_grouped
+    )
+    return f'<div class="refined-expands">{items}</div>'
+
+
 def render_aura_tab_group(node, ctx):
     """Aura's tab structure (confirmed against real data) is NOT nested —
     each tab is a plain, content-free 'aura-tab' extension marker holding
@@ -396,6 +467,19 @@ def render_extension(node, ctx, inline=False):
 
     if key == "aura-tab-collection":
         return render_aura_tab_group(node, ctx)
+
+    if key == "refined-steps":
+        return render_refined_steps(node, ctx)
+
+    if key == "refined-expands":
+        return render_refined_expands(node, ctx)
+
+    if key in ("refined-step", "refined-expand"):
+        # These are pure markers, meaningfully rendered only inside their
+        # real parent container above — if one ever appears bare (malformed
+        # content), there's nothing meaningful to show standalone, so this
+        # suppresses cleanly rather than showing broken placeholder text.
+        return ""
 
     if key == "aura-html":
         params_raw = (macro_params.get("params", {}) or {}).get("value", "")
@@ -538,7 +622,15 @@ def render_extension(node, ctx, inline=False):
         # client-side JS instead of losing it: wrap the table with the
         # actual guestParams config as data-attributes, and a shared script
         # (embedded once per page) does the sorting/totals/highlighting.
+        # A nested "table" node here would otherwise ALSO get wrapped in
+        # the generic wide-table-wrapper (applied to every table site-wide)
+        # — functionally harmless since the sorting JS uses a descendant
+        # selector, but visually redundant (two nested bordered boxes
+        # around the same table). This flag suppresses that specifically
+        # inside an Advanced Table, which already has its own wrapper.
+        ctx["_inside_advanced_table"] = ctx.get("_inside_advanced_table", 0) + 1
         table_html = "".join(render_block(c, ctx) for c in (content or []))
+        ctx["_inside_advanced_table"] -= 1
         ctx["advanced_table_count"] = ctx.get("advanced_table_count", 0) + 1
         table_id = f"adv-table-{ctx['advanced_table_count']}"
         enable_sorting = "true" if guest_params.get("enableSorting") else "false"
@@ -657,13 +749,28 @@ def render_block(node, ctx):
         return f"<blockquote>{inner}</blockquote>"
 
     if ntype == "codeBlock":
-        lang = node.get("attrs", {}).get("language", "")
+        lang = node.get("attrs", {}).get("language", "") or "text"
         text = "".join(c.get("text", "") for c in content if c.get("type") == "text")
-        return f'<pre><code class="language-{lang}">{esc(text)}</code></pre>'
+        return (
+            '<div class="code-block">'
+            '<div class="code-block-header">'
+            f'<span class="code-block-lang">{esc(lang)}</span>'
+            '<button class="copy-code-btn" type="button">Copy</button>'
+            '</div>'
+            f'<pre><code class="language-{esc(lang)}">{esc(text)}</code></pre>'
+            "</div>"
+        )
 
     if ntype == "table":
         rows = "".join(render_block(c, ctx) for c in content)
-        return f"<table>{rows}</table>"
+        if ctx.get("_inside_advanced_table"):
+            return f"<table>{rows}</table>"
+        return (
+            '<div class="wide-table-wrapper">'
+            f'<div class="wide-table-scroll"><table>{rows}</table></div>'
+            '<p class="wide-table-note">This table scrolls sideways →</p>'
+            "</div>"
+        )
 
     if ntype == "tableRow":
         cells = "".join(render_block(c, ctx) for c in content)
