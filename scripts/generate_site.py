@@ -68,6 +68,28 @@ _SIDEBAR_RESIZE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), 
 with open(_SIDEBAR_RESIZE_PATH) as _f:
     SIDEBAR_RESIZE_SCRIPT = _f.read()
 
+_THEME_TOGGLE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "theme_toggle_widget.html")
+with open(_THEME_TOGGLE_PATH) as _f:
+    THEME_TOGGLE_SCRIPT = _f.read()
+
+# Inline and blocking, deliberately — this has to run BEFORE any CSS
+# paints, or a saved light-theme preference would flash the default dark
+# theme for an instant on every single page load before snapping to
+# light. That's a much more jarring flash than, say, the sidebar-width
+# restore (which can safely happen later, at the end of body) — a
+# color-scheme flip is immediately visually jarring in a way a few
+# pixels of width never is.
+THEME_ANTIFLASH_SCRIPT = """<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>"""
+
 _PRODUCT_DIR_TEMPLATE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "templates", "product_directory_template.html")
 with open(_PRODUCT_DIR_TEMPLATE_PATH) as _f:
     PRODUCT_DIRECTORY_TEMPLATE = _f.read()
@@ -101,6 +123,10 @@ TOP_NAV_TEMPLATE = """
     <nav class="top-nav-links">
       <a href="{path_prefix}/product-directory/">Product directory</a>
       <a href="{path_prefix}/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
@@ -191,7 +217,7 @@ def render_top_nav(brand, path_prefix=""):
     return TOP_NAV_TEMPLATE.format(
         path_prefix=path_prefix,
         logo_html=logo_html,
-    )
+    ) + THEME_TOGGLE_SCRIPT
 
 
 def render_page_toc_panel(headings):
@@ -351,6 +377,7 @@ def page_shell(title, meta_description, nav_html, body_html, brand, widget_html,
     return f"""<!doctype html>
 <html lang="en">
 <head>
+{THEME_ANTIFLASH_SCRIPT}
 <meta charset="utf-8">
 <title>{safe_title} | {safe_brand_name}</title>
 <meta name="description" content="{safe_desc}">
@@ -624,6 +651,7 @@ def build_space(data_path, out_dir, brand, base_url="", path_prefix="", support_
             html_out = f"""<!doctype html>
 <html lang="en">
 <head>
+{THEME_ANTIFLASH_SCRIPT}
 <meta charset="utf-8">
 <title>{safe_title} | {html.escape(brand.get("name", "Docs"), quote=False)}</title>
 <meta name="robots" content="noindex, nofollow">
@@ -900,6 +928,7 @@ def write_area_directory_page(out_dir, area, all_areas, brand, path_prefix="", b
     html_out = f"""<!doctype html>
 <html lang="en">
 <head>
+{THEME_ANTIFLASH_SCRIPT}
 <meta charset="utf-8">
 <title>{html.escape(area['name'], quote=False)} | {brand.get("name", "Docs")}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -984,6 +1013,7 @@ def write_space_picker(out_dir, spaces_info, brand, path_prefix="", base_url="",
     html_out = f"""<!doctype html>
 <html lang="en">
 <head>
+{THEME_ANTIFLASH_SCRIPT}
 <meta charset="utf-8">
 <title>{brand.get("name", "Docs")}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -1021,6 +1051,7 @@ def write_product_directory(out_dir, spaces_info, brand, path_prefix="", base_ur
     html_out = PRODUCT_DIRECTORY_TEMPLATE.replace(
         "__LOCAL_SPACES_JSON__", json.dumps(local_spaces)
     )
+    html_out = html_out.replace("<head>", f"<head>\n{THEME_ANTIFLASH_SCRIPT}", 1)
     # This template started as a fully self-contained file with its own
     # embedded <style> block, so it never had reason to load our own
     # stylesheets. But injecting the shared top-nav here (below) means it
@@ -1131,6 +1162,7 @@ def write_search_page(out_dir, brand, path_prefix="", area_groups=None):
     html_out = f"""<!doctype html>
 <html lang="en">
 <head>
+{THEME_ANTIFLASH_SCRIPT}
 <meta charset="utf-8">
 <title>Search | {html.escape(brand.get("name", "Docs"), quote=False)}</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
