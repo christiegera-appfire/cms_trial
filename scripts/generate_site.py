@@ -26,6 +26,7 @@ import traceback
 from urllib.parse import quote
 
 from bs4 import BeautifulSoup
+import markdownify
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from adf_transform import adf_to_html, generate_meta_description, build_multiexcerpt_registry, build_excerpt_registry
@@ -58,6 +59,10 @@ with open(_SEARCH_SHORTCUT_PATH) as _f:
 _TOC_SCROLLSPY_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "toc_scrollspy_widget.html")
 with open(_TOC_SCROLLSPY_PATH) as _f:
     TOC_SCROLLSPY_SCRIPT = _f.read()
+
+_COPY_MARKDOWN_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "copy_markdown_widget.html")
+with open(_COPY_MARKDOWN_PATH) as _f:
+    COPY_MARKDOWN_SCRIPT = _f.read()
 
 _PRODUCT_DIR_TEMPLATE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "templates", "product_directory_template.html")
 with open(_PRODUCT_DIR_TEMPLATE_PATH) as _f:
@@ -232,6 +237,82 @@ def render_breadcrumb(active_id, parent_of, titles, space_key, space_name, space
     return '<nav class="breadcrumb" aria-label="Breadcrumb">' + ' <span class="breadcrumb-sep">/</span> '.join(parts) + '</nav>'
 
 
+def format_relative_time(iso_timestamp):
+    """Real "X days/months ago" display, computed from Confluence's own
+    version.createdAt timestamp — not something we were capturing before.
+    Falls back to an empty string for any page missing this (shouldn't
+    happen for real content, but a malformed timestamp shouldn't crash
+    the whole build over a display nicety)."""
+    if not iso_timestamp:
+        return ""
+    try:
+        updated = datetime.datetime.fromisoformat(iso_timestamp.replace("Z", "+00:00"))
+    except (ValueError, AttributeError):
+        return ""
+    now = datetime.datetime.now(datetime.timezone.utc)
+    delta = now - updated
+    days = delta.days
+    if days < 1:
+        return "Updated today"
+    if days == 1:
+        return "Updated yesterday"
+    if days < 30:
+        return f"Updated {days} days ago"
+    months = days // 30
+    if months < 12:
+        return f"Updated {months} month{'s' if months != 1 else ''} ago"
+    years = days // 365
+    return f"Updated {years} year{'s' if years != 1 else ''} ago"
+
+
+def build_article_schema(title, canonical_url, last_updated_iso):
+    """Real dateModified structured data — per SEO research earlier in
+    this project, this is the stronger signal to Google (and increasingly
+    to AI answer engines), since crawlers read structured data directly
+    rather than needing to parse visible page text for a date."""
+    if not last_updated_iso or not canonical_url:
+        return ""
+    schema = {
+        "@context": "https://schema.org",
+        "@type": "TechArticle",
+        "headline": title,
+        "url": canonical_url,
+        "dateModified": last_updated_iso,
+    }
+    return f'<script type="application/ld+json">\n{json.dumps(schema, indent=2)}\n</script>'
+
+
+def html_to_markdown(body_html):
+    """Real HTML-to-Markdown conversion for "Copy page as Markdown" —
+    reuses our already-rendered, already-tested body_html rather than
+    building a whole separate ADF-to-Markdown renderer that would
+    duplicate every macro-handling rule a second time. Strips UI-only
+    elements first (confirmed via direct testing that a wide table's
+    "scrolls sideways" hint and a code block's header bar/Copy button
+    text otherwise leak straight into the exported markdown), and uses
+    markdownify's code_language_callback so a code block's real language
+    (already present in our own class="language-X" attribute) becomes a
+    proper fenced-code-block language tag instead of a bare, languageless
+    fence."""
+    soup = BeautifulSoup(body_html, "html.parser")
+    for note in soup.select(".wide-table-note"):
+        note.decompose()
+    for header in soup.select(".code-block-header"):
+        header.decompose()
+
+    def lang_callback(el):
+        code = el.find("code")
+        if code and code.get("class"):
+            for c in code.get("class"):
+                if c.startswith("language-"):
+                    return c.replace("language-", "")
+        return ""
+
+    return markdownify.markdownify(
+        str(soup), heading_style="atx", bullets="-", code_language_callback=lang_callback
+    )
+
+
 def estimate_reading_time(body_html):
     """Standard 200 words/minute estimate, computed from the page's actual
     rendered text — free, since we already strip HTML for the search
@@ -285,7 +366,10 @@ def page_shell(title, meta_description, nav_html, page_count, body_html, brand, 
   <main class="content">
     <div class="page-actions-row">
       {breadcrumb_html}
-      {'<a class="open-in-confluence" href="' + confluence_edit_url + '" target="_blank" rel="noopener">Open in Confluence</a>' if confluence_edit_url else ''}
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        {'<a class="open-in-confluence" href="' + confluence_edit_url + '" target="_blank" rel="noopener">Open in Confluence</a>' if confluence_edit_url else ''}
+      </div>
     </div>
     <h1>{safe_title}</h1>
     <div class="page-meta">{reading_time}</div>
@@ -300,6 +384,7 @@ def page_shell(title, meta_description, nav_html, page_count, body_html, brand, 
 {COPY_CODE_SCRIPT}
 {SEARCH_SHORTCUT_TEMPLATE.replace("__SEARCH_URL__", path_prefix + "/search/")}
 {TOC_SCROLLSPY_SCRIPT}
+{COPY_MARKDOWN_SCRIPT}
 </body>
 </html>
 """
@@ -493,6 +578,13 @@ def build_space(data_path, out_dir, brand, base_url="", path_prefix="", support_
             breadcrumb_html = render_breadcrumb(p["id"], parent_of, titles, space_key, space_name, space_home_url, path_prefix)
             confluence_edit_url = f"https://{confluence_site}/wiki/spaces/{space_key}/pages/{p['id']}" if confluence_site else ""
 
+            last_updated_iso = p.get("last_updated")
+            relative_time = format_relative_time(last_updated_iso)
+            reading_time_text = estimate_reading_time(body_html)
+            page_meta_text = " · ".join(t for t in (relative_time, reading_time_text) if t)
+            article_schema = build_article_schema(p["title"], canonical_url, last_updated_iso)
+            combined_schema = faq_schema + article_schema
+
             html_out = page_shell(
                 title=p["title"],
                 meta_description=meta_desc,
@@ -504,13 +596,14 @@ def build_space(data_path, out_dir, brand, base_url="", path_prefix="", support_
                 canonical_url=canonical_url,
                 path_prefix=path_prefix,
                 noindex=noindex,
-                extra_head=faq_schema,
+                extra_head=combined_schema,
                 toc_html=render_page_toc_panel(page_headings),
                 breadcrumb_html=breadcrumb_html,
-                reading_time=estimate_reading_time(body_html),
+                reading_time=page_meta_text,
                 confluence_edit_url=confluence_edit_url,
             )
-            has_schema = bool(faq_schema)
+            has_schema = bool(combined_schema)
+            render_succeeded = True
             snippet = BeautifulSoup(body_html, "html.parser").get_text(" ", strip=True)[:500]
         except Exception as e:
             # A single page's rendering bug used to crash the ENTIRE
@@ -549,10 +642,15 @@ def build_space(data_path, out_dir, brand, base_url="", path_prefix="", support_
             has_schema = False
             snippet = "This page failed to build."
             page_headings = []
+            render_succeeded = False
 
         os.makedirs(os.path.dirname(out_path), exist_ok=True)
         with open(out_path, "w") as f:
             f.write(html_out)
+        if render_succeeded:
+            md_path = os.path.join(os.path.dirname(out_path), "index.md")
+            with open(md_path, "w") as f:
+                f.write(f"# {p['title']}\n\n{html_to_markdown(body_html)}")
         built.append((href_path, p["title"], has_schema, space_key, space_name, snippet))
 
     return space_key, space_name, roots, titles, len(pages), built
@@ -972,6 +1070,47 @@ def write_search_index(out_dir, all_built):
         json.dump(index, f)
 
 
+def write_llms_txt(out_dir, brand, base_url, path_prefix, area_groups):
+    """Real /llms.txt file, following the core format confirmed consistent
+    across the (still-fragmenting) llms.txt spec landscape as of 2026: an
+    H1 title, a blockquote summary, and H2 sections with strict
+    "- [Title](URL): Description." link lines. Curated deliberately — one
+    link per product (its real home page), not every page in the site,
+    since the spec's own emphasis is a curated map, not an exhaustive
+    dump. Reuses the same area_groups already computed for the landing
+    page rather than re-deriving the categorization a second time."""
+    lines = [f"# {brand.get('name', 'Docs')}", ""]
+    tagline = brand.get("tagline", "")
+    if tagline:
+        lines.append(f"> {tagline}")
+        lines.append("")
+
+    for area in area_groups:
+        entries = []
+        for kind, data in area["resolved_spaces"]:
+            if kind == "real":
+                space_key, space_name, roots, titles, page_count = data
+                if not roots:
+                    continue
+                home_url = base_url.rstrip("/") + page_url(roots[0], space_key, titles, path_prefix)
+                blurb = titles.get(roots[0], space_name)
+                entries.append(f"- [{space_name}]({home_url}): {blurb}")
+            else:
+                key, name, url = data
+                entries.append(f"- [{name}]({url}): External documentation, hosted outside this site.")
+        if entries:
+            lines.append(f"## {area['name']}")
+            lines.extend(entries)
+            lines.append("")
+
+    lines.append("## Optional")
+    lines.append(f"- [Full product directory]({base_url.rstrip('/')}{path_prefix}/product-directory/): Every Appfire product, alphabetically.")
+    lines.append(f"- [Search]({base_url.rstrip('/')}{path_prefix}/search/): Full-text search across all documentation.")
+
+    with open(os.path.join(out_dir, "llms.txt"), "w") as f:
+        f.write("\n".join(lines) + "\n")
+
+
 def write_search_page(out_dir, brand, path_prefix="", area_groups=None):
     """Real, working search — client-side, built from search-index.json.
     Filters group by the same product areas shown on the landing page
@@ -1257,7 +1396,9 @@ def build_from_config(config_path=CONFIG_FILE, data_dir=DATA_DIR, out_dir=OUT_DI
         write_sitemap(out_dir, base_url, all_built)
     write_robots_txt(out_dir, base_url, path_prefix, noindex=noindex)
     write_search_index(out_dir, all_built)
-    write_search_page(out_dir, brand, path_prefix, map_spaces_to_areas(spaces_info, external_links, areas_data))
+    _area_groups_for_search = map_spaces_to_areas(spaces_info, external_links, areas_data)
+    write_search_page(out_dir, brand, path_prefix, _area_groups_for_search)
+    write_llms_txt(out_dir, brand, base_url, path_prefix, _area_groups_for_search)
 
     return all_built
 
@@ -1273,5 +1414,5 @@ if __name__ == "__main__":
     built = build_from_config(config_path=args.config, data_dir=args.data_dir, out_dir=args.out)
     print(f"Built {len(built)} pages total from {args.config}:")
     for url_path, title, has_schema, _space_key, _space_name, _snippet in built:
-        tag = " [+FAQPage schema]" if has_schema else ""
+        tag = " [+structured data]" if has_schema else ""
         print(f"  - {url_path}  ({title}){tag}")
