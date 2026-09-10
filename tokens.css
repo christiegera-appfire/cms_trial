@@ -275,9 +275,11 @@
 
 /* ----------------------------------------------------------------------------
    DOC THEME LAYER — semantic aliases for the reading surface, from the
-   design handoff README. Dark variant only for now (our site doesn't have
-   a light/dark toggle yet — this is the safe subset of the real spec to
-   apply while the bigger structural redesign is pending open decisions).
+   design handoff README. Dark is the default (:root); light is a real,
+   second variant now, built from the official Appfire "inverse" (light-
+   context) tokens already present above in this same file — not
+   invented values. Activated via [data-theme="light"] on <html>, toggled
+   by the theme-toggle widget and persisted in localStorage.
    ---------------------------------------------------------------------------- */
 :root {
   --doc-bg: #090A0F;      --doc-bg-sub: #121213;    --doc-fg: #FFFFFF;      --doc-fg-sub: #CFCCD4;
@@ -285,4 +287,26 @@
   --doc-card: #121213;    --doc-card-hover: #1C1B1C; --doc-code-bg: #121213;
   --doc-accent: #6195FF;  /* blue-200 — lifted for contrast on Terminal, per design spec */
   --doc-accent-soft: #0C1933; --doc-shadow: 0 6px 24px rgba(0,0,0,.55); --doc-mark: #484117;
+}
+
+html[data-theme="light"] {
+  --doc-bg: #FFFFFF;         /* --surface-inverse */
+  --doc-bg-sub: #F3F1F6;     /* --scale-neutral-1000 */
+  --doc-fg: #090A0F;         /* --text-inverse */
+  --doc-fg-sub: #5C5B5E;     /* --text-subtle-inverse */
+  --doc-fg-faint: #8A888E;   /* --text-subtlest-inverse */
+  /* Deliberately NOT using the raw --border-inverse token (#2E2D2F) here —
+     that resolves to a dark gray, which doesn't make sense as a subtle
+     line on a white background. Using a lighter neutral instead, matching
+     the actual visual role this token plays (a subtle divider), not just
+     the token's literal label. */
+  --doc-line: #E6E3EC;       /* --scale-neutral-900 */
+  --doc-line-soft: #F3F1F6;  /* --scale-neutral-1000 */
+  --doc-card: #FAF9FB;       /* --elevation-surface-inverse */
+  --doc-card-hover: #F3F1F6; /* --scale-neutral-1000 */
+  --doc-code-bg: #FAF9FB;
+  --doc-accent: #2256C5;     /* blue-500 — the real spec's own explicit rule: AA-contrast on white, NOT the raw #397BFF Flow blue, which fails on light backgrounds */
+  --doc-accent-soft: #EBF2FF; /* --scale-blue-000 */
+  --doc-shadow: 0 2px 8px rgba(0,0,0,.08);
+  --doc-mark: #FFF6B6;       /* --af-afterglow, at full opacity — a light highlight suits a light page */
 }
