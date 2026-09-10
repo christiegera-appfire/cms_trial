@@ -1,0 +1,32 @@
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
