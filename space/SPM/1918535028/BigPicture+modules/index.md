@@ -14,7 +14,6 @@ With its modular approach, BigPicture enables teams to customize their workflow,
 Currently, there are fourteen modules to choose from, each offering a different area of focus:
 
 - [Overview module](/cms_trial/space/SPM/1918502655/Overview+module/)
-  - [Navigation and interface (Overview module)](/cms_trial/space/SPM/1918831037/Navigation+and+interface+(Overview+module)/)
 - [Gantt module](/cms_trial/space/SPM/1918797129/Gantt+module/)
   - [Navigation and interface (Gantt module)](/cms_trial/space/SPM/1918699591/Navigation+and+interface+(Gantt+module)/)
 - [Scope module](/cms_trial/space/SPM/1918666763/Scope+module/)

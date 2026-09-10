@@ -64,7 +64,7 @@ You can create a parent Strategic theme and a parent Objective for your initiati
 
 - [*OKR Overview*](/cms_trial/space/SPM/1918834317/OKR+Overview/) page
 - [*OKR Hierarchy*](/cms_trial/space/SPM/1918669889/OKR+Hierarchy/) page
-- [*Progress Dashboard*](/cms_trial/space/SPM/1918801225/Progress+Dashboard/) page
+- [*Progress Dashboard*](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918801225) page
 
 (Note that all three of those pages share the same top menu, so you can follow the steps while viewing any of them.)
 

@@ -34,7 +34,6 @@ If you want to learn more about BigPicture features, see the [User guide](/cms_t
   - [Manage baseline permissions and version history](/cms_trial/space/SPM/1918633902/Manage+baseline+permissions+and+version+history/)
   - [Overwrite story point conversion ratio](/cms_trial/space/SPM/1918831172/Overwrite+story+point+conversion+ratio/)
   - [Manage column views](/cms_trial/space/SPM/1918503715/Manage+column+views/)
-  - [Manage card views](/cms_trial/space/SPM/1918830445/Manage+card+views/)
 - [Permissions](/cms_trial/space/SPM/1918829579/Permissions/)
   - [App-level permissions](/cms_trial/space/SPM/1918535770/App-level+permissions/)
   - [Box-level permissions](/cms_trial/space/SPM/1918797447/Box-level+permissions/)

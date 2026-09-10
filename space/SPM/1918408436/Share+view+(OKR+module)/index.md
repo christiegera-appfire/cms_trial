@@ -4,7 +4,7 @@
 
 This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
 
-With the **Share view** option, you can let other users to see your current view of the OKR module the same way you do. You can share the views of the [*Overview*](/cms_trial/space/SPM/1918834317/OKR+Overview/), [*Hierarchy*](/cms_trial/space/SPM/1918669889/OKR+Hierarchy/), and [Progress Dashboard](/cms_trial/space/SPM/1918801225/Progress+Dashboard/) pages.
+With the **Share view** option, you can let other users to see your current view of the OKR module the same way you do. You can share the views of the [*Overview*](/cms_trial/space/SPM/1918834317/OKR+Overview/), [*Hierarchy*](/cms_trial/space/SPM/1918669889/OKR+Hierarchy/), and [Progress Dashboard](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918801225) pages.
 
 The recipient will have their view adjusted based on the active:
 

@@ -9,5 +9,4 @@ On the following pages, you can learn about the unique reports you can generate 
   - [OKRs by Status](/cms_trial/space/SPM/2913599687/OKRs+by+Status/)
   - [Project health (RAG)](/cms_trial/space/SPM/2988179457/Project+health+(RAG)/)
 - [Board module reports](/cms_trial/space/SPM/1918502941/Board+module+reports/)
-- [Goals module reports](/cms_trial/space/SPM/1918831135/Goals+module+reports/)
 - [Aggregations](/cms_trial/space/SPM/1918666880/Aggregations/)

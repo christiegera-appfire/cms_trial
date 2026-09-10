@@ -77,7 +77,7 @@ You cannot hide historical API records.
 
 ### On the Progress Dashboard
 
-The [*Progress Dashboard*](/cms_trial/space/SPM/1918801225/Progress+Dashboard/) page provides an overview of OKR progress, highlighting recent successes and identifying OKRs that are off track or at risk. You can also review statuses over time and use the filters to track only those OKRs you are interested in.
+The [*Progress Dashboard*](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918801225) page provides an overview of OKR progress, highlighting recent successes and identifying OKRs that are off track or at risk. You can also review statuses over time and use the filters to track only those OKRs you are interested in.
 
 ![Screenshot of the Progress Dashboard in the OKR module.](/cms_trial/assets/fca811b2-142b-42a1-b29a-087216cb076d.png)
 

@@ -4,7 +4,7 @@
 
 This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
 
-In the OKR module, you can assign an OKR to a specific team and filter the main view by that team for a focused view. You can also display team stats on the [*Progress Dashboard*](/cms_trial/space/SPM/1918801225/Progress+Dashboard/)page, receive team-specific notifications, and access additional team features.
+In the OKR module, you can assign an OKR to a specific team and filter the main view by that team for a focused view. You can also display team stats on the [*Progress Dashboard*](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918801225)page, receive team-specific notifications, and access additional team features.
 
 The teams in the OKR module are separate from those in the Teams module. You can't use OKR teams in other modules, nor can you use Teams module teams as OKR teams.
 
