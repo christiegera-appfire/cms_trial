@@ -7,6 +7,11 @@ on:
         description: 'Space key to rebuild (e.g. PSJC) — leave blank to rebuild everything'
         required: false
         default: ''
+      clean_assets:
+        description: 'Delete the entire assets/ folder before fetching (one-time cleanup for accumulated/duplicated images — confirmed real bug where a query string in an attachment title got baked into the saved filename, meaning the same image could be re-saved under a new name every time its title changed, rather than ever overwriting the original). Leave false for a normal rebuild.'
+        type: boolean
+        required: false
+        default: false
   # Triggered by a real Confluence webhook (page created/updated/removed)
   # POSTing to GitHub's repository_dispatch API — this is what makes
   # content staleness a solved problem instead of "someone has to
@@ -60,6 +65,16 @@ jobs:
         run: |
           git config user.name "docs-bot"
           git config user.email "actions@github.com"
+
+      - name: Clean assets folder (only if explicitly requested)
+        if: ${{ github.event.inputs.clean_assets == 'true' }}
+        run: |
+          echo "Deleting the entire assets/ folder — confirmed accumulated duplicates from a real bug (query strings baked into saved filenames), not a normal cleanup step."
+          rm -rf assets
+          mkdir -p assets
+          git add -A -- assets
+          git commit -m "One-time asset cleanup (removing accumulated/duplicated images)" || echo "Nothing to commit"
+          git push
 
       - name: Fetch from Confluence (one space if specified, else everything)
         env:
