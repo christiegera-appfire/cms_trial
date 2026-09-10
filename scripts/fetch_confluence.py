@@ -282,6 +282,16 @@ def process_page_attachments(base_url, auth, page_id, assets_dir):
             continue
 
         title = att.get("title", file_id)
+        # Confirmed real bug: a title with a query string attached (seen
+        # in production as "screenshot.png?version=2&modificationDate=...")
+        # meant os.path.splitext grabbed the WHOLE query string as the
+        # "extension", since splitext just finds the last period in the
+        # string — resulting in genuinely broken filenames on disk, and
+        # each new query-string variant creating an entirely new file
+        # rather than ever reusing/overwriting the real image already
+        # saved. Stripping anything from "?" onward first, regardless of
+        # why the title had it, so this can't happen again either way.
+        title = title.split("?")[0]
         ext = os.path.splitext(title)[1]
         if not ext:
             media_type = att.get("metadata", {}).get("mediaType", "")
