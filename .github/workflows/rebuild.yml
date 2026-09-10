@@ -63,7 +63,7 @@ jobs:
         run: |
           git config user.name "docs-bot"
           git config user.email "actions@github.com"
-          git add -A -- '*.html' 'data' 'assets'
+          git add -A -- '*.html' '*.md' 'data' 'assets'
           # These are root-level generated files that don't always exist —
           # sitemap.xml specifically only gets written when noindex is off.
           # Adding a named file that doesn't exist anywhere is a fatal git
@@ -72,6 +72,7 @@ jobs:
           [ -f search-index.json ] && git add search-index.json
           [ -f robots.txt ] && git add robots.txt
           [ -f sitemap.xml ] && git add sitemap.xml
+          [ -f llms.txt ] && git add llms.txt
           if git diff --cached --quiet; then
             echo "No content changes — skipping commit."
           else
