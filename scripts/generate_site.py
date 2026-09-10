@@ -64,6 +64,10 @@ _COPY_MARKDOWN_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "
 with open(_COPY_MARKDOWN_PATH) as _f:
     COPY_MARKDOWN_SCRIPT = _f.read()
 
+_SIDEBAR_RESIZE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "sidebar_resize_widget.html")
+with open(_SIDEBAR_RESIZE_PATH) as _f:
+    SIDEBAR_RESIZE_SCRIPT = _f.read()
+
 _PRODUCT_DIR_TEMPLATE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "templates", "product_directory_template.html")
 with open(_PRODUCT_DIR_TEMPLATE_PATH) as _f:
     PRODUCT_DIRECTORY_TEMPLATE = _f.read()
@@ -372,7 +376,7 @@ def page_shell(title, meta_description, nav_html, body_html, brand, widget_html,
     <div class="page-meta">{reading_time}</div>
     {body_html}
   </main>
-  <aside class="sidebar">{nav_shell}</aside>
+  <aside class="sidebar">{nav_shell}<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail">{toc_html}</aside>
 </div>
 {widget_html}
@@ -382,6 +386,7 @@ def page_shell(title, meta_description, nav_html, body_html, brand, widget_html,
 {SEARCH_SHORTCUT_TEMPLATE.replace("__SEARCH_URL__", path_prefix + "/search/")}
 {TOC_SCROLLSPY_SCRIPT}
 {COPY_MARKDOWN_SCRIPT}
+{SIDEBAR_RESIZE_SCRIPT}
 </body>
 </html>
 """
