@@ -60,12 +60,53 @@ def get_auth():
 
 def get_space_id(base_url, space_key, auth):
     url = f"{base_url}/wiki/api/{API_VERSION}/spaces"
-    resp = requests.get(url, params={"keys": space_key}, auth=auth, timeout=30)
+    resp = request_with_retry("GET", url, params={"keys": space_key}, auth=auth, timeout=30)
     resp.raise_for_status()
     results = resp.json().get("results", [])
     if not results:
         sys.exit(f"Space key '{space_key}' not found — check the key and your account's access to it.")
     return results[0]["id"], results[0].get("name", space_key)
+
+
+def request_with_retry(method, url, max_retries=5, **kwargs):
+    """Wraps every real Confluence API call with retry handling —
+    confirmed necessary the hard way: a real automated rebuild failed on
+    a genuine, transient 500 from Confluence's own server mid-pagination,
+    not a bug in our own code. This matters a lot more now that rebuilds
+    can run unattended via webhook, not just when someone's watching to
+    manually re-trigger a failed run.
+
+    429 (rate limited) retries indefinitely, honoring Retry-After — this
+    is routine, expected behavior, not a failure state, matching the
+    existing behavior this replaces.
+
+    5xx (server error) retries with exponential backoff, up to
+    max_retries times, since these are usually transient — but does
+    eventually give up and raise clearly rather than retrying forever
+    against a server that's genuinely down for an extended period.
+
+    4xx errors (other than 429) are NOT retried — a real permissions or
+    not-found error won't be fixed by trying again, so those raise
+    immediately via the caller's own raise_for_status()."""
+    attempt = 0
+    while True:
+        resp = requests.request(method, url, **kwargs)
+        if resp.status_code == 429:
+            wait = int(resp.headers.get("Retry-After", "5"))
+            print(f"Rate limited, waiting {wait}s...", file=sys.stderr)
+            time.sleep(wait)
+            continue
+        if 500 <= resp.status_code < 600 and attempt < max_retries:
+            wait = min(60, 2 ** attempt)
+            print(
+                f"Server error {resp.status_code} from {url} — retrying in {wait}s "
+                f"(attempt {attempt + 1}/{max_retries})...",
+                file=sys.stderr,
+            )
+            time.sleep(wait)
+            attempt += 1
+            continue
+        return resp
 
 
 def get_all_pages(base_url, space_id, auth):
@@ -78,12 +119,7 @@ def get_all_pages(base_url, space_id, auth):
         "status": "current",
     }
     while url:
-        resp = requests.get(url, params=params, auth=auth, timeout=30)
-        if resp.status_code == 429:
-            wait = int(resp.headers.get("Retry-After", "5"))
-            print(f"Rate limited, waiting {wait}s...", file=sys.stderr)
-            time.sleep(wait)
-            continue
+        resp = request_with_retry("GET", url, params=params, auth=auth, timeout=30)
         resp.raise_for_status()
         data = resp.json()
         pages.extend(data.get("results", []))
@@ -129,7 +165,7 @@ def page_has_read_restriction(base_url, page_id, auth):
     silently bypassing whatever restriction someone set on it in Confluence."""
     url = f"{base_url}/wiki/rest/api/content/{page_id}/restriction/byOperation/read"
     try:
-        resp = requests.get(url, auth=auth, timeout=30)
+        resp = request_with_retry("GET", url, auth=auth, timeout=30)
     except requests.RequestException as e:
         print(f"WARNING: restriction check failed for page {page_id}: {e} — excluding it to be safe.", file=sys.stderr)
         return True  # fail closed: if we can't confirm it's safe to publish, don't publish it
@@ -196,11 +232,7 @@ def get_attachments_for_page(base_url, page_id, auth):
     url = f"{base_url}/wiki/rest/api/content/{page_id}/child/attachment"
     params = {"limit": 200, "expand": "extensions.fileId,metadata.mediaType"}
     while url:
-        resp = requests.get(url, params=params, auth=auth, timeout=30)
-        if resp.status_code == 429:
-            wait = int(resp.headers.get("Retry-After", "5"))
-            time.sleep(wait)
-            continue
+        resp = request_with_retry("GET", url, params=params, auth=auth, timeout=30)
         if resp.status_code == 404:
             return []  # page has no attachments endpoint content, not fatal
         resp.raise_for_status()
@@ -261,7 +293,7 @@ def process_page_attachments(base_url, auth, page_id, assets_dir):
         if not os.path.exists(local_path):
             full_url = download_path if download_path.startswith("http") else f"{base_url}/wiki{download_path}"
             try:
-                img_resp = requests.get(full_url, auth=auth, timeout=60)
+                img_resp = request_with_retry("GET", full_url, auth=auth, timeout=60)
                 if img_resp.status_code == 200:
                     with open(local_path, "wb") as f:
                         f.write(img_resp.content)
