@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>3.2.19 Release notes | Appfire Docs</title>
 <meta name="description" content="This page outlines the updates included in the latest release of Power Scripts for Jira Cloud.">
@@ -9,7 +19,15 @@
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "3.2.19 Release notes",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/PSJC/3194388494/3.2.19+Release+notes/",
+  "dateModified": "2026-08-03T10:24:49.246Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,26 +37,52 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PSJC/899022918/Release+notes/">Release notes</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">3.2.19 Release notes</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/3194388494" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PSJC/pages/3194388494" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>3.2.19 Release notes</h1>
-    <div class="page-meta">2 min read</div>
+    <div class="page-meta">Updated 1 month ago · 2 min read</div>
     <p><strong>Release date</strong>: <time datetime="2026-05-01">May 1, 2026</time></p><p>This page outlines the updates included in the latest release of Power Scripts for Jira Cloud.</p><hr/><h2 id="enhancements">Enhancements</h2><h2 id="improved-functions-for-retrieving-email-addresses">Improved functions for retrieving email addresses</h2><p>The following functions now make it easier to retrieve email addresses:</p><ul><li><p><em>getUser</em> - The function includes a new optional parameter,<code>forceIncludeEmail</code> (boolean). When set to true, the result includes the user email. </p></li><li><p><em>getUserByFullName</em> - The function includes a new optional parameter, <code>forceIncludeEmail</code> (boolean). When set to <code>true</code>, the result includes the user email. </p></li><li><p><em>getUserByEmail</em> - Now returns the user’s email in the result.</p></li><li><p><em>userEmailAddress</em> - Returns the user’s email address.</p></li></ul><p>We've improved how Power Scripts retrieves user profile data, including email addresses. Previously, functions such as <code>userEmailAddress()</code>, <code>getUser()</code>, <code>getUserByEmail()</code>, and <code>getUserByFullName()</code> could return user records with missing email addresses. These functions now handle email retrieval and missing profile data more reliably, ensuring that user email addresses are quickly returned when available and that accounts with incomplete profile data no longer cause errors.</p><div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/HrGkYk2SdCI"></iframe></div><hr/><h2 id="bug-fixes">Bug fixes</h2><p>The following bugs are fixed in this release:</p><ul><li><p>Resolved an issue where users encountered a 403 error from the <code>autotransition</code> function when the add-on tries to impersonate itself using <code>asUser.</code></p></li><li><p>Resolved an issue where the <code>originalEstimate</code> function could not be set using SIL scripts if the field was not previously set from the issue.</p></li><li><p>Resolved an issue where the <code>createIssue</code> function does not set the due date field.</p></li><li><p>Resolved an issue where the user receives an error message in the SIL debugger: <code>Can't start the debug. Another session might be in progress</code>, even without a previous session active.</p></li><li><p>Resolved an issue where copying an ADF field containing a hyperlink fails and shows a <code>ERROR parsing document</code> message.</p></li><li><p>Resolved an issue where an ADF parsing error appears only when a cell is empty.</p></li></ul><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p><strong>Questions and feedback</strong></p><ul><li><p>Explore exciting features, pricing updates, reviews, and more on the <a href="https://marketplace.atlassian.com/apps/43318/power-scripts-jira-workflow-automation?tab=overview">Marketplace</a>.</p></li><li><p>Stuck with something? Raise a ticket through our <a href="https://appf.re/support">support portal</a>.</p></li><li><p>Do you love using our app? Let us know what you think <a href="https://marketplace.atlassian.com/apps/43318/power-scripts-jira-workflow-automation?tab=reviews">here</a>. <span class="img-placeholder" style="display:inline">[unmapped inline: placeholder]</span></p></li></ul></div><div><p><strong>Credits</strong></p><p>Thank you to our valued customers! Your incredible support and feedback inspire us to improve continuously. We appreciate your trust in Power Scripts for Jira Cloud!</p></div></div>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">1145 pages in this space, fetched live from Confluence via API.</p>
-<nav><ul><li><details open><summary><a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a></summary><ul><li><details><summary><a href="/cms_trial/space/PSJC/490995713/Get+started+with+Power+Scripts+for+Jira+Cloud/">Get started with Power Scripts for Jira Cloud</a></summary><ul><li><a href="/cms_trial/space/PSJC/490995734/How+to+install+Power+Scripts+for+Jira+Cloud/">How to install Power Scripts for Jira Cloud</a></li><li><a href="/cms_trial/space/PSJC/1761182167/Power+Scripts+for+Jira+Cloud+Product+tour/">Power Scripts for Jira Cloud Product tour</a></li><li><a href="/cms_trial/space/PSJC/490995805/Overview+of+use+cases/">Overview of use cases</a></li><li><a href="/cms_trial/space/PSJC/796852580/Automation+limits+(there+are+none)/">Automation limits (there are none)</a></li><li><a href="/cms_trial/space/PSJC/490995779/Script+types+and+triggers/">Script types and triggers</a></li><li><a href="/cms_trial/space/PSJC/797278573/Script+portability/">Script portability</a></li><li><a href="/cms_trial/space/PSJC/1064698053/Learning+resources/">Learning resources</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/PSJC/490995921/Configuration+guides/">Configuration guides</a></summary><ul><li><a href="/cms_trial/space/PSJC/490996120/SIL+configuration/">SIL configuration</a></li><li><a href="/cms_trial/space/PSJC/2028634113/Time+configuration/">Time configuration</a></li><li><a href="/cms_trial/space/PSJC/490996420/Thread+pool+configuration/">Thread pool configuration</a></li><li><a href="/cms_trial/space/PSJC/490996090/Script+Storage+configuration/">Script Storage configuration</a></li><li><a href="/cms_trial/space/PSJC/2028634211/Script+Security+configuration/">Script Security configuration</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/PSJC/994378270/Integration+guides/">Integration guides</a></summary><ul><li><a href="/cms_trial/space/PSJC/490996015/Outgoing+Mail+configuration/">Outgoing Mail configuration</a></li><li><a href="/cms_trial/space/PSJC/994018140/Incoming+Mail+configuration/">Incoming Mail configuration</a></li><li><a href="/cms_trial/space/PSJC/490996148/SQL+Datasource+configuration/">SQL Datasource configuration</a></li><li><a href="/cms_trial/space/PSJC/490995973/LDAP+configuration/">LDAP configuration</a></li><li><a href="/cms_trial/space/PSJC/490996447/Webhook+configuration/">Webhook configuration</a></li><li><a href="/cms_trial/space/PSJC/490995941/Slack+integration/">Slack integration</a></li><li><a href="/cms_trial/space/PSJC/490996050/Remote+systems+configuration/">Remote systems configuration</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/PSJC/490996521/Feature+guides/">Feature guides</a></summary><ul><li><a href="/cms_trial/space/PSJC/490999005/Workflow+Automation/">Workflow Automation</a></li><li><a href="/cms_trial/space/PSJC/1165525018/Automation+(Script)+Templates/">Automation (Script) Templates</a></li><li><a href="/cms_trial/space/PSJC/1515683977/Live+Fields/">Live Fields</a></li><li><a href="/cms_trial/space/PSJC/1166835713/Incoming+Mail+Handler/">Incoming Mail Handler</a></li><li><a href="/cms_trial/space/PSJC/490997937/JQL+Support/">JQL Support</a></li><li><a href="/cms_trial/space/PSJC/1718321156/REST+Capabilities/">REST Capabilities</a></li><li><a href="/cms_trial/space/PSJC/490997990/SIL+Listeners/">SIL Listeners</a></li><li><a href="/cms_trial/space/PSJC/490996983/SIL+Manager/">SIL Manager</a></li><li><a href="/cms_trial/space/PSJC/723320834/Script+Snippets/">Script Snippets</a></li><li><a href="/cms_trial/space/PSJC/490998470/SIL+Panel/">SIL Panel</a></li><li><a href="/cms_trial/space/PSJC/490998486/SIL+Runner+Gadget/">SIL Runner Gadget</a></li><li><a href="/cms_trial/space/PSJC/490998807/SIL+Scheduler/">SIL Scheduler</a></li><li><a href="/cms_trial/space/PSJC/857770493/Scripted+Custom+Fields/">Scripted Custom Fields</a></li><li><a href="/cms_trial/space/PSJC/490997751/Performance+and+Monitoring/">Performance and Monitoring</a></li><li><a href="/cms_trial/space/PSJC/516456599/Managing+your+solution%3A+Self-Help/">Managing your solution: Self-Help</a></li><li><a href="/cms_trial/space/PSJC/1839235096/Forms+and+Wizards/">Forms and Wizards</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/PSJC/496205894/Advanced+features/">Advanced features</a></summary><ul><li><a href="/cms_trial/space/PSJC/496205909/Persistent+variables/">Persistent variables</a></li><li><a href="/cms_trial/space/PSJC/496206033/Environment+variables/">Environment variables</a></li><li><a href="/cms_trial/space/PSJC/496206057/Custom+fields+aliases/">Custom fields aliases</a></li><li><a href="/cms_trial/space/PSJC/496336897/SIL+Template+language/">SIL Template language</a></li><li><a href="/cms_trial/space/PSJC/756252819/Arguments+(argv+variable)/">Arguments (argv variable)</a></li><li><a href="/cms_trial/space/PSJC/758875026/Executing+scripts+locally/">Executing scripts locally</a></li><li><a href="/cms_trial/space/PSJC/913866777/Processing+large+batches/">Processing large batches</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/PSJC/1940488291/Migration+resources/">Migration resources</a></summary><ul><li><a href="/cms_trial/space/PSJC/3383754876/Power+Scripts+for+Jira+Cloud+migration+FAQ/">Power Scripts for Jira Cloud migration FAQ</a></li><li><a href="/cms_trial/space/PSJC/1940488311/Power+Scripts+for+Jira+Cloud+vs+DC%2FServer+functionality/">Power Scripts for Jira Cloud vs DC/Server functionality</a></li><li><a href="/cms_trial/space/PSJC/1940488352/SIL+scripts+migration+guide/">SIL scripts migration guide</a></li><li><a href="/cms_trial/space/PSJC/1940488637/Converting+Groovy+scripts+to+SIL/">Converting Groovy scripts to SIL</a></li><li><a href="/cms_trial/space/PSJC/1940488691/How+to+migrate+SIL+scripts+with+JCMA/">How to migrate SIL scripts with JCMA</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/PSJC/434798967/Simple+Issue+Language/">Simple Issue Language</a></summary><ul><li><a href="/cms_trial/space/PSJC/15731951/Getting+started+with+SIL/">Getting started with SIL</a></li><li><a href="/cms_trial/space/PSJC/1934458884/SIL+reference+guide/">SIL reference guide</a></li><li><a href="/cms_trial/space/PSJC/434374166/SIL+Functions+library/">SIL Functions library</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/PSJC/490999487/Tutorials+and+recipes/">Tutorials and recipes</a></summary><ul><li><a href="/cms_trial/space/PSJC/490999529/Power+Scripts+recipes/">Power Scripts recipes</a></li><li><a href="/cms_trial/space/PSJC/491000765/Recipes+by+script+type/">Recipes by script type</a></li><li><a href="/cms_trial/space/PSJC/491000939/Recipes+by+use+case+category/">Recipes by use case category</a></li><li><a href="/cms_trial/space/PSJC/491002144/Rich+text+formatting+guide+for+Jira+Cloud/">Rich text formatting guide for Jira Cloud</a></li><li><a href="/cms_trial/space/PSJC/491001307/How-to+guides/">How-to guides</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/PSJC/796721618/Jira+Product+Discovery+support/">Jira Product Discovery support</a></summary><ul><li><a href="/cms_trial/space/PSJC/797638696/Automation+support/">Automation support</a></li><li><a href="/cms_trial/space/PSJC/793280566/Custom+fields+support+SIL+script/">Custom fields support SIL script</a></li><li><a href="/cms_trial/space/PSJC/792232855/Field+support/">Field support</a></li><li><a href="/cms_trial/space/PSJC/797638671/Other+known+limitations/">Other known limitations</a></li><li><a href="/cms_trial/space/PSJC/792920067/Function+support/">Function support</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/PSJC/899022918/Release+notes/">Release notes</a></summary><ul><li><a href="/cms_trial/space/PSJC/3530293356/7.0.0+Release+notes/">7.0.0 Release notes</a></li><li><a href="/cms_trial/space/PSJC/3513254170/5.0.0+Release+notes/">5.0.0 Release notes</a></li><li><a href="/cms_trial/space/PSJC/3501424641/3.2.24+Release+notes/">3.2.24 Release notes</a></li><li><a href="/cms_trial/space/PSJC/3400859655/3.2.21+Release+notes/">3.2.21 Release notes</a></li><li><a href="/cms_trial/space/PSJC/3237937187/3.2.20+Release+notes/">3.2.20 Release notes</a></li><li><a href="/cms_trial/space/PSJC/3194388494/3.2.19+Release+notes/" class="active">3.2.19 Release notes</a></li><li><a href="/cms_trial/space/PSJC/2413101057/3.2.16+Release+notes/">3.2.16 Release notes</a></li><li><a href="/cms_trial/space/PSJC/3442114643/Release+notes+2025/">Release notes 2025</a></li><li><a href="/cms_trial/space/PSJC/3442212890/Release+notes+2024/">Release notes 2024</a></li><li><a href="/cms_trial/space/PSJC/573997127/Older+Release+Notes/">Older Release Notes</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/PSJC/1761182379/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/PSJC/491001327/Troubleshooting+Power+Scripts+for+Jira+Cloud/">Troubleshooting Power Scripts for Jira Cloud</a></li></ul></details></li></ul></details></li><li><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Simple Issue Language Documentation</a></li></ul></nav>
-</aside>
+<nav><ul><li><details open><summary><a href="/cms_trial/space/PSJC/796852607/Power+Scripts+for+Jira+Cloud/">Power Scripts for Jira Cloud</a></summary><ul><li><details><summary><a href="/cms_trial/space/PSJC/490995713/Get+started+with+Power+Scripts+for+Jira+Cloud/">Get started with Power Scripts for Jira Cloud</a></summary><ul><li><a href="/cms_trial/space/PSJC/490995734/How+to+install+Power+Scripts+for+Jira+Cloud/">How to install Power Scripts for Jira Cloud</a></li><li><a href="/cms_trial/space/PSJC/1761182167/Power+Scripts+for+Jira+Cloud+Product+tour/">Power Scripts for Jira Cloud Product tour</a></li><li><a href="/cms_trial/space/PSJC/490995805/Overview+of+use+cases/">Overview of use cases</a></li><li><a href="/cms_trial/space/PSJC/796852580/Automation+limits+(there+are+none)/">Automation limits (there are none)</a></li><li><a href="/cms_trial/space/PSJC/490995779/Script+types+and+triggers/">Script types and triggers</a></li><li><a href="/cms_trial/space/PSJC/797278573/Script+portability/">Script portability</a></li><li><a href="/cms_trial/space/PSJC/1064698053/Learning+resources/">Learning resources</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/PSJC/490995921/Configuration+guides/">Configuration guides</a></summary><ul><li><a href="/cms_trial/space/PSJC/490996120/SIL+configuration/">SIL configuration</a></li><li><a href="/cms_trial/space/PSJC/2028634113/Time+configuration/">Time configuration</a></li><li><a href="/cms_trial/space/PSJC/490996420/Thread+pool+configuration/">Thread pool configuration</a></li><li><a href="/cms_trial/space/PSJC/490996090/Script+Storage+configuration/">Script Storage configuration</a></li><li><a href="/cms_trial/space/PSJC/2028634211/Script+Security+configuration/">Script Security configuration</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/PSJC/994378270/Integration+guides/">Integration guides</a></summary><ul><li><a href="/cms_trial/space/PSJC/490996015/Outgoing+Mail+configuration/">Outgoing Mail configuration</a></li><li><a href="/cms_trial/space/PSJC/994018140/Incoming+Mail+configuration/">Incoming Mail configuration</a></li><li><a href="/cms_trial/space/PSJC/490996148/SQL+Datasource+configuration/">SQL Datasource configuration</a></li><li><a href="/cms_trial/space/PSJC/490995973/LDAP+configuration/">LDAP configuration</a></li><li><a href="/cms_trial/space/PSJC/490996447/Webhook+configuration/">Webhook configuration</a></li><li><a href="/cms_trial/space/PSJC/490995941/Slack+integration/">Slack integration</a></li><li><a href="/cms_trial/space/PSJC/490996050/Remote+systems+configuration/">Remote systems configuration</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/PSJC/490996521/Feature+guides/">Feature guides</a></summary><ul><li><a href="/cms_trial/space/PSJC/490999005/Workflow+Automation/">Workflow Automation</a></li><li><a href="/cms_trial/space/PSJC/1165525018/Automation+(Script)+Templates/">Automation (Script) Templates</a></li><li><a href="/cms_trial/space/PSJC/1515683977/Live+Fields/">Live Fields</a></li><li><a href="/cms_trial/space/PSJC/1166835713/Incoming+Mail+Handler/">Incoming Mail Handler</a></li><li><a href="/cms_trial/space/PSJC/490997937/JQL+Support/">JQL Support</a></li><li><a href="/cms_trial/space/PSJC/1718321156/REST+Capabilities/">REST Capabilities</a></li><li><a href="/cms_trial/space/PSJC/490997990/SIL+Listeners/">SIL Listeners</a></li><li><a href="/cms_trial/space/PSJC/490996983/SIL+Manager/">SIL Manager</a></li><li><a href="/cms_trial/space/PSJC/723320834/Script+Snippets/">Script Snippets</a></li><li><a href="/cms_trial/space/PSJC/490998470/SIL+Panel/">SIL Panel</a></li><li><a href="/cms_trial/space/PSJC/490998486/SIL+Runner+Gadget/">SIL Runner Gadget</a></li><li><a href="/cms_trial/space/PSJC/490998807/SIL+Scheduler/">SIL Scheduler</a></li><li><a href="/cms_trial/space/PSJC/857770493/Scripted+Custom+Fields/">Scripted Custom Fields</a></li><li><a href="/cms_trial/space/PSJC/490997751/Performance+and+Monitoring/">Performance and Monitoring</a></li><li><a href="/cms_trial/space/PSJC/516456599/Managing+your+solution%3A+Self-Help/">Managing your solution: Self-Help</a></li><li><a href="/cms_trial/space/PSJC/1839235096/Forms+and+Wizards/">Forms and Wizards</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/PSJC/496205894/Advanced+features/">Advanced features</a></summary><ul><li><a href="/cms_trial/space/PSJC/496205909/Persistent+variables/">Persistent variables</a></li><li><a href="/cms_trial/space/PSJC/496206033/Environment+variables/">Environment variables</a></li><li><a href="/cms_trial/space/PSJC/496206057/Custom+fields+aliases/">Custom fields aliases</a></li><li><a href="/cms_trial/space/PSJC/496336897/SIL+Template+language/">SIL Template language</a></li><li><a href="/cms_trial/space/PSJC/756252819/Arguments+(argv+variable)/">Arguments (argv variable)</a></li><li><a href="/cms_trial/space/PSJC/758875026/Executing+scripts+locally/">Executing scripts locally</a></li><li><a href="/cms_trial/space/PSJC/913866777/Processing+large+batches/">Processing large batches</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/PSJC/1940488291/Migration+resources/">Migration resources</a></summary><ul><li><a href="/cms_trial/space/PSJC/3383754876/Power+Scripts+for+Jira+Cloud+migration+FAQ/">Power Scripts for Jira Cloud migration FAQ</a></li><li><a href="/cms_trial/space/PSJC/1940488311/Power+Scripts+for+Jira+Cloud+vs+DC%2FServer+functionality/">Power Scripts for Jira Cloud vs DC/Server functionality</a></li><li><a href="/cms_trial/space/PSJC/1940488352/SIL+scripts+migration+guide/">SIL scripts migration guide</a></li><li><a href="/cms_trial/space/PSJC/1940488637/Converting+Groovy+scripts+to+SIL/">Converting Groovy scripts to SIL</a></li><li><a href="/cms_trial/space/PSJC/1940488691/How+to+migrate+SIL+scripts+with+JCMA/">How to migrate SIL scripts with JCMA</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/PSJC/434798967/Simple+Issue+Language/">Simple Issue Language</a></summary><ul><li><a href="/cms_trial/space/PSJC/15731951/Getting+started+with+SIL/">Getting started with SIL</a></li><li><a href="/cms_trial/space/PSJC/1934458884/SIL+reference+guide/">SIL reference guide</a></li><li><a href="/cms_trial/space/PSJC/434374166/SIL+Functions+library/">SIL Functions library</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/PSJC/490999487/Tutorials+and+recipes/">Tutorials and recipes</a></summary><ul><li><a href="/cms_trial/space/PSJC/490999529/Power+Scripts+recipes/">Power Scripts recipes</a></li><li><a href="/cms_trial/space/PSJC/491000765/Recipes+by+script+type/">Recipes by script type</a></li><li><a href="/cms_trial/space/PSJC/491000939/Recipes+by+use+case+category/">Recipes by use case category</a></li><li><a href="/cms_trial/space/PSJC/491002144/Rich+text+formatting+guide+for+Jira+Cloud/">Rich text formatting guide for Jira Cloud</a></li><li><a href="/cms_trial/space/PSJC/491001307/How-to+guides/">How-to guides</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/PSJC/796721618/Jira+Product+Discovery+support/">Jira Product Discovery support</a></summary><ul><li><a href="/cms_trial/space/PSJC/797638696/Automation+support/">Automation support</a></li><li><a href="/cms_trial/space/PSJC/793280566/Custom+fields+support+SIL+script/">Custom fields support SIL script</a></li><li><a href="/cms_trial/space/PSJC/792232855/Field+support/">Field support</a></li><li><a href="/cms_trial/space/PSJC/797638671/Other+known+limitations/">Other known limitations</a></li><li><a href="/cms_trial/space/PSJC/792920067/Function+support/">Function support</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/PSJC/899022918/Release+notes/">Release notes</a></summary><ul><li><a href="/cms_trial/space/PSJC/3623583758/7.2.0+Release+notes/">7.2.0 Release notes</a></li><li><a href="/cms_trial/space/PSJC/3553690702/7.1.0+Release+notes/">7.1.0 Release notes</a></li><li><a href="/cms_trial/space/PSJC/3530293356/7.0.0+Release+notes/">7.0.0 Release notes</a></li><li><a href="/cms_trial/space/PSJC/3513254170/5.0.0+Release+notes/">5.0.0 Release notes</a></li><li><a href="/cms_trial/space/PSJC/3501424641/3.2.24+Release+notes/">3.2.24 Release notes</a></li><li><a href="/cms_trial/space/PSJC/3400859655/3.2.21+Release+notes/">3.2.21 Release notes</a></li><li><a href="/cms_trial/space/PSJC/3237937187/3.2.20+Release+notes/">3.2.20 Release notes</a></li><li><a href="/cms_trial/space/PSJC/3194388494/3.2.19+Release+notes/" class="active">3.2.19 Release notes</a></li><li><a href="/cms_trial/space/PSJC/2413101057/3.2.16+Release+notes/">3.2.16 Release notes</a></li><li><a href="/cms_trial/space/PSJC/3442114643/Release+notes+2025/">Release notes 2025</a></li><li><a href="/cms_trial/space/PSJC/3442212890/Release+notes+2024/">Release notes 2024</a></li><li><a href="/cms_trial/space/PSJC/573997127/Older+Release+Notes/">Older Release Notes</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/PSJC/1761182379/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/PSJC/491001327/Troubleshooting+Power+Scripts+for+Jira+Cloud/">Troubleshooting Power Scripts for Jira Cloud</a></li></ul></details></li></ul></details></li><li><a href="/cms_trial/space/PSJC/15728704/Simple+Issue+Language+Documentation/">Simple Issue Language Documentation</a></li></ul></nav>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#enhancements">Enhancements</a></li><li class="toc-level-2"><a href="#improved-functions-for-retrieving-email-addresses">Improved functions for retrieving email addresses</a></li><li class="toc-level-2"><a href="#bug-fixes">Bug fixes</a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
@@ -264,6 +308,92 @@
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

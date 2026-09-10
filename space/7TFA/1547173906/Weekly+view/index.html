@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>Weekly view | Appfire Docs</title>
 <meta name="description" content="7pace Timetracker&#x27;s Weekly view provides visual options for inputting, editing, copying, and deleting time. To access the Weekly view, click 7pace…">
@@ -9,7 +19,15 @@
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Weekly view",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/7TFA/1547173906/Weekly+view/",
+  "dateModified": "2026-08-27T01:42:16.714Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,26 +37,52 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/3482780186/User+guide/">User guide</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Weekly view</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/7TFA/pages/1547173906" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/7TFA/pages/1547173906" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>Weekly view</h1>
-    <div class="page-meta">2 min read</div>
+    <div class="page-meta">Updated 14 days ago · 2 min read</div>
     <p>7pace Timetracker's <em>Weekly</em> view provides visual options for inputting, editing, copying, and deleting time. To access the <em>Weekly</em> view, click <strong>7pace Timetracker</strong> &gt; <strong>Weekly</strong>.</p><h2 id="watch-the-video">Watch the video</h2><p>Review the following video for details about how to use <em>Weekly</em> view.</p><p><a class="embed-card-link" href="https://fast.wistia.com/embed/medias/88djwfx5mm.jsonp">https://fast.wistia.com/embed/medias/88djwfx5mm.jsonp</a></p><h2 id="weekly-view">Weekly view</h2><p>7pace Timetracker's <em>Weekly</em> view provides visual options for inputting, editing, copying, and deleting time. To access the Weekly view, go to the left-hand pane, and click <strong>7pace Timetracker</strong> &gt; <strong>Weekly</strong>.</p><h3 id="add-time-for-an-issue">Add time for an issue</h3><p>Note that time can only be added for the current user in <em>Weekly</em> view. Use the following steps to add time:</p><ol><li><p>Drag to specify the start and end times.</p></li><li><p>The <em>Add Time</em> window displays.</p></li><li><p>Select an issue, confirm the date and duration, and then select a category and add a comment, if necessary.</p><img alt="Add_Time_for_Issue.png" class="doc-image" loading="lazy" src="/cms_trial/assets/0325f507-06dd-45b9-8c2f-7cf2201ea12e.png"/></li><li><p>Click <strong>Save</strong>.</p></li></ol><h3 id="add-time-for-a-non-issue">Add time for a non-issue</h3><p>Use the following steps to log time against a meeting or project that isn't related to a ticket:</p><ol><li><p>Drag to define the start and end time.</p></li><li><p>Enter a comment that describes the worklog.</p><img alt="Add_Time_for_Non_Issue.png" class="doc-image" loading="lazy" src="/cms_trial/assets/b71ad374-4e6b-488a-8f51-702a1e2d8d09.png"/></li><li><p>Click <strong>Save</strong>.</p></li></ol><h3 id="edit-time">Edit time</h3><p>Use the following steps to edit time in the <em>Weekly</em> view:</p><ol><li><p>Hold the pointer over a worklog and click <strong>Edit</strong>.</p></li><li><p>The <em>Edit Time</em> window displays.</p></li><li><p>Here, update the issue, date, duration, or comment.</p></li><li><p>To access the <strong>To</strong> and <strong>From</strong> times, activate the <strong>Timeframe</strong> toggle.</p><img alt="Edit_Time.png" class="doc-image" loading="lazy" src="/cms_trial/assets/3230cc73-4507-4bbb-8b33-7c3f02e5df3b.png"/></li><li><p>Click <strong>Save</strong>.</p></li></ol><p>Alternatively, you can edit a worklog's timeframe, start time, end time, and day of the week using the drag method. To do so, simply select the worklog and drag it to a new time or date.</p><h3 id="delete-time">Delete time</h3><p>Use the following steps to delete time from the <em>Weekly</em> view:</p><ol><li><p>Hold the pointer over the worklog and click <strong>Delete</strong>.</p><img alt="Delete_Time.png" class="doc-image" loading="lazy" src="/cms_trial/assets/9baf214f-e1f4-4a9f-8e1f-37daaf8c3ee1.png"/></li><li><p>The <em>Delete Worklog</em> message displays.</p></li><li><p>Click <strong>Yes</strong>.</p></li></ol><h3 id="copy-worklog">Copy worklog</h3><p>Don’t forget about another time-saving feature in the <em>Weekly</em> View, <strong>Copy Worklog</strong>.</p><p>To use this feature:</p><ol><li><p>Hold the pointer over the worklog and click <strong>Copy</strong>.</p><img alt="Copy_Worklog.png" class="doc-image" loading="lazy" src="/cms_trial/assets/b007b53c-40e5-400c-a4ae-c39e174469ad.png"/></li><li><p>At the bottom of the page, a message indicates that the worklog can be copied by clicking on an empty area.</p><img alt="Duplicate_Worklog.png" class="doc-image" loading="lazy" src="/cms_trial/assets/9c33217d-1e05-4f93-9ce0-b48d434c5016.png"/></li><li><p>Left-click the desired time slot on the calendar.</p></li><li><p>To continue copying the worklog, simply left-click another open timeframe during the week.</p></li><li><p>When you are finished copying the worklog, click the Save button at the bottom of the page.</p></li></ol><h3 id="zoom">Zoom</h3><p>The <em>Weekly</em> view also includes Tozoom functionality.</p><p>Click the <strong>Zoom in</strong> or <strong>Zoom out</strong> buttons to the left of the first day of the week.</p><img alt="Zoom_In_Out_Button.png" class="doc-image" loading="lazy" src="/cms_trial/assets/87f30d71-c9a1-4132-a7fa-cc7df766130f.png"/>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">146 pages in this space, fetched live from Confluence via API.</p>
-<nav><ul><li><details open><summary><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a></summary><ul><li><details><summary><a href="/cms_trial/space/7TFA/1253540271/Get+started/">Get started</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540433/7pace+Timetracker+for+developers/">7pace Timetracker for developers</a></li><li><a href="/cms_trial/space/7TFA/1253540439/7pace+Timetracker+for+managers/">7pace Timetracker for managers</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/3482517944/Admin+guide/">Admin guide</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540127/Installation+and+Data+Security/">Installation and Data Security</a></li><li><a href="/cms_trial/space/7TFA/2193557481/Authorization+methods/">Authorization methods</a></li><li><a href="/cms_trial/space/7TFA/1253540254/API+%26+Reporting/">API &amp; Reporting</a></li><li><a href="/cms_trial/space/7TFA/1253540242/Apps/">Apps</a></li><li><a href="/cms_trial/space/7TFA/3488055333/App+configuration/">App configuration</a></li><li><a href="/cms_trial/space/7TFA/1253539917/7pace+Timetracker+Legacy+Versions+and+Legacy+TFS/">7pace Timetracker Legacy Versions and Legacy TFS</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/7TFA/3482780186/User+guide/">User guide</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253539966/Add+Time+Dialog/">Add Time Dialog</a></li><li><a href="/cms_trial/space/7TFA/1253539860/Work+item+form/">Work item form</a></li><li><a href="/cms_trial/space/7TFA/1253540085/Budgets/">Budgets</a></li><li><a href="/cms_trial/space/7TFA/1253540717/Iterations/">Iterations</a></li><li><a href="/cms_trial/space/7TFA/1253539865/Approvals/">Approvals</a></li><li><a href="/cms_trial/space/7TFA/1253540013/Times+Explorer/">Times Explorer</a></li><li><a href="/cms_trial/space/7TFA/1253540070/Monthly+view/">Monthly view</a></li><li><a href="/cms_trial/space/7TFA/1547173906/Weekly+view/" class="active">Weekly view</a></li><li><a href="/cms_trial/space/7TFA/1253540328/Timesheet/">Timesheet</a></li><li><a href="/cms_trial/space/7TFA/2935357478/Connect+calendar/">Connect calendar</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/3511091204/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/7TFA/1361084424/7pace+Product+Support/">7pace Product Support</a></li><li><a href="/cms_trial/space/7TFA/1253540447/Frequently+Asked+Questions/">Frequently Asked Questions</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/1253539885/Release+Notes/">Release Notes</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540249/7pace+Timetracker+for+Azure+DevOps+Release+Notes/">7pace Timetracker for Azure DevOps Release Notes</a></li><li><a href="/cms_trial/space/7TFA/1253540290/Legacy+Release+Notes/">Legacy Release Notes</a></li></ul></details></li></ul></details></li></ul></nav>
-</aside>
+<nav><ul><li><details open><summary><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a></summary><ul><li><details><summary><a href="/cms_trial/space/7TFA/1253540271/Get+started+with+7pace+Timetracker+for+Azure+DevOps/">Get started with 7pace Timetracker for Azure DevOps</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540433/7pace+Timetracker+for+developers/">7pace Timetracker for developers</a></li><li><a href="/cms_trial/space/7TFA/1253540439/7pace+Timetracker+for+managers/">7pace Timetracker for managers</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/3482517944/Admin+guide/">Admin guide</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540127/Installation+and+Data+Security/">Installation and Data Security</a></li><li><a href="/cms_trial/space/7TFA/2193557481/Authorization+methods/">Authorization methods</a></li><li><a href="/cms_trial/space/7TFA/1253540254/API+%26+Reporting/">API &amp; Reporting</a></li><li><a href="/cms_trial/space/7TFA/1253540242/Apps/">Apps</a></li><li><a href="/cms_trial/space/7TFA/3488055333/App+configuration/">App configuration</a></li><li><a href="/cms_trial/space/7TFA/1253539917/7pace+Timetracker+Legacy+Versions+and+Legacy+TFS/">7pace Timetracker Legacy Versions and Legacy TFS</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/7TFA/3482780186/User+guide/">User guide</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253539966/Add+Time+Dialog/">Add Time Dialog</a></li><li><a href="/cms_trial/space/7TFA/1253539860/Work+item+form/">Work item form</a></li><li><a href="/cms_trial/space/7TFA/1253540085/Budgets/">Budgets</a></li><li><a href="/cms_trial/space/7TFA/1253540717/Iterations/">Iterations</a></li><li><a href="/cms_trial/space/7TFA/1253539865/Approvals/">Approvals</a></li><li><a href="/cms_trial/space/7TFA/1253540013/Times+Explorer/">Times Explorer</a></li><li><a href="/cms_trial/space/7TFA/1253540070/Monthly+view/">Monthly view</a></li><li><a href="/cms_trial/space/7TFA/1547173906/Weekly+view/" class="active">Weekly view</a></li><li><a href="/cms_trial/space/7TFA/1253540328/Timesheet/">Timesheet</a></li><li><a href="/cms_trial/space/7TFA/2935357478/Connect+calendar/">Connect calendar</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/3511091204/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/7TFA/1361084424/7pace+Product+Support/">7pace Product Support</a></li><li><a href="/cms_trial/space/7TFA/1253540447/Frequently+Asked+Questions/">Frequently Asked Questions</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/1253540249/7pace+Timetracker+for+Azure+DevOps+Release+Notes/">7pace Timetracker for Azure DevOps Release Notes</a></summary><ul><li><a href="/cms_trial/space/7TFA/3509223505/Release+notes+5.100/">Release notes 5.100</a></li><li><a href="/cms_trial/space/7TFA/3466657955/Release+notes+5.99/">Release notes 5.99</a></li><li><a href="/cms_trial/space/7TFA/3413082694/Release+notes+5.98/">Release notes 5.98</a></li><li><a href="/cms_trial/space/7TFA/3394044151/Release+notes+5.97/">Release notes 5.97</a></li><li><a href="/cms_trial/space/7TFA/3306487975/Release+notes+5.96/">Release notes 5.96</a></li><li><a href="/cms_trial/space/7TFA/3199172612/Release+notes+5.95/">Release notes 5.95</a></li><li><a href="/cms_trial/space/7TFA/3157721151/Release+notes+5.94/">Release notes 5.94</a></li></ul></details></li></ul></details></li></ul></nav>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#watch-the-video">Watch the video</a></li><li class="toc-level-2"><a href="#weekly-view">Weekly view</a></li><li class="toc-level-3"><a href="#add-time-for-an-issue">Add time for an issue</a></li><li class="toc-level-3"><a href="#add-time-for-a-non-issue">Add time for a non-issue</a></li><li class="toc-level-3"><a href="#edit-time">Edit time</a></li><li class="toc-level-3"><a href="#delete-time">Delete time</a></li><li class="toc-level-3"><a href="#copy-worklog">Copy worklog</a></li><li class="toc-level-3"><a href="#zoom">Zoom</a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
@@ -264,6 +308,92 @@
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

@@ -1,0 +1,15 @@
+# App integrations
+
+- [Advanced Roadmaps](/cms_trial/space/JQLSEARCH/604209557/Advanced+Roadmaps/)
+- [BigPicture](/cms_trial/space/JQLSEARCH/604209543/BigPicture/)
+- [Jira Misc Workflow Extensions (JMWE)](/cms_trial/space/JQLSEARCH/1151041688/Jira+Misc+Workflow+Extensions+(JMWE)/)
+  - [Event-based actions - issue hierarchy scope](/cms_trial/space/JQLSEARCH/1166901880/Event-based+actions+-+issue+hierarchy+scope/)
+  - [Event-based actions - issue links scope](/cms_trial/space/JQLSEARCH/1167262244/Event-based+actions+-+issue+links+scope/)
+  - [Scheduled actions - Agile sprint scope](/cms_trial/space/JQLSEARCH/1170571269/Scheduled+actions+-+Agile+sprint+scope/)
+- [Power Scripts for Jira](/cms_trial/space/JQLSEARCH/1194262532/Power+Scripts+for+Jira/)
+  - [Build an escalation service](/cms_trial/space/JQLSEARCH/1194262602/Build+an+escalation+service/)
+  - [Identify issues related to a service desk project](/cms_trial/space/JQLSEARCH/1194262693/Identify+issues+related+to+a+service+desk+project/)
+  - [Issues in a released version remain open](/cms_trial/space/JQLSEARCH/1198292998/Issues+in+a+released+version+remain+open/)
+  - [Update remote links](/cms_trial/space/JQLSEARCH/1199308875/Update+remote+links/)
+- [Jira Service Management and JQL](/cms_trial/space/JQLSEARCH/604209448/Jira+Service+Management+and+JQL/)
+- [Xray](/cms_trial/space/JQLSEARCH/604209305/Xray/)

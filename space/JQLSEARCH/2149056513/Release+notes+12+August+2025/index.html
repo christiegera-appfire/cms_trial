@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>Release notes 12 August 2025 | Appfire Docs</title>
 <meta name="description" content="Our team is pleased to announce the latest release of JQL Search Extensions for Jira Cloud.">
@@ -9,7 +19,15 @@
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Release notes 12 August 2025",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/JQLSEARCH/2149056513/Release+notes+12+August+2025/",
+  "dateModified": "2026-07-03T07:27:38.042Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,26 +37,52 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/913997907/Release+notes/">Release notes</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209185/Release+notes+-+Cloud/">Release notes - Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Release notes 12 August 2025</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JQLSEARCH/pages/2149056513" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JQLSEARCH/pages/2149056513" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>Release notes 12 August 2025</h1>
-    <div class="page-meta">1 min read</div>
+    <div class="page-meta">Updated 2 months ago · 1 min read</div>
     <p><strong>Release date</strong>: <time datetime="2025-08-12">August 12, 2025</time></p><p>Our team is pleased to announce the latest release of JQL Search Extensions for Jira Cloud.</p><hr/><h2 id="new-features">New features</h2><h2 id="popular-functions-available-during-initial-indexing">Popular functions available during initial indexing</h2><p>You can now try searching with the following JQL Search Extensions functions before the initial indexing process is complete:</p><ul><li><p>linkedIssuesOfQuery()</p></li><li><p>childrenOfIssuesInQuery()</p></li><li><p>childrenOfIssuesInQueryRecursive()</p></li><li><p>parentsOfIssuesInQuery()</p></li><li><p>parentsOfIssuesInQueryRecursive()</p></li><li><p>wildcardMatch()</p></li></ul><p>This update lets you get started with the app right away instead of waiting for the entire indexing process to be complete.</p><h2 id="enhancements">Enhancements</h2><h2 id="support-for-floating-dates">Support for floating dates</h2><p>You can now add units to the expressions for the <code>dateCompare</code> and <code>dateCompareIgnoreTime</code> functions to compare a date with a floating date instead of a fixed date. </p><p>You can use + or - with the following units:</p><ul><li><p><code>y</code> - Years</p></li><li><p><code>M</code> - Months</p></li><li><p><code>w</code> - Weeks</p></li><li><p><code>d</code> - Days</p></li><li><p><code>h</code> - Hours</p></li><li><p><code>m</code> - Minutes</p></li></ul><h3 id="examples">Examples</h3><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">issue in dateCompare(“resolutiondate +1d &lt; duedate +1w”) AND project = DEV </code></pre></div><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">issue in dateCompareIgnoreTime (“resolutiondate +1d &lt; duedate +1w”) AND project = DEV</code></pre></div><p>See the <a href="/cms_trial/space/JQLSEARCH/604209909/Field+values/">Date Compare functions</a> to learn more about using dates in queries.</p><hr/><h2 id="bug-fixes">Bug fixes</h2><p>The following bug fix is included in this release summary.</p><ul><li><p><strong>Incorrect data shown in the table of returned issues</strong>: The Resolution and Assignee columns now show the correct data for the returned issues.</p></li></ul><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p> <strong>Questions and feedback</strong></p><ul><li><p>Explore exciting features, pricing updates, reviews, and more on the <a href="https://marketplace.atlassian.com/apps/1214791/jql-search-extensions-for-jira?hosting=cloud&amp;tab=overview">Marketplace</a>. </p></li><li><p>Stuck with something? Raise a ticket with our <a href="https://appf.re/support"><u>support team</u></a>.</p></li><li><p>Do you love using our app? <a href="https://marketplace.atlassian.com/apps/1214791/jql-search-extensions-for-jira?hosting=cloud&amp;tab=reviews">Let us know</a> what you think.</p></li></ul></div><div><p><strong> Credits</strong></p><p>Thank you to our valued customers. You are the driving force behind why we create software, and we appreciate your trust in JQL Search Extensions!</p></div></div>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">98 pages in this space, fetched live from Confluence via API.</p>
-<nav><ul><li><details open><summary><a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions for Jira</a></summary><ul><li><details><summary><a href="/cms_trial/space/JQLSEARCH/604209972/JQL+Search+Extensions+(Cloud)/">JQL Search Extensions (Cloud)</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/604209802/Get+started+with+JQL+Search+Extensions+for+Jira/">Get started with JQL Search Extensions for Jira</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209757/Use+cases/">Use cases</a></li><li><a href="/cms_trial/space/JQLSEARCH/1120043993/App+integrations/">App integrations</a></li><li><a href="/cms_trial/space/JQLSEARCH/604210001/Video+tutorials/">Video tutorials</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209395/JQL+functions+and+keywords+reference/">JQL functions and keywords reference</a></li></ul></details></li><li><a href="/cms_trial/space/JQLSEARCH/604209729/Migrations/">Migrations</a></li><li><details open><summary><a href="/cms_trial/space/JQLSEARCH/913997907/Release+notes/">Release notes</a></summary><ul><li><details open><summary><a href="/cms_trial/space/JQLSEARCH/604209185/Release+notes+-+Cloud/">Release notes - Cloud</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/3534684161/Release+notes+11+August+2026/">Release notes 11 August 2026</a></li><li><a href="/cms_trial/space/JQLSEARCH/3431038977/Release+notes+6+July+2026/">Release notes 6 July 2026</a></li><li><a href="/cms_trial/space/JQLSEARCH/3319988250/Release+notes+3+June+2026/">Release notes 3 June 2026</a></li><li><a href="/cms_trial/space/JQLSEARCH/3216507129/Release+notes+12+May+2026/">Release notes 12 May 2026</a></li><li><a href="/cms_trial/space/JQLSEARCH/2894921845/Release+notes+17+February+2026/">Release notes 17 February 2026</a></li><li><a href="/cms_trial/space/JQLSEARCH/2550956033/Release+notes+3+February+2026/">Release notes 3 February 2026</a></li><li><a href="/cms_trial/space/JQLSEARCH/2648932359/Release+notes+17+December+2025/">Release notes 17 December 2025</a></li><li><a href="/cms_trial/space/JQLSEARCH/2613444609/Release+notes+9+December+2025/">Release notes 9 December 2025</a></li><li><a href="/cms_trial/space/JQLSEARCH/2602827777/Release+notes+8+December+2025/">Release notes 8 December 2025</a></li><li><a href="/cms_trial/space/JQLSEARCH/2537063041/Release+notes+19+November+2025/">Release notes 19 November 2025</a></li><li><a href="/cms_trial/space/JQLSEARCH/2403500035/Release+notes+25+September+2025/">Release notes 25 September 2025</a></li><li><a href="/cms_trial/space/JQLSEARCH/2183593985/Release+notes+19+September+2025/">Release notes 19 September 2025</a></li><li><a href="/cms_trial/space/JQLSEARCH/2149056513/Release+notes+12+August+2025/" class="active">Release notes 12 August 2025</a></li><li><a href="/cms_trial/space/JQLSEARCH/2175860741/Release+notes+7+July+2025/">Release notes 7 July 2025</a></li><li><a href="/cms_trial/space/JQLSEARCH/2048557071/Release+notes+June+2025/">Release notes June 2025</a></li><li><a href="/cms_trial/space/JQLSEARCH/2068971525/Release+notes+29+May+2025/">Release notes 29 May 2025</a></li><li><a href="/cms_trial/space/JQLSEARCH/2028175811/Release+notes+14+May+2025/">Release notes 14 May 2025</a></li><li><a href="/cms_trial/space/JQLSEARCH/2011889708/Release+notes+8+May+2025/">Release notes 8 May 2025</a></li><li><a href="/cms_trial/space/JQLSEARCH/1974337559/Release+notes+April+2025/">Release notes April 2025</a></li><li><a href="/cms_trial/space/JQLSEARCH/1858928704/Release+notes+19+March+2025/">Release notes 19 March 2025</a></li><li><a href="/cms_trial/space/JQLSEARCH/1825046580/Release+notes+4+March+2025/">Release notes 4 March 2025</a></li><li><a href="/cms_trial/space/JQLSEARCH/1778516004/Release+notes+20+February+2025/">Release notes 20 February 2025</a></li><li><a href="/cms_trial/space/JQLSEARCH/1745027081/Release+notes+11+February+2025/">Release notes 11 February 2025</a></li><li><a href="/cms_trial/space/JQLSEARCH/1698892055/Release+notes+30+January+2025/">Release notes 30 January 2025</a></li><li><a href="/cms_trial/space/JQLSEARCH/1626047396/Release+notes+14+January+2025/">Release notes 14 January 2025</a></li><li><a href="/cms_trial/space/JQLSEARCH/1518764036/Release+notes+10+December+2024/">Release notes 10 December 2024</a></li><li><a href="/cms_trial/space/JQLSEARCH/1540849761/Release+notes+9+December+2024/">Release notes 9 December 2024</a></li><li><a href="/cms_trial/space/JQLSEARCH/1501298714/Release+notes+22+November+2024/">Release notes 22 November 2024</a></li><li><a href="/cms_trial/space/JQLSEARCH/1482227716/Release+notes+12+November+2024/">Release notes 12 November 2024</a></li><li><a href="/cms_trial/space/JQLSEARCH/1243480091/Deprecation+notices+2024/">Deprecation notices 2024</a></li></ul></details></li><li><a href="/cms_trial/space/JQLSEARCH/604210041/Release+notes+-+Server%2FData+Center/">Release notes - Server/Data Center</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JQLSEARCH/918979098/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/1766293568/Troubleshooting/">Troubleshooting</a></li><li><a href="/cms_trial/space/JQLSEARCH/919273915/Appfire+support/">Appfire support</a></li><li><a href="/cms_trial/space/JQLSEARCH/919306596/Appfire+Trust+Center/">Appfire Trust Center</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209808/Data+storage/">Data storage</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JQLSEARCH/604209587/JQL+Search+Extensions+-+Data+Center/">JQL Search Extensions - Data Center</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/604209431/Get+started+with+JQL+Search+Extensions+for+Jira+Data+Center/">Get started with JQL Search Extensions for Jira Data Center</a></li><li><a href="/cms_trial/space/JQLSEARCH/1865482654/JQL+functions+reference/">JQL functions reference</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209740/Performance+tests+results/">Performance tests results</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209735/How+to+resolve+com.atlassian.jira.issue.search.ClauseTooComplexSearchException/">How to resolve com.atlassian.jira.issue.search.ClauseTooComplexSearchException</a></li></ul></details></li></ul></details></li></ul></nav>
-</aside>
+<nav><ul><li><details open><summary><a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions for Jira</a></summary><ul><li><details><summary><a href="/cms_trial/space/JQLSEARCH/604209972/JQL+Search+Extensions+(Cloud)/">JQL Search Extensions (Cloud)</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/604209802/Get+started+with+JQL+Search+Extensions+for+Jira/">Get started with JQL Search Extensions for Jira</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209757/Use+cases/">Use cases</a></li><li><a href="/cms_trial/space/JQLSEARCH/1120043993/App+integrations/">App integrations</a></li><li><a href="/cms_trial/space/JQLSEARCH/604210001/Video+tutorials/">Video tutorials</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209395/JQL+functions+and+keywords+reference/">JQL functions and keywords reference</a></li></ul></details></li><li><a href="/cms_trial/space/JQLSEARCH/604209729/Migrations/">Migrations</a></li><li><details open><summary><a href="/cms_trial/space/JQLSEARCH/913997907/Release+notes/">Release notes</a></summary><ul><li><details open><summary><a href="/cms_trial/space/JQLSEARCH/604209185/Release+notes+-+Cloud/">Release notes - Cloud</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/3572629543/Release+notes+28+August+2026/">Release notes 28 August 2026</a></li><li><a href="/cms_trial/space/JQLSEARCH/3534684161/Release+notes+11+August+2026/">Release notes 11 August 2026</a></li><li><a href="/cms_trial/space/JQLSEARCH/3431038977/Release+notes+6+July+2026/">Release notes 6 July 2026</a></li><li><a href="/cms_trial/space/JQLSEARCH/3319988250/Release+notes+3+June+2026/">Release notes 3 June 2026</a></li><li><a href="/cms_trial/space/JQLSEARCH/3216507129/Release+notes+12+May+2026/">Release notes 12 May 2026</a></li><li><a href="/cms_trial/space/JQLSEARCH/2894921845/Release+notes+17+February+2026/">Release notes 17 February 2026</a></li><li><a href="/cms_trial/space/JQLSEARCH/2550956033/Release+notes+3+February+2026/">Release notes 3 February 2026</a></li><li><a href="/cms_trial/space/JQLSEARCH/2648932359/Release+notes+17+December+2025/">Release notes 17 December 2025</a></li><li><a href="/cms_trial/space/JQLSEARCH/2613444609/Release+notes+9+December+2025/">Release notes 9 December 2025</a></li><li><a href="/cms_trial/space/JQLSEARCH/2602827777/Release+notes+8+December+2025/">Release notes 8 December 2025</a></li><li><a href="/cms_trial/space/JQLSEARCH/2537063041/Release+notes+19+November+2025/">Release notes 19 November 2025</a></li><li><a href="/cms_trial/space/JQLSEARCH/2403500035/Release+notes+25+September+2025/">Release notes 25 September 2025</a></li><li><a href="/cms_trial/space/JQLSEARCH/2183593985/Release+notes+19+September+2025/">Release notes 19 September 2025</a></li><li><a href="/cms_trial/space/JQLSEARCH/2149056513/Release+notes+12+August+2025/" class="active">Release notes 12 August 2025</a></li><li><a href="/cms_trial/space/JQLSEARCH/2175860741/Release+notes+7+July+2025/">Release notes 7 July 2025</a></li><li><a href="/cms_trial/space/JQLSEARCH/2048557071/Release+notes+June+2025/">Release notes June 2025</a></li><li><a href="/cms_trial/space/JQLSEARCH/2068971525/Release+notes+29+May+2025/">Release notes 29 May 2025</a></li><li><a href="/cms_trial/space/JQLSEARCH/2028175811/Release+notes+14+May+2025/">Release notes 14 May 2025</a></li><li><a href="/cms_trial/space/JQLSEARCH/2011889708/Release+notes+8+May+2025/">Release notes 8 May 2025</a></li><li><a href="/cms_trial/space/JQLSEARCH/1974337559/Release+notes+April+2025/">Release notes April 2025</a></li><li><a href="/cms_trial/space/JQLSEARCH/1858928704/Release+notes+19+March+2025/">Release notes 19 March 2025</a></li><li><a href="/cms_trial/space/JQLSEARCH/1825046580/Release+notes+4+March+2025/">Release notes 4 March 2025</a></li><li><a href="/cms_trial/space/JQLSEARCH/1778516004/Release+notes+20+February+2025/">Release notes 20 February 2025</a></li><li><a href="/cms_trial/space/JQLSEARCH/1745027081/Release+notes+11+February+2025/">Release notes 11 February 2025</a></li><li><a href="/cms_trial/space/JQLSEARCH/1698892055/Release+notes+30+January+2025/">Release notes 30 January 2025</a></li><li><a href="/cms_trial/space/JQLSEARCH/1626047396/Release+notes+14+January+2025/">Release notes 14 January 2025</a></li><li><a href="/cms_trial/space/JQLSEARCH/1518764036/Release+notes+10+December+2024/">Release notes 10 December 2024</a></li><li><a href="/cms_trial/space/JQLSEARCH/1540849761/Release+notes+9+December+2024/">Release notes 9 December 2024</a></li><li><a href="/cms_trial/space/JQLSEARCH/1501298714/Release+notes+22+November+2024/">Release notes 22 November 2024</a></li><li><a href="/cms_trial/space/JQLSEARCH/1482227716/Release+notes+12+November+2024/">Release notes 12 November 2024</a></li><li><a href="/cms_trial/space/JQLSEARCH/1243480091/Deprecation+notices+2024/">Deprecation notices 2024</a></li></ul></details></li><li><a href="/cms_trial/space/JQLSEARCH/604210041/Release+notes+-+Server%2FData+Center/">Release notes - Server/Data Center</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JQLSEARCH/918979098/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/1766293568/Troubleshooting/">Troubleshooting</a></li><li><a href="/cms_trial/space/JQLSEARCH/919273915/Appfire+support/">Appfire support</a></li><li><a href="/cms_trial/space/JQLSEARCH/919306596/Appfire+Trust+Center/">Appfire Trust Center</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209808/Data+storage/">Data storage</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JQLSEARCH/604209587/JQL+Search+Extensions+-+Data+Center/">JQL Search Extensions - Data Center</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/604209431/Get+started+with+JQL+Search+Extensions+for+Jira+Data+Center/">Get started with JQL Search Extensions for Jira Data Center</a></li><li><a href="/cms_trial/space/JQLSEARCH/1865482654/JQL+functions+reference/">JQL functions reference</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209740/Performance+tests+results/">Performance tests results</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209735/How+to+resolve+com.atlassian.jira.issue.search.ClauseTooComplexSearchException/">How to resolve com.atlassian.jira.issue.search.ClauseTooComplexSearchException</a></li></ul></details></li></ul></details></li></ul></nav>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#new-features">New features</a></li><li class="toc-level-2"><a href="#popular-functions-available-during-initial-indexing">Popular functions available during initial indexing</a></li><li class="toc-level-2"><a href="#enhancements">Enhancements</a></li><li class="toc-level-2"><a href="#support-for-floating-dates">Support for floating dates</a></li><li class="toc-level-3"><a href="#examples">Examples</a></li><li class="toc-level-2"><a href="#bug-fixes">Bug fixes</a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
@@ -264,6 +308,92 @@
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

@@ -1,15 +1,33 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>Rich filter search | Appfire Docs</title>
-<meta name="description" content="document explains how the Rich filter search functionality works in Rich Filters for Jira Dashboards (Cloud). You can search for rich filters in:">
+<meta name="description" content="Watch this short video for an introduction to the search feature:">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/cms_trial/tokens.css">
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Rich filter search",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/RFCDOC/3374972942/Rich+filter+search/",
+  "dateModified": "2026-09-02T05:43:21.625Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,26 +37,52 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RFCDOC/3513253997/Data+residency+and+realm+persistence/">Rich Filters for Jira Dashboards (Cloud) Documentation</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/3178496025/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Rich filter search</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/3374972942" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/3374972942" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>Rich filter search</h1>
-    <div class="page-meta">2 min read</div>
-    <p> document explains how the Rich filter search functionality works in Rich Filters for Jira Dashboards (Cloud). You can search for rich filters in:</p><ul><li><p>The search box on the <em>Rich filters</em> page.</p></li><li><p>The <em>Rich filter</em> search when configuring gadgets.</p></li></ul><h2 id="how-search-works">How search works</h2><p>Rich filter search is based on filter names.</p><h3 id="search-is-case-insensitive">Search is case-insensitive</h3><p>Uppercase and lowercase letters are treated the same. For example, the following searches return the same results:</p><ul><li><p><code>My Filter</code></p></li><li><p><code>my filter</code></p></li><li><p><code>MY FILTER</code></p></li></ul><h3 id="multiple-words-are-matched-with-any">Multiple words are matched with “any”</h3><p>When you enter multiple words, filters matching any of those words are returned. For example:</p><ul><li><p><code>abc xyz</code> matches filters containing <em>abc</em> or <em>xyz</em>. </p></li></ul><h3 id="use-to-require-particular-terms">Use <code>+</code> to require particular terms</h3><p>Add <code>+</code> before a word to find filters containing that word. For example:</p><ul><li><p><code>+abc +xyz</code> matches filters containing both <em>abc</em> and <em>xyz</em>. This is the best way to narrow down results when you have many filters.</p></li></ul><ul><li><p><code>+abc def xyz</code> matches filters containing <em>abc</em> and either def or <em>xyz</em>.</p></li></ul><h3 id="use-quotes-for-exact-phrases">Use quotes for exact phrases</h3><p>Put text in double quotes to search for an exact phrase. For example:</p><ul><li><p><code>"my important filter"</code> matches filters that contain those words in that exact order.</p></li></ul><div class="panel panel-warning"><p>Exact phrase searches do not work reliably when the phrase contains special characters such as <code>-</code>, <code>/</code>, or <code>()</code>. These searches can fail even when the filter exists.</p><p>In this case, instead of searching for the exact phrase, search without quotes and with the <code>+</code> operator. Keep in mind that unquoted searches may return additional matching filters.</p></div><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p>Filter name</p></th><th><p>Recommended search</p></th></tr><tr><td><p>abc - def</p></td><td><p><code>+abc +def</code></p></td></tr><tr><td><p>my (filter)</p></td><td><p><code>+my +filter</code></p></td></tr><tr><td><p>test/filter</p></td><td><p><code>+test +filter</code></p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><h2 id="search-tips">Search tips</h2><ul><li><p>Start with simple keywords.</p></li><li><p>Use <code>+</code> to narrow down results.</p></li><li><p>Avoid special characters when searching.</p></li><li><p>Use consistent filter naming conventions to make filters easier for everyone to find.</p></li></ul><h3 id="what-if-i-still-can-t-find-my-filter">What if I still can't find my filter?</h3><p>Try:</p><ul><li><p>Using <code>+</code> before important search terms.</p></li></ul><ul><li><p>Removing special characters from your search.</p></li></ul><p>If the filter still doesn't appear, contact support.</p>
+    <div class="page-meta">Updated 8 days ago · 2 min read</div>
+    <p>Watch this short video for an introduction to the search feature: </p><div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/etG1qrBHeXI"></iframe></div><p>This document explains how the Rich filter search functionality works in Rich Filters for Jira Dashboards (Cloud). You can search for rich filters in:</p><ul><li><p>The search box on the <em>Rich filters</em> page.</p></li><li><p>The <em>Rich filter</em> search when configuring gadgets.</p></li></ul><h2 id="how-search-works">How search works</h2><p>Rich filter search is based on filter names.</p><h3 id="search-is-case-insensitive">Search is case-insensitive</h3><p>Uppercase and lowercase letters are treated the same. For example, the following searches return the same results:</p><ul><li><p><code>My Filter</code></p></li><li><p><code>my filter</code></p></li><li><p><code>MY FILTER</code></p></li></ul><h3 id="multiple-words-are-matched-with-any">Multiple words are matched with “any”</h3><p>When you enter multiple words, filters matching any of those words are returned. For example:</p><ul><li><p><code>abc xyz</code> matches filters containing <em>abc</em> or <em>xyz</em>. </p></li></ul><h3 id="use-to-require-particular-terms">Use <code>+</code> to require particular terms</h3><p>Add <code>+</code> before a word to find filters containing that word. For example:</p><ul><li><p><code>+abc +xyz</code> matches filters containing both <em>abc</em> and <em>xyz</em>. This is the best way to narrow down results when you have many filters.</p></li></ul><ul><li><p><code>+abc def xyz</code> matches filters containing <em>abc</em> and either def or <em>xyz</em>.</p></li></ul><h3 id="use-quotes-for-exact-phrases">Use quotes for exact phrases</h3><p>Put text in double quotes to search for an exact phrase. For example:</p><ul><li><p><code>"my important filter"</code> matches filters that contain those words in that exact order.</p></li></ul><div class="panel panel-warning"><p>Exact phrase searches do not work reliably when the phrase contains special characters such as <code>-</code>, <code>/</code>, or <code>()</code>. These searches can fail even when the filter exists.</p><p>In this case, instead of searching for the exact phrase, search without quotes and with the <code>+</code> operator. Keep in mind that unquoted searches may return additional matching filters.</p></div><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p>Filter name</p></th><th><p>Recommended search</p></th></tr><tr><td><p>abc - def</p></td><td><p><code>+abc +def</code></p></td></tr><tr><td><p>my (filter)</p></td><td><p><code>+my +filter</code></p></td></tr><tr><td><p>test/filter</p></td><td><p><code>+test +filter</code></p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><h2 id="search-tips">Search tips</h2><ul><li><p>Start with simple keywords.</p></li><li><p>Use <code>+</code> to narrow down results.</p></li><li><p>Avoid special characters when searching.</p></li><li><p>Use consistent filter naming conventions to make filters easier for everyone to find.</p></li></ul><h3 id="what-if-i-still-can-t-find-my-filter">What if I still can't find my filter?</h3><p>Try:</p><ul><li><p>Using <code>+</code> before important search terms.</p></li></ul><ul><li><p>Removing special characters from your search.</p></li></ul><p>If the filter still doesn't appear, contact support.</p>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">128 pages in this space, fetched live from Confluence via API.</p>
 <nav><ul><li><a href="/cms_trial/space/RFCDOC/3513253997/Data+residency+and+realm+persistence/">Data residency and realm persistence</a></li><li><details open><summary><a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud)</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/783941653/Overview/">Overview</a></li><li><a href="/cms_trial/space/RFCDOC/783942462/Get+started+with+Rich+Filters+for+Jira+Dashboards+for+Cloud/">Get started with Rich Filters for Jira Dashboards for Cloud</a></li><li><details><summary><a href="/cms_trial/space/RFCDOC/783941917/Tutorials/">Tutorials</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/783941927/Create+and+access+rich+filters/">Create and access rich filters</a></li><li><a href="/cms_trial/space/RFCDOC/783941937/Build+a+simple+interactive+Jira+dashboard/">Build a simple interactive Jira dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941943/Define+views+for+your+dashboard/">Define views for your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941950/Use+working+queries+in+your+dashboard/">Use working queries in your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941954/Add+dynamic+filtering+to+your+dashboard/">Add dynamic filtering to your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941961/Add+smart+filters+and+smart+columns+to+your+dashboard/">Add smart filters and smart columns to your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941968/Add+rich+filter+statistics+gadgets+to+your+dashboard/">Add rich filter statistics gadgets to your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941975/Add+rich+filter+two+dimensional+statistics+gadgets+to+your+dashboard/">Add rich filter two dimensional statistics gadgets to your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941981/Add+rich+filter+flexi+charts+gadgets+to+your+dashboard/">Add rich filter flexi charts gadgets to your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/2241069104/Create+presets+in+Rich+Filter+Controller/">Create presets in Rich Filter Controller</a></li><li><a href="/cms_trial/space/RFCDOC/2465137080/Permalinks/">Permalinks</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/RFCDOC/783942739/Use+cases/">Use cases</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/783942749/Efficiently+manage+support+requests+with+rich+filter+queues/">Efficiently manage support requests with rich filter queues</a></li><li><a href="/cms_trial/space/RFCDOC/783942775/Create+service+management+reports+with+rich+filter+charts+%26+statistics/">Create service management reports with rich filter charts &amp; statistics</a></li><li><a href="/cms_trial/space/RFCDOC/3019735127/Manage+technical+writing+tasks+across+multiple+teams/">Manage technical writing tasks across multiple teams</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/RFCDOC/783942482/User+guides/">User guides</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/783943671/Concepts/">Concepts</a></li><li><a href="/cms_trial/space/RFCDOC/783942528/Fundamentals/">Fundamentals</a></li><li><a href="/cms_trial/space/RFCDOC/783942654/Advanced/">Advanced</a></li><li><a href="/cms_trial/space/RFCDOC/783941673/Configure+Rich+Filters/">Configure Rich Filters</a></li><li><a href="/cms_trial/space/RFCDOC/783941679/Work+with+Rich+Filter+gadgets/">Work with Rich Filter gadgets</a></li><li><a href="/cms_trial/space/RFCDOC/783942350/Migrate+to+Cloud/">Migrate to Cloud</a></li><li><a href="/cms_trial/space/RFCDOC/783942626/Reference/">Reference</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/RFCDOC/3178496025/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/3178692617/Allowlist+domains+for+Rich+Filters/">Allowlist domains for Rich Filters</a></li><li><a href="/cms_trial/space/RFCDOC/3374972942/Rich+filter+search/" class="active">Rich filter search</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/RFCDOC/783941853/Release+Notes/">Release Notes</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/3520364546/Release+notes+August+10th+2026/">Release notes August 10th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3498803215/Release+notes+July+30th+2026/">Release notes July 30th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3461742594/Release+notes+July+27th+2026/">Release notes July 27th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3429695594/Release+notes+July+13th+2026/">Release notes July 13th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3398041685/Release+notes+June+29th+2026/">Release notes June 29th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3377922150/Release+notes+June+2026/">Release notes June 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3171189121/Release+notes+April+2026/">Release notes April 2026</a></li><li><a href="/cms_trial/space/RFCDOC/2886631439/Release+notes+March+9th+2026/">Release notes March 9th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/2884370559/Release+notes+February+13th+2026/">Release notes February 13th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/2804908033/Release+notes+February+11th+2026/">Release notes February 11th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/2856255685/Release+notes+February+5th+2026/">Release notes February 5th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/2681667585/Release+notes+December+30th+2025/">Release notes December 30th 2025</a></li><li><a href="/cms_trial/space/RFCDOC/2509013096/Release+notes+December+4th+2025/">Release notes December 4th 2025</a></li><li><a href="/cms_trial/space/RFCDOC/2239004676/Release+notes+July+31st+2025/">Release notes July 31st 2025</a></li><li><a href="/cms_trial/space/RFCDOC/1935179889/Release+notes+April+8th+2025/">Release notes April 8th 2025</a></li><li><a href="/cms_trial/space/RFCDOC/1799028737/Release+notes+February+26th+2025/">Release notes February 26th 2025</a></li><li><a href="/cms_trial/space/RFCDOC/1624866957/Release+notes+January+13th+2025/">Release notes January 13th 2025</a></li><li><a href="/cms_trial/space/RFCDOC/1595769075/Release+notes+2021%E2%80%932024/">Release notes 2021–2024</a></li></ul></details></li></ul></details></li></ul></nav>
-</aside>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#how-search-works">How search works</a></li><li class="toc-level-3"><a href="#search-is-case-insensitive">Search is case-insensitive</a></li><li class="toc-level-3"><a href="#multiple-words-are-matched-with-any">Multiple words are matched with “any”</a></li><li class="toc-level-3"><a href="#use-to-require-particular-terms">Use + to require particular terms</a></li><li class="toc-level-3"><a href="#use-quotes-for-exact-phrases">Use quotes for exact phrases</a></li><li class="toc-level-2"><a href="#search-tips">Search tips</a></li><li class="toc-level-3"><a href="#what-if-i-still-can-t-find-my-filter">What if I still can't find my filter?</a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
@@ -264,6 +308,92 @@
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>Monthly view | Appfire Docs</title>
 <meta name="description" content="Learn how to add, edit and delete time, as well as submit and revoke your timesheet on 7pace Timetracker&#x27;s Monthly page.">
@@ -9,7 +19,15 @@
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Monthly view",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/7TFA/1253540070/Monthly+view/",
+  "dateModified": "2026-08-27T01:41:53.898Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,26 +37,52 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/3482780186/User+guide/">User guide</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Monthly view</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/7TFA/pages/1253540070" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/7TFA/pages/1253540070" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>Monthly view</h1>
-    <div class="page-meta">7 min read</div>
+    <div class="page-meta">Updated 14 days ago · 7 min read</div>
     <p>Learn how to add, edit and delete time, as well as submit and revoke your timesheet on 7pace Timetracker's Monthly page.</p><div class="columns" style="grid-template-columns: 33.33fr 66.66fr;"><div><h2 id="7pace-timetracker-for-azure-devops"><strong>7pace Timetracker for Azure DevOps </strong></h2><p><em><strong>30-Minute live demo</strong></em></p></div><div><div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/b5CnMLyE8ms"></iframe></div></div></div><h2 id="monthly-page-your-personal-calendar">Monthly page: your personal calendar</h2><p>The Monthly page's calendar interface allows team members to enter time, track, and maintain their work efforts. When you click on the Monthly  page, the calendar view defaults to the current month and year. As a developer, you can easily navigate to different months and years, view daily, weekly, and monthly totals of time entered, as well as view the time entry details of a particular day.</p><h3 id="calendar-view">Calendar view</h3><img alt="Calendar_View.png" class="doc-image" loading="lazy" src="/cms_trial/assets/61990acb-e308-4a38-954b-70e78070fae1.png"/><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p><strong>ID</strong></p></th><th><p><strong>Description</strong></p></th></tr><tr><td><p>1</p></td><td><p>Month and year navigator.</p><p>Click the <div class="img-placeholder">[Unmapped macro: inline-external-image — no content to fall back on]</div> and <span class="inline-icon" title="inline icon">▢</span> icons to navigate to previous months and years.</p></td></tr><tr><td><p>2</p></td><td><p>Clicking on the Current Month link will bring you back to the current month if you have scrolled backwards or forward in time.</p></td></tr><tr><td><p>3</p></td><td><p>Your total time tracked for the month displays here.</p></td></tr><tr><td><p>4</p></td><td><p>Click the + icon to add a new time entry on a particular day.</p><p>When you hover your mouse over a day block in the calendar, the + icon displays. Clicking the + icon allows you to add a new time entry for that day. When you click this icon, the system displays the Add Time dialog box.</p><div class="panel panel-note"><p>For more information about adding and editing a worklog, see <a href="/cms_trial/space/7TFA/1253540070/Monthly+view/">Adding a Worklog.</a></p></div></td></tr><tr><td><p>5</p></td><td><p>The icons used that in the Week Total column reflect various states within the time approval process. Hovering over these icons will display a tool tip with additional information on the meaning of each icon.</p><div class="panel panel-note"><p>For more information about these icons, see <a href="/cms_trial/space/7TFA/1253539865/Approvals/">Approval Icons</a>.</p></div></td></tr><tr><td><p>6</p></td><td><p>The Week Total column displays the total hours you have worked each week. It also displays the week number in the current calendar year of each week, for example, w26.</p></td></tr><tr><td><p>7</p></td><td><p>The Weeks Total displays at the bottom of the Week Total column and reflects all days of the work week for which time was entered in the current month, <em>in addition to</em> any days that overlapped from the month before or the month after (for example, if Monday, August 29, Tuesday, August 30, and Wednesday, August 31 fall within August, but Thursday, September 1 and Friday, September 2 fall within September, the Weeks Total for September will reflect the totals for all these days of the week, regardless of the month in which they fell.</p></td></tr><tr><td><p>8</p></td><td><p>The Month Total displays only totals of hours worked within the displayed calendar month (no overlapping days of the week from previous or subsequent months are included).</p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><h3 id="time-details-view">Time Details view</h3><p>You can click on any day within the calendar to display additional details of time added and tracked on that day. </p><p>Here you can:</p><ul><li><p>Click Add Time to add a new worklog</p></li><li><p>Edit worklogs (pencil icon)</p></li><li><p>Delete worklogs (trashcan icon)</p></li><li><p>View which worklogs were marked as billable. </p></li><li><p>Open the work item form of the worklog by clicking on the work item ID</p></li><li><p>See which worklogs are locked for editing because the work items to which they belong are closed</p></li></ul><img alt="Time_Details_Overview.png" class="doc-image" loading="lazy" src="/cms_trial/assets/64caf0a0-51fb-43cf-9093-b84e4296ec77.png"/><h2 id="add-a-new-worklog">Add a new worklog</h2><p>You can add time on the Monthly calendar page in two ways:</p><ul><li><p>Clicking the + icon on a particular day/block on the calendar. </p></li><li><p>Clicking on the day/block on the calendar to view the time details panel, then clicking the Add Time link.</p></li></ul><div class="panel panel-note"><p>If you try to add time on a closed item and Prevent Time Entry Against Closed Items is enabled under <strong>Settings</strong> &gt; <strong>Rules</strong>, you will receive an error message and won’t be allowed to add time.</p></div><p>1. On the time entry calendar, hover your mouse over the day/block on which you want to add a new time entry.</p><img alt="Add_New_Worklog.png" class="doc-image" loading="lazy" src="/cms_trial/assets/ec705629-0d5b-46da-911c-9e25cf344d9e.png"/><p>The system displays the plus + icon on the selected day.</p><p>2. You can also click directly on the day/block on the calendar on which you want to add a new worklog.</p><img alt="Add_Time.png" class="doc-image" loading="lazy" src="/cms_trial/assets/041f7537-ca25-44c6-9e01-eb05564b1ff7.png"/><ol><li><p>The time details panel populates below the day on which you click, displaying details of the time logged/tracked on that day, if any.</p></li></ol><p>4. Click the plus + icon on the calendar day/block or click the Add Time link in the time details panel.</p><img alt="Add_Appropraite_Values.png" class="doc-image" loading="lazy" src="/cms_trial/assets/6228e350-6b2f-4efb-8a27-19c7e9cfa1ad.png"/><p>The Add Time dialog box displays.</p><p>5. Add the appropriate values in the fields.</p><p>6. Click the <strong>Save</strong> button to save the time entry for that day.</p><h2 id="edit-a-worklog">Edit a worklog</h2><p>1. In the calendar, click directly on the day on which you want to edit a worklog.</p><p>The time details panel populates below the day in which you click, displaying details of the time logged/tracked on that day.</p><img alt="Edit_Worklog_Step_1.png" class="doc-image" loading="lazy" src="/cms_trial/assets/78d4c52a-2f1c-41ba-bf4f-cda3c53f74d9.png"/><div class="panel panel-note"><p>If a 7pace Timetracker administrator has enabled Prevent Time Entry Against Closed Items in <strong>Settings</strong> &gt; <strong>Rules</strong>, when you hover over the work log, you’ll see a lock icon next to the work log that belongs to the closed item.</p></div><img alt="Edit_Worklog_Step_2.png" class="doc-image" loading="lazy" src="/cms_trial/assets/ced3e3db-20cd-495e-8d50-9b0c38ac37e4.png"/><p>2. With your mouse, hover over the editable worklog you want to edit.</p><p>The (<div class="img-placeholder">[Unmapped macro: inline-external-image — no content to fall back on]</div>) icon displays.</p><p>3. Click the <div class="img-placeholder">[Unmapped macro: inline-external-image — no content to fall back on]</div>.</p><img alt="Edit_Worklog_Save.png" class="doc-image" loading="lazy" src="/cms_trial/assets/4e3cd5c6-b597-436f-98ec-e82b005d38a5.png"/><p>The system displays the Edit Time dialog box.</p><p>4. Edit the fields you wish to update.</p><p>5. Click <strong>Save</strong>.</p><h2 id="delete-a-worklog">Delete a worklog</h2><p>1. In the calendar, click directly on the day on which you want to delete a worklog.</p><p>The time details panel populates below the day in which you click, displaying details of the time logged/tracked on that day.</p><img alt="Delete_Worklog_Step_1.png" class="doc-image" loading="lazy" src="/cms_trial/assets/9570f276-c53d-4795-8917-11d131ee48f2.png"/><div class="panel panel-note"><p>If a 7pace Timetracker administrator has enabled Prevent Time Entry Against Closed Items in <strong>Settings </strong>&gt; <strong>Rules</strong>, you’ll see the a lock icon next to the worklog that belongs to the closed item:, so you won't be able to delete the worklog:</p></div><p>2. With your mouse, hover over the worklog you want to delete.</p><img alt="Delete_Worklog_Step_2.png" class="doc-image" loading="lazy" src="/cms_trial/assets/937cfcac-4970-4c96-938d-68beffa14f83.png"/><p>The  (<div class="img-placeholder">[Unmapped macro: inline-external-image — no content to fall back on]</div>) icon displays, along with the edit icon.</p><p>3. Click the <div class="img-placeholder">[Unmapped macro: inline-external-image — no content to fall back on]</div>.</p><p>The system displays a confirmation dialog box.</p><p>4. Click <strong>OK</strong>.</p><p>The dialog box closes, and the time entry is deleted.</p><div class="panel panel-note"><p>If a user is tracking time and edits (removes) the worklog currently being tracked by the Windows or Mac App or the Web App, the system will automatically stop tracking.</p></div><h2 id="submit-your-timesheet">Submit your timesheet</h2><p>One of the ways you can submit your timesheet to your project manager for approval at the end of the work week is via the 7pace Timetracker "Monthly" calendar page. Before doing so, ensure that you have correctly tracked your time for each day of the work week.  Best practices also include checking the Week Total column for the total number of tracked hours in the week before you submit that week for approval.</p><p>1. On the 7pace Timetracker menu bar, select <strong>Monthly</strong>.</p><p>2. In the Week Total column, click the Week is in progress icon (<div class="img-placeholder">[Unmapped macro: inline-external-image — no content to fall back on]</div>).</p><img alt="Submit_Timesheet_Step_1.png" class="doc-image" loading="lazy" src="/cms_trial/assets/6cfa640e-f1c9-446a-a6eb-4b43d68c45b6.png"/><p>The Submit for Approval option displays.</p><p>3. Click <strong>Submit for Approval</strong>.</p><img alt="Submit_Timesheet_Step_2.png" class="doc-image" loading="lazy" src="/cms_trial/assets/8aed10bf-96d8-428e-a3a6-19cb99448489.png"/><p>The Time Approval popup box displays.</p><p>4. In the Send for approval to dropdown, select the manager to whom you want your timesheet approved.</p><p>5. On the approval confirmation dialog box, click <strong>Send for Approval</strong>.</p><p>The icon in the week total column changes to Submitted for approval (<div class="img-placeholder">[Unmapped macro: inline-external-image — no content to fall back on]</div>).</p><h2 id="revoke-your-timesheet">Revoke your timesheet</h2><p>1. If you need to revoke your timesheet after submitting it to your project manager for approval, in the Week Total column of the week that includes the timesheet you want to revoke, click the Submitted for approval (<div class="img-placeholder">[Unmapped macro: inline-external-image — no content to fall back on]</div>) icon.</p><img alt="Revoke_Your_Timesheet_Step_1.png" class="doc-image" loading="lazy" src="/cms_trial/assets/a7087289-04fa-43e8-9bd4-46719b532de8.png"/><p>The Revoke submission popup displays. </p><img alt="Revoke_Your_Timesheet_Step_2.png" class="doc-image" loading="lazy" src="/cms_trial/assets/e545cbd8-2756-47cb-82be-b60e322ad5a8.png"/><p>2. On the Revoke Submission Confirmation dialog box, click <strong>Revoke submission</strong>.</p><img alt="Revoke_Your_Timesheet_Step_3.png" class="doc-image" loading="lazy" src="/cms_trial/assets/fec4a9ae-2006-49f1-98fc-f42a3aab78ac.png"/><p>The Revoke submission confirmation dialog box displays. </p><p>3. Click <strong>Revoke submission</strong>. </p><img alt="Revoke_Your_Timesheet_Step_4.png" class="doc-image" loading="lazy" src="/cms_trial/assets/f07a01aa-82f3-49dc-bb92-f946175f7669.png"/><p>The page refreshes, and the week is reopened.</p><p>Once you revoke the submitted time sheet, that time sheet is removed from the Approval Pending list on your manager's Approval page, and the submitted icon on your Monthly page changes to Week is reopened<strong> </strong>(<div class="img-placeholder">[Unmapped macro: inline-external-image — no content to fall back on]</div>).</p><h2 id="related-articles">Related Articles</h2><ul><li><p><a href="/cms_trial/space/7TFA/1253539865/Approvals/">"Approval" Page and Process Overview</a></p></li></ul>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">146 pages in this space, fetched live from Confluence via API.</p>
-<nav><ul><li><details open><summary><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a></summary><ul><li><details><summary><a href="/cms_trial/space/7TFA/1253540271/Get+started/">Get started</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540433/7pace+Timetracker+for+developers/">7pace Timetracker for developers</a></li><li><a href="/cms_trial/space/7TFA/1253540439/7pace+Timetracker+for+managers/">7pace Timetracker for managers</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/3482517944/Admin+guide/">Admin guide</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540127/Installation+and+Data+Security/">Installation and Data Security</a></li><li><a href="/cms_trial/space/7TFA/2193557481/Authorization+methods/">Authorization methods</a></li><li><a href="/cms_trial/space/7TFA/1253540254/API+%26+Reporting/">API &amp; Reporting</a></li><li><a href="/cms_trial/space/7TFA/1253540242/Apps/">Apps</a></li><li><a href="/cms_trial/space/7TFA/3488055333/App+configuration/">App configuration</a></li><li><a href="/cms_trial/space/7TFA/1253539917/7pace+Timetracker+Legacy+Versions+and+Legacy+TFS/">7pace Timetracker Legacy Versions and Legacy TFS</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/7TFA/3482780186/User+guide/">User guide</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253539966/Add+Time+Dialog/">Add Time Dialog</a></li><li><a href="/cms_trial/space/7TFA/1253539860/Work+item+form/">Work item form</a></li><li><a href="/cms_trial/space/7TFA/1253540085/Budgets/">Budgets</a></li><li><a href="/cms_trial/space/7TFA/1253540717/Iterations/">Iterations</a></li><li><a href="/cms_trial/space/7TFA/1253539865/Approvals/">Approvals</a></li><li><a href="/cms_trial/space/7TFA/1253540013/Times+Explorer/">Times Explorer</a></li><li><a href="/cms_trial/space/7TFA/1253540070/Monthly+view/" class="active">Monthly view</a></li><li><a href="/cms_trial/space/7TFA/1547173906/Weekly+view/">Weekly view</a></li><li><a href="/cms_trial/space/7TFA/1253540328/Timesheet/">Timesheet</a></li><li><a href="/cms_trial/space/7TFA/2935357478/Connect+calendar/">Connect calendar</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/3511091204/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/7TFA/1361084424/7pace+Product+Support/">7pace Product Support</a></li><li><a href="/cms_trial/space/7TFA/1253540447/Frequently+Asked+Questions/">Frequently Asked Questions</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/1253539885/Release+Notes/">Release Notes</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540249/7pace+Timetracker+for+Azure+DevOps+Release+Notes/">7pace Timetracker for Azure DevOps Release Notes</a></li><li><a href="/cms_trial/space/7TFA/1253540290/Legacy+Release+Notes/">Legacy Release Notes</a></li></ul></details></li></ul></details></li></ul></nav>
-</aside>
+<nav><ul><li><details open><summary><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a></summary><ul><li><details><summary><a href="/cms_trial/space/7TFA/1253540271/Get+started+with+7pace+Timetracker+for+Azure+DevOps/">Get started with 7pace Timetracker for Azure DevOps</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540433/7pace+Timetracker+for+developers/">7pace Timetracker for developers</a></li><li><a href="/cms_trial/space/7TFA/1253540439/7pace+Timetracker+for+managers/">7pace Timetracker for managers</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/3482517944/Admin+guide/">Admin guide</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540127/Installation+and+Data+Security/">Installation and Data Security</a></li><li><a href="/cms_trial/space/7TFA/2193557481/Authorization+methods/">Authorization methods</a></li><li><a href="/cms_trial/space/7TFA/1253540254/API+%26+Reporting/">API &amp; Reporting</a></li><li><a href="/cms_trial/space/7TFA/1253540242/Apps/">Apps</a></li><li><a href="/cms_trial/space/7TFA/3488055333/App+configuration/">App configuration</a></li><li><a href="/cms_trial/space/7TFA/1253539917/7pace+Timetracker+Legacy+Versions+and+Legacy+TFS/">7pace Timetracker Legacy Versions and Legacy TFS</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/7TFA/3482780186/User+guide/">User guide</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253539966/Add+Time+Dialog/">Add Time Dialog</a></li><li><a href="/cms_trial/space/7TFA/1253539860/Work+item+form/">Work item form</a></li><li><a href="/cms_trial/space/7TFA/1253540085/Budgets/">Budgets</a></li><li><a href="/cms_trial/space/7TFA/1253540717/Iterations/">Iterations</a></li><li><a href="/cms_trial/space/7TFA/1253539865/Approvals/">Approvals</a></li><li><a href="/cms_trial/space/7TFA/1253540013/Times+Explorer/">Times Explorer</a></li><li><a href="/cms_trial/space/7TFA/1253540070/Monthly+view/" class="active">Monthly view</a></li><li><a href="/cms_trial/space/7TFA/1547173906/Weekly+view/">Weekly view</a></li><li><a href="/cms_trial/space/7TFA/1253540328/Timesheet/">Timesheet</a></li><li><a href="/cms_trial/space/7TFA/2935357478/Connect+calendar/">Connect calendar</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/3511091204/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/7TFA/1361084424/7pace+Product+Support/">7pace Product Support</a></li><li><a href="/cms_trial/space/7TFA/1253540447/Frequently+Asked+Questions/">Frequently Asked Questions</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/1253540249/7pace+Timetracker+for+Azure+DevOps+Release+Notes/">7pace Timetracker for Azure DevOps Release Notes</a></summary><ul><li><a href="/cms_trial/space/7TFA/3509223505/Release+notes+5.100/">Release notes 5.100</a></li><li><a href="/cms_trial/space/7TFA/3466657955/Release+notes+5.99/">Release notes 5.99</a></li><li><a href="/cms_trial/space/7TFA/3413082694/Release+notes+5.98/">Release notes 5.98</a></li><li><a href="/cms_trial/space/7TFA/3394044151/Release+notes+5.97/">Release notes 5.97</a></li><li><a href="/cms_trial/space/7TFA/3306487975/Release+notes+5.96/">Release notes 5.96</a></li><li><a href="/cms_trial/space/7TFA/3199172612/Release+notes+5.95/">Release notes 5.95</a></li><li><a href="/cms_trial/space/7TFA/3157721151/Release+notes+5.94/">Release notes 5.94</a></li></ul></details></li></ul></details></li></ul></nav>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#7pace-timetracker-for-azure-devops">7pace Timetracker for Azure DevOps </a></li><li class="toc-level-2"><a href="#monthly-page-your-personal-calendar">Monthly page: your personal calendar</a></li><li class="toc-level-3"><a href="#calendar-view">Calendar view</a></li><li class="toc-level-3"><a href="#time-details-view">Time Details view</a></li><li class="toc-level-2"><a href="#add-a-new-worklog">Add a new worklog</a></li><li class="toc-level-2"><a href="#edit-a-worklog">Edit a worklog</a></li><li class="toc-level-2"><a href="#delete-a-worklog">Delete a worklog</a></li><li class="toc-level-2"><a href="#submit-your-timesheet">Submit your timesheet</a></li><li class="toc-level-2"><a href="#revoke-your-timesheet">Revoke your timesheet</a></li><li class="toc-level-2"><a href="#related-articles">Related Articles</a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
@@ -264,6 +308,92 @@
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

@@ -1,0 +1,28 @@
+# User guides
+
+These comprehensive user guides document all features intended for regular users of Connector for Salesforce & Jira.
+
+- [Get started for users](/cms_trial/space/CSFJIRA/1918802420/Get+started+for+users/)
+- [Work with associations](/cms_trial/space/CSFJIRA/3091760268/Work+with+associations/)
+  - [Associate a Jira work item from Salesforce with Jira Issues (NextGen)](/cms_trial/space/CSFJIRA/3092284698/Associate+a+Jira+work+item+from+Salesforce+with+Jira+Issues+(NextGen)/)
+  - [Associate a Jira Issue from Salesforce](/cms_trial/space/CSFJIRA/3091301556/Associate+a+Jira+Issue+from+Salesforce/)
+  - [Associate a Salesforce record from Jira](/cms_trial/space/CSFJIRA/3092284964/Associate+a+Salesforce+record+from+Jira/)
+  - [Bulk association from Jira Cloud](/cms_trial/space/CSFJIRA/3091432552/Bulk+association+from+Jira+Cloud/)
+  - [Configure an association](/cms_trial/space/CSFJIRA/3091956652/Configure+an+association/)
+  - [Create a Jira work item from Salesforce with Jira Issues (NextGen)](/cms_trial/space/CSFJIRA/3092088339/Create+a+Jira+work+item+from+Salesforce+with+Jira+Issues+(NextGen)/)
+  - [Create a JSM issue with request types from Salesforce with Jira Issues (NextGen)](/cms_trial/space/CSFJIRA/3092023371/Create+a+JSM+issue+with+request+types+from+Salesforce+with+Jira+Issues+(NextGen)/)
+  - [Create a Jira work item from Salesforce](/cms_trial/space/CSFJIRA/3091792703/Create+a+Jira+work+item+from+Salesforce/)
+  - [Create a Salesforce record from Jira](/cms_trial/space/CSFJIRA/3091465546/Create+a+Salesforce+record+from+Jira/)
+  - [View associated Salesforce records in Jira work item](/cms_trial/space/CSFJIRA/3091826604/View+associated+Salesforce+records+in+Jira+work+item/)
+  - [Run an association report](/cms_trial/space/CSFJIRA/3091596677/Run+an+association+report/)
+  - [Link to other Jira work items from Salesforce when creating a new Jira issue (NextGen)](/cms_trial/space/CSFJIRA/3091334501/Link+to+other+Jira+work+items+from+Salesforce+when+creating+a+new+Jira+issue+(NextGen)/)
+  - [Push updates for multiple Jira Issues in bulk mode](/cms_trial/space/CSFJIRA/3091596592/Push+updates+for+multiple+Jira+Issues+in+bulk+mode/)
+  - [Use JQL to report on Jira issues with associations](/cms_trial/space/CSFJIRA/3092219354/Use+JQL+to+report+on+Jira+issues+with+associations/)
+- [Work with comments](/cms_trial/space/CSFJIRA/3091628846/Work+with+comments/)
+  - [Work with Jira comments (NextGen) with Lightning Experience](/cms_trial/space/CSFJIRA/1873478551/Work+with+Jira+comments+(NextGen)+with+Lightning+Experience/)
+  - [View Salesforce comments in Jira](/cms_trial/space/CSFJIRA/1962443468/View+Salesforce+comments+in+Jira/)
+  - [View Jira comments in Salesforce](/cms_trial/space/CSFJIRA/1962607212/View+Jira+comments+in+Salesforce/)
+- [Search Salesforce Object from Jira](/cms_trial/space/CSFJIRA/1962541918/Search+Salesforce+Object+from+Jira/)
+- [Work with attachments](/cms_trial/space/CSFJIRA/1754432218/Work+with+attachments/)
+  - [Work with attachments in Salesforce](/cms_trial/space/CSFJIRA/3091695099/Work+with+attachments+in+Salesforce/)
+  - [Work with attachments in Jira](/cms_trial/space/CSFJIRA/3092024038/Work+with+attachments+in+Jira/)

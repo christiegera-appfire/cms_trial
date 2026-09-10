@@ -1,0 +1,35 @@
+# Use cases
+
+This section lists out the use cases for the conditions, validators and post-functions of the add-on.
+
+Click on each page for the use cases:
+
+- [With BigPicture](/cms_trial/space/JMWEC/2452717605/With+BigPicture/)
+  - [Update work item 'Start date' when it is moved to In Progress](/cms_trial/space/JMWEC/2452619289/Update+work+item+%27Start+date%27+when+it+is+moved+to+In+Progress/)
+  - [Set work item 'End date' when it is moved to Done](/cms_trial/space/JMWEC/2453241865/Set+work+item+%27End+date%27+when+it+is+moved+to+Done/)
+  - [Calculate 'End Date' based on Story points](/cms_trial/space/JMWEC/2452979740/Calculate+%27End+Date%27+based+on+Story+points/)
+- [With Configuration Manager for Jira (CMJ)](/cms_trial/space/JMWEC/2982412312/With+Configuration+Manager+for+Jira+(CMJ)/)
+  - [Safely deploy workflow automations across Jira Cloud instances with CMJ Cloud](/cms_trial/space/JMWEC/2983657491/Safely+deploy+workflow+automations+across+Jira+Cloud+instances+with+CMJ+Cloud/)
+- [With Jira Misc Custom Fields (JMCF)](/cms_trial/space/JMWEC/1261797421/With+Jira+Misc+Custom+Fields+(JMCF)/)
+  - [Escalate Issue After Fix is Rejected](/cms_trial/space/JMWEC/465473859/Escalate+Issue+After+Fix+is+Rejected/)
+- [Use Cases for Actions](/cms_trial/space/JMWEC/2219508313/Use+Cases+for+Actions/)
+  - [Add a Watcher when a new work item is linked](/cms_trial/space/JMWEC/3520168345/Add+a+Watcher+when+a+new+work+item+is+linked/)
+  - [Assign and transition an issue when it is escalated](/cms_trial/space/JMWEC/1383661579/Assign+and+transition+an+issue+when+it+is+escalated/)
+  - [Automatically create sub-tasks on 'Development' issues](/cms_trial/space/JMWEC/1383497763/Automatically+create+sub-tasks+on+%27Development%27+issues/)
+  - [Create review task for Project Lead (Extended)](/cms_trial/space/JMWEC/3369140358/Create+review+task+for+Project+Lead+(Extended)/)
+  - [Move parent to 'Done' when all child issues are closed](/cms_trial/space/JMWEC/1419772073/Move+parent+to+%27Done%27+when+all+child+issues+are+closed/)
+  - [When a duplicate work item is linked, close duplicate and comment](/cms_trial/space/JMWEC/2219999820/When+a+duplicate+work+item+is+linked%2C+close+duplicate+and+comment/)
+- [Use cases for post functions](/cms_trial/space/JMWEC/466289408/Use+cases+for+post+functions/)
+  - [Close a Story When All Sub-tasks are Closed](/cms_trial/space/JMWEC/465373402/Close+a+Story+When+All+Sub-tasks+are+Closed/)
+  - [Create review task for Project Lead](/cms_trial/space/JMWEC/1486291002/Create+review+task+for+Project+Lead/)
+  - [Notify Reporter When Linked Bug is Resolved](/cms_trial/space/JMWEC/466323247/Notify+Reporter+When+Linked+Bug+is+Resolved/)
+  - [Reassign the last developer for reopened issues](/cms_trial/space/JMWEC/466322527/Reassign+the+last+developer+for+reopened+issues/)
+  - [Reopen issue when new Bug is linked](/cms_trial/space/JMWEC/1486062454/Reopen+issue+when+new+Bug+is+linked/)
+  - [Set Ticket Priority Based on Asset Attributes](/cms_trial/space/JMWEC/1091862830/Set+Ticket+Priority+Based+on+Asset+Attributes/)
+  - [Hold an issue, proceed when clear](/cms_trial/space/JMWEC/466322207/Hold+an+issue%2C+proceed+when+clear/)
+- [Use Cases for Conditions](/cms_trial/space/JMWEC/521994276/Use+Cases+for+Conditions/)
+  - [Only Assignee can transition an issue](/cms_trial/space/JMWEC/521863205/Only+Assignee+can+transition+an+issue/)
+  - [Only Project Lead or Product Owners Can Close Issues](/cms_trial/space/JMWEC/521928808/Only+Project+Lead+or+Product+Owners+Can+Close+Issues/)
+- [Use Cases for Validators](/cms_trial/space/JMWEC/465241901/Use+Cases+for+Validators/)
+- [Use Cases for Post-Functions (Legacy)](/cms_trial/space/JMWEC/465373017/Use+Cases+for+Post-Functions+(Legacy)/)
+- [Use Cases for Conditions (Legacy)](/cms_trial/space/JMWEC/465504168/Use+Cases+for+Conditions+(Legacy)/)

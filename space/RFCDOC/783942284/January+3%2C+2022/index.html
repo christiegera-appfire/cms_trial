@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>January 3, 2022 | Appfire Docs</title>
 <meta name="description" content="This release introduces two new gadgets which display gauges: Rich Filter Simple Gauges and Rich Filter Smart Gauges. These gadgets are similar to the…">
@@ -9,7 +19,15 @@
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "January 3, 2022",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/RFCDOC/783942284/January+3%2C+2022/",
+  "dateModified": "2026-08-27T00:28:48.604Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,26 +37,52 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RFCDOC/3513253997/Data+residency+and+realm+persistence/">Rich Filters for Jira Dashboards (Cloud) Documentation</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941853/Release+Notes/">Release Notes</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/1595769075/Release+notes+2021%E2%80%932024/">Release notes 2021–2024</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783943818/2022/">2022</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">January 3, 2022</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/783942284" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/783942284" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>January 3, 2022</h1>
-    <div class="page-meta">3 min read</div>
+    <div class="page-meta">Updated 14 days ago · 3 min read</div>
     <p>In this release:</p><h2 id="new-gadgets-rich-filter-simple-gauges-and-rich-filter-smart-gauges">New Gadgets: Rich Filter Simple Gauges and Rich Filter Smart Gauges</h2><p>This release introduces two new gadgets which display gauges: <em>Rich Filter Simple Gauges</em> and <em>Rich Filter Smart Gauges</em>. These gadgets are similar to the <em>Rich Filter Simple Counters</em> and <em>Rich Filter Smart Counters</em> gadgets but, while the counters gadgets display aggregated values, the gauges gadgets display proportions and ratios. These can be derived from Issue Count, numeric &amp; time-tracking issue fields, <a href="/cms_trial/space/RFCDOC/783942033/Configure+custom+values/">custom values</a> or <a href="/cms_trial/space/RFCDOC/783942266/Configure+custom+ratios/">custom ratios</a>, and can be displayed in one of three ways: as a gauge, as a percentage and fraction, or as a percentage only.</p><ul><li><p>The <a href="/cms_trial/space/RFCDOC/783942228/The+Rich+Filter+Simple+Gauges+Gadget/">Rich Filter Simple Gauges</a> gadget can display up to 10 independent gauges. Each gauge can be configured with a <em>filter &amp; value</em> pair or with a <a href="/cms_trial/space/RFCDOC/783942266/Configure+custom+ratios/">custom ratio</a> – a dedicated configuration object for ratio definitions. The <em>filter</em> determines the gauge level by filtering the contributing issues. The <em>value</em> can be the Issue Count, a numeric or time-tracking field, or a <a href="/cms_trial/space/RFCDOC/783942033/Configure+custom+values/">custom value</a>.<br/></p><img alt="contentId-783942284" class="doc-image" loading="lazy" src="/cms_trial/assets/2c9e2034-fe5b-4338-b9a6-51438725d5ba.png"/><p><br/></p><img alt="contentId-783942284" class="doc-image" loading="lazy" src="/cms_trial/assets/90c179e6-2079-4097-8abd-460bc38b3b73.png"/><p><br/></p><img alt="contentId-783942284" class="doc-image" loading="lazy" src="/cms_trial/assets/45697f02-f829-463a-97c8-c94adc99a12e.png"/><p><br/><br/></p></li><li><p>The <a href="/cms_trial/space/RFCDOC/783942246/The+Rich+Filter+Smart+Gauges+Gadget/">Rich Filter Smart Gauges</a> gadget is based on a <a href="/cms_trial/space/RFCDOC/783941713/Configure+smart+filters/">smart filter</a> and displays one gauge for each of the smart filter's clauses. The <em>value</em> on which the gauges are based can be the Issue Count, a numeric or time-tracking field, or a <a href="/cms_trial/space/RFCDOC/783942033/Configure+custom+values/">custom value</a>. Two computation modes are available:</p></li></ul><ul><li><ul><li><p><em>The smart clauses are used as gauge filters</em>, i.e. they are used to compute the gauge levels relative to all the issues included in the gadget (all the gauges have the same total value). In other words, the collection of issues included in the gadget is partitioned according to the smart clauses, and the gauges reflect this partitioning.<br/></p><img alt="contentId-783942284" class="doc-image" loading="lazy" src="/cms_trial/assets/977a10b5-7b32-4398-8cc7-27aaa279351e.png"/></li><li><p><em>The smart clauses are used to compute the gauge totals</em>. All the gauges use the same <em>gauge filter</em>, which needs to be selected separately. In other words, the collection of issues included in the gadget is partitioned according to the smart clauses, and each of the resulting sub-collections is used to compute a simple gauge.<br/>For this computation mode, a <a href="/cms_trial/space/RFCDOC/783942266/Configure+custom+ratios/">custom ratio</a> can be used instead of a <em>gauge filter</em> and a <em>value</em>.<br/></p><img alt="contentId-783942284" class="doc-image" loading="lazy" src="/cms_trial/assets/656f4d95-fba1-4261-95a4-987b1684671f.png"/></li></ul></li></ul><h2 id="custom-ratios-in-gauge-gadgets">Custom Ratios in gauge gadgets</h2><p>This release introduces <em>custom ratios</em>, a new type of configuration object – similar to <a href="/cms_trial/space/RFCDOC/783942033/Configure+custom+values/">custom values</a> – which further extends the capabilities of the rich filter gadgets. <em>Custom ratios</em> are defined as ratios, with a numerator and a denominator which can be based on Issue Count or numeric &amp; time tracking fields. Optional JQL filtering conditions can be used to filter the contributing issues for the numerator and/or the denominator. <em>Custom ratios</em> can thus be used to compute ratios of different values.</p><p><em>Custom ratios</em> are defined in the rich filter configuration and are available in the new gauges gadgets as a way to define proportions, providing a reusable and more flexible alternative to <em>filter &amp; value</em> pairs. In future releases, <em>custom ratios</em> will be made available in other rich filter gadgets as well.</p><p>In the example below, four custom ratios are defined in the rich filter:</p><img alt="contentId-783942284" class="doc-image" loading="lazy" src="/cms_trial/assets/88cdafd6-93de-4c98-a59f-7e5e98845e71.png"/><p>These <em>custom ratios</em> are used to configure four simple gauges, displayed as a percentage and fraction:</p><img alt="contentId-783942284" class="doc-image" loading="lazy" src="/cms_trial/assets/b8ecffe1-ad69-44b5-944e-ba5f409d0026.png"/><p>For more information about this new configuration object, have a look at the <a href="/cms_trial/space/RFCDOC/783942033/Configure+custom+values/">Configuring Custom R</a><a href="/cms_trial/space/RFCDOC/783942266/Configure+custom+ratios/">atios</a> documentation page.</p><h2 id="dynamic-filtering-and-statistics">Dynamic filtering and statistics</h2><p>We extended the dynamic filtering and the statistic support with two more fields. It is now possible to add dynamic filters and to use as statistic type in statistics gadgets:</p><ul><li><p>Project Category</p></li><li><p>Status Category</p></li></ul><p><br/></p>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">128 pages in this space, fetched live from Confluence via API.</p>
 <nav><ul><li><a href="/cms_trial/space/RFCDOC/3513253997/Data+residency+and+realm+persistence/">Data residency and realm persistence</a></li><li><details open><summary><a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud)</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/783941653/Overview/">Overview</a></li><li><a href="/cms_trial/space/RFCDOC/783942462/Get+started+with+Rich+Filters+for+Jira+Dashboards+for+Cloud/">Get started with Rich Filters for Jira Dashboards for Cloud</a></li><li><details><summary><a href="/cms_trial/space/RFCDOC/783941917/Tutorials/">Tutorials</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/783941927/Create+and+access+rich+filters/">Create and access rich filters</a></li><li><a href="/cms_trial/space/RFCDOC/783941937/Build+a+simple+interactive+Jira+dashboard/">Build a simple interactive Jira dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941943/Define+views+for+your+dashboard/">Define views for your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941950/Use+working+queries+in+your+dashboard/">Use working queries in your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941954/Add+dynamic+filtering+to+your+dashboard/">Add dynamic filtering to your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941961/Add+smart+filters+and+smart+columns+to+your+dashboard/">Add smart filters and smart columns to your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941968/Add+rich+filter+statistics+gadgets+to+your+dashboard/">Add rich filter statistics gadgets to your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941975/Add+rich+filter+two+dimensional+statistics+gadgets+to+your+dashboard/">Add rich filter two dimensional statistics gadgets to your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941981/Add+rich+filter+flexi+charts+gadgets+to+your+dashboard/">Add rich filter flexi charts gadgets to your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/2241069104/Create+presets+in+Rich+Filter+Controller/">Create presets in Rich Filter Controller</a></li><li><a href="/cms_trial/space/RFCDOC/2465137080/Permalinks/">Permalinks</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/RFCDOC/783942739/Use+cases/">Use cases</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/783942749/Efficiently+manage+support+requests+with+rich+filter+queues/">Efficiently manage support requests with rich filter queues</a></li><li><a href="/cms_trial/space/RFCDOC/783942775/Create+service+management+reports+with+rich+filter+charts+%26+statistics/">Create service management reports with rich filter charts &amp; statistics</a></li><li><a href="/cms_trial/space/RFCDOC/3019735127/Manage+technical+writing+tasks+across+multiple+teams/">Manage technical writing tasks across multiple teams</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/RFCDOC/783942482/User+guides/">User guides</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/783943671/Concepts/">Concepts</a></li><li><a href="/cms_trial/space/RFCDOC/783942528/Fundamentals/">Fundamentals</a></li><li><a href="/cms_trial/space/RFCDOC/783942654/Advanced/">Advanced</a></li><li><a href="/cms_trial/space/RFCDOC/783941673/Configure+Rich+Filters/">Configure Rich Filters</a></li><li><a href="/cms_trial/space/RFCDOC/783941679/Work+with+Rich+Filter+gadgets/">Work with Rich Filter gadgets</a></li><li><a href="/cms_trial/space/RFCDOC/783942350/Migrate+to+Cloud/">Migrate to Cloud</a></li><li><a href="/cms_trial/space/RFCDOC/783942626/Reference/">Reference</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/RFCDOC/3178496025/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/3178692617/Allowlist+domains+for+Rich+Filters/">Allowlist domains for Rich Filters</a></li><li><a href="/cms_trial/space/RFCDOC/3374972942/Rich+filter+search/">Rich filter search</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/RFCDOC/783941853/Release+Notes/">Release Notes</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/3520364546/Release+notes+August+10th+2026/">Release notes August 10th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3498803215/Release+notes+July+30th+2026/">Release notes July 30th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3461742594/Release+notes+July+27th+2026/">Release notes July 27th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3429695594/Release+notes+July+13th+2026/">Release notes July 13th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3398041685/Release+notes+June+29th+2026/">Release notes June 29th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3377922150/Release+notes+June+2026/">Release notes June 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3171189121/Release+notes+April+2026/">Release notes April 2026</a></li><li><a href="/cms_trial/space/RFCDOC/2886631439/Release+notes+March+9th+2026/">Release notes March 9th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/2884370559/Release+notes+February+13th+2026/">Release notes February 13th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/2804908033/Release+notes+February+11th+2026/">Release notes February 11th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/2856255685/Release+notes+February+5th+2026/">Release notes February 5th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/2681667585/Release+notes+December+30th+2025/">Release notes December 30th 2025</a></li><li><a href="/cms_trial/space/RFCDOC/2509013096/Release+notes+December+4th+2025/">Release notes December 4th 2025</a></li><li><a href="/cms_trial/space/RFCDOC/2239004676/Release+notes+July+31st+2025/">Release notes July 31st 2025</a></li><li><a href="/cms_trial/space/RFCDOC/1935179889/Release+notes+April+8th+2025/">Release notes April 8th 2025</a></li><li><a href="/cms_trial/space/RFCDOC/1799028737/Release+notes+February+26th+2025/">Release notes February 26th 2025</a></li><li><a href="/cms_trial/space/RFCDOC/1624866957/Release+notes+January+13th+2025/">Release notes January 13th 2025</a></li><li><details open><summary><a href="/cms_trial/space/RFCDOC/1595769075/Release+notes+2021%E2%80%932024/">Release notes 2021–2024</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/783943016/2024/">2024</a></li><li><a href="/cms_trial/space/RFCDOC/783942881/2023/">2023</a></li><li><details open><summary><a href="/cms_trial/space/RFCDOC/783943818/2022/">2022</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/783942873/December+7%2C+2022/">December 7, 2022</a></li><li><a href="/cms_trial/space/RFCDOC/783942851/November+9%2C+2022/">November 9, 2022</a></li><li><a href="/cms_trial/space/RFCDOC/783942841/October+20%2C+2022/">October 20, 2022</a></li><li><a href="/cms_trial/space/RFCDOC/783942416/September+7%2C+2022/">September 7, 2022</a></li><li><a href="/cms_trial/space/RFCDOC/783942835/August+12%2C+2022/">August 12, 2022</a></li><li><a href="/cms_trial/space/RFCDOC/783942831/July+27%2C+2022/">July 27, 2022</a></li><li><a href="/cms_trial/space/RFCDOC/783942454/July+8%2C+2022/">July 8, 2022</a></li><li><a href="/cms_trial/space/RFCDOC/783942819/June+28%2C+2022/">June 28, 2022</a></li><li><a href="/cms_trial/space/RFCDOC/783942803/June+17%2C+2022/">June 17, 2022</a></li><li><a href="/cms_trial/space/RFCDOC/783942731/May+17%2C+2022/">May 17, 2022</a></li><li><a href="/cms_trial/space/RFCDOC/783942711/April+13%2C+2022/">April 13, 2022</a></li><li><a href="/cms_trial/space/RFCDOC/783942426/March+28%2C+2022/">March 28, 2022</a></li><li><a href="/cms_trial/space/RFCDOC/783942344/February+28%2C+2022/">February 28, 2022</a></li><li><a href="/cms_trial/space/RFCDOC/783942336/February+16%2C+2022/">February 16, 2022</a></li><li><a href="/cms_trial/space/RFCDOC/783942328/January+20%2C+2022/">January 20, 2022</a></li><li><a href="/cms_trial/space/RFCDOC/783942310/January+17%2C+2022/">January 17, 2022</a></li><li><a href="/cms_trial/space/RFCDOC/783942298/January+4%2C+2022/">January 4, 2022</a></li><li><a href="/cms_trial/space/RFCDOC/783942284/January+3%2C+2022/" class="active">January 3, 2022</a></li></ul></details></li><li><a href="/cms_trial/space/RFCDOC/783943820/2021/">2021</a></li></ul></details></li></ul></details></li></ul></details></li></ul></nav>
-</aside>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#new-gadgets-rich-filter-simple-gauges-and-rich-filter-smart-gauges">New Gadgets: Rich Filter Simple Gauges and Rich Filter Smart Gauges</a></li><li class="toc-level-2"><a href="#custom-ratios-in-gauge-gadgets">Custom Ratios in gauge gadgets</a></li><li class="toc-level-2"><a href="#dynamic-filtering-and-statistics">Dynamic filtering and statistics</a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
@@ -264,6 +308,92 @@
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>Release notes July 2024 | Appfire Docs</title>
 <meta name="description" content="Our team is thrilled to announce the latest release of Planning Poker for Jira Cloud.">
@@ -9,7 +19,15 @@
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Release notes July 2024",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/PP/1156743766/Release+notes+July+2024/",
+  "dateModified": "2026-08-27T01:44:05.881Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,26 +37,52 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PP/1803714584/Planning+Poker+Help+Center/">Planning Poker</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PP/1803714584/Planning+Poker+Help+Center/">Planning Poker Help Center</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PP/1159103478/Release+notes%E2%80%8E/">Release notes‎</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PP/1159300293/Cloud/">Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Release notes July 2024</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PP/pages/1156743766" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PP/pages/1156743766" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>Release notes July 2024</h1>
-    <div class="page-meta">4 min read</div>
+    <div class="page-meta">Updated 14 days ago · 4 min read</div>
     <p><strong>Release date</strong>: <time datetime="2024-07-27">July 27, 2024</time></p><p>Our team is thrilled to announce the latest release of <a href="https://marketplace.atlassian.com/apps/1212495/planning-poker?hosting=cloud&amp;tab=overview">Planning Poker</a> for Jira Cloud.</p><hr/><h2 id="new-planning-poker-version-2-0">New Planning Poker version 2.0</h2><p>Appfire is thrilled to announce the release of the completely refactored version of the beloved Planning Poker for Jira Cloud! </p><h2 id="video-overview">Video overview</h2><p>Watch this <a href="https://www.loom.com/share/8092f574596645a19fc57f2c92de8635?sid=708e6cf8-7dbc-44b7-a3b6-6f3103df6af1">three-minute video</a> instead of reading.</p><div class="video-embed"><iframe allowfullscreen="" src="https://www.loom.com/embed/8092f574596645a19fc57f2c92de8635"></iframe></div><h2 id="enhancements">Enhancements</h2><p>This new version boasts significant performance and security enhancements to follow the highest Appfire standards, along with a fresh, intuitive interface.</p><h2 id="dark-theme">Dark theme</h2><p>Planning Poker now fully supports Jira's dark mode theme for improved visual comfort and user preference alignment.</p><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><img alt="image-20240729-093327.png" class="doc-image" loading="lazy" src="/cms_trial/assets/4df4c886-13df-4513-99d9-666d9c5d721f.png"/></div><div><img alt="image-20240729-093519.png" class="doc-image" loading="lazy" src="/cms_trial/assets/98aeea14-79ec-4851-9d10-099bc092b63d.png"/></div></div><h2 id="new-planning-poker-game">New Planning Poker game</h2><img alt="Screenshot 2024-07-16 at 10.34.07.png" class="doc-image" loading="lazy" src="/cms_trial/assets/1761ccad-9cf4-4eef-8380-905c6172648a.png"/><h3 id="issue-details">Issue details</h3><p>The Planning Poker game now has a much sleek interface. The default issue details are:</p><ul><li><p><strong>Descriptions</strong></p></li><li><p><strong>Details</strong></p></li><li><p><strong>Attachments</strong></p></li><li><p><strong>Comments – </strong>You can easily view the latest comments and add new ones. </p><img alt="2024-07-29_12-45-22 (1)-20240729-094630.gif" class="doc-image" loading="lazy" src="/cms_trial/assets/34b1eaaa-bc8e-475b-a559-d9fc9dd113d6.gif"/></li></ul><p>All issue details can be easily collapsed or expanded. Their states will be remembered per user.</p><p>In addition, game admins can add large text fields (Custom fields of Paragraph type) below the description field. They can also add short custom fields (like numeric values, short text fields, single select fields, etc.) on the right side of the issue details. </p><h3 id="voting-panel-and-reference-issues">Voting panel and reference issues</h3><p>The voting area has received a complete UI update while retaining the familiar and beloved user experience.</p><ul><li><p>The <strong>Timer</strong> feature has been completely reworked. It is now possible to configure it on-the-go, located to the right of the voting panel.</p><img alt="Screenshot 2024-07-29 at 12.54.57.png" class="doc-image" loading="lazy" src="/cms_trial/assets/4403c9de-5f40-4d74-b002-db5185a7a997.png"/></li><li><p>The <strong>Reference issues panel</strong> is now cached, so it loads faster for repeated issues. It can now be collapsed (personal setting) or disabled (game configuration). </p><img alt="Screenshot 2024-07-29 at 12.59.20.png" class="doc-image" loading="lazy" src="/cms_trial/assets/616253e5-ac20-453a-aa40-e2c2d797d7c9.png"/></li></ul><h3 id="participants-and-moderators">Participants and Moderators</h3><p>The Participants panel is collapsed by default, but users can expand it to access more features. The admin can switch participants from spectator to estimator, and vice versa, or remove them from the game. Offline participants and their votes will be shown after they disconnect. </p><img alt="image-20240729-100520.png" class="doc-image" loading="lazy" src="/cms_trial/assets/74e5c684-8730-448f-83da-d8cc45711e27.png"/><p>Multiple game admins can now be specified during the game creation or configuration. </p><h3 id="game-backlog">Game backlog</h3><p>The game backlog now features a single issue list with estimated issues now pushed to the "Estimated" backlog.</p><img alt="image-20240729-101712.png" class="doc-image" loading="lazy" src="/cms_trial/assets/fbf76fdb-5474-4f6b-ab05-ee2a735f650f.png"/><ul><li><p>The column with the custom field that is being estimated is located on the left and is highlighted whenever the value has been saved during the game.</p></li><li><p>There is new UI for custom fields.</p></li><li><p>There is a new quick-add option called <strong>+ Add issues</strong>.</p></li></ul><h3 id="game-navigation">Game navigation</h3><p>The new navigation is there to make any transitions quick and easy. </p><h2 id="updated-game-creation-and-configuration">Updated game creation and configuration</h2><h3 id="edit-game">Edit game</h3><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><img alt="image-20240729-104354.png" class="doc-image" loading="lazy" src="/cms_trial/assets/1b101cc2-8b09-4a50-a454-ec7e389f6fb2.png"/></div><div><img alt="image-20240729-104539.png" class="doc-image" loading="lazy" src="/cms_trial/assets/50419c8b-aa1c-4fc0-836a-6e985022c1a0.png"/></div></div><ul><li><p>New <strong>Advanced configurations</strong> tab</p></li><li><p>New <strong>Private game</strong> settings have been introduced – now, only the invited participants can see the private game on their Dashboard and join it.</p></li><li><p>Ability to specify Spectators and Estimations before the game</p></li><li><p>New Issue details customization experience</p></li><li><p>Ability to disable <strong>Reference issues</strong> panel</p></li></ul><h3 id="edit-backlog">Edit backlog</h3><ul><li><p>New filtering experience</p><img alt="bc536f69-4c4b-45fb-baa3-097a9a7985c4.png" class="doc-image" loading="lazy" src="/cms_trial/assets/93a4856e-ac16-4764-abd7-ae374f285af8.png"/></li><li><p>Use multiple consecutive searches to add issues to the backlog</p></li><li><p>Easy backlog column customization</p></li><li><p>New backlog experience during the game creation: </p><ul><li><p>Remembered JQL/filter choice</p></li><li><p>Remembered JQL/filter from the previous game creation <br/>or</p></li><li><p>Pre-set <strong>Project</strong> and <strong>Status</strong> filters for first-time creators</p></li></ul></li></ul><h2 id="improved-game-dashboard">Improved Game dashboard</h2><img alt="305d33b6-3b37-4fcf-9c5c-7b24d2720690.png" class="doc-image" loading="lazy" src="/cms_trial/assets/b83814b4-0027-4eca-8a65-40c6973146a9.png"/><p>The game dashboard received new experience and features: </p><ul><li><p>Click the session name to join the game.</p></li><li><p>Easily copy the game URL using the button next to the game name.</p><img alt="image-20240729-105128.png" class="doc-image" loading="lazy" src="/cms_trial/assets/c09c3b7d-7901-49f6-a6ba-c906877dd28d.png"/></li><li><p>You can now delete multiple games at once using the <strong>Delete game</strong> button.</p></li><li><p><strong>Export</strong> game feature works for active games, not only for finished ones. </p></li></ul><h2 id="estimation-from-issue-details">Estimation from Issue details</h2><p>Planning Poker in issue details has been moved to the Issue context view (panel on the right). It received real-time updates and a new UI:</p><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><img alt="Screenshot 2024-07-16 at 10.39.02.png" class="doc-image" loading="lazy" src="/cms_trial/assets/783335eb-5b09-46e4-9888-21d157a20f66.png"/></div><div><img alt="Screenshot 2024-07-16 at 10.39.38.png" class="doc-image" loading="lazy" src="/cms_trial/assets/412b4910-c674-4ba6-91bd-aab3482ef0ff.png"/></div></div><h2 id="project-level-configuration">Project level configuration </h2><p>From now on, Project admins can configure values for Planning Poker in <em>Issue details</em> without the need for Global Admin permissions. Different projects now can have different settings.  </p><img alt="image-20240726-135558.png" class="doc-image" loading="lazy" src="/cms_trial/assets/58677e35-7243-484a-a5e0-8d3849a55750.png"/><h2 id="unsupported-features">Unsupported features</h2><div class="panel panel-note"><p>The latest version doesn’t support the legacy <em><strong>Mobile view</strong></em> feature. <a href="https://appf.re/support"><u>Kindly inform us</u></a> if this poses any inconvenience for you.</p></div><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p> <strong>Questions and feedback</strong></p><ul><li><p>Explore exciting features, pricing updates, reviews, and more on the <a href="https://marketplace.atlassian.com/apps/1212495/planning-poker?hosting=cloud&amp;tab=overview">Marketplace</a>.</p></li><li><p>Stuck with something? Raise a ticket with our <a href="https://appf.re/support"><u>support team</u></a>.</p></li><li><p>Do you love using our app? Let us know what you think <a href="https://marketplace.atlassian.com/apps/1212495/planning-poker?hosting=cloud&amp;tab=reviews">here</a>.  </p></li></ul></div><div><p><strong> </strong> <strong>Credits</strong></p><p>A heartfelt thank you to our valued customers! Your incredible support and feedback inspire us to improve our apps and products continually. You are the driving force behind why we create software. We appreciate your trust in <a href="https://marketplace.atlassian.com/apps/1212495/planning-poker?hosting=cloud&amp;tab=overview">Planning Poker</a>!</p></div></div>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">44 pages in this space, fetched live from Confluence via API.</p>
 <nav><ul><li><details open><summary><a href="/cms_trial/space/PP/1803714584/Planning+Poker+Help+Center/">Planning Poker Help Center</a></summary><ul><li><a href="/cms_trial/space/PP/9568260/About+Planning+Poker/">About Planning Poker</a></li><li><details><summary><a href="/cms_trial/space/PP/9568480/Get+started+with+Planning+Poker/">Get started with Planning Poker</a></summary><ul><li><a href="/cms_trial/space/PP/463995360/Installation/">Installation</a></li><li><a href="/cms_trial/space/PP/9568642/DC+to+Cloud+migration+guide/">DC to Cloud migration guide</a></li><li><a href="/cms_trial/space/PP/2480669406/DC+to+Cloud+feature+comparison/">DC to Cloud feature comparison</a></li></ul></details></li><li><a href="/cms_trial/space/PP/9568521/Game+basics/">Game basics</a></li><li><details><summary><a href="/cms_trial/space/PP/1144061974/Planning+Poker+for+Jira+Cloud/">Planning Poker for Jira Cloud</a></summary><ul><li><a href="/cms_trial/space/PP/9568359/Game+configuration+(Cloud)/">Game configuration (Cloud)</a></li><li><a href="/cms_trial/space/PP/1149501468/Game+flow+(Cloud)/">Game flow (Cloud)</a></li><li><a href="/cms_trial/space/PP/492110077/Game+controls+(Cloud)/">Game controls (Cloud)</a></li><li><a href="/cms_trial/space/PP/661454980/Settings+(Cloud)/">Settings (Cloud)</a></li><li><a href="/cms_trial/space/PP/9568542/Planning+Poker+tab+estimation+(Cloud)/">Planning Poker tab estimation (Cloud)</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/PP/1144061984/Planning+Poker+for+Jira+Data+Center/">Planning Poker for Jira Data Center</a></summary><ul><li><a href="/cms_trial/space/PP/511967561/Game+configuration+(DC)/">Game configuration (DC)</a></li><li><a href="/cms_trial/space/PP/9568315/Game+flow+(DC)/">Game flow (DC)</a></li><li><a href="/cms_trial/space/PP/1159561645/Game+controls+(DC)/">Game controls (DC)</a></li><li><a href="/cms_trial/space/PP/1144914181/Async+mode+(DC)/">Async mode (DC)</a></li><li><a href="/cms_trial/space/PP/1144586391/App+settings+(DC)/">App settings (DC)</a></li><li><a href="/cms_trial/space/PP/9568294/Mobile+version+(DC)/">Mobile version (DC)</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/PP/1159103478/Release+notes%E2%80%8E/">Release notes‎</a></summary><ul><li><details open><summary><a href="/cms_trial/space/PP/1159300293/Cloud/">Cloud</a></summary><ul><li><a href="/cms_trial/space/PP/3427368993/Release+notes+June+2026/">Release notes June 2026</a></li><li><a href="/cms_trial/space/PP/3427401750/Release+notes+May+2026/">Release notes May 2026</a></li><li><a href="/cms_trial/space/PP/2205385047/Release+notes+June+2025/">Release notes June 2025</a></li><li><a href="/cms_trial/space/PP/1450869099/Release+notes+November+2024/">Release notes November 2024</a></li><li><a href="/cms_trial/space/PP/1336148174/Release+notes+October+2024/">Release notes October 2024</a></li><li><a href="/cms_trial/space/PP/1269596801/Release+notes+September+2024/">Release notes September 2024</a></li><li><a href="/cms_trial/space/PP/1234108523/Release+notes+August+2024/">Release notes August 2024</a></li><li><a href="/cms_trial/space/PP/1156743766/Release+notes+July+2024/" class="active">Release notes July 2024</a></li></ul></details></li><li><a href="/cms_trial/space/PP/1336344833/Data+center/">Data center</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/PP/1803354129/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/PP/9568458/FAQ%3A+Planning+Poker+for+Jira/">FAQ: Planning Poker for Jira</a></li><li><a href="/cms_trial/space/PP/9568600/Data+security+%26+Privacy+statement+v3/">Data security &amp; Privacy statement v3</a></li><li><a href="/cms_trial/space/PP/9568488/Deploying+Planning+Poker+locally+via+Docker/">Deploying Planning Poker locally via Docker</a></li><li><a href="/cms_trial/space/PP/487360991/Planning+Poker+vs.+Agile+Poker/">Planning Poker vs. Agile Poker</a></li></ul></details></li></ul></details></li></ul></nav>
-</aside>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#new-planning-poker-version-2-0">New Planning Poker version 2.0</a></li><li class="toc-level-2"><a href="#video-overview">Video overview</a></li><li class="toc-level-2"><a href="#enhancements">Enhancements</a></li><li class="toc-level-2"><a href="#dark-theme">Dark theme</a></li><li class="toc-level-2"><a href="#new-planning-poker-game">New Planning Poker game</a></li><li class="toc-level-3"><a href="#issue-details">Issue details</a></li><li class="toc-level-3"><a href="#voting-panel-and-reference-issues">Voting panel and reference issues</a></li><li class="toc-level-3"><a href="#participants-and-moderators">Participants and Moderators</a></li><li class="toc-level-3"><a href="#game-backlog">Game backlog</a></li><li class="toc-level-3"><a href="#game-navigation">Game navigation</a></li><li class="toc-level-2"><a href="#updated-game-creation-and-configuration">Updated game creation and configuration</a></li><li class="toc-level-3"><a href="#edit-game">Edit game</a></li><li class="toc-level-3"><a href="#edit-backlog">Edit backlog</a></li><li class="toc-level-2"><a href="#improved-game-dashboard">Improved Game dashboard</a></li><li class="toc-level-2"><a href="#estimation-from-issue-details">Estimation from Issue details</a></li><li class="toc-level-2"><a href="#project-level-configuration">Project level configuration </a></li><li class="toc-level-2"><a href="#unsupported-features">Unsupported features</a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
@@ -264,6 +308,92 @@
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

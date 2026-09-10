@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>Add Time Dialog | Appfire Docs</title>
 <meta name="description" content="7pace Timetracker&#x27;s Add Time dialog features smart search and keyboard support and can be configured in three modes: Timeframe, Duration, or a combination…">
@@ -9,7 +19,15 @@
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Add Time Dialog",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/7TFA/1253539966/Add+Time+Dialog/",
+  "dateModified": "2026-08-27T01:41:45.165Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,26 +37,52 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/3482780186/User+guide/">User guide</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Add Time Dialog</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/7TFA/pages/1253539966" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/7TFA/pages/1253539966" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>Add Time Dialog</h1>
-    <div class="page-meta">3 min read</div>
+    <div class="page-meta">Updated 14 days ago · 3 min read</div>
     <p>7pace Timetracker's <em>Add Time</em> dialog features smart search and keyboard support and can be configured in three modes: Timeframe, Duration, or a combination of both.</p><p>The <em>Add Time</em> dialog box displays when you click <strong>Add Time </strong>or when you edit time on the Monthly, Timesheet, or Times Explorer pages. You can also add time directly from the work item form.</p><p>The <em>Add Time</em> dialog features a modern design consistent with Azure DevOps (ADO) user interface. It includes keyboard support and the ability to:</p><ul><li><p>Quickly select specific work log durations (0.5h, 1h, 2h, 4h)</p></li><li><p>Mark tracked time as billable. </p></li></ul><img alt="Add Time dialog showing the work item search, date, time entry fields, and activity options." class="doc-image" loading="lazy" src="/cms_trial/assets/324f927c-a755-4a84-98ac-2d0dab62839d.png"/><p>The user name displayed at the top of the <em>Add Time</em> dialog defaults to the user who is signed in on the Monthly and Timesheet pages. On the Times Explorer page, depending on the role configured in <strong>Settings</strong> to add/edit time, a user may be able to click in this field and select another user to add or edit a time entry.</p><p>To display search results, begin typing a work item name or number. If you hold the pointer over a work item in the <strong>Search work items</strong> results, the work item hierarchy and project name display inside a tooltip.</p><img alt="Search work items results in the Add Time dialog showing matching work items with a tooltip showing the hierarchy and project name." class="doc-image" loading="lazy" src="/cms_trial/assets/c5895169-959c-4975-9a85-c469956d05ef.png"/><p>If a 7pace Timetracker administrator enables <strong>Prevent Time Entry Against Closed Items</strong> in <strong>Settings</strong> &gt; <strong>Rules</strong>, a <code>This work item is closed</code> message displays if you try to add time to a closed work item.</p><p>Beginning with 7pace Timetracker version 5.42.0, additional search filters allow you to filter items based on attributes.</p><p>Beginning with 7pace Timetracker version 5.44.0, administrators can<a href="/cms_trial/space/7TFA/1253540033/General+Settings/"> set global/default filters for the whole organization</a>.</p><p>Additional filter options can be displayed by entering a forward slash in the work item search field.</p><img alt="Filter menu in the Add Time dialog showing the available search filter options." class="doc-image" loading="lazy" src="/cms_trial/assets/dcf12416-e2ea-4eec-b906-612f30978262.png"/><p>Once you select a filter, choose a value. </p><img alt="Filter by Status selected in the Add Time dialog with Active and Approved options shown." class="doc-image" loading="lazy" src="/cms_trial/assets/08d606b5-630c-466c-bfd3-d5b70dfed626.png"/><img alt="Filter by Status selected in the Add Time dialog with Project, Status, and Type options shown." class="doc-image" loading="lazy" src="/cms_trial/assets/dcf12416-e2ea-4eec-b906-612f30978262.png"/><p>The applied counter filter increments based on the number of filters applied.</p><img alt="Filter counter indicating the number of active search filters in the Add Time dialog." class="doc-image" loading="lazy" src="/cms_trial/assets/51c51230-d17c-45e9-964f-7bd9ca71a905.png"/><p>Click the counter to see a list of applied filters, and click the <strong>X</strong> to remove a filter.</p><img alt="List of active search filters with options to remove individual filters." class="doc-image" loading="lazy" src="/cms_trial/assets/d140c550-7b47-4cf8-bfc7-b18a406fa0db.png"/><div class="panel panel-note"><p>Filters are applied when searching by keywords, and filters are ignored when searching by ID number.</p></div><p>After selecting an open work item, the calendar opens and defaults to today’s date. Depending on how your system is configured, you may or may not be able to select a time beyond the present date. </p><img alt="Add Time dialog showing the date selection field for a work item." class="doc-image" loading="lazy" src="/cms_trial/assets/5d3a6be9-7d6c-4100-ace9-229d276f6ce7.png"/><p>Also, depending on how your system is configured, you may or may not be able to switch between <strong>Timeframe</strong> and<strong> Duration</strong> mode.</p><p>With <strong>Timeframe</strong> enabled, the <em>Add Time</em> dialog displays as shown in the following image.</p><div class="panel panel-note"><p>When you change the <strong>From</strong>, <strong>To</strong>, or <strong>Duration</strong> fields, the corresponding fields also update and reflect the text input in the first field.</p></div><img alt="Add Time dialog in Timeframe mode with From, To, and Duration fields." class="doc-image" loading="lazy" src="/cms_trial/assets/412c8068-e0bb-4604-bc46-4ed0d4ee42b3.png"/><p>With <strong>Duration</strong> mode enabled, the <em>Add Time</em> dialog appears similar to the following image:</p><img alt="Add Time dialog showing the duration field." class="doc-image" loading="lazy" src="/cms_trial/assets/f288876e-9a4d-4ec9-b867-3bf74479ce84.png"/><p>With <strong>Allow Both Modes</strong> enabled, a toggle button displays, allowing you to toggle back and forth between the duration and timeframe methods.</p><img alt="Add Time dialog with the toggle for switching between Timeframe and Duration modes." class="doc-image" loading="lazy" src="/cms_trial/assets/6ee821d6-f4ad-4dd4-a251-6ece4717d2cb.png"/><p>After completing the timeframe section, select a corresponding <strong>Activity Type</strong> and add a multi-line comment. Depending on your system settings in <strong>Settings</strong><em> </em>&gt;<em> </em><strong>Rules</strong>, the <strong>Work Item</strong>, <strong>Activity Type</strong>, and <strong>Comment</strong> fields may or may not be required. </p><img alt="Add Time dialog showing the required Work Item, Activity Type, and Comment fields." class="doc-image" loading="lazy" src="/cms_trial/assets/08d2958f-ad55-41b7-882f-af218aab7844.png"/><img alt="Add time dialog showing Comments field left blank." class="doc-image" loading="lazy" src="/cms_trial/assets/6ee821d6-f4ad-4dd4-a251-6ece4717d2cb.png"/><p>If a required field is blank, a notification displays next to each field that must be completed. </p><img alt="Validation messages displayed for required fields that have not been completed." class="doc-image" loading="lazy" src="/cms_trial/assets/b4608091-d449-4301-8997-d6b8fc0e59a9.png"/><p>After completing all required fields, click <strong>Save</strong>.</p>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">146 pages in this space, fetched live from Confluence via API.</p>
-<nav><ul><li><details open><summary><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a></summary><ul><li><details><summary><a href="/cms_trial/space/7TFA/1253540271/Get+started/">Get started</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540433/7pace+Timetracker+for+developers/">7pace Timetracker for developers</a></li><li><a href="/cms_trial/space/7TFA/1253540439/7pace+Timetracker+for+managers/">7pace Timetracker for managers</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/3482517944/Admin+guide/">Admin guide</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540127/Installation+and+Data+Security/">Installation and Data Security</a></li><li><a href="/cms_trial/space/7TFA/2193557481/Authorization+methods/">Authorization methods</a></li><li><a href="/cms_trial/space/7TFA/1253540254/API+%26+Reporting/">API &amp; Reporting</a></li><li><a href="/cms_trial/space/7TFA/1253540242/Apps/">Apps</a></li><li><a href="/cms_trial/space/7TFA/3488055333/App+configuration/">App configuration</a></li><li><a href="/cms_trial/space/7TFA/1253539917/7pace+Timetracker+Legacy+Versions+and+Legacy+TFS/">7pace Timetracker Legacy Versions and Legacy TFS</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/7TFA/3482780186/User+guide/">User guide</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253539966/Add+Time+Dialog/" class="active">Add Time Dialog</a></li><li><a href="/cms_trial/space/7TFA/1253539860/Work+item+form/">Work item form</a></li><li><a href="/cms_trial/space/7TFA/1253540085/Budgets/">Budgets</a></li><li><a href="/cms_trial/space/7TFA/1253540717/Iterations/">Iterations</a></li><li><a href="/cms_trial/space/7TFA/1253539865/Approvals/">Approvals</a></li><li><a href="/cms_trial/space/7TFA/1253540013/Times+Explorer/">Times Explorer</a></li><li><a href="/cms_trial/space/7TFA/1253540070/Monthly+view/">Monthly view</a></li><li><a href="/cms_trial/space/7TFA/1547173906/Weekly+view/">Weekly view</a></li><li><a href="/cms_trial/space/7TFA/1253540328/Timesheet/">Timesheet</a></li><li><a href="/cms_trial/space/7TFA/2935357478/Connect+calendar/">Connect calendar</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/3511091204/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/7TFA/1361084424/7pace+Product+Support/">7pace Product Support</a></li><li><a href="/cms_trial/space/7TFA/1253540447/Frequently+Asked+Questions/">Frequently Asked Questions</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/1253539885/Release+Notes/">Release Notes</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540249/7pace+Timetracker+for+Azure+DevOps+Release+Notes/">7pace Timetracker for Azure DevOps Release Notes</a></li><li><a href="/cms_trial/space/7TFA/1253540290/Legacy+Release+Notes/">Legacy Release Notes</a></li></ul></details></li></ul></details></li></ul></nav>
-</aside>
+<nav><ul><li><details open><summary><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a></summary><ul><li><details><summary><a href="/cms_trial/space/7TFA/1253540271/Get+started+with+7pace+Timetracker+for+Azure+DevOps/">Get started with 7pace Timetracker for Azure DevOps</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540433/7pace+Timetracker+for+developers/">7pace Timetracker for developers</a></li><li><a href="/cms_trial/space/7TFA/1253540439/7pace+Timetracker+for+managers/">7pace Timetracker for managers</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/3482517944/Admin+guide/">Admin guide</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540127/Installation+and+Data+Security/">Installation and Data Security</a></li><li><a href="/cms_trial/space/7TFA/2193557481/Authorization+methods/">Authorization methods</a></li><li><a href="/cms_trial/space/7TFA/1253540254/API+%26+Reporting/">API &amp; Reporting</a></li><li><a href="/cms_trial/space/7TFA/1253540242/Apps/">Apps</a></li><li><a href="/cms_trial/space/7TFA/3488055333/App+configuration/">App configuration</a></li><li><a href="/cms_trial/space/7TFA/1253539917/7pace+Timetracker+Legacy+Versions+and+Legacy+TFS/">7pace Timetracker Legacy Versions and Legacy TFS</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/7TFA/3482780186/User+guide/">User guide</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253539966/Add+Time+Dialog/" class="active">Add Time Dialog</a></li><li><a href="/cms_trial/space/7TFA/1253539860/Work+item+form/">Work item form</a></li><li><a href="/cms_trial/space/7TFA/1253540085/Budgets/">Budgets</a></li><li><a href="/cms_trial/space/7TFA/1253540717/Iterations/">Iterations</a></li><li><a href="/cms_trial/space/7TFA/1253539865/Approvals/">Approvals</a></li><li><a href="/cms_trial/space/7TFA/1253540013/Times+Explorer/">Times Explorer</a></li><li><a href="/cms_trial/space/7TFA/1253540070/Monthly+view/">Monthly view</a></li><li><a href="/cms_trial/space/7TFA/1547173906/Weekly+view/">Weekly view</a></li><li><a href="/cms_trial/space/7TFA/1253540328/Timesheet/">Timesheet</a></li><li><a href="/cms_trial/space/7TFA/2935357478/Connect+calendar/">Connect calendar</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/3511091204/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/7TFA/1361084424/7pace+Product+Support/">7pace Product Support</a></li><li><a href="/cms_trial/space/7TFA/1253540447/Frequently+Asked+Questions/">Frequently Asked Questions</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/1253540249/7pace+Timetracker+for+Azure+DevOps+Release+Notes/">7pace Timetracker for Azure DevOps Release Notes</a></summary><ul><li><a href="/cms_trial/space/7TFA/3509223505/Release+notes+5.100/">Release notes 5.100</a></li><li><a href="/cms_trial/space/7TFA/3466657955/Release+notes+5.99/">Release notes 5.99</a></li><li><a href="/cms_trial/space/7TFA/3413082694/Release+notes+5.98/">Release notes 5.98</a></li><li><a href="/cms_trial/space/7TFA/3394044151/Release+notes+5.97/">Release notes 5.97</a></li><li><a href="/cms_trial/space/7TFA/3306487975/Release+notes+5.96/">Release notes 5.96</a></li><li><a href="/cms_trial/space/7TFA/3199172612/Release+notes+5.95/">Release notes 5.95</a></li><li><a href="/cms_trial/space/7TFA/3157721151/Release+notes+5.94/">Release notes 5.94</a></li></ul></details></li></ul></details></li></ul></nav>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail"></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
@@ -264,6 +308,92 @@
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

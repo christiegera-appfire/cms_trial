@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>Release Notes 5 August 2025 | Appfire Docs</title>
 <meta name="description" content="Our team is thrilled to announce the latest release of 7pace Timetracker for Jira.">
@@ -9,7 +19,15 @@
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Release Notes 5 August 2025",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/7TFJ/2253783158/Release+Notes+5+August+2025/",
+  "dateModified": "2026-08-27T01:40:51.260Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,26 +37,52 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/7TFJ/1196624163/7pace+Timetracker+for+Jira/">7pace Timetracker for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFJ/1196624163/7pace+Timetracker+for+Jira/">7pace Timetracker for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFJ/1611366405/Release+Notes/">Release Notes</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Release Notes 5 August 2025</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/7TFJ/pages/2253783158" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/7TFJ/pages/2253783158" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>Release Notes 5 August 2025</h1>
-    <div class="page-meta">1 min read</div>
-    <p><strong>Release date</strong>: <time datetime="2025-08-05">August 5, 2025</time></p><p>Our team is thrilled to announce the latest release of 7pace Timetracker for Jira.</p><hr/><h2 id="enhancements">Enhancements</h2><h2 id="expanded-api-endpoints">Expanded API endpoints</h2><p>We’re excited to announce expanded <a href="/cms_trial/space/7TFJ/1987510406/Connect+external+systems+by+API/">API</a> capabilities 7pace for Jira!</p><p>You can now not only pull data from 7pace for your reporting needs, but you can also <strong>push </strong>data to 7pace! This has multiple benefits, including: </p><ul><li><p>Migrate from your existing time tracking solution to 7pace</p></li><li><p>Automate time tracking for team members that use custom-built remote apps to interact with Jira items</p></li></ul><p>Additionally, we've introduced developers' documentation where you can find all information on all available endpoints together; start coding yourself, or use this as a reference for your AI agents.</p><p>There's more in the pipeline - obtaining incremental changes and improved structure of custom time tracking fields, among others. Stay tuned!</p><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p> <strong>Questions and feedback</strong></p><ul><li><p>Explore exciting features, pricing updates, reviews, and more on the <a href="https://marketplace.atlassian.com/apps/1235398/7pace-timetracker-for-jira?hosting=cloud&amp;tab=overview">Marketplace</a>.</p></li><li><p>Stuck with something? Raise a ticket with our <a href="https://appfire.atlassian.net/servicedesk/customer/portal/11">support team</a>.</p></li><li><p>Do you love using our app? Let us know what you think <a href="mailto:support@7pace.com">here</a>.</p></li></ul></div><div><p><strong> </strong> <strong>Credits</strong></p><p>A heartfelt thank you to our valued customers! Your incredible support inspires us to improve our apps continually. We appreciate your trust in 7pace Timetracker for Jira!</p></div></div>
+    <div class="page-meta">Updated 14 days ago · 1 min read</div>
+    <p><strong>Release date</strong>: <time datetime="2025-08-05">August 5, 2025</time></p><p>Our team is thrilled to announce the latest release of 7pace Timetracker for Jira.</p><hr/><h2 id="enhancements">Enhancements</h2><h2 id="expanded-api-endpoints">Expanded API endpoints</h2><p>We’re excited to announce expanded <a href="https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=7tfj&amp;title=Connect%20external%20systems%20by%20APIs&amp;linkCreation=true&amp;fromPageId=2253783158">API</a> capabilities 7pace for Jira!</p><p>You can now not only pull data from 7pace for your reporting needs, but you can also <strong>push </strong>data to 7pace! This has multiple benefits, including: </p><ul><li><p>Migrate from your existing time tracking solution to 7pace</p></li><li><p>Automate time tracking for team members that use custom-built remote apps to interact with Jira items</p></li></ul><p>Additionally, we've introduced developers' documentation where you can find all information on all available endpoints together; start coding yourself, or use this as a reference for your AI agents.</p><p>There's more in the pipeline - obtaining incremental changes and improved structure of custom time tracking fields, among others. Stay tuned!</p><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p> <strong>Questions and feedback</strong></p><ul><li><p>Explore exciting features, pricing updates, reviews, and more on the <a href="https://marketplace.atlassian.com/apps/1235398/7pace-timetracker-for-jira?hosting=cloud&amp;tab=overview">Marketplace</a>.</p></li><li><p>Stuck with something? Raise a ticket with our <a href="https://appfire.atlassian.net/servicedesk/customer/portal/11">support team</a>.</p></li><li><p>Do you love using our app? Let us know what you think <a href="mailto:support@7pace.com">here</a>.</p></li></ul></div><div><p><strong> </strong> <strong>Credits</strong></p><p>A heartfelt thank you to our valued customers! Your incredible support inspires us to improve our apps continually. We appreciate your trust in 7pace Timetracker for Jira!</p></div></div>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">78 pages in this space, fetched live from Confluence via API.</p>
-<nav><ul><li><details open><summary><a href="/cms_trial/space/7TFJ/1196624163/7pace+Timetracker+for+Jira/">7pace Timetracker for Jira</a></summary><ul><li><details><summary><a href="/cms_trial/space/7TFJ/1821540369/Get+started+with+7pace+Timetracker/">Get started with 7pace Timetracker</a></summary><ul><li><a href="/cms_trial/space/7TFJ/1202159741/Install+7pace+Timetracker+for+Jira/">Install 7pace Timetracker for Jira</a></li><li><a href="/cms_trial/space/7TFJ/1202159710/Add+worklogs/">Add worklogs</a></li><li><a href="/cms_trial/space/7TFJ/1202356296/Edit+and+delete+worklogs/">Edit and delete worklogs</a></li><li><a href="/cms_trial/space/7TFJ/1202815077/View+summarized+time/">View summarized time</a></li><li><a href="/cms_trial/space/7TFJ/2697101313/7pace+Timetracker+vs.+other+Jira+time+tracking+apps/">7pace Timetracker vs. other Jira time tracking apps</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFJ/1812595110/User+Guide/">User Guide</a></summary><ul><li><a href="/cms_trial/space/7TFJ/1202094136/Monthly+view/">Monthly view</a></li><li><a href="/cms_trial/space/7TFJ/1201930328/Weekly+view/">Weekly view</a></li><li><a href="/cms_trial/space/7TFJ/1828782116/Timesheet+view/">Timesheet view</a></li><li><a href="/cms_trial/space/7TFJ/1920729127/Times+Explorer+view/">Times Explorer view</a></li><li><a href="/cms_trial/space/7TFJ/2187624468/Connect+a+calendar+in+Weekly+view/">Connect a calendar in Weekly view</a></li><li><a href="/cms_trial/space/7TFJ/2290024452/Connect+an+Outlook+calendar/">Connect an Outlook calendar</a></li><li><a href="/cms_trial/space/7TFJ/1202651216/Report+on+time/">Report on time</a></li><li><a href="/cms_trial/space/7TFJ/2934210708/Worklog+suggestions/">Worklog suggestions</a></li><li><a href="/cms_trial/space/7TFJ/3152543901/7pace+in+Jira/">7pace in Jira</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFJ/2651455520/Approval+periods/">Approval periods</a></summary><ul><li><a href="/cms_trial/space/7TFJ/2290122780/Time+approvals+for+Managers/">Time approvals for Managers</a></li><li><a href="/cms_trial/space/7TFJ/2183954434/Lock+time+periods/">Lock time periods</a></li><li><a href="/cms_trial/space/7TFJ/2445705291/Notifications+for+approval+periods/">Notifications for approval periods</a></li><li><a href="/cms_trial/space/7TFJ/3067674729/Submit+period/">Submit period</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFJ/1355022337/Administration/">Administration</a></summary><ul><li><a href="/cms_trial/space/7TFJ/1355415553/Working+with+Custom+Fields/">Working with Custom Fields</a></li><li><a href="/cms_trial/space/7TFJ/2670198799/Approval+period+settings/">Approval period settings</a></li><li><a href="/cms_trial/space/7TFJ/1875247419/Manage+roles+and+permissions/">Manage roles and permissions</a></li><li><a href="/cms_trial/space/7TFJ/1201864750/Switch+between+light+and+dark+display+modes/">Switch between light and dark display modes</a></li><li><a href="/cms_trial/space/7TFJ/1987510406/Connect+external+systems+by+API/">Connect external systems by API</a></li><li><a href="/cms_trial/space/7TFJ/2697494529/Integrations/">Integrations</a></li><li><a href="/cms_trial/space/7TFJ/2460221765/Customize+regional+settings/">Customize regional settings</a></li><li><a href="/cms_trial/space/7TFJ/2945744949/Custom+search/">Custom search</a></li><li><a href="/cms_trial/space/7TFJ/3064791114/Custom+Rules/">Custom Rules</a></li><li><a href="/cms_trial/space/7TFJ/3444834318/Import+Worklog+Data+from+Tempo+Timesheets+to+7pace+Timetracker+using+REST+APIs/">Import Worklog Data from Tempo Timesheets to 7pace Timetracker using REST APIs</a></li><li><a href="/cms_trial/space/7TFJ/2106556524/BigPicture+integration/">BigPicture integration</a></li><li><a href="/cms_trial/space/7TFJ/3491495942/7pace+Timetracker+to+Jira+synchronization/">7pace Timetracker to Jira synchronization</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFJ/1833697433/Use+Cases/">Use Cases</a></summary><ul><li><a href="/cms_trial/space/7TFJ/2115797698/Using+7pace+Timetracker+for+Jira+with+Dashboard+Hub+Pro/">Using 7pace Timetracker for Jira with Dashboard Hub Pro</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/7TFJ/1611366405/Release+Notes/">Release Notes</a></summary><ul><li><a href="/cms_trial/space/7TFJ/3568467976/Release+Notes+20+August+2026/">Release Notes 20 August 2026</a></li><li><a href="/cms_trial/space/7TFJ/3568631831/Release+Notes+6+August+2026/">Release Notes 6 August 2026</a></li><li><a href="/cms_trial/space/7TFJ/3504373830/Release+Notes+23+July+2026/">Release Notes 23 July 2026</a></li><li><a href="/cms_trial/space/7TFJ/3482484863/Release+Notes+9+July+2026/">Release Notes 9 July 2026</a></li><li><a href="/cms_trial/space/7TFJ/3402137938/Release+Notes+25+June+2026/">Release Notes 25 June 2026</a></li><li><a href="/cms_trial/space/7TFJ/3369369740/Release+Notes+12+June+2026/">Release Notes 12 June 2026</a></li><li><a href="/cms_trial/space/7TFJ/3369304070/Release+Notes+8+June+2026/">Release Notes 8 June 2026</a></li><li><a href="/cms_trial/space/7TFJ/3216965814/Release+Notes+5+May+2026/">Release Notes 5 May 2026</a></li><li><a href="/cms_trial/space/7TFJ/3107094561/Release+Notes+7+April+2026/">Release Notes 7 April 2026</a></li><li><a href="/cms_trial/space/7TFJ/3051946034/Release+Notes++19+March+2026/">Release Notes  19 March 2026</a></li><li><a href="/cms_trial/space/7TFJ/2987327658/Release+Notes++5+March+2026/">Release Notes  5 March 2026</a></li><li><a href="/cms_trial/space/7TFJ/2896658962/Release+Notes+19+February+2026/">Release Notes 19 February 2026</a></li><li><a href="/cms_trial/space/7TFJ/2668494850/Release+Notes+19+December+2025/">Release Notes 19 December 2025</a></li><li><a href="/cms_trial/space/7TFJ/2430206009/Release+Notes+7+October+2025/">Release Notes 7 October 2025</a></li><li><a href="/cms_trial/space/7TFJ/2338095105/Release+Notes+5+September+2025/">Release Notes 5 September 2025</a></li><li><a href="/cms_trial/space/7TFJ/3162341433/Release+Notes+16+April+2026/">Release Notes 16 April 2026</a></li><li><a href="/cms_trial/space/7TFJ/2290941956/Release+Notes+21+August+2025/">Release Notes 21 August 2025</a></li><li><a href="/cms_trial/space/7TFJ/2253783158/Release+Notes+5+August+2025/" class="active">Release Notes 5 August 2025</a></li><li><a href="/cms_trial/space/7TFJ/2194014476/Release+Notes+14+July+2025/">Release Notes 14 July 2025</a></li><li><a href="/cms_trial/space/7TFJ/2186936321/Release+Notes+10+July+2025/">Release Notes 10 July 2025</a></li><li><a href="/cms_trial/space/7TFJ/2042888217/Release+Notes+19+May+2025/">Release Notes 19 May 2025</a></li><li><a href="/cms_trial/space/7TFJ/1611235333/Release+Notes+13+January+2025/">Release Notes 13 January 2025</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFJ/2549776797/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/7TFJ/2548662684/Data+security+and+availability/">Data security and availability</a></li><li><a href="/cms_trial/space/7TFJ/3382313065/FAQ/">FAQ</a></li><li><a href="/cms_trial/space/7TFJ/3553100664/7pace+Timetracker+for+Jira+Data+Residency+Policy/">7pace Timetracker for Jira Data Residency Policy</a></li></ul></details></li></ul></details></li><li><a href="/cms_trial/space/7TFJ/3568304134/Jira+to+7pace+Timetracker+synchronization/">Jira to 7pace Timetracker synchronization</a></li><li><a href="/cms_trial/space/7TFJ/3066921055/Best+practices+for+tracking+time+as+a+Developer/">Best practices for tracking time as a Developer</a></li><li><a href="/cms_trial/space/7TFJ/3067412542/Best+practices+for+tracking+time+as+a+Project+Lead/">Best practices for tracking time as a Project Lead</a></li></ul></nav>
-</aside>
+<nav><ul><li><details open><summary><a href="/cms_trial/space/7TFJ/1196624163/7pace+Timetracker+for+Jira/">7pace Timetracker for Jira</a></summary><ul><li><details><summary><a href="/cms_trial/space/7TFJ/1821540369/Get+started+with+7pace+Timetracker/">Get started with 7pace Timetracker</a></summary><ul><li><a href="/cms_trial/space/7TFJ/1202159741/Install+7pace+Timetracker+for+Jira/">Install 7pace Timetracker for Jira</a></li><li><a href="/cms_trial/space/7TFJ/1202159710/Add+worklogs/">Add worklogs</a></li><li><a href="/cms_trial/space/7TFJ/1202356296/Edit+and+delete+worklogs/">Edit and delete worklogs</a></li><li><a href="/cms_trial/space/7TFJ/1202815077/View+summarized+time/">View summarized time</a></li><li><a href="/cms_trial/space/7TFJ/2697101313/7pace+Timetracker+vs.+other+Jira+time+tracking+apps/">7pace Timetracker vs. other Jira time tracking apps</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFJ/1812595110/User+Guide/">User Guide</a></summary><ul><li><a href="/cms_trial/space/7TFJ/1202094136/Monthly+view/">Monthly view</a></li><li><a href="/cms_trial/space/7TFJ/1201930328/Weekly+view/">Weekly view</a></li><li><a href="/cms_trial/space/7TFJ/1828782116/Timesheet+view/">Timesheet view</a></li><li><a href="/cms_trial/space/7TFJ/1920729127/Times+Explorer+view/">Times Explorer view</a></li><li><a href="/cms_trial/space/7TFJ/1202651216/Report+on+time/">Report on time</a></li><li><a href="/cms_trial/space/7TFJ/2934210708/Worklog+suggestions/">Worklog suggestions</a></li><li><a href="/cms_trial/space/7TFJ/3152543901/7pace+in+Jira/">7pace in Jira</a></li><li><a href="/cms_trial/space/7TFJ/3572924445/Calendar+integration/">Calendar integration</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFJ/2651455520/Approval+periods/">Approval periods</a></summary><ul><li><a href="/cms_trial/space/7TFJ/2290122780/Time+approvals+for+Managers/">Time approvals for Managers</a></li><li><a href="/cms_trial/space/7TFJ/2183954434/Lock+time+periods/">Lock time periods</a></li><li><a href="/cms_trial/space/7TFJ/2445705291/Notifications+for+approval+periods/">Notifications for approval periods</a></li><li><a href="/cms_trial/space/7TFJ/3067674729/Submit+period/">Submit period</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFJ/1355022337/Administration/">Administration</a></summary><ul><li><a href="/cms_trial/space/7TFJ/1355415553/Working+with+Custom+Fields/">Working with Custom Fields</a></li><li><a href="/cms_trial/space/7TFJ/2670198799/Approval+period+settings/">Approval period settings</a></li><li><a href="/cms_trial/space/7TFJ/1875247419/Manage+roles+and+permissions/">Manage roles and permissions</a></li><li><a href="/cms_trial/space/7TFJ/1201864750/Switch+between+light+and+dark+display+modes/">Switch between light and dark display modes</a></li><li><a href="/cms_trial/space/7TFJ/1987510406/Connect+external+systems+by+API/">Connect external systems by API</a></li><li><a href="/cms_trial/space/7TFJ/2697494529/Integrations/">Integrations</a></li><li><a href="/cms_trial/space/7TFJ/2460221765/Customize+regional+settings/">Customize regional settings</a></li><li><a href="/cms_trial/space/7TFJ/2945744949/Custom+search/">Custom search</a></li><li><a href="/cms_trial/space/7TFJ/3064791114/Custom+Rules/">Custom Rules</a></li><li><a href="/cms_trial/space/7TFJ/3444834318/Import+Worklog+Data+from+Tempo+Timesheets+to+7pace+Timetracker+using+REST+APIs/">Import Worklog Data from Tempo Timesheets to 7pace Timetracker using REST APIs</a></li><li><a href="/cms_trial/space/7TFJ/2106556524/BigPicture+integration/">BigPicture integration</a></li><li><a href="/cms_trial/space/7TFJ/3491495942/7pace+Timetracker+to+Jira+synchronization/">7pace Timetracker to Jira synchronization</a></li><li><a href="/cms_trial/space/7TFJ/3572597090/Work+preferences/">Work preferences</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFJ/1833697433/Use+Cases/">Use Cases</a></summary><ul><li><a href="/cms_trial/space/7TFJ/2115797698/Using+7pace+Timetracker+for+Jira+with+Dashboard+Hub+Pro/">Using 7pace Timetracker for Jira with Dashboard Hub Pro</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/7TFJ/1611366405/Release+Notes/">Release Notes</a></summary><ul><li><a href="/cms_trial/space/7TFJ/3627778056/Release+Notes+3+September+2026/">Release Notes 3 September 2026</a></li><li><a href="/cms_trial/space/7TFJ/3570958405/Release+Notes+20+August+2026/">Release Notes 20 August 2026</a></li><li><a href="/cms_trial/space/7TFJ/3568631831/Release+Notes+6+August+2026/">Release Notes 6 August 2026</a></li><li><a href="/cms_trial/space/7TFJ/3504373830/Release+Notes+23+July+2026/">Release Notes 23 July 2026</a></li><li><a href="/cms_trial/space/7TFJ/3482484863/Release+Notes+9+July+2026/">Release Notes 9 July 2026</a></li><li><a href="/cms_trial/space/7TFJ/3402137938/Release+Notes+25+June+2026/">Release Notes 25 June 2026</a></li><li><a href="/cms_trial/space/7TFJ/3369369740/Release+Notes+12+June+2026/">Release Notes 12 June 2026</a></li><li><a href="/cms_trial/space/7TFJ/3369304070/Release+Notes+8+June+2026/">Release Notes 8 June 2026</a></li><li><a href="/cms_trial/space/7TFJ/3216965814/Release+Notes+5+May+2026/">Release Notes 5 May 2026</a></li><li><a href="/cms_trial/space/7TFJ/3107094561/Release+Notes+7+April+2026/">Release Notes 7 April 2026</a></li><li><a href="/cms_trial/space/7TFJ/3051946034/Release+Notes++19+March+2026/">Release Notes  19 March 2026</a></li><li><a href="/cms_trial/space/7TFJ/2987327658/Release+Notes++5+March+2026/">Release Notes  5 March 2026</a></li><li><a href="/cms_trial/space/7TFJ/2896658962/Release+Notes+19+February+2026/">Release Notes 19 February 2026</a></li><li><a href="/cms_trial/space/7TFJ/2668494850/Release+Notes+19+December+2025/">Release Notes 19 December 2025</a></li><li><a href="/cms_trial/space/7TFJ/2430206009/Release+Notes+7+October+2025/">Release Notes 7 October 2025</a></li><li><a href="/cms_trial/space/7TFJ/2338095105/Release+Notes+5+September+2025/">Release Notes 5 September 2025</a></li><li><a href="/cms_trial/space/7TFJ/3162341433/Release+Notes+16+April+2026/">Release Notes 16 April 2026</a></li><li><a href="/cms_trial/space/7TFJ/2290941956/Release+Notes+21+August+2025/">Release Notes 21 August 2025</a></li><li><a href="/cms_trial/space/7TFJ/2253783158/Release+Notes+5+August+2025/" class="active">Release Notes 5 August 2025</a></li><li><a href="/cms_trial/space/7TFJ/2194014476/Release+Notes+14+July+2025/">Release Notes 14 July 2025</a></li><li><a href="/cms_trial/space/7TFJ/2186936321/Release+Notes+10+July+2025/">Release Notes 10 July 2025</a></li><li><a href="/cms_trial/space/7TFJ/2042888217/Release+Notes+19+May+2025/">Release Notes 19 May 2025</a></li><li><a href="/cms_trial/space/7TFJ/1611235333/Release+Notes+13+January+2025/">Release Notes 13 January 2025</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFJ/2549776797/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/7TFJ/2548662684/Data+security+and+availability/">Data security and availability</a></li><li><a href="/cms_trial/space/7TFJ/3382313065/FAQ/">FAQ</a></li><li><a href="/cms_trial/space/7TFJ/3553100664/7pace+Timetracker+for+Jira+Data+Residency+Policy/">7pace Timetracker for Jira Data Residency Policy</a></li></ul></details></li></ul></details></li><li><a href="/cms_trial/space/7TFJ/3568304134/Jira+to+7pace+Timetracker+synchronization/">Jira to 7pace Timetracker synchronization</a></li><li><a href="/cms_trial/space/7TFJ/3066921055/Best+practices+for+tracking+time+as+a+Developer/">Best practices for tracking time as a Developer</a></li><li><a href="/cms_trial/space/7TFJ/3067412542/Best+practices+for+tracking+time+as+a+Project+Lead/">Best practices for tracking time as a Project Lead</a></li></ul></nav>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#enhancements">Enhancements</a></li><li class="toc-level-2"><a href="#expanded-api-endpoints">Expanded API endpoints</a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
@@ -264,6 +308,92 @@
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

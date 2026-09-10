@@ -1,15 +1,48 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>Gadgets | Appfire Docs</title>
-<meta name="description" content="This section contains general information on setting up and exporting gadget data. To learn more about each gadget, see our full range of dashboard…">
+<meta name="description" content="This section provides general information on setting up and exporting gadget data and links to our complete catalogue.To learn more about each gadget, see…">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/cms_trial/tokens.css">
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Video transcript:",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Dashboard Hub comes with over ninety gadgets, and we\u2019re adding new ones all the time. That\u2019s a lot of choice. So the gadget selector puts the most popular and newest gadgets at the top, but let\u2019s look at how to find exactly what you need in seconds. Start with the question you\u2019re trying to answer and notice who\u2019s asking it. The gadgets you select tell a story. Are you building an internal dashboard, or one you want to share with other stakeholders? Your delivery team asks: \u201cHow\u2019s my sprint doing?\u201d \u2014 that\u2019s Sprint Health. \u201cWhere are my epics stuck?\u201d \u2014 Progress Tracker. A support manager asks: \u201cAre we meeting our SLAs?\u201d \u2014 SLA by Project. \u201cAre we closing tickets faster than they come in?\u201d \u2014 Created vs Resolved. \u201cAnd how has that changed over time?\u201d \u2014 Historical Insights. Or, a manager just wants the one number that matters \u2014 a Formula Card. So start with the question, and you\u2019ll know which gadget you need.\u201d If you need a head start on a particular Jira theme, you can always use one of our dashboard templates for Agile, IT service management, DevOps, and more, each one already filled with the right gadgets for that use case. Because the catalog keeps growing, we surface two kinds of gadgets at the top of the list. The ones marked \u201cTOP,\u201d in yellow, are what teams reach for most. The ones marked \u201cNEW,\u201d in blue, are our latest additions, the fastest way to spot a feature you didn\u2019t know we\u2019d shipped. To further refine the list of gadgets, use the left sidebar to filter by where the data comes from \u2014 \u201cAtlassian\u201d for everyday Jira and Service Management gadgets, \u201cAppfire\u201d for apps like BigPicture, or Time to SLA, or \u201cCustom Reports\u201d for data from outside Jira. And if you know the name, just search \u2014 type \u201cS-L-A\u201d for example, and there\u2019s everything you need. A gadget can have one datasource, but your dashboard can include data from multiple datsources, both Cloud and Data Center, as well as connecting to anything through REST API. You can restrict the list of available gadgets to only those that have a compatible datasource set up, or you can add the datasource later. And if you\u2019d rather build a dashboard by selecting multiple gadgets at once, use the select multiple option, then configure each one separately, or use the same configuration for all applicable gadgets. Choosing the gadget is half the job \u2014 the other half is getting the answers to the right people. If it\u2019s your team, they\u2019ll see it live on the dashboard inside Jira. If it\u2019s a leader who won\u2019t log in, put a Formula Card on a dashboard and share it, or create a subscription for them. They get the number, without distractions. And if it\u2019s someone outside Jira entirely, you can share a dashboard with a secure public link. When one of the ready-made gadgets doesn\u2019t show your data exactly the way you want it, reach for Jira Custom Charts or Jira Custom Segments. They\u2019re the most flexible \u2014 you choose the data and the chart type, from pivot tables to line charts, bar charts, and pie charts, so you can build precisely the view you\u2019re after. So: start with the question and who\u2019s asking, reach for the appropriate gadgets, and match how you share it with your audience. Discover all our gadgets and examples in our user documentation, linked in the description, or check out our playlist for more videos on our latest gadgets."
+      }
+    }
+  ]
+}
+</script><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Gadgets",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/RDD/2116747794/Gadgets/",
+  "dateModified": "2026-09-07T09:31:26.422Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,26 +52,52 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RDD/456197222/Dashboard+Hub+family+of+apps/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RDD/146309946/User+guides/">User guides</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Gadgets</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/2116747794" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RDD/pages/2116747794" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>Gadgets</h1>
-    <div class="page-meta">1 min read</div>
-    <div class="panel panel-note"><p>This section contains general information on setting up and exporting gadget data. To learn more about each gadget, see our full range of dashboard gadgets in <a href="/cms_trial/space/RDD/146309915/Dashboard+gadgets+-+KPIs+and+metrics/">Dashboard gadgets</a>.</p></div><ul class="children-list"><li><a href="/cms_trial/space/RDD/146310019/Add+and+configure+gadgets/">Add and configure gadgets</a></li><li><a href="/cms_trial/space/RDD/146309915/Dashboard+gadgets+-+KPIs+and+metrics/">Dashboard gadgets - KPIs and metrics</a></li><li><a href="/cms_trial/space/RDD/146310658/Export+gadget+data+to+CSV%2C+XLSX+and+PNG/">Export gadget data to CSV, XLSX and PNG</a></li></ul>
+    <div class="page-meta">Updated 3 days ago · 4 min read</div>
+    <div class="panel panel-note"><p>This section provides general information on setting up and exporting gadget data and links to our complete catalogue.To learn more about each gadget, see our full range of dashboard gadgets in <a href="/cms_trial/space/RDD/146309915/Dashboard+gadgets+-+KPIs+and+metrics/">Dashboard gadgets</a>.</p></div><ul class="children-list"><li><a href="/cms_trial/space/RDD/146310019/Add+and+configure+gadgets/">Add and configure gadgets</a></li><li><a href="/cms_trial/space/RDD/146309915/Dashboard+gadgets+-+KPIs+and+metrics/">Dashboard gadgets - KPIs and metrics</a></li><li><a href="/cms_trial/space/RDD/146310658/Export+gadget+data+to+CSV%2C+XLSX+and+PNG/">Export gadget data to CSV, XLSX and PNG</a></li></ul><p>We have over 90 gadgets to help you build reports for a wide range of sources including Jira and Jira Service Management, Assets, BitBucket, BigPicture, Time to SLA, and more. We also let you design your own with Jira Custom Charts and Jira Custom Segments, or create reports for anything using REST API with our Custom Reports.<br/>To help you find the right gadget fast, have a look at our short gadget finder video, or, explore, the complete <a href="/cms_trial/space/RDD/146309915/Dashboard+gadgets+-+KPIs+and+metrics/">catalogue</a>.<br/></p><div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/cj1Jlbs2G_w"></iframe></div><details><summary>Video transcript:</summary><p>Dashboard Hub comes with over ninety gadgets, and we’re adding new ones all the time. That’s a lot of choice. So the gadget selector puts the most popular and newest gadgets at the top, but let’s look at how to find exactly what you need in seconds.</p><p>Start with the question you’re trying to answer and notice who’s asking it. The gadgets you select tell a story. Are you building an internal dashboard, or one you want to share with other stakeholders?</p><p>Your delivery team asks: “How’s my sprint doing?” — that’s Sprint Health. “Where are my epics stuck?” — Progress Tracker. </p><p>A support manager asks: “Are we meeting our SLAs?” — SLA by Project. “Are we closing tickets faster than they come in?” — Created vs Resolved.</p><p>“And how has that changed over time?” — Historical Insights.</p><p>Or, a manager just wants the one number that matters — a Formula Card. </p><p>So start with the question, and you’ll know which gadget you need.” If you need a head start on a particular Jira theme, you can always use one of our dashboard templates for Agile, IT service management, DevOps, and more, each one already filled with the right gadgets for that use case. </p><p>Because the catalog keeps growing, we surface two kinds of gadgets at the top of the list. The ones marked “TOP,” in yellow, are what teams reach for most. The ones marked “NEW,” in blue, are our latest additions, the fastest way to spot a feature you didn’t know we’d shipped. </p><p>To further refine the list of gadgets, use the left sidebar to filter by where the data comes from — “Atlassian” for everyday Jira and Service Management gadgets, “Appfire” for apps like BigPicture, or Time to SLA, or “Custom Reports” for data from outside Jira. And if you know the name, just search — type “S-L-A” for example, and there’s everything you need.</p><p>A gadget can have one datasource, but your dashboard can include data from multiple datsources, both Cloud and Data Center, as well as connecting to anything through REST API.</p><p>You can restrict the list of available gadgets to only those that have a compatible datasource set up, or you can add the datasource later. </p><p>And if you’d rather build a dashboard by selecting multiple gadgets at once, use the select multiple option, then configure each one separately, or use the same configuration for all applicable gadgets.</p><p>Choosing the gadget is half the job — the other half is getting the answers to the right people.</p><p>If it’s your team, they’ll see it live on the dashboard inside Jira.</p><p>If it’s a leader who won’t log in, put a Formula Card on a dashboard and share it, or create a subscription for them. They get the number, without distractions.</p><p>And if it’s someone outside Jira entirely, you can share a dashboard with a secure public link.</p><p>When one of the ready-made gadgets doesn’t show your data exactly the way you want it, reach for Jira Custom Charts or Jira Custom Segments. They’re the most flexible — you choose the data and the chart type, from pivot tables to line charts, bar charts, and pie charts, so you can build precisely the view you’re after.</p><p>So: start with the question and who’s asking, reach for the appropriate gadgets, and match how you share it with your audience. </p><p>Discover all our gadgets and examples in our user documentation, linked in the description, or check out our playlist for more videos on our latest gadgets.</p></details>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">277 pages in this space, fetched live from Confluence via API.</p>
-<nav><ul><li><a href="/cms_trial/space/RDD/456197222/Dashboard+Hub+family+of+apps/">Dashboard Hub family of apps</a></li><li><details open><summary><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a></summary><ul><li><a href="/cms_trial/space/RDD/2117009907/Overview/">Overview</a></li><li><details><summary><a href="/cms_trial/space/RDD/146309347/Get+started+with+Dashboard+Hub/">Get started with Dashboard Hub</a></summary><ul><li><a href="/cms_trial/space/RDD/2117009940/Dashboard+Hub+Pro/">Dashboard Hub Pro</a></li><li><a href="/cms_trial/space/RDD/146309457/Dashboard+Hub+for+Confluence+features/">Dashboard Hub for Confluence features</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/RDD/2146336847/Installation/">Installation</a></summary><ul><li><a href="/cms_trial/space/RDD/146309834/How+to+install+Dashboard+Hub+Pro/">How to install Dashboard Hub Pro</a></li><li><a href="/cms_trial/space/RDD/146309405/How+to+install+Dashboard+Hub+for+Confluence/">How to install Dashboard Hub for Confluence</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/RDD/401572816/Use+cases/">Use cases</a></summary><ul><li><a href="/cms_trial/space/RDD/146309573/Enterprise-Ready+features/">Enterprise-Ready features</a></li><li><a href="/cms_trial/space/RDD/401572854/General+use+cases+for+all+Dashboard+Hub+apps/">General use cases for all Dashboard Hub apps</a></li><li><a href="/cms_trial/space/RDD/401540130/Jira+use+cases+(Dashboard+Hub+Pro)/">Jira use cases (Dashboard Hub Pro)</a></li><li><a href="/cms_trial/space/RDD/401769355/Confluence+use+cases+(Dashboard+Hub+for+Confluence)/">Confluence use cases (Dashboard Hub for Confluence)</a></li></ul></details></li><li><a href="/cms_trial/space/RDD/146309744/Live+dashboard+demos/">Live dashboard demos</a></li><li><details open><summary><a href="/cms_trial/space/RDD/146309946/User+guides/">User guides</a></summary><ul><li><a href="/cms_trial/space/RDD/2117042204/Dashboards/">Dashboards</a></li><li><a href="/cms_trial/space/RDD/2116682228/Datasources/">Datasources</a></li><li><details open><summary><a href="/cms_trial/space/RDD/2116747794/Gadgets/" class="active">Gadgets</a></summary><ul><li><a href="/cms_trial/space/RDD/146310019/Add+and+configure+gadgets/">Add and configure gadgets</a></li><li><a href="/cms_trial/space/RDD/146309915/Dashboard+gadgets+-+KPIs+and+metrics/">Dashboard gadgets - KPIs and metrics</a></li><li><a href="/cms_trial/space/RDD/146310658/Export+gadget+data+to+CSV%2C+XLSX+and+PNG/">Export gadget data to CSV, XLSX and PNG</a></li></ul></details></li><li><a href="/cms_trial/space/RDD/2116583951/Admin+settings/">Admin settings</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/RDD/146310010/Product+and+data+connections/">Product and data connections</a></summary><ul><li><a href="/cms_trial/space/RDD/146309882/Dashboard+Hub+Connector+apps/">Dashboard Hub Connector apps</a></li><li><a href="/cms_trial/space/RDD/3019735522/Connect+data+from+Atlassian+products/">Connect data from Atlassian products</a></li><li><a href="/cms_trial/space/RDD/2200404470/Connect+data+from+other+Appfire+products/">Connect data from other Appfire products</a></li><li><a href="/cms_trial/space/RDD/1529219266/Custom+Reports+-+REST+API+integration/">Custom Reports - REST API integration</a></li><li><a href="/cms_trial/space/RDD/2994274311/Projectrak/">Projectrak</a></li><li><a href="/cms_trial/space/RDD/3004596640/monday.com+integration/">monday.com integration</a></li><li><a href="/cms_trial/space/RDD/146309594/Utility+gadgets/">Utility gadgets</a></li><li><a href="/cms_trial/space/RDD/146310618/Hybrid+hostings+dashboards/">Hybrid hostings dashboards</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/RDD/146310013/Dashboard+templates/">Dashboard templates</a></summary><ul><li><a href="/cms_trial/space/RDD/146310016/Scrum+software+team+template/">Scrum software team template</a></li><li><a href="/cms_trial/space/RDD/146309962/IT+Service+Management+team+template/">IT Service Management team template</a></li><li><a href="/cms_trial/space/RDD/146309250/DevOps+software+team+template/">DevOps software team template</a></li><li><a href="/cms_trial/space/RDD/146310779/Project+Tracking+Insights+template/">Project Tracking Insights template</a></li><li><a href="/cms_trial/space/RDD/1942979108/BigPicture+PPM+Insights+template/">BigPicture PPM Insights template</a></li><li><a href="/cms_trial/space/RDD/201031772/Sales+CRM+for+monday.com+template/">Sales CRM for monday.com template</a></li><li><a href="/cms_trial/space/RDD/200278357/Agile+Dev+for+monday.com+template/">Agile Dev for monday.com template</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/RDD/439124250/Migrations/">Migrations</a></summary><ul><li><a href="/cms_trial/space/RDD/439156947/Feature+comparison+for+Dashboard+Hub+Data+Center+vs+Cloud/">Feature comparison for Dashboard Hub Data Center vs Cloud</a></li><li><a href="/cms_trial/space/RDD/439058679/Migrate+to+Dashboard+Hub+Pro+Cloud+with+JCMA/">Migrate to Dashboard Hub Pro Cloud with JCMA</a></li><li><a href="/cms_trial/space/RDD/438796295/Migrate+from+Dataplane+Reports+to+Dashboard+Hub+Pro+Cloud/">Migrate from Dataplane Reports to Dashboard Hub Pro Cloud</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/RDD/2117042596/Release+notes+-+Cloud/">Release notes - Cloud</a></summary><ul><li><a href="/cms_trial/space/RDD/3262939446/Breaking+changes/">Breaking changes</a></li><li><a href="/cms_trial/space/RDD/3432710149/Release+notes+August+2026/">Release notes August 2026</a></li><li><a href="/cms_trial/space/RDD/3367829671/Release+notes+25+June+2026/">Release notes 25 June 2026</a></li><li><a href="/cms_trial/space/RDD/3241312726/Release+notes+3+June+2026/">Release notes 3 June 2026</a></li><li><a href="/cms_trial/space/RDD/3262972157/Release+notes+20+May+2026/">Release notes 20 May 2026</a></li><li><a href="/cms_trial/space/RDD/3153428725/Release+notes+5+May+2026/">Release notes 5 May 2026</a></li><li><a href="/cms_trial/space/RDD/3015180289/Release+notes+24+March+2026/">Release notes 24 March 2026</a></li><li><a href="/cms_trial/space/RDD/2911469760/Release+notes+3+March+2026/">Release notes 3 March 2026</a></li><li><a href="/cms_trial/space/RDD/2891776001/Release+notes+17+February+2026/">Release notes 17 February 2026</a></li><li><a href="/cms_trial/space/RDD/2710077446/Release+notes+4+February+2026/">Release notes 4 February 2026</a></li><li><a href="/cms_trial/space/RDD/2629107713/Release+notes+17+December+2025/">Release notes 17 December 2025</a></li><li><a href="/cms_trial/space/RDD/2571436035/Release+notes+26+November+2025/">Release notes 26 November 2025</a></li><li><a href="/cms_trial/space/RDD/2508914808/Release+notes+25+November+2025/">Release notes 25 November 2025</a></li><li><a href="/cms_trial/space/RDD/2478342145/Release+notes+30+October+2025/">Release notes 30 October 2025</a></li><li><a href="/cms_trial/space/RDD/2417655812/Release+notes+2+October+2025/">Release notes 2 October 2025</a></li><li><a href="/cms_trial/space/RDD/2327872019/Release+notes+3+September+2025/">Release notes 3 September 2025</a></li><li><a href="/cms_trial/space/RDD/2236350582/Release+Notes+31+July+2025/">Release Notes 31 July 2025</a></li><li><a href="/cms_trial/space/RDD/2163179521/Release+Notes+1+July+2025/">Release Notes 1 July 2025</a></li><li><a href="/cms_trial/space/RDD/2135687169/Release+Notes+30+June+2025/">Release Notes 30 June 2025</a></li><li><a href="/cms_trial/space/RDD/2051735557/Release+Notes+26+May+2025/">Release Notes 26 May 2025</a></li><li><a href="/cms_trial/space/RDD/2009006186/Release+Notes+9+May+2025/">Release Notes 9 May 2025</a></li><li><a href="/cms_trial/space/RDD/1936785416/Release+Notes+9+April+2025/">Release Notes 9 April 2025</a></li><li><a href="/cms_trial/space/RDD/1896906753/Release+Notes+27+March+2025/">Release Notes 27 March 2025</a></li><li><a href="/cms_trial/space/RDD/1800341683/Release+Notes+28+February+2025/">Release Notes 28 February 2025</a></li><li><a href="/cms_trial/space/RDD/1715601474/Release+Notes+4+February+2025/">Release Notes 4 February 2025</a></li><li><a href="/cms_trial/space/RDD/1673528752/Release+Notes+30+January+2025/">Release Notes 30 January 2025</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/RDD/146309984/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/RDD/146309266/FAQ/">FAQ</a></li><li><a href="/cms_trial/space/RDD/2548858976/Best+practices+for+scaling+Dashboard+Hub+in+large+Jira+Data+Center+instances/">Best practices for scaling Dashboard Hub in large Jira Data Center instances</a></li><li><a href="/cms_trial/space/RDD/2117009472/Appfire+Trust+Center/">Appfire Trust Center</a></li><li><a href="/cms_trial/space/RDD/146310544/Security/">Security</a></li></ul></details></li></ul></details></li><li><a href="/cms_trial/space/RDD/598179985/How+to+Display+the+Results+of+a+JQL+Query+in+a+Graph/">How to Display the Results of a JQL Query in a Graph</a></li><li><a href="/cms_trial/space/RDD/1552876016/Report+Descriptor+Editor+example+-+REST+node/">Report Descriptor Editor example - REST node</a></li><li><a href="/cms_trial/space/RDD/1476133078/Data+Sharing+Changes+for+Imported+Dataplane+Reports/">Data Sharing Changes for Imported Dataplane Reports</a></li><li><a href="/cms_trial/space/RDD/1924661635/Use+%24initial+and+Paramtext+to+add+prompts+in+a+report/">Use $initial and Paramtext to add prompts in a report</a></li><li><a href="/cms_trial/space/RDD/1933640842/Custom+Reports+variable+contexts/">Custom Reports variable contexts</a></li><li><a href="/cms_trial/space/RDD/2056029049/Appfire+Apps%3A+Flow+Coding+Metrics+-+advanced+doc/">Appfire Apps: Flow Coding Metrics - advanced doc</a></li><li><a href="/cms_trial/space/RDD/2218852367/%5BWIP%5D+Dashboard+Hub+Pro+vs.+alternatives/">[WIP] Dashboard Hub Pro vs. alternatives</a></li></ul></nav>
-</aside>
+<nav><ul><li><a href="/cms_trial/space/RDD/456197222/Dashboard+Hub+family+of+apps/">Dashboard Hub family of apps</a></li><li><details open><summary><a href="/cms_trial/space/RDD/146309225/Dashboard+Hub/">Dashboard Hub</a></summary><ul><li><a href="/cms_trial/space/RDD/2117009907/Overview/">Overview</a></li><li><a href="/cms_trial/space/RDD/3581870097/Quickstart+guide+to+Dashboard+Hub+Pro/">Quickstart guide to Dashboard Hub Pro</a></li><li><details><summary><a href="/cms_trial/space/RDD/146309347/Get+started/">Get started</a></summary><ul><li><a href="/cms_trial/space/RDD/2146336847/Installation/">Installation</a></li><li><a href="/cms_trial/space/RDD/421757143/Dashboard+Hub+Pro+vs.+native+dashboards/">Dashboard Hub Pro vs. native dashboards</a></li><li><a href="/cms_trial/space/RDD/146309298/Jira+dashboards%3A+native+gadgets+and+product+integrations/">Jira dashboards: native gadgets and product integrations</a></li><li><a href="/cms_trial/space/RDD/146309457/Dashboard+Hub+for+Confluence+features/">Dashboard Hub for Confluence features</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/RDD/401572816/Use+cases/">Use cases</a></summary><ul><li><a href="/cms_trial/space/RDD/146309573/Enterprise-Ready+features/">Enterprise-Ready features</a></li><li><a href="/cms_trial/space/RDD/401572854/General+use+cases+for+all+Dashboard+Hub+apps/">General use cases for all Dashboard Hub apps</a></li><li><a href="/cms_trial/space/RDD/401540130/Jira+use+cases+(Dashboard+Hub+Pro)/">Jira use cases (Dashboard Hub Pro)</a></li><li><a href="/cms_trial/space/RDD/401769355/Confluence+use+cases+(Dashboard+Hub+for+Confluence)/">Confluence use cases (Dashboard Hub for Confluence)</a></li></ul></details></li><li><a href="/cms_trial/space/RDD/146309744/Live+dashboard+demos/">Live dashboard demos</a></li><li><details open><summary><a href="/cms_trial/space/RDD/146309946/User+guides/">User guides</a></summary><ul><li><a href="/cms_trial/space/RDD/2117042204/Dashboards/">Dashboards</a></li><li><a href="/cms_trial/space/RDD/2116682228/Datasources/">Datasources</a></li><li><details open><summary><a href="/cms_trial/space/RDD/2116747794/Gadgets/" class="active">Gadgets</a></summary><ul><li><a href="/cms_trial/space/RDD/146310019/Add+and+configure+gadgets/">Add and configure gadgets</a></li><li><a href="/cms_trial/space/RDD/146309915/Dashboard+gadgets+-+KPIs+and+metrics/">Dashboard gadgets - KPIs and metrics</a></li><li><a href="/cms_trial/space/RDD/146310658/Export+gadget+data+to+CSV%2C+XLSX+and+PNG/">Export gadget data to CSV, XLSX and PNG</a></li></ul></details></li><li><a href="/cms_trial/space/RDD/2116583951/Admin+settings/">Admin settings</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/RDD/146310010/Product+and+data+connections/">Product and data connections</a></summary><ul><li><a href="/cms_trial/space/RDD/146309882/Dashboard+Hub+Connector+apps/">Dashboard Hub Connector apps</a></li><li><a href="/cms_trial/space/RDD/3019735522/Connect+data+from+Atlassian+products/">Connect data from Atlassian products</a></li><li><a href="/cms_trial/space/RDD/2200404470/Connect+data+from+other+Appfire+products/">Connect data from other Appfire products</a></li><li><a href="/cms_trial/space/RDD/1529219266/Custom+Reports+-+REST+API+integration/">Custom Reports - REST API integration</a></li><li><a href="/cms_trial/space/RDD/2994274311/Projectrak/">Projectrak</a></li><li><a href="/cms_trial/space/RDD/3004596640/monday.com+integration/">monday.com integration</a></li><li><a href="/cms_trial/space/RDD/146309594/Utility+gadgets/">Utility gadgets</a></li><li><a href="/cms_trial/space/RDD/146310618/Hybrid+hostings+dashboards/">Hybrid hostings dashboards</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/RDD/146310013/Dashboard+templates/">Dashboard templates</a></summary><ul><li><a href="/cms_trial/space/RDD/146310016/Scrum+software+team+template/">Scrum software team template</a></li><li><a href="/cms_trial/space/RDD/146309962/IT+Service+Management+team+template/">IT Service Management team template</a></li><li><a href="/cms_trial/space/RDD/146309250/DevOps+software+team+template/">DevOps software team template</a></li><li><a href="/cms_trial/space/RDD/146310779/Project+Tracking+Insights+template/">Project Tracking Insights template</a></li><li><a href="/cms_trial/space/RDD/1942979108/BigPicture+PPM+Insights+template/">BigPicture PPM Insights template</a></li><li><a href="/cms_trial/space/RDD/201031772/Sales+CRM+for+monday.com+template/">Sales CRM for monday.com template</a></li><li><a href="/cms_trial/space/RDD/200278357/Agile+Dev+for+monday.com+template/">Agile Dev for monday.com template</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/RDD/439124250/Migrations/">Migrations</a></summary><ul><li><a href="/cms_trial/space/RDD/439156947/Feature+comparison+for+Dashboard+Hub+Data+Center+vs+Cloud/">Feature comparison for Dashboard Hub Data Center vs Cloud</a></li><li><a href="/cms_trial/space/RDD/439058679/Migrate+to+Dashboard+Hub+Pro+Cloud+with+JCMA/">Migrate to Dashboard Hub Pro Cloud with JCMA</a></li><li><a href="/cms_trial/space/RDD/438796295/Migrate+from+Dataplane+Reports+to+Dashboard+Hub+Pro+Cloud/">Migrate from Dataplane Reports to Dashboard Hub Pro Cloud</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/RDD/2117042596/Release+notes+-+Cloud/">Release notes - Cloud</a></summary><ul><li><a href="/cms_trial/space/RDD/3262939446/Breaking+changes/">Breaking changes</a></li><li><a href="/cms_trial/space/RDD/3584426122/Release+notes+1+September+2026/">Release notes 1 September 2026</a></li><li><a href="/cms_trial/space/RDD/3432710149/Release+notes+11+August+2026/">Release notes 11 August 2026</a></li><li><a href="/cms_trial/space/RDD/3367829671/Release+notes+25+June+2026/">Release notes 25 June 2026</a></li><li><a href="/cms_trial/space/RDD/3241312726/Release+notes+3+June+2026/">Release notes 3 June 2026</a></li><li><a href="/cms_trial/space/RDD/3262972157/Release+notes+20+May+2026/">Release notes 20 May 2026</a></li><li><a href="/cms_trial/space/RDD/3153428725/Release+notes+5+May+2026/">Release notes 5 May 2026</a></li><li><a href="/cms_trial/space/RDD/3015180289/Release+notes+24+March+2026/">Release notes 24 March 2026</a></li><li><a href="/cms_trial/space/RDD/2911469760/Release+notes+3+March+2026/">Release notes 3 March 2026</a></li><li><a href="/cms_trial/space/RDD/2891776001/Release+notes+17+February+2026/">Release notes 17 February 2026</a></li><li><a href="/cms_trial/space/RDD/2710077446/Release+notes+4+February+2026/">Release notes 4 February 2026</a></li><li><a href="/cms_trial/space/RDD/2629107713/Release+notes+17+December+2025/">Release notes 17 December 2025</a></li><li><a href="/cms_trial/space/RDD/2571436035/Release+notes+26+November+2025/">Release notes 26 November 2025</a></li><li><a href="/cms_trial/space/RDD/2508914808/Release+notes+25+November+2025/">Release notes 25 November 2025</a></li><li><a href="/cms_trial/space/RDD/2478342145/Release+notes+30+October+2025/">Release notes 30 October 2025</a></li><li><a href="/cms_trial/space/RDD/2417655812/Release+notes+2+October+2025/">Release notes 2 October 2025</a></li><li><a href="/cms_trial/space/RDD/2327872019/Release+notes+3+September+2025/">Release notes 3 September 2025</a></li><li><a href="/cms_trial/space/RDD/2236350582/Release+Notes+31+July+2025/">Release Notes 31 July 2025</a></li><li><a href="/cms_trial/space/RDD/2163179521/Release+Notes+1+July+2025/">Release Notes 1 July 2025</a></li><li><a href="/cms_trial/space/RDD/2135687169/Release+Notes+30+June+2025/">Release Notes 30 June 2025</a></li><li><a href="/cms_trial/space/RDD/2051735557/Release+Notes+26+May+2025/">Release Notes 26 May 2025</a></li><li><a href="/cms_trial/space/RDD/2009006186/Release+Notes+9+May+2025/">Release Notes 9 May 2025</a></li><li><a href="/cms_trial/space/RDD/1936785416/Release+Notes+9+April+2025/">Release Notes 9 April 2025</a></li><li><a href="/cms_trial/space/RDD/1896906753/Release+Notes+27+March+2025/">Release Notes 27 March 2025</a></li><li><a href="/cms_trial/space/RDD/1800341683/Release+Notes+28+February+2025/">Release Notes 28 February 2025</a></li><li><a href="/cms_trial/space/RDD/1715601474/Release+Notes+4+February+2025/">Release Notes 4 February 2025</a></li><li><a href="/cms_trial/space/RDD/1673528752/Release+Notes+30+January+2025/">Release Notes 30 January 2025</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/RDD/146309984/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/RDD/146309266/FAQ/">FAQ</a></li><li><a href="/cms_trial/space/RDD/2548858976/Best+practices+for+scaling+Dashboard+Hub+in+large+Jira+Data+Center+instances/">Best practices for scaling Dashboard Hub in large Jira Data Center instances</a></li><li><a href="/cms_trial/space/RDD/2117009472/Appfire+Trust+Center/">Appfire Trust Center</a></li><li><a href="/cms_trial/space/RDD/146310544/Security/">Security</a></li></ul></details></li></ul></details></li><li><a href="/cms_trial/space/RDD/598179985/How+to+Display+the+Results+of+a+JQL+Query+in+a+Graph/">How to Display the Results of a JQL Query in a Graph</a></li><li><a href="/cms_trial/space/RDD/1552876016/Report+Descriptor+Editor+example+-+REST+node/">Report Descriptor Editor example - REST node</a></li><li><a href="/cms_trial/space/RDD/1476133078/Data+Sharing+Changes+for+Imported+Dataplane+Reports/">Data Sharing Changes for Imported Dataplane Reports</a></li><li><a href="/cms_trial/space/RDD/1924661635/Use+%24initial+and+Paramtext+to+add+prompts+in+a+report/">Use $initial and Paramtext to add prompts in a report</a></li><li><a href="/cms_trial/space/RDD/1933640842/Custom+Reports+variable+contexts/">Custom Reports variable contexts</a></li><li><a href="/cms_trial/space/RDD/2056029049/Appfire+Apps%3A+Flow+Coding+Metrics+-+advanced+doc/">Appfire Apps: Flow Coding Metrics - advanced doc</a></li><li><a href="/cms_trial/space/RDD/2218852367/%5BWIP%5D+Dashboard+Hub+Pro+vs.+alternatives/">[WIP] Dashboard Hub Pro vs. alternatives</a></li></ul></nav>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail"></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
@@ -264,6 +323,92 @@
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

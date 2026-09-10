@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>Build a simple interactive Jira dashboard | Appfire Docs</title>
 <meta name="description" content="By the end of this tutorial, you will know how to build a simple Jira dashboard with two interactive gadgets: a Rich Filter Controller gadget and a Rich…">
@@ -9,7 +19,15 @@
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Build a simple interactive Jira dashboard",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/RFCDOC/783941937/Build+a+simple+interactive+Jira+dashboard/",
+  "dateModified": "2026-07-17T12:41:37.050Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,26 +37,52 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RFCDOC/3513253997/Data+residency+and+realm+persistence/">Rich Filters for Jira Dashboards (Cloud) Documentation</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941917/Tutorials/">Tutorials</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Build a simple interactive Jira dashboard</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/783941937" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/783941937" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>Build a simple interactive Jira dashboard</h1>
-    <div class="page-meta">3 min read</div>
+    <div class="page-meta">Updated 1 month ago · 3 min read</div>
     <div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="overview">Overview</h2><p>By the end of this tutorial, you will know how to build a simple Jira dashboard with two interactive gadgets: a Rich Filter Controller gadget and a Rich Filter Results gadget. You can filter the work items that the Rich Filter Results gadget displays by clicking buttons (static filters) in the Rich Filter Controller<strong> </strong>gadget.</p><img alt="simple board.png" class="doc-image" loading="lazy" src="/cms_trial/assets/6c86ef57-45a0-417a-9288-2dd929827fb0.png"/><h2 id="before-you-start">Before you start</h2><ul><li><p>Make sure you have created a rich filter. For instructions, see the <a href="/cms_trial/space/RFCDOC/783941927/Create+and+access+rich+filters/">Create and access rich filters</a> tutorial.</p></li></ul></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="add-static-filters-to-the-rich-filter">Add static filters to the rich filter</h2><ol><li><p>Open the configuration page of your rich filter as described in the <a href="/cms_trial/space/RFCDOC/783941927/Create+and+access+rich+filters/">Create and access rich filters</a> tutorial.</p></li><li><p>Click the <strong>Static filters</strong> tab.</p><img alt="static filter.png" class="doc-image" loading="lazy" src="/cms_trial/assets/95d980b4-9e64-465b-8372-15c45e9e7a46.png"/></li><li><p>Click <strong>Create static filter</strong> and define two static filters:</p><ul><li><p><strong>Closed </strong>with<strong> </strong>JQL query: <code>status = Closed</code></p></li><li><p><strong>Assigned to me</strong> with<strong> </strong>JQL query: <code>assignee = currentUser()</code></p><img alt="contentId-783941937" class="doc-image" loading="lazy" src="/cms_trial/assets/f2e12932-4e19-4abd-acd6-6ac1208dbc24.png"/></li></ul></li><li><p>Click <strong>Create</strong>.<br/></p></li></ol></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="build-the-dashboard">Build the dashboard</h2><ol><li><p>To create a new <a href="https://support.atlassian.com/jira-work-management/docs/what-is-a-jira-dashboard/">Jira dashboard</a>, click<strong> Dashboards</strong> under Jira navigation.</p></li><li><p>Click <strong>Create dashboard</strong>.</p><img alt="Create Dashboards.png" class="doc-image" loading="lazy" src="/cms_trial/assets/f274b90f-a7e3-442a-94d1-d2ceaf686fff.png"/></li><li><p>Fill in the fields in the dialog and click <strong>Save.</strong></p><ol><li><p>Choose a name and a description for your dashboard</p></li><li><p>Choose who can see and edit your dashboard</p><img alt="The Create dashboard window." class="doc-image" loading="lazy" src="/cms_trial/assets/c272065d-f535-4e79-97d9-178a1d1a9ab4.png"/></li></ol></li><li><p>You can add a Rich Filter Results gadget to the dashboard by clicking <strong>Add gadget</strong> at the top right of the screen.</p></li></ol><div class="panel panel-success"><p>In the <em>Add a Gadget</em> dialog, simply type <code>Rich</code> in the <strong>Search</strong> field to easily find the gadgets provided by the Rich Filters for Jira Dashboards app.</p></div><ol><li><p>In the configuration form of the Rich Filter Results gadget, select your rich filter. <br/>You don't need to change anything else for now. </p><img alt="Rich filter results window with the Submit button clicked." class="doc-image" loading="lazy" src="/cms_trial/assets/0c480656-ae90-40ce-8920-4b71a19571d8.png"/></li><li><p>Click  <strong>Submit</strong>.</p></li></ol><p>The Rich Filter field provides a search function to easily find your rich filter by typing only a part of its name. </p></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="rich-filter-controller">Rich Filter Controller </h2><p>Add a Rich Filter Controller gadget to the same Jira dashboard.</p><ol><li><p>In the configuration form of the Rich Filter Controller gadget, select the same rich filter as in the Rich Filter Results gadget. <br/>You don't need to change anything else for now.</p><img alt="Rich filter gadget with the Show all filters option selected." class="doc-image" loading="lazy" src="/cms_trial/assets/dee8a689-f65f-4a1f-b66a-8f463b9cd324.png"/></li><li><p>Click <strong>Submit</strong>.</p></li></ol></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><p> The <strong>Rich Filter Controller</strong> gadget displays the two static filters defined in your rich filter. </p><ul><li><p>They are displayed as on/off buttons that can be independently activated and deactivated simply by clicking them. </p></li><li><p>When you activate or deactivate a static filter, the <strong>Rich Filter Results</strong> gadget is updated to display the issue collection obtained by applying the Jira base filter of the rich filter, combined (<code>AND</code>ed) with the JQL queries of the active <em>static filters</em>. For example, if you click <strong>Closed </strong>static filter<em>,</em> the <em>Rich Filter Results</em> gadget will be updated to display only the closed issues among those returned by the Jira base filter.</p><img alt="simple board.png" class="doc-image" loading="lazy" src="/cms_trial/assets/6c86ef57-45a0-417a-9288-2dd929827fb0.png"/></li></ul><div class="panel panel-note"><p>You can change the order of the <strong>static filters </strong>in the rich filter configuration. In each Rich Filter Controller gadget, you can use this default order or customize the list of filters to be displayed by selecting the ones you want and placing them in the order you want.</p></div></div></div><h2 id="learn-more">Learn more</h2><p>To learn more about <em>static filters</em>, look at <a href="/cms_trial/space/RFCDOC/783941703/Configure+static+filters/">Configuring Static Filters</a>.</p><p>To learn how to customize the display of the issues in your Jira dashboard, continue to the tutorial <a href="/cms_trial/space/RFCDOC/783941943/Define+views+for+your+dashboard/">Define views for your dashboard</a>.</p>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">128 pages in this space, fetched live from Confluence via API.</p>
 <nav><ul><li><a href="/cms_trial/space/RFCDOC/3513253997/Data+residency+and+realm+persistence/">Data residency and realm persistence</a></li><li><details open><summary><a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud)</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/783941653/Overview/">Overview</a></li><li><a href="/cms_trial/space/RFCDOC/783942462/Get+started+with+Rich+Filters+for+Jira+Dashboards+for+Cloud/">Get started with Rich Filters for Jira Dashboards for Cloud</a></li><li><details open><summary><a href="/cms_trial/space/RFCDOC/783941917/Tutorials/">Tutorials</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/783941927/Create+and+access+rich+filters/">Create and access rich filters</a></li><li><a href="/cms_trial/space/RFCDOC/783941937/Build+a+simple+interactive+Jira+dashboard/" class="active">Build a simple interactive Jira dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941943/Define+views+for+your+dashboard/">Define views for your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941950/Use+working+queries+in+your+dashboard/">Use working queries in your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941954/Add+dynamic+filtering+to+your+dashboard/">Add dynamic filtering to your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941961/Add+smart+filters+and+smart+columns+to+your+dashboard/">Add smart filters and smart columns to your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941968/Add+rich+filter+statistics+gadgets+to+your+dashboard/">Add rich filter statistics gadgets to your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941975/Add+rich+filter+two+dimensional+statistics+gadgets+to+your+dashboard/">Add rich filter two dimensional statistics gadgets to your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941981/Add+rich+filter+flexi+charts+gadgets+to+your+dashboard/">Add rich filter flexi charts gadgets to your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/2241069104/Create+presets+in+Rich+Filter+Controller/">Create presets in Rich Filter Controller</a></li><li><a href="/cms_trial/space/RFCDOC/2465137080/Permalinks/">Permalinks</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/RFCDOC/783942739/Use+cases/">Use cases</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/783942749/Efficiently+manage+support+requests+with+rich+filter+queues/">Efficiently manage support requests with rich filter queues</a></li><li><a href="/cms_trial/space/RFCDOC/783942775/Create+service+management+reports+with+rich+filter+charts+%26+statistics/">Create service management reports with rich filter charts &amp; statistics</a></li><li><a href="/cms_trial/space/RFCDOC/3019735127/Manage+technical+writing+tasks+across+multiple+teams/">Manage technical writing tasks across multiple teams</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/RFCDOC/783942482/User+guides/">User guides</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/783943671/Concepts/">Concepts</a></li><li><a href="/cms_trial/space/RFCDOC/783942528/Fundamentals/">Fundamentals</a></li><li><a href="/cms_trial/space/RFCDOC/783942654/Advanced/">Advanced</a></li><li><a href="/cms_trial/space/RFCDOC/783941673/Configure+Rich+Filters/">Configure Rich Filters</a></li><li><a href="/cms_trial/space/RFCDOC/783941679/Work+with+Rich+Filter+gadgets/">Work with Rich Filter gadgets</a></li><li><a href="/cms_trial/space/RFCDOC/783942350/Migrate+to+Cloud/">Migrate to Cloud</a></li><li><a href="/cms_trial/space/RFCDOC/783942626/Reference/">Reference</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/RFCDOC/3178496025/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/3178692617/Allowlist+domains+for+Rich+Filters/">Allowlist domains for Rich Filters</a></li><li><a href="/cms_trial/space/RFCDOC/3374972942/Rich+filter+search/">Rich filter search</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/RFCDOC/783941853/Release+Notes/">Release Notes</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/3520364546/Release+notes+August+10th+2026/">Release notes August 10th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3498803215/Release+notes+July+30th+2026/">Release notes July 30th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3461742594/Release+notes+July+27th+2026/">Release notes July 27th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3429695594/Release+notes+July+13th+2026/">Release notes July 13th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3398041685/Release+notes+June+29th+2026/">Release notes June 29th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3377922150/Release+notes+June+2026/">Release notes June 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3171189121/Release+notes+April+2026/">Release notes April 2026</a></li><li><a href="/cms_trial/space/RFCDOC/2886631439/Release+notes+March+9th+2026/">Release notes March 9th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/2884370559/Release+notes+February+13th+2026/">Release notes February 13th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/2804908033/Release+notes+February+11th+2026/">Release notes February 11th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/2856255685/Release+notes+February+5th+2026/">Release notes February 5th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/2681667585/Release+notes+December+30th+2025/">Release notes December 30th 2025</a></li><li><a href="/cms_trial/space/RFCDOC/2509013096/Release+notes+December+4th+2025/">Release notes December 4th 2025</a></li><li><a href="/cms_trial/space/RFCDOC/2239004676/Release+notes+July+31st+2025/">Release notes July 31st 2025</a></li><li><a href="/cms_trial/space/RFCDOC/1935179889/Release+notes+April+8th+2025/">Release notes April 8th 2025</a></li><li><a href="/cms_trial/space/RFCDOC/1799028737/Release+notes+February+26th+2025/">Release notes February 26th 2025</a></li><li><a href="/cms_trial/space/RFCDOC/1624866957/Release+notes+January+13th+2025/">Release notes January 13th 2025</a></li><li><a href="/cms_trial/space/RFCDOC/1595769075/Release+notes+2021%E2%80%932024/">Release notes 2021–2024</a></li></ul></details></li></ul></details></li></ul></nav>
-</aside>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#overview">Overview</a></li><li class="toc-level-2"><a href="#before-you-start">Before you start</a></li><li class="toc-level-2"><a href="#add-static-filters-to-the-rich-filter">Add static filters to the rich filter</a></li><li class="toc-level-2"><a href="#build-the-dashboard">Build the dashboard</a></li><li class="toc-level-2"><a href="#rich-filter-controller">Rich Filter Controller </a></li><li class="toc-level-2"><a href="#learn-more">Learn more</a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
@@ -264,6 +308,92 @@
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

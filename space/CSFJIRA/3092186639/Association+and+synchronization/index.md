@@ -1,0 +1,35 @@
+# Association and synchronization
+
+This is a directory of knowledge base articles regarding association and synchronization issues with Connector for Salesforce & Jira.
+
+## Contents
+
+- [Automation for Jira Status field with Salesforce Status Field](/cms_trial/space/CSFJIRA/3104276483/Automation+for+Jira+Status+field+with+Salesforce+Status+Field/)
+- [Changing Reporter/Assignee using Case Owner email](/cms_trial/space/CSFJIRA/3091400759/Changing+Reporter%2FAssignee+using+Case+Owner+email/)
+- [Does the connector support Synchronizing Child Object Fields?](/cms_trial/space/CSFJIRA/3103490063/Does+the+connector+support+Synchronizing+Child+Object+Fields%3F/)
+- [How to add Jira status in Salesforce Record](/cms_trial/space/CSFJIRA/3091466320/How+to+add+Jira+status+in+Salesforce+Record/)
+- [Issues are not synchronized properly when it has multiple associations with autopush and autopull enabled](/cms_trial/space/CSFJIRA/3100868873/Issues+are+not+synchronized+properly+when+it+has+multiple+associations+with+autopush+and+autopull+enabled/)
+- [Jira ticket is not automatically associated when creating a Salesforce Record](/cms_trial/space/CSFJIRA/3104768006/Jira+ticket+is+not+automatically+associated+when+creating+a+Salesforce+Record/)
+- [Newly created Salesforce associations are not showing on Jira Data Center](/cms_trial/space/CSFJIRA/3091859059/Newly+created+Salesforce+associations+are+not+showing+on+Jira+Data+Center/)
+- [Salesforce custom field types are not being synchronized from Jira](/cms_trial/space/CSFJIRA/3091335105/Salesforce+custom+field+types+are+not+being+synchronized+from+Jira/)
+- [Salesforce Reporting on Jira Issue key](/cms_trial/space/CSFJIRA/3104407562/Salesforce+Reporting+on+Jira+Issue+key/)
+- [Salesforce/Associations section not loading on Jira issues](/cms_trial/space/CSFJIRA/3104768081/Salesforce%2FAssociations+section+not+loading+on+Jira+issues/)
+- [Send Reporter/Assignee name to Salesforce](/cms_trial/space/CSFJIRA/3091924782/Send+Reporter%2FAssignee+name+to+Salesforce/)
+- [Syncing fields from Salesforce to Jira just once (upon creation)](/cms_trial/space/CSFJIRA/3104014351/Syncing+fields+from+Salesforce+to+Jira+just+once+(upon+creation)/)
+- [Unable to View Existing Association OR Associate Jira Issue With Salesforce Record in Jira](/cms_trial/space/CSFJIRA/3091368220/Unable+to+View+Existing+Association+OR+Associate+Jira+Issue+With+Salesforce+Record+in+Jira/)
+- [View all failed sync jobs and retry status on Salesforce](/cms_trial/space/CSFJIRA/3091957712/View+all+failed+sync+jobs+and+retry+status+on+Salesforce/)
+- [Why do email attachments still sync even though they have been disabled in settings?](/cms_trial/space/CSFJIRA/3100541911/Why+do+email+attachments+still+sync+even+though+they+have+been+disabled+in+settings%3F/)
+- [Why does my association not auto-push back to other associated Salesforce Objects after pulling to Jira](/cms_trial/space/CSFJIRA/3104571412/Why+does+my+association+not+auto-push+back+to+other+associated+Salesforce+Objects+after+pulling+to+Jira/)
+- [How to run the association report via REST API](/cms_trial/space/CSFJIRA/3091924370/How+to+run+the+association+report+via+REST+API/)
+- [Why does the Jira Key field not sync automatically after moving an issue from one project to another?](/cms_trial/space/CSFJIRA/3092024582/Why+does+the+Jira+Key+field+not+sync+automatically+after+moving+an+issue+from+one+project+to+another%3F/)
+- [How to automatically push Jira item key after creating a Jira ticket from Salesforc](/cms_trial/space/CSFJIRA/3091662683/How+to+automatically+push+Jira+item+key+after+creating+a+Jira+ticket+from+Salesforc/)
+- [How to synchronize customer tier/type from Salesforce with SLAs in Jira](/cms_trial/space/CSFJIRA/3102998567/How+to+synchronize+customer+tier%2Ftype+from+Salesforce+with+SLAs+in+Jira/)
+- [When trying to create a Jira issue, a Jira validation failed is showing up although mapping configuration remains the same](/cms_trial/space/CSFJIRA/3103588370/When+trying+to+create+a+Jira+issue%2C+a+Jira+validation+failed+is+showing+up+although+mapping+configuration+remains+the+same/)
+- [Chatter posts on the Jira Comment component are visible to admins only](/cms_trial/space/CSFJIRA/3092187083/Chatter+posts+on+the+Jira+Comment+component+are+visible+to+admins+only/)
+- [How to auto-associate a Salesforce record with a Jira issue upon Jira issue creation in Jira Cloud](/cms_trial/space/CSFJIRA/3104800771/How+to+auto-associate+a+Salesforce+record+with+a+Jira+issue+upon+Jira+issue+creation+in+Jira+Cloud/)
+- [Updates from Salesforce to Jira are not reflected in other Salesforce objects associated to Jira ticket](/cms_trial/space/CSFJIRA/3091892143/Updates+from+Salesforce+to+Jira+are+not+reflected+in+other+Salesforce+objects+associated+to+Jira+ticket/)
+- [What happens to new and old associations when you remove the current bindings and mappings?](/cms_trial/space/CSFJIRA/3091335696/What+happens+to+new+and+old+associations+when+you+remove+the+current+bindings+and+mappings%3F/)
+- [Attachments are not synchronizing to Jira autmatically only manually when a push is done](/cms_trial/space/CSFJIRA/3103359001/Attachments+are+not+synchronizing+to+Jira+autmatically+only+manually+when+a+push+is+done/)
+- [How to sync the Jira "Flagged" status into Salesforce using the Connector for Salesforce & Jira](/cms_trial/space/CSFJIRA/3092121159/How+to+sync+the+Jira+%22Flagged%22+status+into+Salesforce+using+the+Connector+for+Salesforce+%26+Jira/)
+- [Association and Association Count fields are not working after migration](/cms_trial/space/CSFJIRA/3091629214/Association+and+Association+Count+fields+are+not+working+after+migration/)
+- [Broken images in Jira Issues/Jira Comments Lightning components](/cms_trial/space/CSFJIRA/3289121070/Broken+images+in+Jira+Issues%2FJira+Comments+Lightning+components/)

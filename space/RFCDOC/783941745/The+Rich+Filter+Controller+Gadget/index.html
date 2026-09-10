@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>The Rich Filter Controller Gadget | Appfire Docs</title>
 <meta name="description" content="The Rich Filter Controller gadget controls what other rich filter gadgets display (on the same dashboard and based on the same rich filter as the…">
@@ -9,7 +19,15 @@
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "The Rich Filter Controller Gadget",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/RFCDOC/783941745/The+Rich+Filter+Controller+Gadget/",
+  "dateModified": "2026-07-21T10:08:45.315Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,26 +37,52 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RFCDOC/3513253997/Data+residency+and+realm+persistence/">Rich Filters for Jira Dashboards (Cloud) Documentation</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783942482/User+guides/">User guides</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941679/Work+with+Rich+Filter+gadgets/">Work with Rich Filter gadgets</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">The Rich Filter Controller Gadget</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/783941745" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/783941745" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>The Rich Filter Controller Gadget</h1>
-    <div class="page-meta">6 min read</div>
+    <div class="page-meta">Updated 1 month ago · 6 min read</div>
     <h2 id="about-the-rich-filter-controller-gadget">About the Rich Filter Controller gadget</h2><p>The <em>Rich Filter Controller</em> gadget controls what other rich filter gadgets display (on the same dashboard and based on the same rich filter as the controller). The controller does not display any issue data; it only shows the quick filters defined in the rich filter. Instead of forcing teams to navigate between multiple saved filters and static dashboards, the Controller acts as a centralized switch, instantly synchronizing the data displayed across all connected dashboard gadgets the moment you apply a filter.</p><img alt=" Controller gadget" class="doc-image" loading="lazy" src="/cms_trial/assets/78123751-e208-4b41-99e4-b1c7d530d734.png"/><p>The quick filters can be reordered and organized in sections. Additionally, the <em>Rich Filter Controller</em> allows the users to export the dashboard content to PDF or Excel files – for more details, see the <a href="/cms_trial/space/RFCDOC/783942966/Export+data/">Exporting data</a> documentation page.  </p><p>Example 1: controller gadget displaying filters organized in named sections:</p><img alt="filters organized in named sections" class="doc-image" loading="lazy" src="/cms_trial/assets/211e2108-cc81-4d87-b486-e8349a28bbe6.png"/><p>Example 2: controller gadget with configured presets for a Green team:</p><img alt="image-20260330-103552.png" class="doc-image" loading="lazy" src="/cms_trial/assets/07d22c08-4007-4ab9-846c-8e3cf39ece58.png"/><h2 id="configuring-the-rich-filter-controller-gadget">Configuring the Rich Filter Controller gadget</h2><p><a href="https://support.atlassian.com/jira-core-cloud/docs/add-and-customize-a-gadget/">Add</a> a new or edit an existing <em>Rich Filter Controller</em> gadget in your <a href="https://support.atlassian.com/jira-core-cloud/docs/what-is-a-jira-dashboard/">Jira dashboard</a>. The configuration form of the gadget will be displayed:</p><img alt="contentId-783941745" class="doc-image" loading="lazy" src="/cms_trial/assets/9c3204bc-0b03-4f76-b238-46691671dbaf.png"/><p>Edit the gadget configuration as described in the following table:</p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p><strong>Setting</strong></p></th><th><p><strong>Description</strong></p></th></tr><tr><td><p><strong>Rich Filter</strong></p></td><td><p>Select the rich filter the gadget will use.</p><p>Click the <strong>Rich Filter</strong> button to display the list of rich filters; you can either scroll through or use the search box to find the desired filter.</p><div class="panel panel-note"><p>The gadgets’ configuration forms only show the rich filters you can view. For details, see the Rights and Permissions documentation page.</p></div></td></tr><tr><td><p><strong>Quick filters &amp; sections</strong></p></td><td><p>Once you have selected a rich filter for your gadget, you can customize which quick filters you want to display in your controller. By default, controllers show all available quick filters. You can use the radio buttons to change this and display only JQL filtering, or you can choose to customize in detail which quick filters to show and in what order using the last option.</p><p>If you choose the <em>Customize shown filters</em> option, the configuration form changes to display the list of quick filters. You can add, remove, or reorder (drag the vertical “grid” icon) the quick filters to be displayed. </p><img alt="contentId-783941745" class="doc-image" loading="lazy" src="/cms_trial/assets/52dd243b-46da-4daa-8b1b-0e8f5b9205f5.png"/><p>You can also organize your quick filters in named sections and customize filter colors.</p><img alt="organize your quick filters" class="doc-image" loading="lazy" src="/cms_trial/assets/4e4c18a4-8579-40fb-8f0f-0224054fb059.png"/><p>In addition to the individual quick filters, the custom list menu includes three grouping options: <em>All Static</em>, <em>All Dynamic,</em> and <em>All Smart</em>. If these options are used, the gadget will display all the quick filters of the specified type in their place <em>except </em>those that are explicitly included. For example, you can use this to show the <em>Labels</em> dynamic filter first, then all static filters, and then all dynamic filters other than <em>Labels,</em> if any.</p><img alt="Select quick filters" class="doc-image" loading="lazy" src="/cms_trial/assets/77ff8339-dc3d-4730-ba6e-ee4dae42b9ff.png"/></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><h2 id="filtering-modes">Filtering modes</h2><p>The user can select a filtering mode alongside the values for the dynamic filters that display dropdowns (e.g., Assignee, Components, Status, Labels). The filtering modes correspond to the logical operators used to combine the selected values when generating the JQL filtering condition. Understanding filtering modes helps you get exactly the issues you're looking for.</p><ul><li><p><strong>OR</strong>: this is the default filtering mode – when multiple values are selected in a dynamic filter, they are combined with OR, which means that the filter returns the issues that match any (at least one) of the selected values:</p><img alt="or operator as the default filtering mode" class="doc-image" loading="lazy" src="/cms_trial/assets/d17b3d24-c0d5-47bf-b377-0f6e5df05e33.png"/><p><br/>The JQL generated for the example above is "<code>component in (Admin, Architecture)</code>," which is functionally equivalent to "component = Admin OR component = Architecture."</p></li><li><p><strong>AND</strong>: The default OR behavior isn't always what you need.  The AND filtering mode is available for fields that can have several values simultaneously.  For example, a label field can store multiple values for a single issue. When multiple values are selected in a dynamic filter, they are combined with AND, which means that the filter returns the issues that match all the selected values simultaneously:<br/></p><img alt="AND operator filtering mode" class="doc-image" loading="lazy" src="/cms_trial/assets/b474573a-fa44-4438-a938-c46b6212a88a.png"/><p><br/>The JQL generated for the example above is "<code>component = Admin AND component = Architecture"</code>.<br/></p></li><li><p><strong>NOT</strong>: available for all fields – the selected values are negated and combined with AND, which means that the filter returns the issues that don't match any of the selected values:<br/></p><img alt="NOT operator operator filtering mode " class="doc-image" loading="lazy" src="/cms_trial/assets/0ebbdfe8-fd89-41e4-b192-a956416f51bd.png"/><p><br/>The JQL generated for the example above is "<code>component not in (Admin, Architecture) OR component is EMPTY</code>," which is functionally equivalent to "(component != Admin AND component != Architecture) OR component is EMPTY."</p></li></ul><div class="panel panel-success"><p>You can also use the AND filtering mode for smart filters by enabling the AND operator.  </p></div><div class="panel panel-note"><p>The AND filtering mode is available only for fields with several values simultaneously (for example, Labels, multiple selection fields). For instance, users can search for issues with components A and B simultaneously. Still, searching for issues with priority High and Low simultaneously doesn't make sense because the priority field can have only one value at a time. For fields that cannot have several values simultaneously, only the OR and NOT filtering modes are available.</p></div><h2 id="dashboard-state-permalinks">Dashboard state permalinks</h2><p>Dashboard state permalinks are URLs that encode the current state of the <em>Rich Filter Controller</em> gadgets in the dashboard. Later, the generated URL can open the dashboard and restore the quick filters to the same state.  </p><p>The permalink can be generated by clicking the <strong>Permalink</strong> icon in the footer of the <em>Rich Filter Controller</em> gadget. It will then be automatically copied to the clipboard.</p><img alt="permalink" class="doc-image" loading="lazy" src="/cms_trial/assets/d4e54985-ceaf-439b-937e-c886fd6c50ac.png"/><p>The generated URL can be bookmarked or sent to another user. When the URL is opened, the rich filter gadgets are restored to the same state as when the link was generated—the same quick filters are selected in the <em>Rich Filter Controller</em> gadgets.</p><h2 id="presets">Presets</h2><p>Presets are saved combinations of quick filter selections that can be applied with a single click. Instead of reselecting multiple filters each time, each combination is saved as a preset so it can be applied with one click. They appear as toggle buttons at the top of the Rich Filter Controller, allowing users to instantly restore frequently used filter combinations without manually selecting individual filters each time.</p><p> The <strong>Show</strong> <strong>presets</strong>  (<span class="inline-icon" title="inline icon">▢</span>) option under <strong>Menu</strong> (<span class="inline-icon" title="inline icon">▢</span>) in the footer opens preset configuration when none exist, or shows the presets section when presets are already defined. </p><img alt="Show presets option" class="doc-image" loading="lazy" src="/cms_trial/assets/6c873eac-186b-492d-ac52-efa1c333d9ff.png"/><p>When creating a preset, users can configure their filters and customize both the label and display color to help them quickly identify different presets. </p><img alt="Save preset" class="doc-image" loading="lazy" src="/cms_trial/assets/39d13934-0d70-4805-b97d-eef767e02403.png"/><p>You can create multiple presets to suit various filtering needs, and switch between them by clicking the corresponding toggle buttons displayed at the top of the Rich Filter Controller.</p><img alt="Switch between presets" class="doc-image" loading="lazy" src="/cms_trial/assets/02368402-db15-44bc-8a72-a006398431aa.png"/><p>Modifying the presets or hiding the presets section is available through the <strong>Menu</strong> icon that appears when hovering the <strong>Presets</strong> (<span class="inline-icon" title="inline icon">▢</span>) icon</p><img alt="Edit presets" class="doc-image" loading="lazy" src="/cms_trial/assets/9d65d38b-035a-4c5b-a4e3-9688205ec740.png"/><p>The preset configuration is saved in the Jira user preferences, ensuring personal presets remain available when working with the dashboard on different browsers or computers.</p><h2 id="navigation-options">Navigation options </h2><p>You can move back and forth between previous filter states in the dashboard—just like navigating through your browser history. Simply click the <strong>Arrow</strong> icons (<span class="inline-icon" title="inline icon">▢</span>) to step through your filter history without the need to apply the filters again.</p><img alt="click to go back option" class="doc-image" loading="lazy" src="/cms_trial/assets/0775db38-757d-4a8d-8c3b-caccf88f20b4.png"/><img alt="Click to go forward" class="doc-image" loading="lazy" src="/cms_trial/assets/036e11d8-3b83-4d40-a4cc-a4e785f5e195.png"/><div class="panel panel-success"><p>You can use keyboard to navigate between the dynamic filters for the <em>Rich filter Controller </em>gadget. Navigate filter options using arrow keys, select filters with Enter, and close dropdowns with Esc. When you press Enter, the focus moves to the <strong>Apply</strong> button. So you can apply the filters using your keyboard.</p><p>You can also navigate between the footer controls, such as filtered issue count, Export, Permalink, Menu, JQL, Apply, and Cancel icons. Press Enter while focused on total issues to open the Issue Navigator and display all issues. Use arrows to navigate the Export or Menu options. Select the options with Enter or close the dropdown with Esc.</p></div><h3 id="learn-more">Learn more</h3><p><a href="/cms_trial/space/RFCDOC/783941937/Build+a+simple+interactive+Jira+dashboard/">Build a simple interactive Jira dashboard</a> </p>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">128 pages in this space, fetched live from Confluence via API.</p>
 <nav><ul><li><a href="/cms_trial/space/RFCDOC/3513253997/Data+residency+and+realm+persistence/">Data residency and realm persistence</a></li><li><details open><summary><a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud)</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/783941653/Overview/">Overview</a></li><li><a href="/cms_trial/space/RFCDOC/783942462/Get+started+with+Rich+Filters+for+Jira+Dashboards+for+Cloud/">Get started with Rich Filters for Jira Dashboards for Cloud</a></li><li><details><summary><a href="/cms_trial/space/RFCDOC/783941917/Tutorials/">Tutorials</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/783941927/Create+and+access+rich+filters/">Create and access rich filters</a></li><li><a href="/cms_trial/space/RFCDOC/783941937/Build+a+simple+interactive+Jira+dashboard/">Build a simple interactive Jira dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941943/Define+views+for+your+dashboard/">Define views for your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941950/Use+working+queries+in+your+dashboard/">Use working queries in your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941954/Add+dynamic+filtering+to+your+dashboard/">Add dynamic filtering to your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941961/Add+smart+filters+and+smart+columns+to+your+dashboard/">Add smart filters and smart columns to your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941968/Add+rich+filter+statistics+gadgets+to+your+dashboard/">Add rich filter statistics gadgets to your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941975/Add+rich+filter+two+dimensional+statistics+gadgets+to+your+dashboard/">Add rich filter two dimensional statistics gadgets to your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941981/Add+rich+filter+flexi+charts+gadgets+to+your+dashboard/">Add rich filter flexi charts gadgets to your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/2241069104/Create+presets+in+Rich+Filter+Controller/">Create presets in Rich Filter Controller</a></li><li><a href="/cms_trial/space/RFCDOC/2465137080/Permalinks/">Permalinks</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/RFCDOC/783942739/Use+cases/">Use cases</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/783942749/Efficiently+manage+support+requests+with+rich+filter+queues/">Efficiently manage support requests with rich filter queues</a></li><li><a href="/cms_trial/space/RFCDOC/783942775/Create+service+management+reports+with+rich+filter+charts+%26+statistics/">Create service management reports with rich filter charts &amp; statistics</a></li><li><a href="/cms_trial/space/RFCDOC/3019735127/Manage+technical+writing+tasks+across+multiple+teams/">Manage technical writing tasks across multiple teams</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/RFCDOC/783942482/User+guides/">User guides</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/783943671/Concepts/">Concepts</a></li><li><a href="/cms_trial/space/RFCDOC/783942528/Fundamentals/">Fundamentals</a></li><li><a href="/cms_trial/space/RFCDOC/783942654/Advanced/">Advanced</a></li><li><a href="/cms_trial/space/RFCDOC/783941673/Configure+Rich+Filters/">Configure Rich Filters</a></li><li><details open><summary><a href="/cms_trial/space/RFCDOC/783941679/Work+with+Rich+Filter+gadgets/">Work with Rich Filter gadgets</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/783941745/The+Rich+Filter+Controller+Gadget/" class="active">The Rich Filter Controller Gadget</a></li><li><a href="/cms_trial/space/RFCDOC/783941759/The+Rich+Filter+Results+Gadget/">The Rich Filter Results Gadget</a></li><li><a href="/cms_trial/space/RFCDOC/783942442/The+Rich+Filter+Issue+Activity+Stream+Gadget/">The Rich Filter Issue Activity Stream Gadget</a></li><li><a href="/cms_trial/space/RFCDOC/783941825/The+Rich+Filter+Simple+Counter+Gadget/">The Rich Filter Simple Counter Gadget</a></li><li><a href="/cms_trial/space/RFCDOC/783942058/The+Rich+Filter+Smart+Counter+Gadget/">The Rich Filter Smart Counter Gadget</a></li><li><a href="/cms_trial/space/RFCDOC/783942228/The+Rich+Filter+Simple+Gauges+Gadget/">The Rich Filter Simple Gauges Gadget</a></li><li><a href="/cms_trial/space/RFCDOC/783942246/The+Rich+Filter+Smart+Gauges+Gadget/">The Rich Filter Smart Gauges Gadget</a></li><li><a href="/cms_trial/space/RFCDOC/783941781/The+Rich+Filter+Statistics+Gadget/">The Rich Filter Statistics Gadget</a></li><li><a href="/cms_trial/space/RFCDOC/783941803/The+Rich+Filter+Two+Dimensional+Statistics+Gadget/">The Rich Filter Two Dimensional Statistics Gadget</a></li><li><a href="/cms_trial/space/RFCDOC/783941863/The+Rich+Filter+Flexi+Charts+Gadget/">The Rich Filter Flexi Charts Gadget</a></li><li><a href="/cms_trial/space/RFCDOC/783942386/The+Rich+Filter+Created+vs+Resolved+Chart+Gadget/">The Rich Filter Created vs Resolved Chart Gadget</a></li><li><a href="/cms_trial/space/RFCDOC/783942364/The+Rich+Filter+Time+Series+Chart+Gadget/">The Rich Filter Time Series Chart Gadget</a></li><li><a href="/cms_trial/space/RFCDOC/783942398/The+Rich+Filter+Text+Panel+Gadget/">The Rich Filter Text Panel Gadget</a></li></ul></details></li><li><a href="/cms_trial/space/RFCDOC/783942350/Migrate+to+Cloud/">Migrate to Cloud</a></li><li><a href="/cms_trial/space/RFCDOC/783942626/Reference/">Reference</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/RFCDOC/3178496025/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/3178692617/Allowlist+domains+for+Rich+Filters/">Allowlist domains for Rich Filters</a></li><li><a href="/cms_trial/space/RFCDOC/3374972942/Rich+filter+search/">Rich filter search</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/RFCDOC/783941853/Release+Notes/">Release Notes</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/3520364546/Release+notes+August+10th+2026/">Release notes August 10th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3498803215/Release+notes+July+30th+2026/">Release notes July 30th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3461742594/Release+notes+July+27th+2026/">Release notes July 27th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3429695594/Release+notes+July+13th+2026/">Release notes July 13th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3398041685/Release+notes+June+29th+2026/">Release notes June 29th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3377922150/Release+notes+June+2026/">Release notes June 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3171189121/Release+notes+April+2026/">Release notes April 2026</a></li><li><a href="/cms_trial/space/RFCDOC/2886631439/Release+notes+March+9th+2026/">Release notes March 9th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/2884370559/Release+notes+February+13th+2026/">Release notes February 13th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/2804908033/Release+notes+February+11th+2026/">Release notes February 11th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/2856255685/Release+notes+February+5th+2026/">Release notes February 5th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/2681667585/Release+notes+December+30th+2025/">Release notes December 30th 2025</a></li><li><a href="/cms_trial/space/RFCDOC/2509013096/Release+notes+December+4th+2025/">Release notes December 4th 2025</a></li><li><a href="/cms_trial/space/RFCDOC/2239004676/Release+notes+July+31st+2025/">Release notes July 31st 2025</a></li><li><a href="/cms_trial/space/RFCDOC/1935179889/Release+notes+April+8th+2025/">Release notes April 8th 2025</a></li><li><a href="/cms_trial/space/RFCDOC/1799028737/Release+notes+February+26th+2025/">Release notes February 26th 2025</a></li><li><a href="/cms_trial/space/RFCDOC/1624866957/Release+notes+January+13th+2025/">Release notes January 13th 2025</a></li><li><a href="/cms_trial/space/RFCDOC/1595769075/Release+notes+2021%E2%80%932024/">Release notes 2021–2024</a></li></ul></details></li></ul></details></li></ul></nav>
-</aside>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#about-the-rich-filter-controller-gadget">About the Rich Filter Controller gadget</a></li><li class="toc-level-2"><a href="#configuring-the-rich-filter-controller-gadget">Configuring the Rich Filter Controller gadget</a></li><li class="toc-level-2"><a href="#filtering-modes">Filtering modes</a></li><li class="toc-level-2"><a href="#dashboard-state-permalinks">Dashboard state permalinks</a></li><li class="toc-level-2"><a href="#presets">Presets</a></li><li class="toc-level-2"><a href="#navigation-options">Navigation options </a></li><li class="toc-level-3"><a href="#learn-more">Learn more</a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
@@ -264,6 +308,92 @@
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>Time / 7pace Timetracker Tab / Start Tracking Button Missing Questions | Appfire Docs</title>
 <meta name="description" content="How to completely remove Timetracker from a certain work item? (If the Timetracker tab is missing or you don’t see the button to track time, then…">
@@ -9,7 +19,15 @@
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Time / 7pace Timetracker Tab / Start Tracking Button Missing Questions",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/7TFA/1253539929/Time+%2F+7pace+Timetracker+Tab+%2F+Start+Tracking+Button+Missing+Questions/",
+  "dateModified": "2026-08-05T09:34:52.269Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,26 +37,52 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/3511091204/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253540447/Frequently+Asked+Questions/">Frequently Asked Questions</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Time / 7pace Timetracker Tab / Start Tracking Button Missing Questions</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/7TFA/pages/1253539929" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/7TFA/pages/1253539929" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>Time / 7pace Timetracker Tab / Start Tracking Button Missing Questions</h1>
-    <div class="page-meta">6 min read</div>
+    <div class="page-meta">Updated 1 month ago · 6 min read</div>
     <h2 id="question-how-do-i-remove-timetracker-from-a-work-item">Question - How do I remove Timetracker from a work item?</h2><p>How to completely remove Timetracker from a certain work item? (If the Timetracker tab is missing or you don’t see the button to track time, then implement the described procedure in reverse order)</p><h3 id="answer-adjust-the-item-s-layout-in-azure-devops">Answer - Adjust the item’s layout in Azure DevOps</h3><p>This can be worked around by adjusting a layout of a given item type in Azure DevOps settings (Organization Settings -&gt; Boards -&gt; Process -&gt; [Process name] -&gt; [Item type name]). There, you can hide 7pace Timetracker controls on item level (1); or even the whole 7pace tab (2). Just consider the fact that removing 7pace tab (2) will also strip you of the beneficial insights available directly on an item, so I would recommend hiding the Timetracker section on Item detail (1) only.</p><img alt="Time_Tracking_Button.png" class="doc-image" loading="lazy" src="/cms_trial/assets/1b4d9513-d729-40be-8603-e95a62c89301.png"/><h2 id="question-where-is-my-7pace-timetracker-tab-after-a-cloud-migration">Question - Where is my 7pace Timetracker tab after a Cloud migration?</h2><p>We recently switched from 7pace Timetracker (on-prem) for DevOps Server to 7pace Timetracker (cloud) for DevOps Services. The "7pace Timetracker" tab (formerly the "Time" tab) is not showing up on the work item form; is there a way to fix that? </p><h3 id="answer-modify-the-wi-xml-template">Answer - Modify the WI XML template</h3><p>Unfortunately, when you migrate from DevOps Server to DevOps Services, extensions are not inserted into the work item form template (it is marked as modified internally in DevOps Services). Therefore, you have to modify your WI xml templates in order to add 7pace Timetracker-specific fields like the "7pace Timetracker" tab and "Start Tracking" button on the work item form. <br/><br/>The basic process is described here: <a href="https://docs.microsoft.com/en-us/vsts/extend/develop/configure-workitemform-extensions?view=vsts">https://docs.microsoft.com/en-us/vsts/extend/develop/configure-workitemform-extensions?view=vsts</a> <br/><br/>In this specific case, do the following:<br/>1. Navigate to "https://dev.azure.com/[youraccount]/_admin/_process".<br/>2. Locate the process template you want to modify, click on "..." button and Export it. This will produce a zip archive with a lot of folders and files inside.<br/>3. Open the "WorkItem Tracking\TypeDefinitions" folder. There, you should see a lot (10-20) of xml files of Work Item Types.<br/>4. Select the types you want to have "Time" and "Work" added to the work item form (or maybe all) and apply edits to each xml:<br/>    a. Add this into your &lt;WebLayout&gt; as the first element:</p><p>&lt;Extensions&gt;<br/>   &lt;Extension Id="7pace.Timetracker"/&gt;<br/>&lt;/Extensions&gt;</p><p>   b. Add two (2) new groups to enable "Time" and "Work". <br/>       Work is located by default (but you can change the location as you wish) inside &lt;Page&gt; second &lt;Section&gt;, before closing &lt;/Section&gt; add:</p><p>&lt;GroupContribution Label="Work" Id="7pace.Timetracker.work-item-form-group" /&gt;</p><p>       Time is a "page", add it after &lt;/Page&gt;:</p><p>&lt;PageContribution Label="Time" Id="7pace.Timetracker.work-item-form-page" /&gt;</p><p>       Apply the same edits to all affected xmls.</p><p>5. Save and import Template. After that, "Time" and "Work" will reappear.</p><h2 id="question-on-premise-only-installation-of-devops-2019-failed-with-errors">Question (on-premise only) - Installation of DevOps 2019 failed with errors </h2><p>I was installing 7pace Timetracker for DevOps 2019 and after the installation of work item form contributions, I received an error message that installation had finished, but with errors.</p><h3 id="answer-on-premise-only-are-boards-disabled-for-your-projects">Answer (on-premise only) - Are Boards disabled for your projects? </h3><p>DevOps issues an error when Boards have been disabled for a project and you try to install work item form contributions.</p><p>Here is the error message you will see in the log if this is the case:</p><p><em>[Error found in log] Message: VS403121: Extension(s) "7pace.TimetrackerOnPremises" does not exist or has no work item form contribution.</em></p><p>If you see this error message in the log, please first check to see if Boards have been disabled for your projects.</p><img alt="Time_Tracking_Button_On_Premise_Installation.png" class="doc-image" loading="lazy" src="/cms_trial/assets/f714705e-256c-4a27-808e-202349e9d69e.png"/><img alt="Time_Tracking_Button_On_Premise_Installation_Details.png" class="doc-image" loading="lazy" src="/cms_trial/assets/42959076-02ff-43d4-8f9e-d038daf8905a.png"/><p>The screenshot above shows the list of enabled features for projects, including Boards. If the error message in question displays after installation and you have Board <em>disabled</em> for projects, rest assured, your work item's form contributions have been installed correctly to your projects.</p><h2 id="question-on-premise-only-installation-error-tfs237070">Question (on-premise only) - Installation error: TFS237070</h2><p>We were installing the on-premise version of 7pace Timetracker and after finally reaching the point where it begins adding the "Start Tracking" button and the "7pace Timetracker" tab (formerly the "Time" tab) to each work item dialog, an error occurred: "TF237070: Importing the definition failed. The definition you are trying to import did not validate against the schema. Edit the definition, then try to import it again."*</p><p>Can you help us to resolve this issue?</p><p><em>*Please note that the error message, above, may or may not contain additional details such as:</em><br/>- The element 'ALLOWEDVALUES' has incomplete content. List of possible elements expected: 'GLOBALLIST, LISTITEM'.<br/>- The element 'GROUPEDVALUES' has incomplete content. List of possible elements expected: 'GLOBALLIST, LISTITEM'.</p><h3 id="answer-on-premise-only-review-work-item-template-definitions">Answer (on-premise only) - Review work item template definitions</h3><p><strong>Background</strong></p><p><em>Note: This is for on-premise only.</em></p><p>During the installation of 7pace Timetracker, we adjust your work item template by adding 7pace Timetracker-specific elements or contributions such as the "Start Tracking" button and the "7pace Timetracker" tab.</p><p>The only way for us to add these extra elements to your work item template is described in the Microsoft article found <a href="https://docs.microsoft.com/en-us/azure/devops/extend/develop/configure-workitemform-extensions?view=vsts">here</a>. So, unfortunately, there is no way for us to deviate from this process on our side. </p><p>DevOps Server behaves inconsistently in that it may work properly with these broken xml definitions day-to-day, however when 7pace Timetracker tries to import them during our installation process, they fail validation and we are unable to add our 7pace Timetracker contributions like "Start Tracking" and the "7pace Timetracker" tab.</p><p><strong>Fix/Workaround</strong></p><p>The only way to avoid receiving these errors during installation is to fix the broken work item template definitions on your end or to use 7pace Timetracker without its contributions (just click the "Cancel" button on the 7pace Timetracker installation error dialog and you can use it without them).</p><p>One example of an issue that could be causing broken work item templates might be:</p><p>An error caused by a self-closing tags such as:<br/>&lt;SUGGESTEDVALUES some_parameters /&gt;</p><p>The valid tag should be:<br/>&lt;SUGGESTEDVALUES&gt;some_content_here&lt;/SUGGESTEDVALUES&gt;<br/><br/>Please contact  Microsoft DevOps Server support; they may be able to provide you with a fix or workaround. </p><h2 id="question-on-premise-only-where-is-my-7pace-timetracker-tab">Question (on-premise only) - Where is my 7pace Timetracker tab?</h2><p>We have multiple project collections within the same project collection, and we have some work items that show the "Time"/"7pace Timetracker" tab and some that don't. Why is this and is there a way to resolve it?</p><h3 id="answer-on-premise-only-use-the-timetracker-configuration-tool-to-reapply-extensions">Answer (on-premise only) - Use the Timetracker Configuration Tool to reapply extensions</h3><p>Starting with TFS 2018, we install the "Time"/"7pace Timetracker" tab and "Start Tracking" button into existing projects and collections during the installation of Timetracker or during an update. When a user creates a project after Timetracker installation, these Timetracker-specific add-ons are not configured for the new projects.</p><p>To fix this and update Work Item Extensions, like the Work Item "Time"/"7pace Timetracker" tab and "Start Tracking" button, please open the Timetracker Configuration Tool and reapply these extensions by clicking "Update Availability".</p><img alt="Time_Tracking_Button_Config_Tool.png" class="doc-image" loading="lazy" src="/cms_trial/assets/63932840-dbb0-40be-af61-229efb7f7216.png"/><h2 id="question-on-premise-only-missing-time-tab-on-tfs-epics-features-stories-and-tasks">Question (on-premise only_ - Missing “Time” tab on TFS Epics, Features, Stories, and Tasks</h2><p>We have TFS 2017 update 1, and on-premise Timetracker for TFS, but we don't see the “Time” tab on TFS Epics, Features, Stories and Tasks. How do we enable the "Time" tab on the work item form? Answer (on-premise only)</p><h3 id="answer-known-issue-in-tfs2017">Answer - Known issue in TFS2017</h3><p>This is a known issue in TFS 2017 - TFS has recently updated the work item dialog form, and users can choose to use the old or new form. Unfortunately, the "Time" tab won't work on the old work item form, which is why you don't see it. We currently have this in our backlog and will update you when we implement it.</p><p>To get the "Time" tab working on the new work item form, please see the instructions below on how to configure TFS to use this new form:</p><img alt="Time_Tracking_Button_TFS_Dashboard.png" class="doc-image" loading="lazy" src="/cms_trial/assets/da95b3c0-94ae-4046-ad13-e62d570b20ac.png"/>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">146 pages in this space, fetched live from Confluence via API.</p>
-<nav><ul><li><details open><summary><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a></summary><ul><li><details><summary><a href="/cms_trial/space/7TFA/1253540271/Get+started/">Get started</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540433/7pace+Timetracker+for+developers/">7pace Timetracker for developers</a></li><li><a href="/cms_trial/space/7TFA/1253540439/7pace+Timetracker+for+managers/">7pace Timetracker for managers</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/3482517944/Admin+guide/">Admin guide</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540127/Installation+and+Data+Security/">Installation and Data Security</a></li><li><a href="/cms_trial/space/7TFA/2193557481/Authorization+methods/">Authorization methods</a></li><li><a href="/cms_trial/space/7TFA/1253540254/API+%26+Reporting/">API &amp; Reporting</a></li><li><a href="/cms_trial/space/7TFA/1253540242/Apps/">Apps</a></li><li><a href="/cms_trial/space/7TFA/3488055333/App+configuration/">App configuration</a></li><li><a href="/cms_trial/space/7TFA/1253539917/7pace+Timetracker+Legacy+Versions+and+Legacy+TFS/">7pace Timetracker Legacy Versions and Legacy TFS</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/3482780186/User+guide/">User guide</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253539966/Add+Time+Dialog/">Add Time Dialog</a></li><li><a href="/cms_trial/space/7TFA/1253539860/Work+item+form/">Work item form</a></li><li><a href="/cms_trial/space/7TFA/1253540085/Budgets/">Budgets</a></li><li><a href="/cms_trial/space/7TFA/1253540717/Iterations/">Iterations</a></li><li><a href="/cms_trial/space/7TFA/1253539865/Approvals/">Approvals</a></li><li><a href="/cms_trial/space/7TFA/1253540013/Times+Explorer/">Times Explorer</a></li><li><a href="/cms_trial/space/7TFA/1253540070/Monthly+view/">Monthly view</a></li><li><a href="/cms_trial/space/7TFA/1547173906/Weekly+view/">Weekly view</a></li><li><a href="/cms_trial/space/7TFA/1253540328/Timesheet/">Timesheet</a></li><li><a href="/cms_trial/space/7TFA/2935357478/Connect+calendar/">Connect calendar</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/7TFA/3511091204/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/7TFA/1361084424/7pace+Product+Support/">7pace Product Support</a></li><li><details open><summary><a href="/cms_trial/space/7TFA/1253540447/Frequently+Asked+Questions/">Frequently Asked Questions</a></summary><ul><li><a href="/cms_trial/space/7TFA/1322549249/7pace+Timetracker+Documentation+Space+and+Support+Portal+FAQ/">7pace Timetracker Documentation Space and Support Portal FAQ</a></li><li><a href="/cms_trial/space/7TFA/3357016067/7pace+Timetracker+for+Azure+DevOps+Pricing+Increase+FAQ/">7pace Timetracker for Azure DevOps Pricing Increase FAQ</a></li><li><a href="/cms_trial/space/7TFA/1253540297/Running+DevOps+with+a+load+balancer+Timetracker+configuration/">Running DevOps with a load balancer Timetracker configuration</a></li><li><a href="/cms_trial/space/7TFA/1253540333/%22Timetracker+is+taking+longer+than+expected+to+load%22+troubleshooting+guide+(on-prem+only)/">"Timetracker is taking longer than expected to load" troubleshooting guide (on-prem only)</a></li><li><a href="/cms_trial/space/7TFA/1253540232/7pace+Timetracker+API%27s/">7pace Timetracker API's</a></li><li><a href="/cms_trial/space/7TFA/1253539845/Importing+time+(worklogs)+into+7pace+Timetracker/">Importing time (worklogs) into 7pace Timetracker</a></li><li><a href="/cms_trial/space/7TFA/1253540753/7pace+Timetracker+migration+questions/">7pace Timetracker migration questions</a></li><li><a href="/cms_trial/space/7TFA/1253540237/How+to+limit+users+based+on+roles%2C+hide+or+make+visible+records+from+other+users/">How to limit users based on roles, hide or make visible records from other users</a></li><li><a href="/cms_trial/space/7TFA/1253539850/Find+users+and+work+items+without+tracked+time/">Find users and work items without tracked time</a></li><li><a href="/cms_trial/space/7TFA/1253540768/Subscription%2FLicensing+Questions/">Subscription/Licensing Questions</a></li><li><a href="/cms_trial/space/7TFA/1253540352/What+is+the+Service+Account+used+for%3F/">What is the Service Account used for?</a></li><li><a href="/cms_trial/space/7TFA/1253539973/7pace+Timetracker+Reporting+and+API+common+errors+and+states.+Why+is+my+Reporting+or+API+not+working%3F/">7pace Timetracker Reporting and API common errors and states. Why is my Reporting or API not working?</a></li><li><a href="/cms_trial/space/7TFA/1253539956/Work+Item+Automation+Questions+-+How+to+utilize+Completed+and+Remaining+work%2C+Original+Estimate%2C+Effort+and+Pace/">Work Item Automation Questions - How to utilize Completed and Remaining work, Original Estimate, Effort and Pace</a></li><li><a href="/cms_trial/space/7TFA/1253539912/Why+am+I+seeing+%22This+door+is+locked%22+when+trying+to+access+pages+within+Timetracker%3F/">Why am I seeing "This door is locked" when trying to access pages within Timetracker?</a></li><li><a href="/cms_trial/space/7TFA/1253539929/Time+%2F+7pace+Timetracker+Tab+%2F+Start+Tracking+Button+Missing+Questions/" class="active">Time / 7pace Timetracker Tab / Start Tracking Button Missing Questions</a></li><li><a href="/cms_trial/space/7TFA/1253540281/7pace+Timetracker+%22taking+longer+than+expected+to+load%22+questions/">7pace Timetracker "taking longer than expected to load" questions</a></li><li><a href="/cms_trial/space/7TFA/1253540181/Timetracker+displays+that+a+work+item+does+not+exist+or+that+I+do+not+have+permissions+to+read+it/">Timetracker displays that a work item does not exist or that I do not have permissions to read it</a></li><li><a href="/cms_trial/space/7TFA/1253540018/Why+do+some+budgets+on+Times+Explorer+display+with+an+exclamation+mark+(%22%21%22)+before+the+name%3F/">Why do some budgets on Times Explorer display with an exclamation mark ("!") before the name?</a></li><li><a href="/cms_trial/space/7TFA/1253539994/Why+am+I+getting+a+message+saying++%22Error+calling+DevOps+API.+Provided+application+token+signature+is+not+present+or+is+invalid%22+in+an+on-prem+deployment+of+Timetracker%3F/">Why am I getting a message saying  "Error calling DevOps API. Provided application token signature is not present or is invalid" in an on-prem deployment of Timetracker?</a></li><li><a href="/cms_trial/space/7TFA/1253540276/Windows+app+pairing+questions/">Windows app pairing questions</a></li><li><a href="/cms_trial/space/7TFA/1253540763/How+do+I+change+the+date+format+and+timezone+in+7pace+Timetracker%3F/">How do I change the date format and timezone in 7pace Timetracker?</a></li><li><a href="/cms_trial/space/7TFA/1253540729/Why+is+my+new+user%27s+name+not+appearing+in+the+list+of+users+throughout+Timetracker+or+when+I+try+to+import+their+time%3F/">Why is my new user's name not appearing in the list of users throughout Timetracker or when I try to import their time?</a></li><li><a href="/cms_trial/space/7TFA/1253540052/Information+on+7pace+Timetracker%E2%80%99s+use+of+cookies/">Information on 7pace Timetracker’s use of cookies</a></li><li><a href="/cms_trial/space/7TFA/1253540008/Who+are+7pace+Timetracker%27s+Service+Providers%3F/">Who are 7pace Timetracker's Service Providers?</a></li><li><a href="/cms_trial/space/7TFA/1253540142/Authorization+and+Token+Questions/">Authorization and Token Questions</a></li></ul></details></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/1253539885/Release+Notes/">Release Notes</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540249/7pace+Timetracker+for+Azure+DevOps+Release+Notes/">7pace Timetracker for Azure DevOps Release Notes</a></li><li><a href="/cms_trial/space/7TFA/1253540290/Legacy+Release+Notes/">Legacy Release Notes</a></li></ul></details></li></ul></details></li></ul></nav>
-</aside>
+<nav><ul><li><details open><summary><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a></summary><ul><li><details><summary><a href="/cms_trial/space/7TFA/1253540271/Get+started+with+7pace+Timetracker+for+Azure+DevOps/">Get started with 7pace Timetracker for Azure DevOps</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540433/7pace+Timetracker+for+developers/">7pace Timetracker for developers</a></li><li><a href="/cms_trial/space/7TFA/1253540439/7pace+Timetracker+for+managers/">7pace Timetracker for managers</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/3482517944/Admin+guide/">Admin guide</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540127/Installation+and+Data+Security/">Installation and Data Security</a></li><li><a href="/cms_trial/space/7TFA/2193557481/Authorization+methods/">Authorization methods</a></li><li><a href="/cms_trial/space/7TFA/1253540254/API+%26+Reporting/">API &amp; Reporting</a></li><li><a href="/cms_trial/space/7TFA/1253540242/Apps/">Apps</a></li><li><a href="/cms_trial/space/7TFA/3488055333/App+configuration/">App configuration</a></li><li><a href="/cms_trial/space/7TFA/1253539917/7pace+Timetracker+Legacy+Versions+and+Legacy+TFS/">7pace Timetracker Legacy Versions and Legacy TFS</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/3482780186/User+guide/">User guide</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253539966/Add+Time+Dialog/">Add Time Dialog</a></li><li><a href="/cms_trial/space/7TFA/1253539860/Work+item+form/">Work item form</a></li><li><a href="/cms_trial/space/7TFA/1253540085/Budgets/">Budgets</a></li><li><a href="/cms_trial/space/7TFA/1253540717/Iterations/">Iterations</a></li><li><a href="/cms_trial/space/7TFA/1253539865/Approvals/">Approvals</a></li><li><a href="/cms_trial/space/7TFA/1253540013/Times+Explorer/">Times Explorer</a></li><li><a href="/cms_trial/space/7TFA/1253540070/Monthly+view/">Monthly view</a></li><li><a href="/cms_trial/space/7TFA/1547173906/Weekly+view/">Weekly view</a></li><li><a href="/cms_trial/space/7TFA/1253540328/Timesheet/">Timesheet</a></li><li><a href="/cms_trial/space/7TFA/2935357478/Connect+calendar/">Connect calendar</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/7TFA/3511091204/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/7TFA/1361084424/7pace+Product+Support/">7pace Product Support</a></li><li><details open><summary><a href="/cms_trial/space/7TFA/1253540447/Frequently+Asked+Questions/">Frequently Asked Questions</a></summary><ul><li><a href="/cms_trial/space/7TFA/1322549249/7pace+Timetracker+Documentation+Space+and+Support+Portal+FAQ/">7pace Timetracker Documentation Space and Support Portal FAQ</a></li><li><a href="/cms_trial/space/7TFA/3357016067/7pace+Timetracker+for+Azure+DevOps+Pricing+Increase+FAQ/">7pace Timetracker for Azure DevOps Pricing Increase FAQ</a></li><li><a href="/cms_trial/space/7TFA/1253540297/Running+DevOps+with+a+load+balancer+Timetracker+configuration/">Running DevOps with a load balancer Timetracker configuration</a></li><li><a href="/cms_trial/space/7TFA/1253540333/%22Timetracker+is+taking+longer+than+expected+to+load%22+troubleshooting+guide+(on-prem+only)/">"Timetracker is taking longer than expected to load" troubleshooting guide (on-prem only)</a></li><li><a href="/cms_trial/space/7TFA/1253540232/7pace+Timetracker+API%27s/">7pace Timetracker API's</a></li><li><a href="/cms_trial/space/7TFA/1253539845/Importing+time+(worklogs)+into+7pace+Timetracker/">Importing time (worklogs) into 7pace Timetracker</a></li><li><a href="/cms_trial/space/7TFA/1253540753/7pace+Timetracker+migration+questions/">7pace Timetracker migration questions</a></li><li><a href="/cms_trial/space/7TFA/1253540237/How+to+limit+users+based+on+roles%2C+hide+or+make+visible+records+from+other+users/">How to limit users based on roles, hide or make visible records from other users</a></li><li><a href="/cms_trial/space/7TFA/1253539850/Find+users+and+work+items+without+tracked+time/">Find users and work items without tracked time</a></li><li><a href="/cms_trial/space/7TFA/1253540768/Subscription%2FLicensing+Questions/">Subscription/Licensing Questions</a></li><li><a href="/cms_trial/space/7TFA/1253540352/What+is+the+Service+Account+used+for%3F/">What is the Service Account used for?</a></li><li><a href="/cms_trial/space/7TFA/1253539973/7pace+Timetracker+Reporting+and+API+common+errors+and+states.+Why+is+my+Reporting+or+API+not+working%3F/">7pace Timetracker Reporting and API common errors and states. Why is my Reporting or API not working?</a></li><li><a href="/cms_trial/space/7TFA/1253539956/Work+Item+Automation+Questions+-+How+to+utilize+Completed+and+Remaining+work%2C+Original+Estimate%2C+Effort+and+Pace/">Work Item Automation Questions - How to utilize Completed and Remaining work, Original Estimate, Effort and Pace</a></li><li><a href="/cms_trial/space/7TFA/1253539912/Why+am+I+seeing+%22This+door+is+locked%22+when+trying+to+access+pages+within+Timetracker%3F/">Why am I seeing "This door is locked" when trying to access pages within Timetracker?</a></li><li><a href="/cms_trial/space/7TFA/1253539929/Time+%2F+7pace+Timetracker+Tab+%2F+Start+Tracking+Button+Missing+Questions/" class="active">Time / 7pace Timetracker Tab / Start Tracking Button Missing Questions</a></li><li><a href="/cms_trial/space/7TFA/1253540281/7pace+Timetracker+%22taking+longer+than+expected+to+load%22+questions/">7pace Timetracker "taking longer than expected to load" questions</a></li><li><a href="/cms_trial/space/7TFA/1253540181/Timetracker+displays+that+a+work+item+does+not+exist+or+that+I+do+not+have+permissions+to+read+it/">Timetracker displays that a work item does not exist or that I do not have permissions to read it</a></li><li><a href="/cms_trial/space/7TFA/1253540018/Why+do+some+budgets+on+Times+Explorer+display+with+an+exclamation+mark+(%22%21%22)+before+the+name%3F/">Why do some budgets on Times Explorer display with an exclamation mark ("!") before the name?</a></li><li><a href="/cms_trial/space/7TFA/1253539994/Why+am+I+getting+a+message+saying++%22Error+calling+DevOps+API.+Provided+application+token+signature+is+not+present+or+is+invalid%22+in+an+on-prem+deployment+of+Timetracker%3F/">Why am I getting a message saying  "Error calling DevOps API. Provided application token signature is not present or is invalid" in an on-prem deployment of Timetracker?</a></li><li><a href="/cms_trial/space/7TFA/1253540276/Windows+app+pairing+questions/">Windows app pairing questions</a></li><li><a href="/cms_trial/space/7TFA/1253540763/How+do+I+change+the+date+format+and+timezone+in+7pace+Timetracker%3F/">How do I change the date format and timezone in 7pace Timetracker?</a></li><li><a href="/cms_trial/space/7TFA/1253540729/Why+is+my+new+user%27s+name+not+appearing+in+the+list+of+users+throughout+Timetracker+or+when+I+try+to+import+their+time%3F/">Why is my new user's name not appearing in the list of users throughout Timetracker or when I try to import their time?</a></li><li><a href="/cms_trial/space/7TFA/1253540052/Information+on+7pace+Timetracker%E2%80%99s+use+of+cookies/">Information on 7pace Timetracker’s use of cookies</a></li><li><a href="/cms_trial/space/7TFA/1253540008/Who+are+7pace+Timetracker%27s+Service+Providers%3F/">Who are 7pace Timetracker's Service Providers?</a></li><li><a href="/cms_trial/space/7TFA/1253540142/Authorization+and+Token+Questions/">Authorization and Token Questions</a></li></ul></details></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/1253540249/7pace+Timetracker+for+Azure+DevOps+Release+Notes/">7pace Timetracker for Azure DevOps Release Notes</a></summary><ul><li><a href="/cms_trial/space/7TFA/3509223505/Release+notes+5.100/">Release notes 5.100</a></li><li><a href="/cms_trial/space/7TFA/3466657955/Release+notes+5.99/">Release notes 5.99</a></li><li><a href="/cms_trial/space/7TFA/3413082694/Release+notes+5.98/">Release notes 5.98</a></li><li><a href="/cms_trial/space/7TFA/3394044151/Release+notes+5.97/">Release notes 5.97</a></li><li><a href="/cms_trial/space/7TFA/3306487975/Release+notes+5.96/">Release notes 5.96</a></li><li><a href="/cms_trial/space/7TFA/3199172612/Release+notes+5.95/">Release notes 5.95</a></li><li><a href="/cms_trial/space/7TFA/3157721151/Release+notes+5.94/">Release notes 5.94</a></li></ul></details></li></ul></details></li></ul></nav>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#question-how-do-i-remove-timetracker-from-a-work-item">Question - How do I remove Timetracker from a work item?</a></li><li class="toc-level-3"><a href="#answer-adjust-the-item-s-layout-in-azure-devops">Answer - Adjust the item’s layout in Azure DevOps</a></li><li class="toc-level-2"><a href="#question-where-is-my-7pace-timetracker-tab-after-a-cloud-migration">Question - Where is my 7pace Timetracker tab after a Cloud migration?</a></li><li class="toc-level-3"><a href="#answer-modify-the-wi-xml-template">Answer - Modify the WI XML template</a></li><li class="toc-level-2"><a href="#question-on-premise-only-installation-of-devops-2019-failed-with-errors">Question (on-premise only) - Installation of DevOps 2019 failed with errors </a></li><li class="toc-level-3"><a href="#answer-on-premise-only-are-boards-disabled-for-your-projects">Answer (on-premise only) - Are Boards disabled for your projects? </a></li><li class="toc-level-2"><a href="#question-on-premise-only-installation-error-tfs237070">Question (on-premise only) - Installation error: TFS237070</a></li><li class="toc-level-3"><a href="#answer-on-premise-only-review-work-item-template-definitions">Answer (on-premise only) - Review work item template definitions</a></li><li class="toc-level-2"><a href="#question-on-premise-only-where-is-my-7pace-timetracker-tab">Question (on-premise only) - Where is my 7pace Timetracker tab?</a></li><li class="toc-level-3"><a href="#answer-on-premise-only-use-the-timetracker-configuration-tool-to-reapply-extensions">Answer (on-premise only) - Use the Timetracker Configuration Tool to reapply extensions</a></li><li class="toc-level-2"><a href="#question-on-premise-only-missing-time-tab-on-tfs-epics-features-stories-and-tasks">Question (on-premise only_ - Missing “Time” tab on TFS Epics, Features, Stories, and Tasks</a></li><li class="toc-level-3"><a href="#answer-known-issue-in-tfs2017">Answer - Known issue in TFS2017</a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
@@ -264,6 +308,92 @@
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>Extended Search filters | Appfire Docs</title>
 <meta name="description" content="Extended Search filters let you save and reuse advanced JQL queries across Jira and other supported apps. In JQL Search Extensions for Jira, you can…">
@@ -9,7 +19,15 @@
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Extended Search filters",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/JQLSEARCH/604209567/Extended+Search+filters/",
+  "dateModified": "2026-07-02T11:05:59.283Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,26 +37,52 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209972/JQL+Search+Extensions+(Cloud)/">JQL Search Extensions (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209802/Get+started+with+JQL+Search+Extensions+for+Jira/">Get started with JQL Search Extensions for Jira</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Extended Search filters</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JQLSEARCH/pages/604209567" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JQLSEARCH/pages/604209567" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>Extended Search filters</h1>
-    <div class="page-meta">6 min read</div>
+    <div class="page-meta">Updated 2 months ago · 6 min read</div>
     <h2 id="what-are-extended-search-filters">What are Extended Search Filters</h2><p>Extended Search filters let you save and reuse advanced JQL queries across Jira and other supported apps. In JQL Search Extensions for Jira, you can create Extended Search filters to simplify complex issue searches, share reusable queries, and use the same filter in dashboards, reports, automation rules, and integrations. This page explains how to create, manage, sync, share, and use Extended Search filters in Jira.</p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p><strong>Extended Search filters page</strong></p></th><th><p><strong>Jira filters list including Extended Search filters</strong></p></th></tr><tr><td><img alt="Extended Search filters page showing saved filter names, owners, and sync status." class="doc-image" loading="lazy" src="/cms_trial/assets/bcea755e-c230-4871-b1f4-e1ce82f2921d.png"/></td><td><img alt="Jira filters list displaying Extended Search filters alongside standard Jira filters." class="doc-image" loading="lazy" src="/cms_trial/assets/482b4d62-33a0-47a7-b7e2-09fde60e2e3c.png"/></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><div class="panel panel-note"><p>There are important differences to remember when managing filter permissions and editing filter names and queries. The following sections explain where to perform specific actions.</p></div><h2 id="create-an-extended-search-filter">Create an Extended Search filter</h2><ol><li><p>On the <em>Extended Search</em> page, run a JQL query. </p></li><li><p>Once the search results are displayed, click <strong>Save the query as a filter</strong>.<br/></p><img alt="Extended Search results page with the Save query as a filter button highlighted." class="doc-image" loading="lazy" src="/cms_trial/assets/ed112bdc-32fc-4187-bb8b-f86b83bce9c5.png"/></li><li><p>In the <em>Save query as a filter</em> window, enter a filter name, then click <strong>Save</strong>. Filter names should be unique.<br/></p><img alt="Save query as a filter window showing the filter name field and Save button." class="doc-image" loading="lazy" src="/cms_trial/assets/21734514-8984-471d-bd8d-ee4a1e44da69.png"/><p>You can now search with your filter in Jira search and everywhere else, for example, <code>filter="All child levels - all projects"</code>.</p></li></ol><div class="panel panel-note"><p>Filters are shared with other authenticated users by default. You can make it private or share it with more people in Jira <a href="https://support.atlassian.com/jira-cloud-administration/docs/manage-shared-filters/">filter permissions management</a>.</p></div><h2 id="use-extended-search-filters-in-jql-queries">Use Extended Search filters in JQL queries</h2><p>You can apply an Extended Search filter to a JQL query in Jira, Extended Search, and in other applications using the following expression: </p><p><code>filter="YOUR FILTER NAME"</code></p><h3 id="extend-other-apps">Extend other apps</h3><p>Saved Extended Search filters can be used in other apps for more refined issue searches. For example, you can use an Extended Search filter to set the scope for post functions in JSU Automation Suite for Jira Workflows and in JMWE to set the scope for event-based and scheduled actions. See <a href="/cms_trial/space/JQLSEARCH/1120043993/App+integrations/">App integrations </a>to learn more about how you can use filters in other Appfire apps, Jira, and third-party solutions.</p><h3 id="use-filters-in-reports-and-dashboards">Use filters in reports and dashboards</h3><p>You can use your Extended Search filters in your Jira dashboard gadgets for more precise reporting. See our <a href="/cms_trial/space/JQLSEARCH/604209757/Use+cases/">use cases</a> to learn how.</p><h2 id="manage-extended-search-filters">Manage Extended Search filters</h2><p>The <em>Extended Search filters</em> page displays the details of your saved Extended Search filters. If you have several filters, you can search by filter name and owner. </p><p><strong>To view the Extended Search filters page:</strong></p><ol><li><p>Go to <strong>Apps</strong> &gt; <strong>JQL Search Extensions</strong>.</p></li><li><p>In the left sidebar, select <strong>Extended Search filters</strong>. The list of Extended Search filters displays.</p></li></ol><p>From the <em>Actions</em> menu, you can:</p><ul><li><p>Open the filter in Jira search,</p></li><li><p>Manually sync the filter,</p></li><li><p>Edit the filter JQL, </p></li><li><p>Edit the filter name, and</p></li><li><p>Delete a filter.</p></li></ul><div class="panel panel-note"><p>Editing or deleting an Extended Search filter should always be done from the <em>Extended Search filters</em> page, not directly in Jira.</p></div><img alt="Extended Search results page with the Actions button for the My Links Count Filter Name highlighted and opened." class="doc-image" loading="lazy" src="/cms_trial/assets/2cee0f3e-1aa6-411c-bf91-f03eca69b899.png"/><h3 id="sync-a-filter-manually">Sync a filter manually</h3><div class="panel panel-note"><p>Filters that you regularly use are automatically indexed (<strong>synced</strong>) every few minutes. If you do not use a filter for 7 days or more, it won’t be synced automatically. </p></div><p>If several filters are used across your instance, you can prioritize a sync to ensure critical filters are up to date when needed. The <em>Last Reindexed</em> column shows the time of the last sync and the <span class="status-lozenge">no sync</span> status of filters that are not included in the automatic sync process.<br/></p><img alt="Screenshot of the Extended Search filters page with the no sync status highlighted." class="doc-image" loading="lazy" src="/cms_trial/assets/95abaeb5-a299-4f08-8da2-55b510e8edf7.png"/><p> <strong>To perform a manual sync:</strong></p><ol><li><p>Go to the <em>Extended Search filters</em> page and locate the required filter.</p></li><li><p>In the <em>Actions</em> column, click the <strong>More options …</strong> icon, then select <strong>Sync filter </strong>from the list of actions. A status message displays.</p></li><li><p>Once the sync is complete, click <strong>Confirm</strong>. Do not close the web page during a manual sync.</p></li></ol><h3 id="edit-a-filter-query">Edit a filter query</h3><p><strong>To edit a filter query:</strong></p><ol><li><p>Go to the <em>Extended Search filters</em> page and locate the required filter.</p></li><li><p>In the <em>Actions</em> column, click the <strong>More options …</strong> icon, then select <strong>Edit query</strong>.</p></li><li><p>Enter a new query and click the <strong>Search </strong>icon.</p></li><li><p> Click <strong>Save</strong>.<strong> </strong>The edited filter appears on the <em>Extended Search filters</em> page.</p></li></ol><h3 id="rename-a-filter">Rename a filter</h3><div class="panel panel-warning"><p>If you change the filter name, you need to update all references to the filter name in your Jira JQL queries and any third-party apps. Filter names should be unique.</p></div><p><strong>To change a filter name:</strong></p><ol><li><p>Go to the <em>Extended Search filters</em> page and locate the required filter.</p></li><li><p>In the <em>Actions</em> column, click the <strong>More options</strong> icon, then select <strong>Edit name</strong>.</p></li><li><p>Enter a new filter name, then click <strong>Save</strong>. </p></li></ol><h3 id="delete-a-filter">Delete a filter</h3><div class="panel panel-warning"><p>Do not delete filters directly in Jira. Always do it in the <em>Extended search filters</em> page.</p></div><p><strong>To delete a filter:</strong></p><ol><li><p>Go to the <em>Extended Search filters</em> page and locate the required filter.</p></li><li><p>In the <em>Actions</em> column, click the <strong>More options</strong> icon, then select <strong>Delete</strong>.</p></li><li><p>Click <strong>Delete</strong> to proceed.</p></li></ol><p>Filters are normally deleted in Jira during this process. If the filter was deleted in Jira before being deleted in JQL Search Extensions, you can still delete it from a list.</p><h2 id="filter-owners">Filter owners</h2><p>Admins can change the owner of shared filters in Jira. Once the owner is changed in Jira, you should wait a few minutes for JQL Search Extensions to detect the change. If the filter's owner changes, it is removed from the current user's filter list but not from the system. The new owner can use the filter.</p><p><strong>To change a filter owner:</strong></p><ol><li><p>From the top navigation bar in Jira, select <strong>Filters</strong> &gt; <strong>View all filters</strong> and locate the required filter.</p></li><li><p>Select the <strong>More options </strong>icon, then select <strong>Change owner</strong> from the list of options.</p></li><li><p>Select a new owner, then click<strong> Change owner</strong>.<br/></p><img alt="Filters page with the Filters tab highlighted and the Change Owner dialog opened." class="doc-image" loading="lazy" src="/cms_trial/assets/a6ddccee-e6d0-4dd3-ade3-77395d6b1af8.png"/></li></ol><div class="panel panel-note"><p>You can’t reverse a change to the filter owner. Only the new owner can make changes to the permissions.</p></div><h2 id="share-filters">Share filters</h2><p>Extended Search filters are shared with other authenticated Jira users by default. </p><p><strong>To change the filter permissions:</strong></p><ol><li><p>From the top navigation bar in Jira, select <strong>Filters</strong> &gt; <strong>View all filters </strong>and locate the required filter.</p></li><li><p>Select the <strong>More options </strong>icon, then select <strong>Edit</strong> from the list of options.</p></li><li><p>Under <em>Viewers</em> or <em>Editors</em>, select the desired permissions, then click <strong>Add</strong>. You can give edit permissions to groups or individual users. Learn more about <a href="https://support.atlassian.com/jira-software-cloud/docs/save-your-search-as-a-filter/#Savingyoursearchasafilter-sharing_filtersShareafilter">sharing Jira filters</a> in Atlassian’s documentation. </p></li><li><p>Once you have made all the required changes, click <strong>Save</strong>. </p><img alt="Edit filter dialog opened with the Viewers field highlighted and the My organization option selected." class="doc-image" loading="lazy" src="/cms_trial/assets/dc956faa-2d4e-468f-8117-a9753ba46140.png"/></li></ol><h2 id="limitations">Limitations</h2><p>Note the following limitations to Extended Search filters:</p><ul><li><p>currentUser(), votedIssues(), watchedIssues() always use the filter owner user session and evaluate the filter owner user.</p></li><li><p>If you haven't used a filter for seven days or more, it won’t be synced automatically. You can perform a manual sync to refresh your filter data anytime. Refer to the <em>Extended Search filters</em> page to confirm the last time your filters were synced correctly.</p></li></ul><div class="panel panel-warning"><p>Do not edit the JQL of a filter directly in Jira. The JQL is overwritten periodically by our sync service.</p></div>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">98 pages in this space, fetched live from Confluence via API.</p>
 <nav><ul><li><details open><summary><a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions for Jira</a></summary><ul><li><details open><summary><a href="/cms_trial/space/JQLSEARCH/604209972/JQL+Search+Extensions+(Cloud)/">JQL Search Extensions (Cloud)</a></summary><ul><li><details open><summary><a href="/cms_trial/space/JQLSEARCH/604209802/Get+started+with+JQL+Search+Extensions+for+Jira/">Get started with JQL Search Extensions for Jira</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/1856372983/Installation/">Installation</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209464/Extended+Search/">Extended Search</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209567/Extended+Search+filters/" class="active">Extended Search filters</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209677/Key+concepts/">Key concepts</a></li><li><a href="/cms_trial/space/JQLSEARCH/3217883178/Custom+functions+in+native+Jira+search/">Custom functions in native Jira search</a></li></ul></details></li><li><a href="/cms_trial/space/JQLSEARCH/604209757/Use+cases/">Use cases</a></li><li><a href="/cms_trial/space/JQLSEARCH/1120043993/App+integrations/">App integrations</a></li><li><a href="/cms_trial/space/JQLSEARCH/604210001/Video+tutorials/">Video tutorials</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209395/JQL+functions+and+keywords+reference/">JQL functions and keywords reference</a></li></ul></details></li><li><a href="/cms_trial/space/JQLSEARCH/604209729/Migrations/">Migrations</a></li><li><details><summary><a href="/cms_trial/space/JQLSEARCH/913997907/Release+notes/">Release notes</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/604209185/Release+notes+-+Cloud/">Release notes - Cloud</a></li><li><a href="/cms_trial/space/JQLSEARCH/604210041/Release+notes+-+Server%2FData+Center/">Release notes - Server/Data Center</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JQLSEARCH/918979098/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/1766293568/Troubleshooting/">Troubleshooting</a></li><li><a href="/cms_trial/space/JQLSEARCH/919273915/Appfire+support/">Appfire support</a></li><li><a href="/cms_trial/space/JQLSEARCH/919306596/Appfire+Trust+Center/">Appfire Trust Center</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209808/Data+storage/">Data storage</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JQLSEARCH/604209587/JQL+Search+Extensions+-+Data+Center/">JQL Search Extensions - Data Center</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/604209431/Get+started+with+JQL+Search+Extensions+for+Jira+Data+Center/">Get started with JQL Search Extensions for Jira Data Center</a></li><li><a href="/cms_trial/space/JQLSEARCH/1865482654/JQL+functions+reference/">JQL functions reference</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209740/Performance+tests+results/">Performance tests results</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209735/How+to+resolve+com.atlassian.jira.issue.search.ClauseTooComplexSearchException/">How to resolve com.atlassian.jira.issue.search.ClauseTooComplexSearchException</a></li></ul></details></li></ul></details></li></ul></nav>
-</aside>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#what-are-extended-search-filters">What are Extended Search Filters</a></li><li class="toc-level-2"><a href="#create-an-extended-search-filter">Create an Extended Search filter</a></li><li class="toc-level-2"><a href="#use-extended-search-filters-in-jql-queries">Use Extended Search filters in JQL queries</a></li><li class="toc-level-3"><a href="#extend-other-apps">Extend other apps</a></li><li class="toc-level-3"><a href="#use-filters-in-reports-and-dashboards">Use filters in reports and dashboards</a></li><li class="toc-level-2"><a href="#manage-extended-search-filters">Manage Extended Search filters</a></li><li class="toc-level-3"><a href="#sync-a-filter-manually">Sync a filter manually</a></li><li class="toc-level-3"><a href="#edit-a-filter-query">Edit a filter query</a></li><li class="toc-level-3"><a href="#rename-a-filter">Rename a filter</a></li><li class="toc-level-3"><a href="#delete-a-filter">Delete a filter</a></li><li class="toc-level-2"><a href="#filter-owners">Filter owners</a></li><li class="toc-level-2"><a href="#share-filters">Share filters</a></li><li class="toc-level-2"><a href="#limitations">Limitations</a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
@@ -264,6 +308,92 @@
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

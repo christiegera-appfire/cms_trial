@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>Get started with JQL Search Extensions for Jira | Appfire Docs</title>
 <meta name="description" content="JQL Search Extensions (JSE) for Jira Cloud helps you build advanced Jira Query Language (JQL) searches using extended keywords and functions. Use this…">
@@ -9,7 +19,15 @@
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Get started with JQL Search Extensions for Jira",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/JQLSEARCH/604209802/Get+started+with+JQL+Search+Extensions+for+Jira/",
+  "dateModified": "2026-07-02T07:51:35.967Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,26 +37,52 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209972/JQL+Search+Extensions+(Cloud)/">JQL Search Extensions (Cloud)</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Get started with JQL Search Extensions for Jira</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JQLSEARCH/pages/604209802" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JQLSEARCH/pages/604209802" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>Get started with JQL Search Extensions for Jira</h1>
-    <div class="page-meta">2 min read</div>
+    <div class="page-meta">Updated 2 months ago · 2 min read</div>
     <p>JQL Search Extensions (JSE) for Jira Cloud helps you build advanced Jira Query Language (JQL) searches using extended keywords and functions. Use this page to learn how JSE keywords and functions work, where to use them in Jira, and how to create more precise issue searches for reporting, troubleshooting, automation, and project management workflows.</p><div class="panel panel-warning"><p>Before using the app for the first time, check the status on the in-app <em>Get Started</em> page. If the Jira issues are still processing, wait until the process is complete. Using the app before the initial indexing is complete will result in inconsistent or inaccurate results.</p></div><h2 id="what-are-keywords-and-functions">What are keywords and functions?</h2><p>JQL Search Extensions (JSE) provides over 50 keywords and functions to deliver flexibility and precision to your issue searches in Jira Cloud.</p><h3 id="jse-keywords">JSE keywords</h3><p><a href="/cms_trial/space/JQLSEARCH/604209395/JQL+functions+and+keywords+reference/">JSE keywords</a> reference issue properties and act as terms for indexed search results. They make it faster and easier to build your searches in Jira Query Language (JQL). Auto-complete and suggestions also mean you don’t have to memorize all the keywords or operators.</p><p>Examples of keywords are <code>CommentedBy</code> or <code>AttachmentExtension. A simple JQL clause could be AttachmentExtension = png. This returns all issues with</code> an attached PNG file.</p><h3 id="jse-functions">JSE functions</h3><p><a href="/cms_trial/space/JQLSEARCH/604209395/JQL+functions+and+keywords+reference/">JSE functions</a> add precision to your searches using the parameters that you define for the query or calculations within the parentheses. Examples of functions are <code>childrenOfIssuesInQuery()</code> or <code>linkedIssuesOfQuery()</code> </p><p>When using a function, your query begins with <code>issue in</code>, for example, <br/><code>issue in linkedIssuesOfQuery("project=ACME", "is blocked by")</code> finds issues that block project ACME.</p><div class="panel panel-note"><p>To use JQL Search Extensions for Jira, you should know how to write and structure a JQL query. You should understand how to use functions and keywords to build relevant and precise search results. If you need help with JQL, refer to Atlassian’s support documentation <a href="https://support.atlassian.com/jira-software-cloud/docs/use-advanced-search-with-jira-query-language-jql/">https://support.atlassian.com/jira-software-cloud/docs/use-advanced-search-with-jira-query-language-jql/</a> </p></div><h2 id="where-can-i-use-jse">Where can I use JSE?</h2><h3 id="jse-keywords-2">JSE keywords</h3><ul><li><p>In Jira advanced search </p></li><li><p>In JSE’s <em>Extended Search</em> page</p></li></ul><p>In either case, type the JQL keyword or combine it with other JQL clauses in the issue search field. </p><img alt="Extended Search page showing a JQL keyword query used to find issues with specific attachment types." class="doc-image" loading="lazy" src="/cms_trial/assets/5705862f-20ed-47aa-a71d-6fddc9e9fd07.png"/><h3 id="jse-functions-2">JSE functions</h3><ul><li><p> In the <em>Extended Search</em> page<br/>You can create queries with functions and save them as filters to use in Jira. All functions are preceded by <code>issue in</code>, for example, <code>issue in dateCompare("duedate &lt; resolved")</code>.<br/></p><img alt="Extended Search page showing a JSE function query for linked Jira issues." class="doc-image" loading="lazy" src="/cms_trial/assets/ff69b916-5524-4c2f-b973-6bbd5c1d933d.png"/></li><li><p>In Jira advanced search<br/>Use JQL Search Extensions (JSE) custom functions directly in Jira's native advanced search. This lets you leverage powerful, non-native JQL functions without leaving your standard search workflow.<br/>Refer to <a href="/cms_trial/space/JQLSEARCH/3217883178/Custom+functions+in+native+Jira+search/">Custom functions in native Jira search</a> for more information on background processing and synchronization.</p></li></ul><div class="panel panel-success"><p>When you are starting out, keep the list of our <a href="/cms_trial/space/JQLSEARCH/604209395/JQL+functions+and+keywords+reference/">JQL functions and keywords</a> handy to find the ones you need. The <em>Extended Search</em> page also has a cheat sheet so you can find what you need, copy the syntax, or discover other functions and keywords.</p></div>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">98 pages in this space, fetched live from Confluence via API.</p>
 <nav><ul><li><details open><summary><a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions for Jira</a></summary><ul><li><details open><summary><a href="/cms_trial/space/JQLSEARCH/604209972/JQL+Search+Extensions+(Cloud)/">JQL Search Extensions (Cloud)</a></summary><ul><li><details open><summary><a href="/cms_trial/space/JQLSEARCH/604209802/Get+started+with+JQL+Search+Extensions+for+Jira/" class="active">Get started with JQL Search Extensions for Jira</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/1856372983/Installation/">Installation</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209464/Extended+Search/">Extended Search</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209567/Extended+Search+filters/">Extended Search filters</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209677/Key+concepts/">Key concepts</a></li><li><a href="/cms_trial/space/JQLSEARCH/3217883178/Custom+functions+in+native+Jira+search/">Custom functions in native Jira search</a></li></ul></details></li><li><a href="/cms_trial/space/JQLSEARCH/604209757/Use+cases/">Use cases</a></li><li><a href="/cms_trial/space/JQLSEARCH/1120043993/App+integrations/">App integrations</a></li><li><a href="/cms_trial/space/JQLSEARCH/604210001/Video+tutorials/">Video tutorials</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209395/JQL+functions+and+keywords+reference/">JQL functions and keywords reference</a></li></ul></details></li><li><a href="/cms_trial/space/JQLSEARCH/604209729/Migrations/">Migrations</a></li><li><details><summary><a href="/cms_trial/space/JQLSEARCH/913997907/Release+notes/">Release notes</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/604209185/Release+notes+-+Cloud/">Release notes - Cloud</a></li><li><a href="/cms_trial/space/JQLSEARCH/604210041/Release+notes+-+Server%2FData+Center/">Release notes - Server/Data Center</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JQLSEARCH/918979098/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/1766293568/Troubleshooting/">Troubleshooting</a></li><li><a href="/cms_trial/space/JQLSEARCH/919273915/Appfire+support/">Appfire support</a></li><li><a href="/cms_trial/space/JQLSEARCH/919306596/Appfire+Trust+Center/">Appfire Trust Center</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209808/Data+storage/">Data storage</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JQLSEARCH/604209587/JQL+Search+Extensions+-+Data+Center/">JQL Search Extensions - Data Center</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/604209431/Get+started+with+JQL+Search+Extensions+for+Jira+Data+Center/">Get started with JQL Search Extensions for Jira Data Center</a></li><li><a href="/cms_trial/space/JQLSEARCH/1865482654/JQL+functions+reference/">JQL functions reference</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209740/Performance+tests+results/">Performance tests results</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209735/How+to+resolve+com.atlassian.jira.issue.search.ClauseTooComplexSearchException/">How to resolve com.atlassian.jira.issue.search.ClauseTooComplexSearchException</a></li></ul></details></li></ul></details></li></ul></nav>
-</aside>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#what-are-keywords-and-functions">What are keywords and functions?</a></li><li class="toc-level-3"><a href="#jse-keywords">JSE keywords</a></li><li class="toc-level-3"><a href="#jse-functions">JSE functions</a></li><li class="toc-level-2"><a href="#where-can-i-use-jse">Where can I use JSE?</a></li><li class="toc-level-3"><a href="#jse-keywords-2">JSE keywords</a></li><li class="toc-level-3"><a href="#jse-functions-2">JSE functions</a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
@@ -264,6 +308,92 @@
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

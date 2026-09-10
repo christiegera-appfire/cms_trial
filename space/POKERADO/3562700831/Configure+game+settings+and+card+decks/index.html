@@ -1,15 +1,33 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>Configure game settings and card decks | Appfire Docs</title>
-<meta name="description" content="Go to Boards &gt; Planning Poker &gt; Settings to set defaults for Planning Poker. These are the defaults every new game starts with, but they can be overridden…">
+<meta name="description" content="Configure the default estimation fields and card decks used for new Planning Poker games. These settings apply to every new game you create, but you can…">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/cms_trial/tokens.css">
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Configure game settings and card decks",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/POKERADO/3562700831/Configure+game+settings+and+card+decks/",
+  "dateModified": "2026-08-28T14:21:47.702Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,27 +37,53 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/POKERADO/148307970/Planning+Poker+for+Azure+DevOps/">Planning Poker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/POKERADO/148307970/Planning+Poker+for+Azure+DevOps/">Planning Poker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/POKERADO/3341320392/Planning+Poker+game/">Planning Poker game</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Configure game settings and card decks</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/POKERADO/pages/3562700831" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/POKERADO/pages/3562700831" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>Configure game settings and card decks</h1>
-    <div class="page-meta">2 min read</div>
-    <p>Go to <strong>Boards &gt; Planning Poker &gt; Settings</strong> to set defaults for Planning Poker. These are the defaults every new game starts with, but they can be overridden per-game during <a href="/cms_trial/space/POKERADO/3315008376/Create+game/">game creation</a>.</p><img alt="contentId-3562700831" class="doc-image" loading="lazy" src="/cms_trial/assets/f4a4858d-ae71-45d0-a389-7832919ee29d.png"/><h2 id="estimation-field-and-card-deck-mapping">Estimation field and card deck mapping</h2><img alt="contentId-3562700831" class="doc-image" loading="lazy" src="/cms_trial/assets/33c3df18-a557-4d06-b2ed-8139623219e4.png"/><p>For each work item type in your organization (the exact list depends on your process template, for example User Story, Bug, and Task), you can set:</p><ul><li><p><strong>Estimation field</strong>: the Azure DevOps field a game's final estimate writes back to. This is a searchable dropdown listing every field on that work item type, including non-numeric fields like Title, State, or Priority, so pick a numeric field like Effort, Remaining Work, or Story Points. Choosing <strong>-- None --</strong> means estimates for that work item type won't be saved anywhere, the game still runs, but nothing gets written back.</p></li><li><p><strong>Estimation values</strong>: the voting deck estimators use for that work item type. See Card decks below for the available options.</p></li></ul><div class="panel panel-note"><p>Most work item types default to <strong>-- None --</strong>. If a game's estimates aren't saving, check this setting first.</p></div><h2 id="card-decks">Card decks</h2><p>Each work item type's Estimation values row has a deck-type dropdown and an editable value list. Available deck types:</p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p><strong>Deck type</strong></p></th><th><p><strong>Values</strong></p></th></tr><tr><td><p><strong>Fibonacci</strong></p></td><td><p><code>0, 1, 2, 3, 5, 8, 13</code></p></td></tr><tr><td><p><strong>Modified Fibonacci</strong></p></td><td><p><code>0, 0.5, 1, 2, 3, 5, 8, 13, 20, 40, 100</code></p></td></tr><tr><td><p><strong>T-Shirt</strong></p></td><td><p><code>XXS=0.5, XS=1, S=2, M=3, L=5, XL=8, XXL=13</code></p></td></tr><tr><td><p><strong>S/M/L</strong></p></td><td><p><code>S=1, M=3, L=5</code></p></td></tr><tr><td><p><strong>Custom</strong></p></td><td><p>Fully customizable to whatever values your team needs.</p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><p>To build a custom deck: pick <strong>Custom</strong> from the deck-type dropdown for that work item type, then edit the adjacent value list directly.</p><h2 id="extension-visibility">Extension visibility</h2><p>Planning Poker appears in the <em>Work Item details view</em> and the <em>Board view</em> based on the scopes granted when the app was installed. See <a href="/cms_trial/space/POKERADO/660308966/Requested+permissions/">Requested permissions</a>.</p>
+    <div class="page-meta">Updated 12 days ago · 2 min read</div>
+    <p><strong>Estimated time</strong>: About 5 minutes</p><p>Configure the default estimation fields and card decks used for new Planning Poker games. These settings apply to every new game you create, but you can override them during <a href="/cms_trial/space/POKERADO/3315008376/Create+game/">game creation</a>.</p><p>To open the settings page, go to <strong>Boards</strong> &gt; <strong>Planning Poker</strong> &gt; <strong>Settings</strong>.</p><h2 id="what-you-ll-configure">What you’ll configure</h2><p>On this page you can:</p><ul><li><p>Choose where estimates are saved for each work item type.</p></li><li><p>Select the default card deck used during estimation.</p></li><li><p>Create custom card decks.</p></li><li><p>Control where Planning Poker appears in Azure DevOps.</p></li></ul><h2 id="planning-poker-settings">Planning Poker settings</h2><img alt="Planning Poker Settings page showing default estimation fields, card deck mappings, and extension visibility settings." class="doc-image" loading="lazy" src="/cms_trial/assets/f4a4858d-ae71-45d0-a389-7832919ee29d.png"/><h2 id="estimation-field-and-card-deck-mapping">Estimation field and card deck mapping</h2><img alt="Work item type mapping showing estimation fields and assigned card decks." class="doc-image" loading="lazy" src="/cms_trial/assets/33c3df18-a557-4d06-b2ed-8139623219e4.png"/><p>For each Azure DevOps work item type in your organization (the exact list depends on your process template, for example User Story, Bug, and Task), you can set:</p><ul><li><p><strong>Estimation field</strong>: the Azure DevOps field a game's final estimate writes back to. This is a searchable dropdown listing every field on that work item type, including non-numeric fields like Title, State, or Priority, so pick a numeric field like Effort, Remaining Work, or Story Points. Choosing <strong>-- None --</strong> means estimates for that work item type won't be saved anywhere, the game still runs, but nothing gets written back.</p></li><li><p><strong>Estimation values</strong>: the voting deck estimators use for that work item type. See Card decks below for the available options.</p></li></ul><div class="panel panel-note"><p>Most work item types default to <strong>-- None --</strong>. If a game's estimates aren't saving, check this setting first.</p></div><h2 id="card-decks">Card decks</h2><p>Each work item type's Estimation values row has a deck-type dropdown and an editable value list. Available deck types:</p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p><strong>Deck type</strong></p></th><th><p><strong>Best for</strong></p></th><th><p><strong>Values</strong></p></th></tr><tr><td><p><strong>Fibonacci</strong></p></td><td><p>Most Scrum teams estimating relative effort</p></td><td><p><code>0, 1, 2, 3, 5, 8, 13</code></p></td></tr><tr><td><p><strong>Modified Fibonacci</strong></p></td><td><p>Teams using a wider estimation scale or fractional values</p></td><td><p><code>0, 0.5, 1, 2, 3, 5, 8, 13, 20, 40, 100</code></p></td></tr><tr><td><p><strong>T-Shirt</strong></p></td><td><p>High-level estimation and early planning</p></td><td><p><code>XXS=0.5, XS=1, S=2, M=3, L=5, XL=8, XXL=13</code></p></td></tr><tr><td><p><strong>S/M/L</strong></p></td><td><p>Simple relative sizing</p></td><td><p><code>S=1, M=3, L=5</code></p></td></tr><tr><td><p><strong>Custom</strong></p></td><td><p>Teams using their own estimation scale</p></td><td><p>Fully customizable to whatever values your team needs.</p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><h2 id="create-a-custom-card-deck">Create a custom card deck</h2><p>To create your own estimation deck:</p><ol><li><p>Select <strong>Custom</strong> for the work item type.</p></li><li><p>Edit the adjacent value list.</p></li><li><p>Save your changes.</p></li></ol><p>The custom values become the default deck for new Planning Poker games that use that work item type.</p><h2 id="extension-visibility">Extension visibility</h2><p>Planning Poker appears in the <em>Work Item details view</em> and the <em>Board view</em> based on the scopes granted when the app was installed. See <a href="/cms_trial/space/POKERADO/660308966/Requested+permissions/">Requested permissions</a>.</p>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">10 pages in this space, fetched live from Confluence via API.</p>
-<nav><ul><li><details open><summary><a href="/cms_trial/space/POKERADO/148307970/Planning+Poker+for+Azure+DevOps/">Planning Poker for Azure DevOps</a></summary><ul><li><a href="/cms_trial/space/POKERADO/415531958/Planning+Poker+for+ADO+becomes+paid/">Planning Poker for ADO becomes paid</a></li><li><details><summary><a href="/cms_trial/space/POKERADO/3008299028/Get+started+with+Planning+Poker/">Get started with Planning Poker</a></summary><ul><li><a href="/cms_trial/space/POKERADO/3341353014/Install+Planning+Poker+in+Azure+DevOps/">Install Planning Poker in Azure DevOps</a></li></ul></details></li><li><a href="/cms_trial/space/POKERADO/3559129251/Planning+Poker+for+Azure+DevOps+feature+overview/">Planning Poker for Azure DevOps feature overview</a></li><li><details open><summary><a href="/cms_trial/space/POKERADO/3341320392/Planning+Poker+game/">Planning Poker game</a></summary><ul><li><a href="/cms_trial/space/POKERADO/3315008376/Create+game/">Create game</a></li><li><a href="/cms_trial/space/POKERADO/3562700831/Configure+game+settings+and+card+decks/" class="active">Configure game settings and card decks</a></li><li><a href="/cms_trial/space/POKERADO/3560898577/Use+async+estimation+for+distributed+teams/">Use async estimation for distributed teams</a></li></ul></details></li></ul></details></li></ul></nav>
-</aside>
-  <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#estimation-field-and-card-deck-mapping">Estimation field and card deck mapping</a></li><li class="toc-level-2"><a href="#card-decks">Card decks</a></li><li class="toc-level-2"><a href="#extension-visibility">Extension visibility</a></li></ul></div></aside>
+<nav><ul><li><details open><summary><a href="/cms_trial/space/POKERADO/148307970/Planning+Poker+for+Azure+DevOps/">Planning Poker for Azure DevOps</a></summary><ul><li><a href="/cms_trial/space/POKERADO/415531958/Planning+Poker+for+ADO+becomes+paid/">Planning Poker for ADO becomes paid</a></li><li><a href="/cms_trial/space/POKERADO/3008299028/Get+started+with+Planning+Poker/">Get started with Planning Poker</a></li><li><a href="/cms_trial/space/POKERADO/3559129251/Planning+Poker+for+Azure+DevOps+feature+overview/">Planning Poker for Azure DevOps feature overview</a></li><li><details><summary><a href="/cms_trial/space/POKERADO/3341353014/Install+Planning+Poker+in+Azure+DevOps/">Install Planning Poker in Azure DevOps</a></summary><ul><li><a href="/cms_trial/space/POKERADO/660308966/Requested+permissions/">Requested permissions</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/POKERADO/3341320392/Planning+Poker+game/">Planning Poker game</a></summary><ul><li><a href="/cms_trial/space/POKERADO/3315008376/Create+game/">Create game</a></li><li><a href="/cms_trial/space/POKERADO/3562700831/Configure+game+settings+and+card+decks/" class="active">Configure game settings and card decks</a></li><li><a href="/cms_trial/space/POKERADO/3560898577/Use+async+estimation+for+distributed+teams/">Use async estimation for distributed teams</a></li></ul></details></li></ul></details></li></ul></nav>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
+  <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#what-you-ll-configure">What you’ll configure</a></li><li class="toc-level-2"><a href="#planning-poker-settings">Planning Poker settings</a></li><li class="toc-level-2"><a href="#estimation-field-and-card-deck-mapping">Estimation field and card deck mapping</a></li><li class="toc-level-2"><a href="#card-decks">Card decks</a></li><li class="toc-level-2"><a href="#create-a-custom-card-deck">Create a custom card deck</a></li><li class="toc-level-2"><a href="#extension-visibility">Extension visibility</a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
      portal, at a different path on the SAME domain. No custom OAuth
@@ -264,6 +308,92 @@
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

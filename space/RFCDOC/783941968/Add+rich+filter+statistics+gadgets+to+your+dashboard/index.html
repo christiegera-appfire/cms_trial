@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>Add rich filter statistics gadgets to your dashboard | Appfire Docs</title>
 <meta name="description" content="By the end of this tutorial, you will be able to configure and use Rich Filter Statistics gadgets and control the displayed data with a Rich Filter…">
@@ -9,7 +19,15 @@
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Add rich filter statistics gadgets to your dashboard",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/RFCDOC/783941968/Add+rich+filter+statistics+gadgets+to+your+dashboard/",
+  "dateModified": "2026-07-17T12:54:50.067Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,26 +37,52 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RFCDOC/3513253997/Data+residency+and+realm+persistence/">Rich Filters for Jira Dashboards (Cloud) Documentation</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941917/Tutorials/">Tutorials</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Add rich filter statistics gadgets to your dashboard</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/783941968" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/783941968" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>Add rich filter statistics gadgets to your dashboard</h1>
-    <div class="page-meta">4 min read</div>
+    <div class="page-meta">Updated 1 month ago · 4 min read</div>
     <p>By the end of this tutorial, you will be able to configure and use Rich Filter Statistics gadgets and control the displayed data with a Rich Filter Controller gadget. </p><img alt="statistics dashboard.png" class="doc-image" loading="lazy" src="/cms_trial/assets/de4eaea8-48c4-49d5-978f-80de8227adf8.png"/><div class="panel panel-note"><p>For this tutorial, you need to have already created:</p><ul><li><p>a rich filter with at least one smart filter</p></li><li><p>a dashboard with one Rich Filter Controller gadget and at least one Rich Filter Filter Results gadget based on your rich filter.</p></li></ul><p>We have used the dashboard we worked with in <a href="/cms_trial/space/RFCDOC/783941961/Add+smart+filters+and+smart+columns+to+your+dashboard/">the previous tutorial</a>.</p></div><h2 id="add-rich-filter-statistics-gadgets">Add Rich Filter Statistics gadgets</h2><ol><li><p>Open the dashboard based on your rich filter, or <a href="/cms_trial/space/RFCDOC/783941937/Build+a+simple+interactive+Jira+dashboard/">build a new one</a>. Add two <strong>Rich Filter Statistics </strong>gadgets to the dashboard. <br/>We have used the <strong>Right sidebar</strong> layout and added gadgets directly to the empty column on the right by clicking the <strong>add a new gadget</strong> link in the middle of the column.</p><img alt="Change layout sidebar.png" class="doc-image" loading="lazy" src="/cms_trial/assets/3a61bb7b-048e-4ec2-ae04-74239460d04e.png"/></li></ol><div class="panel panel-success"><p>In the <em>Add a Gadget</em> dialog, simply type “rich” in the <strong>Search</strong> field to easily find the gadgets provided by the Rich Filters for Jira Dashboards app.</p></div><ol><li><p>Click the <strong>Add</strong> button twice to add two Rich Filter Statistics gadgets.</p><img alt="Add Statistics gadget.png" class="doc-image" loading="lazy" src="/cms_trial/assets/ef112d0a-44c1-4c19-be53-1baeae61236e.png"/></li><li><p>Select your rich filter in the configuration form of the first Rich Filter Statistics gadget.</p><img alt="contentId-783941968" class="doc-image" loading="lazy" src="/cms_trial/assets/07539ddd-4605-4cf8-b110-3766757f13a0.png"/></li><li><p>Let's suppose we need to exclude canceled issues from the statistics. The gadget should work only with non-canceled issues, which in our case means issues with no resolution or a Fixed or Done resolution. To achieve this, type the JQL <code>resolution in (EMPTY, Fixed, Done)</code> in the <strong>Working Query</strong> field.</p><img alt="contentId-783941968" class="doc-image" loading="lazy" src="/cms_trial/assets/5d7d38ad-1462-4ea9-b6e9-f10b0431ccd8.png"/></li><li><p>Select <strong>Assignee</strong> as <strong>Statistic type</strong>, and click <strong>Submit</strong>.<br/></p><img alt="contentId-783941968" class="doc-image" loading="lazy" src="/cms_trial/assets/b3de3122-4559-41a8-9b0b-9812a3e48792.png"/></li><li><p>Rename the gadget as <em>Not Cancelled - Statistics by Assignee</em>. The gadget displays the Issue Count and the sum of the Story Points for each assignee, excluding the canceled issues.</p><img alt="2026-02-19_09-10-03.png" class="doc-image" loading="lazy" src="/cms_trial/assets/007bb9d4-0222-4385-8d67-c588457d39b9.png"/></li><li><p>You can click the header of any column to sort the rows by the values in that column (clicking the same header again reverses the sort order).</p><img alt="2026-02-19_09-10-37.png" class="doc-image" loading="lazy" src="/cms_trial/assets/f9972d2e-50ad-4bf4-880e-c5e9ded3a3c0.png"/></li><li><p>Select your rich filter in the configuration form of the second Rich Filter Statistics gadget. In the <strong>Statistic type</strong> options, you'll notice that the smart filters configured in the selected rich filter are available. Select the <strong>Warnings</strong> smart filter as <em>Statistic type</em>.</p><img alt="contentId-783941968" class="doc-image" loading="lazy" src="/cms_trial/assets/d76fc427-dcd4-4496-9048-0f4a877a714f.png"/></li><li><p>Add <strong>Issue Count</strong> to the list of <strong>Values</strong>, then click <strong>Submit</strong>. <br/>The gadget displays the Issue Count for each clause of the smart filter.</p><img alt="2026-02-19_10-05-38.png" class="doc-image" loading="lazy" src="/cms_trial/assets/39faa3b9-128b-44c9-8fdd-6320c9b8ca09.png"/></li></ol><div class="panel panel-success"><p>By combining Rich Filter Statistics gadgets with smart filters you can cover a very wide range of complex and specific statistics use cases.</p></div><ol><li><p>If you activate quick filters in the Rich Filter Controller gadget (any combination of static, dynamic, and smart filters), the other gadgets on the dashboard that use the same rich filter update to show only issues that satisfy the active quick filters. If a gadget has a JQL filtering condition defined in the Working Query, this condition is also applied to that gadget.</p><img alt="2026-02-19_10-07-37.png" class="doc-image" loading="lazy" src="/cms_trial/assets/423dcccf-64a4-4cba-96a1-98235f3c26bb.png"/></li></ol><h2 id="use-quick-charts-in-rich-filter-statistics-gadgets">Use quick charts in Rich Filter Statistics gadgets</h2><p>In addition to the default table view, the Rich Filter Statistics gadget provides a <strong>quick</strong> <strong>chart view</strong>. We call these charts quick charts because they are directly available on gadgets without requiring any specific configuration. Let's see how they work in your dashboard's first Rich Filter Statistics gadget.</p><p>Click the <strong>Chart</strong> (<span class="inline-icon" title="inline icon">▢</span>) icon at the bottom right of the gadget.</p><img alt="2026-02-19_10-08-35.png" class="doc-image" loading="lazy" src="/cms_trial/assets/ed5455a4-7a06-4a52-9932-248ee014288f.png"/><ol><li><p>A donut chart of Issue Count by Assignee is displayed. The chart type selector at the bottom of the gadget lets you switch to any of the available chart types. Let's switch to the <strong>Bar chart</strong>.</p><img alt="2026-02-19_10-09-56.png" class="doc-image" loading="lazy" src="/cms_trial/assets/d3470fbc-735e-4b31-9f55-ec0dbbbbed2a.png"/></li><li><p>A second selector at the bottom of the gadget lets you switch between its values (columns). Let's switch to <strong>Story Points</strong>.</p><img alt="2026-02-19_10-10-44.png" class="doc-image" loading="lazy" src="/cms_trial/assets/b0c1e52a-7912-4a70-bc69-b517ade32eaa.png"/><p><br/></p></li><li><p>You can hold the pointer over the bars to see a tooltip with details.</p><img alt="2026-02-19_10-29-44.png" class="doc-image" loading="lazy" src="/cms_trial/assets/ddf31b5c-bda8-4038-bef5-edce985b22a4.png"/></li><li><p>Enable <strong>Show values</strong> in the <strong>Three-dot menu </strong>(<span class="inline-icon" title="inline icon">▢</span>) to display numeric values directly on the chart when space allows.</p><img alt="2026-02-19_10-37-35.png" class="doc-image" loading="lazy" src="/cms_trial/assets/42392312-c701-4d8e-aa87-e66207c43bf6.png"/></li><li><p>You can switch back to the table view at any moment by clicking the <strong>Table</strong> (<span class="inline-icon" title="inline icon">▢</span>) icon at the bottom right of the gadget.</p><img alt="2026-02-19_10-39-43.png" class="doc-image" loading="lazy" src="/cms_trial/assets/b4c51d85-26ea-4a31-9f70-a309cc9ab566.png"/><p>The slices or bars are displayed in the same order as the table. To change the order, switch to the table view, change the sort order by clicking on the column header, and then switch back to the chart view.</p></li></ol><h3 id="see-also">See also</h3><p><a href="/cms_trial/space/RFCDOC/783941713/Configure+smart+filters/">Configuring Smart Filters</a></p><p><a href="/cms_trial/space/RFCDOC/783941781/The+Rich+Filter+Statistics+Gadget/">Rich Filter Statistics gadget</a></p><p><a href="/cms_trial/space/RFCDOC/783941975/Add+rich+filter+two+dimensional+statistics+gadgets+to+your+dashboard/">Add Rich Filter Two-Dimensional Statistics gadgets to your dashboard</a>.</p>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">128 pages in this space, fetched live from Confluence via API.</p>
 <nav><ul><li><a href="/cms_trial/space/RFCDOC/3513253997/Data+residency+and+realm+persistence/">Data residency and realm persistence</a></li><li><details open><summary><a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud)</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/783941653/Overview/">Overview</a></li><li><a href="/cms_trial/space/RFCDOC/783942462/Get+started+with+Rich+Filters+for+Jira+Dashboards+for+Cloud/">Get started with Rich Filters for Jira Dashboards for Cloud</a></li><li><details open><summary><a href="/cms_trial/space/RFCDOC/783941917/Tutorials/">Tutorials</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/783941927/Create+and+access+rich+filters/">Create and access rich filters</a></li><li><a href="/cms_trial/space/RFCDOC/783941937/Build+a+simple+interactive+Jira+dashboard/">Build a simple interactive Jira dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941943/Define+views+for+your+dashboard/">Define views for your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941950/Use+working+queries+in+your+dashboard/">Use working queries in your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941954/Add+dynamic+filtering+to+your+dashboard/">Add dynamic filtering to your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941961/Add+smart+filters+and+smart+columns+to+your+dashboard/">Add smart filters and smart columns to your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941968/Add+rich+filter+statistics+gadgets+to+your+dashboard/" class="active">Add rich filter statistics gadgets to your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941975/Add+rich+filter+two+dimensional+statistics+gadgets+to+your+dashboard/">Add rich filter two dimensional statistics gadgets to your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941981/Add+rich+filter+flexi+charts+gadgets+to+your+dashboard/">Add rich filter flexi charts gadgets to your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/2241069104/Create+presets+in+Rich+Filter+Controller/">Create presets in Rich Filter Controller</a></li><li><a href="/cms_trial/space/RFCDOC/2465137080/Permalinks/">Permalinks</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/RFCDOC/783942739/Use+cases/">Use cases</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/783942749/Efficiently+manage+support+requests+with+rich+filter+queues/">Efficiently manage support requests with rich filter queues</a></li><li><a href="/cms_trial/space/RFCDOC/783942775/Create+service+management+reports+with+rich+filter+charts+%26+statistics/">Create service management reports with rich filter charts &amp; statistics</a></li><li><a href="/cms_trial/space/RFCDOC/3019735127/Manage+technical+writing+tasks+across+multiple+teams/">Manage technical writing tasks across multiple teams</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/RFCDOC/783942482/User+guides/">User guides</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/783943671/Concepts/">Concepts</a></li><li><a href="/cms_trial/space/RFCDOC/783942528/Fundamentals/">Fundamentals</a></li><li><a href="/cms_trial/space/RFCDOC/783942654/Advanced/">Advanced</a></li><li><a href="/cms_trial/space/RFCDOC/783941673/Configure+Rich+Filters/">Configure Rich Filters</a></li><li><a href="/cms_trial/space/RFCDOC/783941679/Work+with+Rich+Filter+gadgets/">Work with Rich Filter gadgets</a></li><li><a href="/cms_trial/space/RFCDOC/783942350/Migrate+to+Cloud/">Migrate to Cloud</a></li><li><a href="/cms_trial/space/RFCDOC/783942626/Reference/">Reference</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/RFCDOC/3178496025/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/3178692617/Allowlist+domains+for+Rich+Filters/">Allowlist domains for Rich Filters</a></li><li><a href="/cms_trial/space/RFCDOC/3374972942/Rich+filter+search/">Rich filter search</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/RFCDOC/783941853/Release+Notes/">Release Notes</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/3520364546/Release+notes+August+10th+2026/">Release notes August 10th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3498803215/Release+notes+July+30th+2026/">Release notes July 30th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3461742594/Release+notes+July+27th+2026/">Release notes July 27th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3429695594/Release+notes+July+13th+2026/">Release notes July 13th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3398041685/Release+notes+June+29th+2026/">Release notes June 29th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3377922150/Release+notes+June+2026/">Release notes June 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3171189121/Release+notes+April+2026/">Release notes April 2026</a></li><li><a href="/cms_trial/space/RFCDOC/2886631439/Release+notes+March+9th+2026/">Release notes March 9th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/2884370559/Release+notes+February+13th+2026/">Release notes February 13th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/2804908033/Release+notes+February+11th+2026/">Release notes February 11th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/2856255685/Release+notes+February+5th+2026/">Release notes February 5th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/2681667585/Release+notes+December+30th+2025/">Release notes December 30th 2025</a></li><li><a href="/cms_trial/space/RFCDOC/2509013096/Release+notes+December+4th+2025/">Release notes December 4th 2025</a></li><li><a href="/cms_trial/space/RFCDOC/2239004676/Release+notes+July+31st+2025/">Release notes July 31st 2025</a></li><li><a href="/cms_trial/space/RFCDOC/1935179889/Release+notes+April+8th+2025/">Release notes April 8th 2025</a></li><li><a href="/cms_trial/space/RFCDOC/1799028737/Release+notes+February+26th+2025/">Release notes February 26th 2025</a></li><li><a href="/cms_trial/space/RFCDOC/1624866957/Release+notes+January+13th+2025/">Release notes January 13th 2025</a></li><li><a href="/cms_trial/space/RFCDOC/1595769075/Release+notes+2021%E2%80%932024/">Release notes 2021–2024</a></li></ul></details></li></ul></details></li></ul></nav>
-</aside>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#add-rich-filter-statistics-gadgets">Add Rich Filter Statistics gadgets</a></li><li class="toc-level-2"><a href="#use-quick-charts-in-rich-filter-statistics-gadgets">Use quick charts in Rich Filter Statistics gadgets</a></li><li class="toc-level-3"><a href="#see-also">See also</a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
@@ -264,6 +308,92 @@
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

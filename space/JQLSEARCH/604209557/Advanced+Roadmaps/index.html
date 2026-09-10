@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>Advanced Roadmaps | Appfire Docs</title>
 <meta name="description" content="This article describes the integration points and possible use cases of JQL Search Extensions with Advanced Roadmaps.">
@@ -9,7 +19,15 @@
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Advanced Roadmaps",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/JQLSEARCH/604209557/Advanced+Roadmaps/",
+  "dateModified": "2026-07-02T11:43:52.189Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,26 +37,52 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209972/JQL+Search+Extensions+(Cloud)/">JQL Search Extensions (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/1120043993/App+integrations/">App integrations</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Advanced Roadmaps</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JQLSEARCH/pages/604209557" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JQLSEARCH/pages/604209557" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>Advanced Roadmaps</h1>
-    <div class="page-meta">3 min read</div>
+    <div class="page-meta">Updated 2 months ago · 3 min read</div>
     <p>This article describes the integration points and possible use cases of JQL Search Extensions with Advanced Roadmaps.</p><div class="panel panel-note"><p>Advanced Roadmaps is a feature of Jira Premium that is used for project management and project portfolio management. You can leverage its power with the additional JQL keywords and functions provided by <strong>JQL Search Extensions</strong>.</p></div><h2 id="integration-points">Integration points</h2><h2 id="scope-definition">Scope definition</h2><p>JQL Search Extensions helps define a precise scope of an Advanced Roadmaps plan. You can source issues with additional JQL keywords and <a href="/cms_trial/space/JQLSEARCH/604209464/Extended+Search/">Extended Search</a> filters.</p><p>It’s possible, for example, to have a plan with a subset of initiatives or epics and their children. You will typically create the <a href="/cms_trial/space/JQLSEARCH/604209464/Extended+Search/">Extended Search</a> filter for the board and reuse it in the plan.</p><img alt="contentId-604209557" class="doc-image" loading="lazy" src="/cms_trial/assets/9de6c7d1-599e-4d96-ae59-9b721a7a6fc0.png"/><p><strong>To use a filter in Advanced Roadmaps: </strong></p><ol><li><p>Create a filter in <a href="/cms_trial/space/JQLSEARCH/604209464/Extended+Search/">Extended Search</a>.</p></li><li><p>Select the filter in the plan configuration: <strong>Configure</strong> &gt; <strong>Issue sources</strong>.</p></li></ol><p>Refer to the examples in the Use Cases section below.</p><h2 id="external-use">External use</h2><p>It’s a common requirement to access the contents of a plan outside of Advanced Roadmaps, for example, to create a report in a third-party app or tool.</p><p>If you define the scope with a Jira filter, you can use this filter in:</p><ul><li><p>dashboard gadgets</p></li><li><p>boards</p></li><li><p>Jira search - simply use this syntax <code>filter="Your filter name"</code></p></li><li><p>Third-party apps that accept filters and JQL</p></li></ul><h2 id="use-cases">Use cases</h2><h2 id="source-a-subset-of-epics-with-their-full-hierarchy">Source a subset of epics with their full hierarchy</h2><p>You don’t need to add a whole Jira project to the scope of a plan. You can create a plan that includes selected epics, their associated stories, and subtasks.</p><p>If you have a list of specific epic keys that should be in scope, run and save the following query as a filter and use it as a scope:</p><p><code>key in (EPIC-2, EPIC-5, EPIC-8) OR issue in childrenOfIssuesInQueryRecursive("key in (EPIC-2, EPIC-5, EPIC-8)")</code></p><p>You can also choose epics that specify some dynamic criteria, for example, the epics with labels:</p><p><code>(type=Epic and labels='myFeature') OR issue in childrenOfIssuesInQueryRecursive("type=Epic and labels='myFeature'")</code></p><p>The above query could be limited to one project or it can source the issues from multiple projects.</p><h2 id="source-a-subset-of-initiatives-with-their-full-hierarchy">Source a subset of initiatives with their full hierarchy</h2><p>This use case is similar to the previous use case with epics. You can create a plan that includes selected initiatives and all their associated initiatives.</p><p>Use the <code>childrenOfIssuesInQueryRecursive</code> function:</p><p><code>key in (INT-2, INT-5, INT-8) OR issue in childrenOfIssuesInQueryRecursive("key in (INT-2, INT-5, INT-8)")</code></p><p>Or with more complex criteria:</p><p><code>(type=Initiative and labels='myVision') OR issue in childrenOfIssuesInQueryRecursive("type=Initiative and labels='myVision'")</code></p><h2 id="source-issues-linked-to-your-project">Source issues linked to your project</h2><p>You can create a plan that includes issues from your project and external issues linked to your project.</p><p><code>project=MYPROJ OR linksIssueProject=MYPROJ or linkedByIssueProject=MYPROJ</code></p><p>If you only want to include the issues linked with the particular link type, you can create, run, and save the following query as a filter:</p><p> <code>project=MYPROJ OR issue in linkedIssuesOfQuery("project=MYPROJ", "is blocked by")</code></p><p>You can also get a full hierarchy of the linked issues by creating a nested filter:</p><ol><li><p>Create a filter with:<br/><code>issue in linkedIssuesOfQuery("project=MYPROJ", "is blocked by")</code><br/>and call it <code>Blockers</code></p></li><li><p>Create another filter that nests the first filter:<br/><code>project=MYPROJ OR filter="Blockers" OR issue in childrenOfIssuesInQueryRecursive("filter='Blockers'")</code>.</p></li><li><p>Use the filter as your scope in the plan configuration.</p></li></ol>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">98 pages in this space, fetched live from Confluence via API.</p>
 <nav><ul><li><details open><summary><a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions for Jira</a></summary><ul><li><details open><summary><a href="/cms_trial/space/JQLSEARCH/604209972/JQL+Search+Extensions+(Cloud)/">JQL Search Extensions (Cloud)</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/604209802/Get+started+with+JQL+Search+Extensions+for+Jira/">Get started with JQL Search Extensions for Jira</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209757/Use+cases/">Use cases</a></li><li><details open><summary><a href="/cms_trial/space/JQLSEARCH/1120043993/App+integrations/">App integrations</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/604209557/Advanced+Roadmaps/" class="active">Advanced Roadmaps</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209543/BigPicture/">BigPicture</a></li><li><a href="/cms_trial/space/JQLSEARCH/1151041688/Jira+Misc+Workflow+Extensions+(JMWE)/">Jira Misc Workflow Extensions (JMWE)</a></li><li><a href="/cms_trial/space/JQLSEARCH/1194262532/Power+Scripts+for+Jira/">Power Scripts for Jira</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209448/Jira+Service+Management+and+JQL/">Jira Service Management and JQL</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209305/Xray/">Xray</a></li></ul></details></li><li><a href="/cms_trial/space/JQLSEARCH/604210001/Video+tutorials/">Video tutorials</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209395/JQL+functions+and+keywords+reference/">JQL functions and keywords reference</a></li></ul></details></li><li><a href="/cms_trial/space/JQLSEARCH/604209729/Migrations/">Migrations</a></li><li><details><summary><a href="/cms_trial/space/JQLSEARCH/913997907/Release+notes/">Release notes</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/604209185/Release+notes+-+Cloud/">Release notes - Cloud</a></li><li><a href="/cms_trial/space/JQLSEARCH/604210041/Release+notes+-+Server%2FData+Center/">Release notes - Server/Data Center</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JQLSEARCH/918979098/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/1766293568/Troubleshooting/">Troubleshooting</a></li><li><a href="/cms_trial/space/JQLSEARCH/919273915/Appfire+support/">Appfire support</a></li><li><a href="/cms_trial/space/JQLSEARCH/919306596/Appfire+Trust+Center/">Appfire Trust Center</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209808/Data+storage/">Data storage</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JQLSEARCH/604209587/JQL+Search+Extensions+-+Data+Center/">JQL Search Extensions - Data Center</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/604209431/Get+started+with+JQL+Search+Extensions+for+Jira+Data+Center/">Get started with JQL Search Extensions for Jira Data Center</a></li><li><a href="/cms_trial/space/JQLSEARCH/1865482654/JQL+functions+reference/">JQL functions reference</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209740/Performance+tests+results/">Performance tests results</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209735/How+to+resolve+com.atlassian.jira.issue.search.ClauseTooComplexSearchException/">How to resolve com.atlassian.jira.issue.search.ClauseTooComplexSearchException</a></li></ul></details></li></ul></details></li></ul></nav>
-</aside>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#integration-points">Integration points</a></li><li class="toc-level-2"><a href="#scope-definition">Scope definition</a></li><li class="toc-level-2"><a href="#external-use">External use</a></li><li class="toc-level-2"><a href="#use-cases">Use cases</a></li><li class="toc-level-2"><a href="#source-a-subset-of-epics-with-their-full-hierarchy">Source a subset of epics with their full hierarchy</a></li><li class="toc-level-2"><a href="#source-a-subset-of-initiatives-with-their-full-hierarchy">Source a subset of initiatives with their full hierarchy</a></li><li class="toc-level-2"><a href="#source-issues-linked-to-your-project">Source issues linked to your project</a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
@@ -264,6 +308,92 @@
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

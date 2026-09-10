@@ -1,0 +1,28 @@
+# Post functions
+
+Post functions are used to carry out additional processing *after* a transition is performed. **Jira Misc Workflow Extensions (JMWE)** includes the following Post functions:
+
+- [Assign issue(s)](/cms_trial/space/JMWEC/1133772861/Assign+issue(s)/)
+- [Build-your-own (Nunjucks scripted) Post function](/cms_trial/space/JMWEC/466289991/Build-your-own+(Nunjucks+scripted)+Post+function/)
+- [Clear fields](/cms_trial/space/JMWEC/466226128/Clear+fields/)
+- [Comment issue(s)](/cms_trial/space/JMWEC/466322568/Comment+issue(s)/)
+- [Copy comments to related issues](/cms_trial/space/JMWEC/465474211/Copy+comments+to+related+issues/)
+- [Copy issue fields](/cms_trial/space/JMWEC/466323304/Copy+issue+fields/)
+- [Create issue(s)](/cms_trial/space/JMWEC/466256916/Create+issue(s)/)
+  - [Advanced configuration of the Create issue(s) post-function](/cms_trial/space/JMWEC/465474628/Advanced+configuration+of+the+Create+issue(s)+post-function/)
+- [Delete issue(s)](/cms_trial/space/JMWEC/465505339/Delete+issue(s)/)
+- [Display Message to User](/cms_trial/space/JMWEC/465242070/Display+Message+to+User/)
+- [Email issue](/cms_trial/space/JMWEC/466322658/Email+issue/)
+- [Increase value of field](/cms_trial/space/JMWEC/466289696/Increase+value+of+field/)
+- [Link issues to the current issue](/cms_trial/space/JMWEC/465242225/Link+issues+to+the+current+issue/)
+- [Log Work](/cms_trial/space/JMWEC/1546420358/Log+Work/)
+- [Return to Previous Status](/cms_trial/space/JMWEC/1023803395/Return+to+Previous+Status/)
+- [Send Slack message](/cms_trial/space/JMWEC/1848017067/Send+Slack+message/)
+- [Sequence of Post-functions](/cms_trial/space/JMWEC/466322933/Sequence+of+Post-functions/)
+- [Set entity property value](/cms_trial/space/JMWEC/466225840/Set+entity+property+value/)
+- [Set issue fields](/cms_trial/space/JMWEC/465504849/Set+issue+fields/)
+- [Set Issue Security Level](/cms_trial/space/JMWEC/1126432847/Set+Issue+Security+Level/)
+- [Set field value from User Entity Property value](/cms_trial/space/JMWEC/466257282/Set+field+value+from+User+Entity+Property+value/)
+- [Shared Action post-function](/cms_trial/space/JMWEC/466323396/Shared+Action+post-function/)
+- [Transition issue(s)](/cms_trial/space/JMWEC/465242612/Transition+issue(s)/)
+- [Unlink issues from the current issue](/cms_trial/space/JMWEC/465504784/Unlink+issues+from+the+current+issue/)

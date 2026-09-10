@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>Guide to SLAs | Appfire Docs</title>
 <meta name="description" content="Imagine this: Your team is overwhelmed, tickets are slipping through the cracks, and your customers are frustrated. Agents don’t know which tasks to…">
@@ -9,7 +19,15 @@
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Guide to SLAs",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/TTSC/38437131/Guide+to+SLAs/",
+  "dateModified": "2026-06-26T11:17:12.684Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,26 +37,52 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud Help Center</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TTSC/35488405/About+Time+to+SLA/">About Time to SLA</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Guide to SLAs</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TTSC/pages/38437131" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TTSC/pages/38437131" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>Guide to SLAs</h1>
-    <div class="page-meta">3 min read</div>
+    <div class="page-meta">Updated 2 months ago · 3 min read</div>
     <p>Imagine this: Your team is overwhelmed, tickets are slipping through the cracks, and your customers are frustrated. Agents don’t know which tasks to prioritize, and there’s no clear benchmark for performance improvement. Every day, customer demands increase, and satisfaction steadily drops. Chaos reigns.</p><p>In situations like this, service-level agreements (SLAs) can turn things around. SLAs define clear expectations between a company and its service providers. They give business owners peace of mind, while helping service teams avoid misunderstandings about what’s expected. Essentially, an SLA ensures everyone knows what “good service” looks like and how to achieve it.</p><p>This article will cover everything you need to know about SLAs: what they are, their benefits and challenges, key components, FAQs, and tips for managing them effectively.</p><h2 id="what-is-an-sla">What is an SLA?</h2><p>A service-level agreement is a contract between a service provider and a customer that defines:</p><ul><li><p>The services to be delivered</p></li><li><p>Expected response times</p></li><li><p>Performance metrics used to measure success</p></li></ul><p>SLAs make it easier to track team performance and clearly communicate service expectations to customers.</p><p><strong>Example:</strong></p><p>Imagine you work at an internet service provider. Customers expect certain download and upload speeds, uptime guarantees, and timely resolution of issues. For instance, a P1-level incident may need to be resolved within four hours, 24/7. That commitment is an SLA, which is more than just a document. It’s a promise to your customers.</p><div class="panel panel-success"><p>SLAs can exist between an organization and its external customers or internally between departments. Defining them during the service design phase is critical, as they can influence software architecture, IT operations, and overall customer satisfaction.</p></div><h2 id="what-s-inside-an-sla">What’s inside an SLA?</h2><p>At its core, an SLA defines a measurable target (such as response time, uptime, or resolution time) and the corresponding goal for meeting it. Beyond this, an SLA typically includes:</p><ul><li><p>A description of the services provided</p></li><li><p>Expected service levels for each service</p></li><li><p>Metrics used to measure performance</p></li><li><p>Roles and responsibilities of each party</p></li><li><p>Remedies or penalties for missed targets</p></li><li><p>Guidelines for updating or revising the SLA</p></li></ul><p>Common SLA metrics include:</p><ul><li><p>Response time for support requests</p></li><li><p>Service availability and uptime</p></li><li><p>Maintenance windows and downtime</p></li><li><p>Disaster recovery procedures</p></li></ul><p>The ultimate goal of an SLA is to ensure consistent service delivery. Aligning SLA metrics with business objectives is key. Penalties for missed SLAs, which can often be monetary, create incentives for providers to meet targets, ensuring accountability.</p><h2 id="how-can-i-manage-slas">How can I manage SLAs? </h2><p>While SLAs may seem straightforward on paper, they can be tricky to monitor, track, and enforce in practice. Configuring and updating SLAs across multiple service desks can also be challenging.</p><p>With <a href="https://marketplace.atlassian.com/apps/1211843/time-to-sla?tab=overview&amp;hosting=cloud&amp;utm_source=appfire.com&amp;utm_medium=solutions&amp;utm_campaign=Time-to-SLA"><strong>Time to SLA for Jira</strong></a><strong> </strong>by Appfire, SLA management becomes simple and intuitive. It lets you:</p><ul><li><p>Fully customize SLA rules to match your organizational needs</p></li><li><p>Visualize team performance in real time</p></li><li><p>Receive alerts when an SLA is at risk of breach</p></li><li><p>Build trust with customers through consistent service</p></li></ul><p>Time to SLA puts you in the driver’s seat. You can create and manage unlimited SLAs, generate detailed reports, and keep your team aligned with fast-moving business priorities.</p><p>If you want a tool that makes SLA creation and management effortless, <a href="https://marketplace.atlassian.com/apps/1211843/time-to-sla?tab=overview&amp;hosting=cloud&amp;utm_source=appfire.com&amp;utm_medium=solutions&amp;utm_campaign=Time-to-SLA"><strong>try Time to SLA for free</strong></a>. It’s available on all Atlassian platforms.</p>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">169 pages in this space, fetched live from Confluence via API.</p>
-<nav><ul><li><details open><summary><a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud Help Center</a></summary><ul><li><details open><summary><a href="/cms_trial/space/TTSC/35488405/About+Time+to+SLA/">About Time to SLA</a></summary><ul><li><a href="/cms_trial/space/TTSC/38437131/Guide+to+SLAs/" class="active">Guide to SLAs</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/TTSC/35456108/Get+started+with+Time+to+SLA+for+Cloud/">Get started with Time to SLA for Cloud</a></summary><ul><li><a href="/cms_trial/space/TTSC/35684371/Installation/">Installation</a></li><li><a href="/cms_trial/space/TTSC/36110655/Manage+permissions/">Manage permissions</a></li><li><a href="/cms_trial/space/TTSC/36209166/DC+to+Cloud+migration+guide/">DC to Cloud migration guide</a></li><li><a href="/cms_trial/space/TTSC/36831915/Time+to+SLA+feature+differences+between+Jira+Data+Center+and+Cloud/">Time to SLA feature differences between Jira Data Center and Cloud</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/TTSC/36110821/Use+cases/">Use cases</a></summary><ul><li><a href="/cms_trial/space/TTSC/1315340492/I+want+to+track+the+cycle+and+lead+time/">I want to track the cycle and lead time</a></li><li><a href="/cms_trial/space/TTSC/1316683779/I+want+to+receive+periodic+reports+with+subcriptions/">I want to receive periodic reports with subcriptions</a></li><li><a href="/cms_trial/space/TTSC/1317175298/I+want+to+monitor+SLA+metrics+at+a+glance/">I want to monitor SLA metrics at a glance</a></li><li><a href="/cms_trial/space/TTSC/37388346/I+need+work+item-specific+SLA+actions%21/">I need work item-specific SLA actions!</a></li><li><a href="/cms_trial/space/TTSC/37388377/I+want+SLA+templates/">I want SLA templates</a></li><li><a href="/cms_trial/space/TTSC/36832212/I+want+to+track+the+time+in+status/">I want to track the time in status</a></li><li><a href="/cms_trial/space/TTSC/36799597/I+want+SLAs+to+be+reset+when+reassigned/">I want SLAs to be reset when reassigned</a></li><li><a href="/cms_trial/space/TTSC/37224649/I+want+to+pause+the+time/">I want to pause the time</a></li><li><a href="/cms_trial/space/TTSC/37224732/I+want+my+SLA+to+be+triggered+by+other+SLA/">I want my SLA to be triggered by other SLA</a></li><li><a href="/cms_trial/space/TTSC/289079333/I+want+to+monitor+team+performance+to+measure+SLA+success/">I want to monitor team performance to measure SLA success</a></li><li><a href="/cms_trial/space/TTSC/289770479/I+need+next+business+day+SLA+for+VIP+customers%21/">I need next business day SLA for VIP customers!</a></li><li><a href="/cms_trial/space/TTSC/1316880389/I+want+dashboard+gadgets+to+track+SLA+performance/">I want dashboard gadgets to track SLA performance</a></li><li><a href="/cms_trial/space/TTSC/2824765517/I+want+to+track+SLAs+during+planned+work+outside+business+hours/">I want to track SLAs during planned work outside business hours</a></li><li><a href="/cms_trial/space/TTSC/3403579447/I+want+to+send+SLA+notifications+to+Slack/">I want to send SLA notifications to Slack</a></li><li><a href="/cms_trial/space/TTSC/3406823816/I+want+to+combine+multiple+SLA+actions+into+one+workflow/">I want to combine multiple SLA actions into one workflow</a></li><li><a href="/cms_trial/space/TTSC/3407446166/I+want+to+trigger+Jira+automation+from+SLA+events/">I want to trigger Jira automation from SLA events</a></li><li><a href="/cms_trial/space/TTSC/3426714512/I+want+to+review+cross-project+SLA+compliance+data+without+manual+spreadsheet+exports/">I want to review cross-project SLA compliance data without manual spreadsheet exports</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/TTSC/1678575285/SLA+configuration/">SLA configuration</a></summary><ul><li><a href="/cms_trial/space/TTSC/35750012/Create+calendars/">Create calendars</a></li><li><a href="/cms_trial/space/TTSC/35651691/Define+SLAs/">Define SLAs</a></li><li><a href="/cms_trial/space/TTSC/35881090/Actions/">Actions</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/TTSC/35815641/Track+SLAs/">Track SLAs</a></summary><ul><li><a href="/cms_trial/space/TTSC/35815658/SLA+panel/">SLA panel</a></li><li><a href="/cms_trial/space/TTSC/35456368/SLA+History+tab/">SLA History tab</a></li><li><a href="/cms_trial/space/TTSC/2875654192/Custom+fields/">Custom fields</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/TTSC/36799257/TTS+work+item+actions/">TTS work item actions</a></summary><ul><li><a href="/cms_trial/space/TTSC/2001470255/SLA+contract+extension/">SLA contract extension</a></li></ul></details></li><li><a href="/cms_trial/space/TTSC/35456416/Recalculation/">Recalculation</a></li><li><details><summary><a href="/cms_trial/space/TTSC/36012079/Reports/">Reports</a></summary><ul><li><a href="/cms_trial/space/TTSC/3404431363/Executive+reports/">Executive reports</a></li><li><a href="/cms_trial/space/TTSC/36044860/Summary+report/">Summary report</a></li><li><a href="/cms_trial/space/TTSC/36143159/Detail+report/">Detail report</a></li><li><a href="/cms_trial/space/TTSC/36077648/Durations+report/">Durations report</a></li><li><a href="/cms_trial/space/TTSC/44761089/Status+report/">Status report</a></li><li><a href="/cms_trial/space/TTSC/36012105/Periodic+reports/">Periodic reports</a></li><li><a href="/cms_trial/space/TTSC/36241436/Background+reports/">Background reports</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/TTSC/181436799/Gadgets/">Gadgets</a></summary><ul><li><a href="/cms_trial/space/TTSC/35815718/Periodic+Met+vs.+Breached+SLA+gadget/">Periodic Met vs. Breached SLA gadget</a></li><li><a href="/cms_trial/space/TTSC/182780060/SLA%2FAssignee+Performance+gadget/">SLA/Assignee Performance gadget</a></li></ul></details></li><li><a href="/cms_trial/space/TTSC/1489764522/TTS+-+Reset+SLA+workflow+rule/">TTS - Reset SLA workflow rule</a></li><li><a href="/cms_trial/space/TTSC/36209134/REST+APIs/">REST APIs</a></li><li><details><summary><a href="/cms_trial/space/TTSC/37290034/Administration/">Administration</a></summary><ul><li><a href="/cms_trial/space/TTSC/48529969/SLA+calculation+scope/">SLA calculation scope</a></li><li><a href="/cms_trial/space/TTSC/36110672/Import%2FExport/">Import/Export</a></li><li><a href="/cms_trial/space/TTSC/36110718/Audit+logs/">Audit logs</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/TTSC/36012527/App+integrations/">App integrations</a></summary><ul><li><a href="/cms_trial/space/TTSC/238158024/Dashboard+Hub/">Dashboard Hub</a></li><li><a href="/cms_trial/space/TTSC/448299080/PowerBI+Connector+for+Jira/">PowerBI Connector for Jira</a></li><li><a href="/cms_trial/space/TTSC/599621661/EazyBI/">EazyBI</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/TTSC/860717625/Release+notes/">Release notes</a></summary><ul><li><a href="/cms_trial/space/TTSC/3549921396/Release+notes+13+August+2026/">Release notes 13 August 2026</a></li><li><a href="/cms_trial/space/TTSC/3549921370/Release+notes+11+August+2026/">Release notes 11 August 2026</a></li><li><a href="/cms_trial/space/TTSC/3512926364/Release+notes+6+August+2026/">Release notes 6 August 2026</a></li><li><a href="/cms_trial/space/TTSC/3497197612/Release+notes+24+July+2026/">Release notes 24 July 2026</a></li><li><a href="/cms_trial/space/TTSC/3466690693/Release+notes+17+July+2026/">Release notes 17 July 2026</a></li><li><a href="/cms_trial/space/TTSC/3453452322/Release+notes+14+July+2026/">Release notes 14 July 2026</a></li><li><a href="/cms_trial/space/TTSC/3451093161/Release+notes+10+July+2026/">Release notes 10 July 2026</a></li><li><a href="/cms_trial/space/TTSC/3422224765/Release+notes+7+July+2026/">Release notes 7 July 2026</a></li><li><a href="/cms_trial/space/TTSC/3378906002/Release+notes+24+June+2026/">Release notes 24 June 2026</a></li><li><a href="/cms_trial/space/TTSC/3329818917/Release+notes+5+June+2026/">Release notes 5 June 2026</a></li><li><a href="/cms_trial/space/TTSC/3311829182/Release+notes+2+June+2026/">Release notes 2 June 2026</a></li><li><a href="/cms_trial/space/TTSC/3262841103/Release+notes+18+May+2026/">Release notes 18 May 2026</a></li><li><a href="/cms_trial/space/TTSC/3192520715/Release+notes+29+April+2026/">Release notes 29 April 2026</a></li><li><a href="/cms_trial/space/TTSC/3169550410/Release+notes+22+April+2026/">Release notes 22 April 2026</a></li><li><a href="/cms_trial/space/TTSC/3115484085/Release+notes+9+April+2026/">Release notes 9 April 2026</a></li><li><a href="/cms_trial/space/TTSC/3117219869/Release+notes+7+April+2026/">Release notes 7 April 2026</a></li><li><a href="/cms_trial/space/TTSC/3087303025/Release+notes+1+April+2026/">Release notes 1 April 2026</a></li><li><a href="/cms_trial/space/TTSC/3026124950/Release+notes+17+March+2026/">Release notes 17 March 2026</a></li><li><a href="/cms_trial/space/TTSC/2943975442/Release+notes+27+February+2026/">Release notes 27 February 2026</a></li><li><a href="/cms_trial/space/TTSC/2934079743/Release+notes+26+February+2026/">Release notes 26 February 2026</a></li><li><a href="/cms_trial/space/TTSC/2879553547/Release+notes+20+February+2026/">Release notes 20 February 2026</a></li><li><a href="/cms_trial/space/TTSC/2901114914/Release+notes+19+February+2026/">Release notes 19 February 2026</a></li><li><a href="/cms_trial/space/TTSC/2851307597/Release+notes+6+February+2026/">Release notes 6 February 2026</a></li><li><a href="/cms_trial/space/TTSC/2851930220/Release+notes+5+February+2026/">Release notes 5 February 2026</a></li><li><a href="/cms_trial/space/TTSC/2823618716/Release+notes+2+February+2026/">Release notes 2 February 2026</a></li><li><a href="/cms_trial/space/TTSC/2811068417/Release+notes+29+January+2026/">Release notes 29 January 2026</a></li><li><a href="/cms_trial/space/TTSC/2790064332/Release+notes+21+January+2026/">Release notes 21 January 2026</a></li><li><a href="/cms_trial/space/TTSC/2790064313/Release+notes+19+January+2026/">Release notes 19 January 2026</a></li><li><a href="/cms_trial/space/TTSC/2736619590/Release+notes+13+January+2026/">Release notes 13 January 2026</a></li><li><a href="/cms_trial/space/TTSC/860422871/Archived/">Archived</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/TTSC/1669595182/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/TTSC/2513797296/What%27s+changed+after+the+Forge+migration/">What's changed after the Forge migration</a></li><li><a href="/cms_trial/space/TTSC/649660539/Data+residency/">Data residency</a></li><li><a href="/cms_trial/space/TTSC/36012599/FAQ%3A+Time+to+SLA+for+Jira+Cloud/">FAQ: Time to SLA for Jira Cloud</a></li><li><a href="/cms_trial/space/TTSC/34932181/FAQ%3A+SLAs/">FAQ: SLAs</a></li><li><a href="/cms_trial/space/TTSC/35881031/FAQ%3A+Calendars/">FAQ: Calendars</a></li><li><a href="/cms_trial/space/TTSC/36241419/FAQ%3A+Recalculation/">FAQ: Recalculation</a></li><li><a href="/cms_trial/space/TTSC/36208985/FAQ%3A+Reports/">FAQ: Reports</a></li></ul></details></li></ul></details></li></ul></nav>
-</aside>
+<nav><ul><li><details open><summary><a href="/cms_trial/space/TTSC/25001987/Time+to+SLA+for+Jira+Cloud+Help+Center/">Time to SLA for Jira Cloud Help Center</a></summary><ul><li><details open><summary><a href="/cms_trial/space/TTSC/35488405/About+Time+to+SLA/">About Time to SLA</a></summary><ul><li><a href="/cms_trial/space/TTSC/38437131/Guide+to+SLAs/" class="active">Guide to SLAs</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/TTSC/35456108/Get+started+with+Time+to+SLA+for+Cloud/">Get started with Time to SLA for Cloud</a></summary><ul><li><a href="/cms_trial/space/TTSC/35684371/Installation/">Installation</a></li><li><a href="/cms_trial/space/TTSC/36110655/Manage+permissions/">Manage permissions</a></li><li><a href="/cms_trial/space/TTSC/36209166/DC+to+Cloud+migration+guide/">DC to Cloud migration guide</a></li><li><a href="/cms_trial/space/TTSC/36831915/Time+to+SLA+feature+differences+between+Jira+Data+Center+and+Cloud/">Time to SLA feature differences between Jira Data Center and Cloud</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/TTSC/36110821/Use+cases/">Use cases</a></summary><ul><li><a href="/cms_trial/space/TTSC/1315340492/I+want+to+track+the+cycle+and+lead+time/">I want to track the cycle and lead time</a></li><li><a href="/cms_trial/space/TTSC/1316683779/I+want+to+receive+periodic+reports+with+subcriptions/">I want to receive periodic reports with subcriptions</a></li><li><a href="/cms_trial/space/TTSC/1317175298/I+want+to+monitor+SLA+metrics+at+a+glance/">I want to monitor SLA metrics at a glance</a></li><li><a href="/cms_trial/space/TTSC/37388346/I+need+work+item-specific+SLA+actions%21/">I need work item-specific SLA actions!</a></li><li><a href="/cms_trial/space/TTSC/37388377/I+want+SLA+templates/">I want SLA templates</a></li><li><a href="/cms_trial/space/TTSC/36832212/I+want+to+track+the+time+in+status/">I want to track the time in status</a></li><li><a href="/cms_trial/space/TTSC/36799597/I+want+SLAs+to+be+reset+when+reassigned/">I want SLAs to be reset when reassigned</a></li><li><a href="/cms_trial/space/TTSC/37224649/I+want+to+pause+the+time/">I want to pause the time</a></li><li><a href="/cms_trial/space/TTSC/37224732/I+want+my+SLA+to+be+triggered+by+other+SLA/">I want my SLA to be triggered by other SLA</a></li><li><a href="/cms_trial/space/TTSC/289079333/I+want+to+monitor+team+performance+to+measure+SLA+success/">I want to monitor team performance to measure SLA success</a></li><li><a href="/cms_trial/space/TTSC/289770479/I+need+next+business+day+SLA+for+VIP+customers%21/">I need next business day SLA for VIP customers!</a></li><li><a href="/cms_trial/space/TTSC/1316880389/I+want+dashboard+gadgets+to+track+SLA+performance/">I want dashboard gadgets to track SLA performance</a></li><li><a href="/cms_trial/space/TTSC/2824765517/I+want+to+track+SLAs+during+planned+work+outside+business+hours/">I want to track SLAs during planned work outside business hours</a></li><li><a href="/cms_trial/space/TTSC/3403579447/I+want+to+send+SLA+notifications+to+Slack/">I want to send SLA notifications to Slack</a></li><li><a href="/cms_trial/space/TTSC/3406823816/I+want+to+combine+multiple+SLA+actions+into+one+workflow/">I want to combine multiple SLA actions into one workflow</a></li><li><a href="/cms_trial/space/TTSC/3407446166/I+want+to+trigger+Jira+automation+from+SLA+events/">I want to trigger Jira automation from SLA events</a></li><li><a href="/cms_trial/space/TTSC/3426714512/I+want+to+review+cross-project+SLA+compliance+data+without+manual+spreadsheet+exports/">I want to review cross-project SLA compliance data without manual spreadsheet exports</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/TTSC/1678575285/SLA+configuration/">SLA configuration</a></summary><ul><li><a href="/cms_trial/space/TTSC/35750012/Create+calendars/">Create calendars</a></li><li><a href="/cms_trial/space/TTSC/35651691/Define+SLAs/">Define SLAs</a></li><li><a href="/cms_trial/space/TTSC/35881090/Actions/">Actions</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/TTSC/35815641/Track+SLAs/">Track SLAs</a></summary><ul><li><a href="/cms_trial/space/TTSC/35815658/SLA+panel/">SLA panel</a></li><li><a href="/cms_trial/space/TTSC/35456368/SLA+History+tab/">SLA History tab</a></li><li><a href="/cms_trial/space/TTSC/2875654192/Custom+fields/">Custom fields</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/TTSC/36799257/TTS+work+item+actions/">TTS work item actions</a></summary><ul><li><a href="/cms_trial/space/TTSC/2001470255/SLA+contract+extension/">SLA contract extension</a></li></ul></details></li><li><a href="/cms_trial/space/TTSC/35456416/Recalculation/">Recalculation</a></li><li><details><summary><a href="/cms_trial/space/TTSC/36012079/Reports/">Reports</a></summary><ul><li><a href="/cms_trial/space/TTSC/3404431363/Executive+reports/">Executive reports</a></li><li><a href="/cms_trial/space/TTSC/36044860/Summary+report/">Summary report</a></li><li><a href="/cms_trial/space/TTSC/36143159/Detail+report/">Detail report</a></li><li><a href="/cms_trial/space/TTSC/36077648/Durations+report/">Durations report</a></li><li><a href="/cms_trial/space/TTSC/44761089/Status+report/">Status report</a></li><li><a href="/cms_trial/space/TTSC/36012105/Periodic+reports/">Periodic reports</a></li><li><a href="/cms_trial/space/TTSC/36241436/Background+reports/">Background reports</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/TTSC/181436799/Gadgets/">Gadgets</a></summary><ul><li><a href="/cms_trial/space/TTSC/35815718/Periodic+Met+vs.+Breached+SLA+gadget/">Periodic Met vs. Breached SLA gadget</a></li><li><a href="/cms_trial/space/TTSC/182780060/SLA%2FAssignee+Performance+gadget/">SLA/Assignee Performance gadget</a></li></ul></details></li><li><a href="/cms_trial/space/TTSC/1489764522/TTS+-+Reset+SLA+workflow+rule/">TTS - Reset SLA workflow rule</a></li><li><a href="/cms_trial/space/TTSC/36209134/REST+APIs/">REST APIs</a></li><li><details><summary><a href="/cms_trial/space/TTSC/37290034/Administration/">Administration</a></summary><ul><li><a href="/cms_trial/space/TTSC/48529969/SLA+calculation+scope/">SLA calculation scope</a></li><li><a href="/cms_trial/space/TTSC/36110672/Import%2FExport/">Import/Export</a></li><li><a href="/cms_trial/space/TTSC/36110718/Audit+logs/">Audit logs</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/TTSC/36012527/App+integrations/">App integrations</a></summary><ul><li><a href="/cms_trial/space/TTSC/238158024/Dashboard+Hub/">Dashboard Hub</a></li><li><a href="/cms_trial/space/TTSC/448299080/PowerBI+Connector+for+Jira/">PowerBI Connector for Jira</a></li><li><a href="/cms_trial/space/TTSC/599621661/EazyBI/">EazyBI</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/TTSC/860717625/Release+notes/">Release notes</a></summary><ul><li><a href="/cms_trial/space/TTSC/3634233352/Release+notes+4+September+2026/">Release notes 4 September 2026</a></li><li><a href="/cms_trial/space/TTSC/3591183214/Release+notes+26+August+2026/">Release notes 26 August 2026</a></li><li><a href="/cms_trial/space/TTSC/3563028481/Release+notes+20+August+2026/">Release notes 20 August 2026</a></li><li><a href="/cms_trial/space/TTSC/3549921396/Release+notes+13+August+2026/">Release notes 13 August 2026</a></li><li><a href="/cms_trial/space/TTSC/3549921370/Release+notes+11+August+2026/">Release notes 11 August 2026</a></li><li><a href="/cms_trial/space/TTSC/3512926364/Release+notes+6+August+2026/">Release notes 6 August 2026</a></li><li><a href="/cms_trial/space/TTSC/3497197612/Release+notes+24+July+2026/">Release notes 24 July 2026</a></li><li><a href="/cms_trial/space/TTSC/3466690693/Release+notes+17+July+2026/">Release notes 17 July 2026</a></li><li><a href="/cms_trial/space/TTSC/3453452322/Release+notes+14+July+2026/">Release notes 14 July 2026</a></li><li><a href="/cms_trial/space/TTSC/3451093161/Release+notes+10+July+2026/">Release notes 10 July 2026</a></li><li><a href="/cms_trial/space/TTSC/3422224765/Release+notes+7+July+2026/">Release notes 7 July 2026</a></li><li><a href="/cms_trial/space/TTSC/3378906002/Release+notes+24+June+2026/">Release notes 24 June 2026</a></li><li><a href="/cms_trial/space/TTSC/3329818917/Release+notes+5+June+2026/">Release notes 5 June 2026</a></li><li><a href="/cms_trial/space/TTSC/3311829182/Release+notes+2+June+2026/">Release notes 2 June 2026</a></li><li><a href="/cms_trial/space/TTSC/3262841103/Release+notes+18+May+2026/">Release notes 18 May 2026</a></li><li><a href="/cms_trial/space/TTSC/3192520715/Release+notes+29+April+2026/">Release notes 29 April 2026</a></li><li><a href="/cms_trial/space/TTSC/3169550410/Release+notes+22+April+2026/">Release notes 22 April 2026</a></li><li><a href="/cms_trial/space/TTSC/3115484085/Release+notes+9+April+2026/">Release notes 9 April 2026</a></li><li><a href="/cms_trial/space/TTSC/3117219869/Release+notes+7+April+2026/">Release notes 7 April 2026</a></li><li><a href="/cms_trial/space/TTSC/3087303025/Release+notes+1+April+2026/">Release notes 1 April 2026</a></li><li><a href="/cms_trial/space/TTSC/3026124950/Release+notes+17+March+2026/">Release notes 17 March 2026</a></li><li><a href="/cms_trial/space/TTSC/2943975442/Release+notes+27+February+2026/">Release notes 27 February 2026</a></li><li><a href="/cms_trial/space/TTSC/2934079743/Release+notes+26+February+2026/">Release notes 26 February 2026</a></li><li><a href="/cms_trial/space/TTSC/2879553547/Release+notes+20+February+2026/">Release notes 20 February 2026</a></li><li><a href="/cms_trial/space/TTSC/2901114914/Release+notes+19+February+2026/">Release notes 19 February 2026</a></li><li><a href="/cms_trial/space/TTSC/2851307597/Release+notes+6+February+2026/">Release notes 6 February 2026</a></li><li><a href="/cms_trial/space/TTSC/2851930220/Release+notes+5+February+2026/">Release notes 5 February 2026</a></li><li><a href="/cms_trial/space/TTSC/2823618716/Release+notes+2+February+2026/">Release notes 2 February 2026</a></li><li><a href="/cms_trial/space/TTSC/2811068417/Release+notes+29+January+2026/">Release notes 29 January 2026</a></li><li><a href="/cms_trial/space/TTSC/2790064332/Release+notes+21+January+2026/">Release notes 21 January 2026</a></li><li><a href="/cms_trial/space/TTSC/2790064313/Release+notes+19+January+2026/">Release notes 19 January 2026</a></li><li><a href="/cms_trial/space/TTSC/2736619590/Release+notes+13+January+2026/">Release notes 13 January 2026</a></li><li><a href="/cms_trial/space/TTSC/860422871/Archived/">Archived</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/TTSC/1669595182/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/TTSC/2513797296/Changes+after+the+Forge+migration/">Changes after the Forge migration</a></li><li><a href="/cms_trial/space/TTSC/649660539/Data+residency/">Data residency</a></li><li><a href="/cms_trial/space/TTSC/36012599/FAQ%3A+Time+to+SLA+for+Jira+Cloud/">FAQ: Time to SLA for Jira Cloud</a></li><li><a href="/cms_trial/space/TTSC/34932181/FAQ%3A+SLAs/">FAQ: SLAs</a></li><li><a href="/cms_trial/space/TTSC/35881031/FAQ%3A+Calendars/">FAQ: Calendars</a></li><li><a href="/cms_trial/space/TTSC/36241419/FAQ%3A+Recalculation/">FAQ: Recalculation</a></li><li><a href="/cms_trial/space/TTSC/36208985/FAQ%3A+Reports/">FAQ: Reports</a></li></ul></details></li></ul></details></li></ul></nav>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#what-is-an-sla">What is an SLA?</a></li><li class="toc-level-2"><a href="#what-s-inside-an-sla">What’s inside an SLA?</a></li><li class="toc-level-2"><a href="#how-can-i-manage-slas">How can I manage SLAs? </a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
@@ -264,6 +308,92 @@
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

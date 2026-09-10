@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>How to extract JSON nested data using Advanced Table Viewer macro | Appfire Docs</title>
 <meta name="description" content="This page guides you through using the Advanced Table Viewer macro to connect a JSON data source and extract nested inventory data into a simple table on…">
@@ -24,6 +34,14 @@
     }
   ]
 }
+</script><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "How to extract JSON nested data using Advanced Table Viewer macro",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/TBL/3315663358/How+to+extract+JSON+nested+data+using+Advanced+Table+Viewer+macro/",
+  "dateModified": "2026-07-01T07:04:38.660Z"
+}
 </script>
 </head>
 <body>
@@ -34,26 +52,52 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74814716/Use+cases+-+cloud/">Use cases - cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/3325657245/Advanced+Table+Viewer+macro+examples/">Advanced Table Viewer macro examples</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">How to extract JSON nested data using Advanced Table Viewer macro</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TBL/pages/3315663358" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TBL/pages/3315663358" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>How to extract JSON nested data using Advanced Table Viewer macro</h1>
-    <div class="page-meta">4 min read</div>
+    <div class="page-meta">Updated 2 months ago · 4 min read</div>
     <h2 id="overview">Overview</h2><p>This page guides you through using the <strong>Advanced Table Viewer</strong> macro to connect a JSON data source and extract nested inventory data into a simple table on your Confluence page.</p><h2 id="insert-the-macro-and-configure-the-json-data-source">Insert the macro and configure the JSON data source</h2><ol><li><p>Insert the macro in a Confluence page using the macro shortcut (/).</p></li><li><p>Type <code>/Advanced</code> and select <strong>Advanced Table Viewer</strong>.</p><img alt="image-20260603-132615.png" class="doc-image" loading="lazy" src="/cms_trial/assets/aaa1b57d-bf50-41ac-80e8-891b0ea2ad97.png"/></li><li><p>Click <strong>Connect Data Source</strong>.</p><img alt="ATV_Connect data source.jpg" class="doc-image" loading="lazy" src="/cms_trial/assets/07f0e2cd-9bdb-4b03-997c-8f440362634b.jpg"/></li><li><p>From the <strong>Select data connector</strong> dropdown, select <em>JSON</em>. Under the <strong>Choose data source type</strong>, select <strong>Upload file</strong>.</p><img alt="ATV_JSON upload.jpg" class="doc-image" loading="lazy" src="/cms_trial/assets/d9cf5414-b171-4e16-a496-3d826c827bb6.jpg"/></li><li><p>Click <strong>Browse</strong> and select the JSON inventory file.</p><img alt="ATV_JSON_browse and upload file.jpg" class="doc-image" loading="lazy" src="/cms_trial/assets/fdfd4dc7-fd76-449a-a15f-4e386c71d27d.jpg"/></li><li><p>Once you choose the file, the <strong>Row data path</strong> field appears.</p></li></ol><p><strong>Row data path</strong>: Enter the JSON data path to import data and generate a table.</p><ul><li><p>The path can be a dot-separated path to the target field in the JSON string. The path is case sensitive.</p></li><li><p>If fields along the specified row data path contain multiple values (arrays or objects), the macro cannot parse or display the data. To successfully extract data, the Row data path must navigate strictly through single-value parent objects or explicit array indexes (e.g., <code>[0]</code>) until it reaches the final target array.</p></li><li><p>For more information, refer to <a href="https://goessner.net/articles/JsonPath/"><u>JSON path syntax</u></a>.</p></li></ul><div class="panel panel-note"><p>Fields with multiple values (arrays or objects) are not supported to keep the table simple and sortable.</p></div><h3 id="configure-the-row-data-path">Configure the Row data path</h3><p>Expand to view the JSON path architecture of the Inventory source file used for the scenarios below.</p><details><summary>The Inventory file JSON path architecture</summary><p>▲ Root Object: inventory<br/>  └── 📄 Field: sheet ("Product Inventory")<br/>  └── 📂 Array: categories (Cannot pass as a wildcard!)<br/>        ├── 📦 Object: categories[0] (Hardware)<br/>        │     └── 📂 Array: subcategories<br/>        │           ├── 📦 Object: subcategories[0] (Processors_and_Memory)<br/>        │                 └── 📋 Array: products  ◄── [TARGET SCALAR DATA]<br/>        │           └── 📦 Object: subcategories[1] (Storage)<br/>        │                 └── 📋 Array: products<br/>        └── 📦 Object: categories[1] (Networking)<br/>              └── 📂 Array: subcategories<br/>                    └── 📦 Object: subcategories[0] (Infrastructure)<br/>                          └── 📋 Array: products</p></details><details><summary>Download the JSON file used for the scenarios</summary><img alt="contentId-3315663358" class="doc-image" loading="lazy" src="/cms_trial/assets/191148b7-6c3d-403f-9593-9aadb31d752d.json"/></details><h2 id="scenarios">Scenarios</h2><div class="img-placeholder">[Unmapped macro: refined-tab — no content to fall back on]</div><p>This scenario demonstrates how to use the recursive descent operator (<code>..</code>) to generate a table with grouped row nesting.</p><ul><li><p><strong>Row data path</strong>: inventory.categories..</p></li><li><p><strong>Select columns</strong>: Once you specify the <strong>Row data path</strong>, the <strong>Select columns </strong>field displays the list of field names available at the specified path. You can remove, select, and reorder the column names as needed.</p><img alt="ATV_JSON Source_grouped category.jpg" class="doc-image" loading="lazy" src="/cms_trial/assets/80337ae5-faa3-44a9-b078-1089a3914e5d.jpg"/></li><li><p>Click <strong>Save</strong>. The macro opens in setup mode, displaying the table with the selected column names and data.</p><img alt="ATV_JSON Source_Extract group inventory category.jpg" class="doc-image" loading="lazy" src="/cms_trial/assets/916e77d4-f1e7-4128-9b2c-ef5e7cacaded.jpg"/></li><li><p>To configure various features in setup mode, refer to <a href="/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/">Set up the Advanced Table Viewer macro features</a>.</p></li><li><p>To apply the configurations, click <strong>Save,</strong> and the configured table appears on the Confluence page in edit and view mode.</p></li></ul><div class="img-placeholder">[Unmapped macro: refined-tab — no content to fall back on]</div><p>This scenario demonstrates how to fetch a high-level list of all primary categories from the root of your JSON.</p><ul><li><p><strong>Row data path</strong>: inventory.categories</p></li><li><p><strong>Select columns</strong>: Once you specify the <strong>Row data path</strong>, the <strong>Select columns </strong>field displays the list of field names available at the specified path. You can remove, select, and reorder the column names as needed.</p><img alt="ATV_JSON_Row data path for primary categories.jpg" class="doc-image" loading="lazy" src="/cms_trial/assets/bab4ccca-f3eb-4beb-a9ba-7d36337e5da0.jpg"/></li></ul><ul><li><p>Click <strong>Save</strong>. The macro opens in setup mode, displaying the table with the selected column names and data.</p><img alt="ATV_JSON Source_primary category names.jpg" class="doc-image" loading="lazy" src="/cms_trial/assets/b7ba9963-a14f-4249-abe5-fa44dca49379.jpg"/></li><li><p>To configure various features in setup mode, refer to <a href="/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/">Set up the Advanced Table Viewer macro features</a>.</p></li><li><p>To apply the configurations, click <strong>Save,</strong> and the configured table appears on the Confluence page in edit and view mode.</p></li></ul><div class="img-placeholder">[Unmapped macro: refined-tab — no content to fall back on]</div><p>This scenario demonstrates how to use bracket-index notation to extract core hardware component data.</p><ul><li><p><strong>Row data path</strong>: inventory.categories[0].subcategories[0].products</p></li><li><p><strong>Select columns</strong>: Once you specify the <strong>Row data path</strong>, the <strong>Select columns </strong>field displays the list of field names available at the specified path. You can remove, select, and reorder the column names as needed.</p><img alt="ATV_JSON source_Row data path_Extract core hardware components.jpg" class="doc-image" loading="lazy" src="/cms_trial/assets/3992342f-d183-4ddd-8976-adb68f2daeb3.jpg"/></li></ul><ul><li><p>Click <strong>Save</strong>. The macro opens in setup mode, displaying the table with the selected column names and data.</p><img alt="ATV_JSON Source_Extract core hardware.jpg" class="doc-image" loading="lazy" src="/cms_trial/assets/45e06848-93cf-4c25-a945-2a8cdbc52227.jpg"/></li><li><p>To configure various features in setup mode, refer to <a href="/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/">Set up the Advanced Table Viewer macro features</a>.</p></li><li><p>To apply the configurations, click <strong>Save</strong>, and the configured table appears on the Confluence page in edit and view mode.</p></li></ul><h2 id="more-examples">More examples</h2><p>Similarly, you can extract the data for specific categories. The table below lists the specific category scenarios.</p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p><strong>Specific category scenarios</strong></p></th><th><p><strong>Row data path syntax</strong></p></th><th><p><strong>Output screen in setup mode</strong></p></th></tr><tr><td><p>Network Infrastructure</p></td><td><p>inventory.categories[1].subcategories[0].products</p></td><td><img alt="ATV_JSON_Network Infrastructure.jpg" class="doc-image" loading="lazy" src="/cms_trial/assets/596e0b87-1076-471a-ad32-e72a617996d8.jpg"/></td></tr><tr><td><p>Displays and Audio</p></td><td><p>inventory.categories[2].subcategories[1].products</p></td><td><img alt="ATV_JSON_Displays and Audio.jpg" class="doc-image" loading="lazy" src="/cms_trial/assets/c4b42ef3-6601-416e-baed-a25bc16c6190.jpg"/></td></tr><tr><td><p>Software Security</p></td><td><p>inventory.categories[3].subcategories[1].products</p></td><td><img alt="ATV_JSON Source_Software security.jpg" class="doc-image" loading="lazy" src="/cms_trial/assets/b7da07dd-4423-4e94-9d04-8ccf482f861b.jpg"/></td></tr><tr><td><p>Wireless and cabling</p></td><td><p>inventory.categories[1].subcategories[1].products</p></td><td><img alt="ATV_JSON Source_Extract wireless and cabling products.jpg" class="doc-image" loading="lazy" src="/cms_trial/assets/9c8369a2-c658-4c05-a90e-978d1f03899a.jpg"/></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">97 pages in this space, fetched live from Confluence via API.</p>
-<nav><ul><li><details open><summary><a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a></summary><ul><li><details><summary><a href="/cms_trial/space/TBL/74813990/Get+started+with+Advanced+Tables+for+Confluence+for+Cloud/">Get started with Advanced Tables for Confluence for Cloud</a></summary><ul><li><a href="/cms_trial/space/TBL/3131703327/Migrate+to+cloud/">Migrate to cloud</a></li></ul></details></li><li><a href="/cms_trial/space/TBL/74814277/Overview+-+cloud/">Overview - cloud</a></li><li><details><summary><a href="/cms_trial/space/TBL/74815154/Installation+and+configuration+-+cloud/">Installation and configuration - cloud</a></summary><ul><li><a href="/cms_trial/space/TBL/74814028/Installation/">Installation</a></li><li><a href="/cms_trial/space/TBL/74812041/Configuration+-+Cloud/">Configuration - Cloud</a></li><li><a href="/cms_trial/space/TBL/74814817/Uninstallation/">Uninstallation</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/TBL/74814716/Use+cases+-+cloud/">Use cases - cloud</a></summary><ul><li><a href="/cms_trial/space/TBL/74814629/How+to+use+regular+expressions+-+Cloud/">How to use regular expressions - Cloud</a></li><li><a href="/cms_trial/space/TBL/74812963/How+to+make+user-defined+column+styles+persist+-+Cloud/">How to make user-defined column styles persist - Cloud</a></li><li><a href="/cms_trial/space/TBL/74813085/How+to+make+user-defined+row+styles+persist+-+Cloud/">How to make user-defined row styles persist - Cloud</a></li><li><a href="/cms_trial/space/TBL/74813066/How+to+apply+filters+on+table+data+-+Cloud/">How to apply filters on table data - Cloud</a></li><li><a href="/cms_trial/space/TBL/74814340/How+to+perform+advanced+date+sorting+with+the+D+column+type+-+Cloud/">How to perform advanced date sorting with the D column type - Cloud</a></li><li><a href="/cms_trial/space/TBL/74814618/How+to+perform+advanced+date+sorting+with+M+column+type-+Cloud/">How to perform advanced date sorting with M column type- Cloud</a></li><li><a href="/cms_trial/space/TBL/74814374/How+to+change+the+format+of+date+columns+-+Cloud/">How to change the format of date columns - Cloud</a></li><li><a href="/cms_trial/space/TBL/74814193/How+to+change+the+format+of+numeric+columns+-+Cloud/">How to change the format of numeric columns - Cloud</a></li><li><a href="/cms_trial/space/TBL/74812579/Table+Plus+macro+examples+-+Cloud/">Table Plus macro examples - Cloud</a></li><li><a href="/cms_trial/space/TBL/74812519/CSV+(Comma+Separated+Values)+macro+examples+-+Cloud/">CSV (Comma Separated Values) macro examples - Cloud</a></li><li><a href="/cms_trial/space/TBL/74818011/JSON+Table+macro+examples+-+Cloud/">JSON Table macro examples - Cloud</a></li><li><a href="/cms_trial/space/TBL/74817969/Attachment+Table+macro+examples+-+Cloud/">Attachment Table macro examples - Cloud</a></li><li><details open><summary><a href="/cms_trial/space/TBL/3325657245/Advanced+Table+Viewer+macro+examples/">Advanced Table Viewer macro examples</a></summary><ul><li><a href="/cms_trial/space/TBL/3315663358/How+to+extract+JSON+nested+data+using+Advanced+Table+Viewer+macro/" class="active">How to extract JSON nested data using Advanced Table Viewer macro</a></li></ul></details></li></ul></details></li><li><details><summary><a href="/cms_trial/space/TBL/74812514/Featured+macros+-+Cloud/">Featured macros - Cloud</a></summary><ul><li><a href="/cms_trial/space/TBL/74812542/Table+Plus+macro+-+Cloud/">Table Plus macro - Cloud</a></li><li><a href="/cms_trial/space/TBL/74812384/CSV+(Comma+Separated+Values)+macro+-+Cloud/">CSV (Comma Separated Values) macro - Cloud</a></li><li><a href="/cms_trial/space/TBL/74812316/JSON+Table+macro+-+Cloud/">JSON Table macro - Cloud</a></li><li><a href="/cms_trial/space/TBL/74812217/Attachment+Table+macro+-+Cloud/">Attachment Table macro - Cloud</a></li><li><a href="/cms_trial/space/TBL/1531117698/Advanced+Table+Viewer+macro/">Advanced Table Viewer macro</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/TBL/74817747/Common+table+capabilities+-+Cloud/">Common table capabilities - Cloud</a></summary><ul><li><a href="/cms_trial/space/TBL/74814225/Column+types+-+Cloud/">Column types - Cloud</a></li><li><a href="/cms_trial/space/TBL/74815166/Augments+-+Cloud/">Augments - Cloud</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/TBL/74816002/Release+notes/">Release notes</a></summary><ul><li><a href="/cms_trial/space/TBL/3488285400/Release+notes+30+July+2026/">Release notes 30 July 2026</a></li><li><a href="/cms_trial/space/TBL/3436478590/Release+notes+July+2026/">Release notes July 2026</a></li><li><a href="/cms_trial/space/TBL/3369304164/Release+notes+June+2026/">Release notes June 2026</a></li><li><a href="/cms_trial/space/TBL/3277324301/Release+notes+28+May+2026/">Release notes 28 May 2026</a></li><li><a href="/cms_trial/space/TBL/3265462603/Release+notes+21+May+2026/">Release notes 21 May 2026</a></li><li><a href="/cms_trial/space/TBL/3220209965/Release+notes+May+2026/">Release notes May 2026</a></li><li><a href="/cms_trial/space/TBL/3197435950/Release+notes+30+April+2026/">Release notes 30 April 2026</a></li><li><a href="/cms_trial/space/TBL/3159687174/Release+notes+23+April+2026/">Release notes 23 April 2026</a></li><li><a href="/cms_trial/space/TBL/3158049004/Release+notes+17+April+2026/">Release notes 17 April 2026</a></li><li><a href="/cms_trial/space/TBL/3122299250/Release+notes+14+April+2026/">Release notes 14 April 2026</a></li><li><a href="/cms_trial/space/TBL/3050111004/Release+notes+08+April+2026/">Release notes 08 April 2026</a></li><li><a href="/cms_trial/space/TBL/3016294412/Release+notes+17+March+2026/">Release notes 17 March 2026</a></li><li><a href="/cms_trial/space/TBL/2991456290/Release+notes+March+2026/">Release notes March 2026</a></li><li><a href="/cms_trial/space/TBL/2766798931/Release+notes+February+2026/">Release notes February 2026</a></li><li><a href="/cms_trial/space/TBL/2402615417/Release+notes+25+September+2025/">Release notes 25 September 2025</a></li><li><a href="/cms_trial/space/TBL/2368995338/Release+notes+19+September+2025/">Release notes 19 September 2025</a></li><li><a href="/cms_trial/space/TBL/2331508840/Release+notes+September+2025/">Release notes September 2025</a></li><li><a href="/cms_trial/space/TBL/2108293544/Release+notes+June+2025/">Release notes June 2025</a></li><li><a href="/cms_trial/space/TBL/2059927693/Release+notes+28+May+2025/">Release notes 28 May 2025</a></li><li><a href="/cms_trial/space/TBL/2008777573/Release+notes+May+2025/">Release notes May 2025</a></li><li><a href="/cms_trial/space/TBL/1946223576/Release+notes+April+2025/">Release notes April 2025</a></li><li><a href="/cms_trial/space/TBL/1864663217/Release+notes+19+March+2025/">Release notes 19 March 2025</a></li><li><a href="/cms_trial/space/TBL/1845789546/Release+notes+12+March+2025/">Release notes 12 March 2025</a></li><li><a href="/cms_trial/space/TBL/1804829772/Release+notes+March+2025/">Release notes March 2025</a></li><li><a href="/cms_trial/space/TBL/1547895248/Release+notes+December+2024/">Release notes December 2024</a></li><li><a href="/cms_trial/space/TBL/1342767373/Release+notes+07+October+2024/">Release notes 07 October 2024</a></li><li><a href="/cms_trial/space/TBL/860487975/Release+notes+28+March+2024/">Release notes 28 March 2024</a></li><li><a href="/cms_trial/space/TBL/837484625/Release+notes+March+2024/">Release notes March 2024</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/TBL/74814936/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/TBL/2172944490/Appfire+Trust+Center/">Appfire Trust Center</a></li><li><a href="/cms_trial/space/TBL/74815010/Data+security+and+privacy/">Data security and privacy</a></li><li><a href="/cms_trial/space/TBL/3529933064/Data+residency+and+Advanced+Tables+for+Confluence/">Data residency and Advanced Tables for Confluence</a></li></ul></details></li></ul></details></li></ul></nav>
-</aside>
+<nav><ul><li><details open><summary><a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a></summary><ul><li><details><summary><a href="/cms_trial/space/TBL/74813990/Get+started+with+Advanced+Tables+for+Confluence+for+Cloud/">Get started with Advanced Tables for Confluence for Cloud</a></summary><ul><li><a href="/cms_trial/space/TBL/3131703327/Migrate+to+cloud/">Migrate to cloud</a></li></ul></details></li><li><a href="/cms_trial/space/TBL/74814277/Overview+-+cloud/">Overview - cloud</a></li><li><details><summary><a href="/cms_trial/space/TBL/74815154/Installation+and+configuration+-+cloud/">Installation and configuration - cloud</a></summary><ul><li><a href="/cms_trial/space/TBL/74814028/Installation/">Installation</a></li><li><a href="/cms_trial/space/TBL/74812041/Configuration+-+Cloud/">Configuration - Cloud</a></li><li><a href="/cms_trial/space/TBL/74814817/Uninstallation/">Uninstallation</a></li><li><a href="/cms_trial/space/TBL/3510698190/How+to+connect+the+Advanced+Tables+for+Confluence+app+to+the+Jira+application/">How to connect the Advanced Tables for Confluence app to the Jira application</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/TBL/74814716/Use+cases+-+cloud/">Use cases - cloud</a></summary><ul><li><a href="/cms_trial/space/TBL/74814629/How+to+use+regular+expressions+-+Cloud/">How to use regular expressions - Cloud</a></li><li><a href="/cms_trial/space/TBL/74812963/How+to+make+user-defined+column+styles+persist+-+Cloud/">How to make user-defined column styles persist - Cloud</a></li><li><a href="/cms_trial/space/TBL/74813085/How+to+make+user-defined+row+styles+persist+-+Cloud/">How to make user-defined row styles persist - Cloud</a></li><li><a href="/cms_trial/space/TBL/74813066/How+to+apply+filters+on+table+data+-+Cloud/">How to apply filters on table data - Cloud</a></li><li><a href="/cms_trial/space/TBL/74814340/How+to+perform+advanced+date+sorting+with+the+D+column+type+-+Cloud/">How to perform advanced date sorting with the D column type - Cloud</a></li><li><a href="/cms_trial/space/TBL/74814618/How+to+perform+advanced+date+sorting+with+M+column+type-+Cloud/">How to perform advanced date sorting with M column type- Cloud</a></li><li><a href="/cms_trial/space/TBL/74814374/How+to+change+the+format+of+date+columns+-+Cloud/">How to change the format of date columns - Cloud</a></li><li><a href="/cms_trial/space/TBL/74814193/How+to+change+the+format+of+numeric+columns+-+Cloud/">How to change the format of numeric columns - Cloud</a></li><li><a href="/cms_trial/space/TBL/74812579/Table+Plus+macro+examples+-+Cloud/">Table Plus macro examples - Cloud</a></li><li><a href="/cms_trial/space/TBL/74812519/CSV+(Comma+Separated+Values)+macro+examples+-+Cloud/">CSV (Comma Separated Values) macro examples - Cloud</a></li><li><a href="/cms_trial/space/TBL/74818011/JSON+Table+macro+examples+-+Cloud/">JSON Table macro examples - Cloud</a></li><li><a href="/cms_trial/space/TBL/74817969/Attachment+Table+macro+examples+-+Cloud/">Attachment Table macro examples - Cloud</a></li><li><details open><summary><a href="/cms_trial/space/TBL/3325657245/Advanced+Table+Viewer+macro+examples/">Advanced Table Viewer macro examples</a></summary><ul><li><a href="/cms_trial/space/TBL/3315663358/How+to+extract+JSON+nested+data+using+Advanced+Table+Viewer+macro/" class="active">How to extract JSON nested data using Advanced Table Viewer macro</a></li></ul></details></li></ul></details></li><li><details><summary><a href="/cms_trial/space/TBL/74812514/Featured+macros+-+Cloud/">Featured macros - Cloud</a></summary><ul><li><a href="/cms_trial/space/TBL/74812542/Table+Plus+macro+-+Cloud/">Table Plus macro - Cloud</a></li><li><a href="/cms_trial/space/TBL/74812384/CSV+(Comma+Separated+Values)+macro+-+Cloud/">CSV (Comma Separated Values) macro - Cloud</a></li><li><a href="/cms_trial/space/TBL/74812316/JSON+Table+macro+-+Cloud/">JSON Table macro - Cloud</a></li><li><a href="/cms_trial/space/TBL/74812217/Attachment+Table+macro+-+Cloud/">Attachment Table macro - Cloud</a></li><li><a href="/cms_trial/space/TBL/1531117698/Advanced+Table+Viewer+macro/">Advanced Table Viewer macro</a></li><li><a href="/cms_trial/space/TBL/3520037211/Native+Table+Enhancer+%5BBeta%5D+macro/">Native Table Enhancer [Beta] macro</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/TBL/74817747/Common+table+capabilities+-+Cloud/">Common table capabilities - Cloud</a></summary><ul><li><a href="/cms_trial/space/TBL/74814225/Column+types+-+Cloud/">Column types - Cloud</a></li><li><a href="/cms_trial/space/TBL/74815166/Augments+-+Cloud/">Augments - Cloud</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/TBL/74816002/Release+notes/">Release notes</a></summary><ul><li><a href="/cms_trial/space/TBL/3581607966/Release+notes+27+August+2026/">Release notes 27 August 2026</a></li><li><a href="/cms_trial/space/TBL/3488285400/Release+notes+30+July+2026/">Release notes 30 July 2026</a></li><li><a href="/cms_trial/space/TBL/3436478590/Release+notes+July+2026/">Release notes July 2026</a></li><li><a href="/cms_trial/space/TBL/3369304164/Release+notes+June+2026/">Release notes June 2026</a></li><li><a href="/cms_trial/space/TBL/3277324301/Release+notes+28+May+2026/">Release notes 28 May 2026</a></li><li><a href="/cms_trial/space/TBL/3265462603/Release+notes+21+May+2026/">Release notes 21 May 2026</a></li><li><a href="/cms_trial/space/TBL/3220209965/Release+notes+May+2026/">Release notes May 2026</a></li><li><a href="/cms_trial/space/TBL/3197435950/Release+notes+30+April+2026/">Release notes 30 April 2026</a></li><li><a href="/cms_trial/space/TBL/3159687174/Release+notes+23+April+2026/">Release notes 23 April 2026</a></li><li><a href="/cms_trial/space/TBL/3158049004/Release+notes+17+April+2026/">Release notes 17 April 2026</a></li><li><a href="/cms_trial/space/TBL/3122299250/Release+notes+14+April+2026/">Release notes 14 April 2026</a></li><li><a href="/cms_trial/space/TBL/3050111004/Release+notes+08+April+2026/">Release notes 08 April 2026</a></li><li><a href="/cms_trial/space/TBL/3016294412/Release+notes+17+March+2026/">Release notes 17 March 2026</a></li><li><a href="/cms_trial/space/TBL/2991456290/Release+notes+March+2026/">Release notes March 2026</a></li><li><a href="/cms_trial/space/TBL/2766798931/Release+notes+February+2026/">Release notes February 2026</a></li><li><a href="/cms_trial/space/TBL/2402615417/Release+notes+25+September+2025/">Release notes 25 September 2025</a></li><li><a href="/cms_trial/space/TBL/2368995338/Release+notes+19+September+2025/">Release notes 19 September 2025</a></li><li><a href="/cms_trial/space/TBL/2331508840/Release+notes+September+2025/">Release notes September 2025</a></li><li><a href="/cms_trial/space/TBL/2108293544/Release+notes+June+2025/">Release notes June 2025</a></li><li><a href="/cms_trial/space/TBL/2059927693/Release+notes+28+May+2025/">Release notes 28 May 2025</a></li><li><a href="/cms_trial/space/TBL/2008777573/Release+notes+May+2025/">Release notes May 2025</a></li><li><a href="/cms_trial/space/TBL/1946223576/Release+notes+April+2025/">Release notes April 2025</a></li><li><a href="/cms_trial/space/TBL/1864663217/Release+notes+19+March+2025/">Release notes 19 March 2025</a></li><li><a href="/cms_trial/space/TBL/1845789546/Release+notes+12+March+2025/">Release notes 12 March 2025</a></li><li><a href="/cms_trial/space/TBL/1804829772/Release+notes+March+2025/">Release notes March 2025</a></li><li><a href="/cms_trial/space/TBL/1547895248/Release+notes+December+2024/">Release notes December 2024</a></li><li><a href="/cms_trial/space/TBL/1342767373/Release+notes+07+October+2024/">Release notes 07 October 2024</a></li><li><a href="/cms_trial/space/TBL/860487975/Release+notes+28+March+2024/">Release notes 28 March 2024</a></li><li><a href="/cms_trial/space/TBL/837484625/Release+notes+March+2024/">Release notes March 2024</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/TBL/74814936/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/TBL/2172944490/Appfire+Trust+Center/">Appfire Trust Center</a></li><li><a href="/cms_trial/space/TBL/74815010/Data+security+and+privacy/">Data security and privacy</a></li><li><a href="/cms_trial/space/TBL/3529933064/Data+residency+and+Advanced+Tables+for+Confluence/">Data residency and Advanced Tables for Confluence</a></li></ul></details></li></ul></details></li></ul></nav>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#overview">Overview</a></li><li class="toc-level-2"><a href="#insert-the-macro-and-configure-the-json-data-source">Insert the macro and configure the JSON data source</a></li><li class="toc-level-3"><a href="#configure-the-row-data-path">Configure the Row data path</a></li><li class="toc-level-2"><a href="#scenarios">Scenarios</a></li><li class="toc-level-2"><a href="#more-examples">More examples</a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
@@ -279,6 +323,92 @@
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

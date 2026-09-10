@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>7pace Timetracker REST CRUD API Version 3 | Appfire Docs</title>
 <meta name="description" content="7pace Timetracker supports CRUD API. This means that you can create, read, update, and delete worklogs.">
@@ -9,7 +19,15 @@
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "7pace Timetracker REST CRUD API Version 3",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/7TFA/1253540003/7pace+Timetracker+REST+CRUD+API+Version+3/",
+  "dateModified": "2026-08-27T01:41:48.677Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,18 +37,45 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/3482517944/Admin+guide/">Admin guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253540254/API+%26+Reporting/">API &amp; Reporting</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">7pace Timetracker REST CRUD API Version 3</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/7TFA/pages/1253540003" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/7TFA/pages/1253540003" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>7pace Timetracker REST CRUD API Version 3</h1>
-    <div class="page-meta">6 min read</div>
+    <div class="page-meta">Updated 14 days ago · 6 min read</div>
     <div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p>7pace Timetracker supports CRUD API. This means that you can create, read, update, and delete worklogs.</p><p>The CRUD API also lets you get information about the following:</p><ul><li><p>Current and other Timetracker users</p></li><li><p>User roles and assigned licenses (and to manage it)</p></li><li><p>Activity types</p></li><li><p>Approval state of weeks</p></li></ul><p>All the available endpoints in the 7pace Timetracker REST CRUD API can be found in our API Reference: <a href="https://timehub.7pace.com/api_reference/index.html">REST CRUD API Reference</a>. </p></div><div></div></div><h2 id="connecting-to-api">Connecting to API </h2><p>Connecting to the REST CRUD API is the same process as connecting to the 7pace Reporting API, which is described here: <a href="/cms_trial/space/7TFA/1253540266/7pace+Timetracker+Reporting+API+Version+3/">Connecting to API</a>. </p><h2 id="important-information">Important information</h2><p>The REST CRUD API returns results in batches (usually of up to 500 rows). If your results contain more than 500 rows, you must use the <strong>$skip</strong> and <strong>$count</strong> parameters. The maximum value for the <strong>$count</strong> parameter is <strong>500</strong>.</p><h2 id="api-endpoints-overview">API endpoints overview</h2><p>All endpoint information can be found in the <a href="https://timehub.7pace.com/apireference/?urls.primaryName=7pace%20Timetracker%20API%20documentation%20v3.2-beta#/">7pace Timetracker API Reference</a> page, along with all the fields returned by the endpoints, and the parameters that can be used with each endpoint. The following endopints are available:</p><ul><li><p><a href="#me">me</a></p></li><li><p><a href="#users">users</a></p></li><li><p><a href="#users%20roles">users/roles</a></p></li><li><p><a href="#activityTypes">activityTypes</a></p></li><li><p><a href="#workLogs">workLogs</a></p></li><li><p><a href="#timeApproval">timeApproval</a></p></li></ul><h3 id="get">GET</h3><ul><li><p><code>me</code> - get information about yourself</p></li><li><p><code>users</code> - get list of system users</p></li><li><p><code>users/roles</code> - get list of 7pace Timetracker licensed users with roles/permissions</p></li><li><p><code>activityTypes</code> - get information about activity type state in the system</p></li><li><p><code>workLogs</code> - gets list of worklogs for current user</p></li><li><p><code>workLogs/all</code> - gets list of worklogs for whole system</p></li><li><p><code>timeApproval/all</code> - gets list of time approval for whole system  </p></li></ul><h3 id="post">POST</h3><ul><li><p><code>users/roles</code> -  set roles/permissions for the list of 7pace Timetracker licensed users </p></li><li><p><code>workLogs</code> - creates new worklog </p></li><li><p><code>workLogs/batch</code> - creates batch of new worklogs </p></li><li><p><code>timeApproval/week</code> - send week for approval </p></li></ul><h3 id="patch">PATCH</h3><ul><li><p><code>workLogs/{id}</code> - updates worklog </p></li></ul><h3 id="delete">DELETE</h3><ul><li><p><code>workLogs/{id}</code> - deletes worklog from system </p></li><li><p><code>timeApproval/week</code> - revoke week that is in a submitted state </p></li></ul><h4 id="me">me</h4><p>This endpoint allows you to get information about yourself.<br/>It is possible to use the <strong>$expand</strong> parameter with this endpoint. The possible options are <code>{ user.displayName }</code><em>.</em> </p><h4 id="users">users</h4><p>This endpoint returns a list of all 7pace Timetracker system users. The parameters that can be used with this endpoint are <strong>$count</strong>, <strong>$skip</strong> and <strong>$expand</strong>. The possible options for the <strong>$expand</strong><em> </em>parameter are <code>{ user.displayName }</code><em>.</em>  </p><h4 id="users-roles">users/roles</h4><p>This endpoint can be used to get a list of 7pace Timetracker licensed users with their roles. By using the POST command, the user roles can be set. The parameters that can be used with this endpoint are <strong>includeNoneRoles</strong>, <strong>$count</strong>, <strong>$skip</strong> and <strong>$expand</strong><em>. </em>The possible options for the <strong>$expand</strong><em> </em>parameter are <code>{ user.displayName }</code><em>.</em><br/>User can be specified by <strong>id</strong>, <strong>vstsId</strong> or <strong>email</strong> (only one field is required) and the role can be specified by <strong>id</strong> or <strong>name</strong> (only one field is required). </p><h4 id="activitytypes">activityTypes </h4><p>This endpoint can be used to get information about the activity type state in the system. </p><h4 id="worklogs">workLogs</h4><p>This endpoint can be used to get a list of worklogs for the current user, or by using the POST command, a new worklog can be created. The below parameters can be used with this endpoint:<br/><strong>$count</strong> - Number of items to take. Maximum value: 500<br/><strong>$skip</strong> - Number of items to skip<br/><strong>$expand</strong> - The expand parameters for model attributes. Possible options are { user.displayName }<br/><strong>$workItemIds</strong> - Filter worklogs by Work Item Ids. Comma separated array, no more than 100 at once<br/><strong>$fromTimestamp</strong> - Return worklogs with timestamp greater than value.<br/><strong>$toTimestamp</strong> - Return worklogs with timestamp less than value.<br/><strong>$fromCreatedTimestamp</strong> - Return worklogs with created timestamp greater than value<br/><strong>$toCreatedTimestamp</strong> - Return worklogs with created timestamp less than value<br/>Date format example: 2021-11-06T10:28:00 </p><h4 id="timeapproval">timeApproval</h4><p>This endpoint can be used to send a week for approval (POST) or to revoke a week that has been submitted for approval (DELETE). Using this endpoint requires at least the Team user role in 7pace Timetracker.</p><p>By using the <code>timeApproval/all</code> endpoint you can get a list of time approval for the entire system and get all approval information. This requires the Approval Manager rights. <code>timeApproval</code> has an approval state of the specific weeks and has a date range of <code>[weekStartDate - weekEndDate]</code>, while the worklog record has one exact date (<strong>createdTimestamp</strong>). By matching <strong>createdTimestamp</strong> from the worklogs for which you are looking to the specific <code>timeApproval</code> weeks with the corresponding date range <code>[weekStartDate - weekEndDate]</code>, you can find the approval state of these worklogs. If there are no results, all available approval weeks in the system are in an <em>unsubmitted</em> state. The parameters which can be used with the <code>timeApproval/all </code>endpoint are listed below:<br/><strong>$count</strong> - Number of items to take. Maximum value: 500<br/><strong>$skip</strong> - Number of items to skip<br/><strong>$expand</strong> - The expand parameters for model attributes. Possible options are { user.displayName }<br/><strong>$fromTimestamp</strong> - Return time approval with week date that includes current week or greater than value.<br/><strong>$toTimestamp</strong> - Return time approval with a week date that includes the current week or less than value.<br/>Date format example: 2021-12-06T12:35:00</p><p>The possible timesheet statuses for Approval that can be returned are the following:</p><p><strong>ID    Approval state</strong><br/><em>1    Submitted for approval</em><br/><em>2    Reopened</em><br/><em>3    Approved</em><br/><em>99    Closed</em></p><p>Timesheets only get an approval status value once they are submitted. Unsubmitted timesheets do not have a status assigned.<br/>The <em>Closed</em> status only applis to unsubmitted timesheets that were closed by an approval manager, and approved timesheets are ones that had been sent for approval and have been approved.</p><h2 id="import-time-worklogs-via-rest-crud-api-npm-package">Import time (worklogs) via REST CRUD API (NPM package)</h2><p>An NPM package is available that can be used to import worklogs which utilizes our CRUD API.</p><p><a href="https://github.com/7pace/timetracker-npm-import">timetracker-npm-import</a> is a Node.js CLI for importing worklogs(csv/excel) to 7pace Timetracker.</p><p>The NPM package is distributed ‘as is’ and will not be developed further, since it was created solely as a showcase of how to use our CRUD API.</p><h3 id="examples">Examples</h3><p>Get user roles and show the user's display name:</p><p><code>GET https://{your-organization}.timehub.7pace.com/api/rest/users/roles?api-version={version}&amp;$expand=user.displayName</code></p><p>Get worklogs for current user from specified timestamp:</p><p><code>GET https://{your-organization}.timehub.7pace.com/api/rest/workLogs?api-version={version}&amp;$fromTimestamp=2021-12-06T12:35:00</code></p><p>Get worklogs from the organization (in this example we are taking only 500 worklogs results (<strong>$count</strong>), and not from the very beginning, but skipping (<strong>$skip</strong>) the first 500 worklogs:</p><p><code>GET https://{your-organization}.timehub.7pace.com/api/rest/workLogs/all?api-version={version}&amp;$skip=500&amp;$count=500</code></p><p>Set multiple users Timetracker permissions:</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">POST https://{your-organization}.timehub.7pace.com/api/rest/users/roles?api-version={version}
 
 JSON body to set multiple users roles/permissions:
@@ -88,9 +133,8 @@ Body:
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">146 pages in this space, fetched live from Confluence via API.</p>
-<nav><ul><li><details open><summary><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a></summary><ul><li><details><summary><a href="/cms_trial/space/7TFA/1253540271/Get+started/">Get started</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540433/7pace+Timetracker+for+developers/">7pace Timetracker for developers</a></li><li><a href="/cms_trial/space/7TFA/1253540439/7pace+Timetracker+for+managers/">7pace Timetracker for managers</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/7TFA/3482517944/Admin+guide/">Admin guide</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540127/Installation+and+Data+Security/">Installation and Data Security</a></li><li><a href="/cms_trial/space/7TFA/2193557481/Authorization+methods/">Authorization methods</a></li><li><details open><summary><a href="/cms_trial/space/7TFA/1253540254/API+%26+Reporting/">API &amp; Reporting</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253539983/7pace+Timetracker+API+Important+Information/">7pace Timetracker API Important Information</a></li><li><a href="/cms_trial/space/7TFA/1253540758/7pace+Timetracker+Client+(Tracking)+API/">7pace Timetracker Client (Tracking) API</a></li><li><a href="/cms_trial/space/7TFA/1253539934/7pace+Timetracker%27s+Reporting+Page/">7pace Timetracker's Reporting Page</a></li><li><a href="/cms_trial/space/7TFA/1253540063/7pace+Timetracker%27s+Reporting+Widgets+Gallery/">7pace Timetracker's Reporting Widgets Gallery</a></li><li><a href="/cms_trial/space/7TFA/1253540266/7pace+Timetracker+Reporting+API+Version+3/">7pace Timetracker Reporting API Version 3</a></li><li><a href="/cms_trial/space/7TFA/1253540003/7pace+Timetracker+REST+CRUD+API+Version+3/" class="active">7pace Timetracker REST CRUD API Version 3</a></li><li><a href="/cms_trial/space/7TFA/1253539907/How+to+Avoid+API+Rate+Limiting/">How to Avoid API Rate Limiting</a></li><li><a href="/cms_trial/space/7TFA/1253540313/API+2.1+Migration+FAQ/">API 2.1 Migration FAQ</a></li><li><a href="/cms_trial/space/7TFA/1253539892/7pace+Timetracker%27s+Reporting+API+%22This+set+of+parameters+is+not+allowed%22+error/">7pace Timetracker's Reporting API "This set of parameters is not allowed" error</a></li><li><a href="/cms_trial/space/7TFA/1253539939/How+to+export+a+list+of+all+licensed+users/">How to export a list of all licensed users</a></li><li><a href="/cms_trial/space/7TFA/3118563336/API+Rate+Limiting/">API Rate Limiting</a></li></ul></details></li><li><a href="/cms_trial/space/7TFA/1253540242/Apps/">Apps</a></li><li><a href="/cms_trial/space/7TFA/3488055333/App+configuration/">App configuration</a></li><li><a href="/cms_trial/space/7TFA/1253539917/7pace+Timetracker+Legacy+Versions+and+Legacy+TFS/">7pace Timetracker Legacy Versions and Legacy TFS</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/3482780186/User+guide/">User guide</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253539966/Add+Time+Dialog/">Add Time Dialog</a></li><li><a href="/cms_trial/space/7TFA/1253539860/Work+item+form/">Work item form</a></li><li><a href="/cms_trial/space/7TFA/1253540085/Budgets/">Budgets</a></li><li><a href="/cms_trial/space/7TFA/1253540717/Iterations/">Iterations</a></li><li><a href="/cms_trial/space/7TFA/1253539865/Approvals/">Approvals</a></li><li><a href="/cms_trial/space/7TFA/1253540013/Times+Explorer/">Times Explorer</a></li><li><a href="/cms_trial/space/7TFA/1253540070/Monthly+view/">Monthly view</a></li><li><a href="/cms_trial/space/7TFA/1547173906/Weekly+view/">Weekly view</a></li><li><a href="/cms_trial/space/7TFA/1253540328/Timesheet/">Timesheet</a></li><li><a href="/cms_trial/space/7TFA/2935357478/Connect+calendar/">Connect calendar</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/3511091204/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/7TFA/1361084424/7pace+Product+Support/">7pace Product Support</a></li><li><a href="/cms_trial/space/7TFA/1253540447/Frequently+Asked+Questions/">Frequently Asked Questions</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/1253539885/Release+Notes/">Release Notes</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540249/7pace+Timetracker+for+Azure+DevOps+Release+Notes/">7pace Timetracker for Azure DevOps Release Notes</a></li><li><a href="/cms_trial/space/7TFA/1253540290/Legacy+Release+Notes/">Legacy Release Notes</a></li></ul></details></li></ul></details></li></ul></nav>
-</aside>
+<nav><ul><li><details open><summary><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a></summary><ul><li><details><summary><a href="/cms_trial/space/7TFA/1253540271/Get+started+with+7pace+Timetracker+for+Azure+DevOps/">Get started with 7pace Timetracker for Azure DevOps</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540433/7pace+Timetracker+for+developers/">7pace Timetracker for developers</a></li><li><a href="/cms_trial/space/7TFA/1253540439/7pace+Timetracker+for+managers/">7pace Timetracker for managers</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/7TFA/3482517944/Admin+guide/">Admin guide</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540127/Installation+and+Data+Security/">Installation and Data Security</a></li><li><a href="/cms_trial/space/7TFA/2193557481/Authorization+methods/">Authorization methods</a></li><li><details open><summary><a href="/cms_trial/space/7TFA/1253540254/API+%26+Reporting/">API &amp; Reporting</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253539983/7pace+Timetracker+API+Important+Information/">7pace Timetracker API Important Information</a></li><li><a href="/cms_trial/space/7TFA/1253540758/7pace+Timetracker+Client+(Tracking)+API/">7pace Timetracker Client (Tracking) API</a></li><li><a href="/cms_trial/space/7TFA/1253539934/7pace+Timetracker%27s+Reporting+Page/">7pace Timetracker's Reporting Page</a></li><li><a href="/cms_trial/space/7TFA/1253540063/7pace+Timetracker%27s+Reporting+Widgets+Gallery/">7pace Timetracker's Reporting Widgets Gallery</a></li><li><a href="/cms_trial/space/7TFA/1253540266/7pace+Timetracker+Reporting+API+Version+3/">7pace Timetracker Reporting API Version 3</a></li><li><a href="/cms_trial/space/7TFA/1253540003/7pace+Timetracker+REST+CRUD+API+Version+3/" class="active">7pace Timetracker REST CRUD API Version 3</a></li><li><a href="/cms_trial/space/7TFA/1253539907/How+to+Avoid+API+Rate+Limiting/">How to Avoid API Rate Limiting</a></li><li><a href="/cms_trial/space/7TFA/1253540313/API+2.1+Migration+FAQ/">API 2.1 Migration FAQ</a></li><li><a href="/cms_trial/space/7TFA/1253539892/7pace+Timetracker%27s+Reporting+API+%22This+set+of+parameters+is+not+allowed%22+error/">7pace Timetracker's Reporting API "This set of parameters is not allowed" error</a></li><li><a href="/cms_trial/space/7TFA/1253539939/How+to+export+a+list+of+all+licensed+users/">How to export a list of all licensed users</a></li><li><a href="/cms_trial/space/7TFA/3118563336/API+Rate+Limiting/">API Rate Limiting</a></li></ul></details></li><li><a href="/cms_trial/space/7TFA/1253540242/Apps/">Apps</a></li><li><a href="/cms_trial/space/7TFA/3488055333/App+configuration/">App configuration</a></li><li><a href="/cms_trial/space/7TFA/1253539917/7pace+Timetracker+Legacy+Versions+and+Legacy+TFS/">7pace Timetracker Legacy Versions and Legacy TFS</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/3482780186/User+guide/">User guide</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253539966/Add+Time+Dialog/">Add Time Dialog</a></li><li><a href="/cms_trial/space/7TFA/1253539860/Work+item+form/">Work item form</a></li><li><a href="/cms_trial/space/7TFA/1253540085/Budgets/">Budgets</a></li><li><a href="/cms_trial/space/7TFA/1253540717/Iterations/">Iterations</a></li><li><a href="/cms_trial/space/7TFA/1253539865/Approvals/">Approvals</a></li><li><a href="/cms_trial/space/7TFA/1253540013/Times+Explorer/">Times Explorer</a></li><li><a href="/cms_trial/space/7TFA/1253540070/Monthly+view/">Monthly view</a></li><li><a href="/cms_trial/space/7TFA/1547173906/Weekly+view/">Weekly view</a></li><li><a href="/cms_trial/space/7TFA/1253540328/Timesheet/">Timesheet</a></li><li><a href="/cms_trial/space/7TFA/2935357478/Connect+calendar/">Connect calendar</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/3511091204/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/7TFA/1361084424/7pace+Product+Support/">7pace Product Support</a></li><li><a href="/cms_trial/space/7TFA/1253540447/Frequently+Asked+Questions/">Frequently Asked Questions</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/1253540249/7pace+Timetracker+for+Azure+DevOps+Release+Notes/">7pace Timetracker for Azure DevOps Release Notes</a></summary><ul><li><a href="/cms_trial/space/7TFA/3509223505/Release+notes+5.100/">Release notes 5.100</a></li><li><a href="/cms_trial/space/7TFA/3466657955/Release+notes+5.99/">Release notes 5.99</a></li><li><a href="/cms_trial/space/7TFA/3413082694/Release+notes+5.98/">Release notes 5.98</a></li><li><a href="/cms_trial/space/7TFA/3394044151/Release+notes+5.97/">Release notes 5.97</a></li><li><a href="/cms_trial/space/7TFA/3306487975/Release+notes+5.96/">Release notes 5.96</a></li><li><a href="/cms_trial/space/7TFA/3199172612/Release+notes+5.95/">Release notes 5.95</a></li><li><a href="/cms_trial/space/7TFA/3157721151/Release+notes+5.94/">Release notes 5.94</a></li></ul></details></li></ul></details></li></ul></nav>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#connecting-to-api">Connecting to API </a></li><li class="toc-level-2"><a href="#important-information">Important information</a></li><li class="toc-level-2"><a href="#api-endpoints-overview">API endpoints overview</a></li><li class="toc-level-3"><a href="#get">GET</a></li><li class="toc-level-3"><a href="#post">POST</a></li><li class="toc-level-3"><a href="#patch">PATCH</a></li><li class="toc-level-3"><a href="#delete">DELETE</a></li><li class="toc-level-4"><a href="#me">me</a></li><li class="toc-level-4"><a href="#users">users</a></li><li class="toc-level-4"><a href="#users-roles">users/roles</a></li><li class="toc-level-4"><a href="#activitytypes">activityTypes </a></li><li class="toc-level-4"><a href="#worklogs">workLogs</a></li><li class="toc-level-4"><a href="#timeapproval">timeApproval</a></li><li class="toc-level-2"><a href="#import-time-worklogs-via-rest-crud-api-npm-package">Import time (worklogs) via REST CRUD API (NPM package)</a></li><li class="toc-level-3"><a href="#examples">Examples</a></li><li class="toc-level-3"><a href="#example-excel-file-for-a-quick-start">Example Excel file for a quick start</a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
@@ -316,6 +360,92 @@ Body:
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

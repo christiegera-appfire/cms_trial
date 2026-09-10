@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
+<meta charset="utf-8">
+<title>Automatically create Jira work items with Salesforce Flows | Appfire Docs</title>
+<meta name="description" content="Keep your support and engineering teams in sync without manual copy-pasting. The Create Jira work item action for Salesforce Flows automatically creates a…">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/cms_trial/tokens.css">
+<link rel="stylesheet" href="/cms_trial/styles.css">
+<meta name="robots" content="noindex, nofollow">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Automatically create Jira work items with Salesforce Flows",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/CSFJIRA/3627581468/Automatically+create+Jira+work+items+with+Salesforce+Flows/",
+  "dateModified": "2026-09-10T09:30:41.970Z"
+}
+</script>
+</head>
+<body>
+<div id="top-nav-mount">
+<header class="top-nav">
+  <div class="top-nav-inner">
+    <a class="top-nav-brand" href="/cms_trial/"><img class="top-nav-logo" src="/cms_trial/brand-assets/appfire-lockup-white.svg" alt="Appfire" loading="lazy"><span class="top-nav-divider"></span><span class="top-nav-docs-label">Docs</span></a>
+    <nav class="top-nav-links">
+      <a href="/cms_trial/product-directory/">Product directory</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
+    </nav>
+  </div>
+</header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
+</div>
+<div class="shell">
+  <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/3092054544/Book+a+demo+for+Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1874100241/Configuration/">Configuration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1874001954/Automate+your+integration/">Automate your integration</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Automatically create Jira work items with Salesforce Flows</span></nav>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3627581468" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
+    </div>
+    <h1>Automatically create Jira work items with Salesforce Flows</h1>
+    <div class="page-meta">Updated today · 4 min read</div>
+    <p>Keep your support and engineering teams in sync without manual copy-pasting. The <strong>Create Jira work item</strong> action for Salesforce Flows automatically creates a Jira work item whenever a Flow-defined event happens in Salesforce, for example, whenever someone creates a Case record. Add it as a step in Flow Builder, specify the record, connection, Jira space, and work item type to use, and it handles the rest.</p><p>Once the work item is created, it's also automatically associated with the Salesforce record, so you can see the association in both Jira and Salesforce. Your connection's settings control how the associated items stay in sync. You don't need to configure anything extra in the Flow step itself.</p><h2 id="before-you-start">Before you start</h2><p>Make sure you:</p><ul><li><p>Have a working <strong>connection</strong> to your Jira instance (set up by your Salesforce admin).</p></li><li><p>Have an account with permission to create work items in the target Jira space.</p></li><li><p>Map the entities for the Salesforce object type and Jira work item type you want to create. To learn more, see <a href="/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field+and+value+mappings/">Configure entity, field and value mappings</a>.</p></li><li><p>Understand the Flows in Salesforce: <a href="https://trailhead.salesforce.com/content/learn/modules/record-triggered-flows/build-a-record-triggered-flow">Build Record-Triggered Flows Guide</a>.</p></li></ul><h2 id="enable-apex-class-access-for-your-user">Enable Apex Class Access for your user</h2><p>Before building the flow, your Salesforce administrator needs to grant the System Administrator profile access to the Apex classes the action depends on.</p><ol><li><p>In Salesforce, open <strong>Setup</strong>.</p></li><li><p>Search for <strong>Profiles</strong> in the <strong>Quick Find </strong>box, and select the <strong>System Administrator</strong> profile.</p><img alt="Profiles page showing the profile selected for Apex Class Access." class="doc-image" loading="lazy" src="/cms_trial/assets/3234ec7b-01f1-4f40-9175-6733568a3c28.png"/></li><li><p>Under <strong>Enabled Apex Class Access</strong>, click <strong>Edit</strong>.</p><img alt="Enabled Apex Class Access section showing the Edit button." class="doc-image" loading="lazy" src="/cms_trial/assets/e161765c-ab6a-41f5-bcb5-06335a492b62.png"/></li><li><p>In the <strong>Available Apex Classes</strong> list, select the following classes:</p><ul><li><p><code>JCFS.ActionEditorController</code></p></li><li><p><code>JCFS.CreateJiraIssueAction</code></p></li><li><p><code>JCFS.InvocableUtils</code></p><img alt="Available Apex Classes list showing the required Apex classes to select." class="doc-image" loading="lazy" src="/cms_trial/assets/55449155-ea12-4a19-865b-4522245d6b79.png"/></li></ul></li><li><p>Click <strong>Add</strong> to move them to the <strong>Enabled Apex Classes</strong> list.</p><img alt="Enabled Apex Classes list showing the selected Apex classes after clicking Add." class="doc-image" loading="lazy" src="/cms_trial/assets/3663c58a-000c-4611-8389-4d07b9c5c2c4.png"/></li><li><p>Click <strong>Save</strong>.</p></li></ol><h2 id="set-up-the-flow">Set up the flow</h2><ol><li><p>In Salesforce, open the <strong>Setup</strong> menu.</p></li><li><p> Search for <strong>Flows</strong> in the <strong>Quick Find </strong>box, and click <strong>New Flow</strong> to open the Flow Builder.</p><img alt="New Flow option" class="doc-image" loading="lazy" src="/cms_trial/assets/4a41c5c5-4080-40b3-9582-92d84e27a99d.png"/></li><li><p>In the <em>New Automation </em>window, select <strong>Record-Triggered Flow</strong>.</p><img alt="New Automation window showing the Record-Triggered Flow option." class="doc-image" loading="lazy" src="/cms_trial/assets/9f925125-a9ba-4f9c-ad55-083f38df0933.png"/></li><li><p>Under <em>Configure Start,</em><strong> </strong>select the Salesforce object type whose records you want to trigger the flow (for example, Case).</p><img alt="Configure Start section showing where to select the Salesforce object that triggers the flow." class="doc-image" loading="lazy" src="/cms_trial/assets/ffc3dc00-9d32-4d86-a5f3-1b6d708d6c8c.png"/></li><li><p>Select the event that will trigger the flow. For example, <strong>A record is created</strong>. </p><ul><li><p><strong>A record is created </strong></p></li><li><p><strong>A record is updated </strong></p></li><li><p><strong>A record is created or updated</strong></p></li><li><p><strong>A record is deleted</strong></p><img alt="Trigger configuration showing the available record-trigger options." class="doc-image" loading="lazy" src="/cms_trial/assets/f8819841-7bc4-4413-8a9d-8c74a5730eef.png"/></li></ul></li><li><p>Click the <strong>Add element </strong>(<span class="inline-icon" title="inline icon">▢</span>) icon, then select <strong>Action</strong>.</p><img alt="Flow Builder showing how to add an Action element to the flow." class="doc-image" loading="lazy" src="/cms_trial/assets/d9b966f0-95a1-40ff-989b-8f09eea6c4a1.png"/></li><li><p> Select the <strong>Create Jira work item </strong>action.</p><img alt="Action selector showing the Create Jira work item action." class="doc-image" loading="lazy" src="/cms_trial/assets/bcb70886-aafd-4d39-84be-13592e4893db.png"/></li><li><p>Type the <strong>Label </strong>name for the element , for example, <code>Bug flow</code>.<br/>The <strong>API name</strong> field fills out automatically.</p></li><li><p>Fill in the fields under the <em>Configure Create Jira work </em>i<em>tem </em>section.</p><ul><li><p><strong>Record ID </strong>-<strong> </strong>The Salesforce record the work item should be based on. In most cases, this is the record that triggered the flow; click <strong>Use Triggering Record</strong> to fill it in automatically. However, it can also reference a different, specific record depending on your use case. Set Record ID instead of the triggering record.</p></li><li><p><strong>Object API name - </strong>The type of Salesforce object the record belongs to (for example, Case or Opportunity). Select it from the dropdown list. You can start typing to filter it.</p></li><li><p><strong>Select a connection </strong>-<strong> </strong>The Jira connection you want to use for the automation. </p></li><li><p><strong>Jira space </strong>-<strong> </strong>The Jira space the new work item should be created in.</p></li><li><p><strong>Work item type</strong> - The type of work item you want to create automatically (for example, bug, task, or story). Make sure that you have mapped the entities for the selected work item type in Jira. In this example, you need a mapping for the Bug Jira work item type and a Case object type. To learn more, see <a href="/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field+and+value+mappings/">Configure entity, field and value mappings</a>.</p><img alt="Configure Create Jira work item section showing the required action fields." class="doc-image" loading="lazy" src="/cms_trial/assets/1eebf68b-a2fa-44b7-a4f2-2a3f9a26f9f2.png"/></li></ul></li></ol><ol><li><p>Type the <strong>Flow Label name</strong>, for example, <code>Create a Jira bug on a Case</code>.<br/>The Flow API name fills out automatically. </p><img alt="Flow settings showing the Flow Label field and automatically generated Flow API name." class="doc-image" loading="lazy" src="/cms_trial/assets/e005ff2c-b04d-4ac7-b7f3-08ae59f9c210.png"/></li><li><p>Click <strong>Activate</strong>.<br/>Whenever a new case record is created in Salesforce, an associated Jira work item is also created in Jira. Make sure you refresh your page to see the newly associated item.</p></li></ol><h2 id="example">Example</h2><h3 id="escalate-a-case-to-jira">Escalate a case to Jira</h3><p><strong>Scenario:</strong> Your support team wants every Salesforce case marked "Escalated" to automatically become a Bug in the Engineering Jira project.</p><ul><li><p><strong>Trigger:</strong> Record-Triggered Flow on <code>Case</code>, when <code>Status</code> changes to <code>Escalated</code>.</p></li><li><p><strong>Record:</strong> The Case record.</p></li><li><p><strong>Object API name:</strong> <code>Case</code></p></li><li><p><strong>Connection name:</strong> <code>Engineering Jira</code></p></li><li><p><strong>Jira space:</strong> <code>ENG</code></p></li><li><p><strong>Jira work item type:</strong> <code>Bug</code></p></li></ul><p><strong>Result:</strong> As soon as a Case is escalated, a Bug appears in the ENG space, associated to the Case.</p><p>Each Create Jira work item step works with one object type per group of records. If your Flow handles multiple object types, add a decision step to route records or run the action per object type.</p><h2 id="need-help">Need help?</h2><p>Contact your Salesforce admin if:</p><ul><li><p>The connection you need isn't in the list.</p></li><li><p>You don't see the Jira space or work item type you expect (this usually means a permissions problem in Jira).</p></li></ul><h2 id="learn-more">Learn more</h2><ul><li><p><a href="https://trailhead.salesforce.com/content/learn/modules/record-triggered-flows/build-a-record-triggered-flow">Build Record-Triggered Flows Guide</a> </p></li></ul>
+  </main>
+  <aside class="sidebar">
+<div class="brand"><span class="brand-mark">Appfire Docs</span></div>
+<div class="brand-tag">Live docs, fetched from Confluence via API.</div>
+<nav><ul><li><a href="/cms_trial/space/CSFJIRA/3092054544/Book+a+demo+for+Connector+for+Salesforce+%26+Jira/">Book a demo for Connector for Salesforce &amp; Jira</a></li><li><details open><summary><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a></summary><ul><li><a href="/cms_trial/space/CSFJIRA/1873740701/Overview/">Overview</a></li><li><details><summary><a href="/cms_trial/space/CSFJIRA/1873739795/Get+started+with+Connector+for+Salesforce+%26+Jira/">Get started with Connector for Salesforce &amp; Jira</a></summary><ul><li><a href="/cms_trial/space/CSFJIRA/1873412305/System+and+platform+requirements/">System and platform requirements</a></li><li><a href="/cms_trial/space/CSFJIRA/1873477874/Installation/">Installation</a></li><li><a href="/cms_trial/space/CSFJIRA/1873412559/Set+up+your+integration+in+Jira/">Set up your integration in Jira</a></li><li><a href="/cms_trial/space/CSFJIRA/1873772649/Set+up+your+integration+in+Salesforce/">Set up your integration in Salesforce</a></li><li><a href="/cms_trial/space/CSFJIRA/3608707174/Configure+Salesforce+record+page+to+view+Jira+details+directly+in+Salesforce/">Configure Salesforce record page to view Jira details directly in Salesforce</a></li><li><a href="/cms_trial/space/CSFJIRA/1873510679/Classic+Connector+for+Salesforce+and+NextGen+Connector+for+Salesforce+%26+Jira+comparison/">Classic Connector for Salesforce and NextGen Connector for Salesforce &amp; Jira comparison</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/CSFJIRA/1874100241/Configuration/">Configuration</a></summary><ul><li><a href="/cms_trial/space/CSFJIRA/1873380265/Configure+settings+in+Jira/">Configure settings in Jira</a></li><li><a href="/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field+and+value+mappings/">Configure entity, field and value mappings</a></li><li><a href="/cms_trial/space/CSFJIRA/1873740170/Configure+settings+in+Salesforce/">Configure settings in Salesforce</a></li><li><a href="/cms_trial/space/CSFJIRA/1873740233/Configure+Lightning+Web+components/">Configure Lightning Web components</a></li><li><details open><summary><a href="/cms_trial/space/CSFJIRA/1874001954/Automate+your+integration/">Automate your integration</a></summary><ul><li><a href="/cms_trial/space/CSFJIRA/3627581468/Automatically+create+Jira+work+items+with+Salesforce+Flows/" class="active">Automatically create Jira work items with Salesforce Flows</a></li><li><a href="/cms_trial/space/CSFJIRA/1873446010/Configure+Automatic+Pull+from+Salesforce/">Configure Automatic Pull from Salesforce</a></li><li><a href="/cms_trial/space/CSFJIRA/1873969278/Configure+workflow+post+functions+in+Jira/">Configure workflow post functions in Jira</a></li><li><a href="/cms_trial/space/CSFJIRA/1873511732/Automatic+Jira+Issue+Creation+and+Push+Updates+in+the+same+trigger/">Automatic Jira Issue Creation and Push Updates in the same trigger</a></li><li><a href="/cms_trial/space/CSFJIRA/1873413550/Associate+Jira+work+item+with+Salesforce+records+and+trigger+post+actions+automatically/">Associate Jira work item with Salesforce records and trigger post actions automatically</a></li><li><a href="/cms_trial/space/CSFJIRA/1874002013/Trigger+code+when+an+association+is+unlinked/">Trigger code when an association is unlinked</a></li><li><a href="/cms_trial/space/CSFJIRA/1873413628/Configure+automatic+Jira+issue+creation+from+Salesforce/">Configure automatic Jira issue creation from Salesforce</a></li><li><a href="/cms_trial/space/CSFJIRA/1874002066/How+to+enable+status+transition+from+Salesforce+to+Jira+using+Automation+for+Jira/">How to enable status transition from Salesforce to Jira using Automation for Jira</a></li></ul></details></li><li><a href="/cms_trial/space/CSFJIRA/1873511950/Automatically+retry+failed+sync+jobs/">Automatically retry failed sync jobs</a></li><li><a href="/cms_trial/space/CSFJIRA/1873380661/Understand+Salesforce+API+call+usage/">Understand Salesforce API call usage</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CSFJIRA/3091727249/User+guides/">User guides</a></summary><ul><li><a href="/cms_trial/space/CSFJIRA/1918802420/Get+started+for+users/">Get started for users</a></li><li><a href="/cms_trial/space/CSFJIRA/3091760268/Work+with+associations/">Work with associations</a></li><li><a href="/cms_trial/space/CSFJIRA/3091628846/Work+with+comments/">Work with comments</a></li><li><a href="/cms_trial/space/CSFJIRA/1962541918/Search+Salesforce+Object+from+Jira/">Search Salesforce Object from Jira</a></li><li><a href="/cms_trial/space/CSFJIRA/1754432218/Work+with+attachments/">Work with attachments</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CSFJIRA/2139357355/Use+cases/">Use cases</a></summary><ul><li><a href="/cms_trial/space/CSFJIRA/2139357389/Create+a+two-way+workflow+between+Jira+work+items+and+Salesforce+Manufacturing+request/">Create a two-way workflow between Jira work items and Salesforce Manufacturing request</a></li><li><a href="/cms_trial/space/CSFJIRA/2139881603/Create+a+two-way+workflow+between+JSM+and+Salesforce+on-site+support/">Create a two-way workflow between JSM and Salesforce on-site support</a></li><li><a href="/cms_trial/space/CSFJIRA/2139357509/Create+a+two-way+workflow+between+Jira+work+items+and+Salesforce+Marketing+Campaigns/">Create a two-way workflow between Jira work items and Salesforce Marketing Campaigns</a></li><li><a href="/cms_trial/space/CSFJIRA/2140045422/Create+a+two-way+workflow+between+Jira+work+item+and+Salesforce+Legal+records/">Create a two-way workflow between Jira work item and Salesforce Legal records</a></li><li><a href="/cms_trial/space/CSFJIRA/3374219265/Sync+SLA+deadlines+from+Jira+to+Salesforce+using+Connector+for+Salesforce+%26+Jira+and+Time+to+SLA/">Sync SLA deadlines from Jira to Salesforce using Connector for Salesforce &amp; Jira and Time to SLA</a></li><li><a href="/cms_trial/space/CSFJIRA/3255336965/Native+Salesforce+reporting+on+Jira+data/">Native Salesforce reporting on Jira data</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CSFJIRA/1685193166/API+reference/">API reference</a></summary><ul><li><a href="/cms_trial/space/CSFJIRA/1853817917/Authenticate+REST+APIs/">Authenticate REST APIs</a></li><li><a href="/cms_trial/space/CSFJIRA/1684308828/Associate+API%3A+POST+%2Fexternal%2Fapi%2Fassociation/">Associate API: POST /external/api/association</a></li><li><a href="/cms_trial/space/CSFJIRA/1685258704/Push+API%3A+POST+%2Fexternal%2Fapi%2Fpush%2Fproject/">Push API: POST /external/api/push/project</a></li><li><a href="/cms_trial/space/CSFJIRA/1853818000/Bulk+associations%3A+GET+%2Fexternal%2Fapi%2Fassociations/">Bulk associations: GET /external/api/associations</a></li><li><a href="/cms_trial/space/CSFJIRA/1854374644/Bulk+associations%3A+POST+%2Fexternal%2Fapi%2Fassociations/">Bulk associations: POST /external/api/associations</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CSFJIRA/2161049701/Migrate+Connector+for+Salesforce+%26+Jira+Data+Center+to+Cloud/">Migrate Connector for Salesforce &amp; Jira Data Center to Cloud</a></summary><ul><li><a href="/cms_trial/space/CSFJIRA/2161082491/Connector+for+Salesforce+%26+Jira+feature+differences+for+Jira+DC+and+Cloud/">Connector for Salesforce &amp; Jira feature differences for Jira DC and Cloud</a></li><li><a href="/cms_trial/space/CSFJIRA/2161082534/Migration+path+Connector+for+Salesforce+%26+Jira+Server+or+Data+Center+to+Cloud/">Migration path Connector for Salesforce &amp; Jira Server or Data Center to Cloud</a></li><li><a href="/cms_trial/space/CSFJIRA/2160984266/Step+1+-+Plan+out+your+migration/">Step 1 - Plan out your migration</a></li><li><a href="/cms_trial/space/CSFJIRA/2160754916/Step+2+-+Prepare+your+Jira+Data+Center+migration+data/">Step 2 - Prepare your Jira Data Center migration data</a></li><li><a href="/cms_trial/space/CSFJIRA/2161049766/Step+3+-+Import+data+and+settings+into+the+Jira+Cloud+site/">Step 3 - Import data and settings into the Jira Cloud site</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CSFJIRA/3091858027/Release+notes/">Release notes</a></summary><ul><li><a href="/cms_trial/space/CSFJIRA/3566829572/Release+notes+7+September+2026/">Release notes 7 September 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3536323119/Release+notes+20+August+2026/">Release notes 20 August 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3539306087/Release+notes+13+August+2026/">Release notes 13 August 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3470688338/Release+notes+3+August+2026/">Release notes 3 August 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3490611266/Release+notes+29+July+2026/">Release notes 29 July 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3487563793/Release+notes+28+July+2026/">Release notes 28 July 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3483041825/Release+notes+27+July+2026/">Release notes 27 July 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3470688504/Release+notes+21+July+2026/">Release notes 21 July 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3465970130/Release+notes+20+July+2026+ver+26.0.0/">Release notes 20 July 2026 ver 26.0.0</a></li><li><a href="/cms_trial/space/CSFJIRA/3466657795/Release+notes+20+July+2026/">Release notes 20 July 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3451945120/Release+notes+14+July+2026/">Release notes 14 July 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3447259177/Release+notes+13+July+2026/">Release notes 13 July 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3422028003/Release+notes+6+July+2026/">Release notes 6 July 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3421995070/Release+notes+2+July+2026/">Release notes 2 July 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3417211019/Release+notes+22+June+2026/">Release notes 22 June 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3417210884/Release+notes+12+June+2026/">Release notes 12 June 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3314581525/Release+notes+2+June+2026/">Release notes 2 June 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3235741699/Release+notes+28+May+2026/">Release notes 28 May 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3136356478/Release+notes+25+May+2026/">Release notes 25 May 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3220930561/Breaking+changes+May+2026/">Breaking changes May 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3123709157/Release+notes+14+April+2026/">Release notes 14 April 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3091301834/Connector+for+Salesforce+%26+Jira+Cloud+(Jira+Add-on)+Release+Notes/">Connector for Salesforce &amp; Jira Cloud (Jira Add-on) Release Notes</a></li><li><a href="/cms_trial/space/CSFJIRA/3091728035/Jira+Cloud+for+Salesforce+(Salesforce+Package+on+AppExchange)+Release+Notes/">Jira Cloud for Salesforce (Salesforce Package on AppExchange) Release Notes</a></li><li><a href="/cms_trial/space/CSFJIRA/3091956915/Critical+version+upgrade+required/">Critical version upgrade required</a></li><li><a href="/cms_trial/space/CSFJIRA/3091956863/Connector+for+Salesforce+and+Jira+changes/">Connector for Salesforce and Jira changes</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a></li><li><a href="/cms_trial/space/CSFJIRA/2258141853/FAQ/">FAQ</a></li><li><a href="/cms_trial/space/CSFJIRA/2256309570/Book+a+demo/">Book a demo</a></li><li><a href="/cms_trial/space/CSFJIRA/2258305080/Appfire+Trust+Center/">Appfire Trust Center</a></li><li><a href="/cms_trial/space/CSFJIRA/2258141912/Contact+us/">Contact us</a></li><li><a href="/cms_trial/space/CSFJIRA/3319464284/Migration+to+Forge/">Migration to Forge</a></li><li><a href="/cms_trial/space/CSFJIRA/2258305117/Data+residency+and+realm+persistence/">Data residency and realm persistence</a></li><li><a href="/cms_trial/space/CSFJIRA/2376073217/Troubleshooting+missing+associations+after+update/">Troubleshooting missing associations after update</a></li><li><a href="/cms_trial/space/CSFJIRA/2258305251/Transitioning+of+Connector+for+Salesforce+%26+Jira+to+Appfire+infrastructure/">Transitioning of Connector for Salesforce &amp; Jira to Appfire infrastructure</a></li></ul></details></li></ul></details></li></ul></nav>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
+  <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#before-you-start">Before you start</a></li><li class="toc-level-2"><a href="#enable-apex-class-access-for-your-user">Enable Apex Class Access for your user</a></li><li class="toc-level-2"><a href="#set-up-the-flow">Set up the flow</a></li><li class="toc-level-2"><a href="#example">Example</a></li><li class="toc-level-3"><a href="#escalate-a-case-to-jira">Escalate a case to Jira</a></li><li class="toc-level-2"><a href="#need-help">Need help?</a></li><li class="toc-level-2"><a href="#learn-more">Learn more</a></li></ul></div></aside>
+</div>
+<!-- "Get Help" — a plain link to the real, already-working Refined JSM
+     portal, at a different path on the SAME domain. No custom OAuth
+     backend needed for this: Refined's own JSM integration already
+     correctly handles brand-new, first-time visitors in production today,
+     which is exactly the case our earlier OAuth-based attempt structurally
+     couldn't solve (Atlassian's own consent screen blocks anyone with zero
+     prior relationship to the site, before ever reaching JSM). Styled to
+     match the rest of the site and left as a same-tab navigation (not
+     target="_blank") so clicking it feels like moving to another page on
+     one continuous site, not popping open a separate system. -->
+<a class="get-help-btn" href="https://support.appfire.com/page/support">Get Help</a>
+
+<!-- Advanced Tables (Table Plus, etc.) enhancement — reconstructs the parts
+     of the macro's real behavior that aren't stored as static content:
+     click-to-sort columns, computed numeric totals, and hover highlighting.
+     Harmless to include on every page — it does nothing if no
+     .advanced-table elements are present. -->
+<script>
+(function () {
+  document.querySelectorAll(".advanced-table").forEach(function (container) {
+    var table = container.querySelector("table");
+    if (!table) return;
+
+    var enableSorting = container.dataset.enableSorting === "true";
+    var autoTotal = container.dataset.autoTotal === "true";
+    var enableHighlighting = container.dataset.enableHighlighting === "true";
+    var highlightColor = container.dataset.highlightColor || "";
+
+    var headerRow = table.rows[0];
+    var tbody = table.tBodies[0] || table;
+
+    // Highlighting: toggle a background color on row hover, matching the
+    // macro's own configured highlight color rather than a fixed one.
+    if (enableHighlighting && highlightColor && headerRow) {
+      Array.prototype.slice.call(tbody.rows).forEach(function (row) {
+        if (row === headerRow) return;
+        row.addEventListener("mouseenter", function () { row.style.backgroundColor = highlightColor; });
+        row.addEventListener("mouseleave", function () { row.style.backgroundColor = ""; });
+      });
+    }
+
+    // Sorting: click a header cell to sort by that column. Numeric-aware —
+    // compares as numbers when both values parse as one, falls back to
+    // string comparison otherwise. Repeated clicks toggle ascending/descending.
+    if (enableSorting && headerRow) {
+      Array.prototype.forEach.call(headerRow.cells, function (cell, colIndex) {
+        cell.classList.add("sortable-col");
+        cell.title = "Click to sort";
+        var ascending = true;
+        cell.addEventListener("click", function () {
+          var rows = Array.prototype.slice.call(tbody.rows).filter(function (r) { return r !== headerRow; });
+          rows.sort(function (a, b) {
+            var av = (a.cells[colIndex] ? a.cells[colIndex].textContent : "").trim();
+            var bv = (b.cells[colIndex] ? b.cells[colIndex].textContent : "").trim();
+            var an = parseFloat(av), bn = parseFloat(bv);
+            var cmp = (!isNaN(an) && !isNaN(bn)) ? (an - bn) : av.localeCompare(bv);
+            return ascending ? cmp : -cmp;
+          });
+          rows.forEach(function (row) { tbody.appendChild(row); });
+          ascending = !ascending;
+        });
+      });
+    }
+
+    // Computed totals: sum any column where every non-empty cell parses as
+    // a number, appended as a footer row. This approximates the common
+    // case (a numeric sum) — the real macro lets authors choose different
+    // calculation types per column (min, max, average...), which isn't
+    // reconstructed here.
+    if (autoTotal && headerRow) {
+      var dataRows = Array.prototype.slice.call(tbody.rows).filter(function (r) { return r !== headerRow; });
+      var totals = [];
+      for (var c = 0; c < headerRow.cells.length; c++) {
+        (function (colIndex) {
+          var allNumeric = true, sum = 0, sawAny = false;
+          dataRows.forEach(function (row) {
+            var cell = row.cells[colIndex];
+            var text = cell ? cell.textContent.trim() : "";
+            if (text === "") return;
+            var n = parseFloat(text);
+            if (isNaN(n)) { allNumeric = false; return; }
+            sum += n;
+            sawAny = true;
+          });
+          totals.push(allNumeric && sawAny ? sum : null);
+        })(c);
+      }
+      if (totals.some(function (t) { return t !== null; })) {
+        var footRow = document.createElement("tr");
+        footRow.className = "advanced-table-total-row";
+        totals.forEach(function (t) {
+          var td = document.createElement("td");
+          td.textContent = t !== null ? String(t) : "";
+          footRow.appendChild(td);
+        });
+        tbody.appendChild(footRow);
+      }
+    }
+  });
+})();
+</script>
+
+<!-- Aura Tab Group enhancement — click-to-switch tabs. Harmless to include
+     on every page; does nothing if no .aura-tab-group elements exist. -->
+<script>
+(function () {
+  document.querySelectorAll(".aura-tab-group").forEach(function (group) {
+    var buttons = group.querySelectorAll(".aura-tab-btn");
+    buttons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var targetId = btn.dataset.target;
+        group.querySelectorAll(".aura-tab-btn").forEach(function (b) { b.classList.remove("active"); });
+        group.querySelectorAll(".aura-tab-panel").forEach(function (p) { p.classList.remove("active"); });
+        btn.classList.add("active");
+        var panel = document.getElementById(targetId);
+        if (panel) panel.classList.add("active");
+      });
+    });
+  });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Real TOC scroll-spy — highlights the currently-visible heading in the
+     "On this page" panel as the reader scrolls. Harmless no-op if there's
+     no .page-toc on the page (most pages with few/no headings). -->
+<script>
+(function () {
+  var tocLinks = document.querySelectorAll(".page-toc a[href^='#']");
+  if (!tocLinks.length) return;
+
+  var headingMap = {};
+  var headings = [];
+  tocLinks.forEach(function (link) {
+    var id = link.getAttribute("href").slice(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headingMap[id] = link;
+      headings.push(heading);
+    }
+  });
+  if (!headings.length) return;
+
+  var activeLink = null;
+  function setActive(id) {
+    var link = headingMap[id];
+    if (!link || link === activeLink) return;
+    if (activeLink) activeLink.classList.remove("active");
+    link.classList.add("active");
+    activeLink = link;
+  }
+
+  // rootMargin biases toward the upper third of the viewport, so a
+  // heading is marked "current" once it's crossed into the reading area,
+  // not only once it's scrolled to the very top edge.
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) setActive(entry.target.id);
+    });
+  }, { rootMargin: "-15% 0px -75% 0px", threshold: 0 });
+
+  headings.forEach(function (h) { observer.observe(h); });
+
+  // Sets the first heading active immediately on load, rather than
+  // leaving the TOC with nothing highlighted until the reader scrolls.
+  setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
+})();
+</script>
+
+</body>
+</html>

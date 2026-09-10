@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>JMCF for Jira Cloud 6.0 | Appfire Docs</title>
 <meta name="description" content="This version, released on , includes the following changes:">
@@ -9,7 +19,15 @@
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "JMCF for Jira Cloud 6.0",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/JMCFC/3446309315/JMCF+for+Jira+Cloud+6.0/",
+  "dateModified": "2026-08-26T20:49:12.248Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,26 +37,52 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMCFC/168855370/Overview/">Jira Misc Custom Fields (JMCF) - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/168855370/Overview/">Overview</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/465502278/Release+notes/">Release notes</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">JMCF for Jira Cloud 6.0</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMCFC/pages/3446309315" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMCFC/pages/3446309315" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>JMCF for Jira Cloud 6.0</h1>
-    <div class="page-meta">3 min read</div>
+    <div class="page-meta">Updated 14 days ago · 3 min read</div>
     <p>This version, released on <time datetime="2025-02-10">February 10, 2025</time>, includes the following changes: </p><h2 id="custom-fields">Custom Fields</h2><h3 id="scripted-fields-code-snippets">Scripted fields code snippets</h3><img alt="JMCFC-ScriptedFieldSnippets.png" class="doc-image" loading="lazy" src="/cms_trial/assets/06ef39d9-62e2-4627-9897-0568d4184f57.png"/><p>A number of new code snippets have been added to the <a href="/cms_trial/space/JMCFC/731676729/Scripted+Field/">Scripted Field</a> roster. These snippets address some of the most common data access scenarios. See <a href="/cms_trial/space/JMCFC/1741815975/Scripted+Field+Snippets/">Scripted Field Snippets</a> for more information. </p><h3 id="script-editor-updates">Script editor updates</h3><p>The JMCF script editor has seen several updates in addition to the snippets mentioned above. The script editor console has been improved to properly show null and undefined values and to display object contents. Additionally, in-editor hover help has been expanded for functions and APIs. </p><h3 id="updated-broken-dependency-prevention">Updated broken dependency prevention</h3><p>JMCF custom fields <a href="/cms_trial/space/JMCFC/465405628/Last+Field+Change+Time/">Last Field Change Time</a> and <a href="/cms_trial/space/JMCFC/465272986/Last+Field+Changed+by+User/">Last FIeld Changed by User</a> will no longer include other JMCF custom fields as options in the <strong>Fields to watch</strong> customization. This change was made to prevent broken dependencies; JMCF custom fields cannot currently monitor other JMCF custom fields, resulting in neither field correctly updating or displaying. </p><h2 id="bug-fixes">Bug Fixes</h2><ul><li><p><strong>Disabled custom fields still display in Issue view</strong> - Disabled custom fields were still displayed in the Issue view page. This has been resolved. </p></li><li><p><strong>Duplicated custom fields do not copy all configurations</strong> - Duplicated custom fields did not always copy all configuration options from the original field. This has been resolved. </p></li><li><p><strong>Scheduled recalculations do not occur</strong> - In some circumstances custom fields were being incorrectly identified as disabled, causing scheduled recalculations to not trigger. This has been resolved. </p></li><li><p><strong>‘Parent Status' custom fields show errors</strong> - When creating a <a href="/cms_trial/space/JMCFC/465600657/Parent+Status/">Parent Status</a> custom field using the native Jira UI, the field incorrectly showed an error stating that the configuration is missing. This has been resolved. </p></li><li><p><strong>‘Transition count’ custom field does not increment after 40</strong> - In some circumstances, the Transition count custom field failed to increment once it had reached 40. This has been resolved.</p></li><li><p><strong>Difficulty acknowledging multiple error logs</strong> - When acknowledging multiple error logs simultaneously, the <a href="/cms_trial/space/JMCFC/465436864/Error+Logs/">Error Logs</a> page required a hard refresh to see that the logs had been acknowledged. This has been resolved. </p></li><li><p><strong>New custom fields listed twice on the Calculations page</strong> - In some circumstances, a new custom field would be listed twice on the Calculations administration page immediately after the field was created. This has been resolved. </p></li><li><p><strong>Re-enabled fields do not display on the Calculations page</strong> - When quickly disabling and re-enabling a custom field, the re-enabled field did not correctly display on the <a href="/cms_trial/space/JMCFC/465633417/Calculations/">Calculations</a> page. This has been resolved. </p></li><li><p><strong>Error Logs page crashes when selecting an error count</strong>. When clicking an error count badge from <a href="/cms_trial/space/JMCFC/465471321/My+Custom+Fields/">My Custom Fields</a>, the <a href="/cms_trial/space/JMCFC/465436864/Error+Logs/">Error Logs</a> page opened but did not load correctly. This has been resolved. </p></li><li><p><strong>UI issues when creating a new context</strong> - Several minor UI issue were occurring after a new context was created, including the <strong>Save</strong> button remaining enabled, incorrect issue and project counts, and incorrect Issue types listed in the tooltip. These have been resolved. </p></li><li><p><strong>Changing a formatter's timezone causes the field value to not display</strong> - Changing a custom date field’s formatter from any timezone to the <strong>Browser default</strong> option caused the field’s value to not display properly. This has been resolved. </p></li><li><p><strong>Formatter for number fields allows incorrect values</strong> - The Decimal option of the formatter for number fields allowed for invalid values, causing errors. This has been resolved.  </p></li><li><p><strong>Selected screens displaying incorrectly when editing a custom field</strong> - When editing an existing custom field, the associated screens did not always display correctly in the Custom Field Wizard. This has been resolved. </p></li></ul><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p><span class="inline-icon" title="inline icon">▢</span> <strong>Questions and feedback</strong></p><ul><li><p>Explore exciting features, pricing updates, reviews, and more on the <u>Marketplace</u>.</p></li><li><p>Stuck with something? Raise a ticket with our <u>support team</u>.</p></li><li><p>Do you love using our app? Let us know what you think <u>here</u>.</p></li></ul></div><div><p><span class="inline-icon" title="inline icon">▢</span><strong> Credits</strong></p><p>A heartfelt thank you to our valued customers! Your incredible support and feedback inspire us to improve our apps and products continually. You are the driving force behind why we create software. We appreciate your trust in JMWE!</p></div></div><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p><strong>Release date</strong></p></th><td><p><time datetime="2025-02-10">February 10, 2025</time> </p></td></tr><tr><th><p><strong>Highlights</strong></p></th><td><ul><li><p>Scripted field code snippets</p></li><li><p>Script editor updates</p></li><li><p>Bug fixes</p></li></ul></td></tr><tr><th><p><strong>Tags</strong></p></th><td><p> <span class="status-lozenge">ADMINIStration</span> <span class="status-lozenge">custom fields</span> <span class="status-lozenge">UI</span> <span class="status-lozenge">bug fixes</span> </p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">82 pages in this space, fetched live from Confluence via API.</p>
 <nav><ul><li><details open><summary><a href="/cms_trial/space/JMCFC/168855370/Overview/">Overview</a></summary><ul><li><details><summary><a href="/cms_trial/space/JMCFC/465829931/Get+started+with+JMCF+for+Cloud/">Get started with JMCF for Cloud</a></summary><ul><li><a href="/cms_trial/space/JMCFC/465666166/Installation+Guide/">Installation Guide</a></li><li><a href="/cms_trial/space/JMCFC/465405703/Create+Custom+Field/">Create Custom Field</a></li><li><a href="/cms_trial/space/JMCFC/465207457/Using+JMCF+Custom+Fields/">Using JMCF Custom Fields</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JMCFC/465471188/Use+Cases/">Use Cases</a></summary><ul><li><a href="/cms_trial/space/JMCFC/862158881/Date+and+Time/">Date and Time</a></li><li><a href="/cms_trial/space/JMCFC/861831309/Numeric+and+Counts/">Numeric and Counts</a></li><li><a href="/cms_trial/space/JMCFC/861831276/Scripted/">Scripted</a></li><li><a href="/cms_trial/space/JMCFC/861962280/User+and+User+Groups/">User and User Groups</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JMCFC/465405670/JMCF+Administration/">JMCF Administration</a></summary><ul><li><a href="/cms_trial/space/JMCFC/465471321/My+Custom+Fields/">My Custom Fields</a></li><li><a href="/cms_trial/space/JMCFC/465633417/Calculations/">Calculations</a></li><li><a href="/cms_trial/space/JMCFC/465436864/Error+Logs/">Error Logs</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JMCFC/465471226/Custom+Fields/">Custom Fields</a></summary><ul><li><a href="/cms_trial/space/JMCFC/1562447255/Supported+custom+fields/">Supported custom fields</a></li><li><a href="/cms_trial/space/JMCFC/1114997525/Scheduled+recalculations/">Scheduled recalculations</a></li><li><a href="/cms_trial/space/JMCFC/1559003309/Formatters/">Formatters</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JMCFC/1325596783/APIs/">APIs</a></summary><ul><li><a href="/cms_trial/space/JMCFC/1325301787/issue+APIs/">issue APIs</a></li><li><a href="/cms_trial/space/JMCFC/1741390022/jira+APIs/">jira APIs</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JMCFC/465207378/Help+and+Support/">Help and Support</a></summary><ul><li><a href="/cms_trial/space/JMCFC/465471277/FAQs/">FAQs</a></li><li><a href="/cms_trial/space/JMCFC/2132771038/Data+Residency+and+JMCF/">Data Residency and JMCF</a></li><li><a href="/cms_trial/space/JMCFC/1466335238/Migrating+from+Data+Center/">Migrating from Data Center</a></li></ul></details></li><li><a href="/cms_trial/space/JMCFC/2159804423/Meeting+notes+in+space/">Meeting notes in space</a></li><li><details open><summary><a href="/cms_trial/space/JMCFC/465502278/Release+notes/">Release notes</a></summary><ul><li><a href="/cms_trial/space/JMCFC/3446801717/JMCF+for+Jira+Cloud+7.0+(Hotfix)/">JMCF for Jira Cloud 7.0 (Hotfix)</a></li><li><a href="/cms_trial/space/JMCFC/3446375407/JMCF+for+Jira+Cloud+7.0/">JMCF for Jira Cloud 7.0</a></li><li><a href="/cms_trial/space/JMCFC/3446309315/JMCF+for+Jira+Cloud+6.0/" class="active">JMCF for Jira Cloud 6.0</a></li><li><a href="/cms_trial/space/JMCFC/3446276673/JMCF+for+Jira+Cloud+5.0/">JMCF for Jira Cloud 5.0</a></li><li><a href="/cms_trial/space/JMCFC/3445884126/JMCF+for+Jira+Cloud+4.0/">JMCF for Jira Cloud 4.0</a></li><li><a href="/cms_trial/space/JMCFC/3445981624/JMCF+for+Jira+Cloud+3.0/">JMCF for Jira Cloud 3.0</a></li><li><a href="/cms_trial/space/JMCFC/1115161289/JMCF+for+Jira+Cloud+2.1/">JMCF for Jira Cloud 2.1</a></li><li><a href="/cms_trial/space/JMCFC/750911574/JMCF+for+Jira+Cloud+2.0/">JMCF for Jira Cloud 2.0</a></li><li><a href="/cms_trial/space/JMCFC/465471250/JMCF+for+Jira+Cloud+1.1/">JMCF for Jira Cloud 1.1</a></li><li><a href="/cms_trial/space/JMCFC/465698971/JMCF+for+Jira+Cloud+1.0/">JMCF for Jira Cloud 1.0</a></li></ul></details></li></ul></details></li></ul></nav>
-</aside>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#custom-fields">Custom Fields</a></li><li class="toc-level-3"><a href="#scripted-fields-code-snippets">Scripted fields code snippets</a></li><li class="toc-level-3"><a href="#script-editor-updates">Script editor updates</a></li><li class="toc-level-3"><a href="#updated-broken-dependency-prevention">Updated broken dependency prevention</a></li><li class="toc-level-2"><a href="#bug-fixes">Bug Fixes</a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
@@ -264,6 +308,92 @@
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

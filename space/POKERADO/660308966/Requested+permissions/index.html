@@ -1,15 +1,33 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>Requested permissions | Appfire Docs</title>
-<meta name="description" content="When you install Planning Poker, Azure DevOps asks you to approve a set of permission scopes as part of the install flow. This page explains what each…">
+<meta name="description" content="When you install Planning Poker, Azure DevOps asks you to approve several permission scopes.">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/cms_trial/tokens.css">
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Requested permissions",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/POKERADO/660308966/Requested+permissions/",
+  "dateModified": "2026-08-27T01:44:33.943Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,27 +37,53 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
-      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/POKERADO/148307970/Planning+Poker+for+Azure+DevOps/">Planning Poker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/POKERADO/148307970/Planning+Poker+for+Azure+DevOps/">Planning Poker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/POKERADO/3008299028/Get+started+with+Planning+Poker/">Get started with Planning Poker</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/POKERADO/3341353014/Install+Planning+Poker+in+Azure+DevOps/">Install Planning Poker in Azure DevOps</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Requested permissions</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/POKERADO/pages/660308966" target="_blank" rel="noopener">Open in Confluence</a>
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/POKERADO/148307970/Planning+Poker+for+Azure+DevOps/">Planning Poker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/POKERADO/148307970/Planning+Poker+for+Azure+DevOps/">Planning Poker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/POKERADO/3341353014/Install+Planning+Poker+in+Azure+DevOps/">Install Planning Poker in Azure DevOps</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Requested permissions</span></nav>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/POKERADO/pages/660308966" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>Requested permissions</h1>
-    <div class="page-meta">2 min read</div>
-    <p>When you install Planning Poker, Azure DevOps asks you to approve a set of permission scopes as part of the install flow. This page explains what each scope is used for and why the app requests it. </p><ol><li><p><strong>vso.work</strong>: This scope provides access to read work items and related information within Azure DevOps project. It allows our application to perform queries and retrieve details about work items, such as tasks, bugs, epics, and user stories.</p></li><li><p><strong>vso.work_write</strong>: This scope extends the previous one and adds the ability to modify work items within Azure DevOps. It grants our application the capability to update work items, specifically allowing for the addition or alteration of estimation values.</p></li><li><p><strong>vso.graph</strong>: The vso.graph scope grants access to Azure DevOps Graph API. This API provides information about users and group membership information. Specifically, we utilize this API to verify user membership in the organization administrators group.</p></li><li><p><strong>vso.features</strong>: This scope grants access to feature flags within the Azure extension environment. We leverage this scope to ascertain whether our application should be visible within enabled Azure extension points, such as the Work Item details or Board view.</p></li><li><p><strong>vso.features_write</strong>: Expanding upon the <code>vso.features</code> scope, this permission enables your application to dynamically control the visibility of our app within the specified Azure extension points.</p></li><li><p><strong>vso.memberentitlementmanagement</strong>: Allows access to retrieve user data and license information for all users within the organization. This scope is utilized within our user management interface, enabling the selection of users authorized to use our extension.</p></li><li><p><strong>vso.identity</strong>: Enables access to read user identities within the organization. This scope allows for batch queries for specific users, offering a more targeted approach compared to retrieving all users, as done with the <code>vso.memberentitlementmanagement</code> scope. This targeted querying capability optimizes efficiency in user-related operations within our application.</p></li></ol><p>More information about scopes description can be found here: <a href="https://learn.microsoft.com/en-us/azure/devops/extend/develop/manifest?view=azure-devops#scopes">https://learn.microsoft.com/en-us/azure/devops/extend/develop/manifest?view=azure-devops#scopes</a></p>
+    <div class="page-meta">Updated 14 days ago · 1 min read</div>
+    <p>When you install Planning Poker, Azure DevOps asks you to approve several permission scopes.</p><p>Planning Poker requests only the permissions it needs to provide its features. The table below explains why each permission is required and how the app uses it.</p><h2 id="permission-summary">Permission summary</h2><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p><strong>Permission</strong></p></th><th><p><strong>Purpose</strong></p></th><th><p><strong>Details</strong></p></th></tr><tr><td><p><strong>vso.work</strong></p></td><td><p>Read work items</p></td><td><p>Reads work items and related information, including user stories, tasks, bugs, and epics, so they can be displayed during estimation sessions.</p></td></tr><tr><td><p><strong>vso.work_write</strong></p></td><td><p>Save estimates</p></td><td><p>Updates work items by writing estimation values back to Azure DevOps after an estimation session.</p></td></tr><tr><td><p><strong>vso.graph</strong></p></td><td><p>Verify administrator membership</p></td><td><p>Uses the Azure DevOps Graph API to determine whether a user belongs to the <strong>Organization Administrators</strong> group.</p></td></tr><tr><td><p><strong>vso.features</strong></p></td><td><p>Display the extension</p></td><td><p>Determines whether Planning Poker should appear in supported Azure DevOps locations, such as Boards and Work Item details.</p></td></tr><tr><td><p><strong>vso.features_write</strong></p></td><td><p>Manage extension visibility</p></td><td><p>Controls where Planning Poker appears within supported Azure DevOps extension points when supported by the platform.</p></td></tr><tr><td><p><strong>vso.memberentitlementmanagement</strong></p></td><td><p>Manage licensed users</p></td><td><p>Retrieves user and license information so administrators can manage which users are authorized to use the extension.</p></td></tr><tr><td><p><strong>vso.identity</strong></p></td><td><p>Look up specific users</p></td><td><p>Retrieves information about individual users when needed, reducing the need to retrieve information for every user in the organization.</p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><p>For more information about Azure DevOps permission scopes, see the Microsoft documentation: <a href="https://learn.microsoft.com/en-us/azure/devops/extend/develop/manifest?view=azure-devops#scopes">https://learn.microsoft.com/en-us/azure/devops/extend/develop/manifest?view=azure-devops#scopes</a> </p>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">10 pages in this space, fetched live from Confluence via API.</p>
-<nav><ul><li><details open><summary><a href="/cms_trial/space/POKERADO/148307970/Planning+Poker+for+Azure+DevOps/">Planning Poker for Azure DevOps</a></summary><ul><li><a href="/cms_trial/space/POKERADO/415531958/Planning+Poker+for+ADO+becomes+paid/">Planning Poker for ADO becomes paid</a></li><li><details open><summary><a href="/cms_trial/space/POKERADO/3008299028/Get+started+with+Planning+Poker/">Get started with Planning Poker</a></summary><ul><li><details open><summary><a href="/cms_trial/space/POKERADO/3341353014/Install+Planning+Poker+in+Azure+DevOps/">Install Planning Poker in Azure DevOps</a></summary><ul><li><a href="/cms_trial/space/POKERADO/660308966/Requested+permissions/" class="active">Requested permissions</a></li></ul></details></li></ul></details></li><li><a href="/cms_trial/space/POKERADO/3559129251/Planning+Poker+for+Azure+DevOps+feature+overview/">Planning Poker for Azure DevOps feature overview</a></li><li><details><summary><a href="/cms_trial/space/POKERADO/3341320392/Planning+Poker+game/">Planning Poker game</a></summary><ul><li><a href="/cms_trial/space/POKERADO/3315008376/Create+game/">Create game</a></li><li><a href="/cms_trial/space/POKERADO/3562700831/Configure+game+settings+and+card+decks/">Configure game settings and card decks</a></li><li><a href="/cms_trial/space/POKERADO/3560898577/Use+async+estimation+for+distributed+teams/">Use async estimation for distributed teams</a></li></ul></details></li></ul></details></li></ul></nav>
-</aside>
-  <aside class="page-toc-rail"></aside>
+<nav><ul><li><details open><summary><a href="/cms_trial/space/POKERADO/148307970/Planning+Poker+for+Azure+DevOps/">Planning Poker for Azure DevOps</a></summary><ul><li><a href="/cms_trial/space/POKERADO/415531958/Planning+Poker+for+ADO+becomes+paid/">Planning Poker for ADO becomes paid</a></li><li><a href="/cms_trial/space/POKERADO/3008299028/Get+started+with+Planning+Poker/">Get started with Planning Poker</a></li><li><a href="/cms_trial/space/POKERADO/3559129251/Planning+Poker+for+Azure+DevOps+feature+overview/">Planning Poker for Azure DevOps feature overview</a></li><li><details open><summary><a href="/cms_trial/space/POKERADO/3341353014/Install+Planning+Poker+in+Azure+DevOps/">Install Planning Poker in Azure DevOps</a></summary><ul><li><a href="/cms_trial/space/POKERADO/660308966/Requested+permissions/" class="active">Requested permissions</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/POKERADO/3341320392/Planning+Poker+game/">Planning Poker game</a></summary><ul><li><a href="/cms_trial/space/POKERADO/3315008376/Create+game/">Create game</a></li><li><a href="/cms_trial/space/POKERADO/3562700831/Configure+game+settings+and+card+decks/">Configure game settings and card decks</a></li><li><a href="/cms_trial/space/POKERADO/3560898577/Use+async+estimation+for+distributed+teams/">Use async estimation for distributed teams</a></li></ul></details></li></ul></details></li></ul></nav>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
+  <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#permission-summary">Permission summary</a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
      portal, at a different path on the SAME domain. No custom OAuth
@@ -264,6 +308,92 @@
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>Help and support | Appfire Docs</title>
 <meta name="description" content="This page applies to both Planning Poker for Jira Cloud and Jira Data Center.">
@@ -9,7 +19,15 @@
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Help and support",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/PP/1803354129/Help+and+support/",
+  "dateModified": "2026-08-27T01:44:18.418Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,26 +37,52 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PP/1803714584/Planning+Poker+Help+Center/">Planning Poker</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PP/1803714584/Planning+Poker+Help+Center/">Planning Poker Help Center</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Help and support</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PP/pages/1803354129" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PP/pages/1803354129" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>Help and support</h1>
-    <div class="page-meta">1 min read</div>
+    <div class="page-meta">Updated 14 days ago · 1 min read</div>
     <div class="panel panel-note"><p>This page applies to both <strong>Planning Poker for Jira Cloud</strong> and <strong>Jira Data Center</strong>.</p></div><p>This section includes information and links related to error messages, troubleshooting, data collection and storage, privacy, end-user license agreements, and how to get help from Appfire support.</p><ul class="children-list"><li><a href="/cms_trial/space/PP/9568458/FAQ%3A+Planning+Poker+for+Jira/">FAQ: Planning Poker for Jira</a></li><li><a href="/cms_trial/space/PP/9568600/Data+security+%26+Privacy+statement+v3/">Data security &amp; Privacy statement v3</a><ul class="children-list"><li><a href="/cms_trial/space/PP/9568607/List+of+changes+in+Data+security+%26+Privacy+statement+(v1+to+v2)/">List of changes in Data security &amp; Privacy statement (v1 to v2)</a></li><li><a href="/cms_trial/space/PP/1483767830/List+of+changes+in+Data+security+%26+Privacy+statement+(v2+to+v3)/">List of changes in Data security &amp; Privacy statement (v2 to v3)</a></li></ul></li><li><a href="/cms_trial/space/PP/9568488/Deploying+Planning+Poker+locally+via+Docker/">Deploying Planning Poker locally via Docker</a></li><li><a href="/cms_trial/space/PP/487360991/Planning+Poker+vs.+Agile+Poker/">Planning Poker vs. Agile Poker</a></li></ul>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">44 pages in this space, fetched live from Confluence via API.</p>
 <nav><ul><li><details open><summary><a href="/cms_trial/space/PP/1803714584/Planning+Poker+Help+Center/">Planning Poker Help Center</a></summary><ul><li><a href="/cms_trial/space/PP/9568260/About+Planning+Poker/">About Planning Poker</a></li><li><details><summary><a href="/cms_trial/space/PP/9568480/Get+started+with+Planning+Poker/">Get started with Planning Poker</a></summary><ul><li><a href="/cms_trial/space/PP/463995360/Installation/">Installation</a></li><li><a href="/cms_trial/space/PP/9568642/DC+to+Cloud+migration+guide/">DC to Cloud migration guide</a></li><li><a href="/cms_trial/space/PP/2480669406/DC+to+Cloud+feature+comparison/">DC to Cloud feature comparison</a></li></ul></details></li><li><a href="/cms_trial/space/PP/9568521/Game+basics/">Game basics</a></li><li><details><summary><a href="/cms_trial/space/PP/1144061974/Planning+Poker+for+Jira+Cloud/">Planning Poker for Jira Cloud</a></summary><ul><li><a href="/cms_trial/space/PP/9568359/Game+configuration+(Cloud)/">Game configuration (Cloud)</a></li><li><a href="/cms_trial/space/PP/1149501468/Game+flow+(Cloud)/">Game flow (Cloud)</a></li><li><a href="/cms_trial/space/PP/492110077/Game+controls+(Cloud)/">Game controls (Cloud)</a></li><li><a href="/cms_trial/space/PP/661454980/Settings+(Cloud)/">Settings (Cloud)</a></li><li><a href="/cms_trial/space/PP/9568542/Planning+Poker+tab+estimation+(Cloud)/">Planning Poker tab estimation (Cloud)</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/PP/1144061984/Planning+Poker+for+Jira+Data+Center/">Planning Poker for Jira Data Center</a></summary><ul><li><a href="/cms_trial/space/PP/511967561/Game+configuration+(DC)/">Game configuration (DC)</a></li><li><a href="/cms_trial/space/PP/9568315/Game+flow+(DC)/">Game flow (DC)</a></li><li><a href="/cms_trial/space/PP/1159561645/Game+controls+(DC)/">Game controls (DC)</a></li><li><a href="/cms_trial/space/PP/1144914181/Async+mode+(DC)/">Async mode (DC)</a></li><li><a href="/cms_trial/space/PP/1144586391/App+settings+(DC)/">App settings (DC)</a></li><li><a href="/cms_trial/space/PP/9568294/Mobile+version+(DC)/">Mobile version (DC)</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/PP/1159103478/Release+notes%E2%80%8E/">Release notes‎</a></summary><ul><li><a href="/cms_trial/space/PP/1159300293/Cloud/">Cloud</a></li><li><a href="/cms_trial/space/PP/1336344833/Data+center/">Data center</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/PP/1803354129/Help+and+support/" class="active">Help and support</a></summary><ul><li><a href="/cms_trial/space/PP/9568458/FAQ%3A+Planning+Poker+for+Jira/">FAQ: Planning Poker for Jira</a></li><li><a href="/cms_trial/space/PP/9568600/Data+security+%26+Privacy+statement+v3/">Data security &amp; Privacy statement v3</a></li><li><a href="/cms_trial/space/PP/9568488/Deploying+Planning+Poker+locally+via+Docker/">Deploying Planning Poker locally via Docker</a></li><li><a href="/cms_trial/space/PP/487360991/Planning+Poker+vs.+Agile+Poker/">Planning Poker vs. Agile Poker</a></li></ul></details></li></ul></details></li></ul></nav>
-</aside>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail"></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
@@ -264,6 +308,92 @@
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

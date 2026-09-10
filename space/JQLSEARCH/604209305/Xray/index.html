@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>Xray | Appfire Docs</title>
 <meta name="description" content="This article describes possible use cases of JQL Search Extensions and Xray.">
@@ -9,7 +19,15 @@
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Xray",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/JQLSEARCH/604209305/Xray/",
+  "dateModified": "2026-07-02T12:20:37.911Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,26 +37,52 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209972/JQL+Search+Extensions+(Cloud)/">JQL Search Extensions (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/1120043993/App+integrations/">App integrations</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Xray</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JQLSEARCH/pages/604209305" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JQLSEARCH/pages/604209305" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>Xray</h1>
-    <div class="page-meta">2 min read</div>
+    <div class="page-meta">Updated 2 months ago · 2 min read</div>
     <p>This article describes possible use cases of JQL Search Extensions and Xray.</p><div class="panel panel-note"><p>Xray is a popular test management app for Jira. You can leverage its power with additional JQL keywords and functions that <strong>JQL Search Extensions</strong> provides.</p></div><h2 id="external-use">External use</h2><p>Xray integrates well with the Jira UI. What’s missing in Xray Cloud is good support for JQL and issue sourcing.</p><p>You can save JQL as a filter and use it in:</p><ul><li><p>dashboard gadgets</p></li><li><p>boards</p></li><li><p>Jira search - simply use this syntax <code>filter="Your filter name"</code></p></li><li><p>3rd party apps that accept filters and JQL</p></li></ul><h2 id="use-cases">Use cases</h2><h3 id="source-requirements-associated-with-tests">Source requirements associated with tests</h3><p>Standard JQL makes it possible to get requirements for one Test issue:</p><p><code>issue in linkedIssues(TST-123,"tests")</code></p><p>To get a list of requirements that match a JQL:</p><p><code>issue in linkedIssuesOfQuery("project='ACME tests' and labels=Q3", "tests")</code></p><h3 id="source-tests-associated-with-requirements">Source tests associated with requirements</h3><p>Standard JQL makes it possible to get tests for one Requirement issue:</p><p><code>issue in linkedIssues(REQ-123,"is tested by")</code></p><p>To get a list of tests that match a JQL:</p><p><code>issue in linkedIssuesOfQuery("project='ACME requirements' and labels=Q3", "is tested by")</code></p><h3 id="source-tests-associated-with-the-requirements-of-the-input-fix-versions-of-the-specified-project">Source tests associated with the requirements of the input fix versions of the specified project</h3><p>This can be achieved with the following nested query:</p><p><code>issue in linkedIssuesOfQuery("project='ACME requirements and fixVersion in ('v1.0', 'v1.1')", "is tested by")</code></p><h3 id="source-defects-created-during-the-execution-of-the-specified-test">Source defects created during the execution of the specified test</h3><p>With standard JQL you can get defects created by a single test:</p><p><code>issue in linkedIssues(TST-123,"created")</code></p><p>To get a list of defects that match a JQL:</p><p><code>issue in linkedIssuesOfQuery("project='ACME tests' and labels=Q3", "created")</code></p><h3 id="source-list-of-defects-created-during-the-execution-of-test-execution">Source list of defects created during the execution of test execution</h3><p>To get all the defects:</p><p><code>issue in linkedIssuesOfQuery("project='ACME tests' and type='Test Execution'", "created")</code></p><p>You can filter the defects by assignee:</p><p><code>issue in linkedIssuesOfQuery("project='ACME tests' and type='Test Execution'", "created") and assignee="John Doe"</code> </p><h3 id="source-defects-created-during-the-execution-of-tests-covering-the-specified-requirement">Source defects created during the execution of tests covering the specified requirement</h3><p>First create a filter, <em>Tests for requirements,</em> that matches all the tests of your requirements:</p><p><code>issue in linkedIssuesOfQuery("project='ACME tests' and labels=Q3", "tests")</code></p><p>Create another filter that matches the defects created during the tests:</p><p><code>issue in linkedIssuesOfQuery("filter='Tests for requirements'", "created")</code></p>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">98 pages in this space, fetched live from Confluence via API.</p>
 <nav><ul><li><details open><summary><a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions for Jira</a></summary><ul><li><details open><summary><a href="/cms_trial/space/JQLSEARCH/604209972/JQL+Search+Extensions+(Cloud)/">JQL Search Extensions (Cloud)</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/604209802/Get+started+with+JQL+Search+Extensions+for+Jira/">Get started with JQL Search Extensions for Jira</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209757/Use+cases/">Use cases</a></li><li><details open><summary><a href="/cms_trial/space/JQLSEARCH/1120043993/App+integrations/">App integrations</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/604209557/Advanced+Roadmaps/">Advanced Roadmaps</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209543/BigPicture/">BigPicture</a></li><li><a href="/cms_trial/space/JQLSEARCH/1151041688/Jira+Misc+Workflow+Extensions+(JMWE)/">Jira Misc Workflow Extensions (JMWE)</a></li><li><a href="/cms_trial/space/JQLSEARCH/1194262532/Power+Scripts+for+Jira/">Power Scripts for Jira</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209448/Jira+Service+Management+and+JQL/">Jira Service Management and JQL</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209305/Xray/" class="active">Xray</a></li></ul></details></li><li><a href="/cms_trial/space/JQLSEARCH/604210001/Video+tutorials/">Video tutorials</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209395/JQL+functions+and+keywords+reference/">JQL functions and keywords reference</a></li></ul></details></li><li><a href="/cms_trial/space/JQLSEARCH/604209729/Migrations/">Migrations</a></li><li><details><summary><a href="/cms_trial/space/JQLSEARCH/913997907/Release+notes/">Release notes</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/604209185/Release+notes+-+Cloud/">Release notes - Cloud</a></li><li><a href="/cms_trial/space/JQLSEARCH/604210041/Release+notes+-+Server%2FData+Center/">Release notes - Server/Data Center</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JQLSEARCH/918979098/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/1766293568/Troubleshooting/">Troubleshooting</a></li><li><a href="/cms_trial/space/JQLSEARCH/919273915/Appfire+support/">Appfire support</a></li><li><a href="/cms_trial/space/JQLSEARCH/919306596/Appfire+Trust+Center/">Appfire Trust Center</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209808/Data+storage/">Data storage</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JQLSEARCH/604209587/JQL+Search+Extensions+-+Data+Center/">JQL Search Extensions - Data Center</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/604209431/Get+started+with+JQL+Search+Extensions+for+Jira+Data+Center/">Get started with JQL Search Extensions for Jira Data Center</a></li><li><a href="/cms_trial/space/JQLSEARCH/1865482654/JQL+functions+reference/">JQL functions reference</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209740/Performance+tests+results/">Performance tests results</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209735/How+to+resolve+com.atlassian.jira.issue.search.ClauseTooComplexSearchException/">How to resolve com.atlassian.jira.issue.search.ClauseTooComplexSearchException</a></li></ul></details></li></ul></details></li></ul></nav>
-</aside>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#external-use">External use</a></li><li class="toc-level-2"><a href="#use-cases">Use cases</a></li><li class="toc-level-3"><a href="#source-requirements-associated-with-tests">Source requirements associated with tests</a></li><li class="toc-level-3"><a href="#source-tests-associated-with-requirements">Source tests associated with requirements</a></li><li class="toc-level-3"><a href="#source-tests-associated-with-the-requirements-of-the-input-fix-versions-of-the-specified-project">Source tests associated with the requirements of the input fix versions of the specified project</a></li><li class="toc-level-3"><a href="#source-defects-created-during-the-execution-of-the-specified-test">Source defects created during the execution of the specified test</a></li><li class="toc-level-3"><a href="#source-list-of-defects-created-during-the-execution-of-test-execution">Source list of defects created during the execution of test execution</a></li><li class="toc-level-3"><a href="#source-defects-created-during-the-execution-of-tests-covering-the-specified-requirement">Source defects created during the execution of tests covering the specified requirement</a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
@@ -264,6 +308,92 @@
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

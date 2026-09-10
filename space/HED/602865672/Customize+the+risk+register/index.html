@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>Customize the risk register | Appfire Docs</title>
 <meta name="description" content="The Risk Register General settings page lets you customize each risk register by editing its name and owner and choosing which projects and issue types it…">
@@ -9,7 +19,15 @@
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Customize the risk register",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/HED/602865672/Customize+the+risk+register/",
+  "dateModified": "2026-08-26T18:17:51.092Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,26 +37,52 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/HED/602865666/Hedge/">Hedge - Risk Management &amp; Risk Register for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/HED/602865666/Hedge/">Hedge</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/HED/602865785/Tutorials/">Tutorials</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Customize the risk register</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/HED/pages/602865672" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/HED/pages/602865672" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>Customize the risk register</h1>
-    <div class="page-meta">1 min read</div>
-    <div class="columns" style="grid-template-columns: 100.0fr;"><div><p>The Risk Register <em>General settings</em> page lets you customize each risk register by editing its name and owner and choosing which projects and issue types it includes. </p></div></div><img alt="Risk register settings" class="doc-image" loading="lazy" src="/cms_trial/assets/11eef2e7-5567-4bb9-bf35-a4f8d1b51ddb.png"/><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="access-general-settings-from-the-risk-register-list">Access general settings from the Risk Register list</h2><ol><li><p>In the Jira global menu, click <em><strong>Apps</strong></em> &gt; <em><strong>Risk Management </strong></em>to see the list of Risk Registers.</p></li><li><p>Click the <span class="icon-note">[ellipsis icon]</span> menu on the right side of the Risk Register that you want to customize.</p></li><li><p>Click <strong>Register settings</strong>.</p></li><li><p>Click the <strong>General settings</strong> tab.</p></li></ol></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="access-the-general-settings-from-a-risk-register-table">Access the general settings from a Risk Register table</h2><ol><li><p>From a Risk Register, click <strong>Settings</strong><em> </em>in the top right corner.</p></li><li><p>Click the <strong>General settings</strong> tab.</p></li></ol></div></div><h2 id="customize-your-risk-register">Customize your risk register</h2><img alt="General settings tab" class="doc-image" loading="lazy" src="/cms_trial/assets/c142487c-cc39-41fe-ab32-5f4eae1141b8.png"/><div class="columns" style="grid-template-columns: 100.0fr;"><div><ol><li><p>In the <strong>General settings</strong> tab, click the Risk Register attribute or field that you want to update and make your desired changes. </p><ul><li><p>You can update Name, Owner, Projects, and Issue Types attributes.</p></li></ul></li><li><p>Click <strong>Save Changes</strong>.</p></li></ol><div class="panel panel-note"><p>Select issue types that are available in your selected projects in Jira. If you select an issue type that is not added to your Jira project, you will not be able to create a risk in this project for this issue type.</p></div></div></div><h2 id="map-risk-metrics-to-jira-fields">Map risk metrics to Jira fields</h2><p>The <strong>Risk register frameworks</strong> tab of Register settings includes a <strong>Metrics</strong> section, where each metric (for example, <em>Likelihood</em> and <em>Consequence</em>) lists its value names, colors, and numeric values. Starting in version 8.0.0, you can also map a metric to a Jira field, so its value shows up alongside your everyday Jira views instead of staying inside Hedge only.</p><p>For each metric, you can either let Hedge create the matching Jira field automatically, or choose an existing Jira field to map it to.</p>
+    <div class="page-meta">Updated 14 days ago · 1 min read</div>
+    <div class="columns" style="grid-template-columns: 100.0fr;"><div><p>The Risk Register <em>General settings</em> page lets you customize each risk register by editing its name and owner and choosing which projects and issue types it includes. </p></div></div><img alt="Risk register settings" class="doc-image" loading="lazy" src="/cms_trial/assets/11eef2e7-5567-4bb9-bf35-a4f8d1b51ddb.png"/><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="access-general-settings-from-the-risk-register-list">Access general settings from the Risk Register list</h2><ol><li><p>In the Jira global menu, click <strong><em>Apps</em></strong> &gt; <strong><em>Risk Management </em></strong>to see the list of Risk Registers.</p></li><li><p>Click the <span class="icon-note">[ellipsis icon]</span> menu on the right side of the Risk Register that you want to customize.</p></li><li><p>Click <strong>Register settings</strong>.</p></li><li><p>Click the <strong>General settings</strong> tab.</p></li></ol></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="access-the-general-settings-from-a-risk-register-table">Access the general settings from a Risk Register table</h2><ol><li><p>From a Risk Register, click <strong>Settings</strong><em> </em>in the top right corner.</p></li><li><p>Click the <strong>General settings</strong> tab.</p></li></ol></div></div><h2 id="customize-your-risk-register">Customize your risk register</h2><img alt="General settings tab" class="doc-image" loading="lazy" src="/cms_trial/assets/c142487c-cc39-41fe-ab32-5f4eae1141b8.png"/><div class="columns" style="grid-template-columns: 100.0fr;"><div><ol><li><p>In the <strong>General settings</strong> tab, click the Risk Register attribute or field that you want to update and make your desired changes. </p><ul><li><p>You can update Name, Owner, Projects, and Issue Types attributes.</p></li></ul></li><li><p>Click <strong>Save Changes</strong>.</p></li></ol><div class="panel panel-note"><p>Select issue types that are available in your selected projects in Jira. If you select an issue type that is not added to your Jira project, you will not be able to create a risk in this project for this issue type.</p></div></div></div><h2 id="map-risk-metrics-to-jira-fields">Map risk metrics to Jira fields</h2><p>The <strong>Risk register frameworks</strong> tab of Register settings includes a <strong>Metrics</strong> section, where each metric (for example, <em>Likelihood</em> and <em>Consequence</em>) lists its value names, colors, and numeric values. Starting in version 8.0.0, you can also map a metric to a Jira field, so its value shows up alongside your everyday Jira views instead of staying inside Hedge only.</p><p>For each metric, you can either let Hedge create the matching Jira field automatically, or choose an existing Jira field to map it to.</p>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">21 pages in this space, fetched live from Confluence via API.</p>
-<nav><ul><li><details open><summary><a href="/cms_trial/space/HED/602865666/Hedge/">Hedge</a></summary><ul><li><a href="/cms_trial/space/HED/2141127327/Installation/">Installation</a></li><li><details><summary><a href="/cms_trial/space/HED/602865819/Get+started+with+Hedge/">Get started with Hedge</a></summary><ul><li><a href="/cms_trial/space/HED/2239692808/Hedge+in+action/">Hedge in action</a></li><li><a href="/cms_trial/space/HED/792428571/View+a+drill+down+of+specific+issues+in+the+risk+matrix+and+risk+levels/">View a drill down of specific issues in the risk matrix and risk levels</a></li><li><a href="/cms_trial/space/HED/792756225/Make+imported+risks+visible/">Make imported risks visible</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/HED/602865785/Tutorials/">Tutorials</a></summary><ul><li><a href="/cms_trial/space/HED/602865793/Create+a+new+risk/">Create a new risk</a></li><li><a href="/cms_trial/space/HED/602865678/Hedge+permissions/">Hedge permissions</a></li><li><a href="/cms_trial/space/HED/602865672/Customize+the+risk+register/" class="active">Customize the risk register</a></li><li><a href="/cms_trial/space/HED/602865689/Risk+reports/">Risk reports</a></li><li><a href="/cms_trial/space/HED/602865854/Add+columns+to+the+risk+register/">Add columns to the risk register</a></li><li><a href="/cms_trial/space/HED/637272077/Edit+the+risk+name/">Edit the risk name</a></li><li><a href="/cms_trial/space/HED/638255252/Edit+risk+register+names/">Edit risk register names</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/HED/2141291485/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/HED/792199215/Hedge+FAQ/">Hedge FAQ</a></li></ul></details></li><li><a href="/cms_trial/space/HED/3545006114/Release+notes+8.0.0/">Release notes 8.0.0</a></li></ul></details></li></ul></nav>
-</aside>
+<nav><ul><li><details open><summary><a href="/cms_trial/space/HED/602865666/Hedge/">Hedge</a></summary><ul><li><a href="/cms_trial/space/HED/2141127327/Installation/">Installation</a></li><li><details><summary><a href="/cms_trial/space/HED/602865819/Get+started+with+Hedge/">Get started with Hedge</a></summary><ul><li><a href="/cms_trial/space/HED/2239692808/Hedge+in+action/">Hedge in action</a></li><li><a href="/cms_trial/space/HED/792428571/View+a+drill+down+of+specific+issues+in+the+risk+matrix+and+risk+levels/">View a drill down of specific issues in the risk matrix and risk levels</a></li><li><a href="/cms_trial/space/HED/792756225/Make+imported+risks+visible/">Make imported risks visible</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/HED/602865785/Tutorials/">Tutorials</a></summary><ul><li><a href="/cms_trial/space/HED/602865793/Create+a+new+risk/">Create a new risk</a></li><li><a href="/cms_trial/space/HED/602865678/Hedge+permissions/">Hedge permissions</a></li><li><a href="/cms_trial/space/HED/602865672/Customize+the+risk+register/" class="active">Customize the risk register</a></li><li><a href="/cms_trial/space/HED/602865689/Risk+reports/">Risk reports</a></li><li><a href="/cms_trial/space/HED/602865854/Add+columns+to+the+risk+register/">Add columns to the risk register</a></li><li><a href="/cms_trial/space/HED/637272077/Edit+the+risk+name/">Edit the risk name</a></li><li><a href="/cms_trial/space/HED/638255252/Edit+risk+register+names/">Edit risk register names</a></li><li><a href="/cms_trial/space/HED/3539699070/Sync+risk+metrics+with+Jira+fields/">Sync risk metrics with Jira fields</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/HED/2141291485/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/HED/792199215/Hedge+FAQ/">Hedge FAQ</a></li></ul></details></li><li><a href="/cms_trial/space/HED/3545006114/Release+notes+8.0.0/">Release notes 8.0.0</a></li></ul></details></li></ul></nav>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#access-general-settings-from-the-risk-register-list">Access general settings from the Risk Register list</a></li><li class="toc-level-2"><a href="#access-the-general-settings-from-a-risk-register-table">Access the general settings from a Risk Register table</a></li><li class="toc-level-2"><a href="#customize-your-risk-register">Customize your risk register</a></li><li class="toc-level-2"><a href="#map-risk-metrics-to-jira-fields">Map risk metrics to Jira fields</a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
@@ -264,6 +308,92 @@
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

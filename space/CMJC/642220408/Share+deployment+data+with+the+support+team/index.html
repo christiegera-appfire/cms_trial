@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>Share deployment data with the support team | Appfire Docs</title>
 <meta name="description" content="At Appfire, we deeply care about our users&#x27; and partners’ success. To enhance your experience with CMJ Cloud, we’ve introduced a new feature for greater…">
@@ -9,7 +19,15 @@
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Share deployment data with the support team",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/CMJC/642220408/Share+deployment+data+with+the+support+team/",
+  "dateModified": "2026-06-25T09:58:33.070Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,26 +37,52 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CMJC/443975880/Release+notes+11+August+2023/">Configuration Manager for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira (CMJ) Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/258053546/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Share deployment data with the support team</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CMJC/pages/642220408" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CMJC/pages/642220408" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>Share deployment data with the support team</h1>
-    <div class="page-meta">5 min read</div>
+    <div class="page-meta">Updated 2 months ago · 5 min read</div>
     <h2 id="consent-for-sharing-deployment-data-with-appfire-s-support-team">Consent for sharing deployment data with Appfire’s support team</h2><p>At Appfire, we deeply care about our users' and partners’ success. To enhance your experience with CMJ Cloud, we’ve introduced a new feature for greater supportability. It lets you share selected deployment data with our support team, ensuring quicker resolution of issues. Also, you can turn this feature on and off at any deployment phase. Sharing deployment data is usually required by the support personnel after creating a support ticket.</p><div class="panel panel-note"><p>CMJ Cloud <strong>doesn’t log a support ticket</strong> to Appfire’s support team when you enable deployment data sharing. Remember that you still need to choose the <strong>Get support</strong> option to create a ticket to let our team know you need help. By sharing your data first, however, you’ll get a much quicker resolution to your issue.</p></div><p>The data-sharing preferences are <em>enabled per deployment</em>. This means that you need to set them in each deployment you’re willing to share with our support team. Also, with this feature, you only grant our support team access to selected deployment data.</p><p>You can give consent for sharing data with the support team in the following cases: </p><ul><li><p>For <strong>failed deployments, </strong>look for the <em>help</em> icon ( <span class="icon-note">[question mark icon]</span> ) at the bottom-right corner of the page with the error.</p></li><li><p>For <strong>existing deployments</strong>, open a selected deployment and find the <em>help</em> icon ( <span class="icon-note">[question mark icon]</span> ) at the bottom-right corner.</p></li><li><p>For <strong>new deployments, </strong>look for the <em>help</em> icon ( <span class="icon-note">[question mark icon]</span> ) at the bottom-right corner of any page after providing a name and destination for your deployment.</p></li></ul><p>Find more details in our <a href="#Step-by-step-guides-for-sharing-deployment-data">step-by-step guides below</a>.</p><div class="panel panel-note"><p>We’ll keep the data you share with Appfire for <strong>30 days</strong>. However, you can <strong>stop sharing</strong> deployment data with support at any time. See how to stop sharing in our <a href="#Stop-sharing-deployment-data">step-by-step guide below</a>.</p></div><p>The image below shows you where to find the help and support options for a deployment.</p><img alt="ShareDeploymnetDataButton.png" class="doc-image" loading="lazy" src="/cms_trial/assets/30e4c205-4ddd-4b41-b237-d318b5fabd07.png"/><h3 id="what-data-you-can-share-for-your-cloud-to-cloud-deployments">What data you can share for your cloud-to-cloud deployments</h3><p>You can share the following deployment data with Appfire’s support team:</p><ul><li><p><strong>Source configuration</strong><br/>This option includes the<strong> projects and boards added to the deployment</strong> and all <em>configuration elements</em> and <em>users </em>associated with these projects.</p></li><li><p><strong>Applied transformations</strong><br/>This option includes all <a href="/cms_trial/space/CMJC/759595150/Transformations/">transformations </a>applied to the projects and configuration elements in the deployment scope. Applying certain transformations can lead to deployment issues, so sharing that data with the support team is essential.</p></li><li><p><strong>Destination configuration</strong><br/>This option includes destination projects, configuration elements, and users affected by the source configuration being deployed.<br/></p><img alt="ShareDeploymentDataSteps.png" class="doc-image" loading="lazy" src="/cms_trial/assets/42288b8f-05b1-43ed-8d9c-2bcd4ca4a957.png"/></li></ul><h3 id="last-change-time">Last change time</h3><p>CMJ Cloud remembers and shows when you’ve shared data or changed your sharing preferences. Each time you click <strong>Confirm </strong>in the <em>Share info with the support team </em>window, the<em> </em><strong>Last change</strong><em> </em>time is updated.</p><img alt="ShareDeploymentDataTime.png" class="doc-image" loading="lazy" src="/cms_trial/assets/9ae1072d-e8ec-4bcd-985b-6563d790b037.png"/><h2 id="step-by-step-guides-for-sharing-deployment-data">Step-by-step guides for sharing deployment data</h2><p>In the following sections, we’ve put together instructions on sharing data for failed, new, and existing deployments and how to stop sharing data.</p><h3 id="share-data-for-failed-deployments">Share data for failed deployments</h3><ol><li><p>If the deployment fails, click the <em>help </em>icon ( <span class="icon-note">[question mark icon]</span> ) at the bottom right of the error page. Alternatively, if you have already closed the failed deployment, navigate to the<strong> Apps &gt; Configuration Manager &gt; Deployments</strong> page and click the deployment’s name under the <strong>Deployment</strong> column.</p></li><li><p>In the deployment wizard, click the <em>help </em>icon ( <span class="icon-note">[question mark icon]</span> ) in the bottom-right corner.</p></li><li><p>In the <em>Get help on this deployment</em> window, choose the <strong>Share info with the support team </strong>option.</p></li><li><p>In the <em>Share info with the support team</em> window, check the boxes of the information you would like to share and click <strong>Confirm</strong>.</p></li><li><p>Check that you see the <strong>SHARED WITH SUPPORT</strong> status at the bottom right of the page. It means you’ve successfully shared your data with our support team for this specific deployment.</p></li></ol><p>The video below demonstrates how to enable data sharing for a failed deployment.</p><div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/V3Q8sOeNVXk"></iframe></div><h3 id="share-data-for-new-deployments">Share data for new deployments</h3><ol><li><p>Navigate to the <strong>Apps &gt; Configuration Manager &gt; Deployments</strong> page.</p></li><li><p>Click the <strong>New deployment </strong>button<strong>.</strong></p></li><li><p>Аdd a name and choose a destination Jira Cloud, then choose a snapshot you want to deploy and click <strong>Next </strong>to move to the next page</p></li><li><p>In the deployment wizard, click the <em>help </em>icon ( <span class="icon-note">[question mark icon]</span> ) in the bottom-right corner. The options for data sharing are especially useful when you encounter an error that causes a deployment to fail.</p></li><li><p>In the <em>Get help on this deployment</em> window, choose the <strong>Share info with the support team </strong>option.</p></li><li><p>In the <em>Share info with the support team</em> window, check the boxes of the information you would like to share and click <strong>Confirm</strong>.</p></li><li><p>Check if you see the <strong>SHARED WITH SUPPORT</strong> status at the bottom right of the page. It means you’ve successfully shared your data with our support team for this specific deployment.</p></li></ol><p>The video below demonstrates how to enable data sharing for a new deployment.</p><div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/Z-Hs58iLfSM"></iframe></div><h3 id="share-data-for-existing-deployments">Share data for existing deployments</h3><p>You can also share data from older deployments. All you need to do is open a previous deployment and enable data sharing.</p><ol><li><p>Navigate to the <strong>Apps &gt; Configuration Manager &gt; Deployments</strong> page.</p></li><li><p>Click the deployment’s name under the <strong>Deployment</strong> column.</p></li><li><p>In the deployment wizard, click the <em>help </em>icon ( <span class="icon-note">[question mark icon]</span> ) in the bottom-right corner.</p></li><li><p>In the <em>Get help on this deployment </em>window, choose the <strong>Share info with the support </strong>option.</p></li><li><p>In the <em>Share info with the support team</em> window, check the boxes of the information you would like to share and click <strong>Confirm</strong>.</p></li><li><p>Check if you see the <strong>SHARED WITH SUPPORT</strong> status at the bottom right of the page. It means you’ve successfully shared your data with our support team for this specific deployment.</p></li></ol><p>The video below demonstrates how to enable data sharing for an existing deployment.</p><div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/clBgjz43LfM"></iframe></div><h3 id="stop-sharing-deployment-data">Stop sharing deployment data</h3><ol><li><p>Navigate to the <strong>Apps &gt; Configuration Manager &gt; Deployments</strong> page.</p></li><li><p>Click the deployment’s name under the <strong>Deployment</strong> column.</p></li><li><p>In the deployment wizard, click the <strong>SHARED WITH SUPPORT</strong> status in the bottom-right corner.</p></li><li><p>In the <em>Share info with the support team</em> window, click the <strong>Stop sharing</strong> button or uncheck the boxes of the information you had previously shared and click <strong>Confirm</strong>.</p></li><li><p>You’ll return to the <em>Get help on this deployment</em> window. You can again choose between the options or click <strong>Close </strong>to return to the deployment.</p></li><li><p>After you stop the data sharing, check if the <strong>SHARED WITH SUPPORT</strong> status has reverted to the initial <em>help </em>icon ( <span class="icon-note">[question mark icon]</span> ) at the bottom right of the page.</p></li></ol><p>The video below demonstrates how to stop the deployment data sharing.</p><div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/6EYubNZHRh0"></iframe></div>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">82 pages in this space, fetched live from Confluence via API.</p>
-<nav><ul><li><a href="/cms_trial/space/CMJC/443975880/Release+notes+11+August+2023/">Release notes 11 August 2023</a></li><li><details open><summary><a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira (CMJ) Cloud</a></summary><ul><li><a href="/cms_trial/space/CMJC/193725041/Overview/">Overview</a></li><li><details><summary><a href="/cms_trial/space/CMJC/193921273/Get+started+with+Configuration+Manager+for+Jira+for+Cloud/">Get started with Configuration Manager for Jira for Cloud</a></summary><ul><li><a href="/cms_trial/space/CMJC/193659801/Prerequisites/">Prerequisites</a></li><li><a href="/cms_trial/space/CMJC/194183182/Installation+guide/">Installation guide</a></li><li><a href="/cms_trial/space/CMJC/194150417/Licensing/">Licensing</a></li><li><a href="/cms_trial/space/CMJC/854753912/Security+whitepaper/">Security whitepaper</a></li><li><a href="/cms_trial/space/CMJC/681903694/Differences+between+CMJ+Server%2FData+Center+and+CMJ+Cloud/">Differences between CMJ Server/Data Center and CMJ Cloud</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CMJC/194117717/Use+Cases/">Use Cases</a></summary><ul><li><a href="/cms_trial/space/CMJC/258053021/Deploy+configuration+changes+from+Jira+Cloud+to+Cloud/">Deploy configuration changes from Jira Cloud to Cloud</a></li><li><a href="/cms_trial/space/CMJC/258085727/Migrate+projects+and+issues+from+Jira+Server%2FDC+to+Jira+Cloud/">Migrate projects and issues from Jira Server/DC to Jira Cloud</a></li><li><a href="/cms_trial/space/CMJC/2890924061/Test+and+deploy+Jira+configuration+changes+safely/">Test and deploy Jira configuration changes safely</a></li><li><a href="/cms_trial/space/CMJC/2936799239/Simplify+your+Cloud+migration+with+Configuration+Manager+for+Jira+(CMJ)/">Simplify your Cloud migration with Configuration Manager for Jira (CMJ)</a></li><li><a href="/cms_trial/space/CMJC/2981756935/Promote+JMWE+and+JSU+app+data+safely+with+CMJ+Cloud/">Promote JMWE and JSU app data safely with CMJ Cloud</a></li><li><a href="/cms_trial/space/CMJC/3504439478/Analyze+freely.+Deploy+precisely./">Analyze freely. Deploy precisely.</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CMJC/193823429/Features+and+options/">Features and options</a></summary><ul><li><a href="/cms_trial/space/CMJC/193594026/Authorize+with+API+token/">Authorize with API token</a></li><li><a href="/cms_trial/space/CMJC/2506522887/Create+and+manage+snapshots/">Create and manage snapshots</a></li><li><a href="/cms_trial/space/CMJC/2506391642/Upload+a+snapshot/">Upload a snapshot</a></li><li><a href="/cms_trial/space/CMJC/2507112493/Deploy+a+snapshot/">Deploy a snapshot</a></li><li><a href="/cms_trial/space/CMJC/3417473252/Compare+snapshots/">Compare snapshots</a></li><li><a href="/cms_trial/space/CMJC/193659992/Manage+snapshot+deployments/">Manage snapshot deployments</a></li><li><a href="/cms_trial/space/CMJC/1160020327/Migrate+Service+Management+projects+to+the+Cloud/">Migrate Service Management projects to the Cloud</a></li><li><a href="/cms_trial/space/CMJC/193855959/Supported+configuration+elements/">Supported configuration elements</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CMJC/1922600795/Migration/">Migration</a></summary><ul><li><a href="/cms_trial/space/CMJC/682131761/Migrating+from+Jira+Server+to+Cloud/">Migrating from Jira Server to Cloud</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CMJC/194117669/Release+Notes/">Release Notes</a></summary><ul><li><a href="/cms_trial/space/CMJC/3529801847/Release+notes+August+2026/">Release notes August 2026</a></li><li><a href="/cms_trial/space/CMJC/3416883522/Release+notes+July+2026/">Release notes July 2026</a></li><li><a href="/cms_trial/space/CMJC/3374187844/Release+notes+June+2026/">Release notes June 2026</a></li><li><a href="/cms_trial/space/CMJC/3301244947/Release+notes+May+2026/">Release notes May 2026</a></li><li><a href="/cms_trial/space/CMJC/3123709354/Release+notes+April+2026/">Release notes April 2026</a></li><li><a href="/cms_trial/space/CMJC/2980839433/Release+notes+March+2026/">Release notes March 2026</a></li><li><a href="/cms_trial/space/CMJC/2857566448/Release+notes+February+2026/">Release notes February 2026</a></li><li><a href="/cms_trial/space/CMJC/2623864835/Release+notes+December+2025/">Release notes December 2025</a></li><li><a href="/cms_trial/space/CMJC/2506031188/Release+notes+November+2025/">Release notes November 2025</a></li><li><a href="/cms_trial/space/CMJC/2426798089/Release+notes+October+2025/">Release notes October 2025</a></li><li><a href="/cms_trial/space/CMJC/2306932831/Release+notes+25+August+2025/">Release notes 25 August 2025</a></li><li><a href="/cms_trial/space/CMJC/2250047502/Release+notes+4+August+2025/">Release notes 4 August 2025</a></li><li><a href="/cms_trial/space/CMJC/2161082729/Release+notes+July+2025/">Release notes July 2025</a></li><li><a href="/cms_trial/space/CMJC/1985609831/Release+notes+April+2025/">Release notes April 2025</a></li><li><a href="/cms_trial/space/CMJC/1851949355/Release+notes+March+2025/">Release notes March 2025</a></li><li><a href="/cms_trial/space/CMJC/1751188366/Release+notes+February+2025/">Release notes February 2025</a></li><li><a href="/cms_trial/space/CMJC/1639743570/Release+notes+January+2025/">Release notes January 2025</a></li><li><a href="/cms_trial/space/CMJC/1567622126/Release+notes+December+2024/">Release notes December 2024</a></li><li><a href="/cms_trial/space/CMJC/1514897435/Release+notes+November+2024/">Release notes November 2024</a></li><li><a href="/cms_trial/space/CMJC/1375142580/Release+notes+October+2024/">Release notes October 2024</a></li><li><a href="/cms_trial/space/CMJC/1302561092/Release+notes+September+2024/">Release notes September 2024</a></li><li><a href="/cms_trial/space/CMJC/1213956239/Release+notes+August+2024/">Release notes August 2024</a></li><li><a href="/cms_trial/space/CMJC/1150058608/Release+notes+24+July+2024/">Release notes 24 July 2024</a></li><li><a href="/cms_trial/space/CMJC/1132986520/Release+notes+17+July+2024/">Release notes 17 July 2024</a></li><li><a href="/cms_trial/space/CMJC/1033863393/Release+notes+June+2024/">Release notes June 2024</a></li><li><a href="/cms_trial/space/CMJC/991658010/Release+notes+May+2024/">Release notes May 2024</a></li><li><a href="/cms_trial/space/CMJC/937361444/Release+Notes+April+2024/">Release Notes April 2024</a></li><li><a href="/cms_trial/space/CMJC/843972981/Release+Notes+March+2024/">Release Notes March 2024</a></li><li><a href="/cms_trial/space/CMJC/759791666/Release+notes+February+2024/">Release notes February 2024</a></li><li><a href="/cms_trial/space/CMJC/705495925/Release+notes+January+2024/">Release notes January 2024</a></li><li><a href="/cms_trial/space/CMJC/992673833/Archived+release+notes/">Archived release notes</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/CMJC/258053546/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/CMJC/2273706042/IP+allowlist+considerations+for+CMJ+Cloud+on+Premium+Jira+Cloud/">IP allowlist considerations for CMJ Cloud on Premium Jira Cloud</a></li><li><a href="/cms_trial/space/CMJC/642220408/Share+deployment+data+with+the+support+team/" class="active">Share deployment data with the support team</a></li></ul></details></li></ul></details></li></ul></nav>
-</aside>
+<nav><ul><li><a href="/cms_trial/space/CMJC/443975880/Release+notes+11+August+2023/">Release notes 11 August 2023</a></li><li><details open><summary><a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira (CMJ) Cloud</a></summary><ul><li><a href="/cms_trial/space/CMJC/193725041/Overview/">Overview</a></li><li><details><summary><a href="/cms_trial/space/CMJC/193921273/Get+started+with+Configuration+Manager+for+Jira+for+Cloud/">Get started with Configuration Manager for Jira for Cloud</a></summary><ul><li><a href="/cms_trial/space/CMJC/193659801/Prerequisites/">Prerequisites</a></li><li><a href="/cms_trial/space/CMJC/194183182/Installation+guide/">Installation guide</a></li><li><a href="/cms_trial/space/CMJC/194150417/Licensing/">Licensing</a></li><li><a href="/cms_trial/space/CMJC/854753912/Security+whitepaper/">Security whitepaper</a></li><li><a href="/cms_trial/space/CMJC/681903694/Differences+between+CMJ+Server%2FData+Center+and+CMJ+Cloud/">Differences between CMJ Server/Data Center and CMJ Cloud</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CMJC/194117717/Use+Cases/">Use Cases</a></summary><ul><li><a href="/cms_trial/space/CMJC/258053021/Deploy+configuration+changes+from+Jira+Cloud+to+Cloud/">Deploy configuration changes from Jira Cloud to Cloud</a></li><li><a href="/cms_trial/space/CMJC/258085727/Migrate+projects+and+issues+from+Jira+Server%2FDC+to+Jira+Cloud/">Migrate projects and issues from Jira Server/DC to Jira Cloud</a></li><li><a href="/cms_trial/space/CMJC/2890924061/Test+and+deploy+Jira+configuration+changes+safely/">Test and deploy Jira configuration changes safely</a></li><li><a href="/cms_trial/space/CMJC/2936799239/Simplify+your+Cloud+migration+with+Configuration+Manager+for+Jira+(CMJ)/">Simplify your Cloud migration with Configuration Manager for Jira (CMJ)</a></li><li><a href="/cms_trial/space/CMJC/2981756935/Promote+JMWE+and+JSU+app+data+safely+with+CMJ+Cloud/">Promote JMWE and JSU app data safely with CMJ Cloud</a></li><li><a href="/cms_trial/space/CMJC/3504439478/Analyze+freely.+Deploy+precisely./">Analyze freely. Deploy precisely.</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CMJC/193823429/Features+and+options/">Features and options</a></summary><ul><li><a href="/cms_trial/space/CMJC/193594026/Authorize+with+API+token/">Authorize with API token</a></li><li><a href="/cms_trial/space/CMJC/2506522887/Create+and+manage+snapshots/">Create and manage snapshots</a></li><li><a href="/cms_trial/space/CMJC/2506391642/Upload+a+snapshot/">Upload a snapshot</a></li><li><a href="/cms_trial/space/CMJC/2507112493/Deploy+a+snapshot/">Deploy a snapshot</a></li><li><a href="/cms_trial/space/CMJC/3417473252/Compare+snapshots/">Compare snapshots</a></li><li><a href="/cms_trial/space/CMJC/193659992/Manage+snapshot+deployments/">Manage snapshot deployments</a></li><li><a href="/cms_trial/space/CMJC/1160020327/Migrate+Service+Management+projects+to+the+Cloud/">Migrate Service Management projects to the Cloud</a></li><li><a href="/cms_trial/space/CMJC/193855959/Supported+configuration+elements/">Supported configuration elements</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CMJC/1922600795/Migration/">Migration</a></summary><ul><li><a href="/cms_trial/space/CMJC/682131761/Migrating+from+Jira+Server+to+Cloud/">Migrating from Jira Server to Cloud</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CMJC/194117669/Release+Notes/">Release Notes</a></summary><ul><li><a href="/cms_trial/space/CMJC/3644063889/Release+notes+September+2026/">Release notes September 2026</a></li><li><a href="/cms_trial/space/CMJC/3529801847/Release+notes+August+2026/">Release notes August 2026</a></li><li><a href="/cms_trial/space/CMJC/3416883522/Release+notes+July+2026/">Release notes July 2026</a></li><li><a href="/cms_trial/space/CMJC/3374187844/Release+notes+June+2026/">Release notes June 2026</a></li><li><a href="/cms_trial/space/CMJC/3301244947/Release+notes+May+2026/">Release notes May 2026</a></li><li><a href="/cms_trial/space/CMJC/3123709354/Release+notes+April+2026/">Release notes April 2026</a></li><li><a href="/cms_trial/space/CMJC/2980839433/Release+notes+March+2026/">Release notes March 2026</a></li><li><a href="/cms_trial/space/CMJC/2857566448/Release+notes+February+2026/">Release notes February 2026</a></li><li><a href="/cms_trial/space/CMJC/2623864835/Release+notes+December+2025/">Release notes December 2025</a></li><li><a href="/cms_trial/space/CMJC/2506031188/Release+notes+November+2025/">Release notes November 2025</a></li><li><a href="/cms_trial/space/CMJC/2426798089/Release+notes+October+2025/">Release notes October 2025</a></li><li><a href="/cms_trial/space/CMJC/2306932831/Release+notes+25+August+2025/">Release notes 25 August 2025</a></li><li><a href="/cms_trial/space/CMJC/2250047502/Release+notes+4+August+2025/">Release notes 4 August 2025</a></li><li><a href="/cms_trial/space/CMJC/2161082729/Release+notes+July+2025/">Release notes July 2025</a></li><li><a href="/cms_trial/space/CMJC/1985609831/Release+notes+April+2025/">Release notes April 2025</a></li><li><a href="/cms_trial/space/CMJC/1851949355/Release+notes+March+2025/">Release notes March 2025</a></li><li><a href="/cms_trial/space/CMJC/1751188366/Release+notes+February+2025/">Release notes February 2025</a></li><li><a href="/cms_trial/space/CMJC/1639743570/Release+notes+January+2025/">Release notes January 2025</a></li><li><a href="/cms_trial/space/CMJC/1567622126/Release+notes+December+2024/">Release notes December 2024</a></li><li><a href="/cms_trial/space/CMJC/1514897435/Release+notes+November+2024/">Release notes November 2024</a></li><li><a href="/cms_trial/space/CMJC/1375142580/Release+notes+October+2024/">Release notes October 2024</a></li><li><a href="/cms_trial/space/CMJC/1302561092/Release+notes+September+2024/">Release notes September 2024</a></li><li><a href="/cms_trial/space/CMJC/1213956239/Release+notes+August+2024/">Release notes August 2024</a></li><li><a href="/cms_trial/space/CMJC/1150058608/Release+notes+24+July+2024/">Release notes 24 July 2024</a></li><li><a href="/cms_trial/space/CMJC/1132986520/Release+notes+17+July+2024/">Release notes 17 July 2024</a></li><li><a href="/cms_trial/space/CMJC/1033863393/Release+notes+June+2024/">Release notes June 2024</a></li><li><a href="/cms_trial/space/CMJC/991658010/Release+notes+May+2024/">Release notes May 2024</a></li><li><a href="/cms_trial/space/CMJC/937361444/Release+Notes+April+2024/">Release Notes April 2024</a></li><li><a href="/cms_trial/space/CMJC/843972981/Release+Notes+March+2024/">Release Notes March 2024</a></li><li><a href="/cms_trial/space/CMJC/759791666/Release+notes+February+2024/">Release notes February 2024</a></li><li><a href="/cms_trial/space/CMJC/705495925/Release+notes+January+2024/">Release notes January 2024</a></li><li><a href="/cms_trial/space/CMJC/992673833/Archived+release+notes/">Archived release notes</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/CMJC/258053546/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/CMJC/2273706042/IP+allowlist+considerations+for+CMJ+Cloud+on+Premium+Jira+Cloud/">IP allowlist considerations for CMJ Cloud on Premium Jira Cloud</a></li><li><a href="/cms_trial/space/CMJC/642220408/Share+deployment+data+with+the+support+team/" class="active">Share deployment data with the support team</a></li></ul></details></li></ul></details></li></ul></nav>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#consent-for-sharing-deployment-data-with-appfire-s-support-team">Consent for sharing deployment data with Appfire’s support team</a></li><li class="toc-level-3"><a href="#what-data-you-can-share-for-your-cloud-to-cloud-deployments">What data you can share for your cloud-to-cloud deployments</a></li><li class="toc-level-3"><a href="#last-change-time">Last change time</a></li><li class="toc-level-2"><a href="#step-by-step-guides-for-sharing-deployment-data">Step-by-step guides for sharing deployment data</a></li><li class="toc-level-3"><a href="#share-data-for-failed-deployments">Share data for failed deployments</a></li><li class="toc-level-3"><a href="#share-data-for-new-deployments">Share data for new deployments</a></li><li class="toc-level-3"><a href="#share-data-for-existing-deployments">Share data for existing deployments</a></li><li class="toc-level-3"><a href="#stop-sharing-deployment-data">Stop sharing deployment data</a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
@@ -264,6 +308,92 @@
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

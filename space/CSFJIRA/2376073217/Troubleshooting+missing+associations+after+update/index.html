@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>Troubleshooting missing associations after update | Appfire Docs</title>
 <meta name="description" content="We&#x27;ve made architectural changes to how associations are stored and accessed in Connector for Salesforce. Associations are no longer stored in Jira&#x27;s…">
@@ -9,7 +19,15 @@
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Troubleshooting missing associations after update",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/CSFJIRA/2376073217/Troubleshooting+missing+associations+after+update/",
+  "dateModified": "2026-01-08T08:01:53.470Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,27 +37,53 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/3092054544/Book+a+demo+for+Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Troubleshooting missing associations after update</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/2376073217" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/2376073217" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>Troubleshooting missing associations after update</h1>
-    <div class="page-meta">3 min read</div>
+    <div class="page-meta">Updated 8 months ago · 3 min read</div>
     <div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="change-overview">Change overview</h2><p>We've made<strong> </strong>architectural changes to how associations are stored and accessed in Connector for Salesforce. Associations are no longer stored in Jira's Entity Properties system and have been moved to a dedicated database for better performance and scalability. </p><p>The new solution enables you to have more than 300 associations per issue and improves performance and reliability for large-scale usage</p><h2 id="key-changes">Key changes</h2><ul><li><p>Associations are no longer stored under the <code>com.servicerocket.jira.cloud.issue.salesforce.associations</code> Entity Property key</p></li><li><p>While this key still exists after your update, it is no longer the source of truth for your associations</p></li><li><p>All associations have been moved to a dedicated database system</p></li><li><p>The plugin now only updates the <code>ids</code> and <code>types</code> fields in the Entity Property</p></li><li><p>The <code>associations</code> field will be overwritten the first time you modify an issue's associations</p></li></ul><div class="panel panel-warning"><p>Any custom integrations reading from Entity Properties will break</p></div></div></div><h3 id="new-api-endpoints">New API endpoints</h3><p>The <code>com.servicerocket.jira.cloud.issue.salesforce.associations</code> Entity Property key is deprecated. You need to stop using Entity Properties for association data. Instead, use the new API endpoints required: <code>POST /api/associations</code> (learn more <a href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/2375843900">POST /api/associations</a>) and <code>GET /api/associations</code> (learn more: <a href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/2376138754">GET /api/associations</a>).</p><h2 id="are-you-affected">Are you affected?</h2><p>You are likely affected if:</p><ul><li><p>You have custom scripts or integrations that read association data</p></li><li><p>You're missing associations that existed before the update</p></li><li><p>Your third-party tools can no longer access Salesforce association data</p></li><li><p>You're seeing errors in applications that previously worked with associations</p></li></ul><p>You should not be affected if:</p><ul><li><p>You only use the plugin's built-in interface (no custom integrations)</p></li><li><p>All your associations are still visible and working normally</p></li></ul><h2 id="what-to-do">What to do</h2><p>If the upgrade fails, contact our support team - we can help you complete the migration safely. Your existing associations remain safe in the Entity Properties until migration completes.</p><p>If your upgrade succeeds, make sure all your associations have been migrated, and check the migration log.</p><h2 id="migration-log">Migration log</h2><p>When you upgrade, an automatic migration process runs to move all existing associations from Entity Properties to the new database system. The migration log CSV file provides detailed information on migration issues needed for database upgrade operations. This feature helps you monitor the success and failure of individual migration tasks during system upgrades. Thanks to it, you can identify missing associations and identify reasons for failure.</p><h2 id="download-migration-log">Download migration log</h2><p>You can download the migration log as a CSV file for analysis and record-keeping purposes.</p><ol><li><p>Log in to your Jira Data Center instance as an administrator with the Jira System Administrators permissions.</p></li><li><p>Click the <strong>cog icon</strong> on the top bar and select, choose <strong>Manage apps</strong>.</p></li><li><p>On the left under <strong>SALESFORCE</strong>, open the <strong>Settings</strong> page. </p></li><li><p>Click <strong>Download Migration Log</strong> under the <strong>Migration log </strong>section and download the CSV file. </p><img alt="image-20250825-123434.png" class="doc-image" loading="lazy" src="/cms_trial/assets/5f900eaf-3273-47c7-881b-c8bd10b4f2fe.png"/></li></ol><p>The downloaded CSV file contains information about your migration process result:</p><ul><li><p>Total number of successfully migrated issues</p></li><li><p>Information about any issues that failed to migrate</p></li><li><p>Reasons of failure</p></li></ul><p>This data helps you understand the overall success of your migration and identify any issues that require your attention.</p><h3 id="migration-log-entries">Migration log entries</h3><p>The migration log contains entries with different severity levels and detailed messages about what occurred during migration. Here are examples of common failure types you might see:</p><p><strong>Invalid SOID (Salesforce Object ID) Format:</strong></p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">WARN,TEST-711,"Issue TEST-711(10709) is associated with an invalid SOID 'Z9D4CTJPBY4HHtLLVM,DMYwmbnU9tx43t0740', cannot migrate. Skipping."</code></pre></div><p>This indicates the association had a malformed Salesforce Object ID and couldn't be migrated.</p><p><strong>Missing required field values:</strong></p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">WARN,TEST-325,"Association between S9JxSLQchF4hQUmLJC and TEST-325(10318) does not contain valid 'son', cannot migrate. Skipping."</code></pre></div><p>This shows an association was missing required field data (in this case, the 'son' field) and was skipped during migration.</p><p><strong>Invalid viewOnly Property:</strong></p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">WARN,TEST-429,"Association between 3nXgwpVsistGcVY42Q and TEST-429(10418) does not contain valid 'viewOnly', cannot migrate. Skipping."</code></pre></div><p>This indicates the association had invalid or missing viewOnly permission settings.</p><p><strong>Successful Migration Summary:</strong></p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">INFO,null,"Found 21320 associations, will batch insert"
 INFO,null,"Association migration completed successfully."</code></pre></div><p>These entries show the total number of associations processed and confirm successful completion.</p><h3 id="handling-failed-migrations">Handling failed migrations</h3><p>When the log shows failed migrations,  contact our support team.</p>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">281 pages in this space, fetched live from Confluence via API.</p>
-<nav><ul><li><a href="/cms_trial/space/CSFJIRA/3092054544/Book+a+demo+for+Connector+for+Salesforce+%26+Jira/">Book a demo for Connector for Salesforce &amp; Jira</a></li><li><details open><summary><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a></summary><ul><li><a href="/cms_trial/space/CSFJIRA/1873740701/Overview/">Overview</a></li><li><details><summary><a href="/cms_trial/space/CSFJIRA/1873739795/Get+started+with+Connector+for+Salesforce+%26+Jira/">Get started with Connector for Salesforce &amp; Jira</a></summary><ul><li><a href="/cms_trial/space/CSFJIRA/1873412305/System+and+platform+requirements/">System and platform requirements</a></li><li><a href="/cms_trial/space/CSFJIRA/1873477874/Installation/">Installation</a></li><li><a href="/cms_trial/space/CSFJIRA/1873412559/Set+up+your+integration+in+Jira/">Set up your integration in Jira</a></li><li><a href="/cms_trial/space/CSFJIRA/1873772649/Set+up+your+integration+in+Salesforce/">Set up your integration in Salesforce</a></li><li><a href="/cms_trial/space/CSFJIRA/1873510679/Classic+Connector+for+Salesforce+and+NextGen+Connector+for+Salesforce+%26+Jira+comparison/">Classic Connector for Salesforce and NextGen Connector for Salesforce &amp; Jira comparison</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CSFJIRA/1874100241/Configuration/">Configuration</a></summary><ul><li><a href="/cms_trial/space/CSFJIRA/1873380265/Configure+settings+in+Jira/">Configure settings in Jira</a></li><li><a href="/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field+and+value+mappings/">Configure entity, field and value mappings</a></li><li><a href="/cms_trial/space/CSFJIRA/1873740170/Configure+settings+in+Salesforce/">Configure settings in Salesforce</a></li><li><a href="/cms_trial/space/CSFJIRA/1873740233/Configure+Lightning+Web+components/">Configure Lightning Web components</a></li><li><a href="/cms_trial/space/CSFJIRA/1874001954/Automate+your+integration/">Automate your integration</a></li><li><a href="/cms_trial/space/CSFJIRA/1873511950/Automatically+retry+failed+sync+jobs/">Automatically retry failed sync jobs</a></li><li><a href="/cms_trial/space/CSFJIRA/1873380661/Understand+Salesforce+API+call+usage/">Understand Salesforce API call usage</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CSFJIRA/3091727249/User+guides/">User guides</a></summary><ul><li><a href="/cms_trial/space/CSFJIRA/1918802420/Get+started+for+users/">Get started for users</a></li><li><a href="/cms_trial/space/CSFJIRA/3091760268/Work+with+associations/">Work with associations</a></li><li><a href="/cms_trial/space/CSFJIRA/3091628846/Work+with+comments/">Work with comments</a></li><li><a href="/cms_trial/space/CSFJIRA/1962541918/Search+Salesforce+Object+from+Jira/">Search Salesforce Object from Jira</a></li><li><a href="/cms_trial/space/CSFJIRA/1754432218/Work+with+attachments/">Work with attachments</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CSFJIRA/2139357355/Use+cases/">Use cases</a></summary><ul><li><a href="/cms_trial/space/CSFJIRA/2139357389/Create+a+two-way+workflow+between+Jira+work+items+and+Salesforce+Manufacturing+request/">Create a two-way workflow between Jira work items and Salesforce Manufacturing request</a></li><li><a href="/cms_trial/space/CSFJIRA/2139881603/Create+a+two-way+workflow+between+JSM+and+Salesforce+on-site+support/">Create a two-way workflow between JSM and Salesforce on-site support</a></li><li><a href="/cms_trial/space/CSFJIRA/2139357509/Create+a+two-way+workflow+between+Jira+work+items+and+Salesforce+Marketing+Campaigns/">Create a two-way workflow between Jira work items and Salesforce Marketing Campaigns</a></li><li><a href="/cms_trial/space/CSFJIRA/2140045422/Create+a+two-way+workflow+between+Jira+work+item+and+Salesforce+Legal+records/">Create a two-way workflow between Jira work item and Salesforce Legal records</a></li><li><a href="/cms_trial/space/CSFJIRA/3374219265/Sync+SLA+deadlines+from+Jira+to+Salesforce+using+Connector+for+Salesforce+%26+Jira+and+Time+to+SLA/">Sync SLA deadlines from Jira to Salesforce using Connector for Salesforce &amp; Jira and Time to SLA</a></li><li><a href="/cms_trial/space/CSFJIRA/3255336965/Native+Salesforce+reporting+on+Jira+data/">Native Salesforce reporting on Jira data</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CSFJIRA/1685193166/API+reference/">API reference</a></summary><ul><li><a href="/cms_trial/space/CSFJIRA/1853817917/Authenticate+REST+APIs/">Authenticate REST APIs</a></li><li><a href="/cms_trial/space/CSFJIRA/1684308828/Associate+API%3A+POST+%2Fexternal%2Fapi%2Fassociation/">Associate API: POST /external/api/association</a></li><li><a href="/cms_trial/space/CSFJIRA/1685258704/Push+API%3A+POST+%2Fexternal%2Fapi%2Fpush%2Fproject/">Push API: POST /external/api/push/project</a></li><li><a href="/cms_trial/space/CSFJIRA/1853818000/Bulk+associations%3A+GET+%2Fexternal%2Fapi%2Fassociations/">Bulk associations: GET /external/api/associations</a></li><li><a href="/cms_trial/space/CSFJIRA/1854374644/Bulk+associations%3A+POST+%2Fexternal%2Fapi%2Fassociations/">Bulk associations: POST /external/api/associations</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CSFJIRA/2161049701/Migrate+Connector+for+Salesforce+%26+Jira+Data+Center+to+Cloud/">Migrate Connector for Salesforce &amp; Jira Data Center to Cloud</a></summary><ul><li><a href="/cms_trial/space/CSFJIRA/2161082491/Connector+for+Salesforce+%26+Jira+feature+differences+for+Jira+DC+and+Cloud/">Connector for Salesforce &amp; Jira feature differences for Jira DC and Cloud</a></li><li><a href="/cms_trial/space/CSFJIRA/2161082534/Migration+path+Connector+for+Salesforce+%26+Jira+Server+or+Data+Center+to+Cloud/">Migration path Connector for Salesforce &amp; Jira Server or Data Center to Cloud</a></li><li><a href="/cms_trial/space/CSFJIRA/2160984266/Step+1+-+Plan+out+your+migration/">Step 1 - Plan out your migration</a></li><li><a href="/cms_trial/space/CSFJIRA/2160754916/Step+2+-+Prepare+your+Jira+Data+Center+migration+data/">Step 2 - Prepare your Jira Data Center migration data</a></li><li><a href="/cms_trial/space/CSFJIRA/2161049766/Step+3+-+Import+data+and+settings+into+the+Jira+Cloud+site/">Step 3 - Import data and settings into the Jira Cloud site</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CSFJIRA/3091858027/Release+notes/">Release notes</a></summary><ul><li><a href="/cms_trial/space/CSFJIRA/3536323119/Release+notes+20+August+2026/">Release notes 20 August 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3539306087/Release+notes+13+August+2026/">Release notes 13 August 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3470688338/Release+notes+3+August+2026/">Release notes 3 August 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3490611266/Release+notes+29+July+2026/">Release notes 29 July 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3487563793/Release+notes+28+July+2026/">Release notes 28 July 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3483041825/Release+notes+27+July+2026/">Release notes 27 July 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3470688504/Release+notes+21+July+2026/">Release notes 21 July 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3465970130/Release+notes+20+July+2026+ver+26.0.0/">Release notes 20 July 2026 ver 26.0.0</a></li><li><a href="/cms_trial/space/CSFJIRA/3466657795/Release+notes+20+July+2026/">Release notes 20 July 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3451945120/Release+notes+14+July+2026/">Release notes 14 July 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3447259177/Release+notes+13+July+2026/">Release notes 13 July 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3422028003/Release+notes+6+July+2026/">Release notes 6 July 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3421995070/Release+notes+2+July+2026/">Release notes 2 July 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3417211019/Release+notes+22+June+2026/">Release notes 22 June 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3417210884/Release+notes+12+June+2026/">Release notes 12 June 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3314581525/Release+notes+2+June+2026/">Release notes 2 June 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3235741699/Release+notes+28+May+2026/">Release notes 28 May 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3136356478/Release+notes+25+May+2026/">Release notes 25 May 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3220930561/Breaking+changes+May+2026/">Breaking changes May 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3123709157/Release+notes+14+April+2026/">Release notes 14 April 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3091301834/Connector+for+Salesforce+%26+Jira+Cloud+(Jira+Add-on)+Release+Notes/">Connector for Salesforce &amp; Jira Cloud (Jira Add-on) Release Notes</a></li><li><a href="/cms_trial/space/CSFJIRA/3091728035/Jira+Cloud+for+Salesforce+(Salesforce+Package+on+AppExchange)+Release+Notes/">Jira Cloud for Salesforce (Salesforce Package on AppExchange) Release Notes</a></li><li><a href="/cms_trial/space/CSFJIRA/3091956915/Critical+version+upgrade+required/">Critical version upgrade required</a></li><li><a href="/cms_trial/space/CSFJIRA/3091956863/Connector+for+Salesforce+and+Jira+changes/">Connector for Salesforce and Jira changes</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a></li><li><a href="/cms_trial/space/CSFJIRA/2258141853/FAQ/">FAQ</a></li><li><a href="/cms_trial/space/CSFJIRA/2256309570/Book+a+demo/">Book a demo</a></li><li><a href="/cms_trial/space/CSFJIRA/2258305080/Appfire+Trust+Center/">Appfire Trust Center</a></li><li><a href="/cms_trial/space/CSFJIRA/2258141912/Contact+us/">Contact us</a></li><li><a href="/cms_trial/space/CSFJIRA/3319464284/Migration+to+Forge/">Migration to Forge</a></li><li><a href="/cms_trial/space/CSFJIRA/2258305117/Data+residency+and+realm+persistence/">Data residency and realm persistence</a></li><li><a href="/cms_trial/space/CSFJIRA/2376073217/Troubleshooting+missing+associations+after+update/" class="active">Troubleshooting missing associations after update</a></li><li><a href="/cms_trial/space/CSFJIRA/2258305251/Transitioning+of+Connector+for+Salesforce+%26+Jira+to+Appfire+infrastructure/">Transitioning of Connector for Salesforce &amp; Jira to Appfire infrastructure</a></li></ul></details></li></ul></details></li></ul></nav>
-</aside>
+<nav><ul><li><a href="/cms_trial/space/CSFJIRA/3092054544/Book+a+demo+for+Connector+for+Salesforce+%26+Jira/">Book a demo for Connector for Salesforce &amp; Jira</a></li><li><details open><summary><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a></summary><ul><li><a href="/cms_trial/space/CSFJIRA/1873740701/Overview/">Overview</a></li><li><details><summary><a href="/cms_trial/space/CSFJIRA/1873739795/Get+started+with+Connector+for+Salesforce+%26+Jira/">Get started with Connector for Salesforce &amp; Jira</a></summary><ul><li><a href="/cms_trial/space/CSFJIRA/1873412305/System+and+platform+requirements/">System and platform requirements</a></li><li><a href="/cms_trial/space/CSFJIRA/1873477874/Installation/">Installation</a></li><li><a href="/cms_trial/space/CSFJIRA/1873412559/Set+up+your+integration+in+Jira/">Set up your integration in Jira</a></li><li><a href="/cms_trial/space/CSFJIRA/1873772649/Set+up+your+integration+in+Salesforce/">Set up your integration in Salesforce</a></li><li><a href="/cms_trial/space/CSFJIRA/3608707174/Configure+Salesforce+record+page+to+view+Jira+details+directly+in+Salesforce/">Configure Salesforce record page to view Jira details directly in Salesforce</a></li><li><a href="/cms_trial/space/CSFJIRA/1873510679/Classic+Connector+for+Salesforce+and+NextGen+Connector+for+Salesforce+%26+Jira+comparison/">Classic Connector for Salesforce and NextGen Connector for Salesforce &amp; Jira comparison</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CSFJIRA/1874100241/Configuration/">Configuration</a></summary><ul><li><a href="/cms_trial/space/CSFJIRA/1873380265/Configure+settings+in+Jira/">Configure settings in Jira</a></li><li><a href="/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field+and+value+mappings/">Configure entity, field and value mappings</a></li><li><a href="/cms_trial/space/CSFJIRA/1873740170/Configure+settings+in+Salesforce/">Configure settings in Salesforce</a></li><li><a href="/cms_trial/space/CSFJIRA/1873740233/Configure+Lightning+Web+components/">Configure Lightning Web components</a></li><li><a href="/cms_trial/space/CSFJIRA/1874001954/Automate+your+integration/">Automate your integration</a></li><li><a href="/cms_trial/space/CSFJIRA/1873511950/Automatically+retry+failed+sync+jobs/">Automatically retry failed sync jobs</a></li><li><a href="/cms_trial/space/CSFJIRA/1873380661/Understand+Salesforce+API+call+usage/">Understand Salesforce API call usage</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CSFJIRA/3091727249/User+guides/">User guides</a></summary><ul><li><a href="/cms_trial/space/CSFJIRA/1918802420/Get+started+for+users/">Get started for users</a></li><li><a href="/cms_trial/space/CSFJIRA/3091760268/Work+with+associations/">Work with associations</a></li><li><a href="/cms_trial/space/CSFJIRA/3091628846/Work+with+comments/">Work with comments</a></li><li><a href="/cms_trial/space/CSFJIRA/1962541918/Search+Salesforce+Object+from+Jira/">Search Salesforce Object from Jira</a></li><li><a href="/cms_trial/space/CSFJIRA/1754432218/Work+with+attachments/">Work with attachments</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CSFJIRA/2139357355/Use+cases/">Use cases</a></summary><ul><li><a href="/cms_trial/space/CSFJIRA/2139357389/Create+a+two-way+workflow+between+Jira+work+items+and+Salesforce+Manufacturing+request/">Create a two-way workflow between Jira work items and Salesforce Manufacturing request</a></li><li><a href="/cms_trial/space/CSFJIRA/2139881603/Create+a+two-way+workflow+between+JSM+and+Salesforce+on-site+support/">Create a two-way workflow between JSM and Salesforce on-site support</a></li><li><a href="/cms_trial/space/CSFJIRA/2139357509/Create+a+two-way+workflow+between+Jira+work+items+and+Salesforce+Marketing+Campaigns/">Create a two-way workflow between Jira work items and Salesforce Marketing Campaigns</a></li><li><a href="/cms_trial/space/CSFJIRA/2140045422/Create+a+two-way+workflow+between+Jira+work+item+and+Salesforce+Legal+records/">Create a two-way workflow between Jira work item and Salesforce Legal records</a></li><li><a href="/cms_trial/space/CSFJIRA/3374219265/Sync+SLA+deadlines+from+Jira+to+Salesforce+using+Connector+for+Salesforce+%26+Jira+and+Time+to+SLA/">Sync SLA deadlines from Jira to Salesforce using Connector for Salesforce &amp; Jira and Time to SLA</a></li><li><a href="/cms_trial/space/CSFJIRA/3255336965/Native+Salesforce+reporting+on+Jira+data/">Native Salesforce reporting on Jira data</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CSFJIRA/1685193166/API+reference/">API reference</a></summary><ul><li><a href="/cms_trial/space/CSFJIRA/1853817917/Authenticate+REST+APIs/">Authenticate REST APIs</a></li><li><a href="/cms_trial/space/CSFJIRA/1684308828/Associate+API%3A+POST+%2Fexternal%2Fapi%2Fassociation/">Associate API: POST /external/api/association</a></li><li><a href="/cms_trial/space/CSFJIRA/1685258704/Push+API%3A+POST+%2Fexternal%2Fapi%2Fpush%2Fproject/">Push API: POST /external/api/push/project</a></li><li><a href="/cms_trial/space/CSFJIRA/1853818000/Bulk+associations%3A+GET+%2Fexternal%2Fapi%2Fassociations/">Bulk associations: GET /external/api/associations</a></li><li><a href="/cms_trial/space/CSFJIRA/1854374644/Bulk+associations%3A+POST+%2Fexternal%2Fapi%2Fassociations/">Bulk associations: POST /external/api/associations</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CSFJIRA/2161049701/Migrate+Connector+for+Salesforce+%26+Jira+Data+Center+to+Cloud/">Migrate Connector for Salesforce &amp; Jira Data Center to Cloud</a></summary><ul><li><a href="/cms_trial/space/CSFJIRA/2161082491/Connector+for+Salesforce+%26+Jira+feature+differences+for+Jira+DC+and+Cloud/">Connector for Salesforce &amp; Jira feature differences for Jira DC and Cloud</a></li><li><a href="/cms_trial/space/CSFJIRA/2161082534/Migration+path+Connector+for+Salesforce+%26+Jira+Server+or+Data+Center+to+Cloud/">Migration path Connector for Salesforce &amp; Jira Server or Data Center to Cloud</a></li><li><a href="/cms_trial/space/CSFJIRA/2160984266/Step+1+-+Plan+out+your+migration/">Step 1 - Plan out your migration</a></li><li><a href="/cms_trial/space/CSFJIRA/2160754916/Step+2+-+Prepare+your+Jira+Data+Center+migration+data/">Step 2 - Prepare your Jira Data Center migration data</a></li><li><a href="/cms_trial/space/CSFJIRA/2161049766/Step+3+-+Import+data+and+settings+into+the+Jira+Cloud+site/">Step 3 - Import data and settings into the Jira Cloud site</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CSFJIRA/3091858027/Release+notes/">Release notes</a></summary><ul><li><a href="/cms_trial/space/CSFJIRA/3566829572/Release+notes+7+September+2026/">Release notes 7 September 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3536323119/Release+notes+20+August+2026/">Release notes 20 August 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3539306087/Release+notes+13+August+2026/">Release notes 13 August 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3470688338/Release+notes+3+August+2026/">Release notes 3 August 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3490611266/Release+notes+29+July+2026/">Release notes 29 July 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3487563793/Release+notes+28+July+2026/">Release notes 28 July 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3483041825/Release+notes+27+July+2026/">Release notes 27 July 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3470688504/Release+notes+21+July+2026/">Release notes 21 July 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3465970130/Release+notes+20+July+2026+ver+26.0.0/">Release notes 20 July 2026 ver 26.0.0</a></li><li><a href="/cms_trial/space/CSFJIRA/3466657795/Release+notes+20+July+2026/">Release notes 20 July 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3451945120/Release+notes+14+July+2026/">Release notes 14 July 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3447259177/Release+notes+13+July+2026/">Release notes 13 July 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3422028003/Release+notes+6+July+2026/">Release notes 6 July 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3421995070/Release+notes+2+July+2026/">Release notes 2 July 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3417211019/Release+notes+22+June+2026/">Release notes 22 June 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3417210884/Release+notes+12+June+2026/">Release notes 12 June 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3314581525/Release+notes+2+June+2026/">Release notes 2 June 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3235741699/Release+notes+28+May+2026/">Release notes 28 May 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3136356478/Release+notes+25+May+2026/">Release notes 25 May 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3220930561/Breaking+changes+May+2026/">Breaking changes May 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3123709157/Release+notes+14+April+2026/">Release notes 14 April 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3091301834/Connector+for+Salesforce+%26+Jira+Cloud+(Jira+Add-on)+Release+Notes/">Connector for Salesforce &amp; Jira Cloud (Jira Add-on) Release Notes</a></li><li><a href="/cms_trial/space/CSFJIRA/3091728035/Jira+Cloud+for+Salesforce+(Salesforce+Package+on+AppExchange)+Release+Notes/">Jira Cloud for Salesforce (Salesforce Package on AppExchange) Release Notes</a></li><li><a href="/cms_trial/space/CSFJIRA/3091956915/Critical+version+upgrade+required/">Critical version upgrade required</a></li><li><a href="/cms_trial/space/CSFJIRA/3091956863/Connector+for+Salesforce+and+Jira+changes/">Connector for Salesforce and Jira changes</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a></li><li><a href="/cms_trial/space/CSFJIRA/2258141853/FAQ/">FAQ</a></li><li><a href="/cms_trial/space/CSFJIRA/2256309570/Book+a+demo/">Book a demo</a></li><li><a href="/cms_trial/space/CSFJIRA/2258305080/Appfire+Trust+Center/">Appfire Trust Center</a></li><li><a href="/cms_trial/space/CSFJIRA/2258141912/Contact+us/">Contact us</a></li><li><a href="/cms_trial/space/CSFJIRA/3319464284/Migration+to+Forge/">Migration to Forge</a></li><li><a href="/cms_trial/space/CSFJIRA/2258305117/Data+residency+and+realm+persistence/">Data residency and realm persistence</a></li><li><a href="/cms_trial/space/CSFJIRA/2376073217/Troubleshooting+missing+associations+after+update/" class="active">Troubleshooting missing associations after update</a></li><li><a href="/cms_trial/space/CSFJIRA/2258305251/Transitioning+of+Connector+for+Salesforce+%26+Jira+to+Appfire+infrastructure/">Transitioning of Connector for Salesforce &amp; Jira to Appfire infrastructure</a></li></ul></details></li></ul></details></li></ul></nav>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#change-overview">Change overview</a></li><li class="toc-level-2"><a href="#key-changes">Key changes</a></li><li class="toc-level-3"><a href="#new-api-endpoints">New API endpoints</a></li><li class="toc-level-2"><a href="#are-you-affected">Are you affected?</a></li><li class="toc-level-2"><a href="#what-to-do">What to do</a></li><li class="toc-level-2"><a href="#migration-log">Migration log</a></li><li class="toc-level-2"><a href="#download-migration-log">Download migration log</a></li><li class="toc-level-3"><a href="#migration-log-entries">Migration log entries</a></li><li class="toc-level-3"><a href="#handling-failed-migrations">Handling failed migrations</a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
@@ -265,6 +309,92 @@ INFO,null,"Association migration completed successfully."</code></pre></div><p>T
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

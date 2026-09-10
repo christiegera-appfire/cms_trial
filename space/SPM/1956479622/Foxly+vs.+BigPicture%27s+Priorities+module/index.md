@@ -1,0 +1,11 @@
+# Foxly vs. BigPicture's Priorities module
+
+On this page, you’ll find a detailed comparison between the standalone [Foxly](https://marketplace.atlassian.com/apps/1222824/foxly-requirements-backlog-prioritization-planning-poker?hosting=cloud&tab=overview) app and the [Priorities module](/cms_trial/space/SPM/1918829653/Priorities+module/) within BigPicture Enterprise. The table presents the key elements, such as navigation, context, visibility settings, permissions, and feature parity.
+
+| **Compared element** | **Foxly (standalone)** | **Priorities module in BigPicture Enterprise** |
+| --- | --- | --- |
+| **Navigation** | Access Foxly:   - Click the **Foxly priorities** tab on the left-side menu, or - Click **Apps** > **Foxly priorities**. | Access the Priorities module:   - Click the **BigPicture** tab on the left-side menu and go to the **Priorities module**, or - Click **Apps** > **BigPicture** > **Priorities module**. |
+| **Context** | Jira issues from a single or multiple projects. | In BigPicture [boxes](/cms_trial/space/SPM/1918404963/Concept+of+a+box/), you can have a collection of tasks coming from one or multiple Jira projects, boards, or JQL filters.  Filtering the priorities table by Jira projects remains available.  The video presents a short overview of the Priorities module. |
+| **Visibility settings** | Jira admin can enable or disable Foxly prioritization for selected projects in the global settings. | Users with box editing permissions can enable or disable the Priorities module for each BigPicture box. See more on the [Define available modules](/cms_trial/space/SPM/1918503298/Define+available+modules/) page. Modules in BigPicture Enterprise. |
+| **Permissions** | Based on project permissions. | Based on project permissions and box access (box viewer permissions are required). |
+| **Feature parity** | - | All features except the Jira issue details panel are also included in BigPicture Enterprise. Additionally, you’ll find the following enhancement:   - A prioritization score column is now available in both the Gantt and Scope modules, allowing users to view and prioritize issues directly within those interfaces. contentId-1956479622 |

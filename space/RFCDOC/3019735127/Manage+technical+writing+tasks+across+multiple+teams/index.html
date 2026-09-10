@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>Manage technical writing tasks across multiple teams | Appfire Docs</title>
 <meta name="description" content="Writers&#x27; work is often spread across multiple development teams and tracked in separate Jira projects. Without a unified view, managing documentation…">
@@ -9,7 +19,15 @@
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Manage technical writing tasks across multiple teams",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/RFCDOC/3019735127/Manage+technical+writing+tasks+across+multiple+teams/",
+  "dateModified": "2026-07-24T07:38:44.942Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,26 +37,52 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RFCDOC/3513253997/Data+residency+and+realm+persistence/">Rich Filters for Jira Dashboards (Cloud) Documentation</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783942739/Use+cases/">Use cases</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Manage technical writing tasks across multiple teams</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/3019735127" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/3019735127" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>Manage technical writing tasks across multiple teams</h1>
-    <div class="page-meta">6 min read</div>
+    <div class="page-meta">Updated 1 month ago · 6 min read</div>
     <div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p>Writers' work is often spread across multiple development teams and tracked in separate Jira projects. Without a unified view, managing documentation requests, release notes, video progress, and content reviews leads to constant context switching, making it harder to spot bottlenecks, balance workloads, and stay aligned with development cycles.</p><p>This article walks you through building a Technical Writing dashboard using Rich Filters for Jira Dashboards. The result is a single, filterable dashboard that gives your team a real-time overview of all their work across every project, along with an easy way to report progress. </p></div><div><div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/oyA4GYRVwvw"></iframe></div></div></div><img alt="Tech writer dashboard" class="doc-image" loading="lazy" src="/cms_trial/assets/1a12e29e-1f68-4304-8808-99135586907f.webp"/><h2 id="before-you-start">Before you start</h2><p>Make sure you are using Jira Cloud and that all projects are on the same Jira instance.</p><h2 id="use-case">Use case</h2><p>You have a centralized team of technical writers creating documentation, release notes, microcopy, and video tutorials for multiple development teams. Your writers need to track their assignments across various Jira projects, monitor individual workloads, handle documentation review requests, and support marketing campaigns.</p><p>Rich Filters for Jira Dashboards solve this by letting you aggregate and filter issues across multiple projects in a single view. Because rich filters are based on a standard Jira filter, the issues listed can span all your Jira projects and product teams.</p><p>The <em>Technical Writing</em> dashboard consists of the following gadgets:</p><ul><li><p><strong>Rich Filter Controller </strong>-<strong> </strong>the main control panel, letting writers slice the data using static, dynamic, and smart filters (details in the <em>Configure filters</em> section below).</p><img alt="Rich Filter Controller " class="doc-image" loading="lazy" src="/cms_trial/assets/de0b4638-c17f-433f-8355-ca8ab8cdffb4.png"/></li><li><p><strong>Writers tasks</strong> (Rich Filter Results gadget) - a comprehensive list of work, showing the Assignee, Pod, Status, Summary, Project, and Last comment.</p><img alt="Writer tasks (Rich Filter Results gadget) " class="doc-image" loading="lazy" src="/cms_trial/assets/ae1096bc-f386-44b1-b98c-a3f7ac47a528.png"/></li><li><p><strong>Rich Filter Flexi Charts</strong> - a bar chart showing issue count by status (for example, Backlog, To Do, In Progress, In Review) so the team can quickly spot bottlenecks in the publishing pipeline.</p><img alt="Rich Filter Flexi Charts " class="doc-image" loading="lazy" src="/cms_trial/assets/7f884fe9-8f6a-482a-bfb1-65cb21a73807.png"/></li><li><p><strong>Pods </strong>(Rich Filter Smart Gauges gadget)<strong> </strong>- a gauge chart that shows the percentage and exact number of issues assigned to each pod, so you can monitor workload distribution.</p><img alt="Pods (Rich Filter Smart Gauges gadget)" class="doc-image" loading="lazy" src="/cms_trial/assets/25e31e36-850b-46b0-a2a7-ce2196d0b518.png"/></li><li><p><strong>Assignees </strong>(Rich Filter Flexi Chart) - a breakdown of all issues by assignee, showing how many each team member is handling.</p><img alt="Assignees (Rich Filter Flexi Chart)" class="doc-image" loading="lazy" src="/cms_trial/assets/c59d6163-ae6f-4e72-aee4-7f8c1ffdaefe.png"/></li><li><p><strong>Content by type </strong>(Rich Filter Simple Counter) - a dedicated counter for video tutorials, microcopy work, and release notes.</p><img alt="Content by type (Rich Filter Simple Counter) " class="doc-image" loading="lazy" src="/cms_trial/assets/e2544147-6c93-4b59-b6ef-9e5eca2776a4.png"/></li><li><p><strong>Videos by Team Member</strong> (Rich Filter Pie Chart) - a breakdown of video tutorial issues by assignee.</p><img alt="Videos by team member (Rich Filter Pie Chart) " class="doc-image" loading="lazy" src="/cms_trial/assets/4a2b3ab6-46f6-4d0a-926e-caece88ad35e.png"/></li></ul><hr/><h2 id="create-the-rich-filter-and-jira-dashboard">Create the rich filter and Jira dashboard</h2><p>The rich filter is the foundation of the dashboard. It defines the pool of Jira issues that all gadgets will draw from.</p><ol><li><p>Create a new rich filter based on a Jira filter that returns all the documentation and technical writing work items you want to manage. </p><img alt="Create new rich filter " class="doc-image" loading="lazy" src="/cms_trial/assets/b09ad997-5734-4b2e-a3df-85ef1e366f0e.png"/><p>If you need guidance on creating rich filters and dashboard basics, see <a href="https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=rfcdoc&amp;title=Get%20started%20with%20Rich%20Filters%20for%20Jira%20Dashboards&amp;linkCreation=true&amp;fromPageId=783942749"><u>Rich Filters for Jira Dashboards</u></a>. </p></li><li><p>Create a new dashboard and name it <em>Technical writing.</em></p></li><li><p>Set <strong>Viewers</strong> to <em>My organization</em> so everyone in your company can view it. </p></li><li><p>Select the <strong>Two-column</strong> layout. </p></li></ol><h3 id="add-gadgets">Add gadgets</h3><p>Add the following gadgets to your dashboard. In each case, select your <em>Technical Writing</em> rich filter as the <strong>Rich filter</strong> value, then click <strong>Submit</strong>:</p><p><strong>Left column:</strong></p><ol><li><p>Rich Filter Controller (Main).</p></li><li><p>Rich Filter Results gadget and name it: <em>Writers tasks.</em></p></li><li><p>Click <strong>Done</strong> to exit dashboard edit mode.</p></li></ol><h3 id="configure-filters">Configure filters</h3><p>Filters control what all the gadgets on the dashboard display. Static filters offer one-click buttons; dynamic filters expose individual Jira fields for ad hoc filtering; smart filters group tickets by custom logic (in this case, by pod, which is a team of writers working together). </p><p>To configure them, open your rich filter configuration.</p><ol><li><p>Go to the <em>Static filters</em> tab of your rich filter config.</p></li><li><p>Create three static filters:</p><ol><li><p><em>Recently updated </em>with the <em>JQL</em> <code>updated &gt;= -30d</code>.<em> </em></p></li><li><p><em>Assigned to me</em>, with the <em>JQL</em> <code>assignee = currentUser()</code>. </p></li><li><p><em>Recently resolved </em>with the <em>JQL</em> <code>statusCategory = Done AND resolutiondate &gt;= -2w</code></p></li></ol></li><li><p>Go to the <em>Dynamic filters</em><strong> </strong>tab and add filters for the following Jira fields: Assignee, Status, Priority, Project, Sprint, Product, Updated, and Labels.</p></li><li><p>Go to the <em>Smart filters</em><strong> </strong>tab and create a smart filter called <em>Teams</em> to categorize tickets by the writer pods.</p><ol><li><p>Add a separate clause for each pod. (The JQL <code>assignee in membersOf("team-name")</code> filters issues to show only those assigned to members of your existing Jira groups, so you must use your organization's actual group names for it to work): </p></li></ol></li></ol><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p>Pod</p></th><th><p>Color</p></th><th><p>JQL</p></th></tr><tr><td><p>Fab 4</p></td><td><p>Purple</p></td><td><p><code>assignee in membersOf("fab4")</code></p></td></tr><tr><td><p>Pod 2</p></td><td><p>Green</p></td><td><p><code>assignee in membersOf("pod2")</code></p></td></tr><tr><td><p>D&amp;D</p></td><td><p><em>Red</em></p></td><td><p><code>assignee in membersOf("dd")</code></p></td></tr><tr><td><p>Connection Collective</p></td><td><p>Orange</p></td><td><p><code>assignee in membersOf("connectioncollective")</code></p></td></tr><tr><td><p>Sprintbusters</p></td><td><p>Blue</p></td><td><p><code>assignee in membersOf("sprintbusters")</code></p></td></tr><tr><td><p>Peas in a pod</p></td><td><p>Pink</p></td><td><p><code>assignee in membersOf("peasinapod")</code></p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><p>b. Go back to your dashboard and refresh it. <br/>Your controller should display all static, dynamic, and smart filters. Additionally, you can customize the shown filters, adding colors and custom sections.</p><img alt="customize the shown filters" class="doc-image" loading="lazy" src="/cms_trial/assets/de0b4638-c17f-433f-8355-ca8ab8cdffb4.png"/><h3 id="set-up-your-views">Set up your views</h3><p>Views define which columns appear in each Rich Filter Results gadget. </p><ol><li><p>Go to the <em>Views</em> tab of your rich filter config.</p></li><li><p>Create your view: <em>All work</em> with the columns: <em>Assignee, Pods, Status, Summary, Project, Last comment</em>.</p><img alt="Rich Filter Results view showing Assignee, Pod, Status, Summary, Project, and Last comment columns." class="doc-image" loading="lazy" src="/cms_trial/assets/0173c4cb-5a56-4a9d-a84f-a1ef0ae52b95.png"/></li></ol><p>3. Go back to your dashboard and refresh it. <br/>The Writers Tasks gadget now displays all the columns defined in the view.</p><img alt="Writer Tasks Rich Filter Results gadget displaying the configured view with task columns." class="doc-image" loading="lazy" src="/cms_trial/assets/4cbdbc74-6a70-48c2-8f7a-1c3d5ef4a8e6.png"/><h3 id="set-up-custom-values">Set up custom values</h3><p>Labels on work items (<code>video</code>, <code>ux-writing</code>, <code>releasenotes</code>) let you break out specific content types in your counters and charts. Custom values translate those labels into named metrics you can reference across gadgets.</p><ol><li><p>Go to the <em>Custom values</em> tab and create the following custom values:</p></li></ol><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p><strong>Name</strong></p></th><th><p><strong>Base value</strong></p></th><th><p><strong>JQL</strong></p></th></tr><tr><td><p>Microcopy</p></td><td><p><em>Issue Count</em></p></td><td><p><code>labels = ux-writing</code></p></td></tr><tr><td><p>Video</p></td><td><p><em>Issue Count</em></p></td><td><p><code>labels = video</code></p></td></tr><tr><td><p>Release notes</p></td><td><p><em>Issue Count</em></p></td><td><p><code>labels = releasenotes</code></p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><h3 id="set-up-your-charts-and-counters">Set up your charts and counters</h3><p>Add the following gadgets to your dashboard. In each case, select your <em>Technical writing</em> rich filter as the <strong>Rich filter</strong> value. Configure each gadget to display the right data in the right format.</p><ol><li><p>Rich Filter Flexi Charts and name it: <em>Rich Filter Flexi Charts.</em></p><ol><li><p><strong>Chart type</strong>: <em>Bar</em></p></li><li><p><strong>Statistic type</strong>: <em>Status</em> </p></li><li><p><strong>Value</strong>: <em>Issue Count</em><br/>Flexi Chart gadget shows the distribution of issues depending on their status, allowing you to spot bottlenecks in the publishing pipeline.</p></li></ol></li></ol><p><strong>Right column:</strong></p><ol><li><p>Rich Filter Smart Gauges gadget and name it: <em>Pods.</em></p><ol><li><p><strong>Smart filter</strong>: <em>Pods</em></p></li><li><p><strong>Computation mode</strong>: <em>Use smart clauses as gauge filters</em></p></li><li><p><strong>Value</strong>: <em>Issue Count</em></p></li><li><p><strong>Layout</strong>: <em> Gauge</em><br/>The gadget shows the percentage and exact number of issues assigned to each team, so you can monitor workload distribution.</p></li></ol></li><li><p>Rich Filter Flexi Chart and name it: <em>Assignees.</em></p><ol><li><p><strong>Chart type</strong>: <em>Donut</em></p></li><li><p><strong>Statistic type</strong>: <em>Assignee</em> </p></li><li><p><strong>Value</strong>: <em>Issue Count</em><br/>The chart visualizes how the work is spread among the writers.</p></li></ol></li><li><p>Rich Filter Counter and name it: <em>Content by type.</em></p><ol><li><p><strong>Values</strong>: <em>Video,</em> <em>Microcopy,</em> and <em>Release notes</em> custom values<br/>You can now easily see how many new releases are prepared, accompanied by the video and microcopy tasks.</p></li></ol></li><li><p>Rich Filter Pie Chart and name it:<em> Videos by Team Member.</em></p><ol><li><p><strong>Working query</strong>: <code>labels=video</code></p></li><li><p><strong>Chart type</strong>: <em>Donut</em></p></li><li><p><strong>Statistic type</strong>: <em>Assignee</em> </p></li><li><p><strong>Value</strong>: <em>Issue Count</em><br/>The gadget provides a preview for new videos published by the writers.</p></li></ol></li></ol><p>With this setup, your technical writing team has a single, always-current view of their entire workload. By using this layout, your technical writing team can seamlessly manage their workload, prioritize reviews, and keep all development pods well documented.</p>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">128 pages in this space, fetched live from Confluence via API.</p>
 <nav><ul><li><a href="/cms_trial/space/RFCDOC/3513253997/Data+residency+and+realm+persistence/">Data residency and realm persistence</a></li><li><details open><summary><a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud)</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/783941653/Overview/">Overview</a></li><li><a href="/cms_trial/space/RFCDOC/783942462/Get+started+with+Rich+Filters+for+Jira+Dashboards+for+Cloud/">Get started with Rich Filters for Jira Dashboards for Cloud</a></li><li><details><summary><a href="/cms_trial/space/RFCDOC/783941917/Tutorials/">Tutorials</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/783941927/Create+and+access+rich+filters/">Create and access rich filters</a></li><li><a href="/cms_trial/space/RFCDOC/783941937/Build+a+simple+interactive+Jira+dashboard/">Build a simple interactive Jira dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941943/Define+views+for+your+dashboard/">Define views for your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941950/Use+working+queries+in+your+dashboard/">Use working queries in your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941954/Add+dynamic+filtering+to+your+dashboard/">Add dynamic filtering to your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941961/Add+smart+filters+and+smart+columns+to+your+dashboard/">Add smart filters and smart columns to your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941968/Add+rich+filter+statistics+gadgets+to+your+dashboard/">Add rich filter statistics gadgets to your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941975/Add+rich+filter+two+dimensional+statistics+gadgets+to+your+dashboard/">Add rich filter two dimensional statistics gadgets to your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941981/Add+rich+filter+flexi+charts+gadgets+to+your+dashboard/">Add rich filter flexi charts gadgets to your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/2241069104/Create+presets+in+Rich+Filter+Controller/">Create presets in Rich Filter Controller</a></li><li><a href="/cms_trial/space/RFCDOC/2465137080/Permalinks/">Permalinks</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/RFCDOC/783942739/Use+cases/">Use cases</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/783942749/Efficiently+manage+support+requests+with+rich+filter+queues/">Efficiently manage support requests with rich filter queues</a></li><li><a href="/cms_trial/space/RFCDOC/783942775/Create+service+management+reports+with+rich+filter+charts+%26+statistics/">Create service management reports with rich filter charts &amp; statistics</a></li><li><a href="/cms_trial/space/RFCDOC/3019735127/Manage+technical+writing+tasks+across+multiple+teams/" class="active">Manage technical writing tasks across multiple teams</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/RFCDOC/783942482/User+guides/">User guides</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/783943671/Concepts/">Concepts</a></li><li><a href="/cms_trial/space/RFCDOC/783942528/Fundamentals/">Fundamentals</a></li><li><a href="/cms_trial/space/RFCDOC/783942654/Advanced/">Advanced</a></li><li><a href="/cms_trial/space/RFCDOC/783941673/Configure+Rich+Filters/">Configure Rich Filters</a></li><li><a href="/cms_trial/space/RFCDOC/783941679/Work+with+Rich+Filter+gadgets/">Work with Rich Filter gadgets</a></li><li><a href="/cms_trial/space/RFCDOC/783942350/Migrate+to+Cloud/">Migrate to Cloud</a></li><li><a href="/cms_trial/space/RFCDOC/783942626/Reference/">Reference</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/RFCDOC/3178496025/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/3178692617/Allowlist+domains+for+Rich+Filters/">Allowlist domains for Rich Filters</a></li><li><a href="/cms_trial/space/RFCDOC/3374972942/Rich+filter+search/">Rich filter search</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/RFCDOC/783941853/Release+Notes/">Release Notes</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/3520364546/Release+notes+August+10th+2026/">Release notes August 10th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3498803215/Release+notes+July+30th+2026/">Release notes July 30th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3461742594/Release+notes+July+27th+2026/">Release notes July 27th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3429695594/Release+notes+July+13th+2026/">Release notes July 13th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3398041685/Release+notes+June+29th+2026/">Release notes June 29th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3377922150/Release+notes+June+2026/">Release notes June 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3171189121/Release+notes+April+2026/">Release notes April 2026</a></li><li><a href="/cms_trial/space/RFCDOC/2886631439/Release+notes+March+9th+2026/">Release notes March 9th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/2884370559/Release+notes+February+13th+2026/">Release notes February 13th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/2804908033/Release+notes+February+11th+2026/">Release notes February 11th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/2856255685/Release+notes+February+5th+2026/">Release notes February 5th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/2681667585/Release+notes+December+30th+2025/">Release notes December 30th 2025</a></li><li><a href="/cms_trial/space/RFCDOC/2509013096/Release+notes+December+4th+2025/">Release notes December 4th 2025</a></li><li><a href="/cms_trial/space/RFCDOC/2239004676/Release+notes+July+31st+2025/">Release notes July 31st 2025</a></li><li><a href="/cms_trial/space/RFCDOC/1935179889/Release+notes+April+8th+2025/">Release notes April 8th 2025</a></li><li><a href="/cms_trial/space/RFCDOC/1799028737/Release+notes+February+26th+2025/">Release notes February 26th 2025</a></li><li><a href="/cms_trial/space/RFCDOC/1624866957/Release+notes+January+13th+2025/">Release notes January 13th 2025</a></li><li><a href="/cms_trial/space/RFCDOC/1595769075/Release+notes+2021%E2%80%932024/">Release notes 2021–2024</a></li></ul></details></li></ul></details></li></ul></nav>
-</aside>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#before-you-start">Before you start</a></li><li class="toc-level-2"><a href="#use-case">Use case</a></li><li class="toc-level-2"><a href="#create-the-rich-filter-and-jira-dashboard">Create the rich filter and Jira dashboard</a></li><li class="toc-level-3"><a href="#add-gadgets">Add gadgets</a></li><li class="toc-level-3"><a href="#configure-filters">Configure filters</a></li><li class="toc-level-3"><a href="#set-up-your-views">Set up your views</a></li><li class="toc-level-3"><a href="#set-up-custom-values">Set up custom values</a></li><li class="toc-level-3"><a href="#set-up-your-charts-and-counters">Set up your charts and counters</a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
@@ -264,6 +308,92 @@
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

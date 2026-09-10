@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>Reporting &amp; API: Service Account, Reporting &amp; REST API and Access Tokens | Appfire Docs</title>
 <meta name="description" content="Set up your Service Account, view your Reporting API root, confirm reporting page status/health, and view team access tokens.">
@@ -9,7 +19,15 @@
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Reporting & API: Service Account, Reporting & REST API and Access Tokens",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/7TFA/1253540308/Reporting+%26+API%3A+Service+Account%2C+Reporting+%26+REST+API+and+Access+Tokens/",
+  "dateModified": "2026-08-27T01:42:03.674Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,26 +37,52 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/3482517944/Admin+guide/">Admin guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/3488055333/App+configuration/">App configuration</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Reporting &amp; API: Service Account, Reporting &amp; REST API and Access Tokens</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/7TFA/pages/1253540308" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/7TFA/pages/1253540308" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>Reporting &amp; API: Service Account, Reporting &amp; REST API and Access Tokens</h1>
-    <div class="page-meta">5 min read</div>
+    <div class="page-meta">Updated 14 days ago · 5 min read</div>
     <div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p>Set up your <a href="https://appfire.atlassian.net/wiki/x/qoO3Sg">Service Account</a>, view your Reporting API root, confirm reporting page status/health, and view team access tokens.</p></div><div></div></div><div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/KmN5sh14lWg"></iframe></div><h2 id="introduction">Introduction</h2><p>Under <strong>Settings</strong> &gt; <strong>Reporting and API</strong> &gt; <strong>Service Account</strong>, you can view the <a href="https://appfire.atlassian.net/wiki/x/qoO3Sg">Service Account</a> that has been set up for your project.</p><p>The Service Account was created to perform requests and display more accurate data on some pages in 7pace Timetracker. The data is normally not accessible or viewable to users with more limited permission levels or who do not have access to all projects. Without the Service Account enabled, these users can see either of the following error messages when they open a page within 7pace Timetracker:</p><ul><li><p><em>You don't have access to all projects, or some included iterations or work items were deleted. Therefore, the time calculation may not be accurate.</em></p></li><li><p><em>You don't have access to all projects, iterations, or work items, or some of them were deleted. Please ask your administrator to increase your access level or set up a Service Account in Configuration - Settings.</em></p></li><li><p>On the <em>Budgets</em> page, the work items can be displayed as <em>removed or not available</em> to users with restricted permissions (these become visible when the Service Account is configured to an account with elevated permissions).</p></li></ul><p>Instead of giving these team members higher user group rights for all areas of 7pace Timetracker, an administrator can just set up the Service Account to give them a better overall read-only picture of the <em>Budgets</em> page, the Budgets export functionality, the API, and the ability to fetch work item names in the <em>Times Explorer</em> page.</p><h3 id="7pace-timetracker-cloud">7pace Timetracker (cloud)</h3><p>This is what Service Account Settings look like on the 7pace Timetracker cloud version:</p><img alt="Service_Account_Settings_Cloud_Version.png" class="doc-image" loading="lazy" src="/cms_trial/assets/ad4bbe71-5e28-419f-b6e5-661ba962a999.png"/><p>To use this feature, as an administrator, click <strong>Set Myself as Service Account</strong> for all users. Note that the user account that is set as the Service Account <em>must be a member of the DevOps Collection Administrator group</em> for 7pace Reporting to work.</p><p>Once you have set yourself as the Service Account user, 7pace Timetracker automatically detects the configured Service Account and displays data that is normally not accessible to all users. </p><p>Clicking the <strong>Do Not Use Service Account</strong> button clears this option and returns the <em>Budgets</em> page, the Budgets Export functionality, the API, and the ability to fetch work item names within <em>Times Explorer</em> back to their default settings. Thus, your team members can once again see what they saw prior to the Service Account being configured, as detailed in the error messages listed above. If your team members are seeing these messages in areas of 7pace Timetracker that currently support Service Account functionality, as an administrator, set yourself as the Service Account so that these messages disappear.</p><h3 id="7pace-timetracker-on-premise">7pace Timetracker (on-premise)</h3><p>This is what Service Account Settings look like on the 7pace Timetracker (on-prem) version:</p><img alt="Service_Account_Settings_On_Prem_Version.png" class="doc-image" loading="lazy" src="/cms_trial/assets/11056cc7-6356-4c09-9c54-05f6fe6330a1.png"/><p>As an administrator, you can configure it in the configuration tool so that all users of the system can view the data that is currently not accessible. Select a user who belongs to the Project Collection Administrator user group in the configuration tool to achieve this.</p><p>As an administrator, set up or change the Service Account in the configuration tool wizard of 7pace Timetracker. See <a href="/cms_trial/space/7TFA/1253539922/Installation+guide/">Configuring Service Account Settings for 7pace Timetracker Using the Configuration Tool</a> for more information on this process.  </p><h3 id="configuring-service-account-settings-for-7pace-timetracker-on-prem-using-the-configuration-tool">Configuring Service Account settings for 7pace Timetracker (on-prem) using the Configuration tool</h3><p>The 7pace Timetracker configuration tool wizard automatically starts after you complete 7pace Timetracker installation. For more information on this initial process, including setting up Service Account the first time, please see the <a href="https://appfire.atlassian.net/wiki/x/H4G3Sg">Installation and Configuration</a> section. You can also start this tool later by running the <code>TimetrackerOnline.ConfigTool</code> application, as described in more detailed below, from the <code>Tools</code> directory in the default location (<code>C:\Program Files (x86)\7pace Timetracker\</code>) of your 7pace Timetracker. </p><div class="panel panel-note"><p>The Service Account setting is required in order for server side tracking to work.</p></div><h4 id="change-service-account-settings">Change Service Account settings</h4><p>1. Navigate to the Timetracker Configuration tool in the <code>Tools</code> directory at the default location (<code>C:\Program Files (x86)\7pace Timetracker\</code>) of 7pace Timetracker.</p><img alt="7Pace_Timetracker_Config_Tool.png" class="doc-image" loading="lazy" src="/cms_trial/assets/be545028-510b-4833-b2b4-00cf6c97cc2c.png"/><p>2. In the <strong>Service Account</strong> field, check the Service Account configured.</p><div class="panel panel-note"><p>A blank status indicates that the Service Account is not configured.</p></div><p>3. In the <strong>Service Account</strong> field, click the <em>Change Service Account</em> link.</p><img alt="Service_Account.png" class="doc-image" loading="lazy" src="/cms_trial/assets/c997a17d-6b50-447d-aeea-af0495c638c5.png"/><p>4. Click the appropriate option for the Service Account.</p><p>5. If selecting the Custom Service Account option, enter the required username and password for the selected Service Account.</p><p>6. Click the <strong>Save</strong> button to save the changes. </p><h2 id="reporting-and-rest-api">Reporting and REST API</h2><h3 id="7pace-timetracker-for-devops-server-on-premise">7pace Timetracker for DevOps server (on-premise)</h3><img alt="Report_API_On_Premise.png" class="doc-image" loading="lazy" src="/cms_trial/assets/f90766e4-672f-48cd-b7d9-553cf1d1b14c.png"/><h3 id="7pace-timetracker-for-devops-services-cloud">7pace Timetracker for DevOps services (cloud)</h3><img alt="Report_API_Cloud.png" class="doc-image" loading="lazy" src="/cms_trial/assets/36e1d7e4-8740-41e8-bd73-915e9bf9f66e.png"/><h3 id="rest-api">REST API</h3><h4 id="7pace-timetracker-for-devops-server-on-prem">7pace Timetracker for DevOps server (on-prem)</h4><img alt="REST_API_On_Prem.png" class="doc-image" loading="lazy" src="/cms_trial/assets/cc09a682-4d16-428c-b3b7-cb175dd02a57.png"/><h4 id="7pace-timetracker-for-devops-services-cloud-2">7pace Timetracker for DevOps services (cloud)</h4><img alt="REST_API_Cloud.png" class="doc-image" loading="lazy" src="/cms_trial/assets/ffd93607-2437-4f86-a88f-f1514ad85b5d.png"/><p>For our full documentation section on 7pace Timetracker's API, click <a href="https://appfire.atlassian.net/wiki/x/noG3Sg">here</a>. </p><h2 id="introduction-to-access-tokens">Introduction to Access Tokens</h2><p>The <em>Access Tokens</em> section of 7pace Timetracker's <em>Settings</em> page displays information about tokens that are currently being used in 7pace Timetracker for DevOps services (cloud). These tokens are issued and controlled by 7pace Timetracker and are completely separate from the OAuth and personal access tokens issued by Azure DevOps. </p><p>Access tokens allow users to gain access to 7pace Timetracker for DevOps services' API, including the Reporting API and Client API, and are used when you pair the Windows app, for example. </p><p>7pace Timetracker's <em>Access Tokens</em> page also allows users and administrators to remove tokens for security reasons in the event that you suspect they were stolen or are being used by someone else. For example, if you prepare an Excel file connected by a token with the Reporting API and then share this file, the token can also be shared and your data could be accessed.</p><h3 id="access-tokens">Access Tokens</h3><p>Administrators can view the access tokens of all users of 7pace Timetracker (see the screenshot below) and can also remove the tokens of these users. Users of 7pace Timetracker can view and remove only their own tokens. </p><img alt="Access_Tokens.png" class="doc-image" loading="lazy" src="/cms_trial/assets/f0df8b35-a393-4949-a6a6-2a488e2c9793.png"/>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">146 pages in this space, fetched live from Confluence via API.</p>
-<nav><ul><li><details open><summary><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a></summary><ul><li><details><summary><a href="/cms_trial/space/7TFA/1253540271/Get+started/">Get started</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540433/7pace+Timetracker+for+developers/">7pace Timetracker for developers</a></li><li><a href="/cms_trial/space/7TFA/1253540439/7pace+Timetracker+for+managers/">7pace Timetracker for managers</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/7TFA/3482517944/Admin+guide/">Admin guide</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540127/Installation+and+Data+Security/">Installation and Data Security</a></li><li><a href="/cms_trial/space/7TFA/2193557481/Authorization+methods/">Authorization methods</a></li><li><a href="/cms_trial/space/7TFA/1253540254/API+%26+Reporting/">API &amp; Reporting</a></li><li><a href="/cms_trial/space/7TFA/1253540242/Apps/">Apps</a></li><li><details open><summary><a href="/cms_trial/space/7TFA/3488055333/App+configuration/">App configuration</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253539946/Misc%3A+User+%26+Subscription+Management/">Misc: User &amp; Subscription Management</a></li><li><a href="/cms_trial/space/7TFA/1253540033/General+Settings/">General Settings</a></li><li><a href="/cms_trial/space/7TFA/1253539897/Geo-distribution/">Geo-distribution</a></li><li><a href="/cms_trial/space/7TFA/1253540308/Reporting+%26+API%3A+Service+Account%2C+Reporting+%26+REST+API+and+Access+Tokens/" class="active">Reporting &amp; API: Service Account, Reporting &amp; REST API and Access Tokens</a></li></ul></details></li><li><a href="/cms_trial/space/7TFA/1253539917/7pace+Timetracker+Legacy+Versions+and+Legacy+TFS/">7pace Timetracker Legacy Versions and Legacy TFS</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/3482780186/User+guide/">User guide</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253539966/Add+Time+Dialog/">Add Time Dialog</a></li><li><a href="/cms_trial/space/7TFA/1253539860/Work+item+form/">Work item form</a></li><li><a href="/cms_trial/space/7TFA/1253540085/Budgets/">Budgets</a></li><li><a href="/cms_trial/space/7TFA/1253540717/Iterations/">Iterations</a></li><li><a href="/cms_trial/space/7TFA/1253539865/Approvals/">Approvals</a></li><li><a href="/cms_trial/space/7TFA/1253540013/Times+Explorer/">Times Explorer</a></li><li><a href="/cms_trial/space/7TFA/1253540070/Monthly+view/">Monthly view</a></li><li><a href="/cms_trial/space/7TFA/1547173906/Weekly+view/">Weekly view</a></li><li><a href="/cms_trial/space/7TFA/1253540328/Timesheet/">Timesheet</a></li><li><a href="/cms_trial/space/7TFA/2935357478/Connect+calendar/">Connect calendar</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/3511091204/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/7TFA/1361084424/7pace+Product+Support/">7pace Product Support</a></li><li><a href="/cms_trial/space/7TFA/1253540447/Frequently+Asked+Questions/">Frequently Asked Questions</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/1253539885/Release+Notes/">Release Notes</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540249/7pace+Timetracker+for+Azure+DevOps+Release+Notes/">7pace Timetracker for Azure DevOps Release Notes</a></li><li><a href="/cms_trial/space/7TFA/1253540290/Legacy+Release+Notes/">Legacy Release Notes</a></li></ul></details></li></ul></details></li></ul></nav>
-</aside>
+<nav><ul><li><details open><summary><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a></summary><ul><li><details><summary><a href="/cms_trial/space/7TFA/1253540271/Get+started+with+7pace+Timetracker+for+Azure+DevOps/">Get started with 7pace Timetracker for Azure DevOps</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540433/7pace+Timetracker+for+developers/">7pace Timetracker for developers</a></li><li><a href="/cms_trial/space/7TFA/1253540439/7pace+Timetracker+for+managers/">7pace Timetracker for managers</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/7TFA/3482517944/Admin+guide/">Admin guide</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540127/Installation+and+Data+Security/">Installation and Data Security</a></li><li><a href="/cms_trial/space/7TFA/2193557481/Authorization+methods/">Authorization methods</a></li><li><a href="/cms_trial/space/7TFA/1253540254/API+%26+Reporting/">API &amp; Reporting</a></li><li><a href="/cms_trial/space/7TFA/1253540242/Apps/">Apps</a></li><li><details open><summary><a href="/cms_trial/space/7TFA/3488055333/App+configuration/">App configuration</a></summary><ul><li><a href="/cms_trial/space/7TFA/3639738655/7pace+Timetracker+Subscription+Plans+and+Trial+Information/">7pace Timetracker Subscription Plans and Trial Information</a></li><li><a href="/cms_trial/space/7TFA/1253539946/Misc%3A+User+%26+Subscription+Management/">Misc: User &amp; Subscription Management</a></li><li><a href="/cms_trial/space/7TFA/1253540033/General+Settings/">General Settings</a></li><li><a href="/cms_trial/space/7TFA/1253539897/Geo-distribution/">Geo-distribution</a></li><li><a href="/cms_trial/space/7TFA/1253540308/Reporting+%26+API%3A+Service+Account%2C+Reporting+%26+REST+API+and+Access+Tokens/" class="active">Reporting &amp; API: Service Account, Reporting &amp; REST API and Access Tokens</a></li></ul></details></li><li><a href="/cms_trial/space/7TFA/1253539917/7pace+Timetracker+Legacy+Versions+and+Legacy+TFS/">7pace Timetracker Legacy Versions and Legacy TFS</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/3482780186/User+guide/">User guide</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253539966/Add+Time+Dialog/">Add Time Dialog</a></li><li><a href="/cms_trial/space/7TFA/1253539860/Work+item+form/">Work item form</a></li><li><a href="/cms_trial/space/7TFA/1253540085/Budgets/">Budgets</a></li><li><a href="/cms_trial/space/7TFA/1253540717/Iterations/">Iterations</a></li><li><a href="/cms_trial/space/7TFA/1253539865/Approvals/">Approvals</a></li><li><a href="/cms_trial/space/7TFA/1253540013/Times+Explorer/">Times Explorer</a></li><li><a href="/cms_trial/space/7TFA/1253540070/Monthly+view/">Monthly view</a></li><li><a href="/cms_trial/space/7TFA/1547173906/Weekly+view/">Weekly view</a></li><li><a href="/cms_trial/space/7TFA/1253540328/Timesheet/">Timesheet</a></li><li><a href="/cms_trial/space/7TFA/2935357478/Connect+calendar/">Connect calendar</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/3511091204/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/7TFA/1361084424/7pace+Product+Support/">7pace Product Support</a></li><li><a href="/cms_trial/space/7TFA/1253540447/Frequently+Asked+Questions/">Frequently Asked Questions</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/1253540249/7pace+Timetracker+for+Azure+DevOps+Release+Notes/">7pace Timetracker for Azure DevOps Release Notes</a></summary><ul><li><a href="/cms_trial/space/7TFA/3509223505/Release+notes+5.100/">Release notes 5.100</a></li><li><a href="/cms_trial/space/7TFA/3466657955/Release+notes+5.99/">Release notes 5.99</a></li><li><a href="/cms_trial/space/7TFA/3413082694/Release+notes+5.98/">Release notes 5.98</a></li><li><a href="/cms_trial/space/7TFA/3394044151/Release+notes+5.97/">Release notes 5.97</a></li><li><a href="/cms_trial/space/7TFA/3306487975/Release+notes+5.96/">Release notes 5.96</a></li><li><a href="/cms_trial/space/7TFA/3199172612/Release+notes+5.95/">Release notes 5.95</a></li><li><a href="/cms_trial/space/7TFA/3157721151/Release+notes+5.94/">Release notes 5.94</a></li></ul></details></li></ul></details></li></ul></nav>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#introduction">Introduction</a></li><li class="toc-level-3"><a href="#7pace-timetracker-cloud">7pace Timetracker (cloud)</a></li><li class="toc-level-3"><a href="#7pace-timetracker-on-premise">7pace Timetracker (on-premise)</a></li><li class="toc-level-3"><a href="#configuring-service-account-settings-for-7pace-timetracker-on-prem-using-the-configuration-tool">Configuring Service Account settings for 7pace Timetracker (on-prem) using the Configuration tool</a></li><li class="toc-level-4"><a href="#change-service-account-settings">Change Service Account settings</a></li><li class="toc-level-2"><a href="#reporting-and-rest-api">Reporting and REST API</a></li><li class="toc-level-3"><a href="#7pace-timetracker-for-devops-server-on-premise">7pace Timetracker for DevOps server (on-premise)</a></li><li class="toc-level-3"><a href="#7pace-timetracker-for-devops-services-cloud">7pace Timetracker for DevOps services (cloud)</a></li><li class="toc-level-3"><a href="#rest-api">REST API</a></li><li class="toc-level-4"><a href="#7pace-timetracker-for-devops-server-on-prem">7pace Timetracker for DevOps server (on-prem)</a></li><li class="toc-level-4"><a href="#7pace-timetracker-for-devops-services-cloud-2">7pace Timetracker for DevOps services (cloud)</a></li><li class="toc-level-2"><a href="#introduction-to-access-tokens">Introduction to Access Tokens</a></li><li class="toc-level-3"><a href="#access-tokens">Access Tokens</a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
@@ -264,6 +308,92 @@
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

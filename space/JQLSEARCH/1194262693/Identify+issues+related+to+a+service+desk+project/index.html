@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>Identify issues related to a service desk project | Appfire Docs</title>
 <meta name="description" content="This use case combines a JQL Search Extensions keyword with Power Script’s SIL Manager and Scheduler to automatically add a label to issues from Support…">
@@ -9,7 +19,15 @@
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Identify issues related to a service desk project",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/JQLSEARCH/1194262693/Identify+issues+related+to+a+service+desk+project/",
+  "dateModified": "2026-07-02T12:14:04.735Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,18 +37,45 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209972/JQL+Search+Extensions+(Cloud)/">JQL Search Extensions (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/1120043993/App+integrations/">App integrations</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/1194262532/Power+Scripts+for+Jira/">Power Scripts for Jira</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Identify issues related to a service desk project</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JQLSEARCH/pages/1194262693" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JQLSEARCH/pages/1194262693" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>Identify issues related to a service desk project</h1>
-    <div class="page-meta">2 min read</div>
+    <div class="page-meta">Updated 2 months ago · 2 min read</div>
     <p>This use case combines a JQL Search Extensions keyword with Power Script’s SIL Manager and Scheduler to automatically add a label to issues from Support so they are easier for developers to view and prioritize.</p><div class="panel panel-note"><p>If you are not already using Power Scripts, you can try out these features with a free trial license. Visit our Power Scripts <a href="https://marketplace.atlassian.com/apps/43318/power-scripts-jira-workflow-automation?hosting=cloud&amp;tab=overview">marketplace listing </a>to learn more.</p></div><h3 id="problem-to-solve">Problem to solve</h3><p>Development teams can often encounter a backlog of issues, causing delays in addressing customer service desk tickets. Many support tickets are delayed because they aren't properly flagged or prioritized. This results in poor customer experiences, with <a href="https://www.zendesk.com/blog/customer-service-statistics/#">73% of customers switching providers</a> due to slow issue resolution.</p><h3 id="solution">Solution</h3><p>Create a scheduled task that adds a <em>Support</em> label to all issues linked to support tickets. This allows these issues to be easily identified and prioritized in Jira filters or dashboards, ensuring that development teams don’t overlook them.</p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><td><p><strong>Scenario</strong></p></td><td><p>A telecommunications company receives a support ticket from a key enterprise client reporting a system outage. The ticket is linked to an internal bug in the development project. Without a <em>Support</em> label, the development team does not prioritize the fix, leading to extended downtime for the client. Let’s automate the labeling process so these tickets aren’t missed, leading to faster resolution and improved customer satisfaction.</p></td></tr><tr><td><p><strong>JSE keyword</strong></p></td><td><p><code>linkedByIssueProject</code></p></td></tr><tr><td><p><strong>PowerScripts features</strong></p></td><td><p>SIL Manager and Scheduler</p></td></tr><tr><td><p><strong>Method</strong></p></td><td><ol><li><p>In Jira, go to <strong>Settings</strong> &gt; <strong>Apps</strong>.</p></li><li><p>In the Apps sidebar menu, under <em>POWER SCRIPTS</em>, select <strong>SIL Manager</strong>.</p></li><li><p>On the <em>SIL Manager</em> page, select <strong>File</strong> &gt; <strong>New file</strong> to create a new file.</p></li><li><p>Add the following script to the file, and replace <code>MyProject</code> with your project details.</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">string [] issues = selectIssues("project = MyProject AND linkedByIssueProject = SUPPORT AND (labels IS EMPTY OR labels != support)");
 for(string i in issues) {
   %issueKey%.labels += "support";
@@ -39,9 +84,8 @@ for(string i in issues) {
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">98 pages in this space, fetched live from Confluence via API.</p>
 <nav><ul><li><details open><summary><a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions for Jira</a></summary><ul><li><details open><summary><a href="/cms_trial/space/JQLSEARCH/604209972/JQL+Search+Extensions+(Cloud)/">JQL Search Extensions (Cloud)</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/604209802/Get+started+with+JQL+Search+Extensions+for+Jira/">Get started with JQL Search Extensions for Jira</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209757/Use+cases/">Use cases</a></li><li><details open><summary><a href="/cms_trial/space/JQLSEARCH/1120043993/App+integrations/">App integrations</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/604209557/Advanced+Roadmaps/">Advanced Roadmaps</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209543/BigPicture/">BigPicture</a></li><li><a href="/cms_trial/space/JQLSEARCH/1151041688/Jira+Misc+Workflow+Extensions+(JMWE)/">Jira Misc Workflow Extensions (JMWE)</a></li><li><details open><summary><a href="/cms_trial/space/JQLSEARCH/1194262532/Power+Scripts+for+Jira/">Power Scripts for Jira</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/1194262602/Build+an+escalation+service/">Build an escalation service</a></li><li><a href="/cms_trial/space/JQLSEARCH/1194262693/Identify+issues+related+to+a+service+desk+project/" class="active">Identify issues related to a service desk project</a></li><li><a href="/cms_trial/space/JQLSEARCH/1198292998/Issues+in+a+released+version+remain+open/">Issues in a released version remain open</a></li><li><a href="/cms_trial/space/JQLSEARCH/1199308875/Update+remote+links/">Update remote links</a></li></ul></details></li><li><a href="/cms_trial/space/JQLSEARCH/604209448/Jira+Service+Management+and+JQL/">Jira Service Management and JQL</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209305/Xray/">Xray</a></li></ul></details></li><li><a href="/cms_trial/space/JQLSEARCH/604210001/Video+tutorials/">Video tutorials</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209395/JQL+functions+and+keywords+reference/">JQL functions and keywords reference</a></li></ul></details></li><li><a href="/cms_trial/space/JQLSEARCH/604209729/Migrations/">Migrations</a></li><li><details><summary><a href="/cms_trial/space/JQLSEARCH/913997907/Release+notes/">Release notes</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/604209185/Release+notes+-+Cloud/">Release notes - Cloud</a></li><li><a href="/cms_trial/space/JQLSEARCH/604210041/Release+notes+-+Server%2FData+Center/">Release notes - Server/Data Center</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JQLSEARCH/918979098/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/1766293568/Troubleshooting/">Troubleshooting</a></li><li><a href="/cms_trial/space/JQLSEARCH/919273915/Appfire+support/">Appfire support</a></li><li><a href="/cms_trial/space/JQLSEARCH/919306596/Appfire+Trust+Center/">Appfire Trust Center</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209808/Data+storage/">Data storage</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JQLSEARCH/604209587/JQL+Search+Extensions+-+Data+Center/">JQL Search Extensions - Data Center</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/604209431/Get+started+with+JQL+Search+Extensions+for+Jira+Data+Center/">Get started with JQL Search Extensions for Jira Data Center</a></li><li><a href="/cms_trial/space/JQLSEARCH/1865482654/JQL+functions+reference/">JQL functions reference</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209740/Performance+tests+results/">Performance tests results</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209735/How+to+resolve+com.atlassian.jira.issue.search.ClauseTooComplexSearchException/">How to resolve com.atlassian.jira.issue.search.ClauseTooComplexSearchException</a></li></ul></details></li></ul></details></li></ul></nav>
-</aside>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-3"><a href="#problem-to-solve">Problem to solve</a></li><li class="toc-level-3"><a href="#solution">Solution</a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
@@ -267,6 +311,92 @@ for(string i in issues) {
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

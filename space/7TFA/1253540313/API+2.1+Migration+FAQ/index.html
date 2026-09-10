@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>API 2.1 Migration FAQ | Appfire Docs</title>
 <meta name="description" content="API v2.1 was deprecated more than four years ago (see API Important Information) and now, the process of finally retiring it is ongoing. Once this API…">
@@ -9,7 +19,15 @@
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "API 2.1 Migration FAQ",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/7TFA/1253540313/API+2.1+Migration+FAQ/",
+  "dateModified": "2026-08-27T01:42:04.614Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,26 +37,52 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/3482517944/Admin+guide/">Admin guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253540254/API+%26+Reporting/">API &amp; Reporting</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">API 2.1 Migration FAQ</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/7TFA/pages/1253540313" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/7TFA/pages/1253540313" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>API 2.1 Migration FAQ</h1>
-    <div class="page-meta">3 min read</div>
+    <div class="page-meta">Updated 14 days ago · 3 min read</div>
     <div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p>API v2.1 was deprecated more than four years ago (see <a href="https://appfire.atlassian.net/wiki/x/j4C3Sg">API Important Information</a>) and now, the process of finally retiring it is ongoing. Once this API v2.1 is retired, you can no longer obtain data via this version.</p><p>This article provides answers to the questions you may have and provides guidance with the migration process to the updated and supported API versions.</p></div><div></div></div><h2 id="why-is-7pace-retiring-api-v2-1">Why is 7pace retiring API v2.1?</h2><p>Software is constantly evolving and so are its APIs. The TimeExport endpoint found in API v2.1 does not support pagination and includes all attributes in the response by default. This makes the API less than effective, which leads to occasional performance issues.</p><p>7pace provides more recent APIs that can provide the same data, but in an optimized way.</p><h2 id="when-will-api-v2-1-be-shut-down">When will API v2.1 be shut down?</h2><p>API v2.1 has been retired - stopped serving requests - on <strong>1st December, 2023</strong>. Optional prolongation period of limited length (several months) can be requested by an e-mail sent to <a href="mailto:support@7pace.com">support@7pace.com</a>. </p><h2 id="how-can-i-tell-if-i-am-sending-api-v2-1-requests">How can I tell if I am sending API v2.1 requests?</h2><p>The API endpoint and version are a part of URL that your application calls, and can be seen in the example below.</p><p><code>https://yourcompany.timehub.7pace.com/api/odata/TimeExport(StartDate='2019-06-14',EndDate='2023-06-14',PopulateTopParentColumns=null,GroupTimeByDateByUser=null,IncludeBillable=null)?api-version=2.1</code></p><h2 id="what-api-should-i-use-as-replacement">What API should I use as replacement?</h2><p>The safest way is to use the newest stable version of the API that is listed in our <a href="https://appfire.atlassian.net/wiki/x/j4C3Sg">API documentation</a>. Currently (Q3/2022) it is 3.2. </p><p>Note that the <em>TimeExport</em> endpoint no longer exists in the new APIs, you will therefore have to call different endpoints with a different structure of requests. We recommend reading the following documentation:</p><ul><li><p><a href="https://appfire.atlassian.net/wiki/x/qoG3Sg">Reporting API v3 - user guide</a></p></li><li><p><a href="https://timehub.7pace.com/apireference/?urls.primaryName=7pace%20Timetracker%20API%20documentation%20v3.1">API reference documentation</a></p></li><li><p><a href="https://appfire.atlassian.net/wiki/x/Q4C3Sg">Incremental refresh guide</a></p></li></ul><p>Choosing a specific endpoint of API v3.2 depends on your needs. The most frequent cases are listed below; the rest of the endpoints are described in the mentioned user guides.</p><ul><li><p><code>workLogsOnly</code><em> </em>endpoint is the most effective if you only need to obtain worklogs.</p></li><li><p>Choose <code>workLogsWorkItems</code><em> </em>endpoint if you also need to obtain workitems (and, optionally, information about their parent item).</p></li></ul><h2 id="will-api-v2-1-be-shut-down-for-on-prem-too">Will API v2.1 be shut down for on-prem too?</h2><p>If you run Azure DevOps and Timetracker on your own servers, you can continue using API v2.1. However, there is no guarantee that future versions of Timetracker will work with this API properly, and, troubleshooting support and bug fixing for API v2.1 are not available.</p><h2 id="what-are-the-differences">What are the differences?</h2><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><td><p><strong>API version 2.1</strong></p></td><td><p><strong>API version 3.0 and higher</strong></p></td><td><p><strong>Comment</strong></p></td></tr><tr><td><p>Limited filtering (start date, end date, flags)</p></td><td><p>Advanced filtering of records (by any attribute)</p></td><td><p>We recommend obtaining only updated records for a certain time period using filtering by EditedTimestamp - see <a href="https://appfire.atlassian.net/wiki/x/Q4C3Sg">Incremental refresh guide</a>.</p></td></tr><tr><td><p>Not paginated</p></td><td><p>Paginated</p></td><td><p>Pagination is handled via <code>@odata.nextLink</code> property.<br/><br/>Certain tools like Excel or Power BI handle the pagination automatically. You have to choose <strong>Odata feed</strong> as data source.</p></td></tr><tr><td><p>API version in parameters<br/>Example: <code>?api-version=2.1</code> </p></td><td><p>API version in the base URL<br/>Example: <a href="https://time-plutus.timehub.7pace.com/api/odata/v3.1/workLogsWorkItems?$filter=EditedTimestamp%20ge%202018-01-01T00%3A00%3A00%2B01%3A00%20and%20EditedTimestamp%20lt%202022-06-08T00%3A00%3A00%2B02%3A00&amp;$expand=ParentItem%28%24select%3DSystem_Id%29&amp;$top=1000">https://url.timehub.7pace.com/api/odata/v3.2/</a> </p></td><td></td></tr><tr><td><p>Returns all object attributes (properties) by default</p></td><td><p>Explicit selection of attributes is enforced due to a newer OData standard</p></td><td><p>See the <a href="https://support.7pace.com/hc/en-us/articles/360053657211">respective documentation</a>.</p></td></tr><tr><td><p>Single <code>TimeExport</code> endpoint to rule them all</p></td><td><p>Multiple endpoints suited for different use cases</p></td><td><p>See the preceding sections for more information about endpoints.</p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">146 pages in this space, fetched live from Confluence via API.</p>
-<nav><ul><li><details open><summary><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a></summary><ul><li><details><summary><a href="/cms_trial/space/7TFA/1253540271/Get+started/">Get started</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540433/7pace+Timetracker+for+developers/">7pace Timetracker for developers</a></li><li><a href="/cms_trial/space/7TFA/1253540439/7pace+Timetracker+for+managers/">7pace Timetracker for managers</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/7TFA/3482517944/Admin+guide/">Admin guide</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540127/Installation+and+Data+Security/">Installation and Data Security</a></li><li><a href="/cms_trial/space/7TFA/2193557481/Authorization+methods/">Authorization methods</a></li><li><details open><summary><a href="/cms_trial/space/7TFA/1253540254/API+%26+Reporting/">API &amp; Reporting</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253539983/7pace+Timetracker+API+Important+Information/">7pace Timetracker API Important Information</a></li><li><a href="/cms_trial/space/7TFA/1253540758/7pace+Timetracker+Client+(Tracking)+API/">7pace Timetracker Client (Tracking) API</a></li><li><a href="/cms_trial/space/7TFA/1253539934/7pace+Timetracker%27s+Reporting+Page/">7pace Timetracker's Reporting Page</a></li><li><a href="/cms_trial/space/7TFA/1253540063/7pace+Timetracker%27s+Reporting+Widgets+Gallery/">7pace Timetracker's Reporting Widgets Gallery</a></li><li><a href="/cms_trial/space/7TFA/1253540266/7pace+Timetracker+Reporting+API+Version+3/">7pace Timetracker Reporting API Version 3</a></li><li><a href="/cms_trial/space/7TFA/1253540003/7pace+Timetracker+REST+CRUD+API+Version+3/">7pace Timetracker REST CRUD API Version 3</a></li><li><a href="/cms_trial/space/7TFA/1253539907/How+to+Avoid+API+Rate+Limiting/">How to Avoid API Rate Limiting</a></li><li><a href="/cms_trial/space/7TFA/1253540313/API+2.1+Migration+FAQ/" class="active">API 2.1 Migration FAQ</a></li><li><a href="/cms_trial/space/7TFA/1253539892/7pace+Timetracker%27s+Reporting+API+%22This+set+of+parameters+is+not+allowed%22+error/">7pace Timetracker's Reporting API "This set of parameters is not allowed" error</a></li><li><a href="/cms_trial/space/7TFA/1253539939/How+to+export+a+list+of+all+licensed+users/">How to export a list of all licensed users</a></li><li><a href="/cms_trial/space/7TFA/3118563336/API+Rate+Limiting/">API Rate Limiting</a></li></ul></details></li><li><a href="/cms_trial/space/7TFA/1253540242/Apps/">Apps</a></li><li><a href="/cms_trial/space/7TFA/3488055333/App+configuration/">App configuration</a></li><li><a href="/cms_trial/space/7TFA/1253539917/7pace+Timetracker+Legacy+Versions+and+Legacy+TFS/">7pace Timetracker Legacy Versions and Legacy TFS</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/3482780186/User+guide/">User guide</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253539966/Add+Time+Dialog/">Add Time Dialog</a></li><li><a href="/cms_trial/space/7TFA/1253539860/Work+item+form/">Work item form</a></li><li><a href="/cms_trial/space/7TFA/1253540085/Budgets/">Budgets</a></li><li><a href="/cms_trial/space/7TFA/1253540717/Iterations/">Iterations</a></li><li><a href="/cms_trial/space/7TFA/1253539865/Approvals/">Approvals</a></li><li><a href="/cms_trial/space/7TFA/1253540013/Times+Explorer/">Times Explorer</a></li><li><a href="/cms_trial/space/7TFA/1253540070/Monthly+view/">Monthly view</a></li><li><a href="/cms_trial/space/7TFA/1547173906/Weekly+view/">Weekly view</a></li><li><a href="/cms_trial/space/7TFA/1253540328/Timesheet/">Timesheet</a></li><li><a href="/cms_trial/space/7TFA/2935357478/Connect+calendar/">Connect calendar</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/3511091204/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/7TFA/1361084424/7pace+Product+Support/">7pace Product Support</a></li><li><a href="/cms_trial/space/7TFA/1253540447/Frequently+Asked+Questions/">Frequently Asked Questions</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/1253539885/Release+Notes/">Release Notes</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540249/7pace+Timetracker+for+Azure+DevOps+Release+Notes/">7pace Timetracker for Azure DevOps Release Notes</a></li><li><a href="/cms_trial/space/7TFA/1253540290/Legacy+Release+Notes/">Legacy Release Notes</a></li></ul></details></li></ul></details></li></ul></nav>
-</aside>
+<nav><ul><li><details open><summary><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a></summary><ul><li><details><summary><a href="/cms_trial/space/7TFA/1253540271/Get+started+with+7pace+Timetracker+for+Azure+DevOps/">Get started with 7pace Timetracker for Azure DevOps</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540433/7pace+Timetracker+for+developers/">7pace Timetracker for developers</a></li><li><a href="/cms_trial/space/7TFA/1253540439/7pace+Timetracker+for+managers/">7pace Timetracker for managers</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/7TFA/3482517944/Admin+guide/">Admin guide</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540127/Installation+and+Data+Security/">Installation and Data Security</a></li><li><a href="/cms_trial/space/7TFA/2193557481/Authorization+methods/">Authorization methods</a></li><li><details open><summary><a href="/cms_trial/space/7TFA/1253540254/API+%26+Reporting/">API &amp; Reporting</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253539983/7pace+Timetracker+API+Important+Information/">7pace Timetracker API Important Information</a></li><li><a href="/cms_trial/space/7TFA/1253540758/7pace+Timetracker+Client+(Tracking)+API/">7pace Timetracker Client (Tracking) API</a></li><li><a href="/cms_trial/space/7TFA/1253539934/7pace+Timetracker%27s+Reporting+Page/">7pace Timetracker's Reporting Page</a></li><li><a href="/cms_trial/space/7TFA/1253540063/7pace+Timetracker%27s+Reporting+Widgets+Gallery/">7pace Timetracker's Reporting Widgets Gallery</a></li><li><a href="/cms_trial/space/7TFA/1253540266/7pace+Timetracker+Reporting+API+Version+3/">7pace Timetracker Reporting API Version 3</a></li><li><a href="/cms_trial/space/7TFA/1253540003/7pace+Timetracker+REST+CRUD+API+Version+3/">7pace Timetracker REST CRUD API Version 3</a></li><li><a href="/cms_trial/space/7TFA/1253539907/How+to+Avoid+API+Rate+Limiting/">How to Avoid API Rate Limiting</a></li><li><a href="/cms_trial/space/7TFA/1253540313/API+2.1+Migration+FAQ/" class="active">API 2.1 Migration FAQ</a></li><li><a href="/cms_trial/space/7TFA/1253539892/7pace+Timetracker%27s+Reporting+API+%22This+set+of+parameters+is+not+allowed%22+error/">7pace Timetracker's Reporting API "This set of parameters is not allowed" error</a></li><li><a href="/cms_trial/space/7TFA/1253539939/How+to+export+a+list+of+all+licensed+users/">How to export a list of all licensed users</a></li><li><a href="/cms_trial/space/7TFA/3118563336/API+Rate+Limiting/">API Rate Limiting</a></li></ul></details></li><li><a href="/cms_trial/space/7TFA/1253540242/Apps/">Apps</a></li><li><a href="/cms_trial/space/7TFA/3488055333/App+configuration/">App configuration</a></li><li><a href="/cms_trial/space/7TFA/1253539917/7pace+Timetracker+Legacy+Versions+and+Legacy+TFS/">7pace Timetracker Legacy Versions and Legacy TFS</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/3482780186/User+guide/">User guide</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253539966/Add+Time+Dialog/">Add Time Dialog</a></li><li><a href="/cms_trial/space/7TFA/1253539860/Work+item+form/">Work item form</a></li><li><a href="/cms_trial/space/7TFA/1253540085/Budgets/">Budgets</a></li><li><a href="/cms_trial/space/7TFA/1253540717/Iterations/">Iterations</a></li><li><a href="/cms_trial/space/7TFA/1253539865/Approvals/">Approvals</a></li><li><a href="/cms_trial/space/7TFA/1253540013/Times+Explorer/">Times Explorer</a></li><li><a href="/cms_trial/space/7TFA/1253540070/Monthly+view/">Monthly view</a></li><li><a href="/cms_trial/space/7TFA/1547173906/Weekly+view/">Weekly view</a></li><li><a href="/cms_trial/space/7TFA/1253540328/Timesheet/">Timesheet</a></li><li><a href="/cms_trial/space/7TFA/2935357478/Connect+calendar/">Connect calendar</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/3511091204/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/7TFA/1361084424/7pace+Product+Support/">7pace Product Support</a></li><li><a href="/cms_trial/space/7TFA/1253540447/Frequently+Asked+Questions/">Frequently Asked Questions</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/1253540249/7pace+Timetracker+for+Azure+DevOps+Release+Notes/">7pace Timetracker for Azure DevOps Release Notes</a></summary><ul><li><a href="/cms_trial/space/7TFA/3509223505/Release+notes+5.100/">Release notes 5.100</a></li><li><a href="/cms_trial/space/7TFA/3466657955/Release+notes+5.99/">Release notes 5.99</a></li><li><a href="/cms_trial/space/7TFA/3413082694/Release+notes+5.98/">Release notes 5.98</a></li><li><a href="/cms_trial/space/7TFA/3394044151/Release+notes+5.97/">Release notes 5.97</a></li><li><a href="/cms_trial/space/7TFA/3306487975/Release+notes+5.96/">Release notes 5.96</a></li><li><a href="/cms_trial/space/7TFA/3199172612/Release+notes+5.95/">Release notes 5.95</a></li><li><a href="/cms_trial/space/7TFA/3157721151/Release+notes+5.94/">Release notes 5.94</a></li></ul></details></li></ul></details></li></ul></nav>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#why-is-7pace-retiring-api-v2-1">Why is 7pace retiring API v2.1?</a></li><li class="toc-level-2"><a href="#when-will-api-v2-1-be-shut-down">When will API v2.1 be shut down?</a></li><li class="toc-level-2"><a href="#how-can-i-tell-if-i-am-sending-api-v2-1-requests">How can I tell if I am sending API v2.1 requests?</a></li><li class="toc-level-2"><a href="#what-api-should-i-use-as-replacement">What API should I use as replacement?</a></li><li class="toc-level-2"><a href="#will-api-v2-1-be-shut-down-for-on-prem-too">Will API v2.1 be shut down for on-prem too?</a></li><li class="toc-level-2"><a href="#what-are-the-differences">What are the differences?</a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
@@ -264,6 +308,92 @@
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

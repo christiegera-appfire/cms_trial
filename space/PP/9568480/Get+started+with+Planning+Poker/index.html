@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>Get started with Planning Poker | Appfire Docs</title>
 <meta name="description" content="This page applies to both Planning Poker for Jira Cloud and Jira Data Center.">
@@ -24,6 +34,14 @@
     }
   ]
 }
+</script><script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Get started with Planning Poker",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/PP/9568480/Get+started+with+Planning+Poker/",
+  "dateModified": "2026-08-27T01:43:47.470Z"
+}
 </script>
 </head>
 <body>
@@ -34,26 +52,52 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/PP/1803714584/Planning+Poker+Help+Center/">Planning Poker</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/PP/1803714584/Planning+Poker+Help+Center/">Planning Poker Help Center</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Get started with Planning Poker</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PP/pages/9568480" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/PP/pages/9568480" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>Get started with Planning Poker</h1>
-    <div class="page-meta">4 min read</div>
+    <div class="page-meta">Updated 14 days ago · 4 min read</div>
     <div class="columns" style="grid-template-columns: 100.0fr;"><div><div class="panel panel-note"><p>This page applies to both <strong>Planning Poker for Jira Cloud</strong> and<strong> Jira Data Center</strong>.</p></div><p>Welcome to Planning Poker for Jira – a tool for efficient project estimation and team collaboration. This guide will help you quickly get started with the essential steps.</p><div class="panel panel-success"><p>Before you begin, we recommend reviewing <a href="/cms_trial/space/PP/9568521/Game+basics/">this document</a>, which provides an overview of estimation values, user roles, and more. </p></div><p>Planning Poker is designed to transcend project boundaries, operating globally rather than being tied to a specific project or board. With two easy entry points, you can access the same collaborative platform, the Dashboard, no matter how you initiate the game.</p><p>Once installed, Planning Poker will add a new menu item in the following locations:</p><details><summary>Cloud</summary><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p>Jira top menu <strong>Apps</strong> &gt; <strong>Planning Poker</strong></p></th><th><p><strong>Project sidebar</strong></p></th></tr><tr><td><img alt="contentId-9568480" class="doc-image" loading="lazy" src="/cms_trial/assets/77930acb-cd37-4a75-bdb0-ca338210b2d8.png"/></td><td><img alt="contentId-9568480" class="doc-image" loading="lazy" src="/cms_trial/assets/3c17c3d3-630d-4f31-980d-9295dcb2de82.png"/></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div></details><h3 id="1-start-join-a-game">1. Start/join a game</h3><p>Before diving into Planning Poker, let's acquaint you with the <strong>Dashboard</strong>—an essential hub for navigating and managing your estimation sessions. </p><p>The Dashboard provides a comprehensive overview of ongoing and finished games, allowing you to swiftly access and orchestrate your estimation process. You can access it by clicking the entry points above.</p><p>On the Dashboard, you can use filters or the search feature to locate a game easily and perform actions like copying an existing session with all its settings.</p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><div class="panel panel-note"><p><strong>For admins:</strong></p></div></th><th><div class="panel panel-note"><p><strong>For estimators:</strong></p></div></th></tr><tr><td><ul><li><p>Your role is to configure the game and manage the estimation process. </p></li><li><p>Begin by creating a new game and inviting participants using an invitation link. You can start a game even without any configuration, but it would be better to make sure that some basic settings are in place. To learn how to configure and start a game, check out the related documents (<a href="/cms_trial/space/PP/9568359/Game+configuration+(Cloud)/">Cloud</a>, <a href="/cms_trial/space/PP/511967561/Game+configuration+(DC)/">DC</a>).</p></li></ul></td><td><ul><li><p>Your role is to estimate project tasks accurately.</p></li><li><p>Join a Planning Poker game by following the invitation link sent to you by the game administrator or through the Planning Poker Dashboard.</p></li></ul></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><h3 id="2-estimation-process">2. Estimation process</h3><p>Planning Poker involves organized rounds, each focusing on estimating an issue. These rounds consist of three phases: <strong>Backlog</strong>, <strong>Discussion</strong>, <strong>Voting</strong>, and <strong>Final estimate submission</strong>.</p><p>In summary, the Backlog phase marks the beginning of the game, initiated by the game administrator. After the admin chooses an issue, the Discussion phase begins, during which the Product Owner presents the details of the issue, and estimators ask questions to clarify. Once everyone is clear about the issue, the Voting phase starts. After voting, the Final estimate submission phase begins, where the Scrum master analyzes the results and ensures a consensus on the estimation value. This phase concludes when the Scrum master saves the estimation value.</p><h4 id="a-backlog-phase">a. Backlog phase</h4><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><div class="panel panel-note"><p><strong>For admins:</strong></p></div></th><th><div class="panel panel-note"><p><strong>For estimators:</strong></p></div></th></tr><tr><td><ul><li><p>Once everyone's in, start the session by clicking the <strong>Start game</strong> button.</p></li><li><p>As needed, tweak the backlog and game settings to suit your team's needs.</p><img alt="image-20240728-214949.png" class="doc-image" loading="lazy" src="/cms_trial/assets/41c4db59-f4a5-4415-8f44-f16209368233.png"/></li></ul></td><td><ul><li><p>As the admin selects an issue for estimation, estimators wait for instructions.</p></li></ul></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><h4 id="b-discussion-phase">b. Discussion phase</h4><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><div class="panel panel-note"><p><strong>For admins:</strong></p></div></th><th><div class="panel panel-note"><p><strong>For estimators:</strong></p></div></th></tr><tr><td><ul><li><p>Present the details of the issue with clarity and precision. Your comprehensive presentation sets the stage for an informed discussion and facilitates a more accurate estimation.</p></li><li><p>When everyone is clear about the issue, move the team to the Voting phase.</p></li></ul></td><td><ul><li><p>This phase requires your engagement and curiosity.</p></li><li><p>Ask questions to the admin regarding any aspect of the issue that requires clarification.</p></li></ul></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><h4 id="c-voting-phase">c. Voting phase</h4><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><div class="panel panel-note"><p><strong>For admins:</strong></p></div></th><th><div class="panel panel-note"><p><strong>For estimators:</strong></p></div></th></tr><tr><td><ul><li><p>Vote, reveal cards, and manage the estimation process.</p></li></ul></td><td><ul><li><p>Choose a card that represents your estimation for the specific issue.</p><img alt="image-20240728-215124.png" class="doc-image" loading="lazy" src="/cms_trial/assets/2f9ef121-2c74-4dea-986a-d2d377c74a19.png"/></li></ul></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><h4 id="d-final-estimate-submission">d. Final estimate submission</h4><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><div class="panel panel-note"><p><strong>For admins:</strong></p></div></th><th><div class="panel panel-note"><p><strong>For estimators:</strong></p></div></th></tr><tr><td><ul><li><p>Guide the discussion to ensure consensus.</p></li></ul></td><td><ul><li><p>Engage in discussions to reach a consensus on the estimation.</p></li></ul></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><p>For a detailed description of the game flow and the controls used by nts and the admin, check out these documents: Game flow (<a href="/cms_trial/space/PP/1149501468/Game+flow+(Cloud)/">Cloud</a>, <a href="/cms_trial/space/PP/9568315/Game+flow+(DC)/">DC</a>), Game controls (<a href="/cms_trial/space/PP/492110077/Game+controls+(Cloud)/">Cloud</a>, <a href="/cms_trial/space/PP/1159561645/Game+controls+(DC)/">DC</a>).</p><h3 id="3-end-the-game">3. End the game</h3><p>A game concludes when all issues are estimated, or the admin chooses to finish it. Finished games can be reopened if needed.</p><div class="panel panel-note"><p>For distributed teams that cannot conduct an “on-line” session, Planning Poker offers an Async mode to estimate each Jira issue individually. This mode doesn't follow a unified "session" concept, but estimators can estimate in the issues directly through the Async mode tab. To learn more about it, refer to the related document (<a href="/cms_trial/space/PP/9568542/Planning+Poker+tab+estimation+(Cloud)/">Cloud</a>, <a href="/cms_trial/space/PP/1144914181/Async+mode+(DC)/">DC</a>).</p></div><hr/><p>Effective communication and collaboration are pivotal for successful estimations in Planning Poker. Let's kick off your first game:</p><div class="panel panel-note"><p><a href="/cms_trial/space/PP/9568359/Game+configuration+(Cloud)/"><strong>Game configuration (Cloud)</strong></a></p></div><div class="panel panel-note"><p><a href="/cms_trial/space/PP/511967561/Game+configuration+(DC)/"><strong>Game configuration (DC)</strong></a></p></div></div></div>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">44 pages in this space, fetched live from Confluence via API.</p>
 <nav><ul><li><details open><summary><a href="/cms_trial/space/PP/1803714584/Planning+Poker+Help+Center/">Planning Poker Help Center</a></summary><ul><li><a href="/cms_trial/space/PP/9568260/About+Planning+Poker/">About Planning Poker</a></li><li><details open><summary><a href="/cms_trial/space/PP/9568480/Get+started+with+Planning+Poker/" class="active">Get started with Planning Poker</a></summary><ul><li><a href="/cms_trial/space/PP/463995360/Installation/">Installation</a></li><li><a href="/cms_trial/space/PP/9568642/DC+to+Cloud+migration+guide/">DC to Cloud migration guide</a></li><li><a href="/cms_trial/space/PP/2480669406/DC+to+Cloud+feature+comparison/">DC to Cloud feature comparison</a></li></ul></details></li><li><a href="/cms_trial/space/PP/9568521/Game+basics/">Game basics</a></li><li><details><summary><a href="/cms_trial/space/PP/1144061974/Planning+Poker+for+Jira+Cloud/">Planning Poker for Jira Cloud</a></summary><ul><li><a href="/cms_trial/space/PP/9568359/Game+configuration+(Cloud)/">Game configuration (Cloud)</a></li><li><a href="/cms_trial/space/PP/1149501468/Game+flow+(Cloud)/">Game flow (Cloud)</a></li><li><a href="/cms_trial/space/PP/492110077/Game+controls+(Cloud)/">Game controls (Cloud)</a></li><li><a href="/cms_trial/space/PP/661454980/Settings+(Cloud)/">Settings (Cloud)</a></li><li><a href="/cms_trial/space/PP/9568542/Planning+Poker+tab+estimation+(Cloud)/">Planning Poker tab estimation (Cloud)</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/PP/1144061984/Planning+Poker+for+Jira+Data+Center/">Planning Poker for Jira Data Center</a></summary><ul><li><a href="/cms_trial/space/PP/511967561/Game+configuration+(DC)/">Game configuration (DC)</a></li><li><a href="/cms_trial/space/PP/9568315/Game+flow+(DC)/">Game flow (DC)</a></li><li><a href="/cms_trial/space/PP/1159561645/Game+controls+(DC)/">Game controls (DC)</a></li><li><a href="/cms_trial/space/PP/1144914181/Async+mode+(DC)/">Async mode (DC)</a></li><li><a href="/cms_trial/space/PP/1144586391/App+settings+(DC)/">App settings (DC)</a></li><li><a href="/cms_trial/space/PP/9568294/Mobile+version+(DC)/">Mobile version (DC)</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/PP/1159103478/Release+notes%E2%80%8E/">Release notes‎</a></summary><ul><li><a href="/cms_trial/space/PP/1159300293/Cloud/">Cloud</a></li><li><a href="/cms_trial/space/PP/1336344833/Data+center/">Data center</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/PP/1803354129/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/PP/9568458/FAQ%3A+Planning+Poker+for+Jira/">FAQ: Planning Poker for Jira</a></li><li><a href="/cms_trial/space/PP/9568600/Data+security+%26+Privacy+statement+v3/">Data security &amp; Privacy statement v3</a></li><li><a href="/cms_trial/space/PP/9568488/Deploying+Planning+Poker+locally+via+Docker/">Deploying Planning Poker locally via Docker</a></li><li><a href="/cms_trial/space/PP/487360991/Planning+Poker+vs.+Agile+Poker/">Planning Poker vs. Agile Poker</a></li></ul></details></li></ul></details></li></ul></nav>
-</aside>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-3"><a href="#1-start-join-a-game">1. Start/join a game</a></li><li class="toc-level-3"><a href="#2-estimation-process">2. Estimation process</a></li><li class="toc-level-4"><a href="#a-backlog-phase">a. Backlog phase</a></li><li class="toc-level-4"><a href="#b-discussion-phase">b. Discussion phase</a></li><li class="toc-level-4"><a href="#c-voting-phase">c. Voting phase</a></li><li class="toc-level-4"><a href="#d-final-estimate-submission">d. Final estimate submission</a></li><li class="toc-level-3"><a href="#3-end-the-game">3. End the game</a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
@@ -279,6 +323,92 @@
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

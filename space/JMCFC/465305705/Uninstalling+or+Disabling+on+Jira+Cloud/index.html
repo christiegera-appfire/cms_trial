@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>Uninstalling or Disabling on Jira Cloud | Appfire Docs</title>
 <meta name="description" content="To uninstall the app, follow these steps:">
@@ -9,7 +19,15 @@
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Uninstalling or Disabling on Jira Cloud",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/JMCFC/465305705/Uninstalling+or+Disabling+on+Jira+Cloud/",
+  "dateModified": "2026-07-03T12:43:19.603Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,26 +37,52 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JMCFC/168855370/Overview/">Jira Misc Custom Fields (JMCF) - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/168855370/Overview/">Overview</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/465829931/Get+started+with+JMCF+for+Cloud/">Get started with JMCF for Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JMCFC/465666166/Installation+Guide/">Installation Guide</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Uninstalling or Disabling on Jira Cloud</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMCFC/pages/465305705" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JMCFC/pages/465305705" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>Uninstalling or Disabling on Jira Cloud</h1>
-    <div class="page-meta">1 min read</div>
+    <div class="page-meta">Updated 2 months ago · 1 min read</div>
     <div class="columns" style="grid-template-columns: 66.66fr 33.33fr;"><div><p>To uninstall the app, follow these steps:</p><ol><li><p>Log in to your Jira Cloud instance as an administrator.</p></li><li><p>Click <strong>Settings</strong> ⚙️ in the upper right corner of the screen and select <strong>Apps</strong>.</p></li><li><p>Select <strong>Manage apps</strong> and locate <strong>Jira Misc Custom Fields</strong>.</p></li><li><p>Click the app to display its details.</p></li><li><p>Click <strong>Unsubscribe </strong>or<strong> Stop Trial </strong>(depending on your subscription status).</p></li><li><p>Click <strong>Uninstall.</strong></p></li><li><p>The system displays a progress message for the operation. Once finished, the app is removed from Jira and will not display under <strong>Manage apps</strong>.</p></li></ol><p>You have uninstalled the <em>Jira Misc Custom Fields </em>app. </p><h2 id="disabling-the-app">Disabling the app</h2><p>To disable the app, follow these steps: </p><ol><li><p>Log in to your Jira Cloud instance as an administrator.</p></li><li><p>Click <strong>Settings</strong> ⚙️ in the upper right corner of the screen and select <strong>Apps</strong>.</p></li><li><p>Select <strong>Manage apps</strong> and locate <strong>Jira Misc Custom Fields</strong>.</p></li><li><p>Click on the app to display its details view.</p></li><li><p>Click on <strong>Disable</strong>.</p></li><li><p>The system displays a progress message for the operation. Once finished, the <strong>Disable </strong>button is replaced with <strong>Enable</strong>.</p></li></ol><p>You have disabled the <em>Jira Misc Custom Fields </em>app. </p></div><div><div class="panel panel-note"><p>You are viewing the documentation for <strong>Jira Cloud</strong>.</p></div></div></div>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">82 pages in this space, fetched live from Confluence via API.</p>
 <nav><ul><li><details open><summary><a href="/cms_trial/space/JMCFC/168855370/Overview/">Overview</a></summary><ul><li><details open><summary><a href="/cms_trial/space/JMCFC/465829931/Get+started+with+JMCF+for+Cloud/">Get started with JMCF for Cloud</a></summary><ul><li><details open><summary><a href="/cms_trial/space/JMCFC/465666166/Installation+Guide/">Installation Guide</a></summary><ul><li><a href="/cms_trial/space/JMCFC/465273103/Installing+or+Re-installing+on+Jira+Cloud/">Installing or Re-installing on Jira Cloud</a></li><li><a href="/cms_trial/space/JMCFC/465305705/Uninstalling+or+Disabling+on+Jira+Cloud/" class="active">Uninstalling or Disabling on Jira Cloud</a></li></ul></details></li><li><a href="/cms_trial/space/JMCFC/465405703/Create+Custom+Field/">Create Custom Field</a></li><li><a href="/cms_trial/space/JMCFC/465207457/Using+JMCF+Custom+Fields/">Using JMCF Custom Fields</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JMCFC/465471188/Use+Cases/">Use Cases</a></summary><ul><li><a href="/cms_trial/space/JMCFC/862158881/Date+and+Time/">Date and Time</a></li><li><a href="/cms_trial/space/JMCFC/861831309/Numeric+and+Counts/">Numeric and Counts</a></li><li><a href="/cms_trial/space/JMCFC/861831276/Scripted/">Scripted</a></li><li><a href="/cms_trial/space/JMCFC/861962280/User+and+User+Groups/">User and User Groups</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JMCFC/465405670/JMCF+Administration/">JMCF Administration</a></summary><ul><li><a href="/cms_trial/space/JMCFC/465471321/My+Custom+Fields/">My Custom Fields</a></li><li><a href="/cms_trial/space/JMCFC/465633417/Calculations/">Calculations</a></li><li><a href="/cms_trial/space/JMCFC/465436864/Error+Logs/">Error Logs</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JMCFC/465471226/Custom+Fields/">Custom Fields</a></summary><ul><li><a href="/cms_trial/space/JMCFC/1562447255/Supported+custom+fields/">Supported custom fields</a></li><li><a href="/cms_trial/space/JMCFC/1114997525/Scheduled+recalculations/">Scheduled recalculations</a></li><li><a href="/cms_trial/space/JMCFC/1559003309/Formatters/">Formatters</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JMCFC/1325596783/APIs/">APIs</a></summary><ul><li><a href="/cms_trial/space/JMCFC/1325301787/issue+APIs/">issue APIs</a></li><li><a href="/cms_trial/space/JMCFC/1741390022/jira+APIs/">jira APIs</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JMCFC/465207378/Help+and+Support/">Help and Support</a></summary><ul><li><a href="/cms_trial/space/JMCFC/465471277/FAQs/">FAQs</a></li><li><a href="/cms_trial/space/JMCFC/2132771038/Data+Residency+and+JMCF/">Data Residency and JMCF</a></li><li><a href="/cms_trial/space/JMCFC/1466335238/Migrating+from+Data+Center/">Migrating from Data Center</a></li></ul></details></li><li><a href="/cms_trial/space/JMCFC/2159804423/Meeting+notes+in+space/">Meeting notes in space</a></li><li><details><summary><a href="/cms_trial/space/JMCFC/465502278/Release+notes/">Release notes</a></summary><ul><li><a href="/cms_trial/space/JMCFC/3446801717/JMCF+for+Jira+Cloud+7.0+(Hotfix)/">JMCF for Jira Cloud 7.0 (Hotfix)</a></li><li><a href="/cms_trial/space/JMCFC/3446375407/JMCF+for+Jira+Cloud+7.0/">JMCF for Jira Cloud 7.0</a></li><li><a href="/cms_trial/space/JMCFC/3446309315/JMCF+for+Jira+Cloud+6.0/">JMCF for Jira Cloud 6.0</a></li><li><a href="/cms_trial/space/JMCFC/3446276673/JMCF+for+Jira+Cloud+5.0/">JMCF for Jira Cloud 5.0</a></li><li><a href="/cms_trial/space/JMCFC/3445884126/JMCF+for+Jira+Cloud+4.0/">JMCF for Jira Cloud 4.0</a></li><li><a href="/cms_trial/space/JMCFC/3445981624/JMCF+for+Jira+Cloud+3.0/">JMCF for Jira Cloud 3.0</a></li><li><a href="/cms_trial/space/JMCFC/1115161289/JMCF+for+Jira+Cloud+2.1/">JMCF for Jira Cloud 2.1</a></li><li><a href="/cms_trial/space/JMCFC/750911574/JMCF+for+Jira+Cloud+2.0/">JMCF for Jira Cloud 2.0</a></li><li><a href="/cms_trial/space/JMCFC/465471250/JMCF+for+Jira+Cloud+1.1/">JMCF for Jira Cloud 1.1</a></li><li><a href="/cms_trial/space/JMCFC/465698971/JMCF+for+Jira+Cloud+1.0/">JMCF for Jira Cloud 1.0</a></li></ul></details></li></ul></details></li></ul></nav>
-</aside>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#disabling-the-app">Disabling the app</a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
@@ -264,6 +308,92 @@
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

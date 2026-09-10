@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>Configure custom values | Appfire Docs</title>
 <meta name="description" content="Custom values are user-defined outputs that can be used in rich filter gadgets. They are available as columns in views and as values in gadgets alongside…">
@@ -9,7 +19,15 @@
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Configure custom values",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/RFCDOC/783942033/Configure+custom+values/",
+  "dateModified": "2026-07-21T10:05:17.078Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,26 +37,52 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/RFCDOC/3513253997/Data+residency+and+realm+persistence/">Rich Filters for Jira Dashboards (Cloud) Documentation</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783942482/User+guides/">User guides</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/RFCDOC/783941673/Configure+Rich+Filters/">Configure Rich Filters</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Configure custom values</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/783942033" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/783942033" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>Configure custom values</h1>
-    <div class="page-meta">7 min read</div>
+    <div class="page-meta">Updated 1 month ago · 7 min read</div>
     <h2 id="about-custom-values">About custom values</h2><p>Custom values are user-defined outputs that can be used in rich filter gadgets. They are available as columns in views and as values in gadgets alongside the Jira fields. They provide support for custom aggregation formulas (sum, average, minimum, and maximum, with optional JQL filtering of contributing issues) and custom results display (label, color, and format). Custom values can be based on Issue Count or numeric and time-tracking fields.</p><p>Below is an example of a Rich Filter Statistics gadget that displays, by assignee, the following custom values: the sum of the story points of the resolved issues, the sum of the time spent for support issues, the average time spent (displayed in hours) and the maximum remaining estimate for the unresolved issues.</p><img alt="statistics with custom val.png" class="doc-image" loading="lazy" src="/cms_trial/assets/72a1a107-5470-4c4b-b7d3-66b81f5152c6.png"/><h2 id="custom-values-key-attributes">Custom values key attributes</h2><p>The <strong>Custom values </strong>section of your rich filter lets you add new custom values and view their configuration.</p><img alt="custom_values.png" class="doc-image" loading="lazy" src="/cms_trial/assets/43b5418a-5c04-4460-9c6d-0dba2c48b81f.png"/><p>The <strong>key attributes</strong> of a custom value are:</p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p><strong>Attribute</strong></p></th><th><p><strong>Description</strong></p></th></tr><tr><td><p><strong>Name</strong></p></td><td><p>Each custom value has a <strong>name</strong> used to identify and display it. The name is mandatory and must be unique among the custom values within the rich filter.</p></td></tr><tr><td><p><strong>Color</strong></p></td><td><p>The selected color will be used to display the value in some of the rich filter gadgets.</p></td></tr><tr><td><p><strong>Base value</strong></p></td><td><p>The value on which your custom value is based is selected among Issue Count or numeric and time-tracking fields.</p><img alt="contentId-783942033" class="doc-image" loading="lazy" src="/cms_trial/assets/3317a711-90ab-41c9-aa05-bd8a77ab4553.png"/></td></tr><tr><td><p><strong>Total formula</strong></p></td><td><p>The formula used for aggregation. The possible options are sum, average, minimum, and maximum.</p><img alt="contentId-783942033" class="doc-image" loading="lazy" src="/cms_trial/assets/93bb8f5a-81c8-41e1-ae50-bb05670d908d.png"/></td></tr><tr><td><p><strong>Display</strong></p></td><td><p>The display format of the custom value. The available options are</p><ul><li><p>For numeric fields:</p><ul><li><p>Thousand separators on/off</p></li><li><p>Number of decimals: none or maximum 3, 2 or 1 or exactly 3, 2 or 1</p></li></ul></li></ul><img alt="contentId-783942033" class="doc-image" loading="lazy" src="/cms_trial/assets/b4ec83b3-d659-4470-85db-f8fc6d4abfff.png"/><div class="panel panel-success"><p><strong>What's the difference between maximum 2 and exactly 2 decimals?</strong></p><p>If you select <em>exactly 2</em> options, the value will always be displayed in 2 decimals. This is achieved by rounding to 2 decimals if more than 2 are available (e.g., 23.4567 → 23.46) or padding with zeros up to a total of 2 decimals if fewer than 2 are available (e.g., 23.4 → 23.40).</p><p>Selecting the maximum 2 option will display the value<em> with 0, 1,</em> or 2 decimals. This is achieved by rounding to 2 decimals if more than 2 are available (e.g., 23.4567 → 23.46) and leaving the value as it is if 2 or fewer decimals are available (e.g., 23.4 → 23.4).</p></div><ul><li><p>For time-tracking fields, you can select the <strong>Time display format</strong>:</p><ul><li><p><strong>Jira's time display format</strong> – uses the time format as configured in Jira by the administrator of the instance: </p></li><li><p>Years, weeks, days, hours, minutes, or seconds</p></li></ul></li></ul></td></tr><tr><td><p><strong>JQL</strong></p></td><td><p>You can optionally define a JQL query to filter the issues contributing to the custom value. Only the issues satisfying this query will be taken into account when calculating the custom value.</p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><h2 id="add-and-edit-custom-values">Add and edit custom values</h2><p>The <em>Custom values</em> section of your rich filter lets you perform the following operations:</p><h3 id="1-add-a-new-custom-value">1. <strong>Add a new custom value</strong></h3><ol><li><p>Click <strong>Create custom value</strong> at the top-right of the page.</p><img alt="create_custom_val.png" class="doc-image" loading="lazy" src="/cms_trial/assets/d16ed742-db06-43cc-b0ae-eb5d76ade44c.png"/></li><li><p>Type a <strong>Name</strong>, select a color, <strong>Base value,</strong> <strong>Total formula</strong>, and a display format,</p></li><li><p>(Optional) Type a JQL query. </p></li><li><p>Click <strong>Create</strong>.</p><img alt="contentId-783942033" class="doc-image" loading="lazy" src="/cms_trial/assets/c59e09d4-8068-4ac0-90af-7fd27f1ef765.png"/></li></ol><div class="panel panel-note"><p>You can add up to 100 custom values in each rich filter.</p></div><h3 id="2-view-or-edit-a-custom-value">2. <strong>View or edit a custom value</strong></h3><p>Click the <strong>Edit</strong> (<span class="inline-icon" title="inline icon">▢</span>)icon next to a custom value to view or edit its configuration. Depending on your rights, you can edit or only view the custom value. </p><img alt="contentId-783942033" class="doc-image" loading="lazy" src="/cms_trial/assets/12be2e4f-08a2-44d4-8e9c-98ea401fc481.png"/><h3 id="3-reorder-the-custom-values">3. <strong>Reorder the custom values</strong></h3><p>Hold the pointer over the queue's <strong>Grid </strong>(<span class="inline-icon" title="inline icon">▢</span>) icon, then drag the custom value up or down to the new position.</p><img alt="contentId-783942033" class="doc-image" loading="lazy" src="/cms_trial/assets/9003e6fd-7391-4719-98eb-0e7061bb08fe.png"/><h3 id="4-delete-a-custom-value">4. <strong>Delete a custom value</strong></h3><p>Click the  <strong>Delete</strong> (<span class="inline-icon" title="inline icon">▢</span>) icon next to the custom value name.</p><img alt="contentId-783942033" class="doc-image" loading="lazy" src="/cms_trial/assets/6106344b-6109-47ab-b4e3-b93c0c863462.png"/><h2 id="computed-custom-values">Computed custom values</h2><p><em>Computed custom values</em> are a special case of custom values having a computed base value. Like any other custom value, computed custom values can be used in views and rich filter gadgets.</p><p>The <em>Rich Filter app </em>provides two computed duration custom values:</p><ul><li><p><em>Issue age / resolution time</em> - predefined duration value calculated as the time elapsed between the <em>resolution time (</em>or <em>now</em> for unresolved issues<em>)</em> and the <em>created date</em></p></li><li><p><em>Custom duration</em> - duration value calculated as the time elapsed between any two date/date time fields or between a date/date time field and now</p></li></ul><p> These options are further detailed in the sections below.</p><h3 id="issue-age-resolution-time">Issue age/resolution time</h3><p>Issue age / resolution time is a predefined computed duration value based on the issue created and resolved dates. The issue age / resolution time is calculated as:</p><ul><li><p>for unresolved issues – the time elapsed between now and the created date (issue age)</p></li><li><p>for resolved issues – the time elapsed between the resolution date and the created date (resolution time)</p></li></ul><p>To create a custom value based on the issue age / resolution time, select the <strong>Issue age / resolution time</strong> option in the<strong> </strong><strong>Base value</strong> drop-down menu. The option is available under the <strong>Duration (computed)</strong> category:</p><img alt="contentId-783942033" class="doc-image" loading="lazy" src="/cms_trial/assets/4c88c855-432c-4831-b486-889c2d012861.png"/><p>The <strong>Total formula</strong> and <strong>JQL</strong><em> </em>fields are the same as any other custom value described in <a href="/wiki/pages/resumedraft.action?draftId=783942033#ConfiguringCustomValues-section2">Custom Values' Key Attributes</a>. </p><p>The <strong>Duration display format </strong>field is duration-specific and lets you choose between <strong>Days</strong> and <strong>Hours</strong>.</p><img alt="contentId-783942033" class="doc-image" loading="lazy" src="/cms_trial/assets/979b7543-23d3-47a7-9e16-f5116b8a3f8f.png"/><h3 id="custom-duration">Custom duration</h3><p><em>Custom duration</em> is a computed duration value, calculated as the time elapsed between any two date/date-time fields or between a date/date-time field and now.</p><ol><li><p>Select the<em> </em><strong>Custom duration </strong>option in the <strong>Base value</strong> drop-down menu to create a custom value based on a custom duration. <br/>The option is available under the <strong>Duration (computed)</strong><strong> </strong>category:</p></li></ol><img alt="contentId-783942033" class="doc-image" loading="lazy" src="/cms_trial/assets/3f50eae4-4d0b-40cb-991b-feb11677dcf2.png"/><ol><li><p>Select the <strong>Start</strong> and <strong>End</strong>, which can be a date/date-time field or the <strong>Current time</strong><em>. </em><br/>If the selected date/date-time field can be empty, an extra checkbox becomes available in the selection window, allowing the current day to be used instead of an empty value:</p></li></ol><img alt="contentId-783942033" class="doc-image" loading="lazy" src="/cms_trial/assets/c21f96e9-d9c8-4581-bcaa-df24e2b247fd.png"/><p>The <strong>Total formula </strong>and <strong>JQL</strong> fields are the same as any other custom value described in <a href="/wiki/pages/resumedraft.action?draftId=783942033#ConfiguringCustomValues-section2">Custom Values' Key Attributes</a>. </p><p>The <strong>Duration display format </strong>field is duration-specific and allows you to choose between <strong>Days </strong>and<strong> Hours</strong>. </p><img alt="contentId-783942033" class="doc-image" loading="lazy" src="/cms_trial/assets/979b7543-23d3-47a7-9e16-f5116b8a3f8f.png"/><p>If one of the selected values for the start or end date is of type date, the display format is automatically set to <strong>Days</strong>. In this case, the computed value is a non-fractional number of days. </p><img alt="contentId-783942033" class="doc-image" loading="lazy" src="/cms_trial/assets/437e8404-7b53-49a3-8c7b-ac9c8b09bb44.png"/><div class="panel panel-success"><h3 id="lead-time">Lead time</h3><p><em>Lead Time </em>is an important concept, defined as the average resolution time for the resolved issues. To compute the lead time, create a custom value based on issue age / resolution time and choose the <em>average</em> formula. Use the JQL to eliminate all those issues that are not yet resolved:</p><img alt="contentId-783942033" class="doc-image" loading="lazy" src="/cms_trial/assets/68750df7-a2ed-48fd-991a-d0f4a7bae71c.png"/></div><h2 id="use-custom-values-in-rich-filter-gadgets">Use custom values in rich filter gadgets</h2><p>Custom values can be added to views displayed as columns in Rich Filter Results gadgets or as values in the Rich Filter gadgets displaying aggregated issue data.</p><p>Below are some examples of rich filter gadgets configured to display custom values:</p><ul><li><p><strong>Rich Filter Results</strong> gadget displaying a view that contains a custom value based on Time Spent and formatted in hours:</p></li></ul><img alt="result with custom_val.png" class="doc-image" loading="lazy" src="/cms_trial/assets/13684c4c-9f19-4729-99ac-1eeef7477d1e.png"/><p>Look at the Rich Filter Results Gadget documentation page to find out how to configure the gadget.</p><div class="panel panel-success"><p>The display format settings can be very handy if you wish to display some numeric or time-tracking fields in a particular format, e.g., hours for a time-tracking field.</p></div><ul><li><p><strong>Rich Filter Simple Counters</strong> gadget displaying four custom values:</p></li></ul><img alt="counters with custom val.png" class="doc-image" loading="lazy" src="/cms_trial/assets/1761166b-eaf0-409a-a56e-c52d8a8acde0.png"/><p>Look at the Rich Filter Simple Counter Gadget documentation page to find out how to configure the gadget.</p><ul><li><p><strong>Rich Filter Statistics</strong> gadget displaying four custom values aggregated by assignee:</p></li></ul><img alt="statistics with custom val.png" class="doc-image" loading="lazy" src="/cms_trial/assets/72a1a107-5470-4c4b-b7d3-66b81f5152c6.png"/><p> Look at the <a href="/cms_trial/space/RFCDOC/783941781/The+Rich+Filter+Statistics+Gadget/">Rich Filter Statistics Gadget</a> documentation page to learn how to configure the gadget.</p><ul><li><p><strong>Rich Filter Two Dimensional Statistics</strong> gadget displaying a custom value named Support Time Spent aggregated by the issue field Priority and a <a href="/cms_trial/space/RFCDOC/783941713/Configure+smart+filters/">smart filter</a> named Team:</p></li></ul><img alt="two dimentional stat.png" class="doc-image" loading="lazy" src="/cms_trial/assets/d8a2698c-f47f-4c4d-a300-8fae03ba3c7f.png"/><p>Check the <a href="/cms_trial/space/RFCDOC/783941803/The+Rich+Filter+Two+Dimensional+Statistics+Gadget/">Rich Filter Two Dimensional Statistics Gadget</a> documentation page to see how to configure the gadget.</p><ul><li><p><strong>Rich Filter Flexi Charts</strong> gadget displaying a bar chart of a custom value named Resolved Story Points by assignee:</p></li></ul><img alt="flexi charst with custom val.png" class="doc-image" loading="lazy" src="/cms_trial/assets/93ffedaf-d2e3-431f-9981-7394c6a6b492.png"/><p>Check the<a href="/cms_trial/space/RFCDOC/783941863/The+Rich+Filter+Flexi+Charts+Gadget/"> Rich Filter Flexi Charts Gadget</a> documentation page to see how to configure the gadget.</p><p><br/></p>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">128 pages in this space, fetched live from Confluence via API.</p>
 <nav><ul><li><a href="/cms_trial/space/RFCDOC/3513253997/Data+residency+and+realm+persistence/">Data residency and realm persistence</a></li><li><details open><summary><a href="/cms_trial/space/RFCDOC/783941634/Rich+Filters+for+Jira+Dashboards+(Cloud)/">Rich Filters for Jira Dashboards (Cloud)</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/783941653/Overview/">Overview</a></li><li><a href="/cms_trial/space/RFCDOC/783942462/Get+started+with+Rich+Filters+for+Jira+Dashboards+for+Cloud/">Get started with Rich Filters for Jira Dashboards for Cloud</a></li><li><details><summary><a href="/cms_trial/space/RFCDOC/783941917/Tutorials/">Tutorials</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/783941927/Create+and+access+rich+filters/">Create and access rich filters</a></li><li><a href="/cms_trial/space/RFCDOC/783941937/Build+a+simple+interactive+Jira+dashboard/">Build a simple interactive Jira dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941943/Define+views+for+your+dashboard/">Define views for your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941950/Use+working+queries+in+your+dashboard/">Use working queries in your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941954/Add+dynamic+filtering+to+your+dashboard/">Add dynamic filtering to your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941961/Add+smart+filters+and+smart+columns+to+your+dashboard/">Add smart filters and smart columns to your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941968/Add+rich+filter+statistics+gadgets+to+your+dashboard/">Add rich filter statistics gadgets to your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941975/Add+rich+filter+two+dimensional+statistics+gadgets+to+your+dashboard/">Add rich filter two dimensional statistics gadgets to your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/783941981/Add+rich+filter+flexi+charts+gadgets+to+your+dashboard/">Add rich filter flexi charts gadgets to your dashboard</a></li><li><a href="/cms_trial/space/RFCDOC/2241069104/Create+presets+in+Rich+Filter+Controller/">Create presets in Rich Filter Controller</a></li><li><a href="/cms_trial/space/RFCDOC/2465137080/Permalinks/">Permalinks</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/RFCDOC/783942739/Use+cases/">Use cases</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/783942749/Efficiently+manage+support+requests+with+rich+filter+queues/">Efficiently manage support requests with rich filter queues</a></li><li><a href="/cms_trial/space/RFCDOC/783942775/Create+service+management+reports+with+rich+filter+charts+%26+statistics/">Create service management reports with rich filter charts &amp; statistics</a></li><li><a href="/cms_trial/space/RFCDOC/3019735127/Manage+technical+writing+tasks+across+multiple+teams/">Manage technical writing tasks across multiple teams</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/RFCDOC/783942482/User+guides/">User guides</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/783943671/Concepts/">Concepts</a></li><li><a href="/cms_trial/space/RFCDOC/783942528/Fundamentals/">Fundamentals</a></li><li><a href="/cms_trial/space/RFCDOC/783942654/Advanced/">Advanced</a></li><li><details open><summary><a href="/cms_trial/space/RFCDOC/783941673/Configure+Rich+Filters/">Configure Rich Filters</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/783941683/Manage+Rich+Filters/">Manage Rich Filters</a></li><li><a href="/cms_trial/space/RFCDOC/783941695/Details+configuration/">Details configuration</a></li><li><a href="/cms_trial/space/RFCDOC/783941703/Configure+static+filters/">Configure static filters</a></li><li><a href="/cms_trial/space/RFCDOC/783941707/Configure+dynamic+filters/">Configure dynamic filters</a></li><li><a href="/cms_trial/space/RFCDOC/783941713/Configure+smart+filters/">Configure smart filters</a></li><li><a href="/cms_trial/space/RFCDOC/783941729/Configure+views/">Configure views</a></li><li><a href="/cms_trial/space/RFCDOC/783942406/Configure+queues/">Configure queues</a></li><li><a href="/cms_trial/space/RFCDOC/783942033/Configure+custom+values/" class="active">Configure custom values</a></li><li><a href="/cms_trial/space/RFCDOC/783942266/Configure+custom+ratios/">Configure custom ratios</a></li><li><a href="/cms_trial/space/RFCDOC/783942356/Configure+time+series/">Configure time series</a></li></ul></details></li><li><a href="/cms_trial/space/RFCDOC/783941679/Work+with+Rich+Filter+gadgets/">Work with Rich Filter gadgets</a></li><li><a href="/cms_trial/space/RFCDOC/783942350/Migrate+to+Cloud/">Migrate to Cloud</a></li><li><a href="/cms_trial/space/RFCDOC/783942626/Reference/">Reference</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/RFCDOC/3178496025/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/3178692617/Allowlist+domains+for+Rich+Filters/">Allowlist domains for Rich Filters</a></li><li><a href="/cms_trial/space/RFCDOC/3374972942/Rich+filter+search/">Rich filter search</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/RFCDOC/783941853/Release+Notes/">Release Notes</a></summary><ul><li><a href="/cms_trial/space/RFCDOC/3520364546/Release+notes+August+10th+2026/">Release notes August 10th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3498803215/Release+notes+July+30th+2026/">Release notes July 30th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3461742594/Release+notes+July+27th+2026/">Release notes July 27th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3429695594/Release+notes+July+13th+2026/">Release notes July 13th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3398041685/Release+notes+June+29th+2026/">Release notes June 29th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3377922150/Release+notes+June+2026/">Release notes June 2026</a></li><li><a href="/cms_trial/space/RFCDOC/3171189121/Release+notes+April+2026/">Release notes April 2026</a></li><li><a href="/cms_trial/space/RFCDOC/2886631439/Release+notes+March+9th+2026/">Release notes March 9th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/2884370559/Release+notes+February+13th+2026/">Release notes February 13th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/2804908033/Release+notes+February+11th+2026/">Release notes February 11th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/2856255685/Release+notes+February+5th+2026/">Release notes February 5th 2026</a></li><li><a href="/cms_trial/space/RFCDOC/2681667585/Release+notes+December+30th+2025/">Release notes December 30th 2025</a></li><li><a href="/cms_trial/space/RFCDOC/2509013096/Release+notes+December+4th+2025/">Release notes December 4th 2025</a></li><li><a href="/cms_trial/space/RFCDOC/2239004676/Release+notes+July+31st+2025/">Release notes July 31st 2025</a></li><li><a href="/cms_trial/space/RFCDOC/1935179889/Release+notes+April+8th+2025/">Release notes April 8th 2025</a></li><li><a href="/cms_trial/space/RFCDOC/1799028737/Release+notes+February+26th+2025/">Release notes February 26th 2025</a></li><li><a href="/cms_trial/space/RFCDOC/1624866957/Release+notes+January+13th+2025/">Release notes January 13th 2025</a></li><li><a href="/cms_trial/space/RFCDOC/1595769075/Release+notes+2021%E2%80%932024/">Release notes 2021–2024</a></li></ul></details></li></ul></details></li></ul></nav>
-</aside>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#about-custom-values">About custom values</a></li><li class="toc-level-2"><a href="#custom-values-key-attributes">Custom values key attributes</a></li><li class="toc-level-2"><a href="#add-and-edit-custom-values">Add and edit custom values</a></li><li class="toc-level-3"><a href="#1-add-a-new-custom-value">1. Add a new custom value</a></li><li class="toc-level-3"><a href="#2-view-or-edit-a-custom-value">2. View or edit a custom value</a></li><li class="toc-level-3"><a href="#3-reorder-the-custom-values">3. Reorder the custom values</a></li><li class="toc-level-3"><a href="#4-delete-a-custom-value">4. Delete a custom value</a></li><li class="toc-level-2"><a href="#computed-custom-values">Computed custom values</a></li><li class="toc-level-3"><a href="#issue-age-resolution-time">Issue age/resolution time</a></li><li class="toc-level-3"><a href="#custom-duration">Custom duration</a></li><li class="toc-level-3"><a href="#lead-time">Lead time</a></li><li class="toc-level-2"><a href="#use-custom-values-in-rich-filter-gadgets">Use custom values in rich filter gadgets</a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
@@ -264,6 +308,92 @@
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

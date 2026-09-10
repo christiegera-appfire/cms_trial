@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>JQL functions reference | Appfire Docs</title>
 <meta name="description" content="Use this JQL functions reference to learn how to use the advanced search functions provided by JQL Search Extensions. This page explains the available…">
@@ -9,7 +19,15 @@
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "JQL functions reference",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/JQLSEARCH/1865482654/JQL+functions+reference/",
+  "dateModified": "2026-07-03T10:35:48.397Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,18 +37,45 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209587/JQL+Search+Extensions+-+Data+Center/">JQL Search Extensions - Data Center</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">JQL functions reference</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JQLSEARCH/pages/1865482654" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JQLSEARCH/pages/1865482654" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>JQL functions reference</h1>
-    <div class="page-meta">15 min read</div>
+    <div class="page-meta">Updated 2 months ago · 15 min read</div>
     <p> Use this JQL functions reference to learn how to use the advanced search functions provided by <strong>JQL Search Extensions</strong>. This page explains the available functions, their syntax, and example queries to find Jira issues by project, field, attachment, comment, version, link, update, and other issue details.</p><div class="panel panel-note"><p>The instructions on this page describe how to use the functions from <a href="https://marketplace.atlassian.com/apps/1214791/jql-search-extensions-for-jira-the-jql-extensions?hosting=datacenter&amp;tab=overview">JQL Search Extensions</a>.</p><p>JQL Search Extensions are accessed from Jira’s <a href="https://confluence.atlassian.com/jirasoftwareserver/advanced-searching-939938733.html">Advanced search</a>.</p></div><h2 id="projects">  Projects</h2><div class="panel panel-note"><h3 id="movedissues-projectkey"><strong>movedIssues(projectKey)</strong></h3><p>Finds issues which moved from the project in argument. For instance: </p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">project = SEARCHSERVER AND issue in movedIssues("SEARCHCLOUD")</code></pre></div><p>Will find all issues which are in project SEARCHSERVER and moved from project SEARCHCLOUD. </p></div><h2 id="fields">Fields</h2><div class="panel panel-note"><h3 id="fieldmatch-jql-subquery-field-name-regexp"><strong>fieldMatch(jql-subquery, field-name, regexp)</strong></h3><p>FieldMatch can be used to find issues with field matching the regular expression in the argument. For instance:</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">issue in fieldMatch("project = SEARCH", "description", "find issues mat*")</code></pre></div><p>Will find all issues with description field matching the regular expression <code>find issues mat*</code>. </p><p>The <code>asterisk *</code> matches any alphanumeric characters. It is also possible to use all regular expression constructs, such as</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">issue in fieldMatch("project = SEARCH", "description", "find issu[a-z]{2} mat*") 
 issue in fieldMatch("project = SEARCH", "my custom field", "f[a-z]{5}</code></pre></div><p>This function can be used with any system or custom field.</p><p>For documentation of of regular expression constructs, refer to the <a href="https://docs.oracle.com/javase/7/docs/api/java/util/regex/Pattern.html">documentation</a> from Oracle. </p><h3 id="fieldshavesamevalue-jql-subquery-field-name1-field-name2-field-name-x"><strong>fieldsHaveSameValue(jql-subquery, field-name1, field-name2,...,field-name-x)</strong></h3><p>FieldsHaveSameValue can be used to find issues with fields having the same value. For instance: </p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">issue in fieldsHaveSameValue("version", "my-custom-field-with-version")</code></pre></div><p>It is possible to use multiple fields in the expression, such as below: </p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">issue in fieldsHaveSameValue("version", "my-custom-field-with-version", "one-more-field-with-version")</code></pre></div><p>It is also possible to add JQL subquery to the expression. It will narrow the search only to those issues which match the subquery (in the example below, are in the project DEMO and have the same value of fields version and my-custom-field-with-version).</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">issue in fieldsHaveSameValue("project = SEARCH", "version", "my-custom-field-with-version")</code></pre></div><p>In case fields contain multiple values (for instance, there are many values of field version) the function will expect all values to be equal (but doesn't expect the same order). </p></div><h2 id="attachments">Attachments</h2><div class="panel panel-note"><h3 id="attachedafter"><strong>AttachedAfter</strong></h3><p>AttachedAfter can be used to find issues with attachments added after particular date. Expected date format is yyyy-MM-dd (year dash month dash day of the month) or dd-MM-YYYY</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">issue in attachedAfter("2018-05-26")</code></pre></div><h3 id="attachedbefore"><strong>AttachedBefore</strong></h3><p>AttachedBefore can be used to find issues with attachments added before particular date. Expected date format is yyyy-MM-dd (year dash month dash day of the month) or dd-MM-YYYY</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">issue in attachedBefore("2018-05-26")</code></pre></div><h3 id="attachedbetween"><strong>AttachedBetween</strong></h3><p>AttachedBetween can be used to find issues with attachments added between particular dates. Expected date format is yyyy-MM-dd (year dash month dash day of the month) or dd-MM-YYYY</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">issue in attachedBetween("2018-05-26", "2018-07-01")</code></pre></div><h3 id="attachedondate"><strong>AttachedOnDate</strong></h3><p>AttachedOnDate can be used to find issues with attachments added on particular dates. Expected date format is yyyy-MM-dd (year dash month dash day of the month) or dd-MM-YYYY</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">issue in attachedOnDate("2018-05-26")</code></pre></div><h3 id="attachedbyuser"><strong>AttachedByUser</strong></h3><p>AttachedByUser can be used to find issues with attachments added by a particular user (username is expected)</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">issue in attachedByUser("filip")</code></pre></div><p>This function can be used together with membersOf to find issues attached by users who are members of a particular group.</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">issue in attachedByUser("membersOf(employees)")</code></pre></div><h3 id="attachmentextension"><strong>AttachmentExtension</strong></h3><p>AttachmentExtension can be used to find issues with attachments with particular extension.</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">issue in attachmentExtension("pdf")</code></pre></div><h3 id="attachmentname"><strong>AttachmentName</strong></h3><p>AttachmentName can used to find issues with attachments with particular name.</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">issue in attachedName("documentation")</code></pre></div><h3 id="attachmentscountequalto"><strong>AttachmentsCountEqualTo</strong></h3><p>AttachmentsCountEqualTo can be used to find issues with particular number of attachments.</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">issue in attachmentsCountEqualTo(2)</code></pre></div><h3 id="attachmentscountgreaterthan"><strong>AttachmentsCountGreaterThan</strong></h3><p>AttachmentsCountGreaterThan can be used to find issues with number of attachments greater than provided number</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">issue in attachmentsCountGreaterThan(1)</code></pre></div><h3 id="attachmentscountlessthan"><strong>AttachmentsCountLessThan</strong></h3><p>AttachmentsCountLessThan can be used to find issues with number of attachments lesser than provided number</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">issue in attachmentsCountLessThan(2)</code></pre></div></div><h2 id="comments">Comments</h2><div class="panel panel-note"><h3 id="commentedafter"><strong>CommentedAfter</strong></h3><p>CommentedAfter can be used to find issues with comments added after particular date. Expected date format is yyyy-MM-dd (year dash month dash day of the month) or dd-MM-YYYY</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">issue in commentedAfter("2018-05-26")</code></pre></div><h3 id="commentedbefore"><strong>CommentedBefore</strong></h3><p>CommentedBefore can be used to find issues with comments added before particular date. Expected date format is yyyy-MM-dd (year dash month dash day of the month) or dd-MM-YYYY</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">issue in commentedBefore("2018-05-26")</code></pre></div><h3 id="commentedbetween"><strong>CommentedBetween</strong></h3><p>CommentedBetween can be used to find issues with comments added between particular dates. Expected date format is yyyy-MM-dd (year dash month dash day of the month) or dd-MM-YYYY</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">issue in commentedBetween("2018-05-26", "2018-07-01")</code></pre></div><h3 id="commentedondate"><strong>CommentedOnDate</strong></h3><p>CommentedOnDate can be used to find issues with comments added on particular dates. Expected date format is yyyy-MM-dd (year dash month dash day of the month) or dd-MM-YYYY</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">issue in commentedOnDate("2018-05-26")</code></pre></div><h3 id="commentedbyuser"><strong>CommentedByUser</strong></h3><p>CommentedByUser can be used to find issues with comments added by a particular user (username is expected)</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">issue in commentedByUser("filip")</code></pre></div><p>This function can be used together with membersOf to find issues commented by users who are members of a particular group.</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">issue in commentedByUser("membersOf(employees)")</code></pre></div><h3 id="commentscountequalto"><strong>CommentsCountEqualTo</strong></h3><p>CommentsCountEqualTo can be used to find issues with particular number of comments.</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">issue in commentsCountEqualTo(2)</code></pre></div><h3 id="commentscountgreaterthan"><strong>CommentsCountGreaterThan</strong></h3><p>CommentsCountGreaterThan can be used to find issues with number of comments greater than provided number</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">issue in commentsCountGreaterThan(2)</code></pre></div><h3 id="commentscountlessthan"><strong>CommentsCountLessThan</strong></h3><p>CommentsCountLessThan can be used to find issues with number of comments lesser than provided number</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">issue in commentsCountLessThan(2)</code></pre></div></div><h2 id="versions">Versions</h2><div class="panel panel-note"><h3 id="affectedversionsarchivedcountlessthan"><strong>AffectedVersionsArchivedCountLessThan</strong></h3><h3 id="fixversionsarchivedcountlessthan"><strong>FixVersionsArchivedCountLessThan</strong></h3><p>AffectedVersionsArchivedCountLessThan and FixVersionsArchivedCountLessThan can be used to find issues with number of archived versions less than provided number.</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">issue in affectedVersionsArchivedCountLessThan(2) OR issue in fixVersionsArchivedCountLessThan(2)
 </code></pre></div><h3 id="affectedversionsarchivedcountequalto"><strong>AffectedVersionsArchivedCountEqualTo</strong></h3><h3 id="fixversionsarchivedcountequalto"><strong>FixVersionsArchivedCountEqualTo</strong></h3><p>AffectedVersionsArchivedCountEqualTo and FixVersionsArchivedCountEqualTo can be used to find issues with number of archived versions equal to provided number.</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">issue in affectedVersionsArchivedCountEqualTo(2) OR issue in fixVersionsArchivedCountEqualTo(2)
@@ -67,9 +112,8 @@ assignee in userMatch("dan[a-z]{3}") // matching dan followed by three lowercase
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">98 pages in this space, fetched live from Confluence via API.</p>
 <nav><ul><li><details open><summary><a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions for Jira</a></summary><ul><li><details><summary><a href="/cms_trial/space/JQLSEARCH/604209972/JQL+Search+Extensions+(Cloud)/">JQL Search Extensions (Cloud)</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/604209802/Get+started+with+JQL+Search+Extensions+for+Jira/">Get started with JQL Search Extensions for Jira</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209757/Use+cases/">Use cases</a></li><li><a href="/cms_trial/space/JQLSEARCH/1120043993/App+integrations/">App integrations</a></li><li><a href="/cms_trial/space/JQLSEARCH/604210001/Video+tutorials/">Video tutorials</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209395/JQL+functions+and+keywords+reference/">JQL functions and keywords reference</a></li></ul></details></li><li><a href="/cms_trial/space/JQLSEARCH/604209729/Migrations/">Migrations</a></li><li><details><summary><a href="/cms_trial/space/JQLSEARCH/913997907/Release+notes/">Release notes</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/604209185/Release+notes+-+Cloud/">Release notes - Cloud</a></li><li><a href="/cms_trial/space/JQLSEARCH/604210041/Release+notes+-+Server%2FData+Center/">Release notes - Server/Data Center</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JQLSEARCH/918979098/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/1766293568/Troubleshooting/">Troubleshooting</a></li><li><a href="/cms_trial/space/JQLSEARCH/919273915/Appfire+support/">Appfire support</a></li><li><a href="/cms_trial/space/JQLSEARCH/919306596/Appfire+Trust+Center/">Appfire Trust Center</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209808/Data+storage/">Data storage</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/JQLSEARCH/604209587/JQL+Search+Extensions+-+Data+Center/">JQL Search Extensions - Data Center</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/604209431/Get+started+with+JQL+Search+Extensions+for+Jira+Data+Center/">Get started with JQL Search Extensions for Jira Data Center</a></li><li><a href="/cms_trial/space/JQLSEARCH/1865482654/JQL+functions+reference/" class="active">JQL functions reference</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209740/Performance+tests+results/">Performance tests results</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209735/How+to+resolve+com.atlassian.jira.issue.search.ClauseTooComplexSearchException/">How to resolve com.atlassian.jira.issue.search.ClauseTooComplexSearchException</a></li></ul></details></li></ul></details></li></ul></nav>
-</aside>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#projects">  Projects</a></li><li class="toc-level-3"><a href="#movedissues-projectkey">movedIssues(projectKey)</a></li><li class="toc-level-2"><a href="#fields">Fields</a></li><li class="toc-level-3"><a href="#fieldmatch-jql-subquery-field-name-regexp">fieldMatch(jql-subquery, field-name, regexp)</a></li><li class="toc-level-3"><a href="#fieldshavesamevalue-jql-subquery-field-name1-field-name2-field-name-x">fieldsHaveSameValue(jql-subquery, field-name1, field-name2,...,field-name-x)</a></li><li class="toc-level-2"><a href="#attachments">Attachments</a></li><li class="toc-level-3"><a href="#attachedafter">AttachedAfter</a></li><li class="toc-level-3"><a href="#attachedbefore">AttachedBefore</a></li><li class="toc-level-3"><a href="#attachedbetween">AttachedBetween</a></li><li class="toc-level-3"><a href="#attachedondate">AttachedOnDate</a></li><li class="toc-level-3"><a href="#attachedbyuser">AttachedByUser</a></li><li class="toc-level-3"><a href="#attachmentextension">AttachmentExtension</a></li><li class="toc-level-3"><a href="#attachmentname">AttachmentName</a></li><li class="toc-level-3"><a href="#attachmentscountequalto">AttachmentsCountEqualTo</a></li><li class="toc-level-3"><a href="#attachmentscountgreaterthan">AttachmentsCountGreaterThan</a></li><li class="toc-level-3"><a href="#attachmentscountlessthan">AttachmentsCountLessThan</a></li><li class="toc-level-2"><a href="#comments">Comments</a></li><li class="toc-level-3"><a href="#commentedafter">CommentedAfter</a></li><li class="toc-level-3"><a href="#commentedbefore">CommentedBefore</a></li><li class="toc-level-3"><a href="#commentedbetween">CommentedBetween</a></li><li class="toc-level-3"><a href="#commentedondate">CommentedOnDate</a></li><li class="toc-level-3"><a href="#commentedbyuser">CommentedByUser</a></li><li class="toc-level-3"><a href="#commentscountequalto">CommentsCountEqualTo</a></li><li class="toc-level-3"><a href="#commentscountgreaterthan">CommentsCountGreaterThan</a></li><li class="toc-level-3"><a href="#commentscountlessthan">CommentsCountLessThan</a></li><li class="toc-level-2"><a href="#versions">Versions</a></li><li class="toc-level-3"><a href="#affectedversionsarchivedcountlessthan">AffectedVersionsArchivedCountLessThan</a></li><li class="toc-level-3"><a href="#fixversionsarchivedcountlessthan">FixVersionsArchivedCountLessThan</a></li><li class="toc-level-3"><a href="#affectedversionsarchivedcountequalto">AffectedVersionsArchivedCountEqualTo</a></li><li class="toc-level-3"><a href="#fixversionsarchivedcountequalto">FixVersionsArchivedCountEqualTo</a></li><li class="toc-level-3"><a href="#affectedversionsarchivedcountgreaterthan">AffectedVersionsArchivedCountGreaterThan</a></li><li class="toc-level-3"><a href="#fixversionsarchivedcountgreaterthan">FixVersionsArchivedCountGreaterThan</a></li><li class="toc-level-3"><a href="#affectedversionscountlessthan">AffectedVersionsCountLessThan</a></li><li class="toc-level-3"><a href="#fixversionscountlessthan">FixVersionsCountLessThan</a></li><li class="toc-level-3"><a href="#affectedversionscountequalto">AffectedVersionsCountEqualTo</a></li><li class="toc-level-3"><a href="#fixversionscountequalto">FixVersionsCountEqualTo</a></li><li class="toc-level-3"><a href="#affectedversionscountgreaterthan">AffectedVersionsCountGreaterThan</a></li><li class="toc-level-3"><a href="#fixversionscountgreaterthan">FixVersionsCountGreaterThan</a></li><li class="toc-level-3"><a href="#affectedversionsopenedcountlessthan">AffectedVersionsOpenedCountLessThan</a></li><li class="toc-level-3"><a href="#fixversionsopenedcountlessthan">FixVersionsOpenedCountLessThan</a></li><li class="toc-level-3"><a href="#affectedversionsopenedcountequalto">AffectedVersionsOpenedCountEqualTo</a></li><li class="toc-level-3"><a href="#fixversionsopenedcountequalto">FixVersionsOpenedCountEqualTo</a></li><li class="toc-level-3"><a href="#affectedversionsopenedcountgreaterthan">AffectedVersionsOpenedCountGreaterThan</a></li><li class="toc-level-3"><a href="#fixversionsopenedcountgreaterthan">FixVersionsOpenedCountGreaterThan</a></li><li class="toc-level-3"><a href="#affectedversionsreleasedcountlessthan">AffectedVersionsReleasedCountLessThan</a></li><li class="toc-level-3"><a href="#fixversionsreleasedcountlessthan">FixVersionsReleasedCountLessThan</a></li><li class="toc-level-3"><a href="#affectedversionsreleasedcountequalto">AffectedVersionsReleasedCountEqualTo</a></li><li class="toc-level-3"><a href="#fixversionsreleasedcountequalto">FixVersionsReleasedCountEqualTo</a></li><li class="toc-level-3"><a href="#affectedversionsreleasedcountgreaterthan">AffectedVersionsReleasedCountGreaterThan</a></li><li class="toc-level-3"><a href="#fixversionsreleasedcountgreaterthan">FixVersionsReleasedCountGreaterThan</a></li><li class="toc-level-3"><a href="#fixversionreleasedondate">FixVersionReleasedOnDate</a></li><li class="toc-level-3"><a href="#affectedversionreleasedondate">AffectedVersionReleasedOnDate</a></li><li class="toc-level-3"><a href="#fixversionreleasedbetweendates">FixVersionReleasedBetweenDates</a></li><li class="toc-level-3"><a href="#affectedversionreleasedbetweendates">AffectedVersionReleasedBetweenDates</a></li><li class="toc-level-3"><a href="#fixversionreleasedafterdate">FixVersionReleasedAfterDate</a></li><li class="toc-level-3"><a href="#affectedversionreleasedafterdate">AffectedVersionReleasedAfterDate</a></li><li class="toc-level-3"><a href="#fixversionreleasedbeforedate">FixVersionReleasedBeforeDate</a></li><li class="toc-level-3"><a href="#affectedversionreleasedbeforedate">AffectedVersionReleasedBeforeDate</a></li><li class="toc-level-3"><a href="#latestreleaseversionforproject">LatestReleaseVersionForProject</a></li><li class="toc-level-2"><a href="#links">Links</a></li><li class="toc-level-3"><a href="#linkscountlessthan">LinksCountLessThan</a></li><li class="toc-level-3"><a href="#linkscountgreaterthan">LinksCountGreaterThan</a></li><li class="toc-level-3"><a href="#linkscountequalto">LinksCountEqualTo</a></li><li class="toc-level-3"><a href="#linkedby-linktype-jql-query-or-issuekeys">LinkedBy([linktype], jql-query or issuekeys)</a></li><li class="toc-level-3"><a href="#links-jql-query-link-type">Links(jql-query, link type)</a></li><li class="toc-level-3"><a href="#linksissue">LinksIssue</a></li><li class="toc-level-3"><a href="#linktype">LinkType</a></li><li class="toc-level-3"><a href="#linkedissuestatus">LinkedIssueStatus</a></li><li class="toc-level-3"><a href="#linkedissuestatuscategory">LinkedIssueStatusCategory</a></li><li class="toc-level-3"><a href="#linkedissuetype">LinkedIssueType</a></li><li class="toc-level-3"><a href="#linkedissuepriority">LinkedIssuePriority</a></li><li class="toc-level-3"><a href="#linkedbyissueproject">LinkedByIssueProject</a></li><li class="toc-level-2"><a href="#updated">Updated</a></li><li class="toc-level-3"><a href="#updatedbyusercountlessthan">UpdatedByUserCountLessThan</a></li><li class="toc-level-3"><a href="#updatedbyusercountgreaterthan">UpdatedByUserCountGreaterThan</a></li><li class="toc-level-3"><a href="#updatedbyusercountequalto">UpdatedByUserCountEqualTo</a></li><li class="toc-level-3"><a href="#updatedbyuser">UpdatedByUser</a></li><li class="toc-level-3"><a href="#transitionedbyuser">TransitionedByUser</a></li><li class="toc-level-3"><a href="#loggedtimebyuser">LoggedTimeByUser</a></li><li class="toc-level-2"><a href="#subtasks">Subtasks</a></li><li class="toc-level-3"><a href="#subtaskof-jql-query">SubTaskOf(jql-query)</a></li><li class="toc-level-3"><a href="#parentof-jql-query">ParentOf(jql-query)</a></li><li class="toc-level-3"><a href="#subtaskcountlessthan">SubtaskCountLessThan</a></li><li class="toc-level-3"><a href="#subtaskcountgreaterthan">SubtaskCountGreaterThan</a></li><li class="toc-level-3"><a href="#subtaskcountequalto">SubtaskCountEqualTo</a></li><li class="toc-level-3"><a href="#subtaskkey">SubTaskKey</a></li><li class="toc-level-3"><a href="#subtaskpriority">SubtaskPriority</a></li><li class="toc-level-3"><a href="#subtasktype">SubTaskType</a></li><li class="toc-level-3"><a href="#subtaskstatus">SubTaskStatus</a></li><li class="toc-level-3"><a href="#subtaskstatuscategory">SubTaskStatusCategory</a></li><li class="toc-level-2"><a href="#software-development">Software Development</a></li><li class="toc-level-3"><a href="#openpullrequestscount">OpenPullRequestsCount</a></li><li class="toc-level-3"><a href="#commitscount">CommitsCount</a></li><li class="toc-level-3"><a href="#failingbuildscount">FailingBuildsCount</a></li><li class="toc-level-3"><a href="#openreviewscount">OpenReviewsCount</a></li><li class="toc-level-3"><a href="#pullrequestscount">PullRequestsCount</a></li><li class="toc-level-3"><a href="#reviewscount">ReviewsCount</a></li><li class="toc-level-2"><a href="#issue-hierarchy">Issue hierarchy </a></li><li class="toc-level-3"><a href="#allissuesinepic-jql-query-or-issuekey">AllIssuesInEpic(jql-query or issuekey)</a></li><li class="toc-level-3"><a href="#epicof-jql-query">EpicOf(jql-query)</a></li><li class="toc-level-2"><a href="#user"> User</a></li><li class="toc-level-3"><a href="#usermatch-regular-expression">UserMatch(regular-expression)</a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
@@ -295,6 +339,92 @@ assignee in userMatch("dan[a-z]{3}") // matching dan followed by three lowercase
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>7pace Timetracker's Reporting Page | Appfire Docs</title>
 <meta name="description" content="If you require additional assistance or training or are interested in having a custom report created for you, consider enlisting our support team.">
@@ -9,7 +19,15 @@
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "7pace Timetracker's Reporting Page",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/7TFA/1253539934/7pace+Timetracker%27s+Reporting+Page/",
+  "dateModified": "2026-08-27T01:41:39.911Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,18 +37,45 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/3482517944/Admin+guide/">Admin guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFA/1253540254/API+%26+Reporting/">API &amp; Reporting</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">7pace Timetracker's Reporting Page</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/7TFA/pages/1253539934" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/7TFA/pages/1253539934" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>7pace Timetracker's Reporting Page</h1>
-    <div class="page-meta">11 min read</div>
+    <div class="page-meta">Updated 14 days ago · 11 min read</div>
     <div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p>If you require additional assistance or training or are interested in having a custom report created for you, consider enlisting our <a href="https://appfire.atlassian.net/servicedesk/customer/portals">support team</a>.</p></div><div></div></div><p>Webinar: <a href="https://www.youtube.com/watch?v=mQobvFiuH5k">Software Development Capitalization - Increasing Percentage of Work that is Capitalized &amp; Reporting Tips</a></p><div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/R_rpaE_sqDw"></iframe></div><h2 id="default-reports">Default Reports</h2><div class="panel panel-note"><p>All reports are personal and cannot be shared with other team members within a project or organization at this time. </p></div><img alt="Reports_Overview.png" class="doc-image" loading="lazy" src="/cms_trial/assets/da987990-2f40-4f89-8be2-3cef904ceba9.png"/><p>The Reporting page of 7pace Timetracker comes with the following default reports for your convenience. Depending on the report, you may have the option to change the date range of data that displays. </p><img alt="Reports_Overview_Change_Date_Range.png" class="doc-image" loading="lazy" src="/cms_trial/assets/848c98d8-58e0-4d0c-94d6-990316c60203.png"/><h2 id="personal-overview">Personal Overview</h2><p>This report shows an individual progress line chart, as well as a breakout of the days you worked, total time worked, average time worked per day, and time worked during the current day, during the selected time period. It also shows a time tracked per day bar chart, a details panel of the work items you tracked on, and projects and activity types pie charts for that period. </p><h2 id="team-overview-report">Team Overview Report</h2><p>This report shows all time tracked by the team for the current day, current week, current month, and current year. It also shows a period summary line chart, a projects pie chart, team time per day bar chart, activity types line chart and pie chart, team time tracked per person breakout list, team time tracked per person pie chart, and top 30 work items tracked for the current month details panel. </p><h2 id="team-overview-report-date-period">Team Overview Report (Date Period)</h2><p>You can select the time period of data you’d like to see for this report. It shows a period summary line chart, a projects pie chart, a team time per day bar chart, activity types line and pie charts, activity types line and pie charts, a team time tracked per person breakout list, a team time tracked per person pie chart, the top 30 work items tracked for the selected time period details panel, and an Iterations bar chart.</p><h2 id="backlog-report">Backlog Report</h2><p>For this report, you can select the time period of data you’d like to see. It includes a team work item details panel with their children, time tracked per Work Item Type, and time.</p><h2 id="epics-report">Epics Report</h2><p>For this report, you can select the time period of data you’d like to see. It includes a team work item details panel, time tracked per person list, time tracked per project and per activity type pie charts, total tracked time for the selected period line chart, and daily time bar chart.  Please note that this report features data from the work item and its children.</p><h2 id="last-tracks">Last Tracks</h2><p>This report shows time tracked on the current day and the previous day. </p><h2 id="report-properties">Report properties</h2><p>Every report has several configurable properties:</p><ul><li><p>Name</p></li><li><p>Prefilter - The option to limit data displayed on the report by current user or current project. These filters are dynamic and depend on the current user who opened the report or on the project.</p></li><li><p>Type - The option to enable or disable the Date filter on the report.<br/>ℹ️  You can't change this option after a report has been created; you have to create a new report and copy the Widgets into it.</p></li><li><p>Filters have two types: Work item filter and worklog filter. For technical reference, check <a href="/cms_trial/space/7TFA/1253540266/7pace+Timetracker+Reporting+API+Version+3/">this</a> section. </p><ul><li><p>Projects - Work item filter that provides a list of projects that can be used to filter data on the report</p></li><li><p>Area - Work item filter that provides the ability to filter by the area path of work items</p></li><li><p>Iteration - Work item filter that provides the ability to filter by the iteration path of work items</p></li><li><p>State - Work item filter that provides the ability to filter by work item state</p></li><li><p>Work Item Type - Work item filter that provides the ability to filter by the type of work items</p></li><li><p>Person - Worklog filter that provides the ability to filter by specific team members (<strong>Important</strong>: To see the Person filter, the user must have at least the "Product" role assigned. This filter is not available for "Team" role users. To check on your users' permissions, you can go to the "Settings" page of Timetracker -&gt; User Management ).</p></li><li><p>Activity Type - Worklog filter that provides the ability to filter by the Activity Type of worklogs</p></li></ul></li><li><p>Work Item Filters Type - These define how the filters, above, marked as w<em>ork Item</em> filters, are<em> </em>applied to work items:</p><ul><li><p>Apply to only top-level work items—filters are applied only to work items that do not have parents (e.g., Epics) and are not applied to the children of those work items. This can be helpful with reports that have drill-down tables that present data for high-level work items.</p></li><li><p>Apply on the whole hierarchy - filters are applied on all the items that are present in the backlog and only leave items matching the specific condition.</p></li></ul></li></ul><h2 id="about-privacy">About privacy</h2><p>By default, because reporting operates under <a href="/cms_trial/space/7TFA/1253540778/7pace+Timetracker+Service+Account/">Service Account</a> permissions, users have access to all worklogs and work items within reporting. If privacy issues are a concern and you'd like to restrict access to only those projects to which your users currently have access, disable the "Allow access to DevOps data from restricted projects in Reporting" checkbox in <a href="/cms_trial/space/7TFA/1253540778/7pace+Timetracker+Service+Account/">Service Account Settings</a>.</p><h2 id="widget-types">Widget types</h2><ul><li><p><strong>Line Chart</strong> - Visually presents a series of data points over intervals of time as a linear graph. It is often used to show trend data.</p></li><li><p><strong>Column / Bar Chart</strong> - Compares values by visualizing data as vertical bars with height being proportional to the values.</p></li><li><p><strong>Pie / Donut Chart</strong> - Shows proportions and percentages between categories by dividing a circle into  proportional segments.</p></li><li><p><strong>Number  Chart</strong> - Shows concrete values from a series of data and is often used to display a summary, average values or other results of data aggregation.</p></li><li><p><strong>Table</strong> - Shows a detailed set of flat data.</p></li><li><p><strong>Drilldown Table - </strong>Presents a detailed data set in which every entity can be expanded to display related information.</p></li><li><p><strong>Stacked Bars - </strong>Compares data by categories, dividing each category into smaller pieces to compare each. Similar to a column chart, categories are displayed as vertical bars with height being proportional to the totals, and each bar divided into smaller rectangles to represent the values. </p></li><li><p><strong>Pivot table - </strong>Is used to quickly summarize large amounts of data. You can use a PivotTable to analyze numerical data in detail, and answer unanticipated questions about your data. A PivotTable is especially designed for querying large amounts of data in many user-friendly ways. We have created a pivot table template which can be downloaded from the following link: <a href="/cms_trial/space/7TFA/1253540266/7pace+Timetracker+Reporting+API+Version+3/">Pivot table</a></p></li></ul><div class="panel panel-note"><p>Pivot table is <strong>not available out of the box in the 7pace UI currently</strong>, but we have created a workaround that utilizes our API to achieve pivot table functionality. </p></div><h2 id="working-with-reports">Working with reports</h2><h2 id="how-to-add-a-report">How to: Add a report</h2><p>1. From the Reporting page, select the default reports list dropdown and then click “New Report”.</p><img alt="Add_Report.png" class="doc-image" loading="lazy" src="/cms_trial/assets/dd37ce51-9897-4b7c-8d96-09c569b2982e.png"/><p>2. Type in a report “Name”, select a “Pre-filter dashboard” (“None”, “Me” or “CurrentProject”), select “Type” (“Date Period” or “No Date Period”), check relevant “Enabled Filters”, and select “Work Item Filters Type” (“Apply on whole hierarchy” or “apply only on top level work items”).</p><p>3. Click <strong>Save</strong>. “Create Widgets for your report” page displays. </p><p>Click <a href="https://appfire.atlassian.net/wiki/spaces/7TFA/pages/edit-v2/1253539934#How-to%3A-Add-new-Widget">here</a> for how to add a widget.</p><h2 id="how-to-edit-a-report">How to: Edit a report</h2><p>1. To edit an existing report, click <strong>Edit</strong>.</p><img alt="Edit_Report.png" class="doc-image" loading="lazy" src="/cms_trial/assets/429ccc5d-b299-4277-b053-d57429c707d0.png"/><p>The "Edit report" window displays.</p><p>2. Make changes to any of the fields within the window and click <strong>Save</strong>.</p><h2 id="how-to-delete-a-report">How to: Delete a report</h2><p>1. To delete an existing report, click the dropdown icon by the “Edit” button.</p><img alt="Delete_Report.png" class="doc-image" loading="lazy" src="/cms_trial/assets/576f5488-f295-410a-8fa2-5d42ddc22670.png"/><p>2. On the “Are you sure” popup window, select “Yes”. The report is deleted.</p><div class="panel panel-note"><p>For the time being, if you delete all default reports, you must also delete any user-created reports for the default reports to return. </p></div><h2 id="how-to-reorder-widgets">How to: Reorder Widgets</h2><p>1. Click the dropdown arrow icon next to the “Edit” button and select “Reorder Widgets”.</p><img alt="Reorder_Widgets.png" class="doc-image" loading="lazy" src="/cms_trial/assets/69fa23c3-128d-4cb8-a496-3bcd810cc3db.png"/><p>2. With your mouse or keypad, move the Widget or Widgets to the preferred placement on the page.</p><p>3. Click <strong>Done Reorder</strong> at the top-center of the page. The new placement of Widget or Widgets is saved.</p><h2 id="how-to-export-data-to-excel">How to: Export data to Excel</h2><p>1. With the report of your choice selected, hover your mouse over an individual Widget until the “Export Data” icon displays.</p><img alt="Export_Data_to_Excel.png" class="doc-image" loading="lazy" src="/cms_trial/assets/86215e1f-8d88-4276-b1d9-5c8dd7e0a8d0.png"/><p>2. Click <strong>Export Data</strong>. Data from the Widget is exported to an Excel file.</p><div class="panel panel-note"><p>Only visible data will be exported. If you export data from tables, only the items that are present in the table will be exported.</p></div><h2 id="how-to-zoom-in-and-zoom-out-of-widgets">How to: Zoom in and zoom out of Widgets</h2><p>On the Widget of your choice, hover over it until dotted grid lines display on it. You can then zoom in or zoom out to the level of detail you require. </p><img alt="Zoom_In_Out_Widgets.png" class="doc-image" loading="lazy" src="/cms_trial/assets/6a0f0430-8210-49aa-a679-9b17175800ab.png"/><h2 id="how-to-add-a-new-widget">How to: Add a new Widget</h2><p>1. Choose a report where you want to add a Widget.</p><p>2. Click the <strong>Add Widget</strong>.</p><p>3. Choose the Widget type you need. For this example, let's create a Drilldown Table.</p><img alt="Add_Widget.gif" class="doc-image" loading="lazy" src="/cms_trial/assets/18995a16-06ec-4e3c-94c1-ebfa5a7c7a0c.gif"/><p>4. When you click "Drilldown Table", you'll see the table configuration.</p><p>5. Fill in the title.</p><p>6. Add subtitle (optional). If you check the Auto title checkbox, it will be automatically filled by the widget pre-filter value.</p><p>7. Choose the Widget size.</p><p>8. Choose the OData endpoint where you need to pull data (all endpoints described <a href="/cms_trial/space/7TFA/1253540266/7pace+Timetracker+Reporting+API+Version+3/">here</a>).</p><p>For this example, let's say we want to show all work items on which the team tracked time with all hierarchy levels.</p><p>9. Therefore, choose "<a href="/cms_trial/space/7TFA/1253540266/7pace+Timetracker+Reporting+API+Version+3/">workItemsHierarchyAllLevels</a>".<br/></p><p>You now need to construct an OData Query (for more information, see <a href="http://docs.oasis-open.org/odata/odata/v4.01/odata-v4.01-part2-url-conventions.html">OData documentation</a>):</p><p>In this case, we'll need this query:</p><p><code>$select=System_Id,System_WorkItemType,System_TeamProject,System_Title,TrackedTotal,TrackedItself,System_State,System_AssignedTo,HasChildren&amp;$filter=TrackedTotal gt 0</code></p><p>The "children" endpoint and "children" query will be filled automatically.</p><p>The other settings should be filled in the Console field as JSON:</p><ul><li><p>Our table will have a hierarchy, so fill the field so our table can show this hierarchy. </p></li></ul><p><code>"hierarchyField": "System_Id"</code></p><ul><li><p>The only one we need to now fill is the columns field:</p></li></ul><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">"columns": [
  {
    "field": "System_Id",
@@ -148,9 +193,8 @@
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">146 pages in this space, fetched live from Confluence via API.</p>
-<nav><ul><li><details open><summary><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a></summary><ul><li><details><summary><a href="/cms_trial/space/7TFA/1253540271/Get+started/">Get started</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540433/7pace+Timetracker+for+developers/">7pace Timetracker for developers</a></li><li><a href="/cms_trial/space/7TFA/1253540439/7pace+Timetracker+for+managers/">7pace Timetracker for managers</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/7TFA/3482517944/Admin+guide/">Admin guide</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540127/Installation+and+Data+Security/">Installation and Data Security</a></li><li><a href="/cms_trial/space/7TFA/2193557481/Authorization+methods/">Authorization methods</a></li><li><details open><summary><a href="/cms_trial/space/7TFA/1253540254/API+%26+Reporting/">API &amp; Reporting</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253539983/7pace+Timetracker+API+Important+Information/">7pace Timetracker API Important Information</a></li><li><a href="/cms_trial/space/7TFA/1253540758/7pace+Timetracker+Client+(Tracking)+API/">7pace Timetracker Client (Tracking) API</a></li><li><a href="/cms_trial/space/7TFA/1253539934/7pace+Timetracker%27s+Reporting+Page/" class="active">7pace Timetracker's Reporting Page</a></li><li><a href="/cms_trial/space/7TFA/1253540063/7pace+Timetracker%27s+Reporting+Widgets+Gallery/">7pace Timetracker's Reporting Widgets Gallery</a></li><li><a href="/cms_trial/space/7TFA/1253540266/7pace+Timetracker+Reporting+API+Version+3/">7pace Timetracker Reporting API Version 3</a></li><li><a href="/cms_trial/space/7TFA/1253540003/7pace+Timetracker+REST+CRUD+API+Version+3/">7pace Timetracker REST CRUD API Version 3</a></li><li><a href="/cms_trial/space/7TFA/1253539907/How+to+Avoid+API+Rate+Limiting/">How to Avoid API Rate Limiting</a></li><li><a href="/cms_trial/space/7TFA/1253540313/API+2.1+Migration+FAQ/">API 2.1 Migration FAQ</a></li><li><a href="/cms_trial/space/7TFA/1253539892/7pace+Timetracker%27s+Reporting+API+%22This+set+of+parameters+is+not+allowed%22+error/">7pace Timetracker's Reporting API "This set of parameters is not allowed" error</a></li><li><a href="/cms_trial/space/7TFA/1253539939/How+to+export+a+list+of+all+licensed+users/">How to export a list of all licensed users</a></li><li><a href="/cms_trial/space/7TFA/3118563336/API+Rate+Limiting/">API Rate Limiting</a></li></ul></details></li><li><a href="/cms_trial/space/7TFA/1253540242/Apps/">Apps</a></li><li><a href="/cms_trial/space/7TFA/3488055333/App+configuration/">App configuration</a></li><li><a href="/cms_trial/space/7TFA/1253539917/7pace+Timetracker+Legacy+Versions+and+Legacy+TFS/">7pace Timetracker Legacy Versions and Legacy TFS</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/3482780186/User+guide/">User guide</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253539966/Add+Time+Dialog/">Add Time Dialog</a></li><li><a href="/cms_trial/space/7TFA/1253539860/Work+item+form/">Work item form</a></li><li><a href="/cms_trial/space/7TFA/1253540085/Budgets/">Budgets</a></li><li><a href="/cms_trial/space/7TFA/1253540717/Iterations/">Iterations</a></li><li><a href="/cms_trial/space/7TFA/1253539865/Approvals/">Approvals</a></li><li><a href="/cms_trial/space/7TFA/1253540013/Times+Explorer/">Times Explorer</a></li><li><a href="/cms_trial/space/7TFA/1253540070/Monthly+view/">Monthly view</a></li><li><a href="/cms_trial/space/7TFA/1547173906/Weekly+view/">Weekly view</a></li><li><a href="/cms_trial/space/7TFA/1253540328/Timesheet/">Timesheet</a></li><li><a href="/cms_trial/space/7TFA/2935357478/Connect+calendar/">Connect calendar</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/3511091204/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/7TFA/1361084424/7pace+Product+Support/">7pace Product Support</a></li><li><a href="/cms_trial/space/7TFA/1253540447/Frequently+Asked+Questions/">Frequently Asked Questions</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/1253539885/Release+Notes/">Release Notes</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540249/7pace+Timetracker+for+Azure+DevOps+Release+Notes/">7pace Timetracker for Azure DevOps Release Notes</a></li><li><a href="/cms_trial/space/7TFA/1253540290/Legacy+Release+Notes/">Legacy Release Notes</a></li></ul></details></li></ul></details></li></ul></nav>
-</aside>
+<nav><ul><li><details open><summary><a href="/cms_trial/space/7TFA/1253539843/7pace+Timetracker+for+Azure+DevOps/">7pace Timetracker for Azure DevOps</a></summary><ul><li><details><summary><a href="/cms_trial/space/7TFA/1253540271/Get+started+with+7pace+Timetracker+for+Azure+DevOps/">Get started with 7pace Timetracker for Azure DevOps</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540433/7pace+Timetracker+for+developers/">7pace Timetracker for developers</a></li><li><a href="/cms_trial/space/7TFA/1253540439/7pace+Timetracker+for+managers/">7pace Timetracker for managers</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/7TFA/3482517944/Admin+guide/">Admin guide</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253540127/Installation+and+Data+Security/">Installation and Data Security</a></li><li><a href="/cms_trial/space/7TFA/2193557481/Authorization+methods/">Authorization methods</a></li><li><details open><summary><a href="/cms_trial/space/7TFA/1253540254/API+%26+Reporting/">API &amp; Reporting</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253539983/7pace+Timetracker+API+Important+Information/">7pace Timetracker API Important Information</a></li><li><a href="/cms_trial/space/7TFA/1253540758/7pace+Timetracker+Client+(Tracking)+API/">7pace Timetracker Client (Tracking) API</a></li><li><a href="/cms_trial/space/7TFA/1253539934/7pace+Timetracker%27s+Reporting+Page/" class="active">7pace Timetracker's Reporting Page</a></li><li><a href="/cms_trial/space/7TFA/1253540063/7pace+Timetracker%27s+Reporting+Widgets+Gallery/">7pace Timetracker's Reporting Widgets Gallery</a></li><li><a href="/cms_trial/space/7TFA/1253540266/7pace+Timetracker+Reporting+API+Version+3/">7pace Timetracker Reporting API Version 3</a></li><li><a href="/cms_trial/space/7TFA/1253540003/7pace+Timetracker+REST+CRUD+API+Version+3/">7pace Timetracker REST CRUD API Version 3</a></li><li><a href="/cms_trial/space/7TFA/1253539907/How+to+Avoid+API+Rate+Limiting/">How to Avoid API Rate Limiting</a></li><li><a href="/cms_trial/space/7TFA/1253540313/API+2.1+Migration+FAQ/">API 2.1 Migration FAQ</a></li><li><a href="/cms_trial/space/7TFA/1253539892/7pace+Timetracker%27s+Reporting+API+%22This+set+of+parameters+is+not+allowed%22+error/">7pace Timetracker's Reporting API "This set of parameters is not allowed" error</a></li><li><a href="/cms_trial/space/7TFA/1253539939/How+to+export+a+list+of+all+licensed+users/">How to export a list of all licensed users</a></li><li><a href="/cms_trial/space/7TFA/3118563336/API+Rate+Limiting/">API Rate Limiting</a></li></ul></details></li><li><a href="/cms_trial/space/7TFA/1253540242/Apps/">Apps</a></li><li><a href="/cms_trial/space/7TFA/3488055333/App+configuration/">App configuration</a></li><li><a href="/cms_trial/space/7TFA/1253539917/7pace+Timetracker+Legacy+Versions+and+Legacy+TFS/">7pace Timetracker Legacy Versions and Legacy TFS</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/3482780186/User+guide/">User guide</a></summary><ul><li><a href="/cms_trial/space/7TFA/1253539966/Add+Time+Dialog/">Add Time Dialog</a></li><li><a href="/cms_trial/space/7TFA/1253539860/Work+item+form/">Work item form</a></li><li><a href="/cms_trial/space/7TFA/1253540085/Budgets/">Budgets</a></li><li><a href="/cms_trial/space/7TFA/1253540717/Iterations/">Iterations</a></li><li><a href="/cms_trial/space/7TFA/1253539865/Approvals/">Approvals</a></li><li><a href="/cms_trial/space/7TFA/1253540013/Times+Explorer/">Times Explorer</a></li><li><a href="/cms_trial/space/7TFA/1253540070/Monthly+view/">Monthly view</a></li><li><a href="/cms_trial/space/7TFA/1547173906/Weekly+view/">Weekly view</a></li><li><a href="/cms_trial/space/7TFA/1253540328/Timesheet/">Timesheet</a></li><li><a href="/cms_trial/space/7TFA/2935357478/Connect+calendar/">Connect calendar</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/3511091204/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/7TFA/1361084424/7pace+Product+Support/">7pace Product Support</a></li><li><a href="/cms_trial/space/7TFA/1253540447/Frequently+Asked+Questions/">Frequently Asked Questions</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFA/1253540249/7pace+Timetracker+for+Azure+DevOps+Release+Notes/">7pace Timetracker for Azure DevOps Release Notes</a></summary><ul><li><a href="/cms_trial/space/7TFA/3509223505/Release+notes+5.100/">Release notes 5.100</a></li><li><a href="/cms_trial/space/7TFA/3466657955/Release+notes+5.99/">Release notes 5.99</a></li><li><a href="/cms_trial/space/7TFA/3413082694/Release+notes+5.98/">Release notes 5.98</a></li><li><a href="/cms_trial/space/7TFA/3394044151/Release+notes+5.97/">Release notes 5.97</a></li><li><a href="/cms_trial/space/7TFA/3306487975/Release+notes+5.96/">Release notes 5.96</a></li><li><a href="/cms_trial/space/7TFA/3199172612/Release+notes+5.95/">Release notes 5.95</a></li><li><a href="/cms_trial/space/7TFA/3157721151/Release+notes+5.94/">Release notes 5.94</a></li></ul></details></li></ul></details></li></ul></nav>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#default-reports">Default Reports</a></li><li class="toc-level-2"><a href="#personal-overview">Personal Overview</a></li><li class="toc-level-2"><a href="#team-overview-report">Team Overview Report</a></li><li class="toc-level-2"><a href="#team-overview-report-date-period">Team Overview Report (Date Period)</a></li><li class="toc-level-2"><a href="#backlog-report">Backlog Report</a></li><li class="toc-level-2"><a href="#epics-report">Epics Report</a></li><li class="toc-level-2"><a href="#last-tracks">Last Tracks</a></li><li class="toc-level-2"><a href="#report-properties">Report properties</a></li><li class="toc-level-2"><a href="#about-privacy">About privacy</a></li><li class="toc-level-2"><a href="#widget-types">Widget types</a></li><li class="toc-level-2"><a href="#working-with-reports">Working with reports</a></li><li class="toc-level-2"><a href="#how-to-add-a-report">How to: Add a report</a></li><li class="toc-level-2"><a href="#how-to-edit-a-report">How to: Edit a report</a></li><li class="toc-level-2"><a href="#how-to-delete-a-report">How to: Delete a report</a></li><li class="toc-level-2"><a href="#how-to-reorder-widgets">How to: Reorder Widgets</a></li><li class="toc-level-2"><a href="#how-to-export-data-to-excel">How to: Export data to Excel</a></li><li class="toc-level-2"><a href="#how-to-zoom-in-and-zoom-out-of-widgets">How to: Zoom in and zoom out of Widgets</a></li><li class="toc-level-2"><a href="#how-to-add-a-new-widget">How to: Add a new Widget</a></li><li class="toc-level-2"><a href="#how-to-export-import-widget-definitions">How to: Export/Import Widget definitions</a></li><li class="toc-level-2"><a href="#how-to-add-columns-to-a-widget-table">How to: Add columns to a Widget table</a></li><li class="toc-level-2"><a href="#how-to-change-time-granularity-in-column-chart-widget">How to: Change time granularity in Column chart Widget</a></li><li class="toc-level-2"><a href="#troubleshooting-and-common-issues">Troubleshooting and common issues</a></li><li class="toc-level-2"><a href="#service-account-is-not-configured-for-your-organization">Service Account is not configured for your organization</a></li><li class="toc-level-2"><a href="#how-to-restart-reporting">How to restart reporting</a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
@@ -376,6 +420,92 @@
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

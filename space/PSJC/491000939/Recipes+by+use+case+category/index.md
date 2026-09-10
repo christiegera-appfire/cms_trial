@@ -1,0 +1,17 @@
+# Recipes by use case category
+
+- [Administrative automation](/cms_trial/space/PSJC/491000959/Administrative+automation/)
+- [Advanced JQL searches](/cms_trial/space/PSJC/491000979/Advanced+JQL+searches/)
+- [Agile methodologies](/cms_trial/space/PSJC/491000993/Agile+methodologies/)
+- [Alerts and notifications](/cms_trial/space/PSJC/491001007/Alerts+and+notifications/)
+- [Email processing](/cms_trial/space/PSJC/491001026/Email+processing/)
+- [Email Template examples](/cms_trial/space/PSJC/491001045/Email+Template+examples/)
+- [Extending Jira](/cms_trial/space/PSJC/491001064/Extending+Jira/)
+- [Field manipulation](/cms_trial/space/PSJC/491001080/Field+manipulation/)
+- [Governance and process enforcement](/cms_trial/space/PSJC/491001094/Governance+and+process+enforcement/)
+- [Permissions and restrictions](/cms_trial/space/PSJC/491001114/Permissions+and+restrictions/)
+- [Process automation](/cms_trial/space/PSJC/491001128/Process+automation/)
+- [Project management](/cms_trial/space/PSJC/491001142/Project+management/)
+- [Team dynamics and efficiency](/cms_trial/space/PSJC/491001156/Team+dynamics+and+efficiency/)
+- [UI manipulation](/cms_trial/space/PSJC/491001176/UI+manipulation/)
+- [Working with third party apps with REST APIs](/cms_trial/space/PSJC/491001190/Working+with+third+party+apps+with+REST+APIs/)

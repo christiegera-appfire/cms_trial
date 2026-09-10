@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>Deprecation - Global Calculated Fields | Appfire Docs</title>
 <meta name="description" content="We first launched Calculated Fields in August 2020 as part of the global configuration (“global Calculated Fields”) and the core functionality of JSU…">
@@ -9,7 +19,15 @@
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Deprecation - Global Calculated Fields",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/JSUCLOUD/12519627/Deprecation+-+Global+Calculated+Fields/",
+  "dateModified": "2026-07-13T15:59:27.951Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,26 +37,52 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/872972294/Release+notes/">Release notes</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Deprecation - Global Calculated Fields</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JSUCLOUD/pages/12519627" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JSUCLOUD/pages/12519627" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>Deprecation - Global Calculated Fields</h1>
-    <div class="page-meta">4 min read</div>
+    <div class="page-meta">Updated 1 month ago · 4 min read</div>
     <p>We first launched Calculated Fields in August 2020 as part of the global configuration (<em><strong>“global Calculated Fields”</strong></em>) and the core functionality of JSU (<em><strong>“Calculated Field post-function”</strong></em>).</p><p>We value your feedback and strive to deliver a high-quality core product. Based on your feedback and an in-depth assessment, we decided to deprecate JSU's <em><strong>global Calculated Fields</strong></em><strong>. </strong>We apologize for any inconvenience this change might cause.</p><h3 id="what-you-need-to-know">What you need to know</h3><p>The <em>Calculated Field post-function will</em> remain as part of the core JSU functionality and is not affected by this announcement. The <em><strong>global Calculated Fields</strong></em> will be deprecated and no longer available after <strong>November 12, 2021</strong>.</p><h3 id="how-to-migrate">How to migrate</h3><p>You can transform your <em><strong>global Calculated Field</strong></em> into a <em>Calculated Field </em>post function within JSU or use an alternative Marketplace app. Read more about the different options below.</p><h2 id="use-cases-and-alternatives">Use cases and alternatives</h2><p>The <em>Calculated Field </em>post function is a workflow function that performs automated calculations after a work item transitions to a new status. Its main difference from <em>global</em> <em>Calculated Fields</em><em><strong> </strong></em>is that the calculations are performed as part of a workflow transition and are not recurring on any other work item field change. Read more about it on the dedicated <a href="/cms_trial/space/JSUCLOUD/12520029/Calculated+Field+post+function/">documentation page</a>.</p><p>Here is an example of the steps you can take to replace an existing <em><strong>global Calculated Fields</strong></em><strong> </strong>configuration with <em>Calculated Field post-function</em>.</p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><td><p><em><strong>Use Case</strong></em></p></td><td><p>Roll up the total story points of work items to your Epic.</p></td></tr><tr><td><p><strong>Step 1</strong></p><p>Prepare to configure the <em>Calculated Fields post-function</em></p><p><br/></p></td><td><p><em><strong>Option A</strong></em></p><p>When creating a <em><strong>global</strong></em> <em><strong>Calculated Field</strong></em>, a custom field is automatically created under Jira custom fields.<br/></p><img alt="contentId-12519627" class="doc-image" loading="lazy" src="/cms_trial/assets/44cebeb2-4706-46e2-8779-c958281c7248.png"/><p>If you want to utilize this already existing custom field to configure a <em>Calculated Field post-function</em>, you can delete the global calculated field <strong>without</strong> trashing the custom field by not checking the checkbox as shown.</p><img alt="contentId-12519627" class="doc-image" loading="lazy" src="/cms_trial/assets/4db0b0ad-fd74-4306-b76e-a849f4e464f9.png"/><p>Then, select this custom field as your result field in the configuration of the <em>Calculated Field post-function </em>following Step 2.</p><p><br/><em><strong>Option B</strong></em></p><p>Otherwise, create a new Jira custom (number) field and give it a name. Assign your field to the project screens where you want it to appear. This will be your result field for the calculation. Then, follow the instructions in Step 2  for the <em>Calculated Field post-function</em>.</p><img alt="contentId-12519627" class="doc-image" loading="lazy" src="/cms_trial/assets/72bfa0cd-cd2c-4922-9fec-22dad819f9e5.png"/></td></tr><tr><td><p><strong>Step 2 </strong></p><p>Configure the <em>Calculated Fields post-function</em></p><p><br/></p></td><td><p>Go to your project's settings and select the "Workflows" tab from the left-side navigation.</p><img alt="contentId-12519627" class="doc-image" loading="lazy" src="/cms_trial/assets/75e2f9b8-90f6-4f6e-ac50-356b3c532561.png"/><p>Click on the edit button on the right, and select the transition you want your calculation to perform. For example, if you select the <em>Start Progress</em> transition, your field will be calculated once your work item is in the <strong>In Progress</strong> status.</p><img alt="contentId-12519627" class="doc-image" loading="lazy" src="/cms_trial/assets/68b75494-c076-4e1f-8adb-332018113eb4.png"/><p>Switch to the post-functions tab and click the button "Add post-function".</p><img alt="contentId-12519627" class="doc-image" loading="lazy" src="/cms_trial/assets/fd1a4182-9246-40bd-8c91-38e3372f4cce.png"/><p>Select the <em>Calculated Field post-function</em> from the list of post-functions and click "Add"</p><img alt="contentId-12519627" class="doc-image" loading="lazy" src="/cms_trial/assets/96a7583f-2066-4f6d-988d-57bfe5915f9f.png"/><p>Configure your calculation to perform within the same work item and input the formula using the functions and fields drop-downs to calculate the total Story Points of the work items under your Epic.</p><img alt="contentId-12519627" class="doc-image" loading="lazy" src="/cms_trial/assets/0856e02f-3c3d-4cc3-b9eb-c818706ba7f5.png"/><p>Add your post-function and publish your workflow to save your changes.</p><p>Go to your Epic, input Story Points to the work items under your Epic, transition your Epic to <strong>In Progress</strong>, and your field is calculated.</p><p>The calculation will be performed every time your Epic transitions to the <strong>In Progress</strong> status.<br/></p><div class="panel panel-note"><h3 id="precondition-optional">Precondition (optional)</h3><p>Configure the <em><strong>Value Field precondition</strong></em> in your <em>Calculated Field post-function</em> to restrict it to a specific project and/or work item type.</p><img alt="contentId-12519627" class="doc-image" loading="lazy" src="/cms_trial/assets/3ff2726d-7d64-4f4f-b8cb-34d2a907a18b.png"/></div></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><h2 id="other-appfire-alternatives">Other Appfire alternatives</h2><p>Not happy with the <em>Calculated Field </em>post function? No worries! Here are other Appfire solutions available for Jira Cloud that may better apply to your specific use cases:</p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p><strong>Product name</strong></p></th><th><p><strong>Functionality</strong></p></th></tr><tr><td><p><a href="https://marketplace.atlassian.com/apps/1210749/power-custom-fields-for-jira?hosting=cloud&amp;tab=overview">Power Custom Fields</a></p></td><td><p>Power Custom Fields for Jira offers a suite of useful and configurable custom fields to help you extend the data inside Jira using predefined calculations.</p><p>Available Custom Fields:</p><ul><li><p>Number Fields</p><ul><li><p>Sum Of Story Points</p></li><li><p>Un-sized Issues</p></li><li><p>Number of Stories</p></li><li><p>Completed Story Points</p></li><li><p>Completed Issues By Percentage</p></li></ul></li><li><p>User Picker Fields</p><ul><li><p>Previous Assignee</p></li><li><p>Modified By</p></li></ul></li><li><p>Text-Fields</p><ul><li><p>Parent Field Value</p></li><li><p>Parent Status</p></li><li><p>Time in Previous Status</p></li></ul></li></ul></td></tr><tr><td><p><a href="https://marketplace.atlassian.com/apps/1212942/reports-and-timesheets-for-jira?hosting=cloud&amp;tab=overview">Reports &amp; Timesheets for Jira</a></p></td><td><p>Being a powerful reporting tool with an intuitive interface, Reports &amp; Timesheets for Jira helps you create custom <strong>reports and dashboards</strong> for daily use. It also provides calculated fields functionalities to help you get more meaningful data <strong>in your reports</strong>.</p><p>Supported functions:</p><ul><li><p>Numeric functions</p></li><li><p>String functions</p></li><li><p>Date functions</p></li><li><p>Logical functions</p></li></ul></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><h2 id="get-help">Get help</h2><p>Do you have any questions or need support?</p><p>Feel free to contact our team through our <a href="https://appfire.atlassian.net/servicedesk/customer/portals">support portal</a>. We are always happy to help!</p>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">113 pages in this space, fetched live from Confluence via API.</p>
-<nav><ul><li><details open><summary><a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a></summary><ul><li><details><summary><a href="/cms_trial/space/JSUCLOUD/12518219/Get+started+with+JSU+Automation+Suite+for+Jira+for+Cloud/">Get started with JSU Automation Suite for Jira for Cloud</a></summary><ul><li><a href="/cms_trial/space/JSUCLOUD/12518361/Installation+and+update+guide/">Installation and update guide</a></li><li><a href="/cms_trial/space/JSUCLOUD/12519472/Navigation+basics/">Navigation basics</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518207/Jira+workflow+fundamentals/">Jira workflow fundamentals</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518241/Create+your+first+rule+with+JSU/">Create your first rule with JSU</a></li><li><a href="/cms_trial/space/JSUCLOUD/195821774/View+and+manage+workflow+rules/">View and manage workflow rules</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JSUCLOUD/12518487/Use+cases/">Use cases</a></summary><ul><li><a href="/cms_trial/space/JSUCLOUD/49742537/Add+a+comment+to+a+linked+issue+in+a+service+management+project/">Add a comment to a linked issue in a service management project</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518672/Automatically+remove+a+closed+epic+from+the+backlog/">Automatically remove a closed epic from the backlog</a></li><li><a href="/cms_trial/space/JSUCLOUD/12519508/Calculate+total+story+points+for+an+epic/">Calculate total story points for an epic</a></li><li><a href="/cms_trial/space/JSUCLOUD/26116102/Close+parent+issue+when+all+subtasks+are+done/">Close parent issue when all subtasks are done</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518718/Close+parent+issue+when+all+subtasks+are+closed+-+Legacy/">Close parent issue when all subtasks are closed - Legacy</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518511/Copy+or+move+attachments/">Copy or move attachments</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518186/Define+field+values+for+new+linked+issues/">Define field values for new linked issues</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518307/JQL+use+cases/">JQL use cases</a></li><li><a href="/cms_trial/space/JSUCLOUD/49775577/Remove+assignee+when+an+issue+moves+back+to+To+Do/">Remove assignee when an issue moves back to To Do</a></li><li><a href="/cms_trial/space/JSUCLOUD/2984312833/Safely+deploy+JSU+workflow+automation+across+Jira+Cloud+instances+with+CMJ+Cloud/">Safely deploy JSU workflow automation across Jira Cloud instances with CMJ Cloud</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518631/Streamline+an+approval+process/">Streamline an approval process</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518446/Testing+and+fixing+bugs/">Testing and fixing bugs</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518052/Update+an+issue+only+in+certain+conditions/">Update an issue only in certain conditions</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JSUCLOUD/2130575369/App+integrations/">App integrations</a></summary><ul><li><a href="/cms_trial/space/JSUCLOUD/2130182780/Dashboard+Hub+Pro/">Dashboard Hub Pro</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JSUCLOUD/12518429/Features/">Features</a></summary><ul><li><a href="/cms_trial/space/JSUCLOUD/12518573/Key+concepts/">Key concepts</a></li><li><a href="/cms_trial/space/JSUCLOUD/12517805/Universal+Rule+Builder/">Universal Rule Builder</a></li><li><a href="/cms_trial/space/JSUCLOUD/1958084925/JSU+Rule+Builder+-+Conditions/">JSU Rule Builder - Conditions</a></li><li><a href="/cms_trial/space/JSUCLOUD/1973288961/JSU+Rule+Builder+-+Validators/">JSU Rule Builder - Validators</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518401/Workflow+post+functions/">Workflow post functions</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518025/Workflow+preconditions/">Workflow preconditions</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518578/Workflow+validators/">Workflow validators</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518591/Workflow+conditions/">Workflow conditions</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JSUCLOUD/12519552/Migrations/">Migrations</a></summary><ul><li><a href="/cms_trial/space/JSUCLOUD/12519557/Migrating+from+Jira+Data+Center+to+Jira+Cloud/">Migrating from Jira Data Center to Jira Cloud</a></li><li><a href="/cms_trial/space/JSUCLOUD/12519542/Migrating+from+Jira+Cloud+to+Jira+Data+Center/">Migrating from Jira Cloud to Jira Data Center</a></li><li><a href="/cms_trial/space/JSUCLOUD/1721303547/Jira+Cloud+to+Cloud+migrations/">Jira Cloud to Cloud migrations</a></li><li><a href="/cms_trial/space/JSUCLOUD/710181330/JSU+migration+reports/">JSU migration reports</a></li><li><a href="/cms_trial/space/JSUCLOUD/3510927636/How+to+resolve+stuck+migrations/">How to resolve stuck migrations</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/JSUCLOUD/872972294/Release+notes/">Release notes</a></summary><ul><li><a href="/cms_trial/space/JSUCLOUD/3532854188/Release+notes+11+August+2026/">Release notes 11 August 2026</a></li><li><a href="/cms_trial/space/JSUCLOUD/3402924035/Release+notes+1+July+2026/">Release notes 1 July 2026</a></li><li><a href="/cms_trial/space/JSUCLOUD/3281617218/Release+notes+June+2026/">Release notes June 2026</a></li><li><a href="/cms_trial/space/JSUCLOUD/3083763713/Release+notes+April+2026/">Release notes April 2026</a></li><li><a href="/cms_trial/space/JSUCLOUD/2840395900/Release+notes+February+2026/">Release notes February 2026</a></li><li><a href="/cms_trial/space/JSUCLOUD/2709553189/Release+notes+January+2026/">Release notes January 2026</a></li><li><a href="/cms_trial/space/JSUCLOUD/2636841020/Release+notes+15+December+2025/">Release notes 15 December 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/2577072135/Release+notes+04+December+2025/">Release notes 04 December 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/2571239426/Release+notes+27+November+2025/">Release notes 27 November 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/2571010049/Release+notes+26+November+2025/">Release notes 26 November 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/2561769473/Release+notes+25+November+2025/">Release notes 25 November 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/2343469066/Release+notes+September+2025/">Release notes September 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/2206695594/Release+notes+August+2025/">Release notes August 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/2188542009/Release+notes+16+July+2025/">Release notes 16 July 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/2185068563/Release+notes+10+July+2025/">Release notes 10 July 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/2116419585/Release+notes+16+June+2025/">Release notes 16 June 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/1989443591/Release+notes+6+June+2025/">Release notes 6 June 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/1870496133/Release+notes+March+2025/">Release notes March 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/1524826583/Release+notes+28+November+2024/">Release notes 28 November 2024</a></li><li><a href="/cms_trial/space/JSUCLOUD/1370718220/Release+notes+October+2024/">Release notes October 2024</a></li><li><a href="/cms_trial/space/JSUCLOUD/1270415383/Release+notes+9+September+2024/">Release notes 9 September 2024</a></li><li><a href="/cms_trial/space/JSUCLOUD/12519627/Deprecation+-+Global+Calculated+Fields/" class="active">Deprecation - Global Calculated Fields</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JSUCLOUD/12518315/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/JSUCLOUD/3051716948/Differences+between+the+Forge+app+and+the+Connect+app/">Differences between the Forge app and the Connect app</a></li><li><a href="/cms_trial/space/JSUCLOUD/290194210/Guide+to+JSU+error+messages/">Guide to JSU error messages</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518420/Troubleshooting/">Troubleshooting</a></li><li><a href="/cms_trial/space/JSUCLOUD/920617041/Appfire+support/">Appfire support</a></li><li><a href="/cms_trial/space/JSUCLOUD/846856424/App+access+rule/">App access rule</a></li><li><a href="/cms_trial/space/JSUCLOUD/12517886/App+analytics/">App analytics</a></li><li><a href="/cms_trial/space/JSUCLOUD/2165083529/Atlassian+Government+Cloud/">Atlassian Government Cloud</a></li><li><a href="/cms_trial/space/JSUCLOUD/920813622/Appfire+Trust+Center/">Appfire Trust Center</a></li><li><a href="/cms_trial/space/JSUCLOUD/12517871/JSU+for+Jira+Cloud+knowledge+base/">JSU for Jira Cloud knowledge base</a></li></ul></details></li></ul></details></li></ul></nav>
-</aside>
+<nav><ul><li><details open><summary><a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a></summary><ul><li><details><summary><a href="/cms_trial/space/JSUCLOUD/12518219/Get+started+with+JSU+Automation+Suite+for+Jira+for+Cloud/">Get started with JSU Automation Suite for Jira for Cloud</a></summary><ul><li><a href="/cms_trial/space/JSUCLOUD/12518361/Installation+and+update+guide/">Installation and update guide</a></li><li><a href="/cms_trial/space/JSUCLOUD/12519472/Navigation+basics/">Navigation basics</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518241/Create+your+first+rule+with+JSU/">Create your first rule with JSU</a></li><li><a href="/cms_trial/space/JSUCLOUD/195821774/View+and+manage+workflow+rules/">View and manage workflow rules</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JSUCLOUD/12518487/Use+cases/">Use cases</a></summary><ul><li><a href="/cms_trial/space/JSUCLOUD/49742537/Add+a+comment+to+a+linked+issue+in+a+service+management+project/">Add a comment to a linked issue in a service management project</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518672/Automatically+remove+a+closed+epic+from+the+backlog/">Automatically remove a closed epic from the backlog</a></li><li><a href="/cms_trial/space/JSUCLOUD/12519508/Calculate+total+story+points+for+an+epic/">Calculate total story points for an epic</a></li><li><a href="/cms_trial/space/JSUCLOUD/26116102/Close+parent+issue+when+all+subtasks+are+done/">Close parent issue when all subtasks are done</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518718/Close+parent+issue+when+all+subtasks+are+closed+-+Legacy/">Close parent issue when all subtasks are closed - Legacy</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518511/Copy+or+move+attachments/">Copy or move attachments</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518186/Define+field+values+for+new+linked+issues/">Define field values for new linked issues</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518307/JQL+use+cases/">JQL use cases</a></li><li><a href="/cms_trial/space/JSUCLOUD/49775577/Remove+assignee+when+an+issue+moves+back+to+To+Do/">Remove assignee when an issue moves back to To Do</a></li><li><a href="/cms_trial/space/JSUCLOUD/2984312833/Safely+deploy+JSU+workflow+automation+across+Jira+Cloud+instances+with+CMJ+Cloud/">Safely deploy JSU workflow automation across Jira Cloud instances with CMJ Cloud</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518631/Streamline+an+approval+process/">Streamline an approval process</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518446/Testing+and+fixing+bugs/">Testing and fixing bugs</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518052/Update+an+issue+only+in+certain+conditions/">Update an issue only in certain conditions</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JSUCLOUD/2130575369/App+integrations/">App integrations</a></summary><ul><li><a href="/cms_trial/space/JSUCLOUD/2130182780/Dashboard+Hub+Pro/">Dashboard Hub Pro</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JSUCLOUD/12518429/Features/">Features</a></summary><ul><li><a href="/cms_trial/space/JSUCLOUD/12518573/Key+concepts/">Key concepts</a></li><li><a href="/cms_trial/space/JSUCLOUD/12517805/Universal+Rule+Builder/">Universal Rule Builder</a></li><li><a href="/cms_trial/space/JSUCLOUD/1958084925/JSU+Rule+Builder+-+Conditions/">JSU Rule Builder - Conditions</a></li><li><a href="/cms_trial/space/JSUCLOUD/1973288961/JSU+Rule+Builder+-+Validators/">JSU Rule Builder - Validators</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518401/Workflow+post+functions/">Workflow post functions</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518025/Workflow+preconditions/">Workflow preconditions</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JSUCLOUD/12519552/Migrations/">Migrations</a></summary><ul><li><a href="/cms_trial/space/JSUCLOUD/12519557/Migrating+from+Jira+Data+Center+to+Jira+Cloud/">Migrating from Jira Data Center to Jira Cloud</a></li><li><a href="/cms_trial/space/JSUCLOUD/12519542/Migrating+from+Jira+Cloud+to+Jira+Data+Center/">Migrating from Jira Cloud to Jira Data Center</a></li><li><a href="/cms_trial/space/JSUCLOUD/1721303547/Jira+Cloud+to+Cloud+migrations/">Jira Cloud to Cloud migrations</a></li><li><a href="/cms_trial/space/JSUCLOUD/710181330/JSU+migration+reports/">JSU migration reports</a></li><li><a href="/cms_trial/space/JSUCLOUD/3510927636/How+to+resolve+stuck+migrations/">How to resolve stuck migrations</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/JSUCLOUD/872972294/Release+notes/">Release notes</a></summary><ul><li><a href="/cms_trial/space/JSUCLOUD/3591307275/Release+notes+27+August+2026/">Release notes 27 August 2026</a></li><li><a href="/cms_trial/space/JSUCLOUD/3532854188/Release+notes+11+August+2026/">Release notes 11 August 2026</a></li><li><a href="/cms_trial/space/JSUCLOUD/3402924035/Release+notes+1+July+2026/">Release notes 1 July 2026</a></li><li><a href="/cms_trial/space/JSUCLOUD/3281617218/Release+notes+June+2026/">Release notes June 2026</a></li><li><a href="/cms_trial/space/JSUCLOUD/3083763713/Release+notes+April+2026/">Release notes April 2026</a></li><li><a href="/cms_trial/space/JSUCLOUD/2840395900/Release+notes+February+2026/">Release notes February 2026</a></li><li><a href="/cms_trial/space/JSUCLOUD/2709553189/Release+notes+January+2026/">Release notes January 2026</a></li><li><a href="/cms_trial/space/JSUCLOUD/2636841020/Release+notes+15+December+2025/">Release notes 15 December 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/2577072135/Release+notes+04+December+2025/">Release notes 04 December 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/2571239426/Release+notes+27+November+2025/">Release notes 27 November 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/2571010049/Release+notes+26+November+2025/">Release notes 26 November 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/2561769473/Release+notes+25+November+2025/">Release notes 25 November 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/2343469066/Release+notes+September+2025/">Release notes September 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/2206695594/Release+notes+August+2025/">Release notes August 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/2188542009/Release+notes+16+July+2025/">Release notes 16 July 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/2185068563/Release+notes+10+July+2025/">Release notes 10 July 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/2116419585/Release+notes+16+June+2025/">Release notes 16 June 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/1989443591/Release+notes+6+June+2025/">Release notes 6 June 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/1870496133/Release+notes+March+2025/">Release notes March 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/12519627/Deprecation+-+Global+Calculated+Fields/" class="active">Deprecation - Global Calculated Fields</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JSUCLOUD/12518315/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/JSUCLOUD/3051716948/Differences+between+the+Forge+app+and+the+Connect+app/">Differences between the Forge app and the Connect app</a></li><li><a href="/cms_trial/space/JSUCLOUD/290194210/Guide+to+JSU+error+messages/">Guide to JSU error messages</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518420/Troubleshooting/">Troubleshooting</a></li><li><a href="/cms_trial/space/JSUCLOUD/920617041/Appfire+support/">Appfire support</a></li><li><a href="/cms_trial/space/JSUCLOUD/846856424/App+access+rule/">App access rule</a></li><li><a href="/cms_trial/space/JSUCLOUD/12517886/App+analytics/">App analytics</a></li><li><a href="/cms_trial/space/JSUCLOUD/2165083529/Atlassian+Government+Cloud/">Atlassian Government Cloud</a></li><li><a href="/cms_trial/space/JSUCLOUD/920813622/Appfire+Trust+Center/">Appfire Trust Center</a></li><li><a href="/cms_trial/space/JSUCLOUD/12517871/JSU+for+Jira+Cloud+knowledge+base/">JSU for Jira Cloud knowledge base</a></li></ul></details></li></ul></details></li></ul></nav>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-3"><a href="#what-you-need-to-know">What you need to know</a></li><li class="toc-level-3"><a href="#how-to-migrate">How to migrate</a></li><li class="toc-level-2"><a href="#use-cases-and-alternatives">Use cases and alternatives</a></li><li class="toc-level-3"><a href="#precondition-optional">Precondition (optional)</a></li><li class="toc-level-2"><a href="#other-appfire-alternatives">Other Appfire alternatives</a></li><li class="toc-level-2"><a href="#get-help">Get help</a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
@@ -264,6 +308,92 @@
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

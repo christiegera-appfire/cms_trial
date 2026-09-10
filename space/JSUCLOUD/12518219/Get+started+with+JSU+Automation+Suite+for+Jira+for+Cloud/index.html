@@ -1,15 +1,33 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>Get started with JSU Automation Suite for Jira for Cloud | Appfire Docs</title>
-<meta name="description" content="JSU Automation Suite for Jira Workflows is our no-code solution to help you and your teams work faster and more efficiently. With our collection of post…">
+<meta name="description" content="In this guide, you’ll create your first automation rule that will close sub-tasks when a parent work item is closed.">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/cms_trial/tokens.css">
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Get started with JSU Automation Suite for Jira for Cloud",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/JSUCLOUD/12518219/Get+started+with+JSU+Automation+Suite+for+Jira+for+Cloud/",
+  "dateModified": "2026-09-01T13:03:31.327Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,27 +37,53 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Get started with JSU Automation Suite for Jira for Cloud</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JSUCLOUD/pages/12518219" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JSUCLOUD/pages/12518219" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>Get started with JSU Automation Suite for Jira for Cloud</h1>
-    <div class="page-meta">1 min read</div>
-    <p>JSU Automation Suite for Jira Workflows is our no-code solution to help you and your teams work faster and more efficiently. With our collection of post functions, conditions, and preconditions, you can configure workflow rules to increase productivity, facilitate team collaboration, and seamlessly transition your work.</p><p>JSU for Jira Cloud offers unlimited automation rule runs, regardless of your Jira plan. Set up and manage your workflow automation exactly as you need it without worrying about reaching usage limits.</p><div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/HWhj-ZVvLyE"></iframe></div><div class="columns" style="grid-template-columns: 33.33fr 33.33fr 33.33fr;"><div><h2 id="start-building-automation-rules">Start building automation rules</h2><p>All set to go with your automation goals? Our <a href="/cms_trial/space/JSUCLOUD/12518429/Features/">JSU Features guide</a> has everything you need.</p><p>You can also try our <a href="/cms_trial/space/JSUCLOUD/12517805/Universal+Rule+Builder/">Universal Rule Builder </a><span class="status-lozenge">BEta</span> to build simple or complex rules from a single place, eliminating the need to navigate through Jira multiple times.</p></div><div><h2 id="inspiration">Inspiration</h2><p>See our <a href="/cms_trial/space/JSUCLOUD/12518307/JQL+use+cases/">use cases</a> to explore examples of JSU in action before building your automation. Have a use case of your own that you want to share with other users? <a href="https://appf.re/support">Let us know!</a></p></div><div><h2 id="migrating-from-jira-data-center">Migrating from Jira Data Center?</h2><p>See our <a href="https://appfire.atlassian.net/wiki/spaces/JSU/pages/12683795">Migrations</a> section for our feature parity and guides to migration with JCMA and Configuration Manager for Jira. </p><div class="panel panel-note"><p>JSU Cloud is available on <a href="https://www.atlassian.com/blog/announcements/expanding-pathways-to-cloud">Atlassian Government Cloud</a>. If you are migrating to Atlassian Government Cloud and require a FedRAMP Moderate authorized app, you can use JSU for Jira Cloud for code-free automation.</p></div><h2 id="need-help">Need help?</h2><p>Our Support team is always happy to assist if you encounter any issues with JSU or have feature requests or comments. <a href="https://appf.re/support">Contact us</a> through our support portal.</p></div></div>
+    <div class="page-meta">Updated 9 days ago · 2 min read</div>
+    <h2 id="create-your-first-rule">Create your first rule</h2><blockquote><p><strong>Estimated time:</strong> About 5 minutes</p><p>In this guide, you’ll create your first automation rule that will close sub-tasks when a parent work item is closed. </p></blockquote><p><strong>JSU Automation Suite for Jira Workflows</strong> is our no-code solution to help you and your teams work faster and more efficiently using post functions, conditions, and preconditions to configure workflow rules to increase productivity, facilitate team collaboration, and seamlessly transition your work.</p><div class="panel panel-success"><p>JSU for Jira Cloud offers unlimited automation rule runs, regardless of your Jira plan. Set up and manage your workflow automation exactly as you need it without worrying about reaching usage limits.</p></div><h2 id="before-you-begin">Before you begin</h2><p>Before you start, make sure that: </p><ol><li><p>You have administrator privileges for your Jira instance; creating a JSU rule requires administrator privileges. </p></li><li><p>You have access to the workflow to which this rule will be added. </p></li></ol><h2 id="create-your-first-post-function">Create your first post function</h2><ol class="refined-steps"><li class="refined-step"><span class="refined-step-number">1</span><div class="refined-step-content"><p>Open your workflow in the Jira workflow editor. </p></div></li><li class="refined-step"><span class="refined-step-number">2</span><div class="refined-step-content"><p>Select the transition into <em>Done</em> (1) and click Add Rule (2). </p><img alt="Add a JSU Automation rule to the Done transition. " class="doc-image" loading="lazy" src="/cms_trial/assets/9264d3d9-08fb-48e2-be3d-3b8e51788618.png"/></div></li><li class="refined-step"><span class="refined-step-number">3</span><div class="refined-step-content"><p>Select the <strong>Linked Transition (JSU)</strong> post function and click <strong>Select</strong>.</p></div></li><li class="refined-step"><span class="refined-step-number">4</span><div class="refined-step-content"><p>Configure the post function:</p><ol><li><ol><li><p>Select <strong>Parent/Subtask</strong> then select <em>The subtask(s) of a parent.</em></p></li><li><p>Select the workflow for your sub-tasks and the transition into <em>Done</em>. </p></li><li><p>Click <strong>Add</strong>. <br/></p></li></ol></li></ol><img alt="Configure the JSU Automation post function Linked Transition" class="doc-image" loading="lazy" src="/cms_trial/assets/fbbe974c-d260-465a-ba3b-b39bc91c3613.png"/></div></li><li class="refined-step"><span class="refined-step-number">5</span><div class="refined-step-content"><p>Click <strong>Add</strong> to save the post function. Click <strong>Update workflow</strong> to save your workflow. </p></div></li></ol><div class="panel panel-note"><h2 id="success">Success!</h2><p>You now have a rule that automatically closes any open sub-tasks when their parent work item is closed! You should thoroughly test your automation by creating a Story with sub-tasks, transitioning some of the sub-tasks to <em>Done</em> while leaving some open, and then transitioning your Story to <em>Done</em>. Verify that all sub-tasks are also closed. </p></div><hr/><div class="columns" style="grid-template-columns: 33.33fr 33.33fr 33.33fr;"><div><h2 id="start-building-automation-rules">Start building automation rules</h2><p>All set to go with your automation goals? Our <a href="/cms_trial/space/JSUCLOUD/12518429/Features/">JSU Features guide</a> has everything you need.</p><p>You can also try our <a href="/cms_trial/space/JSUCLOUD/12517805/Universal+Rule+Builder/">Universal Rule Builder</a> to build simple or complex rules from a single place, eliminating the need to navigate through Jira multiple times.</p></div><div><h2 id="inspiration">Inspiration</h2><p>See our <a href="/cms_trial/space/JSUCLOUD/12518307/JQL+use+cases/">use cases</a> to explore examples of JSU in action before building your automation. Have a use case of your own that you want to share with other users? <a href="https://appf.re/support">Let us know!</a></p></div><div><h2 id="migrating-from-jira-data-center">Migrating from Jira Data Center?</h2><p>See our <a href="https://appfire.atlassian.net/wiki/spaces/JSU/pages/12683795">Migrations</a> section for our feature parity and guides to migration with JCMA and Configuration Manager for Jira. </p><div class="panel panel-note"><p>JSU Cloud is available on <a href="https://www.atlassian.com/blog/announcements/expanding-pathways-to-cloud">Atlassian Government Cloud</a>. If you are migrating to Atlassian Government Cloud and require a FedRAMP Moderate authorized app, you can use JSU for Jira Cloud for code-free automation.</p></div><h2 id="need-help">Need help?</h2><p>Our Support team is always happy to assist if you encounter any issues with JSU or have feature requests or comments. <a href="https://appf.re/support">Contact us</a> through our support portal.</p></div></div>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">113 pages in this space, fetched live from Confluence via API.</p>
-<nav><ul><li><details open><summary><a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a></summary><ul><li><details open><summary><a href="/cms_trial/space/JSUCLOUD/12518219/Get+started+with+JSU+Automation+Suite+for+Jira+for+Cloud/" class="active">Get started with JSU Automation Suite for Jira for Cloud</a></summary><ul><li><a href="/cms_trial/space/JSUCLOUD/12518361/Installation+and+update+guide/">Installation and update guide</a></li><li><a href="/cms_trial/space/JSUCLOUD/12519472/Navigation+basics/">Navigation basics</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518207/Jira+workflow+fundamentals/">Jira workflow fundamentals</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518241/Create+your+first+rule+with+JSU/">Create your first rule with JSU</a></li><li><a href="/cms_trial/space/JSUCLOUD/195821774/View+and+manage+workflow+rules/">View and manage workflow rules</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JSUCLOUD/12518487/Use+cases/">Use cases</a></summary><ul><li><a href="/cms_trial/space/JSUCLOUD/49742537/Add+a+comment+to+a+linked+issue+in+a+service+management+project/">Add a comment to a linked issue in a service management project</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518672/Automatically+remove+a+closed+epic+from+the+backlog/">Automatically remove a closed epic from the backlog</a></li><li><a href="/cms_trial/space/JSUCLOUD/12519508/Calculate+total+story+points+for+an+epic/">Calculate total story points for an epic</a></li><li><a href="/cms_trial/space/JSUCLOUD/26116102/Close+parent+issue+when+all+subtasks+are+done/">Close parent issue when all subtasks are done</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518718/Close+parent+issue+when+all+subtasks+are+closed+-+Legacy/">Close parent issue when all subtasks are closed - Legacy</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518511/Copy+or+move+attachments/">Copy or move attachments</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518186/Define+field+values+for+new+linked+issues/">Define field values for new linked issues</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518307/JQL+use+cases/">JQL use cases</a></li><li><a href="/cms_trial/space/JSUCLOUD/49775577/Remove+assignee+when+an+issue+moves+back+to+To+Do/">Remove assignee when an issue moves back to To Do</a></li><li><a href="/cms_trial/space/JSUCLOUD/2984312833/Safely+deploy+JSU+workflow+automation+across+Jira+Cloud+instances+with+CMJ+Cloud/">Safely deploy JSU workflow automation across Jira Cloud instances with CMJ Cloud</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518631/Streamline+an+approval+process/">Streamline an approval process</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518446/Testing+and+fixing+bugs/">Testing and fixing bugs</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518052/Update+an+issue+only+in+certain+conditions/">Update an issue only in certain conditions</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JSUCLOUD/2130575369/App+integrations/">App integrations</a></summary><ul><li><a href="/cms_trial/space/JSUCLOUD/2130182780/Dashboard+Hub+Pro/">Dashboard Hub Pro</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JSUCLOUD/12518429/Features/">Features</a></summary><ul><li><a href="/cms_trial/space/JSUCLOUD/12518573/Key+concepts/">Key concepts</a></li><li><a href="/cms_trial/space/JSUCLOUD/12517805/Universal+Rule+Builder/">Universal Rule Builder</a></li><li><a href="/cms_trial/space/JSUCLOUD/1958084925/JSU+Rule+Builder+-+Conditions/">JSU Rule Builder - Conditions</a></li><li><a href="/cms_trial/space/JSUCLOUD/1973288961/JSU+Rule+Builder+-+Validators/">JSU Rule Builder - Validators</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518401/Workflow+post+functions/">Workflow post functions</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518025/Workflow+preconditions/">Workflow preconditions</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518578/Workflow+validators/">Workflow validators</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518591/Workflow+conditions/">Workflow conditions</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JSUCLOUD/12519552/Migrations/">Migrations</a></summary><ul><li><a href="/cms_trial/space/JSUCLOUD/12519557/Migrating+from+Jira+Data+Center+to+Jira+Cloud/">Migrating from Jira Data Center to Jira Cloud</a></li><li><a href="/cms_trial/space/JSUCLOUD/12519542/Migrating+from+Jira+Cloud+to+Jira+Data+Center/">Migrating from Jira Cloud to Jira Data Center</a></li><li><a href="/cms_trial/space/JSUCLOUD/1721303547/Jira+Cloud+to+Cloud+migrations/">Jira Cloud to Cloud migrations</a></li><li><a href="/cms_trial/space/JSUCLOUD/710181330/JSU+migration+reports/">JSU migration reports</a></li><li><a href="/cms_trial/space/JSUCLOUD/3510927636/How+to+resolve+stuck+migrations/">How to resolve stuck migrations</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JSUCLOUD/872972294/Release+notes/">Release notes</a></summary><ul><li><a href="/cms_trial/space/JSUCLOUD/3532854188/Release+notes+11+August+2026/">Release notes 11 August 2026</a></li><li><a href="/cms_trial/space/JSUCLOUD/3402924035/Release+notes+1+July+2026/">Release notes 1 July 2026</a></li><li><a href="/cms_trial/space/JSUCLOUD/3281617218/Release+notes+June+2026/">Release notes June 2026</a></li><li><a href="/cms_trial/space/JSUCLOUD/3083763713/Release+notes+April+2026/">Release notes April 2026</a></li><li><a href="/cms_trial/space/JSUCLOUD/2840395900/Release+notes+February+2026/">Release notes February 2026</a></li><li><a href="/cms_trial/space/JSUCLOUD/2709553189/Release+notes+January+2026/">Release notes January 2026</a></li><li><a href="/cms_trial/space/JSUCLOUD/2636841020/Release+notes+15+December+2025/">Release notes 15 December 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/2577072135/Release+notes+04+December+2025/">Release notes 04 December 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/2571239426/Release+notes+27+November+2025/">Release notes 27 November 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/2571010049/Release+notes+26+November+2025/">Release notes 26 November 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/2561769473/Release+notes+25+November+2025/">Release notes 25 November 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/2343469066/Release+notes+September+2025/">Release notes September 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/2206695594/Release+notes+August+2025/">Release notes August 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/2188542009/Release+notes+16+July+2025/">Release notes 16 July 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/2185068563/Release+notes+10+July+2025/">Release notes 10 July 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/2116419585/Release+notes+16+June+2025/">Release notes 16 June 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/1989443591/Release+notes+6+June+2025/">Release notes 6 June 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/1870496133/Release+notes+March+2025/">Release notes March 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/1524826583/Release+notes+28+November+2024/">Release notes 28 November 2024</a></li><li><a href="/cms_trial/space/JSUCLOUD/1370718220/Release+notes+October+2024/">Release notes October 2024</a></li><li><a href="/cms_trial/space/JSUCLOUD/1270415383/Release+notes+9+September+2024/">Release notes 9 September 2024</a></li><li><a href="/cms_trial/space/JSUCLOUD/12519627/Deprecation+-+Global+Calculated+Fields/">Deprecation - Global Calculated Fields</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JSUCLOUD/12518315/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/JSUCLOUD/3051716948/Differences+between+the+Forge+app+and+the+Connect+app/">Differences between the Forge app and the Connect app</a></li><li><a href="/cms_trial/space/JSUCLOUD/290194210/Guide+to+JSU+error+messages/">Guide to JSU error messages</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518420/Troubleshooting/">Troubleshooting</a></li><li><a href="/cms_trial/space/JSUCLOUD/920617041/Appfire+support/">Appfire support</a></li><li><a href="/cms_trial/space/JSUCLOUD/846856424/App+access+rule/">App access rule</a></li><li><a href="/cms_trial/space/JSUCLOUD/12517886/App+analytics/">App analytics</a></li><li><a href="/cms_trial/space/JSUCLOUD/2165083529/Atlassian+Government+Cloud/">Atlassian Government Cloud</a></li><li><a href="/cms_trial/space/JSUCLOUD/920813622/Appfire+Trust+Center/">Appfire Trust Center</a></li><li><a href="/cms_trial/space/JSUCLOUD/12517871/JSU+for+Jira+Cloud+knowledge+base/">JSU for Jira Cloud knowledge base</a></li></ul></details></li></ul></details></li></ul></nav>
-</aside>
-  <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#start-building-automation-rules">Start building automation rules</a></li><li class="toc-level-2"><a href="#inspiration">Inspiration</a></li><li class="toc-level-2"><a href="#migrating-from-jira-data-center">Migrating from Jira Data Center?</a></li><li class="toc-level-2"><a href="#need-help">Need help?</a></li></ul></div></aside>
+<nav><ul><li><details open><summary><a href="/cms_trial/space/JSUCLOUD/12517400/JSU+Automation+Suite+for+Jira+Workflows+-+Cloud/">JSU Automation Suite for Jira Workflows - Cloud</a></summary><ul><li><details open><summary><a href="/cms_trial/space/JSUCLOUD/12518219/Get+started+with+JSU+Automation+Suite+for+Jira+for+Cloud/" class="active">Get started with JSU Automation Suite for Jira for Cloud</a></summary><ul><li><a href="/cms_trial/space/JSUCLOUD/12518361/Installation+and+update+guide/">Installation and update guide</a></li><li><a href="/cms_trial/space/JSUCLOUD/12519472/Navigation+basics/">Navigation basics</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518241/Create+your+first+rule+with+JSU/">Create your first rule with JSU</a></li><li><a href="/cms_trial/space/JSUCLOUD/195821774/View+and+manage+workflow+rules/">View and manage workflow rules</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JSUCLOUD/12518487/Use+cases/">Use cases</a></summary><ul><li><a href="/cms_trial/space/JSUCLOUD/49742537/Add+a+comment+to+a+linked+issue+in+a+service+management+project/">Add a comment to a linked issue in a service management project</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518672/Automatically+remove+a+closed+epic+from+the+backlog/">Automatically remove a closed epic from the backlog</a></li><li><a href="/cms_trial/space/JSUCLOUD/12519508/Calculate+total+story+points+for+an+epic/">Calculate total story points for an epic</a></li><li><a href="/cms_trial/space/JSUCLOUD/26116102/Close+parent+issue+when+all+subtasks+are+done/">Close parent issue when all subtasks are done</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518718/Close+parent+issue+when+all+subtasks+are+closed+-+Legacy/">Close parent issue when all subtasks are closed - Legacy</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518511/Copy+or+move+attachments/">Copy or move attachments</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518186/Define+field+values+for+new+linked+issues/">Define field values for new linked issues</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518307/JQL+use+cases/">JQL use cases</a></li><li><a href="/cms_trial/space/JSUCLOUD/49775577/Remove+assignee+when+an+issue+moves+back+to+To+Do/">Remove assignee when an issue moves back to To Do</a></li><li><a href="/cms_trial/space/JSUCLOUD/2984312833/Safely+deploy+JSU+workflow+automation+across+Jira+Cloud+instances+with+CMJ+Cloud/">Safely deploy JSU workflow automation across Jira Cloud instances with CMJ Cloud</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518631/Streamline+an+approval+process/">Streamline an approval process</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518446/Testing+and+fixing+bugs/">Testing and fixing bugs</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518052/Update+an+issue+only+in+certain+conditions/">Update an issue only in certain conditions</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JSUCLOUD/2130575369/App+integrations/">App integrations</a></summary><ul><li><a href="/cms_trial/space/JSUCLOUD/2130182780/Dashboard+Hub+Pro/">Dashboard Hub Pro</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JSUCLOUD/12518429/Features/">Features</a></summary><ul><li><a href="/cms_trial/space/JSUCLOUD/12518573/Key+concepts/">Key concepts</a></li><li><a href="/cms_trial/space/JSUCLOUD/12517805/Universal+Rule+Builder/">Universal Rule Builder</a></li><li><a href="/cms_trial/space/JSUCLOUD/1958084925/JSU+Rule+Builder+-+Conditions/">JSU Rule Builder - Conditions</a></li><li><a href="/cms_trial/space/JSUCLOUD/1973288961/JSU+Rule+Builder+-+Validators/">JSU Rule Builder - Validators</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518401/Workflow+post+functions/">Workflow post functions</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518025/Workflow+preconditions/">Workflow preconditions</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JSUCLOUD/12519552/Migrations/">Migrations</a></summary><ul><li><a href="/cms_trial/space/JSUCLOUD/12519557/Migrating+from+Jira+Data+Center+to+Jira+Cloud/">Migrating from Jira Data Center to Jira Cloud</a></li><li><a href="/cms_trial/space/JSUCLOUD/12519542/Migrating+from+Jira+Cloud+to+Jira+Data+Center/">Migrating from Jira Cloud to Jira Data Center</a></li><li><a href="/cms_trial/space/JSUCLOUD/1721303547/Jira+Cloud+to+Cloud+migrations/">Jira Cloud to Cloud migrations</a></li><li><a href="/cms_trial/space/JSUCLOUD/710181330/JSU+migration+reports/">JSU migration reports</a></li><li><a href="/cms_trial/space/JSUCLOUD/3510927636/How+to+resolve+stuck+migrations/">How to resolve stuck migrations</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JSUCLOUD/872972294/Release+notes/">Release notes</a></summary><ul><li><a href="/cms_trial/space/JSUCLOUD/3591307275/Release+notes+27+August+2026/">Release notes 27 August 2026</a></li><li><a href="/cms_trial/space/JSUCLOUD/3532854188/Release+notes+11+August+2026/">Release notes 11 August 2026</a></li><li><a href="/cms_trial/space/JSUCLOUD/3402924035/Release+notes+1+July+2026/">Release notes 1 July 2026</a></li><li><a href="/cms_trial/space/JSUCLOUD/3281617218/Release+notes+June+2026/">Release notes June 2026</a></li><li><a href="/cms_trial/space/JSUCLOUD/3083763713/Release+notes+April+2026/">Release notes April 2026</a></li><li><a href="/cms_trial/space/JSUCLOUD/2840395900/Release+notes+February+2026/">Release notes February 2026</a></li><li><a href="/cms_trial/space/JSUCLOUD/2709553189/Release+notes+January+2026/">Release notes January 2026</a></li><li><a href="/cms_trial/space/JSUCLOUD/2636841020/Release+notes+15+December+2025/">Release notes 15 December 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/2577072135/Release+notes+04+December+2025/">Release notes 04 December 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/2571239426/Release+notes+27+November+2025/">Release notes 27 November 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/2571010049/Release+notes+26+November+2025/">Release notes 26 November 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/2561769473/Release+notes+25+November+2025/">Release notes 25 November 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/2343469066/Release+notes+September+2025/">Release notes September 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/2206695594/Release+notes+August+2025/">Release notes August 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/2188542009/Release+notes+16+July+2025/">Release notes 16 July 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/2185068563/Release+notes+10+July+2025/">Release notes 10 July 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/2116419585/Release+notes+16+June+2025/">Release notes 16 June 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/1989443591/Release+notes+6+June+2025/">Release notes 6 June 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/1870496133/Release+notes+March+2025/">Release notes March 2025</a></li><li><a href="/cms_trial/space/JSUCLOUD/12519627/Deprecation+-+Global+Calculated+Fields/">Deprecation - Global Calculated Fields</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JSUCLOUD/12518315/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/JSUCLOUD/3051716948/Differences+between+the+Forge+app+and+the+Connect+app/">Differences between the Forge app and the Connect app</a></li><li><a href="/cms_trial/space/JSUCLOUD/290194210/Guide+to+JSU+error+messages/">Guide to JSU error messages</a></li><li><a href="/cms_trial/space/JSUCLOUD/12518420/Troubleshooting/">Troubleshooting</a></li><li><a href="/cms_trial/space/JSUCLOUD/920617041/Appfire+support/">Appfire support</a></li><li><a href="/cms_trial/space/JSUCLOUD/846856424/App+access+rule/">App access rule</a></li><li><a href="/cms_trial/space/JSUCLOUD/12517886/App+analytics/">App analytics</a></li><li><a href="/cms_trial/space/JSUCLOUD/2165083529/Atlassian+Government+Cloud/">Atlassian Government Cloud</a></li><li><a href="/cms_trial/space/JSUCLOUD/920813622/Appfire+Trust+Center/">Appfire Trust Center</a></li><li><a href="/cms_trial/space/JSUCLOUD/12517871/JSU+for+Jira+Cloud+knowledge+base/">JSU for Jira Cloud knowledge base</a></li></ul></details></li></ul></details></li></ul></nav>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
+  <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#create-your-first-rule">Create your first rule</a></li><li class="toc-level-2"><a href="#before-you-begin">Before you begin</a></li><li class="toc-level-2"><a href="#create-your-first-post-function">Create your first post function</a></li><li class="toc-level-2"><a href="#success">Success!</a></li><li class="toc-level-2"><a href="#start-building-automation-rules">Start building automation rules</a></li><li class="toc-level-2"><a href="#inspiration">Inspiration</a></li><li class="toc-level-2"><a href="#migrating-from-jira-data-center">Migrating from Jira Data Center?</a></li><li class="toc-level-2"><a href="#need-help">Need help?</a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
      portal, at a different path on the SAME domain. No custom OAuth
@@ -264,6 +308,92 @@
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>How to perform advanced date sorting with M column type- Cloud | Appfire Docs</title>
 <meta name="description" content="The recommended date format type to use for sorting dates is the M column type. The support for M type date sorting is built-in including multiple…">
@@ -9,7 +19,15 @@
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "How to perform advanced date sorting with M column type- Cloud",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/TBL/74814618/How+to+perform+advanced+date+sorting+with+M+column+type-+Cloud/",
+  "dateModified": "2026-06-26T07:06:58.333Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,26 +37,52 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74814716/Use+cases+-+cloud/">Use cases - cloud</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">How to perform advanced date sorting with M column type- Cloud</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TBL/pages/74814618" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TBL/pages/74814618" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>How to perform advanced date sorting with M column type- Cloud</h1>
-    <div class="page-meta">3 min read</div>
+    <div class="page-meta">Updated 2 months ago · 3 min read</div>
     <h2 id="overview">Overview</h2><p>The recommended date format type to use for sorting dates is the <em>M</em> column type. The support for <em>M</em> type date sorting is built-in including multiple language support and does not require any additional server installation.</p><div class="panel panel-success"><h3 id="how-to-know-if-the-m-column-type-is-available-in-my-confluence-instance">How to know if the M column type is available in my Confluence instance</h3><p>In the macro browser, search for the <em>Table Plus</em> macro and find the <em>Column types</em> parameter. If <em>M</em> is listed in the help text, then it is available for use. See <a href="/cms_trial/space/TBL/74814225/Column+types+-+Cloud/">Column types</a> for more information.</p></div><div class="panel panel-note"><h3 id="acknowledgement">Acknowledgement</h3><p>Advanced date sorting support with the <em>M</em> column type is provided using Javascript with the help of the <a href="http://momentjs.com/">Moment.js</a> library (open source, MIT license). A summary of the relevant parts of the Moment.js documentation is repeated here.</p></div><h2 id="automatic-support">Automatic support</h2><p>On specifying just the <em>M</em> column type, default date parsing recognizes a number of common date formats including those recognized by the browser specific Javascript implementation. However, there can be browser specific inconsistencies. The following <strong>ISO-8601</strong> formats are recognized consistently across browsers:</p><img alt="Advanced Tables ISO 8601 column type formats for advanced date sorting" class="doc-image" loading="lazy" src="/cms_trial/assets/c78fbc0f-82dc-4dfb-9d25-20f2312e633e.jpg"/><h2 id="user-specified-formats">User-specified formats</h2><p>On specifying a format string following the <em>M</em> column type, a specific date format can be handled. Construct the date format string from the set of format tokens.</p><div class="panel panel-success"><h3 id="non-alphanumeric-characters">Non-alphanumeric characters</h3><p>Non-alphanumeric characters are ignored, so, for this example, both of the following are treated the same with the MM-DD-YYYY format:</p><ul><li><p>12-25-1995</p></li><li><p>12/25/1995</p></li></ul><p>Similarly, formats can be specified with or with non-alphanumeric separators. However, using separators helps with readability.</p></div><h2 id="format-tokens">Format tokens </h2><div class="panel panel-note"><p>See the <a href="http://momentjs.com/docs/">Moment.js documentation</a> for further information.</p></div><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p>Token</p></th><th><p>Description</p></th></tr><tr><td><p>M, MM</p></td><td><p>Month Number (1 - 12)</p></td></tr><tr><td><p>MMM, MMMM</p></td><td><p>Month Name (In current language)</p></td></tr><tr><td><p>D, DD</p></td><td><p>Day of month</p></td></tr><tr><td><p>DDD, DDDD</p></td><td><p>Day of year</p></td></tr><tr><td><p>d, dd, ddd, dddd</p></td><td><p>Day of week</p><div class="panel panel-warning"><p>The input for these tokens is ignored, as there are 4-5 weeks in a month, and it would be impossible to get the day of the month based off the day of the week.</p></div></td></tr><tr><td><p>YY</p></td><td><p>2 digit year (if greater than 68, returns 1900's; else, 2000's)</p></td></tr><tr><td><p>YYYY</p></td><td><p>4 digit year</p></td></tr><tr><td><p>a, A</p></td><td><p>AM/PM</p></td></tr><tr><td><p>H, HH</p></td><td><p>24 hour time</p></td></tr><tr><td><p>h, hh</p></td><td><p>12 hour time (use in conjunction with a or A)</p></td></tr><tr><td><p>m, mm</p></td><td><p>Minutes</p></td></tr><tr><td><p>s, ss</p></td><td><p>Seconds</p></td></tr><tr><td><p>S</p></td><td><p>Deciseconds (1/10th of a second)</p></td></tr><tr><td><p>SS</p></td><td><p>Centiseconds (1/100th of a second)</p></td></tr><tr><td><p>SSS</p></td><td><p>Milliseconds (1/1000th of a second)</p></td></tr><tr><td><p>Z, ZZ</p></td><td><p>Timezone offset as <code>+07:00</code> or <code>+0700</code></p></td></tr><tr><td><p>X</p></td><td><p>Unix timestamp</p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><h2 id="language-support-i18n">Language support (i18n)</h2><p>When the date format contains any other language words, the appropriate language must be indicated. English (US) is the default if nothing is specified. The language is specified by following the <em>M</em> with (language indicator) prior to the format string.</p><h3 id="examples">Examples</h3><ul><li><p><strong>M(de)YYYY-MMM-DD </strong>for a German date: <em>2013-Mrz-10</em></p></li><li><p><strong>M(fr)</strong> for a French date: <em>Janv 10, 2013</em></p></li></ul><h3 id="supported-languages">Supported languages</h3><p>Click the link, in the following list of languages supported by the Moment.js library, to get the details of the specific localization:</p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p>Language indicator</p></th></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/ar-ma.js">ar-ma</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/ar.js">ar</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/bg.js">bg</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/br.js">br</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/ca.js">ca</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/cs.js">cs</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/cv.js">cv</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/da.js">da</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/de.js">de</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/el.js">el</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/en-ca.js">en-ca</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/en-gb.js">en-gb</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/eo.js">eo</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/es.js">es</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/et.js">et</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/eu.js">eu</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/fa.js">fa</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/fi.js">fi</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/fr-ca.js">fr-ca</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/fr.js">fr</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/gl.js">gl</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/he.js">he</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/hi.js">hi</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/hu.js">hu</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/id.js">id</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/is.js">is</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/it.js">it</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/ja.js">ja</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/ka.js">ka</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/ko.js">ko</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/lv.js">lv</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/ms-my.js">ms-my</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/nb.js">nb</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/ne.js">ne</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/nl.js">nl</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/nn.js">nn</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/pl.js">pl</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/pt-br.js">pt-br</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/pt.js">pt</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/ro.js">ro</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/ru.js">ru</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/sk.js">sk</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/sl.js">sl</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/sq.js">sq</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/sv.js">sv</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/th.js">th</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/tr.js">tr</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/tzm-la.js">tzm-la</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/tzm.js">tzm</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/uk.js">uk</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/zh-cn.js">zh-cn</a></p></td></tr><tr><td><p><a href="https://github.com/moment/moment/blob/develop/locale/zh-tw.js">zh-tw</a></p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">97 pages in this space, fetched live from Confluence via API.</p>
-<nav><ul><li><details open><summary><a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a></summary><ul><li><details><summary><a href="/cms_trial/space/TBL/74813990/Get+started+with+Advanced+Tables+for+Confluence+for+Cloud/">Get started with Advanced Tables for Confluence for Cloud</a></summary><ul><li><a href="/cms_trial/space/TBL/3131703327/Migrate+to+cloud/">Migrate to cloud</a></li></ul></details></li><li><a href="/cms_trial/space/TBL/74814277/Overview+-+cloud/">Overview - cloud</a></li><li><details><summary><a href="/cms_trial/space/TBL/74815154/Installation+and+configuration+-+cloud/">Installation and configuration - cloud</a></summary><ul><li><a href="/cms_trial/space/TBL/74814028/Installation/">Installation</a></li><li><a href="/cms_trial/space/TBL/74812041/Configuration+-+Cloud/">Configuration - Cloud</a></li><li><a href="/cms_trial/space/TBL/74814817/Uninstallation/">Uninstallation</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/TBL/74814716/Use+cases+-+cloud/">Use cases - cloud</a></summary><ul><li><a href="/cms_trial/space/TBL/74814629/How+to+use+regular+expressions+-+Cloud/">How to use regular expressions - Cloud</a></li><li><a href="/cms_trial/space/TBL/74812963/How+to+make+user-defined+column+styles+persist+-+Cloud/">How to make user-defined column styles persist - Cloud</a></li><li><a href="/cms_trial/space/TBL/74813085/How+to+make+user-defined+row+styles+persist+-+Cloud/">How to make user-defined row styles persist - Cloud</a></li><li><a href="/cms_trial/space/TBL/74813066/How+to+apply+filters+on+table+data+-+Cloud/">How to apply filters on table data - Cloud</a></li><li><a href="/cms_trial/space/TBL/74814340/How+to+perform+advanced+date+sorting+with+the+D+column+type+-+Cloud/">How to perform advanced date sorting with the D column type - Cloud</a></li><li><a href="/cms_trial/space/TBL/74814618/How+to+perform+advanced+date+sorting+with+M+column+type-+Cloud/" class="active">How to perform advanced date sorting with M column type- Cloud</a></li><li><a href="/cms_trial/space/TBL/74814374/How+to+change+the+format+of+date+columns+-+Cloud/">How to change the format of date columns - Cloud</a></li><li><a href="/cms_trial/space/TBL/74814193/How+to+change+the+format+of+numeric+columns+-+Cloud/">How to change the format of numeric columns - Cloud</a></li><li><a href="/cms_trial/space/TBL/74812579/Table+Plus+macro+examples+-+Cloud/">Table Plus macro examples - Cloud</a></li><li><a href="/cms_trial/space/TBL/74812519/CSV+(Comma+Separated+Values)+macro+examples+-+Cloud/">CSV (Comma Separated Values) macro examples - Cloud</a></li><li><a href="/cms_trial/space/TBL/74818011/JSON+Table+macro+examples+-+Cloud/">JSON Table macro examples - Cloud</a></li><li><a href="/cms_trial/space/TBL/74817969/Attachment+Table+macro+examples+-+Cloud/">Attachment Table macro examples - Cloud</a></li><li><a href="/cms_trial/space/TBL/3325657245/Advanced+Table+Viewer+macro+examples/">Advanced Table Viewer macro examples</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/TBL/74812514/Featured+macros+-+Cloud/">Featured macros - Cloud</a></summary><ul><li><a href="/cms_trial/space/TBL/74812542/Table+Plus+macro+-+Cloud/">Table Plus macro - Cloud</a></li><li><a href="/cms_trial/space/TBL/74812384/CSV+(Comma+Separated+Values)+macro+-+Cloud/">CSV (Comma Separated Values) macro - Cloud</a></li><li><a href="/cms_trial/space/TBL/74812316/JSON+Table+macro+-+Cloud/">JSON Table macro - Cloud</a></li><li><a href="/cms_trial/space/TBL/74812217/Attachment+Table+macro+-+Cloud/">Attachment Table macro - Cloud</a></li><li><a href="/cms_trial/space/TBL/1531117698/Advanced+Table+Viewer+macro/">Advanced Table Viewer macro</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/TBL/74817747/Common+table+capabilities+-+Cloud/">Common table capabilities - Cloud</a></summary><ul><li><a href="/cms_trial/space/TBL/74814225/Column+types+-+Cloud/">Column types - Cloud</a></li><li><a href="/cms_trial/space/TBL/74815166/Augments+-+Cloud/">Augments - Cloud</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/TBL/74816002/Release+notes/">Release notes</a></summary><ul><li><a href="/cms_trial/space/TBL/3488285400/Release+notes+30+July+2026/">Release notes 30 July 2026</a></li><li><a href="/cms_trial/space/TBL/3436478590/Release+notes+July+2026/">Release notes July 2026</a></li><li><a href="/cms_trial/space/TBL/3369304164/Release+notes+June+2026/">Release notes June 2026</a></li><li><a href="/cms_trial/space/TBL/3277324301/Release+notes+28+May+2026/">Release notes 28 May 2026</a></li><li><a href="/cms_trial/space/TBL/3265462603/Release+notes+21+May+2026/">Release notes 21 May 2026</a></li><li><a href="/cms_trial/space/TBL/3220209965/Release+notes+May+2026/">Release notes May 2026</a></li><li><a href="/cms_trial/space/TBL/3197435950/Release+notes+30+April+2026/">Release notes 30 April 2026</a></li><li><a href="/cms_trial/space/TBL/3159687174/Release+notes+23+April+2026/">Release notes 23 April 2026</a></li><li><a href="/cms_trial/space/TBL/3158049004/Release+notes+17+April+2026/">Release notes 17 April 2026</a></li><li><a href="/cms_trial/space/TBL/3122299250/Release+notes+14+April+2026/">Release notes 14 April 2026</a></li><li><a href="/cms_trial/space/TBL/3050111004/Release+notes+08+April+2026/">Release notes 08 April 2026</a></li><li><a href="/cms_trial/space/TBL/3016294412/Release+notes+17+March+2026/">Release notes 17 March 2026</a></li><li><a href="/cms_trial/space/TBL/2991456290/Release+notes+March+2026/">Release notes March 2026</a></li><li><a href="/cms_trial/space/TBL/2766798931/Release+notes+February+2026/">Release notes February 2026</a></li><li><a href="/cms_trial/space/TBL/2402615417/Release+notes+25+September+2025/">Release notes 25 September 2025</a></li><li><a href="/cms_trial/space/TBL/2368995338/Release+notes+19+September+2025/">Release notes 19 September 2025</a></li><li><a href="/cms_trial/space/TBL/2331508840/Release+notes+September+2025/">Release notes September 2025</a></li><li><a href="/cms_trial/space/TBL/2108293544/Release+notes+June+2025/">Release notes June 2025</a></li><li><a href="/cms_trial/space/TBL/2059927693/Release+notes+28+May+2025/">Release notes 28 May 2025</a></li><li><a href="/cms_trial/space/TBL/2008777573/Release+notes+May+2025/">Release notes May 2025</a></li><li><a href="/cms_trial/space/TBL/1946223576/Release+notes+April+2025/">Release notes April 2025</a></li><li><a href="/cms_trial/space/TBL/1864663217/Release+notes+19+March+2025/">Release notes 19 March 2025</a></li><li><a href="/cms_trial/space/TBL/1845789546/Release+notes+12+March+2025/">Release notes 12 March 2025</a></li><li><a href="/cms_trial/space/TBL/1804829772/Release+notes+March+2025/">Release notes March 2025</a></li><li><a href="/cms_trial/space/TBL/1547895248/Release+notes+December+2024/">Release notes December 2024</a></li><li><a href="/cms_trial/space/TBL/1342767373/Release+notes+07+October+2024/">Release notes 07 October 2024</a></li><li><a href="/cms_trial/space/TBL/860487975/Release+notes+28+March+2024/">Release notes 28 March 2024</a></li><li><a href="/cms_trial/space/TBL/837484625/Release+notes+March+2024/">Release notes March 2024</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/TBL/74814936/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/TBL/2172944490/Appfire+Trust+Center/">Appfire Trust Center</a></li><li><a href="/cms_trial/space/TBL/74815010/Data+security+and+privacy/">Data security and privacy</a></li><li><a href="/cms_trial/space/TBL/3529933064/Data+residency+and+Advanced+Tables+for+Confluence/">Data residency and Advanced Tables for Confluence</a></li></ul></details></li></ul></details></li></ul></nav>
-</aside>
+<nav><ul><li><details open><summary><a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a></summary><ul><li><details><summary><a href="/cms_trial/space/TBL/74813990/Get+started+with+Advanced+Tables+for+Confluence+for+Cloud/">Get started with Advanced Tables for Confluence for Cloud</a></summary><ul><li><a href="/cms_trial/space/TBL/3131703327/Migrate+to+cloud/">Migrate to cloud</a></li></ul></details></li><li><a href="/cms_trial/space/TBL/74814277/Overview+-+cloud/">Overview - cloud</a></li><li><details><summary><a href="/cms_trial/space/TBL/74815154/Installation+and+configuration+-+cloud/">Installation and configuration - cloud</a></summary><ul><li><a href="/cms_trial/space/TBL/74814028/Installation/">Installation</a></li><li><a href="/cms_trial/space/TBL/74812041/Configuration+-+Cloud/">Configuration - Cloud</a></li><li><a href="/cms_trial/space/TBL/74814817/Uninstallation/">Uninstallation</a></li><li><a href="/cms_trial/space/TBL/3510698190/How+to+connect+the+Advanced+Tables+for+Confluence+app+to+the+Jira+application/">How to connect the Advanced Tables for Confluence app to the Jira application</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/TBL/74814716/Use+cases+-+cloud/">Use cases - cloud</a></summary><ul><li><a href="/cms_trial/space/TBL/74814629/How+to+use+regular+expressions+-+Cloud/">How to use regular expressions - Cloud</a></li><li><a href="/cms_trial/space/TBL/74812963/How+to+make+user-defined+column+styles+persist+-+Cloud/">How to make user-defined column styles persist - Cloud</a></li><li><a href="/cms_trial/space/TBL/74813085/How+to+make+user-defined+row+styles+persist+-+Cloud/">How to make user-defined row styles persist - Cloud</a></li><li><a href="/cms_trial/space/TBL/74813066/How+to+apply+filters+on+table+data+-+Cloud/">How to apply filters on table data - Cloud</a></li><li><a href="/cms_trial/space/TBL/74814340/How+to+perform+advanced+date+sorting+with+the+D+column+type+-+Cloud/">How to perform advanced date sorting with the D column type - Cloud</a></li><li><a href="/cms_trial/space/TBL/74814618/How+to+perform+advanced+date+sorting+with+M+column+type-+Cloud/" class="active">How to perform advanced date sorting with M column type- Cloud</a></li><li><a href="/cms_trial/space/TBL/74814374/How+to+change+the+format+of+date+columns+-+Cloud/">How to change the format of date columns - Cloud</a></li><li><a href="/cms_trial/space/TBL/74814193/How+to+change+the+format+of+numeric+columns+-+Cloud/">How to change the format of numeric columns - Cloud</a></li><li><a href="/cms_trial/space/TBL/74812579/Table+Plus+macro+examples+-+Cloud/">Table Plus macro examples - Cloud</a></li><li><a href="/cms_trial/space/TBL/74812519/CSV+(Comma+Separated+Values)+macro+examples+-+Cloud/">CSV (Comma Separated Values) macro examples - Cloud</a></li><li><a href="/cms_trial/space/TBL/74818011/JSON+Table+macro+examples+-+Cloud/">JSON Table macro examples - Cloud</a></li><li><a href="/cms_trial/space/TBL/74817969/Attachment+Table+macro+examples+-+Cloud/">Attachment Table macro examples - Cloud</a></li><li><a href="/cms_trial/space/TBL/3325657245/Advanced+Table+Viewer+macro+examples/">Advanced Table Viewer macro examples</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/TBL/74812514/Featured+macros+-+Cloud/">Featured macros - Cloud</a></summary><ul><li><a href="/cms_trial/space/TBL/74812542/Table+Plus+macro+-+Cloud/">Table Plus macro - Cloud</a></li><li><a href="/cms_trial/space/TBL/74812384/CSV+(Comma+Separated+Values)+macro+-+Cloud/">CSV (Comma Separated Values) macro - Cloud</a></li><li><a href="/cms_trial/space/TBL/74812316/JSON+Table+macro+-+Cloud/">JSON Table macro - Cloud</a></li><li><a href="/cms_trial/space/TBL/74812217/Attachment+Table+macro+-+Cloud/">Attachment Table macro - Cloud</a></li><li><a href="/cms_trial/space/TBL/1531117698/Advanced+Table+Viewer+macro/">Advanced Table Viewer macro</a></li><li><a href="/cms_trial/space/TBL/3520037211/Native+Table+Enhancer+%5BBeta%5D+macro/">Native Table Enhancer [Beta] macro</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/TBL/74817747/Common+table+capabilities+-+Cloud/">Common table capabilities - Cloud</a></summary><ul><li><a href="/cms_trial/space/TBL/74814225/Column+types+-+Cloud/">Column types - Cloud</a></li><li><a href="/cms_trial/space/TBL/74815166/Augments+-+Cloud/">Augments - Cloud</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/TBL/74816002/Release+notes/">Release notes</a></summary><ul><li><a href="/cms_trial/space/TBL/3581607966/Release+notes+27+August+2026/">Release notes 27 August 2026</a></li><li><a href="/cms_trial/space/TBL/3488285400/Release+notes+30+July+2026/">Release notes 30 July 2026</a></li><li><a href="/cms_trial/space/TBL/3436478590/Release+notes+July+2026/">Release notes July 2026</a></li><li><a href="/cms_trial/space/TBL/3369304164/Release+notes+June+2026/">Release notes June 2026</a></li><li><a href="/cms_trial/space/TBL/3277324301/Release+notes+28+May+2026/">Release notes 28 May 2026</a></li><li><a href="/cms_trial/space/TBL/3265462603/Release+notes+21+May+2026/">Release notes 21 May 2026</a></li><li><a href="/cms_trial/space/TBL/3220209965/Release+notes+May+2026/">Release notes May 2026</a></li><li><a href="/cms_trial/space/TBL/3197435950/Release+notes+30+April+2026/">Release notes 30 April 2026</a></li><li><a href="/cms_trial/space/TBL/3159687174/Release+notes+23+April+2026/">Release notes 23 April 2026</a></li><li><a href="/cms_trial/space/TBL/3158049004/Release+notes+17+April+2026/">Release notes 17 April 2026</a></li><li><a href="/cms_trial/space/TBL/3122299250/Release+notes+14+April+2026/">Release notes 14 April 2026</a></li><li><a href="/cms_trial/space/TBL/3050111004/Release+notes+08+April+2026/">Release notes 08 April 2026</a></li><li><a href="/cms_trial/space/TBL/3016294412/Release+notes+17+March+2026/">Release notes 17 March 2026</a></li><li><a href="/cms_trial/space/TBL/2991456290/Release+notes+March+2026/">Release notes March 2026</a></li><li><a href="/cms_trial/space/TBL/2766798931/Release+notes+February+2026/">Release notes February 2026</a></li><li><a href="/cms_trial/space/TBL/2402615417/Release+notes+25+September+2025/">Release notes 25 September 2025</a></li><li><a href="/cms_trial/space/TBL/2368995338/Release+notes+19+September+2025/">Release notes 19 September 2025</a></li><li><a href="/cms_trial/space/TBL/2331508840/Release+notes+September+2025/">Release notes September 2025</a></li><li><a href="/cms_trial/space/TBL/2108293544/Release+notes+June+2025/">Release notes June 2025</a></li><li><a href="/cms_trial/space/TBL/2059927693/Release+notes+28+May+2025/">Release notes 28 May 2025</a></li><li><a href="/cms_trial/space/TBL/2008777573/Release+notes+May+2025/">Release notes May 2025</a></li><li><a href="/cms_trial/space/TBL/1946223576/Release+notes+April+2025/">Release notes April 2025</a></li><li><a href="/cms_trial/space/TBL/1864663217/Release+notes+19+March+2025/">Release notes 19 March 2025</a></li><li><a href="/cms_trial/space/TBL/1845789546/Release+notes+12+March+2025/">Release notes 12 March 2025</a></li><li><a href="/cms_trial/space/TBL/1804829772/Release+notes+March+2025/">Release notes March 2025</a></li><li><a href="/cms_trial/space/TBL/1547895248/Release+notes+December+2024/">Release notes December 2024</a></li><li><a href="/cms_trial/space/TBL/1342767373/Release+notes+07+October+2024/">Release notes 07 October 2024</a></li><li><a href="/cms_trial/space/TBL/860487975/Release+notes+28+March+2024/">Release notes 28 March 2024</a></li><li><a href="/cms_trial/space/TBL/837484625/Release+notes+March+2024/">Release notes March 2024</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/TBL/74814936/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/TBL/2172944490/Appfire+Trust+Center/">Appfire Trust Center</a></li><li><a href="/cms_trial/space/TBL/74815010/Data+security+and+privacy/">Data security and privacy</a></li><li><a href="/cms_trial/space/TBL/3529933064/Data+residency+and+Advanced+Tables+for+Confluence/">Data residency and Advanced Tables for Confluence</a></li></ul></details></li></ul></details></li></ul></nav>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#overview">Overview</a></li><li class="toc-level-3"><a href="#how-to-know-if-the-m-column-type-is-available-in-my-confluence-instance">How to know if the M column type is available in my Confluence instance</a></li><li class="toc-level-3"><a href="#acknowledgement">Acknowledgement</a></li><li class="toc-level-2"><a href="#automatic-support">Automatic support</a></li><li class="toc-level-2"><a href="#user-specified-formats">User-specified formats</a></li><li class="toc-level-3"><a href="#non-alphanumeric-characters">Non-alphanumeric characters</a></li><li class="toc-level-2"><a href="#format-tokens">Format tokens </a></li><li class="toc-level-2"><a href="#language-support-i18n">Language support (i18n)</a></li><li class="toc-level-3"><a href="#examples">Examples</a></li><li class="toc-level-3"><a href="#supported-languages">Supported languages</a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
@@ -264,6 +308,92 @@
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

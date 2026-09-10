@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>Simplify your Cloud migration with Configuration Manager for Jira (CMJ) | Appfire Docs</title>
 <meta name="description" content="Migrating from Jira Data Center to Jira Cloud is not a single technical event. It is a structured process that starts with understanding your current…">
@@ -9,7 +19,15 @@
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Simplify your Cloud migration with Configuration Manager for Jira (CMJ)",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/CMJC/2936799239/Simplify+your+Cloud+migration+with+Configuration+Manager+for+Jira+(CMJ)/",
+  "dateModified": "2026-06-23T11:29:10.861Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,26 +37,52 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CMJC/443975880/Release+notes+11+August+2023/">Configuration Manager for Jira Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira (CMJ) Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CMJC/194117717/Use+Cases/">Use Cases</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Simplify your Cloud migration with Configuration Manager for Jira (CMJ)</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CMJC/pages/2936799239" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CMJC/pages/2936799239" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>Simplify your Cloud migration with Configuration Manager for Jira (CMJ)</h1>
-    <div class="page-meta">5 min read</div>
+    <div class="page-meta">Updated 2 months ago · 5 min read</div>
     <h2 id="overview">Overview</h2><p>Migrating from Jira Data Center to Jira Cloud is not a single technical event. It is a structured process that starts with understanding your current environment, continues through careful preparation and validation, and extends into long-term Cloud governance.</p><img alt="Cloud Ready.png" class="doc-image" loading="lazy" src="/cms_trial/assets/d86c3438-978a-41c0-8630-993013347e71.png"/><p>This guide brings together all migration-related use cases where <strong>Configuration Manager for Jira</strong>, <strong>Power Admin for Jira</strong>, and <strong>Integrity Check for Jira</strong> add value. It is intended to act as a single reference point for customers, partners, and support teams involved in the Cloud Ready program.</p><p>Rather than treating each app in isolation, this page explains how they support specific phases of the migration journey, from early assessment through to ongoing Cloud management.</p><h2 id="1-assessment-and-inventory">1. Assessment and inventory</h2><p>Every successful migration starts with a clear understanding of the existing Jira Data Center environment. This phase focuses on uncovering configuration complexity, identifying risks, and assessing overall readiness for Cloud.</p><p>Power Admin for Jira <a href="https://appfire.atlassian.net/wiki/spaces/PA/pages/197822530">provides visibility into projects, schemes, and shared configurations</a>, making it easier to understand where configuration sprawl exists and which elements are no longer in active use. This insight helps teams identify early candidates for cleanup or consolidation.</p><p>As part of the assessment process, Configuration Manager for Jira can also be utilized. It can capture a configuration snapshot of the current Jira Data Center instance before any cleanup truly begins. This snapshot serves as a fixed reference point that allows teams to confidently review and measure the impact of their assessment and preparation work, such as removing unused configurations or standardizing schemes. </p><p>By preserving a clear “before” state, teams can make informed cleanup decisions, demonstrate progress to stakeholders, and carry a trusted baseline forward into later migration and validation phases.</p><div class="panel panel-note"><p><strong>Which app helps here?</strong></p><p><a href="https://marketplace.atlassian.com/apps/1219634/power-admin-for-jira?hosting=datacenter&amp;tab=overview">Power Admin for Jira</a> supports inventory and analysis of projects and configurations.<br/><a href="https://marketplace.atlassian.com/apps/1211611/configuration-manager-for-jira-cmj?hosting=datacenter&amp;tab=overview">Configuration Manager for Jira</a> captures baseline configuration snapshots for assessment and comparison.</p></div><h2 id="2-migration-planning">2. Migration planning</h2><p>Migration planning is where teams decide how the move to Cloud will be executed, while remaining flexible enough to adapt as new information emerges.</p><p>At this stage, organizations typically define ownership, scope, milestones, and communication paths. The goal is not to document every technical detail, but to ensure alignment between stakeholders and to set realistic expectations.</p><p>Configuration Manager for Jira supports planning by encouraging a configuration-first mindset. Instead of focusing only on projects, teams can determine which configurations should move to Cloud, which should be redesigned, and <a href="https://appfire.atlassian.net/wiki/spaces/CMJ/pages/198116356">which can be retired entirely</a>. This helps reduce unnecessary migration effort before work begins.</p><div class="panel panel-note"><p><strong>Which app helps here?</strong></p><p><a href="https://marketplace.atlassian.com/apps/1211611/configuration-manager-for-jira-cmj?hosting=datacenter&amp;tab=overview">Configuration Manager for Jira</a> helps teams decide what configuration should move, change, or be retired as part of the migration plan.</p></div><h2 id="3-migration-preparation">3. Migration preparation</h2><p>Migration preparation is where the majority of migration risk is removed. Before any data is moved, Jira Data Center should be cleaned, standardized, and stabilized.</p><p>Integrity Check for Jira <a href="https://appfire.atlassian.net/wiki/spaces/ICJ/pages/198475963">identifies configuration errors</a> and invalid references that may not be immediately visible but can cause migration failures or incomplete results. Resolving these issues early ensures the environment is technically safe to migrate.</p><p>Power Admin for Jira enables <a href="https://appfire.atlassian.net/wiki/spaces/PA/pages/2623602849">bulk cleanup and standardization</a>, allowing teams to remove unused configurations and align projects to shared schemes. This simplifies the migration itself and improves the long-term health of the Jira instance.</p><p>Once preparation is complete, Configuration Manager for Jira can be used to capture <a href="https://appfire.atlassian.net/wiki/spaces/CMJ/pages/197857347">clean and approved configuration snapshots</a>. These snapshots act as authoritative references for later validation.</p><div class="panel panel-note"><p><strong>Which app helps here?</strong></p><p><a href="https://marketplace.atlassian.com/apps/1212168/integrity-check-for-jira?hosting=datacenter&amp;tab=overview">Integrity Check for Jira</a> detects and helps resolve configuration errors on Data Center.<br/><a href="https://marketplace.atlassian.com/apps/1219634/power-admin-for-jira?hosting=datacenter&amp;tab=overview">Power Admin for Jira</a> supports cleanup, consolidation, and standardization.<br/><a href="https://marketplace.atlassian.com/apps/1211611/configuration-manager-for-jira-cmj?hosting=datacenter&amp;tab=overview">Configuration Manager for Jira</a> captures approved configuration states before migration.</p></div><h2 id="4-test-migration">4. Test migration</h2><p>A test migration allows teams to validate assumptions and identify issues before production users are affected. It turns migration from a one-time event into a repeatable, controlled process.</p><p>Using the Jira Cloud Migration Assistant (JCMA) or the Configuration Manager Cloud Migration Tool (CMT), teams can perform trial migrations and surface warnings or errors early. By transferring Data Center configurations to a Test Jira Cloud site, teams gain clear visibility into what migrated successfully, what changed due to Cloud differences, and where gaps or adjustments are required.</p><p>Issues discovered during the test migration are significantly easier and safer to resolve than those found after go-live.</p><div class="panel panel-note"><p><strong>Which app helps here?</strong></p><p><a href="https://marketplace.atlassian.com/apps/1224900/configuration-manager-cloud-migration-tool?hosting=datacenter&amp;tab=overview">Configuration Manager Cloud Migration Tool</a> can transfer your Data Center configurations to your Test Jira Cloud site to validate these test migrations.</p></div><h2 id="5-production-migration">5. Production migration</h2><p>The production migration is the execution of everything planned, prepared, and validated in the earlier phases. At this stage, the primary focus is on minimizing disruption for end users while ensuring that configuration and data are migrated accurately and completely.</p><p>There are two common ways to approach the production migration. The first is to follow the same process used during <a href="#Test-migration">Test migration</a>, but target the Production Jira Cloud site instead of the Test site. This approach is preferred if teams want to repeat a known, validated process end-to-end and are comfortable running the migration steps again in production.</p><p>Alternatively, teams can use Configuration Manager for Jira Cloud to promote configuration changes that were already applied and validated in the Test Cloud environment into the Production Cloud environment. This approach allows teams to <a href="/cms_trial/space/CMJC/2890924061/Test+and+deploy+Jira+configuration+changes+safely/">deploy known fixes and adjustments without reintroducing unnecessary variability</a>, reducing both risk and manual effort.</p><div class="panel panel-note"><p><strong>Which app helps here?</strong></p><p><a href="https://marketplace.atlassian.com/apps/1224900/configuration-manager-cloud-migration-tool?hosting=datacenter&amp;tab=overview">Configuration Manager Cloud Migration Tool</a> can be used to migrate configurations from Data Center to a Production Jira Cloud site.</p><p><a href="https://marketplace.atlassian.com/apps/1211611/configuration-manager-for-jira-cmj?hosting=cloud&amp;tab=overview">Configuration Manager for Jira Cloud</a> supports production migration by promoting validated configuration changes to production and verifying post-migration results.</p></div><h2 id="6-cloud-management-after-migration">6. Cloud management after migration</h2><p>Migration is done, but maintaining your new Jira Cloud site is an ongoing effort. Cloud environments evolve continuously, and without governance, configuration drift can quickly reintroduce risk.</p><p>Configuration Manager for Jira Cloud enables teams to <a href="/cms_trial/space/CMJC/2890924061/Test+and+deploy+Jira+configuration+changes+safely/">manage configuration changes between two Cloud sites</a> safely after migration. It supports controlled updates, automation, and auditability, helping organizations maintain a stable and scalable Cloud environment as usage grows.</p><p>This phase ensures that the benefits of migration are sustained over time.</p><div class="panel panel-note"><p><strong>Which app helps here?</strong></p><p><a href="https://marketplace.atlassian.com/apps/1211611/configuration-manager-for-jira-cmj?hosting=cloud&amp;tab=overview">Configuration Manager for Jira Cloud</a> supports ongoing configuration management and change control in Cloud.</p></div><h2 id="support">Support</h2><p>Want more guidance with your migration to Cloud? Learn how we can support you <a href="https://appfire.com/atlassian-cloud-migration-guidance">here</a>.</p><p>Request a demo / <a href="https://appfire.atlassian.net/servicedesk/customer/portal/11/group/1236/create/1918">Request support</a></p>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">82 pages in this space, fetched live from Confluence via API.</p>
-<nav><ul><li><a href="/cms_trial/space/CMJC/443975880/Release+notes+11+August+2023/">Release notes 11 August 2023</a></li><li><details open><summary><a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira (CMJ) Cloud</a></summary><ul><li><a href="/cms_trial/space/CMJC/193725041/Overview/">Overview</a></li><li><details><summary><a href="/cms_trial/space/CMJC/193921273/Get+started+with+Configuration+Manager+for+Jira+for+Cloud/">Get started with Configuration Manager for Jira for Cloud</a></summary><ul><li><a href="/cms_trial/space/CMJC/193659801/Prerequisites/">Prerequisites</a></li><li><a href="/cms_trial/space/CMJC/194183182/Installation+guide/">Installation guide</a></li><li><a href="/cms_trial/space/CMJC/194150417/Licensing/">Licensing</a></li><li><a href="/cms_trial/space/CMJC/854753912/Security+whitepaper/">Security whitepaper</a></li><li><a href="/cms_trial/space/CMJC/681903694/Differences+between+CMJ+Server%2FData+Center+and+CMJ+Cloud/">Differences between CMJ Server/Data Center and CMJ Cloud</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/CMJC/194117717/Use+Cases/">Use Cases</a></summary><ul><li><a href="/cms_trial/space/CMJC/258053021/Deploy+configuration+changes+from+Jira+Cloud+to+Cloud/">Deploy configuration changes from Jira Cloud to Cloud</a></li><li><a href="/cms_trial/space/CMJC/258085727/Migrate+projects+and+issues+from+Jira+Server%2FDC+to+Jira+Cloud/">Migrate projects and issues from Jira Server/DC to Jira Cloud</a></li><li><a href="/cms_trial/space/CMJC/2890924061/Test+and+deploy+Jira+configuration+changes+safely/">Test and deploy Jira configuration changes safely</a></li><li><a href="/cms_trial/space/CMJC/2936799239/Simplify+your+Cloud+migration+with+Configuration+Manager+for+Jira+(CMJ)/" class="active">Simplify your Cloud migration with Configuration Manager for Jira (CMJ)</a></li><li><a href="/cms_trial/space/CMJC/2981756935/Promote+JMWE+and+JSU+app+data+safely+with+CMJ+Cloud/">Promote JMWE and JSU app data safely with CMJ Cloud</a></li><li><a href="/cms_trial/space/CMJC/3504439478/Analyze+freely.+Deploy+precisely./">Analyze freely. Deploy precisely.</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CMJC/193823429/Features+and+options/">Features and options</a></summary><ul><li><a href="/cms_trial/space/CMJC/193594026/Authorize+with+API+token/">Authorize with API token</a></li><li><a href="/cms_trial/space/CMJC/2506522887/Create+and+manage+snapshots/">Create and manage snapshots</a></li><li><a href="/cms_trial/space/CMJC/2506391642/Upload+a+snapshot/">Upload a snapshot</a></li><li><a href="/cms_trial/space/CMJC/2507112493/Deploy+a+snapshot/">Deploy a snapshot</a></li><li><a href="/cms_trial/space/CMJC/3417473252/Compare+snapshots/">Compare snapshots</a></li><li><a href="/cms_trial/space/CMJC/193659992/Manage+snapshot+deployments/">Manage snapshot deployments</a></li><li><a href="/cms_trial/space/CMJC/1160020327/Migrate+Service+Management+projects+to+the+Cloud/">Migrate Service Management projects to the Cloud</a></li><li><a href="/cms_trial/space/CMJC/193855959/Supported+configuration+elements/">Supported configuration elements</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CMJC/1922600795/Migration/">Migration</a></summary><ul><li><a href="/cms_trial/space/CMJC/682131761/Migrating+from+Jira+Server+to+Cloud/">Migrating from Jira Server to Cloud</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CMJC/194117669/Release+Notes/">Release Notes</a></summary><ul><li><a href="/cms_trial/space/CMJC/3529801847/Release+notes+August+2026/">Release notes August 2026</a></li><li><a href="/cms_trial/space/CMJC/3416883522/Release+notes+July+2026/">Release notes July 2026</a></li><li><a href="/cms_trial/space/CMJC/3374187844/Release+notes+June+2026/">Release notes June 2026</a></li><li><a href="/cms_trial/space/CMJC/3301244947/Release+notes+May+2026/">Release notes May 2026</a></li><li><a href="/cms_trial/space/CMJC/3123709354/Release+notes+April+2026/">Release notes April 2026</a></li><li><a href="/cms_trial/space/CMJC/2980839433/Release+notes+March+2026/">Release notes March 2026</a></li><li><a href="/cms_trial/space/CMJC/2857566448/Release+notes+February+2026/">Release notes February 2026</a></li><li><a href="/cms_trial/space/CMJC/2623864835/Release+notes+December+2025/">Release notes December 2025</a></li><li><a href="/cms_trial/space/CMJC/2506031188/Release+notes+November+2025/">Release notes November 2025</a></li><li><a href="/cms_trial/space/CMJC/2426798089/Release+notes+October+2025/">Release notes October 2025</a></li><li><a href="/cms_trial/space/CMJC/2306932831/Release+notes+25+August+2025/">Release notes 25 August 2025</a></li><li><a href="/cms_trial/space/CMJC/2250047502/Release+notes+4+August+2025/">Release notes 4 August 2025</a></li><li><a href="/cms_trial/space/CMJC/2161082729/Release+notes+July+2025/">Release notes July 2025</a></li><li><a href="/cms_trial/space/CMJC/1985609831/Release+notes+April+2025/">Release notes April 2025</a></li><li><a href="/cms_trial/space/CMJC/1851949355/Release+notes+March+2025/">Release notes March 2025</a></li><li><a href="/cms_trial/space/CMJC/1751188366/Release+notes+February+2025/">Release notes February 2025</a></li><li><a href="/cms_trial/space/CMJC/1639743570/Release+notes+January+2025/">Release notes January 2025</a></li><li><a href="/cms_trial/space/CMJC/1567622126/Release+notes+December+2024/">Release notes December 2024</a></li><li><a href="/cms_trial/space/CMJC/1514897435/Release+notes+November+2024/">Release notes November 2024</a></li><li><a href="/cms_trial/space/CMJC/1375142580/Release+notes+October+2024/">Release notes October 2024</a></li><li><a href="/cms_trial/space/CMJC/1302561092/Release+notes+September+2024/">Release notes September 2024</a></li><li><a href="/cms_trial/space/CMJC/1213956239/Release+notes+August+2024/">Release notes August 2024</a></li><li><a href="/cms_trial/space/CMJC/1150058608/Release+notes+24+July+2024/">Release notes 24 July 2024</a></li><li><a href="/cms_trial/space/CMJC/1132986520/Release+notes+17+July+2024/">Release notes 17 July 2024</a></li><li><a href="/cms_trial/space/CMJC/1033863393/Release+notes+June+2024/">Release notes June 2024</a></li><li><a href="/cms_trial/space/CMJC/991658010/Release+notes+May+2024/">Release notes May 2024</a></li><li><a href="/cms_trial/space/CMJC/937361444/Release+Notes+April+2024/">Release Notes April 2024</a></li><li><a href="/cms_trial/space/CMJC/843972981/Release+Notes+March+2024/">Release Notes March 2024</a></li><li><a href="/cms_trial/space/CMJC/759791666/Release+notes+February+2024/">Release notes February 2024</a></li><li><a href="/cms_trial/space/CMJC/705495925/Release+notes+January+2024/">Release notes January 2024</a></li><li><a href="/cms_trial/space/CMJC/992673833/Archived+release+notes/">Archived release notes</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CMJC/258053546/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/CMJC/2273706042/IP+allowlist+considerations+for+CMJ+Cloud+on+Premium+Jira+Cloud/">IP allowlist considerations for CMJ Cloud on Premium Jira Cloud</a></li><li><a href="/cms_trial/space/CMJC/642220408/Share+deployment+data+with+the+support+team/">Share deployment data with the support team</a></li></ul></details></li></ul></details></li></ul></nav>
-</aside>
+<nav><ul><li><a href="/cms_trial/space/CMJC/443975880/Release+notes+11+August+2023/">Release notes 11 August 2023</a></li><li><details open><summary><a href="/cms_trial/space/CMJC/79462407/Configuration+Manager+for+Jira+(CMJ)+Cloud/">Configuration Manager for Jira (CMJ) Cloud</a></summary><ul><li><a href="/cms_trial/space/CMJC/193725041/Overview/">Overview</a></li><li><details><summary><a href="/cms_trial/space/CMJC/193921273/Get+started+with+Configuration+Manager+for+Jira+for+Cloud/">Get started with Configuration Manager for Jira for Cloud</a></summary><ul><li><a href="/cms_trial/space/CMJC/193659801/Prerequisites/">Prerequisites</a></li><li><a href="/cms_trial/space/CMJC/194183182/Installation+guide/">Installation guide</a></li><li><a href="/cms_trial/space/CMJC/194150417/Licensing/">Licensing</a></li><li><a href="/cms_trial/space/CMJC/854753912/Security+whitepaper/">Security whitepaper</a></li><li><a href="/cms_trial/space/CMJC/681903694/Differences+between+CMJ+Server%2FData+Center+and+CMJ+Cloud/">Differences between CMJ Server/Data Center and CMJ Cloud</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/CMJC/194117717/Use+Cases/">Use Cases</a></summary><ul><li><a href="/cms_trial/space/CMJC/258053021/Deploy+configuration+changes+from+Jira+Cloud+to+Cloud/">Deploy configuration changes from Jira Cloud to Cloud</a></li><li><a href="/cms_trial/space/CMJC/258085727/Migrate+projects+and+issues+from+Jira+Server%2FDC+to+Jira+Cloud/">Migrate projects and issues from Jira Server/DC to Jira Cloud</a></li><li><a href="/cms_trial/space/CMJC/2890924061/Test+and+deploy+Jira+configuration+changes+safely/">Test and deploy Jira configuration changes safely</a></li><li><a href="/cms_trial/space/CMJC/2936799239/Simplify+your+Cloud+migration+with+Configuration+Manager+for+Jira+(CMJ)/" class="active">Simplify your Cloud migration with Configuration Manager for Jira (CMJ)</a></li><li><a href="/cms_trial/space/CMJC/2981756935/Promote+JMWE+and+JSU+app+data+safely+with+CMJ+Cloud/">Promote JMWE and JSU app data safely with CMJ Cloud</a></li><li><a href="/cms_trial/space/CMJC/3504439478/Analyze+freely.+Deploy+precisely./">Analyze freely. Deploy precisely.</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CMJC/193823429/Features+and+options/">Features and options</a></summary><ul><li><a href="/cms_trial/space/CMJC/193594026/Authorize+with+API+token/">Authorize with API token</a></li><li><a href="/cms_trial/space/CMJC/2506522887/Create+and+manage+snapshots/">Create and manage snapshots</a></li><li><a href="/cms_trial/space/CMJC/2506391642/Upload+a+snapshot/">Upload a snapshot</a></li><li><a href="/cms_trial/space/CMJC/2507112493/Deploy+a+snapshot/">Deploy a snapshot</a></li><li><a href="/cms_trial/space/CMJC/3417473252/Compare+snapshots/">Compare snapshots</a></li><li><a href="/cms_trial/space/CMJC/193659992/Manage+snapshot+deployments/">Manage snapshot deployments</a></li><li><a href="/cms_trial/space/CMJC/1160020327/Migrate+Service+Management+projects+to+the+Cloud/">Migrate Service Management projects to the Cloud</a></li><li><a href="/cms_trial/space/CMJC/193855959/Supported+configuration+elements/">Supported configuration elements</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CMJC/1922600795/Migration/">Migration</a></summary><ul><li><a href="/cms_trial/space/CMJC/682131761/Migrating+from+Jira+Server+to+Cloud/">Migrating from Jira Server to Cloud</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CMJC/194117669/Release+Notes/">Release Notes</a></summary><ul><li><a href="/cms_trial/space/CMJC/3644063889/Release+notes+September+2026/">Release notes September 2026</a></li><li><a href="/cms_trial/space/CMJC/3529801847/Release+notes+August+2026/">Release notes August 2026</a></li><li><a href="/cms_trial/space/CMJC/3416883522/Release+notes+July+2026/">Release notes July 2026</a></li><li><a href="/cms_trial/space/CMJC/3374187844/Release+notes+June+2026/">Release notes June 2026</a></li><li><a href="/cms_trial/space/CMJC/3301244947/Release+notes+May+2026/">Release notes May 2026</a></li><li><a href="/cms_trial/space/CMJC/3123709354/Release+notes+April+2026/">Release notes April 2026</a></li><li><a href="/cms_trial/space/CMJC/2980839433/Release+notes+March+2026/">Release notes March 2026</a></li><li><a href="/cms_trial/space/CMJC/2857566448/Release+notes+February+2026/">Release notes February 2026</a></li><li><a href="/cms_trial/space/CMJC/2623864835/Release+notes+December+2025/">Release notes December 2025</a></li><li><a href="/cms_trial/space/CMJC/2506031188/Release+notes+November+2025/">Release notes November 2025</a></li><li><a href="/cms_trial/space/CMJC/2426798089/Release+notes+October+2025/">Release notes October 2025</a></li><li><a href="/cms_trial/space/CMJC/2306932831/Release+notes+25+August+2025/">Release notes 25 August 2025</a></li><li><a href="/cms_trial/space/CMJC/2250047502/Release+notes+4+August+2025/">Release notes 4 August 2025</a></li><li><a href="/cms_trial/space/CMJC/2161082729/Release+notes+July+2025/">Release notes July 2025</a></li><li><a href="/cms_trial/space/CMJC/1985609831/Release+notes+April+2025/">Release notes April 2025</a></li><li><a href="/cms_trial/space/CMJC/1851949355/Release+notes+March+2025/">Release notes March 2025</a></li><li><a href="/cms_trial/space/CMJC/1751188366/Release+notes+February+2025/">Release notes February 2025</a></li><li><a href="/cms_trial/space/CMJC/1639743570/Release+notes+January+2025/">Release notes January 2025</a></li><li><a href="/cms_trial/space/CMJC/1567622126/Release+notes+December+2024/">Release notes December 2024</a></li><li><a href="/cms_trial/space/CMJC/1514897435/Release+notes+November+2024/">Release notes November 2024</a></li><li><a href="/cms_trial/space/CMJC/1375142580/Release+notes+October+2024/">Release notes October 2024</a></li><li><a href="/cms_trial/space/CMJC/1302561092/Release+notes+September+2024/">Release notes September 2024</a></li><li><a href="/cms_trial/space/CMJC/1213956239/Release+notes+August+2024/">Release notes August 2024</a></li><li><a href="/cms_trial/space/CMJC/1150058608/Release+notes+24+July+2024/">Release notes 24 July 2024</a></li><li><a href="/cms_trial/space/CMJC/1132986520/Release+notes+17+July+2024/">Release notes 17 July 2024</a></li><li><a href="/cms_trial/space/CMJC/1033863393/Release+notes+June+2024/">Release notes June 2024</a></li><li><a href="/cms_trial/space/CMJC/991658010/Release+notes+May+2024/">Release notes May 2024</a></li><li><a href="/cms_trial/space/CMJC/937361444/Release+Notes+April+2024/">Release Notes April 2024</a></li><li><a href="/cms_trial/space/CMJC/843972981/Release+Notes+March+2024/">Release Notes March 2024</a></li><li><a href="/cms_trial/space/CMJC/759791666/Release+notes+February+2024/">Release notes February 2024</a></li><li><a href="/cms_trial/space/CMJC/705495925/Release+notes+January+2024/">Release notes January 2024</a></li><li><a href="/cms_trial/space/CMJC/992673833/Archived+release+notes/">Archived release notes</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CMJC/258053546/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/CMJC/2273706042/IP+allowlist+considerations+for+CMJ+Cloud+on+Premium+Jira+Cloud/">IP allowlist considerations for CMJ Cloud on Premium Jira Cloud</a></li><li><a href="/cms_trial/space/CMJC/642220408/Share+deployment+data+with+the+support+team/">Share deployment data with the support team</a></li></ul></details></li></ul></details></li></ul></nav>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#overview">Overview</a></li><li class="toc-level-2"><a href="#1-assessment-and-inventory">1. Assessment and inventory</a></li><li class="toc-level-2"><a href="#2-migration-planning">2. Migration planning</a></li><li class="toc-level-2"><a href="#3-migration-preparation">3. Migration preparation</a></li><li class="toc-level-2"><a href="#4-test-migration">4. Test migration</a></li><li class="toc-level-2"><a href="#5-production-migration">5. Production migration</a></li><li class="toc-level-2"><a href="#6-cloud-management-after-migration">6. Cloud management after migration</a></li><li class="toc-level-2"><a href="#support">Support</a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
@@ -264,6 +308,92 @@
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

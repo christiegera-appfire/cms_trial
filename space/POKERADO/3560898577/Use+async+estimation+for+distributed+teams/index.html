@@ -1,15 +1,33 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>Use async estimation for distributed teams | Appfire Docs</title>
-<meta name="description" content="Live Planning Poker games require every estimator to be online at the same time. For teams spread across time zones or working non-overlapping hours,…">
+<meta name="description" content="Async estimation lets your team estimate work items without meeting at the same time. It&#x27;s designed for distributed teams, flexible schedules, and other…">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/cms_trial/tokens.css">
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Use async estimation for distributed teams",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/POKERADO/3560898577/Use+async+estimation+for+distributed+teams/",
+  "dateModified": "2026-08-27T01:44:40.005Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,27 +37,53 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/POKERADO/148307970/Planning+Poker+for+Azure+DevOps/">Planning Poker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/POKERADO/148307970/Planning+Poker+for+Azure+DevOps/">Planning Poker for Azure DevOps</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/POKERADO/3341320392/Planning+Poker+game/">Planning Poker game</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Use async estimation for distributed teams</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/POKERADO/pages/3560898577" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/POKERADO/pages/3560898577" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>Use async estimation for distributed teams</h1>
-    <div class="page-meta">2 min read</div>
-    <h2 id="use-async-estimation-for-distributed-teams">Use async estimation for distributed teams</h2><p>Live Planning Poker games require every estimator to be online at the same time. For teams spread across time zones or working non-overlapping hours, finding that overlap can take longer than the estimation itself. Async mode removes that requirement.</p><h2 id="how-async-mode-works">How async mode works</h2><p>Each participant votes on their own schedule instead of during a shared live session. The moderator can check progress at any point to see who has voted, and reveals the results once enough estimators have submitted, or once the team agrees to move forward. The same private-first-vote mechanic applies as in a live game: nobody sees another person's estimate until the reveal.</p><p>Estimators can add a comment with their vote to explain their reasoning. This is more useful in async mode than live, since there is no real-time discussion happening. A comment like "voted 8, this touches the payment integration" gives the rest of the team context when they check the game later.</p><h2 id="setting-it-up">Setting it up</h2><p>Async mode is a toggle on the game creation screen.</p><ul><li><p><strong>When disabled (default):</strong> the session runs in real time. Estimators vote simultaneously and cards are revealed dynamically.</p></li><li><p><strong>When enabled:</strong> each participant estimates at their own pace. The moderator sets the final estimate once all personal estimates are submitted.</p></li></ul><p>See <a href="/cms_trial/space/POKERADO/3315008376/Create+game/">Create game</a> for the full list of configuration fields.</p><h2 id="when-to-use-async-instead-of-a-live-game">When to use async instead of a live game</h2><ul><li><p>Your team spans more than a couple of time zones</p></li><li><p>People work flexible or non-overlapping hours</p></li><li><p>You have a long backlog to estimate and don't want to schedule a full meeting for it</p></li><li><p>Some team members are part-time or contractors with limited overlap with the core team</p></li></ul><div class="panel panel-note"><p>Many teams run both. Live games work well for the items that are genuinely contentious or unclear, where real-time discussion adds value. Async covers the rest of the backlog without requiring a meeting.</p></div>
+    <div class="page-meta">Updated 14 days ago · 2 min read</div>
+    <p>Async estimation lets your team estimate work items without meeting at the same time. It's designed for distributed teams, flexible schedules, and other situations where a live Planning Poker session isn't practical.</p><h2 id="what-you-ll-learn">What you’ll learn</h2><p>In this article, you'll learn how to:</p><ul><li><p>Understand how async estimation works.</p></li><li><p>Enable async estimation for a game.</p></li><li><p>Decide when to use async instead of a live Planning Poker session.</p></li></ul><h2 id="how-async-mode-works">How async mode works</h2><p>Each participant votes on their own schedule instead of during a shared live session. The moderator can check progress at any point to see who has voted, and reveals the results once enough estimators have submitted, or once the team agrees to move forward. The same private-first-vote mechanic applies as in a live game: nobody sees another person's estimate until the reveal.</p><p>Estimators can add a comment with their vote to explain their reasoning. This is more useful in async mode than live, since there is no real-time discussion happening. A comment like "voted 8, this touches the payment integration" gives the rest of the team context when they check the game later.</p><h2 id="enable-async-estimation">Enable async estimation</h2><p>Async mode is a toggle on the game creation screen.</p><ul><li><p><strong>When disabled (default):</strong> the session runs in real time. Estimators vote simultaneously and cards are revealed dynamically.</p></li><li><p><strong>When enabled:</strong> each participant estimates at their own pace. The moderator sets the final estimate once all personal estimates are submitted.</p></li></ul><h2 id="compare-live-and-async-estimation">Compare live and async estimation</h2><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p><strong>Live game</strong></p></th><th><p><strong>Async estimation</strong></p></th></tr><tr><td><p>Everyone participates together</p></td><td><p>Participants vote independently</p></td></tr><tr><td><p>Votes reveal dynamically</p></td><td><p>Moderator reveals results</p></td></tr><tr><td><p>Best for discussion</p></td><td><p>Best for distributed teams</p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><p>See <a href="/cms_trial/space/POKERADO/3315008376/Create+game/">Create game</a> for the full list of configuration fields.</p><h2 id="when-to-use-async-instead-of-a-live-game">When to use async instead of a live game</h2><ul><li><p>Your team spans more than a couple of time zones.</p></li><li><p>People work flexible or non-overlapping hours.</p></li><li><p>You have a long backlog to estimate and don't want to schedule a full meeting for it.</p></li><li><p>Some team members are part-time or contractors with limited overlap with the core team.</p></li></ul><div class="panel panel-note"><p><strong>Pro-tip!</strong></p><p>Many teams run both. Live games work well for the items that are genuinely contentious or unclear, where real-time discussion adds value. Async covers the rest of the backlog without requiring a meeting.</p></div>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">10 pages in this space, fetched live from Confluence via API.</p>
-<nav><ul><li><details open><summary><a href="/cms_trial/space/POKERADO/148307970/Planning+Poker+for+Azure+DevOps/">Planning Poker for Azure DevOps</a></summary><ul><li><a href="/cms_trial/space/POKERADO/415531958/Planning+Poker+for+ADO+becomes+paid/">Planning Poker for ADO becomes paid</a></li><li><details><summary><a href="/cms_trial/space/POKERADO/3008299028/Get+started+with+Planning+Poker/">Get started with Planning Poker</a></summary><ul><li><a href="/cms_trial/space/POKERADO/3341353014/Install+Planning+Poker+in+Azure+DevOps/">Install Planning Poker in Azure DevOps</a></li></ul></details></li><li><a href="/cms_trial/space/POKERADO/3559129251/Planning+Poker+for+Azure+DevOps+feature+overview/">Planning Poker for Azure DevOps feature overview</a></li><li><details open><summary><a href="/cms_trial/space/POKERADO/3341320392/Planning+Poker+game/">Planning Poker game</a></summary><ul><li><a href="/cms_trial/space/POKERADO/3315008376/Create+game/">Create game</a></li><li><a href="/cms_trial/space/POKERADO/3562700831/Configure+game+settings+and+card+decks/">Configure game settings and card decks</a></li><li><a href="/cms_trial/space/POKERADO/3560898577/Use+async+estimation+for+distributed+teams/" class="active">Use async estimation for distributed teams</a></li></ul></details></li></ul></details></li></ul></nav>
-</aside>
-  <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#use-async-estimation-for-distributed-teams">Use async estimation for distributed teams</a></li><li class="toc-level-2"><a href="#how-async-mode-works">How async mode works</a></li><li class="toc-level-2"><a href="#setting-it-up">Setting it up</a></li><li class="toc-level-2"><a href="#when-to-use-async-instead-of-a-live-game">When to use async instead of a live game</a></li></ul></div></aside>
+<nav><ul><li><details open><summary><a href="/cms_trial/space/POKERADO/148307970/Planning+Poker+for+Azure+DevOps/">Planning Poker for Azure DevOps</a></summary><ul><li><a href="/cms_trial/space/POKERADO/415531958/Planning+Poker+for+ADO+becomes+paid/">Planning Poker for ADO becomes paid</a></li><li><a href="/cms_trial/space/POKERADO/3008299028/Get+started+with+Planning+Poker/">Get started with Planning Poker</a></li><li><a href="/cms_trial/space/POKERADO/3559129251/Planning+Poker+for+Azure+DevOps+feature+overview/">Planning Poker for Azure DevOps feature overview</a></li><li><details><summary><a href="/cms_trial/space/POKERADO/3341353014/Install+Planning+Poker+in+Azure+DevOps/">Install Planning Poker in Azure DevOps</a></summary><ul><li><a href="/cms_trial/space/POKERADO/660308966/Requested+permissions/">Requested permissions</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/POKERADO/3341320392/Planning+Poker+game/">Planning Poker game</a></summary><ul><li><a href="/cms_trial/space/POKERADO/3315008376/Create+game/">Create game</a></li><li><a href="/cms_trial/space/POKERADO/3562700831/Configure+game+settings+and+card+decks/">Configure game settings and card decks</a></li><li><a href="/cms_trial/space/POKERADO/3560898577/Use+async+estimation+for+distributed+teams/" class="active">Use async estimation for distributed teams</a></li></ul></details></li></ul></details></li></ul></nav>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
+  <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#what-you-ll-learn">What you’ll learn</a></li><li class="toc-level-2"><a href="#how-async-mode-works">How async mode works</a></li><li class="toc-level-2"><a href="#enable-async-estimation">Enable async estimation</a></li><li class="toc-level-2"><a href="#compare-live-and-async-estimation">Compare live and async estimation</a></li><li class="toc-level-2"><a href="#when-to-use-async-instead-of-a-live-game">When to use async instead of a live game</a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
      portal, at a different path on the SAME domain. No custom OAuth
@@ -264,6 +308,92 @@
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 

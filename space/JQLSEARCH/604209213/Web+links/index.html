@@ -1,6 +1,16 @@
 <!doctype html>
 <html lang="en">
 <head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
 <meta charset="utf-8">
 <title>Web links | Appfire Docs</title>
 <meta name="description" content="The examples on this page describe how to build a JQL search using JQL Search Extensions.">
@@ -9,7 +19,15 @@
 <link rel="stylesheet" href="/cms_trial/styles.css">
 <meta name="robots" content="noindex, nofollow">
 
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Web links",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/JQLSEARCH/604209213/Web+links/",
+  "dateModified": "2026-07-03T06:43:24.693Z"
+}
+</script>
 </head>
 <body>
 <div id="top-nav-mount">
@@ -19,26 +37,52 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
     </nav>
   </div>
 </header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
     <div class="page-actions-row">
       <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209972/JQL+Search+Extensions+(Cloud)/">JQL Search Extensions (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/JQLSEARCH/604209395/JQL+functions+and+keywords+reference/">JQL functions and keywords reference</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Web links</span></nav>
-      <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JQLSEARCH/pages/604209213" target="_blank" rel="noopener">Open in Confluence</a>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/JQLSEARCH/pages/604209213" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
     </div>
     <h1>Web links</h1>
-    <div class="page-meta">4 min read</div>
+    <div class="page-meta">Updated 2 months ago · 4 min read</div>
     <div class="panel panel-note"><p>The examples on this page describe how to build a JQL search using <a href="https://marketplace.atlassian.com/plugins/jql-extensions/cloud/overview">JQL Search Extensions</a>.</p></div><h2 id="web-links-jql-keywords">Web links JQL keywords</h2><div class="panel panel-note"><p>Web links were called Remote links in previous versions of Jira.</p></div><h3 id="remotelinkurl">remoteLinkUrl</h3><p>Find issues that contain the remote link with the URL.</p><p><strong>Supported operators</strong></p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p>=</p></th><th><p>!=</p></th><th><p>~</p></th><th><p>!~</p></th><th><p>&gt;</p></th><th><p>&gt;=</p></th><th><p>&lt;</p></th><th><p>&lt;=</p></th><th><p>IS</p></th><th><p>IS NOT</p></th><th><p>IN</p></th><th><p>NOT IN</p></th><th><p>WAS</p></th><th><p>WAS IN</p></th><th><p>WAS NOT</p></th><th><p>WAS NOT IN</p></th><th><p>CHANGED</p></th></tr><tr><td><p>✅</p></td><td><p>✅</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><p><strong>Example</strong></p><p>Find issues that contain both URLs.</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">remoteLinkUrl in ("http://digitaltoucan.com/our-products/jql-search-extensions/", "https://google.com")</code></pre></div><h3 id="remotelinkurlpartialmatch">remoteLinkUrlPartialMatch</h3><p>This keyword is similar to <code>remoteLinkUrl</code> but supports partial match. All the slashes are replaced with spaces. Word match will differ depending on your <a href="https://confluence.atlassian.com/jirasoftwarecloud/search-syntax-for-text-fields-764478343.html#Searchsyntaxfortextfields-stemmingWordstemming">word stemming</a> configuration in Jira.</p><p><strong>Supported operators</strong></p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p>=</p></th><th><p>!=</p></th><th><p>~</p></th><th><p>!~</p></th><th><p>&gt;</p></th><th><p>&gt;=</p></th><th><p>&lt;</p></th><th><p>&lt;=</p></th><th><p>IS</p></th><th><p>IS NOT</p></th><th><p>IN</p></th><th><p>NOT IN</p></th><th><p>WAS</p></th><th><p>WAS IN</p></th><th><p>WAS NOT</p></th><th><p>WAS NOT IN</p></th><th><p>CHANGED</p></th></tr><tr><td><p>❌</p></td><td><p>❌</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><p><strong>Example</strong></p><p>Find issues that contain <code>appfire</code> in the URL.</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">remoteLinkUrlPartialMatch ~ appfire</code></pre></div><h3 id="remotelinkapplicationname">remoteLinkApplicationName</h3><p>Find issues that contain the remote link to an application, such as Confluence.</p><p><strong>Supported operators</strong></p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p>=</p></th><th><p>!=</p></th><th><p>~</p></th><th><p>!~</p></th><th><p>&gt;</p></th><th><p>&gt;=</p></th><th><p>&lt;</p></th><th><p>&lt;=</p></th><th><p>IS</p></th><th><p>IS NOT</p></th><th><p>IN</p></th><th><p>NOT IN</p></th><th><p>WAS</p></th><th><p>WAS IN</p></th><th><p>WAS NOT</p></th><th><p>WAS NOT IN</p></th><th><p>CHANGED</p></th></tr><tr><td><p>✅</p></td><td><p>✅</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><p><strong>Example</strong></p><p>Find issues that link to Confluence:</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">remoteLinkApplicationName="Confluence"</code></pre></div><h3 id="remotelinkapplicationtype">remoteLinkApplicationType</h3><p>It is similar to <code>remoteLinkApplicationName</code> but matches the application identifier.</p><p><strong>Supported operators</strong></p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p>=</p></th><th><p>!=</p></th><th><p>~</p></th><th><p>!~</p></th><th><p>&gt;</p></th><th><p>&gt;=</p></th><th><p>&lt;</p></th><th><p>&lt;=</p></th><th><p>IS</p></th><th><p>IS NOT</p></th><th><p>IN</p></th><th><p>NOT IN</p></th><th><p>WAS</p></th><th><p>WAS IN</p></th><th><p>WAS NOT</p></th><th><p>WAS NOT IN</p></th><th><p>CHANGED</p></th></tr><tr><td><p>✅</p></td><td><p>✅</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><p><strong>Example</strong></p><p>Find issues that link to Confluence.</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">remoteLinkApplicationType="com.atlassian.confluence"</code></pre></div><h3 id="remotelinkhost">remoteLinkHost</h3><p>Matches the host part of the remote link.</p><p><strong>Supported operators</strong></p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p>=</p></th><th><p>!=</p></th><th><p>~</p></th><th><p>!~</p></th><th><p>&gt;</p></th><th><p>&gt;=</p></th><th><p>&lt;</p></th><th><p>&lt;=</p></th><th><p>IS</p></th><th><p>IS NOT</p></th><th><p>IN</p></th><th><p>NOT IN</p></th><th><p>WAS</p></th><th><p>WAS IN</p></th><th><p>WAS NOT</p></th><th><p>WAS NOT IN</p></th><th><p>CHANGED</p></th></tr><tr><td><p>✅</p></td><td><p>✅</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><p><strong>Example</strong></p><p>Find issues that link to <code>jqlsearchextensions.atlassian.net</code>.</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">remoteLinkHost="jqlsearchextensions.atlassian.net"</code></pre></div><h3 id="remotelinkquery">remoteLinkQuery</h3><p>Matches the query part of the remote link.</p><p><strong>Supported operators</strong></p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p>=</p></th><th><p>!=</p></th><th><p>~</p></th><th><p>!~</p></th><th><p>&gt;</p></th><th><p>&gt;=</p></th><th><p>&lt;</p></th><th><p>&lt;=</p></th><th><p>IS</p></th><th><p>IS NOT</p></th><th><p>IN</p></th><th><p>NOT IN</p></th><th><p>WAS</p></th><th><p>WAS IN</p></th><th><p>WAS NOT</p></th><th><p>WAS NOT IN</p></th><th><p>CHANGED</p></th></tr><tr><td><p>✅</p></td><td><p>✅</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><p><strong>Example</strong></p><p>Find issues that link to URLs, for example, <code>http://host.com/path?pageId=1234</code>.</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">remoteLinkQuery="pageId=1234"</code></pre></div><h3 id="remotelinkpath">remoteLinkPath</h3><p>Matches the path part of the remote link.</p><p><strong>Supported operators</strong></p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p>=</p></th><th><p>!=</p></th><th><p>~</p></th><th><p>!~</p></th><th><p>&gt;</p></th><th><p>&gt;=</p></th><th><p>&lt;</p></th><th><p>&lt;=</p></th><th><p>IS</p></th><th><p>IS NOT</p></th><th><p>IN</p></th><th><p>NOT IN</p></th><th><p>WAS</p></th><th><p>WAS IN</p></th><th><p>WAS NOT</p></th><th><p>WAS NOT IN</p></th><th><p>CHANGED</p></th></tr><tr><td><p>✅</p></td><td><p>✅</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><p><strong>Example</strong></p><p>Find issues that link to URLs such as <code>http://host.com/path?pageId=1234</code>.</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">remoteLinkPath="/path"</code></pre></div><h3 id="remotelinktitle">remoteLinkTitle</h3><p>Find issues with a remote link title.</p><p><strong>Supported operators</strong></p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p>=</p></th><th><p>!=</p></th><th><p>~</p></th><th><p>!~</p></th><th><p>&gt;</p></th><th><p>&gt;=</p></th><th><p>&lt;</p></th><th><p>&lt;=</p></th><th><p>IS</p></th><th><p>IS NOT</p></th><th><p>IN</p></th><th><p>NOT IN</p></th><th><p>WAS</p></th><th><p>WAS IN</p></th><th><p>WAS NOT</p></th><th><p>WAS NOT IN</p></th><th><p>CHANGED</p></th></tr><tr><td><p>✅</p></td><td><p>✅</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><p><strong>Example</strong></p><p>Find issues with the title <code>My Page</code>.</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">remoteLinkTitle="My Page"</code></pre></div><h3 id="remotelinktitlepartialmatch">remoteLinkTitlePartialMatch</h3><p>Find issues that contain text in the remote link title. Word matches will differ depending on your <a href="https://confluence.atlassian.com/jirasoftwarecloud/search-syntax-for-text-fields-764478343.html#Searchsyntaxfortextfields-stemmingWordstemming">word stemming</a> configuration in Jira.</p><p><strong>Supported operators</strong></p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p>=</p></th><th><p>!=</p></th><th><p>~</p></th><th><p>!~</p></th><th><p>&gt;</p></th><th><p>&gt;=</p></th><th><p>&lt;</p></th><th><p>&lt;=</p></th><th><p>IS</p></th><th><p>IS NOT</p></th><th><p>IN</p></th><th><p>NOT IN</p></th><th><p>WAS</p></th><th><p>WAS IN</p></th><th><p>WAS NOT</p></th><th><p>WAS NOT IN</p></th><th><p>CHANGED</p></th></tr><tr><td><p>❌</p></td><td><p>❌</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><p><strong>Example</strong></p><p>Find issues that contain <code>Appfire</code> in the remote link title.</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">remoteLinkTitlePartialMatch ~ "Appfire"</code></pre></div><h3 id="remotelinkrelationship">remoteLinkRelationship</h3><p>Find issues with a remote link of a particular type.</p><p><strong>Supported operators</strong></p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p>=</p></th><th><p>!=</p></th><th><p>~</p></th><th><p>!~</p></th><th><p>&gt;</p></th><th><p>&gt;=</p></th><th><p>&lt;</p></th><th><p>&lt;=</p></th><th><p>IS</p></th><th><p>IS NOT</p></th><th><p>IN</p></th><th><p>NOT IN</p></th><th><p>WAS</p></th><th><p>WAS IN</p></th><th><p>WAS NOT</p></th><th><p>WAS NOT IN</p></th><th><p>CHANGED</p></th></tr><tr><td><p>✅</p></td><td><p>✅</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><p><strong>Example</strong></p><p>Find issues that were mentioned in Confluence.</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">remoteLinkRelationship="mentioned in"</code></pre></div><h3 id="remotelinkscount">remoteLinksCount</h3><p>Find issues that contain a particular number of remote links.</p><p><strong>Supported operators</strong></p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p>=</p></th><th><p>!=</p></th><th><p>~</p></th><th><p>!~</p></th><th><p>&gt;</p></th><th><p>&gt;=</p></th><th><p>&lt;</p></th><th><p>&lt;=</p></th><th><p>IS</p></th><th><p>IS NOT</p></th><th><p>IN</p></th><th><p>NOT IN</p></th><th><p>WAS</p></th><th><p>WAS IN</p></th><th><p>WAS NOT</p></th><th><p>WAS NOT IN</p></th><th><p>CHANGED</p></th></tr><tr><td><p>✅</p></td><td><p>✅</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>✅</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td><td><p>❌</p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><p><strong>Example</strong></p><p>Find issues with more than 5 remote links.</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">remoteLinksCount &gt; 5</code></pre></div>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>
 <div class="brand-tag">Live docs, fetched from Confluence via API.</div>
-<p class="pilot-note">98 pages in this space, fetched live from Confluence via API.</p>
 <nav><ul><li><details open><summary><a href="/cms_trial/space/JQLSEARCH/604209157/JQL+Search+Extensions+for+Jira/">JQL Search Extensions for Jira</a></summary><ul><li><details open><summary><a href="/cms_trial/space/JQLSEARCH/604209972/JQL+Search+Extensions+(Cloud)/">JQL Search Extensions (Cloud)</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/604209802/Get+started+with+JQL+Search+Extensions+for+Jira/">Get started with JQL Search Extensions for Jira</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209757/Use+cases/">Use cases</a></li><li><a href="/cms_trial/space/JQLSEARCH/1120043993/App+integrations/">App integrations</a></li><li><a href="/cms_trial/space/JQLSEARCH/604210001/Video+tutorials/">Video tutorials</a></li><li><details open><summary><a href="/cms_trial/space/JQLSEARCH/604209395/JQL+functions+and+keywords+reference/">JQL functions and keywords reference</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/604209353/Issue+hierarchy/">Issue hierarchy</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209425/Epics/">Epics</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209903/Text+matches/">Text matches</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209345/Agile+sprints/">Agile sprints</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209221/Attachments/">Attachments</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209285/Subtasks/">Subtasks</a></li><li><a href="/cms_trial/space/JQLSEARCH/1348927877/Issues+with+subtasks/">Issues with subtasks</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209943/Comments/">Comments</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209229/Versions/">Versions</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209269/Issue+links/">Issue links</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209213/Web+links/" class="active">Web links</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209933/Issue+updates/">Issue updates</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209909/Field+values/">Field values</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209257/Aggregation+of+dates/">Aggregation of dates</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209245/Dates+with+time/">Dates with time</a></li></ul></details></li></ul></details></li><li><a href="/cms_trial/space/JQLSEARCH/604209729/Migrations/">Migrations</a></li><li><details><summary><a href="/cms_trial/space/JQLSEARCH/913997907/Release+notes/">Release notes</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/604209185/Release+notes+-+Cloud/">Release notes - Cloud</a></li><li><a href="/cms_trial/space/JQLSEARCH/604210041/Release+notes+-+Server%2FData+Center/">Release notes - Server/Data Center</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JQLSEARCH/918979098/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/1766293568/Troubleshooting/">Troubleshooting</a></li><li><a href="/cms_trial/space/JQLSEARCH/919273915/Appfire+support/">Appfire support</a></li><li><a href="/cms_trial/space/JQLSEARCH/919306596/Appfire+Trust+Center/">Appfire Trust Center</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209808/Data+storage/">Data storage</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/JQLSEARCH/604209587/JQL+Search+Extensions+-+Data+Center/">JQL Search Extensions - Data Center</a></summary><ul><li><a href="/cms_trial/space/JQLSEARCH/604209431/Get+started+with+JQL+Search+Extensions+for+Jira+Data+Center/">Get started with JQL Search Extensions for Jira Data Center</a></li><li><a href="/cms_trial/space/JQLSEARCH/1865482654/JQL+functions+reference/">JQL functions reference</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209740/Performance+tests+results/">Performance tests results</a></li><li><a href="/cms_trial/space/JQLSEARCH/604209735/How+to+resolve+com.atlassian.jira.issue.search.ClauseTooComplexSearchException/">How to resolve com.atlassian.jira.issue.search.ClauseTooComplexSearchException</a></li></ul></details></li></ul></details></li></ul></nav>
-</aside>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
   <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#web-links-jql-keywords">Web links JQL keywords</a></li><li class="toc-level-3"><a href="#remotelinkurl">remoteLinkUrl</a></li><li class="toc-level-3"><a href="#remotelinkurlpartialmatch">remoteLinkUrlPartialMatch</a></li><li class="toc-level-3"><a href="#remotelinkapplicationname">remoteLinkApplicationName</a></li><li class="toc-level-3"><a href="#remotelinkapplicationtype">remoteLinkApplicationType</a></li><li class="toc-level-3"><a href="#remotelinkhost">remoteLinkHost</a></li><li class="toc-level-3"><a href="#remotelinkquery">remoteLinkQuery</a></li><li class="toc-level-3"><a href="#remotelinkpath">remoteLinkPath</a></li><li class="toc-level-3"><a href="#remotelinktitle">remoteLinkTitle</a></li><li class="toc-level-3"><a href="#remotelinktitlepartialmatch">remoteLinkTitlePartialMatch</a></li><li class="toc-level-3"><a href="#remotelinkrelationship">remoteLinkRelationship</a></li><li class="toc-level-3"><a href="#remotelinkscount">remoteLinksCount</a></li></ul></div></aside>
 </div>
 <!-- "Get Help" — a plain link to the real, already-working Refined JSM
@@ -264,6 +308,92 @@
   // Sets the first heading active immediately on load, rather than
   // leaving the TOC with nothing highlighted until the reader scrolls.
   setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
 })();
 </script>
 
