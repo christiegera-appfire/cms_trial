@@ -127,7 +127,7 @@ The timeline navigation buttons let you adjust the timeline granularity level. A
 - Zoom in (**Shift** + **=**)
 - Scale to fit (**f**) (when no tasks are selected, the app zooms out to show all your boxes. The timeline start/end date encompasses all boxes. When a task is selected, the timeline zoom level is adjusted so that the task fills the screen).
 - Show on timeline: [Markers](/cms_trial/space/SPM/1918699490/Markers/) (enable the markers to remember important events throughout the box execution).
-- [Week numbers](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918801444) (**w**) (option availability and visibility on the timeline depend on the zoom level)
+- [Week numbers](/cms_trial/space/SPM/1918801444/Week+numbers+(Gantt+chart)/) (**w**) (option availability and visibility on the timeline depend on the zoom level)
 
 The current date is always marked with a marker, even if you have **Markers** unchecked.
 
@@ -265,7 +265,7 @@ The timeline navigation buttons let you adjust the timeline granularity level. A
 - Zoom in (**Shift** + **=**)
 - Scale to fit (**f**) (when no tasks are selected, the app zooms out to show all your boxes. The timeline's start/end dates encompass all boxes. When a task is selected, the timeline zoom level is adjusted so that the task fills the screen.
 - Show on timeline: [Markers](/cms_trial/space/SPM/1918699490/Markers/) (enable the markers to remember important events throughout the box execution).
-- [Week numbers](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918801444) (**w**) (option availability and visibility on the timeline depend on the zoom level)
+- [Week numbers](/cms_trial/space/SPM/1918801444/Week+numbers+(Gantt+chart)/) (**w**) (option availability and visibility on the timeline depend on the zoom level)
 
 The current date is always marked with a marker, even if you have **Markers** unchecked.
 

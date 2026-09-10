@@ -173,7 +173,7 @@ Details about the box resulting from its box type settings are known to an opera
 
 ## Box details
 
-Any user can check details about the box resulting from its box type settings in the Overview module. Those settings might affect the User's work with the Boxes and are configured in the **Administration** > [**Box types**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918829342) section.
+Any user can check details about the box resulting from its box type settings in the Overview module. Those settings might affect the User's work with the Boxes and are configured in the **Administration** > [**Box types**](/cms_trial/space/SPM/1918829342/App+administration/) section.
 
 The following box information columns are available on the Overview module:
 
@@ -378,7 +378,7 @@ Details about the box resulting from its box type settings are known to an opera
 
 ## Box details
 
-Any user can check details about the box resulting from its box type settings in the Overview module. Those settings might affect the User's work with the Boxes and are configured in the **Administration** > [**Box types**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918829342) section.
+Any user can check details about the box resulting from its box type settings in the Overview module. Those settings might affect the User's work with the Boxes and are configured in the **Administration** > [**Box types**](/cms_trial/space/SPM/1918829342/App+administration/) section.
 
 The following box information columns are available on the Overview module:
 

@@ -31,7 +31,7 @@ The process for updating the progress of Strategic themes, Objectives, and Key R
 
 The OKR status reflects an OKR's success at a given point in time. There are four statuses you can assign when you update the OKR status:
 
-![OKR statues you can assign when updating an OKR.](/cms_trial/assets/d0b8c845-6934-40f4-83f0-cba61754b402.png)
+![OKR statues you can assign when updating an OKR.](/cms_trial/assets/26a39c1a-8df7-4ce5-9712-b1fd125fab3b.png)
 
 - Not started
 - On track
@@ -50,7 +50,7 @@ When you close an OKR, you can assign it a status to better reflect the reason f
 - Rescheduled
 - Cancelled
 
-![Statuses you can assign when closing an OKR.](/cms_trial/assets/a2bf97b9-c15e-4942-92f3-ac0bd5b91609.png)
+![Statuses you can assign when closing an OKR.](/cms_trial/assets/8ad71d22-8535-41b5-9467-77af85f0599d.png)
 
 ## Track OKR status and progress
 
@@ -60,6 +60,7 @@ The progress and status of your OKRs can be tracked only in the OKR module on th
 - [*Hierarchy*](/cms_trial/space/SPM/1918669889/OKR+Hierarchy/) page
 - [*Progress Dashboard*](/cms_trial/space/SPM/1918801225/Progress+Dashboard/) page
 - [*OKR Details*](/cms_trial/space/SPM/1918536390/OKR+details+page/) page
+- [OKR Details side panel](/cms_trial/space/SPM/1918865686/OKR+Details+side+panel/)
 
 You can also visualize the [OKRs in the Gantt module](/cms_trial/space/SPM/1918835163/Track+OKRs+across+modules/)’s column view using the **Objective** and **Key** **Results** columns. In addition, you can:
 

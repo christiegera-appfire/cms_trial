@@ -9,6 +9,7 @@ Check the following pages to get to know different ways to create Teams:
 - [Create new team](/cms_trial/space/SPM/1918865590/Create+new+team/)
 - [Create new team based on Jira group](/cms_trial/space/SPM/1918702803/Create+new+team+based+on+Jira+group/)
 - [Assign existing teams](/cms_trial/space/SPM/1918865538/Assign+existing+teams/)
+- [Create teams based on Jira teams](/cms_trial/space/SPM/1918801541/Create+teams+based+on+Jira+teams/)
 
 ## Allocate teams
 

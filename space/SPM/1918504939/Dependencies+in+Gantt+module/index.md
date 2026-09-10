@@ -18,6 +18,7 @@ You can also create links between Jira and non-Jira issues, such as basic tasks,
 
 ## Articles on dependencies:
 
+- [Edit dependencies](/cms_trial/space/SPM/1918833796/Edit+dependencies/)
 - [Display dependencies](/cms_trial/space/SPM/1918538718/Display+dependencies/)
 - [Create dependencies](/cms_trial/space/SPM/1918800164/Create+dependencies/)
 - [Dependency Types](/cms_trial/space/SPM/1918702538/Dependency+Types/)

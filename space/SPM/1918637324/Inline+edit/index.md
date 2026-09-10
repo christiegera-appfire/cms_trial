@@ -37,7 +37,7 @@ Depending on the module structure, inline changes can be made in the areas indic
 | Task list | Task list in the Calendar module |
 | [Financials](/cms_trial/space/SPM/1918404223/Financials+module+(NEW)/) | Initiative → Work costs breakdown: Summary, Start date, End date, Team | inlin-edit-initiative.png |
 | Portfolio → Initiative costs and budgets: Budget | inline-edit-portfolio.png |
-| [BigPicture Administration](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918829342) | Administration → Resources → Skills | Color is chosen in the Skills settings |
+| [BigPicture Administration](/cms_trial/space/SPM/1918829342/App+administration/) | Administration → Resources → Skills | Color is chosen in the Skills settings |
 
 Note that you can also inline edit Strategic theme/Objective and Key Result data in selected OKR columns. Visit [Edit OKRs](/cms_trial/space/SPM/1918669695/Edit+OKRs/) to learn more.
 
@@ -114,7 +114,7 @@ Depending on the module structure, inline changes can be made in the areas indic
 | [Risks](/cms_trial/space/SPM/1918666681/Risks+module/) | - Risk cards - Risk table  Screenshot of inline editing in the Risks module. |
 | [Calendar](/cms_trial/space/SPM/1918699000/Calendar+module/) | - Calendar view / Dashboard - Upcoming tasks - Task list  Screenshot of inline editing in the Calendar module. |
 | [Financials](/cms_trial/space/SPM/1918404223/Financials+module+(NEW)/) | - Initiative → Work costs breakdown: Summary, Start date, End date, Team - Portfolio → Initiative costs and budgets: Budget  Screenshot of inline editing in the Financials module. |
-| [BigPicture Administration](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918829342) | - Administration → Resources → Skills  Screenshot of inline editing in BigPicture Administration. |
+| [BigPicture Administration](/cms_trial/space/SPM/1918829342/App+administration/) | - Administration → Resources → Skills  Screenshot of inline editing in BigPicture Administration. |
 
 Note that you can also inline edit Strategic theme/Objective and Key Result data in selected OKR columns. Visit [Edit OKRs](/cms_trial/space/SPM/1918669695/Edit+OKRs/) to learn more.
 

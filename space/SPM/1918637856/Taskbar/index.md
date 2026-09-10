@@ -193,7 +193,7 @@ Check the option to see timeboxes on the Gantt timeline.
 
 ![Screenshot of enabling timeboxes on the Gantt timeline.](/cms_trial/assets/d07148aa-3335-449c-989f-0325998a502d.png)
 
-### [Week numbers](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918801444)
+### [Week numbers](/cms_trial/space/SPM/1918801444/Week+numbers+(Gantt+chart)/)
 
 The timeline displays days, months, quarters, and years, but you can also enable weeks if you plan to use weeks.
 

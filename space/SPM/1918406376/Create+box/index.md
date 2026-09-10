@@ -21,7 +21,7 @@ Boxes can create hierarchies. Before you create a new box, make sure the parent-
 
 The following things determine how you can nest boxes:
 
-- In the [box type configuration](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918829342), you decide the possible parents of each Box type. [Parent box types](/cms_trial/space/SPM/1918830000/Box+types/) determine how to build the box hierarchy (nest boxes) and prevent users from making mistakes and mixing methodologies
+- In the [box type configuration](/cms_trial/space/SPM/1918829342/App+administration/), you decide the possible parents of each Box type. [Parent box types](/cms_trial/space/SPM/1918830000/Box+types/) determine how to build the box hierarchy (nest boxes) and prevent users from making mistakes and mixing methodologies
 - Each Box type has [scope type](/cms_trial/space/SPM/1918766536/Scope+types/) settings (None, Own scope, Sub-scope)
 - [Sequentiality](/cms_trial/space/SPM/1918669073/Period+mode+and+sequentiality/) (box type settings)
 - [Box period mode](/cms_trial/space/SPM/1918669073/Period+mode+and+sequentiality/)

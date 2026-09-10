@@ -104,7 +104,7 @@ Click **More actions** (**…**) next to the timeline buttons to open the contex
 
 - [Markers](/cms_trial/space/SPM/1918699490/Markers/) (markers help you remember important dates throughout your project or [portfolio](/cms_trial/space/SPM/1918700619/Gantt+module+in+portfolio+boxes/). The marker showing the current date cannot be disabled)
 - [Timeboxes](/cms_trial/space/SPM/1918539612/Timeboxes+(Gantt+chart)/) (available only when the [timeboxes are configured](/cms_trial/space/SPM/1918766987/Timeboxes/))
-- [Week numbers](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918801444) (enable to display week numbers)
+- [Week numbers](/cms_trial/space/SPM/1918801444/Week+numbers+(Gantt+chart)/) (enable to display week numbers)
 
 ## Timeline (Gantt chart) (new navigation)
 
@@ -210,4 +210,4 @@ Click **More actions** (**…**) next to the timeline buttons to open the contex
 
 - [Markers](/cms_trial/space/SPM/1918699490/Markers/) (markers help you remember important dates throughout your project or [portfolio](/cms_trial/space/SPM/1918700619/Gantt+module+in+portfolio+boxes/). The marker showing the current date cannot be disabled)
 - [Timeboxes](/cms_trial/space/SPM/1918539612/Timeboxes+(Gantt+chart)/) (available only when the [timeboxes are configured](/cms_trial/space/SPM/1918766987/Timeboxes/))
-- [Week numbers](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918801444) (enable to display week numbers)
+- [Week numbers](/cms_trial/space/SPM/1918801444/Week+numbers+(Gantt+chart)/) (enable to display week numbers)

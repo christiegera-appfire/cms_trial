@@ -4,7 +4,7 @@ Under the **Additional task settings** section in the [Fields](/cms_trial/space/
 
 Click the link to learn more about each option.
 
-| - [Calculate tasks automatically based on assignee's working days](/cms_trial/space/SPM/1918638098/Calculate+tasks+automatically+based+on+assignee%27s+working+days/) - [Respect Jira screen scheme](/cms_trial/space/SPM/1918703088/Respect+Jira+screen+scheme/) - [Save issue changes to Jira Cloud issue comments](/cms_trial/space/SPM/1918638135/Save+issue+changes+to+Jira+Cloud+issue+comments/) - [Overwrite Jira task data with data from the App](/cms_trial/space/SPM/1918703058/Overwrite+Jira+task+data+with+data+from+the+App/) |
+| - [Calculate tasks automatically based on assignee's working days](/cms_trial/space/SPM/1918638098/Calculate+tasks+automatically+based+on+assignee%27s+working+days/) - [Respect Jira screen scheme](/cms_trial/space/SPM/1918703088/Respect+Jira+screen+scheme/) - [Save issue changes to Jira Cloud issue comments](/cms_trial/space/SPM/1918638135/Save+issue+changes+to+Jira+Cloud+issue+comments/) - [Send 'Issue Updated' notification after task changes](/cms_trial/space/SPM/1918801681/Send+%27Issue+Updated%27+notification+after+task+changes/) - [Overwrite Jira task data with data from the App](/cms_trial/space/SPM/1918703058/Overwrite+Jira+task+data+with+data+from+the+App/) |
 | --- |
 
 ![image-20250325-095443.png](/cms_trial/assets/b518060a-a976-4437-bdce-888557530919.png)

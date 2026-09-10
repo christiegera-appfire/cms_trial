@@ -16,7 +16,7 @@ Timebox schedules (TS) are managed by App Admins only. TS can be applied to only
 
 There are three ways a timebox can be added to a project:
 
-- APP admin App Admin can assign a TS to the existing box on the [**App Administration**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918829342) > **Timebox schedules** page.
+- APP admin App Admin can assign a TS to the existing box on the [**App Administration**](/cms_trial/space/SPM/1918829342/App+administration/) > **Timebox schedules** page.
 - box admin sub-box creator Box Admin or Sub-box Creator can assign a TS to a new box during the box creation process.
 - box admin Box Admin can assign a TS to an existing box on the **box configuration** > **Tasks** > **Work items from Jira** page.
 

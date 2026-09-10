@@ -10,7 +10,7 @@ Changing the box type or box configuration settings doesn't impact existing task
 
 ### Workload contouring - box types
 
-See the [Workload contouring](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918831697) page to learn more about workload contouring in box type settings.
+See the [Workload contouring](/cms_trial/space/SPM/1918831697/Set+workload+contouring+mode/) page to learn more about workload contouring in box type settings.
 
 ## Workload contouring modes
 

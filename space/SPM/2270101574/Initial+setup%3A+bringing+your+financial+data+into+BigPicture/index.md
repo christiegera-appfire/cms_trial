@@ -48,7 +48,7 @@ For a task to be taken under consideration, it has to:
 - Have a start or end date within the chosen financial period.
 - Have effort estimates.
 - Tasks are assigned to teams
-- [Workload contouring mode](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918831697) affects cost calculations - it is important when it comes to task cost distribution between days.
+- [Workload contouring mode](/cms_trial/space/SPM/1918831697/Set+workload+contouring+mode/) affects cost calculations - it is important when it comes to task cost distribution between days.
 
 ## Box onboarding
 
