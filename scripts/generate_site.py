@@ -106,7 +106,6 @@ TOP_NAV_TEMPLATE = """
 NAV_SHELL_TEMPLATE = """
 <div class="brand"><span class="brand-mark">{brand_name}</span></div>
 <div class="brand-tag">{tagline}</div>
-<p class="pilot-note">{count} pages in this space, fetched live from Confluence via API.</p>
 <nav>{nav_items}</nav>
 """
 
@@ -324,16 +323,14 @@ def estimate_reading_time(body_html):
     return f"{minutes} min read"
 
 
-def page_shell(title, meta_description, nav_html, page_count, body_html, brand, widget_html, canonical_url, path_prefix="", noindex=False, extra_head="", toc_html="", breadcrumb_html="", reading_time="", confluence_edit_url=""):
+def page_shell(title, meta_description, nav_html, body_html, brand, widget_html, canonical_url, path_prefix="", noindex=False, extra_head="", toc_html="", breadcrumb_html="", reading_time="", confluence_edit_url=""):
     safe_title = html.escape(title or "", quote=False)
     safe_brand_name = html.escape(brand.get("name", "Docs"), quote=False)
     safe_desc = html.escape(meta_description or "", quote=True)
     nav_shell = NAV_SHELL_TEMPLATE.format(
         brand_name=safe_brand_name,
         tagline=html.escape(brand.get("tagline", "Live docs, fetched from Confluence via API."), quote=False),
-        count=page_count,
         nav_items=nav_html,
-        path_prefix=path_prefix,
     )
     top_nav = render_top_nav(brand, path_prefix)
     if noindex:
@@ -589,7 +586,6 @@ def build_space(data_path, out_dir, brand, base_url="", path_prefix="", support_
                 title=p["title"],
                 meta_description=meta_desc,
                 nav_html=nav_html,
-                page_count=len(pages),
                 body_html=body_html,
                 brand=brand,
                 widget_html=widget_html,
