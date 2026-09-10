@@ -1,0 +1,61 @@
+{
+  type: 'rest',
+  uri: 'https://randomuser.me/api/?results=21',
+  children: [
+    {
+      type: 'view',
+      style: {
+        gap: 4,
+        alignItems: 'flex-start',
+      },
+      children: [
+        {
+          type: 'table',
+          path: 'results',
+          style: {
+            flex: 1,
+          },
+          columns: [
+
+            {
+              header: 'Name',
+              cell: {
+                type: 'view',
+                style: {
+                  alignItems: 'center',
+                  gap: 8,
+                  fontWeight: '800',
+                },
+                children: [
+                  {
+                    type: 'image',
+                    style: {
+                      width: 40,
+                      height: 'auto',
+                      borderRadius: '50%',
+                    },
+                    src: '{{picture.thumbnail}}',
+                  },               
+                  '{{name.title}} {{name.first}} {{name.last}}',
+                ]
+              }
+            },
+            {
+              header: 'Birth',
+              accessor: 'dob.age',
+              cell: '{{$formatDate(dob.date)}} ({{dob.age}} y)',
+            },
+            {
+              header: 'Gender',
+              accessor: 'gender',
+            },
+            {
+              header: 'Location',
+              cell: '{{location.country}}, {{location.state}}',
+            },
+          ],
+        },
+      ],
+    },
+  ],
+}

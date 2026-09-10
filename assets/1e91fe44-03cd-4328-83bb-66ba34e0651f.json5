@@ -1,0 +1,370 @@
+{
+  /* General styles */
+  type: 'stylesheet',
+  styles: {
+    blueBar: {
+      padding: '16px',
+      border: '1px solid #f0f2f9',
+      borderRight: 'none',
+      borderLeft: 'none',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      gap: 10,
+    },
+  },
+  children: {
+    type: 'view',
+    style: {
+      display: 'flex',
+      flexDirection: 'column',
+      gap: 10,
+    },
+    children: [
+      {
+        type: 'rest',
+        id: 'cdm',
+        /*IMPORTANT your datasource instance URL should have the following structure https://YOUR_INSTANCE.atlassian.net/wiki */
+        uri: 'datasource://confluence/rest/api/content/search?cql=page_config_disabled=false and type in (page,blogpost) order by lastmodified desc, title asc&expand=metadata.properties.cw-status,metadata.properties.cwc-page-admin,history.lastUpdated,space,ancestors,version&limit=50',
+        children: [
+          {
+            type: 'rest',
+            id: 'approvers',
+            /*IMPORTANT change the accountId for the approvers you want to info in the report*/
+            uri: 'datasource://confluence/wiki/rest/api/user/bulk?accountId=5bfbd8bdd3af3b1ccfec4922&accountId=60ddcd183136170077c5ee6a&accountId=5d52a37ef0f22a0da2d6f070&accountId=557058:21e2902c-84bb-495e-8e6f-c584950ee4fb&accountId=557058:f6aeadb9-7729-4370-8eb7-57d695253afa&accountId=5aa5f31a7f3fd325faf0f80e',
+            children: [],
+          },
+          /* Blue bar header */
+          {
+            type: 'view',
+            class: 'blueBar',
+            children: [
+              {
+                type: 'view',
+                style: {
+                  alignItems: 'center',
+                  gap: 8,
+                },
+                children: [
+                  {
+                    type: 'paramdropdown',
+                    path: 'cql',
+                    /*IMPORTANT change the label and creator for the name and accountId for the approvers you want to add in the dropdown selector*/
+                    options: [
+                      {
+                        label: 'All',
+                        value: 'page_config_disabled=false and type in (page,blogpost) order by lastmodified desc, title asc',
+                      },
+                      {
+                        label: 'Patri',
+                        value: 'page_config_disabled=false and type in (page,blogpost) and creator="5aa5f31a7f3fd325faf0f80e" order by lastmodified desc, title asc',
+                      },
+                      {
+                        label: 'Iñaki',
+                        value: 'page_config_disabled=false and type in (page,blogpost) and creator="60ddcd183136170077c5ee6a" order by lastmodified desc, title asc',
+                      },
+                      {
+                        label: 'Mark',
+                        value: 'page_config_disabled=false and type in (page,blogpost) and creator="62fcffb9eec8d4a478d477b9" order by lastmodified desc, title asc',
+                      },
+                      {
+                        label: 'Elena',
+                        value: 'page_config_disabled=false and type in (page,blogpost) and creator="5d52a37ef0f22a0da2d6f070" order by lastmodified desc, title asc',
+                      },
+                      {
+                        label: 'Jorge',
+                        value: 'page_config_disabled=false and type in (page,blogpost) and creator="5bfbd8bdd3af3b1ccfec4922" order by lastmodified desc, title asc',
+                      },
+                    ],
+                    style: {
+                      display: 'block',
+                      width: 240,
+                      height: 40,
+                      padding: '0 5px',
+                      margin: '10px 0px',
+                      border: '2px solid #DFE1E6',
+                      borderRadius: '3px'
+                    },
+                  },
+                  {
+                    type: 'paramtext',
+                    path: 'limit',
+                    placeholder: 'Limit',
+                    style: {
+                      display: 'block',
+                      height: 37,
+                      padding: '0 5px',
+                      margin: '10px 0px',
+                      border: '2px solid #DFE1E6',
+                      borderRadius: '3px'
+                    },
+                  },
+                ],
+              },
+              {
+                type: 'selector',
+                path: '$root.approvers.results',
+                children: [
+                  {
+                    type: 'view',
+                    style: {
+                      flexDirection: 'column',
+                      alignItems: 'flex-end',
+                    },
+                    children: [
+                      '{{$count($)}} approvers pending',
+                      {
+                        type: 'list',
+                        style: {
+                          display: 'flex',
+                          flexDirection: 'row',
+                        },
+                        item: {
+                          type: 'view',
+                          style: {
+                            gap: 8,
+                          },
+                          children: [
+
+                            {
+                              type: 'image',
+                              style: {
+                                width: 32,
+                                height: 32,
+                                borderRadius: 16,
+                              },
+                              src: '{{$substringBefore($root.approvers._links.base, $root.approvers._links.context)}}{{$.profilePicture.path}}',
+                            },
+                          ],
+                        },
+                      },
+                    ],
+                  },
+                ],
+              },
+            ],
+          },
+          {
+            type: 'view',
+            children: [
+              /* Results table */
+              {
+                type: 'table',
+                path: 'results',
+                columns: [
+                  {
+                    header: 'Page title',
+                    accessor: 'title',
+                    "cell": {
+                   "type": "link",
+                   "href": "{{$root.cdm._links.base}}{{_links.webui}}",
+                   "target": "_blank",
+                   "children": ["{{title}}"]
+                }
+                  },
+                  {
+                    header: 'Status',
+                    accessor: 'metadata.properties.cw-status.value.state.name',
+                    cell: {
+                      type: 'view',
+                      style: {
+                        flexDirection: 'row',
+                        alignItems: 'center',
+                        gap: 6,
+                      },
+                      children: [
+                        {
+                          type: 'text',
+                          style: {
+                            background: '$.metadata.properties."cw-status".value.state.colour',
+                            padding: '0 5px',
+                            borderRadius: '3px',
+                            color: 'white'
+                          },
+                          text: '{{metadata.properties."cw-status".value.state.name}}'
+                        }
+                      ],
+                    },
+                  },
+                  {
+                    header: 'Space',
+                    accessor: 'space.name',
+                    cell: [
+                      {
+                        type: 'link',
+                        href: '{{$root.cdm._links.base}}/{{space._links.webui}}',
+                        target: '_blank',
+                        children: ['{{space.name}}'],
+                      },
+                    ],
+                  },
+                  {
+                    header: 'Last page update',
+                    accessor: 'history.lastUpdated.by.displayName',
+                    cell: [
+                      {
+                        type: 'link',
+                        href: '{{$substringBefore($root.cdm._links.base, $root.cdm._links.context)}}/people/{{history.lastUpdated.by.accountId}}',
+                        target: '_blank',
+                        style: {
+                          display: 'flex',
+                          alignItems: 'center',
+                          pad: 4,
+                        },
+                        children: [
+                          {
+                            type: 'image',
+                            style: {
+                              width: 32,
+                              height: 32,
+                              borderRadius: 16,
+                              marginRight: 4,
+                            },
+                            src: '{{$substringBefore($root.cdm._links.base, $root.cdm._links.context)}}{{history.lastUpdated.by.profilePicture.path}}',
+                          },
+                          {
+                            type: 'text',
+                            text: '{{history.lastUpdated.by.displayName}}',
+                          },
+                        ],
+                      },
+                    ],
+                  },
+                  {
+                    header: 'Created by',
+                    accessor: 'history.createdBy.displayName',
+                    cell: [
+                      {
+                        type: 'link',
+                        href: '{{$substringBefore($root.cdm._links.base, $root.cdm._links.context)}}/people/{{history.createdBy.accountId}}',
+                        target: '_blank',
+                        style: {
+                          display: 'flex',
+                          alignItems: 'center',
+                          pad: 4,
+                        },
+                        children: [
+                          {
+                            type: 'image',
+                            style: {
+                              width: 32,
+                              height: 32,
+                              borderRadius: 16,
+                              marginRight: 4,
+                            },
+                            src: '{{$substringBefore($root.cdm._links.base, $root.cdm._links.context)}}{{history.createdBy.profilePicture.path}}',
+                          },
+                          {
+                            type: 'text',
+                            text: '{{history.createdBy.displayName}}',
+                          },
+                        ],
+                      },
+                    ],
+                  },
+                  {
+                    header: 'Approvers',
+                    accessor: 'metadata.properties."cw-status".value.state.approvers',
+                    cell: ['{{$count($.metadata.properties."cw-status".value.state.approvers)}} Approvers'],
+                  },
+                ],
+              },
+              /* Graph columns */
+              {
+                type: 'view',
+                style: {
+                  flexDirection: 'column',
+                  alignItems: 'center',
+                  gap: 10,
+                },
+                children: [
+                  {
+                    type: 'progress',
+                    style: {
+                      width: 130,
+                      height: 130,
+                    },
+                    variant: 'circular',
+                    value: '$count($.results.metadata.properties."cw-status".value.state.name[$contains($, /eview/i)])',
+                    //maxValue: '$count($.results)',
+                    children: ['reviewing', '{{$count($.results.metadata.properties."cw-status".value.state.name[$contains($, /eview/i)])}} of {{$count($.results)}}'],
+                  },
+                  'Page Status',
+                  {
+                    type: 'piechart',
+                    options: {
+                      chart: {
+                        width: 250,
+                        height: 200,
+                      },
+                    },
+                    data: {
+                      series: [
+                        {
+                          name: 'Status',
+                          stroke: '#000',
+                          fill: '#999',
+                          label: true,
+                          cx: '60%',
+                          cy: '50%',
+                          innerRadius: 40,
+                          outerRadius: 70,
+                          data: '$each($.results.metadata.properties."cw-status".value.state{ name: { "count": $count($), "color": $distinct($.colour) } }, function($v, $k) { ({ \'name\': $k, \'value\': $v.count, \'color\': $v.color }) })[]',
+                        },
+                      ],
+                    },
+                  },
+                  'Approved Versions',
+                  {
+                    type: 'chart',
+                    options: {
+                      chart: {
+                        width: 250,
+                        height: 200,
+                      },
+                    },
+                    data: {
+                      categories: '$.results.title',
+                      series: [
+                        {
+                          chartType: 'bar',
+                          name: 'Position',
+                          stroke: '#000',
+                          fill: '#3af',
+                          label: true,
+                          data: '$.results.metadata.properties."cw-status".value.state.contentVersion',
+                        },
+                      ],
+                    },
+                  },
+                  'Pending Approvers',
+                  {
+                    type: 'chart',
+                    options: {
+                      chart: {
+                        width: 250,
+                        height: 200,
+                      },
+                    },
+                    data: {
+                      categories: '$.results.title',
+                      series: [
+                        {
+                          chartType: 'bar',
+                          name: 'Position',
+                          stroke: '#000',
+                          fill: '#6b3',
+                          label: true,
+                          data: '$.results.metadata.properties."cw-status".value.state.$count(approvers)',
+                        },
+                      ],
+                    },
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+    ],
+  },
+}

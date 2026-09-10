@@ -1,0 +1,90 @@
+{
+  type: 'view',
+  children: [
+    // Color schemes
+    {
+      type: 'rest',
+      uri: 'https://www.thecolorapi.com/scheme?format=json&hex=9e5eaf',
+      id: 'scheme',
+    },
+    // Random people mock data
+    {
+      type: 'rest',
+      uri: 'https://randomuser.me/api/?results=100',
+      id: 'people',
+      path: 'results',
+    },
+    {
+      type: 'selector',
+      // Here we are joining data from the two API above
+      path: '$map($distinct($.people.location.country), function($c, $i) { { "value": $count($.people.location[country = $c]), "name": $c, "color": $.scheme.colors[$i % $$.scheme.count].hex.value } })',
+      children: [
+        {
+          type: 'piechart',
+          options: {
+            chart: {
+              width: 500,
+              height: 500,
+            },
+          },
+          data: {
+            series: [
+              {
+                name: 'Population',
+                label: true,
+                stroke: 'none',
+                cx: '50%',
+                cy: '50%',
+                innerRadius: 120,
+                outerRadius: 200,
+                data: '$',
+              },
+            ],
+          },
+        },
+        {
+          type: 'view',
+          children: [
+            {
+              type: 'text',
+              text: 'Using '
+            },
+            {
+              type: 'link',
+              href: 'https://docs.jsonata.org/',
+              target: 'blank',
+              children: {
+                type: 'text',
+                text: 'JSONata',
+                style: { color: '#0052CC', textDecoration: 'underline' }
+              },
+            },
+            {
+              type: 'text',
+              text: ' to join data from two different APIs and provide properly formatted data to '
+            },
+            {
+              type: 'link',
+              href: 'https://recharts.org/en-US/api/ComposedChart',
+              target: 'blank',
+              children: {
+                type: 'text',
+                text: '<Recharts />',
+                style: { color: '#0052CC', textDecoration: 'underline' }
+              },
+            }
+          ],
+          style: {
+            display: 'block',
+            padding: '15px',
+            borderRadius: '3px',
+            background: 'rgb(255 255 255 / 7%)',
+          }
+        },
+      ]
+    },
+  ],
+  style: {
+    flexDirection: 'column'
+  }
+}

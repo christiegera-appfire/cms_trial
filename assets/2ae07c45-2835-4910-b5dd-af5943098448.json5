@@ -1,0 +1,108 @@
+{
+  type: "rest",
+  refresh: "submit",
+  uri: "https://public.api.bsky.app/xrpc/app.bsky.feed.searchPosts?q='Appfire'",
+  children: [
+    {
+      type: "view",
+      style: {
+        marginTop: "10px",
+        gap: 5,
+      },
+      children: [
+        {
+          type: "paramtext",
+          path: "q",
+          placeholder: "Search query",
+          style: {
+            display: "block",
+            height: "38px",
+            padding: "0 10px",
+            width: "100%",
+            border: "1px solid hsl(206 7% 85% / 1)",
+            borderRadius: 5,
+            boxSizing: "border-box"
+          }
+        },
+        {
+          type: "parambutton",
+          style: {
+            borderRadius: 5,
+            border: "none",
+            padding: "0 10px",
+            background: "#4782dd",
+            color: "white"
+          }
+        }
+      ]
+    },
+    {
+      type: "list",
+      path: "posts",
+      item: {
+        type: "view",
+        style: {
+          marginTop: "10px",
+          display: "flex",
+          flexDirection: "row",
+          alignItems: "flex-start",
+          borderRadius: 5,
+          color: '#444',
+          background: "hsl(206 5% 97% / 1)",
+          border: "1px solid hsl(206 5% 85% / 1)",
+          padding: 10,
+          gap: 4
+        },
+        children: [
+          {
+            type: "image",
+            src: "$.author.avatar",
+            alt: "{{author.displayName}} profile picture",
+            style: {
+              width: 50,
+              height: 50,
+              objectFit: "cover",
+              borderRadius: "50%"
+            }
+          },
+          {
+            type: "view",
+            style: {
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-start",
+              padding: 10
+            },
+            children: [
+              {
+                type: "text",
+                style: {
+                  fontSize: 20,
+                  fontWeight: "bold"
+                },
+                text: "$.author.displayName"
+              },
+              {
+                type: "text",
+                style: {
+                  fontSize: 14,
+                  marginTop: 5
+                },
+                text: "$.record.text"
+              },
+              {
+                type: "text",
+                style: {
+                  fontSize: 12,
+                  marginTop: 5,
+                  color: "grey"
+                },
+                text: "$.record.createdAt"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

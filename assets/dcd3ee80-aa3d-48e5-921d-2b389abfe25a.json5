@@ -1,0 +1,24 @@
+{
+  "type": "rest",
+  "uri": "datasource://jira/rest/api/3/search?jql={$initial.jql}&maxResults=5",
+  "children": [
+    {
+      "type": "table",
+      "path": "issues",
+      "columns": [
+        {
+          "header": "Issue",
+          "accessor": "key"
+        },
+        {
+          "header": "Summary",
+          "accessor": "fields.summary"
+        },
+        {
+          "header": "Status",
+          "accessor": "fields.status.name"
+        }
+      ]
+    }
+  ]
+}

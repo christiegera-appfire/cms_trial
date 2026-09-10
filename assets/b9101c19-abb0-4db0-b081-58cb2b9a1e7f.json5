@@ -1,0 +1,117 @@
+{
+  type: 'rest',
+  uri: 'https://randomuser.me/api/?results=300',
+  id: 'sd',
+  path: '(\
+    /* Calculate the decade of birth for each person */\
+    $withDecades := $map($.results, function($p) { $merge([{ "decade": $substring($formatDate($p.dob.date), -4, 3) & "0" }, $p]) });\
+    \
+    /* Extract decades range */\
+    $decades := $sort($distinct($map($withDecades, function($p) { $p.decade })));\
+    \
+    { "data": $withDecades, "decades": $decades }\
+  )',
+  children: [
+    {
+      type: 'view',
+      children: [
+        {
+          type: 'chart',
+          options: {
+            chart: {
+              width: 700,
+              height: 400,
+              
+            },
+            cartesianGrid: {
+              stroke: "#eee",
+              strokeDasharray:"5 5",
+              vertical: false
+            },
+            xAxis: {
+              axisLine: false,
+              tickLine: false
+            },
+            yAxis: {
+              axisLine: false,
+              tickLine: false
+            },
+          },
+          data: {
+            categories: '$.decades',
+            series: [
+              {
+                chartType: 'bar',
+                name: 'Males',
+                stackId: 'a',
+                fill: '#82ca9d',
+                data: '$map($.decades, function($d) {\
+                  $count(\
+                    $map(\
+                      $filter(\
+                        $filter($.data, function($p) { $p.gender = "male"}),\
+                        function($p) { $d = $p.decade}),\
+                      function($v) {$v.decade}))})',
+              },
+              {
+                chartType: 'bar',
+                name: 'Females',
+                stackId: 'a',
+                fill: '#8884d8',
+                data: '$map($.decades, function($d) {\
+                  $count(\
+                    $map(\
+                      $filter(\
+                        $filter($.data, function($p) { $p.gender = "female"}),\
+                        function($p) { $d = $p.decade}),\
+                      function($v) {$v.decade}))})',
+              },
+            ],
+          },
+        },
+        {
+          type: 'view',
+          children: [
+            {
+              type: 'text',
+              text: 'Using '
+            },
+            {
+              type: 'link',
+              href: 'https://docs.jsonata.org/',
+              target: 'blank',
+              children: {
+                type: 'text',
+                text: 'JSONata',
+                style: { color: '#0052CC', textDecoration: 'underline' }
+              },
+            },
+            {
+              type: 'text',
+              text: ' to digest the data fetched by the rest node so we can provide properly formatted data to '
+            },
+            {
+              type: 'link',
+              href: 'https://recharts.org/en-US/api/ComposedChart',
+              target: 'blank',
+              children: {
+                type: 'text',
+                text: '<Recharts />',
+                style: { color: '#0052CC', textDecoration: 'underline' }
+              },
+            }
+          ],
+          style: {
+            display: 'block',
+            padding: '15px',
+            borderRadius: '3px',
+            background: 'rgb(255 255 255 / 7%)',
+          }
+        },
+      ],
+      style: {
+        flexDirection: 'column'
+      },
+    },
+  ]
+}
