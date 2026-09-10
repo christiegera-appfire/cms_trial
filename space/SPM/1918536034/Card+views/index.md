@@ -11,7 +11,7 @@ You can change the layout of your risk cards at any time.
 You can set the default configuration using:
 
 - [Box types](/cms_trial/space/SPM/1918830000/Box+types/) (App admin security role required); or
-- Edit the layout in the [Box configuration](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830445) section (Box admin security role required)
+- Edit the layout in the [Box configuration](/cms_trial/space/SPM/1918830445/Manage+card+views/) section (Box admin security role required)
 
 ![Screenshot of the current view in the Risks module.](/cms_trial/assets/7e98093b-6f68-45f0-8b47-c421fa44caf7.png)
 
@@ -32,7 +32,7 @@ You can change the layout of your risk cards at any time.
 You can set the default configuration using:
 
 - [Box types](/cms_trial/space/SPM/1918830000/Box+types/) (App admin security role required); or
-- Edit the layout in the [box configuration](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830445) section (Box admin security role required)
+- Edit the layout in the [box configuration](/cms_trial/space/SPM/1918830445/Manage+card+views/) section (Box admin security role required)
 
 ![Screenshot of the card views in the Risks module. ](/cms_trial/assets/3c7b25ba-edad-440e-9891-1f02299e25d8.png)
 

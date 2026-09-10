@@ -10,7 +10,7 @@ When a box inherits elements, it takes them from all its upper-level boxes.
 
 You can set inheritance mode for:
 
-- [Card views](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830445)
+- [Card views](/cms_trial/space/SPM/1918830445/Manage+card+views/)
 - [Quick filters](/cms_trial/space/SPM/1918830532/Manage+quick+filters/)
 - [Column views](/cms_trial/space/SPM/1918503715/Manage+column+views/)
 - [Task templates](/cms_trial/space/SPM/1918503892/Manage+task+templates/)
@@ -65,7 +65,7 @@ Changes made to the inheritance mode apply to **ALL** boxes of a given type (exi
 | Own | Screenshot of the column views and inheritance mode set to Own in the box type configuration. |
 | Inherited | Screenshot of the column views and inheritance mode set to Inherited in the box type configuration. |
 
-### [Card views](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830445)
+### [Card views](/cms_trial/space/SPM/1918830445/Manage+card+views/)
 
 The table presents how inheritance mode settings impact card views.
 

@@ -4,7 +4,7 @@
 
 When creating a Salesforce Record from Jira, the user gets the "Error when trying to create Case: Cannot deserialize instance of reference from START\_ARRAY value [line:1, column:38]" error.
 
-![contentId-3091827115](/cms_trial/assets/9e069e69-4b96-45e0-88cf-0dcbb8c25cbd.png?version=1&modificationDate=1678796533078&cacheVersion=1&api=v2)
+![contentId-3091827115](/cms_trial/assets/9e069e69-4b96-45e0-88cf-0dcbb8c25cbd.png)
 
 ## Environment
 

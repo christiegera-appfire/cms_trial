@@ -4,7 +4,7 @@
 
 When opening a Jira issue, the following message appears on the screen:
 
-![contentId-3092285993](/cms_trial/assets/28d694ae-314c-4bc5-a64a-32a5b4a62daf.png?version=1&modificationDate=1678796155982&cacheVersion=1&api=v2)
+![contentId-3092285993](/cms_trial/assets/28d694ae-314c-4bc5-a64a-32a5b4a62daf.png)
 
 ## Environment
 

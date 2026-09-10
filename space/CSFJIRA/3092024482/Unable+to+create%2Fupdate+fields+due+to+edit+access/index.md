@@ -10,7 +10,7 @@ Please check the security settings of this field and verify that it is
 read/write for your profile or permission set.
 ```
 
-![contentId-3092024482](/cms_trial/assets/c2d349eb-d4d3-4eaf-8781-764089bc95b4.png?version=1&modificationDate=1678796545911&cacheVersion=1&api=v2)
+![contentId-3092024482](/cms_trial/assets/c2d349eb-d4d3-4eaf-8781-764089bc95b4.png)
 
 ## Environment
 
@@ -30,7 +30,7 @@ read/write for your profile or permission set.
    2. Search “Users” in the **Quick Find**. Then search for the integration user from step 1, and click on **Profile**. Then scroll down to **Field-Level Security**and click on the object that you’re working on (For example: “Case” object)
 3. Check whether the fields have Read and Edit permissions.
 
-   ![contentId-3092024482](/cms_trial/assets/7c669141-d794-4ea2-ab92-e491cffbf388.png?version=1&modificationDate=1678943934458&cacheVersion=1&api=v2)
+   ![contentId-3092024482](/cms_trial/assets/7c669141-d794-4ea2-ab92-e491cffbf388.png)
 
 ## Cause
 

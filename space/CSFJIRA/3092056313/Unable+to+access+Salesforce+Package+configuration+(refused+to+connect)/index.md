@@ -6,11 +6,11 @@ After the Salesforce package is installed successfully, clicking on the configur
 
 In Chrome:
 
-![contentId-3092056313](/cms_trial/assets/4a62282e-b907-4b0c-8210-7440b945522a.png?version=1&modificationDate=1678796547627&cacheVersion=1&api=v2)
+![contentId-3092056313](/cms_trial/assets/4a62282e-b907-4b0c-8210-7440b945522a.png)
 
 In Firefox:
 
-![contentId-3092056313](/cms_trial/assets/ed5f74d7-1c1d-40af-a38a-6180dd9f6270.png?version=1&modificationDate=1678796547845&cacheVersion=1&api=v2)
+![contentId-3092056313](/cms_trial/assets/ed5f74d7-1c1d-40af-a38a-6180dd9f6270.png)
 
 ## Environment
 

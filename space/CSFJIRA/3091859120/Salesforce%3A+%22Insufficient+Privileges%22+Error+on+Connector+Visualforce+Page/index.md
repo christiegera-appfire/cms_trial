@@ -4,7 +4,7 @@
 
 When viewing the connector's Visualforce page in Salesforce, you see this error message:
 
-![contentId-3091859120](/cms_trial/assets/4ee93cf9-95fc-4b92-aee0-a9cb0775daac.png?version=1&modificationDate=1680286183006&cacheVersion=1&api=v2)
+![contentId-3091859120](/cms_trial/assets/4ee93cf9-95fc-4b92-aee0-a9cb0775daac.png)
 
 ## Environment
 
@@ -44,7 +44,7 @@ There are two reasons as to why this issue occurs:
 
    1. For Jira Cloud, add all the JCFS classes to the **Enabled Apex Classes** column.
 
-      ![contentId-3091859120](/cms_trial/assets/4643eead-2d52-4e8c-ab3f-262431097828.png?version=1&modificationDate=1680287391908&cacheVersion=1&api=v2)
+      ![contentId-3091859120](/cms_trial/assets/4643eead-2d52-4e8c-ab3f-262431097828.png)
    2. For Jira Server, add all the JSFS classes to the **Enabled Apex Classes** column.
 
-      ![contentId-3091859120](/cms_trial/assets/33f27693-b7ef-4972-82e6-e8aa90ebdcce.png?version=1&modificationDate=1680287411538&cacheVersion=1&api=v2)
+      ![contentId-3091859120](/cms_trial/assets/33f27693-b7ef-4972-82e6-e8aa90ebdcce.png)

@@ -33,17 +33,17 @@ You will see Chatter comments in Jira if:
 - The Chatter comment satisfies Jira comment privacy and hashtag filters set by your administrator.
 - The Chatter post is made in the Case object (another object is not supported).
 
-![contentId-1962443468](/cms_trial/assets/e5bc106f-4c67-4084-a7cb-9b3383817858.png?version=1&modificationDate=1730966654292&cacheVersion=1&api=v2&width=700&height=129)
+![contentId-1962443468](/cms_trial/assets/e5bc106f-4c67-4084-a7cb-9b3383817858.png)
 
 ### Nested comments
 
 Replies posted to Case Feed (Chatter) comments are automatically nested in Jira but are expanded.
 
-![contentId-1962443468](/cms_trial/assets/d4e328c5-c13f-4f43-bc63-b2e487082930.png?version=1&modificationDate=1730966654093&cacheVersion=1&api=v2&width=635&height=108)
+![contentId-1962443468](/cms_trial/assets/d4e328c5-c13f-4f43-bc63-b2e487082930.png)
 
 Click **View Replies** to expand all available replies from the Case Feed (Chatter) comments:
 
-![view replies from the Case Feed comment](/cms_trial/assets/b4a14eb4-06f1-4fb3-8702-fb52e4f72ac3.png?version=1&modificationDate=1730966653884&cacheVersion=1&api=v2&width=634&height=291)
+![view replies from the Case Feed comment](/cms_trial/assets/b4a14eb4-06f1-4fb3-8702-fb52e4f72ac3.png)
 
 ## Related information
 

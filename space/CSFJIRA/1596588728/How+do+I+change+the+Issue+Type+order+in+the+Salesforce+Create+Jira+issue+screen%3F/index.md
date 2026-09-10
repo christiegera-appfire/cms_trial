@@ -4,7 +4,7 @@
 
 While creating a Jira Issue in Salesforce, you may want to have the **Issue Type** dropdown menu options in a specific order.
 
-![contentId-1596588728](/cms_trial/assets/5c2313fa-c284-45e6-872a-d619a537a9c5.PNG?version=1&modificationDate=1678856771769&cacheVersion=1&api=v2)
+![contentId-1596588728](/cms_trial/assets/5c2313fa-c284-45e6-872a-d619a537a9c5.PNG)
 
 ## Answer
 

@@ -27,7 +27,7 @@ The [Feed Item](https://developer.salesforce.com/docs/atlas.en-us.object_referen
    - ii.) **Configure Trigger - Trigger the Flow when** - Set to "A record is created".
    - iii.) Set the **Condition Requirements** based on the image below:
 
-     ![contentId-1596654292](/cms_trial/assets/66ca259d-f1d9-4937-9298-fe231eb91b71.png?version=1&modificationDate=1678857307170&cacheVersion=1&api=v2)
+     ![contentId-1596654292](/cms_trial/assets/66ca259d-f1d9-4937-9298-fe231eb91b71.png)
    - iv.) The value “5005” are the first numbers of the CASE object ID(The number varies for different users. Check your instance CASE ID starting numbers).
    - v.) The second entry condition is to check that ”commentBody” is not empty.
    - **Optimize the Flow for** - Set to "Actions and Related Records".
@@ -37,7 +37,7 @@ The [Feed Item](https://developer.salesforce.com/docs/atlas.en-us.object_referen
    2. ii.) **Object**- Set the name to "Case".
    3. iii.) Set the **Filter Case Records** based on the image below:
 
-      ![contentId-1596654292](/cms_trial/assets/2776f56e-e249-4152-bb2f-b80b1767357b.png?version=1&modificationDate=1678857307241&cacheVersion=1&api=v2)
+      ![contentId-1596654292](/cms_trial/assets/2776f56e-e249-4152-bb2f-b80b1767357b.png)
    4. **Last Case Comment** - Set it to your own wordings. The Flow will be triggered and the custom field will be updated with the last comment.
 3. In Jira, map the **Last Comment Jira** field with the **Last Case Comment** field.
 
@@ -51,7 +51,7 @@ The [Feed Item](https://developer.salesforce.com/docs/atlas.en-us.object_referen
    - ii.) **Configure Trigger - Trigger the Flow when** - Set to "A record is created".
    - iii.) Set the **Condition Requirements** based on the image below:
 
-     ![contentId-1596654292](/cms_trial/assets/0aaf8af1-54d0-4b96-90f2-35251b3cf24c.png?version=1&modificationDate=1678857307315&cacheVersion=1&api=v2)
+     ![contentId-1596654292](/cms_trial/assets/0aaf8af1-54d0-4b96-90f2-35251b3cf24c.png)
 2. Create a [Update Records](https://help.salesforce.com/s/articleView?id=sf.flow_ref_elements_data_update.htm&language=en_US&r=https%3A%2F%2Fwww.google.com%2F&type=5#:~:text=Identify%20Salesforce%20records%20to%20update,set%20the%20field%20values%20individually.) and set the following information:
 
    1. i.) **How to Find Records to Update and Set Their Values** - Set to "Specify conditions to identify records, and set fields individually".

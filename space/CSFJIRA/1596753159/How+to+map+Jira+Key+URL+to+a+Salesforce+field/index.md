@@ -36,7 +36,7 @@ Mapping the Key field in Jira to a Salesforce URL field will only retrieve the i
 - Please replace the `<Jira_instance_URL>` with your instance URL and `<Mapped_Field_in_Step_1>` with the field name (for example, `text_field__c` ).
 - The {JIRA\_KEY} is shown in Salesforce like below and is not a URL you need to replace.
 
-![contentId-1596753159](/cms_trial/assets/b1655580-03b1-47de-9d92-c09ed31f2dcc.png?version=1&modificationDate=1678945285072&cacheVersion=1&api=v2)
+![contentId-1596753159](/cms_trial/assets/b1655580-03b1-47de-9d92-c09ed31f2dcc.png)
 
 ## Resolution
 

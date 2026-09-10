@@ -14,21 +14,21 @@ To prepare for export, go to Issue Search. Use JQL filters to display the issues
 
 For example, the "Allocation Details" box has only one Jira project in its scope.
 
-![contentId-1918698918](/cms_trial/assets/6e90f938-088e-43c5-846c-88d5bbc15205.png?version=1&modificationDate=1683093019256&cacheVersion=1&api=v2)
+![contentId-1918698918](/cms_trial/assets/6e90f938-088e-43c5-846c-88d5bbc15205.png)
 
 This makes creating a backup file for this box easy. However, a more complex set of JQL filters could be used to include multiple Jira projects or just a limited number of tasks from a project or projects.
 
-![contentId-1918698918](/cms_trial/assets/41221f40-f602-448c-b401-c309a603631d.png?version=1&modificationDate=1683093019172&cacheVersion=1&api=v2)![contentId-1918698918](/cms_trial/assets/aa442bb9-2d85-4462-9f54-419a84a32ec9.png?version=1&modificationDate=1683093019070&cacheVersion=1&api=v2)
+![contentId-1918698918](/cms_trial/assets/41221f40-f602-448c-b401-c309a603631d.png)![contentId-1918698918](/cms_trial/assets/aa442bb9-2d85-4462-9f54-419a84a32ec9.png)
 
 Next, export the data into the CSV file.
 
-![contentId-1918698918](/cms_trial/assets/d03c5a13-b10c-4070-bcdd-9d908ee4fe40.png?version=1&modificationDate=1683093018995&cacheVersion=1&api=v2)
+![contentId-1918698918](/cms_trial/assets/d03c5a13-b10c-4070-bcdd-9d908ee4fe40.png)
 
 ## Prepare the app for import
 
 Before the import, you may want to change the period mode in which Gantt tasks operate to manual in some cases. This will prevent any automatic calculations from being performed in BigPicture.
 
-![contentId-1918698918](/cms_trial/assets/95f59c1a-aea5-4663-89a4-f84a1bcf62df.png?version=1&modificationDate=1683093018874&cacheVersion=1&api=v2)
+![contentId-1918698918](/cms_trial/assets/95f59c1a-aea5-4663-89a4-f84a1bcf62df.png)
 
 Without this change, the restore process of timeline-related data (start date, end date) has a chance of failure if the existing automatic rules don't allow for making a given change.
 
@@ -44,11 +44,11 @@ Do not use the Issue dropdown, which has a position called *Import issues from 
 
 For official Atlassian documentation on importing Jira Project from external sources while updating existing Jira issues, please visit [this documentation article.](https://confluence.atlassian.com/adminjiraserver071/importing-data-from-csv-802592885.html#ImportingdatafromCSV-Updatingexistingissues)
 
-![contentId-1918698918](/cms_trial/assets/e244c866-15a5-4ef1-af6b-90cfd0f6f2c1.png?version=1&modificationDate=1683093018788&cacheVersion=1&api=v2)![contentId-1918698918](/cms_trial/assets/bbf2bd29-62c9-4154-ae94-770b6fb2dd25.png?version=1&modificationDate=1683093018710&cacheVersion=1&api=v2)
+![contentId-1918698918](/cms_trial/assets/e244c866-15a5-4ef1-af6b-90cfd0f6f2c1.png)![contentId-1918698918](/cms_trial/assets/bbf2bd29-62c9-4154-ae94-770b6fb2dd25.png)
 
 Especially if Jira issues come from different Jira projects, use data included in the CVS file to overwrite existing issues within those projects.
 
-![contentId-1918698918](/cms_trial/assets/aeae1196-5ffa-4a86-892a-e82650d51662.png?version=1&modificationDate=1683093018627&cacheVersion=1&api=v2)
+![contentId-1918698918](/cms_trial/assets/aeae1196-5ffa-4a86-892a-e82650d51662.png)
 
 ### Field mapping
 
@@ -62,4 +62,4 @@ Always include the following fields:
 
 Additionally, select which fields you want to be overwritten. In the example below "Start Date" and "End Date" fields are selected.
 
-![contentId-1918698918](/cms_trial/assets/312f8e43-192e-4ba9-bcd2-e288fda95928.png?version=1&modificationDate=1683093018228&cacheVersion=1&api=v2)![contentId-1918698918](/cms_trial/assets/5edae5b7-61c2-40ac-ad37-63d00cb8a4da.png?version=1&modificationDate=1683093018453&cacheVersion=1&api=v2)
+![contentId-1918698918](/cms_trial/assets/312f8e43-192e-4ba9-bcd2-e288fda95928.png)![contentId-1918698918](/cms_trial/assets/5edae5b7-61c2-40ac-ad37-63d00cb8a4da.png)

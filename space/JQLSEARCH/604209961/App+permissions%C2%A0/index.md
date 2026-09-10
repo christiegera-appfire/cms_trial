@@ -27,4 +27,4 @@ Find the permission scheme associated with the projects where the app isn't work
 
 Ensure that the project role `atlassian-addons-project-access`is there. If not, grant **Browse Projects**and **Edit Issue** to this project role.
 
-![contentId-604209961](/cms_trial/assets/697f74ac-583c-4753-9615-642644836600.png)![contentId-604209961](/cms_trial/assets/777fa44b-26e1-4e1d-9da2-ece215f14211.png?version=1&modificationDate=1558808699621&cacheVersion=1&api=v2&width=600)
+![contentId-604209961](/cms_trial/assets/697f74ac-583c-4753-9615-642644836600.png)![contentId-604209961](/cms_trial/assets/777fa44b-26e1-4e1d-9da2-ece215f14211.png)

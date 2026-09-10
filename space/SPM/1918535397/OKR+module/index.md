@@ -45,7 +45,7 @@ The table presents the main features of the OKR module.
 | [OKR Details page](/cms_trial/space/SPM/1918536390/OKR+details+page/) | The OKR Details page displays all the details about the OKR, including basic info, progress, updates, and linked issues.  On this page, you can also see OKR copies and add dependencies and contributions between individual OKRs. |
 | [Tree view](/cms_trial/space/SPM/1918801711/Tree+view/) | The Tree view page is the default page that appears after the OKR creation process. It lists all the OKRs created in one session and their details. |
 | [Hierarchy](/cms_trial/space/SPM/1918669889/OKR+Hierarchy/) | The Hierarchy page visualizes OKRs in a family tree-like structure. Each OKR is represented as an OKR card showing basic details. |
-| [Progress Dashboard](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918801225) | The Progress Dashboard displays various statistical data about your OKRs that you can use for reports and tracking. |
+| [Progress Dashboard](/cms_trial/space/SPM/1918801225/Progress+Dashboard/) | The Progress Dashboard displays various statistical data about your OKRs that you can use for reports and tracking. |
 | [Import](/cms_trial/space/SPM/1918406659/Import+OKRs/) | You can import OKRs using a .csv file. |
 | [Export](/cms_trial/space/SPM/1918668919/Export+OKRs/) | You can export OKRs to a .csv file and customize the data you want to export from the OKR module. |
 | [Share view](/cms_trial/space/SPM/1918408436/Share+view+(OKR+module)/) | Generate a URL you can share with other stakeholders so they can see what you see in the OKR Overview. |
@@ -94,7 +94,7 @@ The table presents the main features of the OKR module.
 | [OKR Details page](/cms_trial/space/SPM/1918536390/OKR+details+page/) | The OKR Details page displays all the details about the OKR, including basic info, progress, updates, and linked work items.  On this page, you can also see OKR copies and add dependencies and contributions between individual OKRs. |
 | [Tree view](/cms_trial/space/SPM/1918801711/Tree+view/) | The Tree view page is the default page that appears after the OKR creation process. It lists all the OKRs created in one session and their details. |
 | [Hierarchy](/cms_trial/space/SPM/1918669889/OKR+Hierarchy/) | The Hierarchy page visualizes OKRs in a family tree-like structure. Each OKR is represented as an OKR card showing basic details. |
-| [Progress Dashboard](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918801225) | The Progress Dashboard displays various statistical data about your OKRs that you can use for reports and tracking. |
+| [Progress Dashboard](/cms_trial/space/SPM/1918801225/Progress+Dashboard/) | The Progress Dashboard displays various statistical data about your OKRs that you can use for reports and tracking. |
 | [Import](/cms_trial/space/SPM/1918406659/Import+OKRs/) | You can import OKRs using a .csv file. |
 | [Export](/cms_trial/space/SPM/1918668919/Export+OKRs/) | You can export OKRs to a .csv file and customize the data you want to export from the OKR module. |
 | [Share view](/cms_trial/space/SPM/1918408436/Share+view+(OKR+module)/) | Generate a URL you can share with other stakeholders so they can see what you see in the OKR Overview. |

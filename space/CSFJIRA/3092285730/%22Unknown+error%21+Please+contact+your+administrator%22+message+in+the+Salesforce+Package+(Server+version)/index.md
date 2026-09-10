@@ -4,7 +4,7 @@
 
 After applying the [API access token](https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/470754678/Setting+up+a+connection+to+Jira) on the Salesforce package, an "*Unknown error! Please contact your administrator*" message appears even though the Connection seems to be successfully established:
 
-![contentId-3092285730](/cms_trial/assets/0990f794-8d1e-44a2-b802-dabe67f4da13.png?version=1&modificationDate=1678796149547&cacheVersion=1&api=v2)
+![contentId-3092285730](/cms_trial/assets/0990f794-8d1e-44a2-b802-dabe67f4da13.png)
 
 ## Environment
 
@@ -37,7 +37,7 @@ Something might be blocking the connection (for example firewall, proxy, securit
 
 Here is an example of a proxy connectivity issue:
 
-![contentId-3092285730](/cms_trial/assets/f6811cad-89bd-47b9-bc53-e27b4903d29e.png?version=1&modificationDate=1678796149473&cacheVersion=1&api=v2)
+![contentId-3092285730](/cms_trial/assets/f6811cad-89bd-47b9-bc53-e27b4903d29e.png)
 
 ## Workaround
 

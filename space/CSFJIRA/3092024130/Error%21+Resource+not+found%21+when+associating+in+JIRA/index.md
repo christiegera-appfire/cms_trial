@@ -22,11 +22,11 @@ Check whether the edit-issue permission of that project contains the project rol
 1. Navigate to ***<base-url>*****/jira/people/557058:3e2ef232-d5c4-4c0e-94b0-977a305ebaae**
 2. Click the menu via the 3 dotted lines **(...)** and select **Manage Access**
 
-![contentId-3092024130](/cms_trial/assets/cf56d125-e212-41be-a7ce-1f657c6d8571.png?version=1&modificationDate=1678792051952&cacheVersion=1&api=v2)
+![contentId-3092024130](/cms_trial/assets/cf56d125-e212-41be-a7ce-1f657c6d8571.png)
 
 1. Click on ***...*** and select **View Jira project Roles**
 
-![contentId-3092024130](/cms_trial/assets/fcd37348-8294-4f9a-b3d8-901a35f18fa7.png?version=1&modificationDate=1678792052035&cacheVersion=1&api=v2)
+![contentId-3092024130](/cms_trial/assets/fcd37348-8294-4f9a-b3d8-901a35f18fa7.png)
 
 1. Check whether the Salesforce JIRA Integration user is part of the role **atlassian-addons-project-access** for all projects
 

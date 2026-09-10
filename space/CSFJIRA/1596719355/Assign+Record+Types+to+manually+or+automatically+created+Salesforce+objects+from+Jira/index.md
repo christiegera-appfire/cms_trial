@@ -22,7 +22,7 @@ This article helps you understand how to select the record type during the creat
    ![Edit Optins.png](/cms_trial/assets/2005ca7c-1b9a-4852-ace8-f12d3d385f96.png)
 8. Map the **Record Type** Jira field with the **Record Type ID** Salesforce field. 
 
-   ![contentId-1596719355](/cms_trial/assets/dccc9f5e-3288-44b5-a85a-20eec0eceee0.png?version=1&modificationDate=1679627845140&cacheVersion=1&api=v2)
+   ![contentId-1596719355](/cms_trial/assets/dccc9f5e-3288-44b5-a85a-20eec0eceee0.png)
 9. In Salesforce, go to **Setup** > **Object Manager** > **Case** > **Record types** and click the **Record type** name. The ID of that Record type can be taken from the URL:
 
    ![ID.png](/cms_trial/assets/f5018470-1b5f-4af7-af42-b49a5a4f7a3c.png)

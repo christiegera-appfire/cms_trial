@@ -32,16 +32,16 @@ Salesforce Prerequisite:
 
 1. Create a [Salesforce Flow](https://help.salesforce.com/s/articleView?id=sf.flow.htm&type=5) rule similar to the image below:
 
-   ![contentId-1596752640](/cms_trial/assets/2a8424ca-183b-46ea-9581-ee2f3211a9d0.png?version=1&modificationDate=1678857312188&cacheVersion=1&api=v2)
+   ![contentId-1596752640](/cms_trial/assets/2a8424ca-183b-46ea-9581-ee2f3211a9d0.png)
 2. Next, create an [Update Record](https://help.salesforce.com/s/articleView?id=sf.flow_ref_elements_data_update.htm&language=en_US&r=https%3A%2F%2Fwww.google.com%2F&type=5#:~:text=Identify%20Salesforce%20records%20to%20update,set%20the%20field%20values%20individually.) similar to the image below:
 
-   ![contentId-1596752640](/cms_trial/assets/0632f158-a7af-44f3-98cb-39badcd86b5a.png?version=1&modificationDate=1678857312266&cacheVersion=1&api=v2)
+   ![contentId-1596752640](/cms_trial/assets/0632f158-a7af-44f3-98cb-39badcd86b5a.png)
 3. Set the following in the **Configure Trigger** section in the Salesforce Flow configuration:
 
    1. Trigger the Flow When: A record is created or updated.
 4. Next, set the following in the **Set Entry Conditions**section:
 
-   ![contentId-1596752640](/cms_trial/assets/a9f034f8-28c9-4453-9d53-25a7fcfe0811.png?version=1&modificationDate=1678857312342&cacheVersion=1&api=v2)
+   ![contentId-1596752640](/cms_trial/assets/a9f034f8-28c9-4453-9d53-25a7fcfe0811.png)
 5. Follow the configuration for the **When to run the Flow for Updated Records** and **Optimize the Flow** **for**:
 
    ![image-20241213-125021.png](/cms_trial/assets/382c5f75-b545-4f92-b21f-ce40a5d10d5e.png)
@@ -55,7 +55,7 @@ Salesforce Prerequisite:
    {!$Record.Multiple_Jira_Keys__c} &' '& {!$Record.JIRA_Key__c}
    ```
 
-   ![contentId-1596752640](/cms_trial/assets/9fd08bb4-480a-45fd-b14c-5b65f8e23676.png?version=1&modificationDate=1678857312504&cacheVersion=1&api=v2)
+   ![contentId-1596752640](/cms_trial/assets/9fd08bb4-480a-45fd-b14c-5b65f8e23676.png)
 
 ## Salesforce Updates Record Configuration
 
@@ -64,12 +64,12 @@ Salesforce Prerequisite:
    1. How to Find Records to Update and Set Their Values: Specify conditions to identify records, and set fields individually.
 2. Next, set the following in the **Set Entry Conditions**section:
 
-   ![contentId-1596752640](/cms_trial/assets/0411f77d-3a7b-434d-adc5-ff5e6e54cec0.png?version=1&modificationDate=1678857312592&cacheVersion=1&api=v2)
+   ![contentId-1596752640](/cms_trial/assets/0411f77d-3a7b-434d-adc5-ff5e6e54cec0.png)
 3. The **Value** field in the image above is an example, change this to the object that you want to configure to.
 4. You can debug the setup by going to **Case RecordID** > **Activate** > **Save**. The Multiple Jira Keys field will have this format, ex: "CSF-347 CSF-348 CSF-300".
 5. Once the configuration is complete, Jira key field changes with a new value (from a new Jira issue created from Salesforce or any new associations). The multiple Jira key will take that new value from the Jira key field.
 
-   ![contentId-1596752640](/cms_trial/assets/78aafb3a-64e6-409f-9bc1-fe2d2682455f.png?version=3&modificationDate=1715707194477&cacheVersion=1&api=v2)
+   ![contentId-1596752640](/cms_trial/assets/78aafb3a-64e6-409f-9bc1-fe2d2682455f.png)
 
 ## Notes
 

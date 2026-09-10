@@ -4,7 +4,7 @@
 
 When performing a JQL search query in the Bulk Operations tab of Salesforce, the error **"**Failure in running JQL search query**"** appears.
 
-![contentId-3092055528](/cms_trial/assets/4f5ca6cf-23a1-4c81-8f58-4d53b7148717.png?version=1&modificationDate=1678792048148&cacheVersion=1&api=v2)
+![contentId-3092055528](/cms_trial/assets/4f5ca6cf-23a1-4c81-8f58-4d53b7148717.png)
 
 ## Environment
 
@@ -32,7 +32,7 @@ Run a check if the project still exists in your Jira Cloud site with the followi
 
 The project is archived or moved to the trash but the [bindings](https://apps-docs.servicerocket.com/salesforce-jira/binding-a-project-to-a-connection) still exist. The Bindings page will show that the project is orphaned and unknown.
 
-![contentId-3092055528](/cms_trial/assets/46b1a1cb-fe73-4ebb-b2b3-519f8911cf74.png?version=1&modificationDate=1678792048221&cacheVersion=1&api=v2)
+![contentId-3092055528](/cms_trial/assets/46b1a1cb-fe73-4ebb-b2b3-519f8911cf74.png)
 
 ## Workaround
 

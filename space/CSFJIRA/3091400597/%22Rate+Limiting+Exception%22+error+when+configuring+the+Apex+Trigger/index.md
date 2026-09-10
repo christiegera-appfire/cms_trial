@@ -27,7 +27,7 @@ Check the Salesforce rate limit that is currently configured with the following 
    ```
 5. Expand the **DailyAsyncApexExecutions** section to check how many remaining executions are available today.
 
-![contentId-3091400597](/cms_trial/assets/6cfbe65a-a231-49b7-ac85-32ee23a99c65.png?version=1&modificationDate=1680273570446&cacheVersion=1&api=v2)
+![contentId-3091400597](/cms_trial/assets/6cfbe65a-a231-49b7-ac85-32ee23a99c65.png)
 
 ## Cause
 

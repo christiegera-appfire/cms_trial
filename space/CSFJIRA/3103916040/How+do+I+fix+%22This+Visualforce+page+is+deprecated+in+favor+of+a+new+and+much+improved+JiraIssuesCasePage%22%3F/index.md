@@ -10,6 +10,6 @@ To use the new Visualforce page:
 2. Remove the **JIRA Issues Page** (OverviewPanel) from the layout.
 3. Under the **Case Layout** panel, scroll through until you find **Visualforce Pages**.
 
-   ![contentId-3103916040](/cms_trial/assets/8c2fea7f-7395-4bc4-bc51-66266d858386.png?version=1&modificationDate=1678795520149&cacheVersion=1&api=v2)
+   ![contentId-3103916040](/cms_trial/assets/8c2fea7f-7395-4bc4-bc51-66266d858386.png)
 4. Now click *and* drag **JIRA Issues** to desired location.
 5. Then, click **Save**.

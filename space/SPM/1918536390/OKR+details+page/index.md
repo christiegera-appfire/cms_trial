@@ -59,7 +59,7 @@ The OKR key link can be found next to the OKR, wherever the OKR key is mentioned
 
 - [OKR Overview](/cms_trial/space/SPM/1918834317/OKR+Overview/)
 - [OKR Hierarchy](/cms_trial/space/SPM/1918669889/OKR+Hierarchy/)
-- [Progress Dashboard](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918801225)
+- [Progress Dashboard](/cms_trial/space/SPM/1918801225/Progress+Dashboard/)
 - [Tree view page](/cms_trial/space/SPM/1918801711/Tree+view/)
 - OKR details side panel.
 

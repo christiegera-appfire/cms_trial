@@ -4,7 +4,7 @@
 
 Certain users cannot see the **Configure** button under Installed Packages in Salesforce. This means they cannot access the connector's connection settings.
 
-![contentId-3092252782](/cms_trial/assets/6aeea964-0749-4fdf-aec1-6493d1885d02.png?version=1&modificationDate=1678856778410&cacheVersion=1&api=v2)
+![contentId-3092252782](/cms_trial/assets/6aeea964-0749-4fdf-aec1-6493d1885d02.png)
 
 ## Diagnostics Steps
 

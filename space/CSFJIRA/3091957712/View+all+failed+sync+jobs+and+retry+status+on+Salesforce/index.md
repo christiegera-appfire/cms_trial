@@ -26,11 +26,11 @@ Salesforce admins can view a list of failed and pending sync jobs with this URL:
 
 In the list, failed jobs are shown under the *Job Status* column with the status of *MAX\_RETRIES*, along with relevant info in the other columns like *Attempts*, *First Try*, *Next Try*, and *Last Try*. If the retry succeeds, the sync job will no longer appear on this list.
 
-![contentId-3091957712](/cms_trial/assets/c7ebe9e6-6914-4c5c-b39f-0a2e17883593.png?version=1&modificationDate=1678858813027&cacheVersion=1&api=v2)
+![contentId-3091957712](/cms_trial/assets/c7ebe9e6-6914-4c5c-b39f-0a2e17883593.png)
 
 You can also click on the ID numbers under the *Job ID* column to get additional details:
 
-![contentId-3091957712](/cms_trial/assets/a3582065-4b8a-4122-b8ad-b7c2b99654a6.png?version=1&modificationDate=1678858813241&cacheVersion=1&api=v2)
+![contentId-3091957712](/cms_trial/assets/a3582065-4b8a-4122-b8ad-b7c2b99654a6.png)
 
 ## Cause
 

@@ -31,6 +31,6 @@ Not applicable.
 3. Scroll to the "Connection Settings" section.
 4. Enable the **Allow Modification** toggle.
 
-   ![contentId-3091760619](/cms_trial/assets/42c25ef1-51d9-4af7-ab22-382a90208577.png?version=1&modificationDate=1662451556005&cacheVersion=1&api=v2)
+   ![contentId-3091760619](/cms_trial/assets/42c25ef1-51d9-4af7-ab22-382a90208577.png)
 
    ​​

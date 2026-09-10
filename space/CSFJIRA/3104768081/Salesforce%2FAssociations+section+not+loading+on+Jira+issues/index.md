@@ -4,7 +4,7 @@
 
 Salesforce/Associations section not loading on Jira issues:
 
-![Connector for Salesforce panel on Jira issue failing to load associations](/cms_trial/assets/95e78752-b808-40c7-b497-fd48ac011d06.png?version=1&modificationDate=1678858800369&cacheVersion=1&api=v2)
+![Connector for Salesforce panel on Jira issue failing to load associations](/cms_trial/assets/95e78752-b808-40c7-b497-fd48ac011d06.png)
 
 ## Environment
 

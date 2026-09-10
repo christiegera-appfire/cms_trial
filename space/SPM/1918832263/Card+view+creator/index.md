@@ -6,7 +6,7 @@ The list of available fields includes native Jira fields and custom fields added
 
 ## Security and access
 
-The card view creator works exactly the same at the box type and box levels. See the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830445> page.
+The card view creator works exactly the same at the box type and box levels. See the [Manage card views](/cms_trial/space/SPM/1918830445/Manage+card+views/) page.
 
 For box type configuration:
 

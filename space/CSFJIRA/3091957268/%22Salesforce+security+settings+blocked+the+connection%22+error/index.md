@@ -4,7 +4,7 @@
 
 When trying to authorize the connection after logging into Salesforce, rather than continuing to the configuration wizard, a message stating *Salesforce security settings blocked the connection* displays.
 
-![contentId-3091957268](/cms_trial/assets/089b38c9-462d-4fe3-a017-9a6ca078e373.png?version=1&modificationDate=1718948653172&cacheVersion=1&api=v2)
+![contentId-3091957268](/cms_trial/assets/089b38c9-462d-4fe3-a017-9a6ca078e373.png)
 
 The message also provides links to this document page and to the *Support* portal.
 

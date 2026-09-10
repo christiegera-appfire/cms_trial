@@ -27,7 +27,7 @@ The box edit action requires one of the following [security roles](https://appfi
 
 ### Edit option on the context menu
 
-In the [Overview module](/cms_trial/space/SPM/1918502655/Overview+module/), you can edit a box in all three [view modes](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918831037) (Hierarchy, Timeline, and Kanban board) using the options menu. This box edit method applies to Home, [portfolio](/cms_trial/space/SPM/1918504271/Portfolio+boxes/), program, and project boxes.
+In the [Overview module](/cms_trial/space/SPM/1918502655/Overview+module/), you can edit a box in all three [view modes](/cms_trial/space/SPM/1918831037/Navigation+and+interface+(Overview+module)/) (Hierarchy, Timeline, and Kanban board) using the options menu. This box edit method applies to Home, [portfolio](/cms_trial/space/SPM/1918504271/Portfolio+boxes/), program, and project boxes.
 
 The interactive presentation below walks you through the box editing in all Overview view modes.
 
@@ -199,7 +199,7 @@ The box edit action requires one of the following [security roles](https://appfi
 
 ### Edit option on the context menu
 
-In the [Overview module](/cms_trial/space/SPM/1918502655/Overview+module/), you can edit a box in all three [view modes](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918831037) (Hierarchy, Timeline, and Kanban board) using the options menu.
+In the [Overview module](/cms_trial/space/SPM/1918502655/Overview+module/), you can edit a box in all three [view modes](/cms_trial/space/SPM/1918831037/Navigation+and+interface+(Overview+module)/) (Hierarchy, Timeline, and Kanban board) using the options menu.
 
 The interactive presentation below walks you through the box editing in all Overview view modes.
 

@@ -4,7 +4,7 @@
 
 After configuring the Salesforce Connection in JIRA, the Salesforce Objects are not loading:
 
-![contentId-3091368118](/cms_trial/assets/a76f41e5-8d7b-43f0-806e-cffdb2cb35ed.png?version=1&modificationDate=1678857296741&cacheVersion=1&api=v2)
+![contentId-3091368118](/cms_trial/assets/a76f41e5-8d7b-43f0-806e-cffdb2cb35ed.png)
 
 ## Environment
 

@@ -4,7 +4,7 @@
 
 When performing the authorization to a new Salesforce connection, clicking "Authorize" triggers the following error:
 
-![contentId-3092285656](/cms_trial/assets/6747155a-e252-4572-a07e-56a4d2c21718.png?version=1&modificationDate=1678796165719&cacheVersion=1&api=v2)
+![contentId-3092285656](/cms_trial/assets/6747155a-e252-4572-a07e-56a4d2c21718.png)
 
 ## Environment
 

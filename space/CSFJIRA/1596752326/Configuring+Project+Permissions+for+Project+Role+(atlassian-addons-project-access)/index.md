@@ -23,4 +23,4 @@ is functioning correctly, please ensure the Project Role (*atlassian-addons-proj
 
    A working example:
 
-![contentId-1596752326](/cms_trial/assets/ca443f72-e2d8-4009-ac55-ebfc42a5d3d2.png?version=1&modificationDate=1678856776053&cacheVersion=1&api=v2)
+![contentId-1596752326](/cms_trial/assets/ca443f72-e2d8-4009-ac55-ebfc42a5d3d2.png)

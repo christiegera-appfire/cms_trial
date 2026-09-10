@@ -29,7 +29,7 @@ If the issue involves a **Custom Field ID**, we will first need to find the name
 3. Observe the URL at the bottom left of the browser window.  You will find the ID at the end of the link.  
    Example:
 
-   ![contentId-3091793528](/cms_trial/assets/1a55f03f-3c64-4c9c-9eff-57e43c1e419f.png?version=1&modificationDate=1715709267771&cacheVersion=1&api=v2)
+   ![contentId-3091793528](/cms_trial/assets/1a55f03f-3c64-4c9c-9eff-57e43c1e419f.png)
 
 To add the Field to the corresponding Screen:
 
@@ -38,6 +38,6 @@ To add the Field to the corresponding Screen:
 3. Click on **Screens**.
 4. Click on the name of your screen to expand.  You should see something like the screen below:
 
-   ![contentId-3091793528](/cms_trial/assets/87dafa22-e98d-458f-ae0e-f52702652ddd.png?version=1&modificationDate=1678795889820&cacheVersion=1&api=v2)
+   ![contentId-3091793528](/cms_trial/assets/87dafa22-e98d-458f-ae0e-f52702652ddd.png)
 5. Click the name of the screen next to **Create issue.**
 6. Finally, add the missing field to the list.

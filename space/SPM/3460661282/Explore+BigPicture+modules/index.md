@@ -17,7 +17,7 @@ In this module, you can quickly access various boxes, modules, and their configu
 - Quick access to the [box hierarchy](/cms_trial/space/SPM/1918535907/Box+hierarchy/)
 - Convenient access to [box lifecycle](/cms_trial/space/SPM/1918829911/Box+lifecycle/) management
 - Customizable [filters](/cms_trial/space/SPM/1918503449/Filters+and+search/) and [column views](/cms_trial/space/SPM/1918404907/Column+views/)
-- Three distinctive [view modes](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918831037): Hierarchy, Timeline, and Kanban board
+- Three distinctive [view modes](/cms_trial/space/SPM/1918831037/Navigation+and+interface+(Overview+module)/): Hierarchy, Timeline, and Kanban board
 
 See the video
 

@@ -14,7 +14,7 @@ This can be used for any Jira ID field like (Assignee). Or any field that is sen
 
 First let's create a Text field (single line)
 
-![contentId-3091924782](/cms_trial/assets/3caaf8fe-0cf3-4bea-b1a5-3e36f5324a52.png?version=1&modificationDate=1678858807789&cacheVersion=1&api=v2)
+![contentId-3091924782](/cms_trial/assets/3caaf8fe-0cf3-4bea-b1a5-3e36f5324a52.png)
 
 ### 2. Salesforce Custom Field
 
@@ -25,10 +25,10 @@ Then create a custom field in Salesforce (Any text field will do). I will use th
 - Click **New** just beside the Quick find box.
 - In the next windows, select the **Text** option and click **Next** on the top right.
 
-  ![contentId-3091924782](/cms_trial/assets/a599f5be-2c5b-4f0b-a1e3-71b5787f1083.png?version=1&modificationDate=1678858807858&cacheVersion=1&api=v2)
+  ![contentId-3091924782](/cms_trial/assets/a599f5be-2c5b-4f0b-a1e3-71b5787f1083.png)
 - Name the new field (on this example I called it RichTextField2) and the length of the field (i selected 255 as example, it could be lower). Click **Next**.
 
-![contentId-3091924782](/cms_trial/assets/3972274c-2c31-40e1-a7a5-3fa80e717a42.png?version=1&modificationDate=1678858807723&cacheVersion=1&api=v2)
+![contentId-3091924782](/cms_trial/assets/3972274c-2c31-40e1-a7a5-3fa80e717a42.png)
 
 - Then, Establish the Field-level security (for this, click the **Visible** box , which will select all the profiles). Click **Next**.
 - Add the field to the Layout. By default, it will be added to all the Case layouts. Click **Save**.
@@ -39,13 +39,13 @@ Then create a custom field in Salesforce (Any text field will do). I will use th
 
 More information about entity mapping can be in [Configuring Entity Mappings and Field Mappings](https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/470754325/Configuring+Entity+Mappings+and+Field+Mappings).
 
-![contentId-3091924782](/cms_trial/assets/d6ab168f-268c-4ed1-acd2-5e8973a5dd2a.png?version=1&modificationDate=1678858807159&cacheVersion=1&api=v2)
+![contentId-3091924782](/cms_trial/assets/d6ab168f-268c-4ed1-acd2-5e8973a5dd2a.png)
 
 ### 4.- Automation Rule
 
 Create an Automation Rule
 
-![contentId-3091924782](/cms_trial/assets/41cfab1a-b3fe-4f0b-bb0a-882bbfbc3d74.png?version=1&modificationDate=1678858807579&cacheVersion=1&api=v2)
+![contentId-3091924782](/cms_trial/assets/41cfab1a-b3fe-4f0b-bb0a-882bbfbc3d74.png)
 
 This rule is going to be executed every time the Reporter changes.
 
@@ -55,15 +55,15 @@ On the custom field we use the smart value - {{reporter.displayName}} - To trans
 
 This is the Jira Reporter Field :
 
-![contentId-3091924782](/cms_trial/assets/a1d4d813-af43-4d54-8390-ef72d5049940.png?version=1&modificationDate=1678858807302&cacheVersion=1&api=v2)
+![contentId-3091924782](/cms_trial/assets/a1d4d813-af43-4d54-8390-ef72d5049940.png)
 
 This is the Jira Custom Reporter field:
 
-![contentId-3091924782](/cms_trial/assets/c7fa8eb5-66bf-4fee-b3ee-6e61b89478bd.png?version=1&modificationDate=1678858807370&cacheVersion=1&api=v2)
+![contentId-3091924782](/cms_trial/assets/c7fa8eb5-66bf-4fee-b3ee-6e61b89478bd.png)
 
 And the Salesforce text field will look like this:
 
-![contentId-3091924782](/cms_trial/assets/8889ba71-cd8d-4d9a-878d-9ba9ab8324f8.png?version=1&modificationDate=1678858807438&cacheVersion=1&api=v2)
+![contentId-3091924782](/cms_trial/assets/8889ba71-cd8d-4d9a-878d-9ba9ab8324f8.png)
 
 ### 6.- Using the Assignee field instead of the Reporter field.
 

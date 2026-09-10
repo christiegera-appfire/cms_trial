@@ -15,7 +15,7 @@ Here's how to reauthorize the connection:
 1. Log into your Jira.
 2. In Jira > **Salesforce** > **Connections** > locate your connection > click **Revoke Access** then click **Revoke** to confirm.
 
-   ![contentId-3091597377](/cms_trial/assets/ccdf45dd-ee23-4c29-81b7-cad29c06dbb5.png?version=1&modificationDate=1678869881778&cacheVersion=1&api=v2)
+   ![contentId-3091597377](/cms_trial/assets/ccdf45dd-ee23-4c29-81b7-cad29c06dbb5.png)
 3. Click **Authorize**.
 
    ![Authorize.png](/cms_trial/assets/c0971e61-bd0e-4662-9d8d-c93d8a86abcf.png)

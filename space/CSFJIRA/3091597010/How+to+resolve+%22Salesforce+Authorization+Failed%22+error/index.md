@@ -4,7 +4,7 @@
 
 A "Salesforce authorization failed" error is generated while trying to integrate Salesforce and Jira.
 
-![contentId-3091597010](/cms_trial/assets/42e74fe2-38a4-4ee4-9e01-afc6041d5fc9.png?version=1&modificationDate=1678795523822&cacheVersion=1&api=v2)
+![contentId-3091597010](/cms_trial/assets/42e74fe2-38a4-4ee4-9e01-afc6041d5fc9.png)
 
 ## Environment
 

@@ -36,7 +36,7 @@ On the Salesforce instance check the following:
 
 - **Org-wide: Security Controls > Session Settings >**The option "**Lock sessions to the IP address from which they originated**" should be unchecked.
 
-  ![contentId-3091334997](/cms_trial/assets/3dea9bec-d15e-4bbf-9fbe-681f27967171.png?version=1&modificationDate=1678796163502&cacheVersion=1&api=v2)
+  ![contentId-3091334997](/cms_trial/assets/3dea9bec-d15e-4bbf-9fbe-681f27967171.png)
 - **Profile of the user: System > Login IP Ranges**.  If one or more ranges are listed here, verify that your IP address is on this list.
 
 You can view the IP addresses as logged by Salesforce by looking **Setup** -> **Login History**. The entries where Login Type = “Remote Access 2.0” and Status = “Restricted IP” would correspond to failed oAuth authentication attempts by Salesforce & JIRA Cloud Connector on your behalf.

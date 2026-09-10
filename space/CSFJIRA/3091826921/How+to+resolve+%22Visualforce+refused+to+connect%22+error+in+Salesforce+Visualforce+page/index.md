@@ -4,7 +4,7 @@
 
 When configuring Visualforce pages for the Connector for Salesforce and Jira, a "<Salesforce-URL>.jcfs.visualforce.com refused to connect" error is displayed.
 
-![contentId-3091826921](/cms_trial/assets/7b047385-2cea-4b26-8caf-465c3a91629d.png?version=1&modificationDate=1678795527421&cacheVersion=1&api=v2)
+![contentId-3091826921](/cms_trial/assets/7b047385-2cea-4b26-8caf-465c3a91629d.png)
 
 ## Environment
 

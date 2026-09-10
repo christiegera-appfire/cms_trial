@@ -21,7 +21,7 @@ This error is present in Jira Data Center only. This occurs when there are valid
       ```
 2. If the "CALLOUT\_REQUEST" line does not show "Status Code=200", you will see a certificate related error. This error will be recorded in the support .zip file.
 
-   ![contentId-3092056087](/cms_trial/assets/155cbc5c-3f87-493b-a0ee-a14d058868e9.png?version=1&modificationDate=1678796544449&cacheVersion=1&api=v2)
+   ![contentId-3092056087](/cms_trial/assets/155cbc5c-3f87-493b-a0ee-a14d058868e9.png)
 3. Use a publicly available SSL checker page to verify the certificates.
 4. You will get an error message indicating that "No SSL certificates were found on your Jira instance".
 

@@ -27,4 +27,4 @@ Our developers are currently aware of this issue and are working on a more perma
 
 If you need more help, contact our [Support Team](https://apps.appf.re/support). We've got your back.
 
-![contentId-3092024582](/cms_trial/assets/55604c77-2e4b-4f18-9d0e-103c9dd51715.png?version=1&modificationDate=1678858819990&cacheVersion=1&api=v2)
+![contentId-3092024582](/cms_trial/assets/55604c77-2e4b-4f18-9d0e-103c9dd51715.png)

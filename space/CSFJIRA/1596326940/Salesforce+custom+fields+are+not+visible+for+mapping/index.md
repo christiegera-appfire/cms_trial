@@ -12,7 +12,7 @@ When trying to add a formula field to the mappings, this custom field does not s
 
 - When trying to add a custom field (formula), the field is not displayed as an option for the mappings.
 
-  ![contentId-1596326940](/cms_trial/assets/b10b81a3-2120-48e6-8607-4b2c6b4a91a8.png?version=1&modificationDate=1678857298838&cacheVersion=1&api=v2)
+  ![contentId-1596326940](/cms_trial/assets/b10b81a3-2120-48e6-8607-4b2c6b4a91a8.png)
 
 ## Cause
 

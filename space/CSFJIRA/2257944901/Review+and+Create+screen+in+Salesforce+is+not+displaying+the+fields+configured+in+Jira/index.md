@@ -19,7 +19,7 @@ The field can be found on the screen by performing the following:
 2. Click the Menu icon▢on the top right corner of the *Create Issue* screen.
 3. Select **Find your field**and type the field name. After finding the field, you will see the following error:
 
-![contentId-2257944901](/cms_trial/assets/50eacaac-4a3b-451a-a41d-3a327bf501a9.png?version=1&modificationDate=1678857295220&cacheVersion=1&api=v2)
+![contentId-2257944901](/cms_trial/assets/50eacaac-4a3b-451a-a41d-3a327bf501a9.png)
 
 ## Cause
 
