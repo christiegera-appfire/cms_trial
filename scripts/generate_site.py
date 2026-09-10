@@ -209,7 +209,16 @@ def build_nav(pages_by_parent, space_key, titles, valid_ids, roots, active_id, p
 
 def render_top_nav(brand, path_prefix=""):
     logo_html = ""
-    if os.path.exists(os.path.join("brand-assets", "appfire-lockup-white.svg")):
+    if os.path.exists(os.path.join("brand-assets", "appfire-lockup-white.svg")) and os.path.exists(os.path.join("brand-assets", "appfire-lockup-black.svg")):
+        # Both variants render; CSS shows/hides based on the active theme,
+        # since the theme is chosen client-side and the same static HTML
+        # has to work for both — the same approach already used for the
+        # sun/moon toggle icons.
+        logo_html = (
+            f'<img class="top-nav-logo top-nav-logo-dark" src="{path_prefix}/brand-assets/appfire-lockup-white.svg" alt="Appfire" loading="lazy">'
+            f'<img class="top-nav-logo top-nav-logo-light" src="{path_prefix}/brand-assets/appfire-lockup-black.svg" alt="Appfire" loading="lazy">'
+        )
+    elif os.path.exists(os.path.join("brand-assets", "appfire-lockup-white.svg")):
         logo_html = f'<img class="top-nav-logo" src="{path_prefix}/brand-assets/appfire-lockup-white.svg" alt="Appfire" loading="lazy">'
     elif os.path.exists(os.path.join("product-icons", "appfire-logo.svg")):
         # Fallback to whatever was available before the real brand assets arrived
