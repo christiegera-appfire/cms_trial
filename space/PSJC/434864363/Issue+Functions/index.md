@@ -12,7 +12,6 @@ This section contains functions that enable users to handle issues.
 - [getCustomKeywordIndexValue](/cms_trial/space/PSJC/734134284/getCustomKeywordIndexValue/)
 - [getIssueEntityPropertyKeys](/cms_trial/space/PSJC/872677516/getIssueEntityPropertyKeys/)
 - [getIssueEntityPropertyValue](/cms_trial/space/PSJC/434799205/getIssueEntityPropertyValue/)
-- [getIssueParent (redirect)](/cms_trial/space/PSJC/804258073/getIssueParent+(redirect)/)
 - [getIssueURL](/cms_trial/space/PSJC/435028396/getIssueURL/)
 - [isIssueContext](/cms_trial/space/PSJC/434995375/isIssueContext/)
 - [issueExists](/cms_trial/space/PSJC/860357457/issueExists/)

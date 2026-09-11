@@ -75,7 +75,7 @@
       </div>
     </div>
     <h1>Copy attachment(s) with a specific word in the file name</h1>
-    <div class="page-meta">Updated 1 month ago · 1 min read</div>
+    <div class="page-meta">Updated 2 months ago · 1 min read</div>
     <p>This article provides the code snippet to copy attachment(s) that have a specific word in the file name from the current issue to other issue(s) using <a href="/cms_trial/space/JMWEC/465504849/Set+issue+fields/">Set issue fields</a>  post-function</p><h2 id="instructions">\uD83D\uDCD8 Instructions</h2><ol><li><p>Navigate to the intended workflow to make the necessary changes in the edit mode.</p></li><li><p>Select the required transition.</p></li><li><p>Select the <em>Post functions </em>tab and click <code>Add post function</code>.</p></li><li><p>Add the <a href="/cms_trial/space/JMWEC/465504849/Set+issue+fields/">Set issue fields</a> post-function.</p></li><li><p>Select the issues, for which the attachments should be copied, under “Target Issue(s)”.</p></li><li><p>Select the “Attachment” field and add the below Nunjucks template:</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">java</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-java">{% set finalAttachments = [] %}
 {% for att in issue.fields.attachment %}
 {% if (att | field("filename")).includes("test") %}

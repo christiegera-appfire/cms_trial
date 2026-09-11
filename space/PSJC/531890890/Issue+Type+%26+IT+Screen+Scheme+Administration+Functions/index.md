@@ -8,9 +8,7 @@ This section contains functions that enable users to handle issue type administr
 - [admAppendITSSMapping](/cms_trial/space/PSJC/806158387/admAppendITSSMapping/)
 - [admAssignITSSToProject](/cms_trial/space/PSJC/805667045/admAssignITSSToProject/)
 - [admCreateIssueTypeScheme](/cms_trial/space/PSJC/986218517/admCreateIssueTypeScheme/)
-- [admCreateIssueTypeScreenScheme](/cms_trial/space/PSJC/805634774/admCreateIssueTypeScreenScheme/)
 - [admDeleteIssueTypeScheme](/cms_trial/space/PSJC/985989163/admDeleteIssueTypeScheme/)
-- [admDeleteIssueTypeScreenScheme](/cms_trial/space/PSJC/805634802/admDeleteIssueTypeScreenScheme/)
 - [admGetAllIssueTypeSchemes](/cms_trial/space/PSJC/514786551/admGetAllIssueTypeSchemes/)
 - [admGetAllIssueTypeScreenSchemes](/cms_trial/space/PSJC/518324501/admGetAllIssueTypeScreenSchemes/)
 - [admGetIssueTypeScheme](/cms_trial/space/PSJC/515211665/admGetIssueTypeScheme/)
@@ -24,7 +22,6 @@ This section contains functions that enable users to handle issue type administr
 - [admSetIssueTypeScheme](/cms_trial/space/PSJC/986382403/admSetIssueTypeScheme/)
 - [admUpdateIssueTypeScheme](/cms_trial/space/PSJC/985923668/admUpdateIssueTypeScheme/)
 - [admUpdateIssueTypeScreenScheme](/cms_trial/space/PSJC/806125616/admUpdateIssueTypeScreenScheme/)
-- [admUpdateITSSDefaultScreenScheme](/cms_trial/space/PSJC/805798001/admUpdateITSSDefaultScreenScheme/)
 
 Structures used:
 

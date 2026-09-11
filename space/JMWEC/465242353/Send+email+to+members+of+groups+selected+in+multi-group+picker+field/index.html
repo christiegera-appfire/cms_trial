@@ -75,7 +75,7 @@
       </div>
     </div>
     <h1>Send email to members of groups selected in multi-group picker field</h1>
-    <div class="page-meta">Updated 1 month ago · 1 min read</div>
+    <div class="page-meta">Updated 2 months ago · 1 min read</div>
     <p>This article provides the code snippet to send email to users in the group(s) selected in a multi-group picker field in <a href="/cms_trial/space/JMWEC/466322658/Email+issue/">Email issue(s) (JMWE app)</a>.</p><h2 id="instructions">Instructions</h2><ol><li><p>Navigate to the intended workflow to make the necessary changes in the edit mode.</p></li><li><p>Select the required transition.</p></li><li><p>Select the <em>Post functions </em>tab and click <code>Add post function</code>.</p></li><li><p>Add the <em>Email issue(s) (JMWE app)</em> post-function.</p></li><li><p>Add: <br/><strong>Email content</strong>: Enter <strong>Subject</strong>, <strong>Text</strong> <strong>Body</strong> as needed.<br/><strong>Recipients</strong>: Enter the following in <strong>Users from template</strong>:</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">java</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-java">{% set allUsers = [] %}
 {% for grp in (issue.fields.customfield_10082 | field("name"))%}
 {% for user in (grp | groupMembers) %}

@@ -58,7 +58,6 @@
   - [getRequestTypeFields](/cms_trial/space/PSJC/694485253/getRequestTypeFields/)
   - [getRequestTypeGroupsForServiceDesk](/cms_trial/space/PSJC/694288787/getRequestTypeGroupsForServiceDesk/)
   - [getRequestTypePropertyKeys](/cms_trial/space/PSJC/741540167/getRequestTypePropertyKeys/)
-  - [getRequestTypePropertyValues](/cms_trial/space/PSJC/742424614/getRequestTypePropertyValues/)
   - [getRequestTypesForServiceDesk](/cms_trial/space/PSJC/693994346/getRequestTypesForServiceDesk/)
   - [getSlaInformation](/cms_trial/space/PSJC/644940133/getSlaInformation/)
   - [removeRequestTypeByIdFromServiceDesk](/cms_trial/space/PSJC/742031567/removeRequestTypeByIdFromServiceDesk/)
@@ -73,7 +72,6 @@
   - [getKBArticles](/cms_trial/space/PSJC/741212243/getKBArticles/)
   - [getServiceDesk](/cms_trial/space/PSJC/693994370/getServiceDesk/)
   - [getServiceDeskKBArticles](/cms_trial/space/PSJC/742162499/getServiceDeskKBArticles/)
-  - [getServiceDeskQueue](/cms_trial/space/PSJC/694093332/getServiceDeskQueue/)
 
 ### **Jira Service Management Structures**
 

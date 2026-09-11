@@ -3,21 +3,18 @@
 This page lists all the available functions used to manipulate dashboards and gadgets.
 
 - [admAddGadgetToDashboard](/cms_trial/space/PSJC/747801902/admAddGadgetToDashboard/)
-- [admCopyDashboard](/cms_trial/space/PSJC/748162099/admCopyDashboard/)
 - [admCreateDashboard](/cms_trial/space/PSJC/747965192/admCreateDashboard/)
 - [admDeleteDashboard](/cms_trial/space/PSJC/747965336/admDeleteDashboard/)
 - [admGetAllDashboards](/cms_trial/space/PSJC/748552437/admGetAllDashboards/)
 - [admGetAvailableGadgets](/cms_trial/space/PSJC/748618518/admGetAvailableGadgets/)
 - [admGetDashboardById](/cms_trial/space/PSJC/748683420/admGetDashboardById/)
 - [admGetDashboardGadgetById](/cms_trial/space/PSJC/748718574/admGetDashboardGadgetById/)
-- [admGetDashboardGadgets](/cms_trial/space/PSJC/748063606/admGetDashboardGadgets/)
 - [admGetDashboardsByName](/cms_trial/space/PSJC/748683364/admGetDashboardsByName/)
 - [admGetDashboardsByOwner](/cms_trial/space/PSJC/748618158/admGetDashboardsByOwner/)
 - [admGetDashboardsForUser](/cms_trial/space/PSJC/748618168/admGetDashboardsForUser/)
 - [admGetFavouriteDashboards](/cms_trial/space/PSJC/747801635/admGetFavouriteDashboards/)
 - [admRemoveGadgetFromDashboard](/cms_trial/space/PSJC/748718777/admRemoveGadgetFromDashboard/)
 - [admUpdateDashboard](/cms_trial/space/PSJC/748718317/admUpdateDashboard/)
-- [admUpdateGadgetInDashboard](/cms_trial/space/PSJC/748162444/admUpdateGadgetInDashboard/)
 
 Structures used in cloud:
 
