@@ -9,7 +9,9 @@ The *Issue Activity Stream* gadget displays the recent activity on the issues.
 
   - applying a gadget-specific JQL query called a *working query;*
   - filtering the activity items by their author and activity type;
-- the content of the gadget can be [exported](/cms_trial/space/RFCDOC/783942966/Export+data/) to PDF, Excel (.xlsx), and CSV formats.
+- You can [export the gadget content](/cms_trial/space/RFCDOC/783942966/Export+data/) to PDF, Excel (.xlsx), and CSV formats.
+
+Watch the video to see the Issue Activity Stream gadget features:
 
 ![ Issue Activity Stream gadget.png](/cms_trial/assets/bdd1e576-8292-474b-a2bc-0ab2a51a40ae.png)
 

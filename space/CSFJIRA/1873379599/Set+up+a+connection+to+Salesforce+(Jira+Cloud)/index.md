@@ -15,7 +15,8 @@ Make sure you have:
 1. Select **Apps** from the left sidebar in Jira.
 2. Next to *Connector for Salesforce,* click **Menu** (▢) > **App settings**.
 
-   ![Appsettings.png](/cms_trial/assets/05e8dd07-d2ff-401c-a0aa-74198506402e.png)
+   Image — asset pipeline pending  
+   Appsettings.png
 3. Under *Connector for Salesforce*, click **Connections**.
 4. At the **Salesforce Connections** screen, click **+Add Connection**.   
    If this is your first connection, the *Connect with Salesforce* panel appears, providing a brief explanation of the step and a link to more information. You can also click **+Add connection** here to open the *Authorize Connection* dialog.
