@@ -32,6 +32,7 @@ Please note that some of the epic operations do not work on next-gen projects.
   - [getBoardType](/cms_trial/space/PSJC/567214140/getBoardType/)
   - [issuesInBoard](/cms_trial/space/PSJC/567574609/issuesInBoard/)
   - [projectsForBoard](/cms_trial/space/PSJC/567148609/projectsForBoard/)
+  - [createScrumBoardForProjects](/cms_trial/space/PSJC/759595607/createScrumBoardForProjects/)
   - [createKanbanBoardForProjects](/cms_trial/space/PSJC/760283249/createKanbanBoardForProjects/)
 - [Epic Functions](/cms_trial/space/PSJC/757071897/Epic+Functions/)
   - [activeEpics](/cms_trial/space/PSJC/570589652/activeEpics/)

@@ -6,10 +6,27 @@ This section contains functions that enable users to handle screen and screen sc
 
 - [admAddFieldToDefaultScreen](/cms_trial/space/PSJC/790530249/admAddFieldToDefaultScreen/)
 - [admAddFieldToScreenTab](/cms_trial/space/PSJC/790497410/admAddFieldToScreenTab/)
+- [admCreateScreen](/cms_trial/space/PSJC/790758582/admCreateScreen/)
 - [admCreateScreenScheme](/cms_trial/space/PSJC/790758340/admCreateScreenScheme/)
+- [admCreateScreenTab](/cms_trial/space/PSJC/792264759/admCreateScreenTab/)
+- [admDeleteScreen](/cms_trial/space/PSJC/791478908/admDeleteScreen/)
+- [admDeleteScreenScheme](/cms_trial/space/PSJC/791707753/admDeleteScreenScheme/)
+- [admDeleteScreenTab](/cms_trial/space/PSJC/791838963/admDeleteScreenTab/)
+- [admGetAllAvailableFieldsForScreen](/cms_trial/space/PSJC/792166493/admGetAllAvailableFieldsForScreen/)
+- [admGetAllScreens](/cms_trial/space/PSJC/790758380/admGetAllScreens/)
+- [admGetAllScreenSchemes](/cms_trial/space/PSJC/790986895/admGetAllScreenSchemes/)
+- [admGetScreensByName](/cms_trial/space/PSJC/790987285/admGetScreensByName/)
 - [admGetScreenTabFields](/cms_trial/space/PSJC/791969973/admGetScreenTabFields/)
+- [admGetScreenTabNames](/cms_trial/space/PSJC/790529520/admGetScreenTabNames/)
 - [admGetScreenTabs](/cms_trial/space/PSJC/790529764/admGetScreenTabs/)
+- [admMoveFieldFirstInTab](/cms_trial/space/PSJC/792461357/admMoveFieldFirstInTab/)
 - [admMoveFieldLastInTab](/cms_trial/space/PSJC/792297546/admMoveFieldLastInTab/)
+- [admMoveFieldRelativeInTab](/cms_trial/space/PSJC/791512024/admMoveFieldRelativeInTab/)
+- [admMoveScreenTab](/cms_trial/space/PSJC/792232728/admMoveScreenTab/)
+- [admRemoveFieldFromScreenTab](/cms_trial/space/PSJC/792232743/admRemoveFieldFromScreenTab/)
+- [admUpdateScreen](/cms_trial/space/PSJC/791478898/admUpdateScreen/)
+- [admUpdateScreenScheme](/cms_trial/space/PSJC/791740479/admUpdateScreenScheme/)
+- [admUpdateScreenTab](/cms_trial/space/PSJC/792166481/admUpdateScreenTab/)
 
 Structures used:
 

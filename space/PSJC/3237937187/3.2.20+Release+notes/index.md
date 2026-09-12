@@ -14,8 +14,8 @@ The following enhancements are included in this release:
 
 The following functions now accept a context name or context ID as an alternative to the project and issue type mappings when identifying which context to target:
 
-- [admGetCustomFieldOptions](https://appfire.atlassian.net/wiki/spaces/PSJC/pages/791511311)
-- [admAddCustomFieldOptions](https://appfire.atlassian.net/wiki/spaces/PSJC/pages/791282009)
+- [admGetCustomFieldOptions](/cms_trial/space/PSJC/791511311/admGetCustomFieldOptions/)
+- [admAddCustomFieldOptions](/cms_trial/space/PSJC/791282009/admAddCustomFieldOptions/)
 - [admUpdateCustomFieldOptions](/cms_trial/space/PSJC/790528847/admUpdateCustomFieldOptions/)
 - [admDeleteCustomFieldOptions](/cms_trial/space/PSJC/790627240/admDeleteCustomFieldOptions/)
 

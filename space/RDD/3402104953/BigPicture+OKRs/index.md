@@ -21,7 +21,7 @@ Use this gadget to answer questions about your OKR progress, such as:
 
 Watch the overview video, or follow the steps below to get started.
 
-Video script
+Click to view transcript
 
 The team that delivered dashboard snapshots straight to your inbox now brings you a single place to manage all your subscriptions, at once.
 

@@ -11,3 +11,4 @@
 - [getKBArticles](/cms_trial/space/PSJC/741212243/getKBArticles/)
 - [getServiceDesk](/cms_trial/space/PSJC/693994370/getServiceDesk/)
 - [getServiceDeskKBArticles](/cms_trial/space/PSJC/742162499/getServiceDeskKBArticles/)
+- [getServiceDeskQueue](/cms_trial/space/PSJC/694093332/getServiceDeskQueue/)

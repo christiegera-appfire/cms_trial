@@ -8,7 +8,7 @@ Product Discovery field information is not fully compatible with the [SIL Aliase
 
 The SIL Aliases panel is designed to update the `sil.aliases` file by rewriting the entire file with data from the interface. As a consequence, any Product Discovery fields added to the `sil.aliases` file will be overwritten by the UI panel, potentially causing scripts to stop working.
 
-**Workaround:** Schedule the [Custom fields support SIL script](https://appfire.atlassian.net/wiki/spaces/PSJC/pages/793280566) to run periodically to restore missing aliases. The script won't create duplicates and can be run multiple times safely without affecting existing aliases.
+**Workaround:** Schedule the [Custom fields support SIL script](/cms_trial/space/PSJC/793280566/Custom+fields+support+SIL+script/) to run periodically to restore missing aliases. The script won't create duplicates and can be run multiple times safely without affecting existing aliases.
 
 ## User attribution inconsistencies
 

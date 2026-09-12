@@ -10,5 +10,6 @@ This section contains functions that enable users to handle project version admi
 - [admReleaseProjectVersion](/cms_trial/space/PSJC/744165367/admReleaseProjectVersion/)
 - [admSetProjectVersionReleaseDate](/cms_trial/space/PSJC/744589333/admSetProjectVersionReleaseDate/)
 - [admSetProjectVersionStartDate](/cms_trial/space/PSJC/744589347/admSetProjectVersionStartDate/)
+- [admUpdateProjectVersion](/cms_trial/space/PSJC/744065110/admUpdateProjectVersion/)
 
 ## 

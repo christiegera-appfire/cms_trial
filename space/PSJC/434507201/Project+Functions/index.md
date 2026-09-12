@@ -20,6 +20,7 @@ This section contains functions that enable users to handle projects.
 - [projectPM](/cms_trial/space/PSJC/434831859/projectPM/)
 - [projectsForPM](/cms_trial/space/PSJC/434766136/projectsForPM/)
 - [issueTypeIdsForProject](/cms_trial/space/PSJC/804326925/issueTypeIdsForProject/)
+- [issueTypeIdForProject](/cms_trial/space/PSJC/806387730/issueTypeIdForProject/)
 - [getProjectKeyById](/cms_trial/space/PSJC/821067864/getProjectKeyById/)
 - [getProjectIdByKey](/cms_trial/space/PSJC/820609122/getProjectIdByKey/)
 

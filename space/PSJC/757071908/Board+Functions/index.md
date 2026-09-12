@@ -24,4 +24,5 @@
 - [getBoardType](/cms_trial/space/PSJC/567214140/getBoardType/)
 - [issuesInBoard](/cms_trial/space/PSJC/567574609/issuesInBoard/)
 - [projectsForBoard](/cms_trial/space/PSJC/567148609/projectsForBoard/)
+- [createScrumBoardForProjects](/cms_trial/space/PSJC/759595607/createScrumBoardForProjects/)
 - [createKanbanBoardForProjects](/cms_trial/space/PSJC/760283249/createKanbanBoardForProjects/)
