@@ -10,7 +10,8 @@ This precondition does not have any configurable options.
 
 For information on how to configure a check for a workflow transition in Jira, see the [Jira documentation](http://confluence.atlassian.com/display/JIRA/Configuring+Workflow#ConfiguringWorkflow-Addingacondition).
 
-![Example of the Status Change precondition as described on this page.](/cms_trial/assets/0b93f11e-b0d8-4307-ac02-aee5f0aca7dd.png)
+Image — asset pipeline pending  
+Example of the Status Change precondition as described on this page.
 
 ### Example
 
