@@ -2,7 +2,7 @@
 
 ## Create your first rule
 
-> **Estimated time:** About 5 minutes
+> **Estimated time:** 5 minutes
 >
 > In this guide, you’ll create your first automation rule that will close sub-tasks when a parent work item is closed.
 
@@ -14,8 +14,8 @@ JSU for Jira Cloud offers unlimited automation rule runs, regardless of your Jir
 
 Before you start, make sure that:
 
-1. You have administrator privileges for your Jira instance; creating a JSU rule requires administrator privileges.
-2. You have access to the workflow to which this rule will be added.
+- You have administrator privileges for your Jira instance; creating a JSU rule requires administrator privileges.
+- You have access to the workflow to which this rule will be added.
 
 ## Create your first post function
 
