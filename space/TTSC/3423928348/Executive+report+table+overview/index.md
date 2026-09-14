@@ -142,8 +142,8 @@ The **Executive reports** landing page acts as your central control dashboard, i
 | **Report Name** | The designated title assigned when the configuration was generated. Saved detailed view reports are nested directly underneath the parent Executive reports, indented with an arrow. |
 | **Status** | The processing state of the report data generation (*Complete*, *In Progress*, or *Failed*). |
 | **Request Date** | The exact timestamp showing when the report execution was run. |
-| **Owner** | The user who generated the report. Only the report owner can open, edit, or delete the report. |
-| **Actions** | Use the more actions menu to access Edit and Delete options for a generated report. This menu is only available for reports you own. |
+| **Owner** | The user who owns the report. The report owner always retains full access. Reports can also be shared with Viewers and Editors. |
+| **Actions** | Available actions depend on your access level. Editors can edit the report, generate it again, manage saved Detailed Reports, update sharing settings, and delete the report. Viewers have read-only access. |
 
 Click on a report name to open it. When you open a generated report, Time to SLA shows the report results from the last generation. The report is not generated again automatically.
 

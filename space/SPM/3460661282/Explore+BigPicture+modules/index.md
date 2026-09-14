@@ -106,6 +106,8 @@ In the Teams module, you create teams and manage team memberships to streamline 
 - An insight into which initiatives teams are assigned to
 - Convenient team membership management
 
+See the video
+
 ### [Risk Management](/cms_trial/space/SPM/1918699171/Risk+management+module+(NEW)/)
 
 The Risk Management module makes it easy to register, assess, and prioritize risks, while also allowing you to track progress and link risks to daily tasks. With this module, you can assess any type of Jira work item as a risk. It’s a simple, user-friendly module with pre-made industry-standard templates for quick setup and use.

@@ -20,8 +20,6 @@ With the new **Create Jira work item** action in Salesforce Flows, you can turn 
 
 Set it up once in Flow Builder: select your trigger, connection, Jira space, and work item type, and every matching record (like an escalated Case) automatically creates an associated Jira item. No copy-pasting, no context-switching, no missed context.
 
-![image-20260903-132838.png](/cms_trial/assets/0a1b8c8e-6b6d-4111-b5d4-1292c9c75063.png)
-
 **Benefits:**
 
 - **Save time.** Eliminate manual ticket creation.

@@ -22,6 +22,14 @@ When the [**Select calendar via Jira issue**](/cms_trial/space/TTSC/35390901/SLA
 - The selected calendar is used to calculate the SLA for that specific work item.
 - Each work item can therefore follow a different working schedule.
 
+If the Dynamic Calendar field used by the SLA is empty on a work item, Time to SLA can't determine which calendar to use for the goal. The SLA panel doesn't appear for that SLA until a calendar is selected.
+
+Use **Where is my SLA?** to troubleshoot this situation. When the field is empty, the results show:
+
+**Dynamic calendar field selected on SLA configuration is empty on this issue**
+
+Select a valid calendar in the Dynamic Calendar field. If the SLA doesn't appear after the work item updates, use **Recalculate SLA**.
+
 ## Step 1: Create a Dynamic Calendar field
 
 1. Go to **Apps** > **Time to SLA** > **Administration** > **SLA Fields**.

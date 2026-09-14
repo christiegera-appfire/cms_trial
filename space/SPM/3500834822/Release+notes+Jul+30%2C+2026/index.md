@@ -14,7 +14,7 @@ This page outlines the updates included in the latest release of BigPicture.
 
 ### Multi-team planning is available in the Resources module
 
-![image-20260629-131630.png](/cms_trial/assets/17a828b1-53bb-4d93-8ade-648550c37828.png)![image-20260629-131336.png](/cms_trial/assets/10686f38-88ac-423c-acbe-71d028e19442.png)
+![image-20260629-131630.png](/cms_trial/assets/2bde13e0-69d9-4d08-90d4-22eeded47ccc.png)![image-20260629-131336.png](/cms_trial/assets/71d3c83d-bed3-41e0-adbe-7ec8b382911b.png)
 
 ## Risk Management
 
@@ -22,7 +22,7 @@ This page outlines the updates included in the latest release of BigPicture.
 
 Settings can be adjusted in Risk Register configuration. Configuration is done separately for each register.
 
-![A metrics template in the risk register. Risk probability metrics are imported.](/cms_trial/assets/ec5e510f-31e3-430d-ab69-e72ce892d017.png)
+![A metrics template in the risk register. Risk probability metrics are imported.](/cms_trial/assets/d1e13cd7-41d0-4dde-97f5-ba03e7a5786e.png)
 
 ---
 
@@ -39,14 +39,6 @@ New endpoints have been added. The endpoints are documented on the [developer po
 BigPicture advanced
 
 Custom expenses are recalculated whenever there are updates to a field value.
-
-## OKRs
-
-BigPicture advanced
-
-Sub-objectives are shown in the OKR report table
-
-![Screenshot 2026-06-23 at 14.08.23.png](/cms_trial/assets/4231be5a-afce-4f62-a9b1-8b97248d2bfe.png)
 
 ---
 

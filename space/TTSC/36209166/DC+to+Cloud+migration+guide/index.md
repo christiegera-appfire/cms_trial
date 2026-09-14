@@ -117,6 +117,18 @@ This method only migrates SLAs and calendars and requires additional steps for r
 
 ---
 
+## Verify the migration
+
+1. After the migration, review a sample of your SLA configurations and work items.
+
+   Confirm that:
+
+   - SLA configurations, calendars, and actions match the source configuration.
+   - SLA goals retain their enabled or disabled state.
+   - Migrated work items display their expected SLA data and SLA History.
+
+---
+
 ## Special case: SLAs using Duration custom fields
 
 In Data Center, SLAs can be configured using Duration custom fields as goal values. These fields are not supported in cloud.

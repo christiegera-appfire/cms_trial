@@ -4,6 +4,8 @@ Keep your support and engineering teams in sync without manual copy-pasting. The
 
 Once the work item is created, it's also automatically associated with the Salesforce record, so you can see the association in both Jira and Salesforce. Your connection's settings control how the associated items stay in sync. You don't need to configure anything extra in the Flow step itself.
 
+Watch the video for step-by-step configuration:
+
 ## Before you start
 
 Make sure you:

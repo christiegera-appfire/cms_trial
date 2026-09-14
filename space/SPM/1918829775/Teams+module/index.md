@@ -10,11 +10,11 @@ The team concept is used mainly in the Resources, Objectives, Gantt, Scope, and 
 
 In the Gantt, Resources, and Board modules, you can quickly assign tasks to a respective team by[inline editing](/cms_trial/space/SPM/1918637324/Inline+edit/) in a [column view](/cms_trial/space/SPM/1918404907/Column+views/).
 
-![Screenshot of the Gantt module with the Team column added to the view.](/cms_trial/assets/b7fcab3f-caf4-4a72-a135-a2e7b6a255c4.png)
+![Screenshot of the Gantt module with the Team column added to the view.](/cms_trial/assets/1b840e85-27f7-4b8f-8dc4-af794891be38.png)
 
 The [global teams](/cms_trial/space/SPM/1918798278/Teams+(Resource+management)/) you create can be assigned to multiple boxes. Then, you can easily convert them into box teams, which cannot be reassigned.
 
-![Screenshot of the Teams module in BigPicture.](/cms_trial/assets/6815471e-a772-442b-bcce-67737b99cb70.png)
+![Screenshot of the Teams module in BigPicture.](/cms_trial/assets/66eac296-0750-4450-b820-8617a8357daf.png)
 
 ## Main features
 
@@ -40,11 +40,13 @@ The team concept is used mainly in the Resources, Objectives, Gantt, Scope, and 
 
 In the Gantt, Resources, and Board modules, you can quickly assign tasks to a respective team by[inline editing](/cms_trial/space/SPM/1918637324/Inline+edit/) in a [column view](/cms_trial/space/SPM/1918404907/Column+views/).
 
-![gantt-team.png](/cms_trial/assets/ac21bcf5-8af0-43a4-a4fd-521c8265db5d.png)
+![gantt-team.png](/cms_trial/assets/4e9aa076-c7ed-4017-9283-4a2e6d5271a8.png)
 
 The [global teams](/cms_trial/space/SPM/1918798278/Teams+(Resource+management)/) you create can be assigned to multiple boxes. Then, you can easily convert them into box teams, which cannot be reassigned.
 
-![global-teams.png](/cms_trial/assets/1ac445b3-fbb6-48ad-a7a1-e746f6043041.png)
+![global-teams.png](/cms_trial/assets/ea0c4635-0b70-4d90-8276-5a99ec8af881.png)
+
+See the video to learn more.
 
 ## Main features
 

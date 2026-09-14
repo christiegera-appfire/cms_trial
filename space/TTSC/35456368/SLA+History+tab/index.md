@@ -20,3 +20,5 @@ Each cycle consists of a start and an end condition. By examining your SLA histo
 - If a work item is reopened after an SLA cycle ends, a new cycle automatically starts.
 
 The reset function isn’t a start condition, which means it cannot start a new cycle. If you want a reset to trigger a new cycle, the SLA’s end and reset conditions should be the same. If you reset an SLA that has already been completed, you will be able to start a new cycle with a reset condition.
+
+For fixed-deadline goals such as Negotiation date, a breach can occur while the SLA is paused. Pausing the SLA doesn't move the fixed deadline, so SLA History records the breach when that deadline is reached.

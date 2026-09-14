@@ -39,6 +39,8 @@ To use this feature, you need to add the TTS - Dynamic Calendar field to your in
 5. Select all the screens you want to see the field on.
 6. Click **Update**. This will add the custom field to the screens you’ve selected.
 
+The field must contain a calendar for Time to SLA to calculate the goal. If the field is empty, the SLA doesn't appear in the SLA panel.
+
 ## Goal Target Type
 
 There are five goal target types you can choose from.
@@ -88,6 +90,7 @@ For example, suppose:
   If you change the value in the selected field, TTS recalculates the SLA using the new deadline. Moving the date earlier or later can therefore change the SLA's remaining time and breach status.
 - **A Negotiation date can already be in the past.**  
   If the selected date or time is earlier than the SLA start date, the SLA starts with a deadline that has already passed and is considered breached.
+- If the Negotiation date is reached while the SLA is paused, the SLA becomes breached. The breach is recorded in SLA History, and actions configured with the **is breached** trigger run for the breach.
 - **Pauses do not postpone the Negotiation date.**  
   The Negotiation date is a fixed deadline. If the SLA enters a paused state, the deadline does not move forward.  
   For example, if the Negotiation date is Friday at 17:00, pausing the SLA for several hours will not extend the deadline beyond Friday at 17:00.

@@ -4,7 +4,7 @@ You can monitor and track internal response goals, external service level commit
 
 ## SLA panel
 
-The SLA panel displays all SLA metrics in one handy place with a customizable design. The panel appears in work item view screens if a work item meets the conditions for an SLA. To learn more about it, refer to [this page](/cms_trial/space/TTSC/35815658/SLA+panel/).
+The SLA panel displays all SLA metrics in one handy place with a customizable design. The SLA panel displays SLAs that apply to the work item and have the information required for calculation, including an applicable goal and calendar. To learn more about it, refer to [this page](/cms_trial/space/TTSC/35815658/SLA+panel/).
 
 ![Time to SLA Track SLAs panel showing SLA status on a work item](/cms_trial/assets/09eb8d3f-2238-4458-a1d3-f3139a2cccef.png)
 
