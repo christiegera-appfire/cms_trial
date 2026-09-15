@@ -8,7 +8,7 @@ This page outlines the updates included in the latest release of Connector for S
 
 ---
 
-## Salseforce Bug fixes
+## SALESFORCE Bug fixes
 
 **Chatter posts in Salesforce components**
 

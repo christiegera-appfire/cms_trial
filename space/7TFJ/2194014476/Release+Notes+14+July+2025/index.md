@@ -22,12 +22,19 @@ With the 7pace Timetracker and BigPicture integration, you can leverage time tra
 
 ---
 
-**Questions and feedback**
+▢ **Questions and feedback**
 
 - Explore exciting features, pricing updates, reviews, and more on the [Marketplace](https://marketplace.atlassian.com/apps/1235398/7pace-timetracker-for-jira?hosting=cloud&tab=overview).
 - Stuck with something? Raise a ticket with our [support team](https://appfire.atlassian.net/servicedesk/customer/portal/11).
 - Do you love using our app? Let us know what you think [here](mailto:support@7pace.com).
 
-**Credits**
+▢ **Credits**
 
 A heartfelt thank you to our valued customers! Your incredible support inspires us to improve our apps continually. We appreciate your trust in 7pace Timetracker for Jira!
+
+[unmapped inline: placeholder]
+
+|  |  |
+| --- | --- |
+| **Release date** | July 14, 2025 |
+| **Highlights** | - Calendar integration |

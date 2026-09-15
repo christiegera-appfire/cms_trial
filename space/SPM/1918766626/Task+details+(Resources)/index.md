@@ -10,7 +10,7 @@ The video below presents the task details window in the Gantt and Resources modu
 
 shortcut You can also select a task and press **E** to edit its details, or **J** to open a Jira window.
 
-![Screenshot of the task details dialog in the Resources module.](/cms_trial/assets/00190c77-63b3-4df7-94e2-e5b858ac5a44.png)
+![Screenshot of the task details dialog in the Resources module.](/cms_trial/assets/bf383270-4a97-4f56-8a1b-3cadb8fe2817.png)
 
 ## Information the task details dialog provides
 
@@ -31,7 +31,7 @@ The task details dialog provides general information about a task and the status
 
 Most of the fields displayed in the dialog can't be left without any value, but there are some for which the values might not be specified. You will see either an **Unassigned** or **Unestimated** text value in such cases.
 
-![Screenshot of empty field values in the task details dialog in the Resources module.](/cms_trial/assets/4772a0ea-1ff7-40bb-9004-9eed39416752.png)
+![Screenshot of empty field values in the task details dialog in the Resources module.](/cms_trial/assets/3a1ee1c0-7e42-4717-9a29-f6b49878f414.png)
 
 ## Task details (Resources) (new navigation)
 
@@ -43,7 +43,7 @@ The video below presents the task details window in the Gantt and Resources modu
 
 shortcut You can also select a task and press **E** to edit its details, or **J** to open a Jira window.
 
-![resources-task-details.png](/cms_trial/assets/e14cb8a8-3746-4be2-addb-2d05b73ca5f5.png)
+![resources-task-details.png](/cms_trial/assets/82fdf21c-1537-4b72-8986-a0720c85b00e.png)
 
 ## Information the task details dialog provides
 
@@ -64,4 +64,4 @@ The task details dialog provides general information about a task and the status
 
 Most of the fields displayed in the dialog can't be left without any value, but there are some for which the values might not be specified. You will see either an **Unassigned** or **Unestimated** text value in such cases.
 
-![Screenshot of empty field values in the task details dialog in the Resources module.](/cms_trial/assets/4772a0ea-1ff7-40bb-9004-9eed39416752.png)
+![Screenshot of empty field values in the task details dialog in the Resources module.](/cms_trial/assets/3a1ee1c0-7e42-4717-9a29-f6b49878f414.png)

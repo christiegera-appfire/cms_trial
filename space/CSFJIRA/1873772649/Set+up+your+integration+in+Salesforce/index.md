@@ -19,17 +19,14 @@ Want a quick overview before diving in? The interactive walkthrough below covers
 
 1. [Add a remote site](/cms_trial/space/CSFJIRA/1873412619/Add+new+remote+site/) to provide a safe connection from Salesforce to your Jira.
 2. [Set up a connection to Jira](/cms_trial/space/CSFJIRA/1873346949/Set+up+a+connection+to+Jira/).
-3. Add the Jira Issues componentto view Jira details directly in Salesforce:
-
-   - [For NextGen](/cms_trial/space/CSFJIRA/1873543771/Use+Jira+Issues+(NextGen)+with+Lightning+Experience/)
-   - [For classic view](/cms_trial/space/CSFJIRA/1873445794/Configure+Visualforce+components/)
+3. [Configure the Salesforce record page to view Jira details directly in Salesforce](/cms_trial/space/CSFJIRA/3608707174/Configure+Salesforce+record+page+to+view+Jira+details+directly+in+Salesforce/)
 
 1. Associate Salesforce records with Jira issues to see all related details in Salesforce and configure the synchronization behavior:
 
    - [For NextGen](/cms_trial/space/CSFJIRA/3092284698/Associate+a+Jira+work+item+from+Salesforce+with+Jira+Issues+(NextGen)/)
-   - [For classic view](/cms_trial/space/CSFJIRA/3091301556/Associate+a+Jira+Issue+from+Salesforce/)
 
-1. (Optional) To enable automatic synchronization from Salesforce to Jira, you must create Apex triggers:
+1. (Optional) Enable automatic synchronization with Jira with Flow Builder: [Automatically create Jira work items with Salesforce Flows](/cms_trial/space/CSFJIRA/3627581468/Automatically+create+Jira+work+items+with+Salesforce+Flows/)   
+   Or with Apex triggers:
 
    - [Configure automated synchronization from Salesforce](/cms_trial/space/CSFJIRA/1873446010/Configure+Automatic+Pull+from+Salesforce/).
    - [Configure automated Jira issue creation from Salesforce](/cms_trial/space/CSFJIRA/1873413628/Configure+automatic+Jira+issue+creation+from+Salesforce/).

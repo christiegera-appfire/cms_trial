@@ -16,7 +16,7 @@ Security vulnerability fixes have been added.
 
 ---
 
-## Salseforce Bug fixes
+## SALESFORCE Bug fixes
 
 - We've fixed support for Jira Service Management SLA fields. SLA status now displays with the correct icon and time in table, tile, and details views.
 

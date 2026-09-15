@@ -8,7 +8,7 @@ In this article, you will learn how to add, edit, and delete Boxes using the 
 
 Boxes can be organized into a hierarchical structure, and their periods follow the [scheduling](/cms_trial/space/SPM/1918669073/Period+mode+and+sequentiality/) rules.
 
-![overview-panel.png](/cms_trial/assets/e62b6a93-f5c1-4720-ac65-8edb1ff5a364.png)
+![overview-panel.png](/cms_trial/assets/6151f499-1e32-4896-a753-6e040409b98b.png)
 
 Keep in mind:
 
@@ -36,17 +36,17 @@ To create a new box:
 5. Adjust the icon and its color for a box.
 6. Click **Create**.
 
-![Overview module, adding a new box.](/cms_trial/assets/4fa26df7-d9eb-41cc-9a3b-4ac95f66c327.png)
+![Overview module, adding a new box.](/cms_trial/assets/3b531d30-ff75-462d-8f14-30bbeb543a24.png)
 
 Alternatively, you can click in-between the items on the list:
 
-![Overview module, plus icon between boxes.](/cms_trial/assets/169f738a-5bc5-4ba4-95f9-9dd237efe98f.png)
+![Overview module, plus icon between boxes.](/cms_trial/assets/3f25506f-dede-400b-8dad-166634632e28.png)
 
 Next, select a box type you want to use.
 
 The list of available box types might vary depending on where you are in the app—Home view or the Overview module of a box and where you click when adding new boxes. Make sure to define the "Parent type" correctly in the App's administration > box types (click on the box type name to edit) > General > Basics > Parent types (requires App admin security role).
 
-![Box types choosing when adding a box.](/cms_trial/assets/14a2a3a6-ea16-401f-81e1-7ce041a74601.png)
+![Box types choosing when adding a box.](/cms_trial/assets/1af59184-7361-4126-bdb3-feb1fa6f0fd4.png)
 
 If needed, edit the fields:
 
@@ -64,11 +64,11 @@ If the button is greyed out and you see the message "There are no box types avai
 - Same-level boxes can't be created
 - Sub-boxes can't be created
 
-![Greyed-out plus icon.](/cms_trial/assets/6e48a95a-884b-4bfa-8907-4a4b521027bc.png)
+![Greyed-out plus icon.](/cms_trial/assets/27b1514c-829d-44e5-828a-68340bbf821a.png)
 
 Firstly, check the "Type" of the box you are presently in.
 
-![Program Increment in the Type column.](/cms_trial/assets/ff637e13-5880-4465-8020-c9f03cf676f7.png)
+![Program Increment in the Type column.](/cms_trial/assets/1cf157c7-d727-4b67-be41-fa9b56417dbf.png)
 
 Go to "Administration" to verify box type settings. Make sure that "parent types" have been set as needed.
 
@@ -82,7 +82,7 @@ To add a box based on timebox schedule, click the **Add New** icon and switch on
 
 - Preview details of the Timebox Schedule: check the list of the timebox schedule. Click one of the timebox schedules, to check its details. An App Admin can also edit timebox schedule details from this level:
 
-  ![timebox-schedule-previw.png](/cms_trial/assets/c7d2f97c-4e6f-4ba5-b19f-b6cb1f3d9dbc.png)
+  ![timebox-schedule-previw.png](/cms_trial/assets/28de34bf-ebbb-479d-ae83-de84209d7387.png)
 
   Click Select
 - Select timebox schedule - choose a timebox schedule from the drop-down list and click **Create**.
@@ -101,11 +101,11 @@ Click the "box type" button or use the indent/outdent arrow next to the button i
 
 Select from the list of available box types or click the "outdent arrow' to include the same-level box types and the "indent arrow" to narrow the list to sub-box types.
 
-![Choosing the Box Type during adding box.](/cms_trial/assets/b1108fdc-7170-43a6-854d-3b427dedef88.png)
+![Choosing the Box Type during adding box.](/cms_trial/assets/f788ab5e-3909-462a-bd52-ea86eaff48a2.png)
 
 When you click the indentation arrow, it will reverse, and the available box types are narrowed to same-level boxes only, that is, Iteration, as the Iteration box type is not a parent type to any other box types:
 
-![Clicking the indentation arrow during bo creation.](/cms_trial/assets/8f8ec7b3-38c6-4a27-85f1-28f0c9dd652f.png)
+![Clicking the indentation arrow during bo creation.](/cms_trial/assets/0c9fd4e4-ea7e-486c-bf14-a611b9d67f0f.png)
 
 ### Next timebox naming scheme
 
@@ -115,7 +115,7 @@ The last number in the string (the name of the previous box) is incremented by 1
 
 If no numbers are present, "2" is added to the end of the name string.
 
-![Panel of adding a box.](/cms_trial/assets/0e50a3fa-fca4-437c-8212-8362b7b4e9dc.png)
+![Panel of adding a box.](/cms_trial/assets/f36dfa5d-b21e-40ad-ad78-8cf7b12d787f.png)
 
 ## Create a box in the Overview module (new navigation)
 
@@ -148,15 +148,15 @@ To create a new box:
 6. Optionally, change the icon and the icon background color to improve identification within the box hierarchy.
 7. Click **Create**.
 
-![Overview module, adding a new box.](/cms_trial/assets/1761f350-3981-4b1f-9ba0-334a3f46f5f8.png)
+![Overview module, adding a new box.](/cms_trial/assets/62d6d857-eaab-41e7-93a0-eb618dae40da.png)
 
 Alternatively, you can mouse over the border between rows in the box hierarchy to display the **plus** icon. Click it to open a modal.
 
-![Overview module, a plus icon on the task tree.](/cms_trial/assets/482d8d33-1821-4fa2-854e-de4fae54457b.png)
+![Overview module, a plus icon on the task tree.](/cms_trial/assets/c07b101d-d113-4f7a-8809-ea1a38646c2b.png)
 
 The list of available box types may vary depending on where you are in the app; you will see a different list of box types when using the **Create new** button in the Main box compared to when you click the plus sign under a specific box in the box hierarchy.
 
-![List of box types on the box creation modal.](/cms_trial/assets/14a2a3a6-ea16-401f-81e1-7ce041a74601.png)
+![List of box types on the box creation modal.](/cms_trial/assets/1af59184-7361-4126-bdb3-feb1fa6f0fd4.png)
 
 Make sure to define the **Parent type** correctly in the **Administration** > **Box types** > open a box type > **General** > **Basics** > **Parent types** (this configuration requires App Admin security role).
 
@@ -176,7 +176,7 @@ If the **Create new** button is greyed out, it means that:
 - Same-level boxes cannot be created
 - Sub-boxes cannot be created
 
-![Greyed-out Create new button.](/cms_trial/assets/33f2f393-1769-4f9c-b0d0-d2328359e2f0.png)
+![Greyed-out Create new button.](/cms_trial/assets/8dd3e449-c6b9-4c5a-a55e-dec4645cba77.png)
 
 Check the type of the current box (e.g., using the **Type** column).
 
@@ -191,11 +191,11 @@ To add a box based on a timebox schedule:
 1. Click the **Create new** button.
 2. On the modal, enable the **Use timebox schedule** toggle. When you do it, two additional options display:
 
-![New box creation modal with the Use timebox schedule option enabled.](/cms_trial/assets/e059d312-4cbf-4318-b550-c6c5b8c95d51.png)
+![New box creation modal with the Use timebox schedule option enabled.](/cms_trial/assets/b0710327-9177-41e5-853c-c065e740779d.png)
 
 - **Preview details of the Timebox Schedules**: this option opens a modal where you can view the list of timebox schedules. Click one of the timebox schedules to preview the schedule structure and field mapping. Click **Select this timebox schedule** if you want to select the TS directly on the modal.
 
-  ![timebox-schedule-previw.png](/cms_trial/assets/c7d2f97c-4e6f-4ba5-b19f-b6cb1f3d9dbc.png)
+  ![timebox-schedule-previw.png](/cms_trial/assets/28de34bf-ebbb-479d-ae83-de84209d7387.png)
 - Otherwise, under the **Select timebox schedule**, open a list of available timebox schedules and then select one.
 
 1. Click **Create**.
@@ -220,7 +220,7 @@ Go to **Administration** > **Box types** > select a box type > **General** and 
 
 When you click the indentation arrow, it will reverse, and the available box types are narrowed to same-level boxes only, that is, Iteration, as the Iteration box type is not a parent type to any other box types:
 
-![A video demonstrating how to switch between the same-level and sub-boxes using the indent and outdent arrows on the box creation modal.](/cms_trial/assets/b5243428-3db3-4563-aad3-00315e41d0e9.mp4)
+![A video demonstrating how to switch between the same-level and sub-boxes using the indent and outdent arrows on the box creation modal.](/cms_trial/assets/5557cd69-7d50-40cc-a302-423dfdf6a943.mp4)
 
 ### Next timebox naming scheme
 
@@ -230,4 +230,4 @@ The last number in the string (the name of the previous box) is incremented by 1
 
 If no numbers are present, 2 is added to the end of the name string.
 
-![Create a new box modal.](/cms_trial/assets/0e50a3fa-fca4-437c-8212-8362b7b4e9dc.png)
+![Create a new box modal.](/cms_trial/assets/f36dfa5d-b21e-40ad-ad78-8cf7b12d787f.png)

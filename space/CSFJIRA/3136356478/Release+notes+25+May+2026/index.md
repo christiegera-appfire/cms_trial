@@ -12,7 +12,7 @@ This page outlines the updates included in the latest release of Connector for S
 
 The following bugs are fixed in this release:
 
-Jira Cloud Salesforce **Jira → Salesforce auto-sync fix**: Auto-sync from Jira to Salesforce is more reliable when issue updates include changelog entries with missing target values. Previously, such entries could cause sync processing to stop for that update, so mapped fields might not reach Salesforce until a manual push. Status and other mapped changelog fields now sync automatically as expected.
+Jira Cloud SALESFORCE **Jira → Salesforce auto-sync fix**: Auto-sync from Jira to Salesforce is more reliable when issue updates include changelog entries with missing target values. Previously, such entries could cause sync processing to stop for that update, so mapped fields might not reach Salesforce until a manual push. Status and other mapped changelog fields now sync automatically as expected.
 
 ---
 

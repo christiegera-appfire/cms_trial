@@ -14,7 +14,7 @@ This page outlines the updates included in the latest release of Connector for S
 
 ## Automation
 
-### Salseforce Automatically create Jira work items from Salesforce Flows
+### SALESFORCE Automatically create Jira work items from Salesforce Flows
 
 With the new **Create Jira work item** action in Salesforce Flows, you can turn any Salesforce event into a Jira work item, instantly and without manual effort.
 
@@ -30,7 +30,7 @@ For details, see [Automatically create Jira work items from Salesforce Flows](/c
 
 ## Comments filtering
 
-## SalseforceJira Cloud **Improved tag filtering for Jira and Salesforce comments**
+## SALESFORCEJira Cloud **Improved tag filtering for Jira and Salesforce comments**
 
 You can now filter both Jira and Salesforce comments by tag on each side of the integration. Filters are configured independently in Jira and in Salesforce:
 

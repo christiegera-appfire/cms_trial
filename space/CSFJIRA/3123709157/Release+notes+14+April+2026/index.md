@@ -8,7 +8,7 @@ Our team is thrilled to announce the latest release of Connector for Salesforce 
 
 ## Enhancements
 
-## Salesforce Security fixes
+## SALESFORCE Security fixes
 
 - Security vulnerability fixes have been added.
 
@@ -26,7 +26,7 @@ Our team is thrilled to announce the latest release of Connector for Salesforce 
 
 ## Bug fixes
 
-- Jira Cloud Salesforce **Restricted comments sent in notifications**
+- Jira Cloud SALESFORCE **Restricted comments sent in notifications**
 
 We have fixed an issue where **Simple Email Notifications** included the full content of role-restricted Jira comments. The Connector now checks comment visibility settings before dispatching notifications, and any comment restricted to a project role is excluded entirely from email content. This ensures that role-restricted comments remain confidential to their intended audience and are no longer disclosed through notification emails.
 

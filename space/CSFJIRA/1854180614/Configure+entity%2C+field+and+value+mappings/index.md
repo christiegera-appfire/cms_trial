@@ -159,10 +159,12 @@ For example:
    ![Sync direction.png](/cms_trial/assets/2c0c111a-c0f0-49b9-8e5f-d3250ea896c5.png)
 2. For inbound-only mapping, map, for example, **UI** Jira task value with the **User Interface** Case Reason Salesforce value.
 
-   ![contentId-1854180614](/cms_trial/assets/50b2a312-fb38-4b1e-9e70-8c818aa6a759.png)
+   Image — asset pipeline pending  
+   contentId-1854180614
 3. For outbound-only mapping, map, for example, **Installation** Jira task value with the **Packaging** Case Reason Salesforce value.
 
-   ![contentId-1854180614](/cms_trial/assets/6731d294-61d9-4e58-8649-b917978f21ae.png)
+   Image — asset pipeline pending  
+   contentId-1854180614
 
 ## Related information
 

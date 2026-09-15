@@ -10,7 +10,7 @@ This page outlines the updates included in the latest release of Connector for S
 
 ---
 
-## Salseforce Jira Cloud **Enhancements**
+## SALESFORCE Jira Cloud **Enhancements**
 
 ## **Rich text in comments**
 
