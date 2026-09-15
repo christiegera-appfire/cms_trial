@@ -20,7 +20,7 @@ Our user guides are organized to help you create dashboards, add gadgets, and co
   - [Add and configure gadgets](/cms_trial/space/RDD/146310019/Add+and+configure+gadgets/)
   - [Dashboard gadgets - KPIs and metrics](/cms_trial/space/RDD/146309915/Dashboard+gadgets+-+KPIs+and+metrics/)
   - [Export gadget data to CSV, XLSX and PNG](/cms_trial/space/RDD/146310658/Export+gadget+data+to+CSV%2C+XLSX+and+PNG/)
-- [Admin settings](/cms_trial/space/RDD/2116583951/Admin+settings/)
+- [Admin tools](/cms_trial/space/RDD/2116583951/Admin+tools/)
   - [Manage Global Access Restrictions](/cms_trial/space/RDD/146309685/Manage+Global+Access+Restrictions/)
   - [Manage access to the Jira Service Management Customer Portal](/cms_trial/space/RDD/146309699/Manage+access+to+the+Jira+Service+Management+Customer+Portal/)
   - [Manage Performance Options](/cms_trial/space/RDD/811106832/Manage+Performance+Options/)

@@ -8,6 +8,7 @@ Check out the upcoming **features** and the **latest release logs** below to see
 
 | **Release** | **App version** | **Release version** | **Highlights** | **Date** |
 | --- | --- | --- | --- | --- |
+| [Release notes 15th September 2026](/cms_trial/space/CDMC/3662807441/Release+notes+15th+September+2026/) | 50.22.0 | 5.0.29 | **Enhancements**   - Space Document Report enhancements - Document Activity enhancements   **Bug fixes**  **Security updates** | September 15, 2026 |
 | [Release notes 8th September 2026](/cms_trial/space/CDMC/3643998216/Release+notes+8th+September+2026/) | 50.21.0 | 5.0.28 | **Bug fixes**   - Workflow now reapplies correctly when a disabled version already exists - Improved reliability of installation checks under heavy load - Improved the Document State macro performance | September 8, 2026 |
 | [Release notes 3rd September 2026](/cms_trial/space/CDMC/3627057168/Release+notes+3rd+September+2026/) | 50.20.0 | 5.0.27 | **Enhancements**   - Page creation recorded in Document Activity - Page created entry shown across Document Activity views - Clearer messages for workflow changes - Clearer activity for bulk admin actions   **Bug fixes and Improvements** | September 3, 2026 |
 | [Release notes 27th August 2026](/cms_trial/space/CDMC/3609919493/Release+notes+27th+August+2026/) | 50.19.0 | 5.0.26 | **Enhancements**   - Clearer Document Activity for state resets   **Bug fixes and performance improvements** | August 27, 2026 |

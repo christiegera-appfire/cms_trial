@@ -1,4 +1,4 @@
-# Admin settings
+# Admin tools
 
 - [Manage Global Access Restrictions](/cms_trial/space/RDD/146309685/Manage+Global+Access+Restrictions/)
 - [Manage access to the Jira Service Management Customer Portal](/cms_trial/space/RDD/146309699/Manage+access+to+the+Jira+Service+Management+Customer+Portal/)

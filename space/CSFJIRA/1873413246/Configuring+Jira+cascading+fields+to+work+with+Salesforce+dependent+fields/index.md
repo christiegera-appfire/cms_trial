@@ -11,7 +11,7 @@ There are four modes of synchronization types supported:
 
 ## Requirements
 
-Value mappings need to use the exact IDs as shown on the Salesforce page, with the correct case (IDs are case-sensitive). and with no spaces before or after the value. For example,  `00590002fBnyAAE`  is not the same as  `00590002fbnyaae`.
+Value mappings need to use the exact IDs as shown on the Salesforce page, with the correct case (IDs are case-sensitive) and with no spaces before or after the value. For example,  `00590002fBnyAAE`  is not the same as  `00590002fbnyaae`.
 
 ### Jira
 
@@ -38,7 +38,7 @@ This mode lets you synchronize only the Parent value of your Jira cascading sele
 
 ### Jira Child  - Salesforce Picklist (Legacy)
 
-This mode is used to be the default behavior of the app if a Jira Cascading list was selected in the mapping.
+This mode used to be the default behavior of the app if a Jira Cascading list was selected in the mapping.
 
 This mode allows you to synchronize only the Child value of your Jira cascading select list to a Salesforce picklist (dependent or non-dependent picklist).
 
@@ -68,7 +68,7 @@ You can define the Parent value of your Jira cascading select list to a Salesfo
 
 ![contentId-1873413246](/cms_trial/assets/d45e6328-1648-4ccf-b0d5-1aac70602a3b.png)
 
-Be aware that switching between synchronization modes will result in losing existing field value mappings. You will also be required to select a second (dependent) picklist when switching from either the first 3 modes to the Cascading mode.
+Be aware that switching between synchronization modes will cause you to lose existing field value mappings. You will also be required to select a second (dependent) picklist when switching from either the first 3 modes to the Cascading mode.
 
 ### Create a  Cascading field mapping
 

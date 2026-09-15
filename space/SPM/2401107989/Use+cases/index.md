@@ -37,7 +37,7 @@ Define a hierarchy that will govern the tasks in your box.
 
 Sync BigPicture date fields with respective Jira fields, and the other way around.
 
-- [Synchronize BigPicture's End date with Jira's Original Estimate (no one-way sync)](/cms_trial/space/SPM/2398619127/Use+case%3A+Synchronize+BigPicture%27s+End+date+with+Jira%27s+Original+Estimate+(no+one-way+sync)/)
+- [Synchronize BigPicture's End date with Jira's Original Estimate (no one-way sync)](https://appfire.atlassian.net/wiki/spaces/SPM/pages/2398619127)
 
 - [Synchronize BigPicture's End date with Jira's Time Spent + Remaining Estimate (with one-way sync)](/cms_trial/space/SPM/2400682315/Use+case%3A+Synchronize+BigPicture%27s+End+date+with+Jira%27s+Time+Spent+++Remaining+Estimate+(with+one-way+sync)/)
 
