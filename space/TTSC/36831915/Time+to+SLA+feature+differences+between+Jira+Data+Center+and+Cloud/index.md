@@ -4,9 +4,9 @@ Last updated: July 8, 2026
 
 This page provides a high-level overview of Data Center and Cloud feature differences. If you’d like a more detailed breakdown, refer to the in-depth [feature comparison page](/cms_trial/space/TTSC/2760802311/Detailed+feature+comparison/).
 
-## Advantages of Time to SLA for Jira Cloud
+## Advantages of Product for Jira Cloud
 
-The Cloud version of Time to SLA is designed to minimize administrative work, support complex business processes, and provide a guided, ready-to-use setup for teams of any size.
+The Cloud version of Product is designed to minimize administrative work, support complex business processes, and provide a guided, ready-to-use setup for teams of any size.
 
 Click to learn more about the benefits:
 
@@ -66,13 +66,13 @@ For details on how the Data Center and Cloud versions compare, refer to the tabl
 | SLA fields | ✅ | ✅\* | \*Cloud currently supports the **SLA Date**, **SLA Indicator**, **SLA Duration**, and **Dynamic Calendar** fields.  Since the functionality differs, please refer to the [documentation](/cms_trial/space/TTSC/2875654192/Custom+fields/) for full details. |
 | SLA Panels | ✅ | ✅ |  |
 | Permissions | ✅ | ✅ |  |
-| SLA Reports | ✅ | ✅\* | \*Cloud also supports [Executive reports](/cms_trial/space/TTSC/3404431363/Executive+reports/). |
+| SLA Reports | ✅ | ✅\* | \*Cloud also supports [Executive reports](/cms_trial/space/TTSC/3404431363/Executive+reports/) and [Workflow Intelligence reports](/cms_trial/space/TTSC/3637936320/Workflow+Intelligence+report/). |
 | SLA Recalculation | ✅ | ✅ |  |
 | Integrity Checker | ✅ | ❌ |  |
 | Settings | ✅ | ✅ |  |
 | Import/Export | ✅ | ✅ |  |
 | License Management | ✅ | ❌ |  |
-| Time to SLA preferences | ✅ | ✅ |  |
+| Product preferences | ✅ | ✅ |  |
 | Features in Project Settings | Customer Portal SLAs | ✅ | ✅ |  |
 | Features in Workflow | Post function (Reset SLA) | ✅ | ✅ |  |
 | Features in Dashboards | Gadgets | ✅ | ⚠️ | Currently, only `TTS - Periodic Met vs Exceeded SLA` is available in the cloud. However, a new gadget called `TTS - SLA/Assignee Performance Gadget` is now on the cloud. |
@@ -88,5 +88,5 @@ For details on how the Data Center and Cloud versions compare, refer to the tabl
 | Better Excel Exporter | ✅ | ❌ |  |
 | Configuration Manager for Jira | ✅ | ❌ |  |
 | Theme Extension for JSM | ✅ | ❌ |  |
-| PowerBI Connector for Jira | ✅ | ❌ |  |
+| Integration for Jira | ✅ | ❌ |  |
 | Dashboard Hub Pro (Charts, Reports, Time in Status for Jira) | ❌ | ✅ |  |

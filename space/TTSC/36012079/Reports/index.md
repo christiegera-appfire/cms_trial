@@ -1,6 +1,6 @@
 # Reports
 
-The **Reports** page helps you generate, view, and manage SLA reports in Time to SLA for Jira Cloud.
+The **Reports** page helps you generate, view, and manage SLA reports in Product for Jira Cloud.
 
 You can choose from different report types depending on what you want to analyze, from high-level SLA performance trends to detailed work item data.
 
@@ -8,7 +8,7 @@ You can choose from different report types depending on what you want to analyze
 
 To open the Reports page:
 
-1. Go to **Apps** > **Time to SLA**.
+1. Go to **Apps** > **Product**.
 2. Select **Reports** from the top navigation.
 
 ![Reports page showing the navigation sidebar with report categories and the Generate new report page.](/cms_trial/assets/55d4f5c7-98f4-4647-80fe-157178184173.png)
@@ -38,6 +38,7 @@ Available report types include:
 
 | **Report type** | **Description** |
 | --- | --- |
+| [**Workflow Intelligence**](/cms_trial/space/TTSC/3637936320/Workflow+Intelligence+report/) | Analyze how work moves through your Jira workflows. Compare time across assignees, statuses, and time periods, identify bottlenecks, and investigate the work item activity behind SLA performance. |
 | [**Executive**](/cms_trial/space/TTSC/3404431363/Executive+reports/) | Analyze SLA performance using completed SLA data. Executive reports are useful for high-level trend analysis and stakeholder reporting. Refer to the [use case](/cms_trial/space/TTSC/3426714512/I+want+to+review+cross-project+SLA+compliance+data+without+manual+spreadsheet+exports/) to learn more. |
 | [**Summary**](https://support.appfire.com/space/TTSC/36044860) | View a high-level overview of SLA performance. Summary reports are useful for work item-based reporting. |
 | [**Detail**](https://support.appfire.com/space/TTSC/36143159) | Review granular SLA data for in-depth work item analysis. Detail reports are useful for SLA-based reporting. |
@@ -55,6 +56,7 @@ To generate a report:
 3. Configure the report fields and filters. For detailed instructions, see:
 
    - [**Executive**](/cms_trial/space/TTSC/3404431363/Executive+reports/)
+   - [**Workflow Intelligence**](/cms_trial/space/TTSC/3637936320/Workflow+Intelligence+report/)
    - [**Summary**](https://support.appfire.com/space/TTSC/36044860)
    - [**Detail**](https://support.appfire.com/space/TTSC/36143159)
    - [**Duration**](https://support.appfire.com/space/TTSC/36077648)
@@ -81,7 +83,7 @@ To save a report configuration:
 
 Saved configurations appear under **Report configurations** in the sidebar.
 
-When you open a saved configuration and regenerate the report, Time to SLA restores its saved filters and the column order.
+When you open a saved configuration and regenerate the report, Product restores its saved filters and the column order.
 
 ## Manage report configurations
 

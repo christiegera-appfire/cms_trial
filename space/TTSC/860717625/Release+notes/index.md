@@ -1,9 +1,11 @@
 # Release notes
 
-This page provides a brief overview of the release notes for individual releases of the Time to SLA for Jira app.
+This page provides a brief overview of the release notes for individual releases of the Product for Jira app.
 
 | **Title** | **Release date** | **Highlights** |
 | --- | --- | --- |
+| [Release notes 14 September 2026](/cms_trial/space/TTSC/3653992482/Release+notes+14+September+2026/) | 14 September 2026 | - Introducing Workflow Intelligence reports |
+| [Release notes 11 September 2026](/cms_trial/space/TTSC/3659104319/Release+notes+11+September+2026/) | 11 September 2026 | - Bug fixes |
 | [Release notes 4 September 2026](/cms_trial/space/TTSC/3634233352/Release+notes+4+September+2026/) | 4 September 2026 | - Share Executive Reports with others - Bug fixes |
 | [Release notes 26 August 2026](/cms_trial/space/TTSC/3591183214/Release+notes+26+August+2026/) | 26 August 2026 | - Add a reason when manually resetting an SLA - Bug fixes |
 | [Release notes 20 August 2026](/cms_trial/space/TTSC/3563028481/Release+notes+20+August+2026/) | 20 August 2026 | - New: Require a reason for SLA extensions - Bug fixes |
@@ -20,7 +22,7 @@ This page provides a brief overview of the release notes for individual releases
 | [Release notes 18 May 2026](/cms_trial/space/TTSC/3262841103/Release+notes+18+May+2026/) | May 18, 2026 | - New feature: Set when SLA notifications start applying - Bug fixes |
 | [Release notes 29 Apr 2026](/cms_trial/space/TTSC/3192520715/Release+notes+29+April+2026/) | April 29, 2026 | - Bug fixes |
 | [Release notes 22 April 2026](/cms_trial/space/TTSC/3169550410/Release+notes+22+April+2026/) | April 22, 2026 | - Permissions page updates, improved SLA notifier performance, and added more data to Jira Automation payload - Bug fixes |
-| [Release notes 9 April 2026](/cms_trial/space/TTSC/3115484085/Release+notes+9+April+2026/) | April 9, 2026 | - Fixed inaccurate issue filter search results that made some filters hard to find. - Fixed Time to SLA custom fields (e.g., Duration) showing “Failed to load SLA values” instead of SLA information. |
+| [Release notes 9 April 2026](/cms_trial/space/TTSC/3115484085/Release+notes+9+April+2026/) | April 9, 2026 | - Fixed inaccurate issue filter search results that made some filters hard to find. - Fixed Productustom fields (e.g., Duration) showing “Failed to load SLA values” instead of SLA information. |
 | [Release notes 7 April 2026](/cms_trial/space/TTSC/3117219869/Release+notes+7+April+2026/) | April 7, 2026 | - Bug fixes |
 | [Release notes 1 April 2026](/cms_trial/space/TTSC/3087303025/Release+notes+1+April+2026/) | April 1, 2026 | - Improved performance and reliability, including faster SLA configuration/recalculation and optimized SLA calculations. - Enhanced security with better validation for webhooks/notification URLs and fixes to potential data exposure issues. - Resolved bugs, including missing SLA generation (webhook issues), duplicate Slack notifications, and incorrect label display in SLA conditions. |
 | [Release notes 27 February 2026](/cms_trial/space/TTSC/2943975442/Release+notes+27+February+2026/) | February 27, 2026 | - Hotfix for SLA panel not loading |
@@ -36,7 +38,7 @@ This page provides a brief overview of the release notes for individual releases
 | [Release notes 13 January 2026](/cms_trial/space/TTSC/2736619590/Release+notes+13+January+2026/) | January 13, 2026 | - Bug fixes |
 | [Release notes 27 February 2026](/cms_trial/space/TTSC/2943975442/Release+notes+27+February+2026/) | February 27, 2026 | - SLA panel bug fix |
 | [Release notes 31 December 2025](/cms_trial/space/TTSC/2684682323/Release+notes+31+December+2025/) | December 31, 2025 | - Easier access to Dynamic Calendar fields - Bug fixes |
-| [Release notes 17 December 2025](/cms_trial/space/TTSC/2642936116/Release+notes+17+December+2025/) | December 17, 2025 | - Time to SLA is now on Forge |
+| [Release notes 17 December 2025](/cms_trial/space/TTSC/2642936116/Release+notes+17+December+2025/) | December 17, 2025 | - Product is now on Forge |
 | [Release notes 3 December 2025](https://appfire.atlassian.net/wiki/spaces/TTSC/pages/edit-v2/2576780597) | December 3, 2025 | - Announcement: Upcoming Forge-related changes |
 | [Release notes 23 October 2025](/cms_trial/space/TTSC/2518319115/Release+notes+23+October+2025/) | October 23, 2025 | - French translation update - Filter search improvements - Bug fixes |
 | [Release notes 2 October 2025](/cms_trial/space/TTSC/2438594580/Release+notes+2+October+2025/) | October 2, 2025 | - Bug fixes |
