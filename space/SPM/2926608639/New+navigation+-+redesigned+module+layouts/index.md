@@ -126,7 +126,7 @@ The new navigation provides a clearer structure and more intuitive access to key
 
 ![Screenshot of the new navigation changes in the Calendar module.](/cms_trial/assets/c031b679-661b-4b6c-8995-152e452d4b0d.png)
 
-[Reports module](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918502811)
+[Reports module](/cms_trial/space/SPM/1918502811/Reports+module/)
 
 - Features have been reorganized into logical categories to make navigation more intuitive.
 

@@ -81,7 +81,7 @@ Enable the [Resources panel](/cms_trial/space/SPM/1918798033/Resources+panel+in+
 
 To learn more about the default settings for portfolio boxes, see the [Default box type settings](/cms_trial/space/SPM/1918799075/Default+box+type+settings/) page.
 
-### [Available modules](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918503298)
+### [Available modules](/cms_trial/space/SPM/1918503298/Define+available+modules/)
 
 The following modules are available for portfolio boxes by default:
 
@@ -226,7 +226,7 @@ To learn more about the default settings for portfolio boxes, see the [Default b
 
 ### Available modules
 
-The following [modules](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918503298) are available for portfolio boxes by default:
+The following [modules](/cms_trial/space/SPM/1918503298/Define+available+modules/) are available for portfolio boxes by default:
 
 - Overview
 - Gantt

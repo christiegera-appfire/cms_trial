@@ -16,7 +16,7 @@ Learn the basic operations you can carry out in the [Goals module](https://appfi
 
 Goals can be based on Jira work items or created as basic goals that do not sync with Jira and other connected tools, and are defined as Regular or Uncommitted.
 
-[**Read more**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918505418)
+[**Read more**](/cms_trial/space/SPM/1918505418/Goal+types/)
 
 ---
 

@@ -6,7 +6,7 @@ Follow the step-by-step guide for administrators to install the app and set up a
 
 ## Before you start
 
-Verify compatibility and make sure your Jira and Salesforce environments meet the required versions and permissions before installing Connectof for Salesforce & Jira.
+Verify compatibility and make sure your Jira and Salesforce environments meet the required versions and permissions before installing Connector for Salesforce & Jira.
 
 - [Salesforce requirements](/cms_trial/space/CSFJIRA/1873412305/System+and+platform+requirements/)
 - Make sure you have:

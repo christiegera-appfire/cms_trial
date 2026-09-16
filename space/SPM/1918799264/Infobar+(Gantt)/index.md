@@ -16,7 +16,7 @@ The Infobar houses six sections, each providing crucial information about your p
 - [Overdue tasks](/cms_trial/space/SPM/1918834482/Overdue+tasks+(Infobar)/)
 - [Milestones](/cms_trial/space/SPM/1918537479/Milestones/)
 - [Critical path](/cms_trial/space/SPM/1918833710/Critical+path+(Infobar)/)
-- [Change history](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918503025)
+- [Change history](/cms_trial/space/SPM/1918503025/Change+history/)
 - [Bulk change](/cms_trial/space/SPM/1918506627/Bulk+change/)
 - [Reports](/cms_trial/space/SPM/2481848664/Contextual+reports/)
 
@@ -38,7 +38,7 @@ The Infobar houses six sections, each providing crucial information about your p
 - [Overdue tasks](/cms_trial/space/SPM/1918834482/Overdue+tasks+(Infobar)/)
 - [Milestones](/cms_trial/space/SPM/1918537479/Milestones/)
 - [Critical path](/cms_trial/space/SPM/1918833710/Critical+path+(Infobar)/)
-- [Change history](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918503025)
+- [Change history](/cms_trial/space/SPM/1918503025/Change+history/)
 - [Bulk change](/cms_trial/space/SPM/1918506627/Bulk+change/)
 - [Reports](/cms_trial/space/SPM/2481848664/Contextual+reports/)
 

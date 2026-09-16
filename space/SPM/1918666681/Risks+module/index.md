@@ -5,7 +5,7 @@
 Click to expand the guide
 
 **Looking for more advanced risk management?**  
-Try our new **Risk Management** module, which offers enhanced features like customizable templates, multiple risk registers per box, automatic risk score calculation, and advanced risk reporting capabilities. See more on the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918502862> page.
+Try our new **Risk Management** module, which offers enhanced features like customizable templates, multiple risk registers per box, automatic risk score calculation, and advanced risk reporting capabilities. See more on the [Risk management](/cms_trial/space/SPM/1918502862/Risk+management/) page.
 
 ## About the Risks module
 
@@ -18,7 +18,7 @@ The dimensions of the heatmap depend on the number of selected options. The defa
 
 Any issue type can be displayed on the heat map, but to do so, you need to add the **Risk probability** and **Risk consequence** fields to your issue screens first. You can synchronize your risks with other fields.
 
-See more on the [Risks (global configuration)](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918505973) page.
+See more on the [Risks (global configuration)](/cms_trial/space/SPM/1918505973/Risks+(App+configuration)/) page.
 
 ![Screenshot of the Risks module.](/cms_trial/assets/02f0c4d9-29e1-4401-9922-acf443e73fa6.png)
 
@@ -34,7 +34,7 @@ The table presents the main features of the Risks module.
 | [Export](https://appfire.atlassian.net/wiki/spaces/BTc) | To unlock the export features, install BigTemplate from the Atlassian Marketplace.   - XLSX - PDF image  Screenshot of the Export feature in the Risks module. Export is disabled in case there are no risks to be exported. Screenshot of the Export feature unavailable in the Risks module. |
 | [Quick filters](/cms_trial/space/SPM/1918635901/Quick+filters/) | Add your favorite filters to the header and filter the risks from the list and the heat map. |
 | [Date range filter](/cms_trial/space/SPM/1918799022/Date+range+filters/) | Narrow the list of displayed risks to a particular time period using the mapped **Start** and **End date** fields. |
-| [Axis description](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918505973) | You can change the axis description in the App configuration. Jira Admin access is required. |
+| [Axis description](/cms_trial/space/SPM/1918505973/Risks+(App+configuration)/) | You can change the axis description in the App configuration. Jira Admin access is required. |
 | Risk field's values | The module uses the **Select-list** (single-choice) field type, which means you need to preconfigure the select options (Jira admin access is required). |
 | Customizable risk card | The layout of the card can be modified in the box configuration section. |
 | [Search box](/cms_trial/space/SPM/1918407393/Search+box/) | The search box functionality helps you quickly find your interests and filter out unwanted tasks or work. The search box operates in two modes:   - Text search mode, which filters information based on the Jira Summary field. - JQL mode, which filters information using JQL queries.   To clear the search box, delete your search query, press the enter key, or click the magnifying glass button. Screenshot of the search box in the Risks module. |
@@ -54,7 +54,7 @@ The Risks module in the [boxes with no scope](/cms_trial/space/SPM/1918766536/Sc
 Click to expand the guide
 
 **Looking for more advanced risk management?**  
-Try our new **Risk Management** module, which offers enhanced features like customizable templates, multiple risk registers per box, automatic risk score calculation, and advanced risk reporting capabilities. See more on the [Risk management](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918502862) page.
+Try our new **Risk Management** module, which offers enhanced features like customizable templates, multiple risk registers per box, automatic risk score calculation, and advanced risk reporting capabilities. See more on the [Risk management](/cms_trial/space/SPM/1918502862/Risk+management/) page.
 
 ## About the Risks module
 
@@ -67,7 +67,7 @@ The dimensions of the heatmap depend on the number of selected options. The defa
 
 Any work item type can be displayed on the heat map, but to do so, you need to add the **Risk probability** and **Risk consequence** fields to your work item screens first. You can synchronize your risks with other fields.
 
-See more on the [Risks (global configuration)](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918505973) page.
+See more on the [Risks (global configuration)](/cms_trial/space/SPM/1918505973/Risks+(App+configuration)/) page.
 
 ![Screenshot of the Risks module.](/cms_trial/assets/43b98474-1777-4d1b-82fc-3f9a744c4a99.png)
 
@@ -83,7 +83,7 @@ The table presents the main features of the Risks module.
 | [Export](https://appfire.atlassian.net/wiki/spaces/BTc) | To unlock the export features, install BigTemplate from the Atlassian Marketplace.   - XLSX - PDF image  Screenshot of the Export feature in the Risks module. Export is disabled if there are no risks to export. |
 | [Quick filters](/cms_trial/space/SPM/1918635901/Quick+filters/) | Add your favorite filters to the header and filter the risks from the list and the heat map. |
 | [Date range filter](/cms_trial/space/SPM/1918799022/Date+range+filters/) | Narrow the list of displayed risks to a particular time period using the mapped **Start** and **End date** fields. |
-| [Axis description](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918505973) | You can change the axis description in the App configuration. Jira Admin access is required. |
+| [Axis description](/cms_trial/space/SPM/1918505973/Risks+(App+configuration)/) | You can change the axis description in the App configuration. Jira Admin access is required. |
 | Risk field's values | The module uses the **Select-list** (single-choice) field type, which means you need to preconfigure the select options (Jira admin access is required). |
 | Customizable risk card | The layout of the card can be modified in the box configuration section. |
 | [Search box](/cms_trial/space/SPM/1918407393/Search+box/) | The search box functionality helps you quickly find your interests and filter out unwanted tasks or work. The search box operates in two modes:   - Text search mode, which filters information based on the Jira Summary field. - JQL mode, which filters information using JQL queries.   To clear the search box, delete your search query, press the enter key, or click the magnifying glass button. Screenshot of the search box in the Risks module. |

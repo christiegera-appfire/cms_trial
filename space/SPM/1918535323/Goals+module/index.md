@@ -10,7 +10,7 @@ The Goals module is a high-level board based on an agile schedule comprising Pro
 
 You can configure it for Program Increments for a specific duration. Once the board is properly configured, you can set your goals for the coming PI.
 
-There are two [types of goals](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918505418) you can add to the goals board:
+There are two [types of goals](/cms_trial/space/SPM/1918505418/Goal+types/) you can add to the goals board:
 
 - Jira Issue-based goals
 - basic goals
@@ -55,7 +55,7 @@ The Goals module is a high-level board based on an agile schedule comprising Pro
 
 You can configure it for Program Increments for a specific duration. Once the board is properly configured, you can set your goals for the coming PI.
 
-There are two [types of goals](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918505418) you can add to the goals board:
+There are two [types of goals](/cms_trial/space/SPM/1918505418/Goal+types/) you can add to the goals board:
 
 - Jira work item-based goals
 - Basic goals

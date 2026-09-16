@@ -52,7 +52,7 @@ You can track the changes in your tasks in the Gantt module’s Infobar panel. T
 - The reason for a change (for example, the task was moved)
 - The author of the change
 
-[**Read more**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918503025)
+[**Read more**](/cms_trial/space/SPM/1918503025/Change+history/)
 
 ---
 

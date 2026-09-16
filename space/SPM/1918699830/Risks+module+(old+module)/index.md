@@ -1,7 +1,7 @@
 # Risks module (old module)
 
 **Looking for more advanced risk management?**  
-Try our new **Risk Management** module, which offers enhanced features like customizable templates, multiple risk registers per box, automatic risk score calculation, and advanced risk reporting capabilities. See more on the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918502862> page.
+Try our new **Risk Management** module, which offers enhanced features like customizable templates, multiple risk registers per box, automatic risk score calculation, and advanced risk reporting capabilities. See more on the [Risk management](/cms_trial/space/SPM/1918502862/Risk+management/) page.
 
 In this section, you can find information on settings related to Risks module:
 
