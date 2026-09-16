@@ -1,173 +1,105 @@
 # Configure entity, field and value mappings
 
-Before any data can sync between Jira and Salesforce, the two systems need to know which entities belong together. Entity mappings define these relationships, for example, telling the Connector that a Jira task corresponds to a Salesforce case, or that a Jira epic corresponds to a Salesforce opportunity. Once that relationship is established, Jira issues and Salesforce records can be associated and kept in sync.
+Select a template or create your own mappings, then control how Jira work items and Salesforce records synchronize.
 
-From there, field mappings determine how individual fields stay current between the two systems. For example, you can map the description field in Jira to its equivalent in Salesforce.
+Entity mappings define which Jira work item types correspond to which Salesforce object types. Field mappings then define how data moves between their fields. You can also translate values between the two systems so each team can continue using its own terminology.
 
-You can also define value mappings to handle differences in terminology between the two systems, such as mapping Jira's In Progress status to Salesforce's Escalated to Dev, so each team continues working with the values that make sense in their own tool.
-
-This page helps you configure entity mappings, fields, and value mappings for your bindings.
-
-- Configure entity mappings to set up Jira issue types to match the corresponding Salesforce object type.
-- Configure field mappings to set up Jira fields to match the corresponding Salesforce fields.
-- Set up value-to-value mapping for each field mapping and define what should be done in cases not covered by the mappings.
-
-Watch how entity, field, and value mappings work together in practice, including how a description updated in Salesforce automatically appears in the linked Jira task.
-
-Video script
-
-The first video we demonstrated how to view Salesforce data in Jira and view Jira data in Salesforce. In this video, we're gonna manipulate the data between the two.
-
-What that means is if I were to change the description in Jira in Salesforce, so let's go ahead and do that.
-
-This is a whole new description. That is now going to be replicated in Jira. This is an oversimplification of really what it can do amongst all the other fields that may exist within Jira, but this just kind of gives you a quick demonstration of how we can change data and how we can then map these fields to coexist amongst the two different systems.
-
-The way we're going to achieve that is through the binding section. In the app configurations. So again, we're going to go to the app section, go to Connector to Salesforce. Once you get there, you're going to see this bindings connection right here. This is then going to allow you to choose a binding, which ultimately allows you to map a project to a Salesforce instance.
-
-So in this particular instance, I have four projects connected to one single Salesforce instance, so that users within Salesforce can create tickets into four separate projects within Jira. For this demonstration, I'm going to go into the Jira integration plus demo and go to this Mappings button. Once in here, this is going to bring up the different values that you can configure, the field values that you can configure, from an issue type to a Salesforce object. So in this demonstration, you can choose in this entity mapping. What Salesforce object and what type of ticket you ultimately want to be creating in Jira. So you can see I have a case that for this Jira integration plus demo project can create a task, a case can create an epic and a case can create a bug. But if you want only accounts to create tasks and maybe an account that can only create a feature enhancements as well, you're going to be able to set that criteria up.
-
-Then if we go deeper into the configurations we dig in one more level, Case to task. Let's go ahead and go to this Mappings.
-
-This is where you're going to be able to choose how you want the data to synchronize between the two systems.
-
-If you want the summary to change, when I have the value and your change, It will change the value in Salesforce. It will. If I then change the value in Salesforce, but this arrow is not turned on, it's not going to change the value in Jira.
-
-So there are some values that you're going to want to have bidirectional, and some values that you're only going to want to have one way.
-
-You'll be able to configure these mappings any way you want, but there is some compatibility matrix, matrix documentation that you will need to review to ensure that the field is compatible in Salesforce with the, field in Jira.
-
-Additionally, there are, some additional settings that exist in these fields for, value mapping. So, In progress, in Jira means something else, In review within Salesforce. So you can go very granular in each of these configurations, but ultimately, at the highest level, you're gonna be able to have whichever data and field that exists in Salesforce, change it in Jira, or vice versa, through this configuration Bindings that you can set up within the app settings.
-
-If you have any more questions about this, please go ahead and raise a support ticket with our team.
-
-We'd be happy to help. Thanks.
+Choose a starting point: use a template for a preconfigured common workflow, or create mappings from scratch for a custom use case. Templates remain customizable after you select them.
 
 ## Before you start
 
 Make sure you have:
 
-- Administrator rights in Jira - only administrators can set up the mappings
-- Added all required Salesforce objects to be available in Jira, see more [Available Salesforce objects](/cms_trial/space/CSFJIRA/1853653945/Configure+connection+settings/).
+- Jira administrator rights. Only administrators can configure mappings.
+- The required Salesforce objects available in Jira. [Configure available Salesforce objects](/cms_trial/space/CSFJIRA/1873379599/Set+up+a+connection+to+Salesforce+(Jira+Cloud)/) before you map them.
+- A binding between the Jira project and a Salesforce connection. Learn about [bindings](/cms_trial/space/CSFJIRA/1873379785/Bind+a+space+to+a+connection+(Jira+Cloud)/).
+- Compatible Jira and Salesforce field types. Check [field type compatibility](/cms_trial/space/CSFJIRA/1522369149/Jira+field+type+to+Salesforce+field+type+compatibility/) before adding field mappings.
 
-- Created a [Binding between a project and a connection](/cms_trial/space/CSFJIRA/1873379785/Bind+a+space+to+a+connection+(Jira+Cloud)/).
+### **Open the mapping configuration**
 
-To find out what Jira field types are compatible with Salesforce field types, visit the [Jira Field Type to Salesforce Field Type compatibility](/cms_trial/space/CSFJIRA/1522369149/Jira+field+type+to+Salesforce+field+type+compatibility/) page.
+To reach the mapping options:
 
-## Step 1: Configure entity mappings
+1. In Jira, select **Apps** from the left sidebar.
+2. Next to **Connector for Salesforce**, select **Menu** (▢)> **App settings**.
+3. Under **Connector for Salesforce**, select **Bindings**.
+4. For the binding you want to configure, click **Menu** (▢)> **Edit**.
 
-1. Select **Apps** from the left sidebar in Jira.
-2. Next to *Connector for Salesforce,* click **Menu** (▢) > **App settings**.
+## Select how to create mappings
 
-   ![App settings](/cms_trial/assets/04b192eb-dfca-472c-9373-fce967fb45be.png)
+Both methods lead to the same mapping configuration. The difference is how much of the initial setup the Connector provides.
 
-1. Under *Connector for Salesforce*, click **Bindings**.
-2. On the *Bindings* window, choose the binding to configure and click **Mapping**.
+| Option | Best for | What you configure |
+| --- | --- | --- |
+| **Use template** | A supported, common workflow where you want a faster starting point. | Review the preconfigured entity, field, sync-direction, and value mappings. Add or adjust mappings as needed. |
+| **Create from scratch** | A custom Jira work item type, Salesforce object, or workflow that does not match a template. | Select every entity pair and field pair, then set sync direction, default handling, and value mappings. |
 
-   ![bindings window](/cms_trial/assets/9ce7fd87-6e0c-4b81-a3fa-742724a94584.png)
-3. On the *Mapping Configuration* window, click **+Add Entity Mapping**.  
-   (Alternatively, if you have a previously exported entity mapping, you can also **Import** it here.)
+Available templates: **Bug escalation**, **Feature requests**, **Deal enablement**, and **Deal & feature sync**. A template provides an initial configuration with entity, field, and value mappings. See [Configure entity and field mappings with templates](/cms_trial/space/CSFJIRA/3664152459/Configure+entity+and+field+mappings+from+templates/) for guidance.
 
-   ![add entity mapping ](/cms_trial/assets/0248b0b4-8475-4e90-8211-9bd6b3601b67.png)
+## Configuration options
 
-   The *Add Entity Mapping* window appears.
+The following options are available whether you begin with a template or create mappings from scratch.
 
-   ![Add Entity Mapping window](/cms_trial/assets/344b781b-9e69-4f1d-aac1-30b789784544.png)
-4. Select the **Issue Type** you want mapped to specific **Salesforce Objects**.  
-   For example, select a task for the Jira issue type and a case for the Salesforce object types to allow associating Jira tasks with Salesforce case records.
-5. Click **Add**.
+### Entity mappings
 
-## Step 2: Configure field mappings
+An entity mapping links one Jira work item type with one Salesforce object type. For example, you can map a Jira Bug to a Salesforce Case, or a custom Technical debt work item type to a Case.
 
-1. On the *Mapping Configuration* window, click **Mappings** for the entity you created.
+| Option | Description |
+| --- | --- |
+| Jira work item type | The Jira type that participates in the workflow. |
+| Salesforce object type | The corresponding Salesforce object made available through the connection settings. |
+| Additional entity mappings | Add more entity pairs when the binding needs to support multiple workflows. |
 
-   ![Mappings option](/cms_trial/assets/4202f299-bac4-4a8e-8e28-98b15bf132ce.png)
+### Field mappings
 
-   The *Story to Case field mappings* window appears.
+A field mapping links a Jira field to a compatible Salesforce field within an entity mapping. It determines which data can stay current between the two systems.
 
-   ![field mapping window](/cms_trial/assets/f0c438d0-d1b1-4230-97ea-61d7ed53f5e4.png)
-2. Choose the **Jira Fields** that match the corresponding **Salesforce Field**.  
-   You can customize the **Sync Direction** (inbound or outbound) by clicking the green arrow buttons.  
-   The example below matches the *Summary* **Jira Issue Field** to the *Subject* **Salesforce Field** and the *Description* **Jira Issue Field** to the *Description* **Salesforce Field**:
+| Option | Description |
+| --- | --- |
+| Field pair | The Jira field and its Salesforce counterpart, such as Summary and Subject. |
+| Compatibility | Map only compatible field types. Incompatible field types may not synchronize correctly. |
+| Configuration | Open a field mapping's menu and select Configure to define default handling and specific value mappings. |
 
-   ![field mapping for story to case](/cms_trial/assets/70f3b15a-08db-426d-b2e2-c175059ba765.png)
-3. Click **Add**.
-4. Click **Save**.
+### Sync direction
 
-## Step 3: Set default value
+Sync direction controls which system can send updates through a field mapping. Use the arrow controls on the field mapping to set one of these behaviors:
 
-Before synchronizing data between Jira and Salesforce, decide how to handle field values not covered by the mapping. Setting default values and actions lets you choose whether you want to copy the original value, force a custom value, leave it empty (if allowed), or raise an error to ensure all field values are synchronized according to your needs. Choose one of the following options:
+| Direction | Data flow | Use when |
+| --- | --- | --- |
+| Bidirectional | Jira ↔ Salesforce | Updates made in either system should update the other system. This is the default behavior. |
+| Inbound only | Salesforce → Jira | Salesforce is the source of truth for the mapped field. |
+| Outbound only | Jira → Salesforce | Jira is the source of truth for the mapped field. |
 
-- **Copy value**:Connector copies and uses the original field value from the source to the destination system. (This is the default option.)   
-  For example, if you want Jira issue status to match their equivalents in Salesforce, this option ensures that a Jira issue with the *In Progress* status is set to *In Progress* in Salesforce.
-- **Set value**: Connector assigns a predefined value of your choice for the field.   
-  For example, if you want all Jira issues to have *UI* as their component in Salesforce, regardless of their original component, you can set *UI* as a default component in Salesforce. This ensures consistent categorization of Jira issues in Salesforce.
-- **Set empty**: Connector sets the field value to empty. This option is not available for required fields that need to have their value set.
-- **Raise error**: Connector raises an error, and synchronization fails.
+### Default handling for unmapped values
 
-When creating a Jira issue from Salesforce, field values are filled based on the mapping or default values you’ve set. However, there’s one exception—Priority.
+For each side of a field mapping, choose what happens when an incoming value is not covered by a specific value mapping:
 
-Jira doesn’t allow the Priority field to be empty, so it always has a default value set. If the Priority field is empty in Salesforce, the value is populated with the Jira default priority instead of the one set in the Connector for Salesforce & Jira. The correct Priority value, as configured in the Connector, will only synchronize after pushing from Salesforce.
+| Option | Description |
+| --- | --- |
+| Copy value | Copy the source value to the destination field. This is the default option. |
+| Set value | Use a predefined value that you enter, regardless of the incoming value. |
+| Set empty | Leave the destination field empty. Not available for required fields. |
+| Raise error | Stop synchronization and report an error instead of applying an unmatched value. |
 
-To define default values:
+Jira does not allow Priority to be empty. When a Jira work item is created from Salesforce and Salesforce Priority is empty, Jira uses its own default priority rather than the Connector's configured default. The Connector's configured Priority value is applied only after a later push from Salesforce.
 
-1. Click **Configure** next to the selected Jira and Salesforce Field mapping.
+### Value mappings
 
-   ![configure window](/cms_trial/assets/e5158b7c-f36f-47df-90b7-1d11c079dabf.png)
-2. Select a **Jira** **default** and **Salesforce default** value:
+Value mappings translate specific values when Jira and Salesforce use different terminology. For example, you can map Jira priority Highest to Salesforce priority Critical, or Jira component UI to Salesforce Case Reason User Interface.
 
-   - **Copy value**
-   - **Set value** (requires entering your preferred value)
-   - **Set empty**
-   - **Raise error**
+| Option | Description |
+| --- | --- |
+| Mapped values | The Jira and Salesforce values that should correspond. |
+| Unmapped values | Handled by the default handling option selected for that field mapping. |
+| User fields | When the Jira field is a user type, select from the available Jira users; the value maps to the corresponding Salesforce user record. |
+| Different mappings by direction | Inbound-only and outbound-only records for the same field pair can use different value mappings in each direction, supporting one-to-many value relationships. |
 
-     ![default  value](/cms_trial/assets/d2482a6f-5c79-4304-a882-dd095af19640.png)
-3. Click **Save**.
+## Related pages
 
-## Step 4: Configure value mappings
+- [Configure entity and field mappings with templates](/cms_trial/space/CSFJIRA/3664152459/Configure+entity+and+field+mappings+from+templates/)
+- [Configure entity and field mappings from scratch](/cms_trial/space/CSFJIRA/3664152584/Configure+entity+and+field+mappings+from+scratch/)
 
-Additionally, you can define specific value mapping to match Jira and Salesforce field values. For example:
-
-- Mapping the Jira status *In Progress* with Salesforce Status *Escalated to Dev*.
-- Mapping the Jira priority *Major* with Salesforce priority *High*.
-- Mapping the Jira component *UI* with Salesforce Case Reason *User Interface*.
-
-If the value is not mapped, Connector for Salesforce & Jira continues according to the defined [default values](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field+and+value+mappings/).
-
-To map field values:
-
-1. From Step 2, select the **Sync direction** (inbound or outbound) desired for the field mapping.
-
-   ![Sync direction](/cms_trial/assets/2c0c111a-c0f0-49b9-8e5f-d3250ea896c5.png)
-2. Click **Configure.**
-3. Under *Configure values*, enter the Jira and Salesforce values accordingly.
-
-   ![configure value.png](/cms_trial/assets/b1db27bc-09b4-4769-a130-05c6eda613f6.png)
-4. If the value of the Jira field is the User type, then select available Jira users from the dropdown list.
-
-   ![reporter.png](/cms_trial/assets/765d6235-472a-450d-8bd9-f628244182f4.png)
-5. Click **Add**.
-6. Click **Save**.
-
-## Step 5: Create inbound-only or outbound-only mappings
-
-By default, a field mapping applies in both directions: a change in Jira updates Salesforce, and a change in Salesforce updates Jira. However, some fields may need to flow in one direction only. For example, you may want agents to update case descriptions in Salesforce without those changes overwriting content in Jira, or the other way around. You can also configure separate value mappings for each direction (inbound or outbound). This also lets you map values in a one-to-many relationship. Create two records for the same field, one for each direction, and then proceed with configuring the value mappings.
-
-For example:
-
-1. Map **Components** Jira field to **Case Reason** Salesforce field separately for each direction (inbound or outbound).
-
-   ![Sync direction.png](/cms_trial/assets/2c0c111a-c0f0-49b9-8e5f-d3250ea896c5.png)
-2. For inbound-only mapping, map, for example, **UI** Jira task value with the **User Interface** Case Reason Salesforce value.
-
-   Image — asset pipeline pending  
-   contentId-1854180614
-3. For outbound-only mapping, map, for example, **Installation** Jira task value with the **Packaging** Case Reason Salesforce value.
-
-   Image — asset pipeline pending  
-   contentId-1854180614
-
-## Related information
-
-- [Associate a Salesforce record from Jira](/cms_trial/space/CSFJIRA/3092284964/Associate+a+Salesforce+record+from+Jira/)
-- [Change the reporter and assignee of an issue](/cms_trial/space/CSFJIRA/1858371793/Change+the+Reporter+and+Assignee+of+an+issue/)
-- [Jira field type to Salesforce field type compatibility](https://apps.appf.re/sfjc/doc/mapping-matrix)
+- [Configure field displays and access the Details screen](/cms_trial/space/CSFJIRA/1873511110/Configure+field+displays+and+access+the+Details+screen/)
+- [Import value mappings](/cms_trial/space/CSFJIRA/1873347626/Import+value+mappings/)
+- [Configuring Jira cascading fields to work with Salesforce dependent fields](/cms_trial/space/CSFJIRA/1873413246/Configuring+Jira+cascading+fields+to+work+with+Salesforce+dependent+fields/)
+- [Jira field type to Salesforce field type compatibility](/cms_trial/space/CSFJIRA/1522369149/Jira+field+type+to+Salesforce+field+type+compatibility/)
+- [Change the Reporter and Assignee of an issue](/cms_trial/space/CSFJIRA/1858371793/Change+the+Reporter+and+Assignee+of+an+issue/)

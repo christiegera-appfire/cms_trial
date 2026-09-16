@@ -7,7 +7,7 @@ This guide helps administrators configure all the settings available for a Conne
 Make sure you have:
 
 - Administrator rights in Jira - only administrators can set up the integration
-- [Set up your integration to Salesforce in Jira](/cms_trial/space/CSFJIRA/1873412559/Set+up+your+integration+in+Jira/)
+- [Set up your integration to Salesforce in Jira](/cms_trial/space/CSFJIRA/1873412559/Set+up+your+integration/)
 
 ## Access the configuration settings
 

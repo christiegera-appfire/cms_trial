@@ -4,6 +4,7 @@ We have a short release lifecycle so that we can always try to improve our produ
 
 | **Title** | **Highlights** | **Platform** | **Release date** |
 | --- | --- | --- | --- |
+| [Release notes 16 September 2026](/cms_trial/space/CSFJIRA/3663724562/Release+notes+16+September+2026/) | - New guided onboarding experience - Improved entity and field mapping view - Entity and field mapping templates - Configuration testing after setup | Jira Cloud | September 16, 2026 |
 | [Release notes 15 September 2026](/cms_trial/space/CSFJIRA/3664150531/Release+notes+15+September+2026/) | - Security enhancements | Jira Cloud | September 15, 2026 |
 | [Release notes 7 September 2026](/cms_trial/space/CSFJIRA/3566829572/Release+notes+7+September+2026/) | - Automatically create Jira work items from Salesforce Flows - Improved tag filtering for Jira and Salesforce comments | SALESFORCE  Jira Cloud | September 8, 2026 |
 | [Release notes 20 August 2026](https://support.appfire.com/space/CSFJIRA/3536323119/Release+notes+20+August+2026) | - Minor performance improvements | Jira Cloud | August 20, 2026 |

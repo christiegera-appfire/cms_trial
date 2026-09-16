@@ -8,8 +8,8 @@ Make sure you have:
 
 - Administrator rights in Salesforce - only administrators can set up the integration
 - [Installed the Connector app in Jira](/cms_trial/space/CSFJIRA/1873412370/Install+the+Connector+in+Jira+Cloud/)
-- [Set up your integration in Jira](/cms_trial/space/CSFJIRA/1873412559/Set+up+your+integration+in+Jira/)
-- [Installed the Jira for Saleseforce package in Saleseforce](/cms_trial/space/CSFJIRA/1758232704/Install+the+Salesforce+package+in+Salesforce/).
+- [Set up your integration in Jira](/cms_trial/space/CSFJIRA/1873412559/Set+up+your+integration/)
+- [Installed the Jira for Salesforce package in Salesforce](/cms_trial/space/CSFJIRA/1758232704/Install+the+Salesforce+package+in+Salesforce/).
 - [Added the remote site](/cms_trial/space/CSFJIRA/1873412619/Add+new+remote+site/)
 
 ## Configuration
@@ -24,10 +24,10 @@ Make sure you have:
    Keep this page open so you can return to it once you generate a Jira access token.
 5. Open your Jira administrator page.
 6. Navigate to **Jira** > **Apps** > **Salesforce**.
-7. Choose your **Connection**, then click **Menu** (▢)> **API Access Token.**
+7. Choose your **Connection**, then click **Menu** (▢)> **API Access Token**.
 
-   ![API Access Token option for Salesforce connections](/cms_trial/assets/dbe06401-c8ab-4040-a5d3-623c616d1dd9.png)
-8. The *API Access Token*dialog window appears with the **Salesforce access token.**
+   ![API Access Token](/cms_trial/assets/a0941ade-7e4c-4464-b1a7-872738e55f3c.png)
+8. The *API Access Token*dialog window appears with the **Salesforce access token**.
 
    ![Salesforce access token shown in the API Access Token page.](/cms_trial/assets/f6a693f8-922d-4262-8eba-36fd97eb82f4.png)
 9. Copy the **Salesforce Access Token** and go back to the *Jira Cloud for Salesforce* package configuration screen you kept open from *Step 4*.
@@ -43,6 +43,4 @@ Make sure you have:
 
 ## Next steps
 
-- [Configure Lightning Experience components](/cms_trial/space/CSFJIRA/1873969162/Configure+Lightning+Experience+components/)
-- [Configure settings in Salesforce](/cms_trial/space/CSFJIRA/1873740170/Configure+settings+in+Salesforce/)
-- If you are using Salesforce Classic, see: [Configure Visualforce components](/cms_trial/space/CSFJIRA/1873445794/Configure+Visualforce+components/)
+- [Configure Salesforce record page to view Jira details directly in Salesforce](/cms_trial/space/CSFJIRA/3608707174/Configure+Salesforce+record+page+to+view+Jira+details+directly+in+Salesforce/)

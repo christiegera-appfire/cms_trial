@@ -9,7 +9,7 @@ Make sure you have:
 
 - Administrator rights in Salesforce - only administrators can set up the integration
 - [Installed the Connector app in Jira](/cms_trial/space/CSFJIRA/1873412370/Install+the+Connector+in+Jira+Cloud/)
-- [Set up your integration in Jira](/cms_trial/space/CSFJIRA/1873412559/Set+up+your+integration+in+Jira/)
+- [Set up your integration in Jira](/cms_trial/space/CSFJIRA/1873412559/Set+up+your+integration/)
 - [Installed the Jira for Salesforce package in Salesforce](/cms_trial/space/CSFJIRA/1758232704/Install+the+Salesforce+package+in+Salesforce/)
 
 ### Configuration

@@ -8,5 +8,5 @@ To fully work with Connector for Salesforce & Jira, install the app in your Jira
 
 ## Next steps
 
-- [Set up your integration in Jira Cloud](/cms_trial/space/CSFJIRA/1873412559/Set+up+your+integration+in+Jira/)
+- [Set up your integration in Jira Cloud](/cms_trial/space/CSFJIRA/1873412559/Set+up+your+integration/)
 - [Set up your integration in Salesforce](/cms_trial/space/CSFJIRA/1873772649/Set+up+your+integration+in+Salesforce/)

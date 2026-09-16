@@ -6,41 +6,52 @@ A connection links a Jira instance to a Salesforce org, allowing the two systems
 
 Make sure you have:
 
-- Administrator rights in Jira - only administrators can set up the integration
+- Administrator rights in Jira - only administrators can set up the integration.
+- [Installed the Connector in Jira Cloud](/cms_trial/space/CSFJIRA/1873412370/Install+the+Connector+in+Jira+Cloud/).
 
-- [Installed the Connector in Jira](/cms_trial/space/CSFJIRA/1873412370/Install+the+Connector+in+Jira+Cloud/).
+## Create a new connection
 
-## Follow the steps to set up integration in Jira
+Establish the initial authorization between Jira and Salesforce.
 
 1. Select **Apps** from the left sidebar in Jira.
-2. Next to *Connector for Salesforce,* click **Menu** (▢) > **App settings**.
+2. Next to *Connector for Salesforce and Jira,* click **Menu** (▢) > **App settings**.
 
-   Image — asset pipeline pending  
-   Appsettings.png
-3. Under *Connector for Salesforce*, click **Connections**.
-4. At the **Salesforce Connections** screen, click **+Add Connection**.   
-   If this is your first connection, the *Connect with Salesforce* panel appears, providing a brief explanation of the step and a link to more information. You can also click **+Add connection** here to open the *Authorize Connection* dialog.
+   ![Appsettings.png](/cms_trial/assets/e8968385-0970-4ffa-9544-95be1ca105c8.png)
+3. Under *Connector for Salesforce and Jira*, click **Connections**.
+4. Click **+Connection**.
 
-   ![connector-add-connection.png](/cms_trial/assets/aa16dbf1-2b83-4d56-bad3-465caeab6f48.png)
+   ![image-20260915-082549.png](/cms_trial/assets/023e9cd0-3568-4865-8c91-4ae70cea2582.png)
+5. Enter a **Connection name** (for example, *My connection*).
 
-   The *Authorize Connection* dialog appears.
+   ![Connection name ](/cms_trial/assets/3698e10b-5f65-4413-8c44-97d8f74fe97f.png)
+6. Select your *Salesforce environment* by choosing either **Production** or **Sandbox** as the Salesforce instance environment type.
+7. Click **Authorize and continue** to authenticate with Salesforce.
 
-   ![connector-auth-connection.png](/cms_trial/assets/daeac981-4296-4c89-bef4-607edb268a61.png)
-5. Enter a **Connection Name**, and select **Production** or **Sandbox** as the Salesforce instance environment type**.** Click **Authorize**.
+   ![Authorize and continue](/cms_trial/assets/bd05d1f1-dd1d-43a4-90f4-518fbbc300c1.png)
 
-   If you're not logged into Salesforce, the browser loads a new Salesforce login page and prompts you to enter your Salesforce credentials.
-6. When the authorization is successful, you can import the compact layout fields from Salesforce. This quickly pre-populates the objects and fields available through the connection.  
-   This step is optional; you can always [configure](/cms_trial/space/CSFJIRA/1873347420/Configure+Salesforce+objects+and+fields+in+connection+search+results/) it later.
-7. Click **Import** to proceed.
+   If you're not logged into Salesforce, the browser loads a new Salesforce login page and prompts you to enter your Salesforce credentials.  
+   When the authorization is successful, the *Status* changes to authorized.
 
-   ![Import Contact layouts window](/cms_trial/assets/a6e443cd-7ced-4c1b-a359-135d607e9778.png)
-8. When the authorization is successful, the *Status* changes to authorized.
+Make sure your Salesforce account has object and layout permissions. For details, see [How to set object permissions in profiles for a Salesforce user?](https://appfire.atlassian.net/wiki/x/wAVLu) If authorization fails, you can click **Retry authorization**.
 
-![contentId-1873379599](/cms_trial/assets/a9f2f94d-0ce3-4af1-9428-d367ddfa3450.png)
+## Import Salesforce object types and fields
+
+Once authorization is complete, the *Importing* step opens. Here, you can import the compact layout fields from Salesforce. Decide on Salesforce object types you want to have available in Jira. Based on these settings, you can later associate and synchronize data. This quickly pre-populates the objects and fields available through the connection.
+
+1. Select the checkboxes for the Salesforce object types you want to import (for example, Case, Account, and Opportunity).
+
+   ![object types you want to import](/cms_trial/assets/7c6173e2-a071-4fa9-9414-4064398639c1.png)
+2. Click **Save and continue** to finalize the setup.  
+   Your new connection now appears in your *Connections* list with the authorized status.
+
+   ![Connections list ](/cms_trial/assets/e41ce26e-4863-4a5e-99ca-981ac2dfa33c.png)
+
+Later, you can always add more Salesforce objects and configure details for your connection (notifications, attachments, comments, query, presets, rich text). For details, see [Configure connection settings](/cms_trial/space/CSFJIRA/1853653945/Configure+connection+settings/).
+
+1. Follow the next steps to set up bidirectional sync in Salesforce and bindings to complete your configuration.
 
 ## Next steps
 
-To complete your integration, follow the steps:
-
-- [Bind a Jira Project space a Salesforce Connection](/cms_trial/space/CSFJIRA/1873379785/Bind+a+space+to+a+connection+(Jira+Cloud)/) (Jira Cloud)
-- [Configure connection search results](/cms_trial/space/CSFJIRA/1873347420/Configure+Salesforce+objects+and+fields+in+connection+search+results/)
+- (Optional) Configure the connection's object access, sync rules, notifications, and defaults for how Jira work items and Salesforce records link and update [Configure connection settings](/cms_trial/space/CSFJIRA/1853653945/Configure+connection+settings/).
+- To enable bi-directional data sync and viewing Jira data in Salesforce, you need to [set up your integration in Salesforce](/cms_trial/space/CSFJIRA/1873772649/Set+up+your+integration+in+Salesforce/).
+- Before you can associate Jira work items with Salesforce records and synchronize them, bind a Jira space to a connection [Bind a Jira Project space a Salesforce Connection](/cms_trial/space/CSFJIRA/1873379785/Bind+a+space+to+a+connection+(Jira+Cloud)/).

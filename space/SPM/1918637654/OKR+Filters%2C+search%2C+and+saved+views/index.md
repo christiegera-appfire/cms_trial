@@ -8,7 +8,7 @@ In the OKR module, you can customize your current view for greater flexibility a
 
 ## Modify the current view
 
-![okr-header-2.png](/cms_trial/assets/225b3751-d912-4254-b448-cc73c025bd1a.png)
+![okr-header-2.png](/cms_trial/assets/5cb47468-92a0-4321-99da-f600b512f9e5.png)
 
 Your current view can be modified in the following ways:
 
@@ -22,13 +22,13 @@ Your current view can be modified in the following ways:
 
 ### OKR Period
 
-![Period selector. The Q3 Y2025 is selected.](/cms_trial/assets/fdb0cd9d-0424-4bd6-8225-41dd9968e955.png)
+![Period selector. The Q3 Y2025 is selected.](/cms_trial/assets/ee241f0e-5d42-4d9c-9cd5-0e4b2db04367.png)
 
-The period selector lets you select a period from the list to display OKRs planned for that period, for example, Q3 Y2025. The period you select is shown in the selector heading.
+The period selector lets you select a period from the list to display OKRs planned for that period, for example, Q3 Y2025. The selector heading shows the period you select.
 
 The period you select displays matching OKRs on the Overview, Hierarchy, and Progress Dashboard pages.
 
-Use **x** on or next to the selected period to clear it. Alternatively, clear the period on the list.
+Use **X** on or next to the selected period to clear it. Alternatively, clear the period on the list.
 
 ### Filters
 
@@ -40,7 +40,7 @@ Use **x** on or next to the selected filter value to clear it. Alternatively, cl
 
 You can filter each individual column by its respective value. Click the **filter icon** ▢ on a column and then, depending on the column type, check or enter a value.
 
-![OKR column filter.](/cms_trial/assets/2c4fd9bb-0ae9-4130-b3c6-9747369eed5a.png)
+![OKR column filter.](/cms_trial/assets/e97e640c-e7f1-4929-b8b1-b549a2ae7702.png)
 
 Column filters are available only on the *Overview* page. Each active filter on a column is counted, and the total number is displayed directly on the column.
 
@@ -54,13 +54,13 @@ The only exception is the **Period** filter. This one only appears as a column f
 
 | **Period filter** | **Filters** | **Column filters** |
 | --- | --- | --- |
-| - Period | - Owner - Teams - Labels - OKR type - Progress - Collaborators - Status - Weight - Latest Update - Days since last update - Date of last update - Expected start date - Expected end date - Start Value - Current Value - Target Value - Grade | - Period - Owner - Teams - Labels - OKR type - Progress - Collaborators - Status - Weight - Latest Update - Days since last update - Date of last update - Expected start date - Expected end date - Start Value - Current Value - Target Value - Grade |
+| - Period | - Owner - Teams - Labels (mul - OKR type - Progress - Collaborators - Status - Weight - Latest Update - Days since last update - Date of last update - Expected start date - Expected end date - Start Value - Current Value - Target Value - Grade | - Period - Owner - Teams - Labels - OKR type - Progress - Collaborators - Status    - You can additionally filter OKRs that have missed their latest milestone. - Weight - Latest Update - Days since last update - Date of last update - Expected start date - Expected end date - Start Value - Current Value - Target Value - Grade |
 
 ### View
 
 The **View** options control the OKRs and connected items visibility on the Overview page.
 
-![A dropdown under the View button on the OKR Overview page.](/cms_trial/assets/526de993-4818-4230-9e26-23bf113b5b0f.png)
+![A dropdown under the View button on the OKR Overview page.](/cms_trial/assets/e11cd8bb-ec5f-4c08-8254-cafb7fffc4a8.png)
 
 #### Show
 
@@ -89,7 +89,7 @@ The **plus icon** at the end of the column layout opens a separate panel that di
 
 The **OKR Name** column includes a search bar that lets you find a specific OKR by name. You can search a column only on the Overview page.
 
-![search bar on the okr name column.](/cms_trial/assets/dd49ef1d-b18c-4180-8c0e-cc637d6114b3.png)
+![search bar on the okr name column.](/cms_trial/assets/076cbc3e-942b-41ae-ace8-987db318509a.png)
 
 ### Sort a column
 
@@ -117,7 +117,7 @@ To save your new view:
 2. On the **Create New view** modal,enter your new view name.
 3. Click **Save** to finish the process.
 
-![okr-save-view.png](/cms_trial/assets/e4ee1250-837b-4359-b62f-5386138d2cfd.png)
+![okr-save-view.png](/cms_trial/assets/62e52151-1fbe-41ff-bc72-26bbff823902.png)
 
 ### Overwrite the view
 
@@ -132,7 +132,7 @@ Click the arrow next to the **Save as new view** button to save the changes to t
 
 The view switcher lets you navigate between the default and [saved views](https://appfire.atlassian.net/wiki/spaces/SPMDRAFT/pages/1673593469/OKR+Filters+search+and+saved+views#Save-OKR-views) in the OKR module. It also lets you search, star (add to favorites), delete, edit, and share selected views.
 
-![OKR view switcher expanded.](/cms_trial/assets/397a99ea-fec5-4070-a9a5-6bd7f17cd4b0.png)
+![OKR view switcher expanded.](/cms_trial/assets/d2c874ef-90e7-466f-8408-0a47d1bc9ee5.png)
 
 The view switcher consists of the following elements:
 

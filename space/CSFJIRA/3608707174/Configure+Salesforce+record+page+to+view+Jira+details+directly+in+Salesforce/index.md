@@ -10,7 +10,7 @@ Make sure you have:
 
 - [Installed the Salesforce package](/cms_trial/space/CSFJIRA/1758232704/Install+the+Salesforce+package+in+Salesforce/)
 - [Configured a connection](/cms_trial/space/CSFJIRA/1873346949/Set+up+a+connection+to+Jira/)
-- [Configured Salesforce subdomain](https://help.salesforce.com/articleView?id=domain_name_overview.htm&type=5)
+- [Configured a Salesforce subdomain](https://help.salesforce.com/articleView?id=domain_name_overview.htm&type=5)
 - Published the Salesforce domain
 
 If the Salesforce domain has not been published, custom components will not be displayed in the *Edit Page* section.
@@ -30,3 +30,7 @@ If the Salesforce domain has not been published, custom components will not be d
 
    ![Activation.png](/cms_trial/assets/432ff1c7-06ae-48fc-b1db-e526d0a6b461.png)
 6. When you're done setting the page assignment, click **Save**.
+
+## Next
+
+- Go back to Jira to create bindings [Bind a space to a connection (Jira Cloud)](/cms_trial/space/CSFJIRA/1873379785/Bind+a+space+to+a+connection+(Jira+Cloud)/).

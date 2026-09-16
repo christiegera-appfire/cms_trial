@@ -7,7 +7,7 @@ Jira admins can filter Salesforce and Jira comments using hashtags (for example,
 Make sure you have:
 
 - Administrator rights in Jira - only administrators can set up the integration
-- [Set up your integration to Salesforce in Jira](/cms_trial/space/CSFJIRA/1873412559/Set+up+your+integration+in+Jira/)
+- [Set up your integration to Salesforce in Jira](/cms_trial/space/CSFJIRA/1873412559/Set+up+your+integration/)
 
 ## Add hashtag filters in Jira
 

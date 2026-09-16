@@ -4,49 +4,81 @@
 
 This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
 
-The OKR details side panel displays basic info about the selected OKR (Strategic Theme, Objective, or Key Result). With the OKR details side panel, you can:
-
-- View OKR details, progress, comments, and updates.
-- Add new updates or comment on existing ones.
-- Create new OKRs for the selected parent items.
-- Create or [link Jira work items to Key Results](/cms_trial/space/SPM/1918507296/Link+work+items+to+Key+Results/).
-- [Link boxes to Key Results](/cms_trial/space/SPM/2229665803/Link+boxes+to+Key+Results/).
+The OKR Details side panel displays basic info about the selected OKR (Strategic Theme, Objective, and Key Result). This panel is a contextual mini version of the [*OKR Details*](/cms_trial/space/SPM/1918536390/OKR+details+page/) page, **Progress** tab.
 
 ## Access and security
 
 For the OKR details side panel to appear, you must enable it in the **View** settings.
 
-Anyone with [basic permission](/cms_trial/space/SPM/1918765815/OKR+module+permissions/) to view OKRs can view OKR details in the OKR details side panel.
+Anyone with [basic permission](/cms_trial/space/SPM/1918765815/OKR+module+permissions/) to view OKRs can view OKR details in the OKR Details side panel.
 
-To open the side panel, click the OKR in the column view. The panel for the selected OKR will appear on the right side of the screen.
+To open the side panel, click the **Name** column (anywhere but the inline edit icon). The selected OKR panel appears on the right side of the screen.
 
-![okr-side-panel.png](/cms_trial/assets/73f3ad12-c8ed-4121-a3e7-4fc134eb6afc.png)
+![OKR Details side panel](/cms_trial/assets/49e6d2b3-782c-4379-b897-6680212410ec.png)
 
-## Actions on the OKR side panel
+The side panel consists of the following:
 
-### View OKR progress and updates
+- Key, status, action buttons, summary, and description.
+- Progress chart.
+- Details.
+- Activity.
 
-The side panel’s main body displays the Objective or Key Result details, including its key, name, progress, updates, and comments on the updates.
+## OKR Details side panel
 
-The data displayed in the side panel cannot be edited inline, but you can [comment on the OKR update](/cms_trial/space/SPM/1918670327/Comment+OKR+update/) directly in the panel.
+The side panel’s body displays OKR details, progress chart, and activities (updates and comments).
 
-Mouse over the dot along the X-axis of the chart in the **Progress** section to see the date and details on the KR update. The top of the Y-axis shows the OKR due date.
+### OKR key, status, summary (name), and description
 
-![Progress chart on the OKR details side panel.](/cms_trial/assets/45dc4e23-17c4-4f3c-88c1-261ac4039907.png)
+![okr-side-panel1.png](/cms_trial/assets/06e4d7c0-39c3-4cd1-8751-f2ed72674c28.png)
 
-### Update an OKR
+1. Key and status. Click the OKR key to open the *OKR Details* page.
+2. Summary (name) and description. View and edit the OKR summary and description inline. You cannot change the summary and description of a closed OKR.
+3. Manage OKR. The buttons let you perform actions related to the OKR you're currently viewing.
 
-Click the **Update** button at the top of the side panel to [update the OKR](/cms_trial/space/SPM/1918637972/Update+OKR/).
+   - Update progress for manual OKRs and the status of auto/manual OKRs.
+   - Launch [Strategic Areas](/cms_trial/space/SPM/2325217590/Strategic+Areas/) (Strategic theme only).
+   - Open the *OKR Details* page.
+   - Add child OKR (Strategic theme and Objective only).
+   - Edit tree (open the *Tree view* page).
+   - Clone and delete an OKR.
+   - Edit [linked work items](/cms_trial/space/SPM/1918507296/Link+work+items+to+Key+Results/)/[linked boxes](/cms_trial/space/SPM/2229665803/Link+boxes+to+Key+Results/) (Key Result only).
 
-### Access the menu for more actions
+You can access a similar set of options by clicking **More actions** (**…**) next to the selected OKR. Thanks to this, you can still perform actions on the OKR, even if the OKR Details side panel is disabled.
 
-The additional menu (…) next to the **Update** button lets you perform several different actions. The options available in the menu differ for Objectives and Key Results.
+### Progress chart
 
-| **Strategic Theme**  **More actions (…)** | **Objective**  **More actions (…)** | **Key Result**  **More actions (…)** |
-| --- | --- | --- |
-| okr-side-panel-o.png | okr-side-panel-o-2.png | okr-side-panel-kr.png |
-| The additional options include:   - [Strategic Area](/cms_trial/space/SPM/2325217590/Strategic+Areas/) - [Details](/cms_trial/space/SPM/1918536390/OKR+details+page/) - [Add key result](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918538655) - [Add sub-objective](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918702275) - [Add sub-strategic theme](/cms_trial/space/SPM/2324726248/Create+OKR/) - [Edit tree](/cms_trial/space/SPM/1918801711/Tree+view/) - [Clone](/cms_trial/space/SPM/1918864386/Clone+OKR/) strategic theme - [Delete](/cms_trial/space/SPM/1918408286/Delete+OKR/) | The additional options include:   - Strategic Area (if the Objective is a child of a Strategic Theme) - Details - Add key result - Add sub-objective - Edit tree - Clone objective - Delete | The additional options include:   - Details - [Edit linked work items](/cms_trial/space/SPM/1918507296/Link+work+items+to+Key+Results/) - [Edit linked boxes](/cms_trial/space/SPM/2229665803/Link+boxes+to+Key+Results/) - Edit tree - Clone key result - Create new work item - Delete |
+![okr-side-panel2.png](/cms_trial/assets/064a8a6a-842d-4da8-84e7-7d5b731028a9.png)
 
-You can access a similar set of options by clicking **More actions** (**…**) next to the selected OKR. Thanks to this, you can still perform the actions listed on the Objective/Key Result context menu, even if the OKR details side panel is disabled.
+1. Progress chart
 
-![okr-more-options.png](/cms_trial/assets/f0f383da-f8bd-4f1e-a769-e1ab8e57cee3.png)
+The progress line chart visualizes the actual OKR progress and calculated expected progress based on the elapsed period. It also maps [OKR milestones](https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=spm&title=OKR%20milestones&linkCreation=true&fromPageId=1918865686) on the timeline.
+
+1. Child statuses/KR values/Progress mode
+
+If the OKR you are viewing is a Strategic theme or Objective, the chart displays status tags you can click to filter and view child items with that specific status (a list opens in the **Child OKRs** tab).
+
+If the OKR you are viewing is a Key Result, the chart displays Start, Current, and Target values.
+
+If the OKR is in manual mode, it displays the mode type instead.
+
+### Details
+
+![Details section in the OKR Details side panel.](/cms_trial/assets/0f8a003a-f8d0-4d6a-9af7-a4f72df321fb.png)
+
+The **Details** section displays all [OKR attributes](/cms_trial/space/SPM/2324726185/OKR+attributes/) for the selected OKR, including [custom fields](/cms_trial/space/SPM/3247341685/OKR+custom+fields/).
+
+You can edit all fields inline except **Last updated**. If the item you are viewing is a Strategic theme, you cannot edit its **Type**.
+
+### Activity
+
+The **Activity** section tracks all manual and automated status and progress updates across the OKR and its associated sub-items.
+
+In this section, you can:
+
+- View and add updates.
+- View and leave comments.
+- Filter activities by **All updates** and **Manual updates**.
+- Pin activities.
+- Edit and delete activities.
+
+![Activities section on the OKR Details side panel.](/cms_trial/assets/bee073af-2e14-44fc-88c6-0ffa09987c5e.png)

@@ -41,7 +41,6 @@ Currently, there are fourteen modules to choose from, each offering a different 
 - [Risk management module (NEW)](/cms_trial/space/SPM/1918699171/Risk+management+module+(NEW)/)
 - [Priorities module](/cms_trial/space/SPM/1918829653/Priorities+module/)
 - [OKR module](/cms_trial/space/SPM/1918535397/OKR+module/)
-  - [OKR details page](/cms_trial/space/SPM/1918536390/OKR+details+page/)
 - [Financials module (NEW)](/cms_trial/space/SPM/1918404223/Financials+module+(NEW)/)
 
 ## Security and access (customize module availability)

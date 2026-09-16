@@ -6,7 +6,7 @@ This page describes features that are supported **only** in [**BigPicture Advanc
 
 ## OKRs in BigPicture
 
-In BigPicture, apart from traditional Objectives and Key Results, you can also create Strategic themes. All of these are collectively referred to as OKRs.
+In BigPicture, in addition to traditional Objectives and Key Results, you can also create Strategic themes. All of these are collectively referred to as OKRs.
 
 ### Strategic theme and sub-theme
 
@@ -18,9 +18,7 @@ Strategic themes are global, meaning that any user permitted to use the OKR modu
 
 This ensures that everyone can see and contribute to the company's overarching, long-term vision, even if their day-to-day goals are shorter-term. This shared visibility helps align efforts across different teams.
 
-| **Creation screen for a new Strategic theme.** | **Creation screen for a new sub-theme.** |
-| --- | --- |
-| Strategic Theme creation screen. | Sub-Strategic Theme creation screen. |
+![Strategic Theme creation screen.](/cms_trial/assets/4248ffd5-a9d4-4ad0-974b-4c20357af911.png)
 
 A Strategic theme is a top-level parent, which means you cannot create a top-level parent Objective directly under it.
 
@@ -40,23 +38,19 @@ The Objective should be ambitious yet achievable, helping to focus efforts and d
 
 You can additionally define sub-objectives. They represent smaller, more focused goals that support achieving a larger Objective. A sub-objective breaks down a bigger goal into manageable parts, making it easier to track progress and stay on target.
 
-| **Creation screen for a new Objective** | **Creation screen for a new sub-objective.** |
-| --- | --- |
-| Create objective modal. | Create sub-objective modal. |
+![Create objective modal.](/cms_trial/assets/582036ef-cdc4-4db9-9071-28b43430d673.png)
 
 ### Key Result
 
 A Key Result (KR) is a measurable outcome that tracks progress toward achieving an Objective or sub-objective. It defines how you will measure success and assess whether you have accomplished the Objective.
 
-| **Creation screen for a new Key Result.** |
-| --- |
-| Key Result attributes on the Key Result creation screen. |
+![Key Result attributes on the Key Result creation screen.](/cms_trial/assets/3ab93687-383d-45cf-b6a0-8e8ef448eec4.png)
 
 ## Create a new OKR
 
-If you have the **Settings** > **Allow restricting OKRs** option enabled, you can [restrict an OKR](/cms_trial/space/SPM/1918864985/OKR+restrictions+(per+OKR)/) during creation. You can also restrict an OKR after you create it.
-
 You can create all OKRs only in the OKR module.
+
+During OKR creation, you can restrict your new OKR. Visit the [Restrict OKR](/cms_trial/space/SPM/1918864985/OKR+restrictions+(per+OKR)/) page to learn more.
 
 ### Create a Strategic theme and Objective
 
@@ -70,7 +64,7 @@ You can create a parent Strategic theme and a parent Objective for your initiati
 
 1. Click **Add** > **Create objective/Create strategic theme**.
 
-![okr-create-theme.png](/cms_trial/assets/4e323b99-5455-4b67-b91d-2bf2e883f7f6.png)
+![okr-create-theme.png](/cms_trial/assets/c08b46a7-6c7f-428b-9124-8a7359d9744a.png)
 
 1. A **New strategic theme**/**New objective** screen displays. Fill in the [OKR details (attributes)](/cms_trial/space/SPM/2324726185/OKR+attributes/). Details marked with an asterisk are mandatory.
 2. Click **Save** to complete the process.
@@ -98,7 +92,7 @@ You can use the following methods to create child items for existing Strategic t
 
 1. Click **More actions** (**…**) next to the OKR and select **Add key result**/**Add sub-objective**/**Add sub-strategic theme** from the context menu.
 
-   ![Context-menu for an OKR.](/cms_trial/assets/4e4ca2f8-472f-4f44-9ea5-5e57b8a6894a.png)
+   ![Context-menu for an OKR.](/cms_trial/assets/c19fb039-9131-4aad-8ee0-d4807f9f6ffa.png)
 2. On the new OKR creation screen, fill in the [details (attributes)](/cms_trial/space/SPM/2324726185/OKR+attributes/).
 3. Click the **Create** button to complete the process.
 
@@ -109,7 +103,7 @@ Make sure the OKR Details panel is enabled in the [**OKR Overview settings**](ht
 1. Select an OKR to open a side panel.
 2. Click **More actions** (**…**) and select **Add key result**/**Add sub-objective**/**Add sub-strategic theme** from the dropdown.
 
-![A side panel for a Strategic theme. A dropdown on the panel is expanded.](/cms_trial/assets/ef919666-8d74-4704-9bb4-1941f2a4eb3b.png)
+![A side panel for a Strategic theme. A dropdown on the panel is expanded.](/cms_trial/assets/94ac4bf9-dc5d-4e13-ac4d-2824cb714269.png)
 
 1. On the new OKR creation screen, fill in the [details (attributes)](/cms_trial/space/SPM/2324726185/OKR+attributes/).
 2. Click the **Create** button to complete the process.
@@ -119,7 +113,7 @@ Make sure the OKR Details panel is enabled in the [**OKR Overview settings**](ht
 1. On the OKR, click the **plus** (+) button.
 2. Select **Add key result**/**Add sub-objective**/**Add sub-strategic theme** from the dropdown. (If your OKR hierarchy includes parent items with nested sub-objectives or strategic themes, ensure you select the correct parent before creating a child item.)
 
-![A tree view page for a Strategic theme.](/cms_trial/assets/1ec6ea34-2eed-4b62-b6db-545796139920.png)
+![A tree view page for a Strategic theme.](/cms_trial/assets/9ce492fb-1bf4-450c-914c-0336881f5608.png)
 
 1. Click the **Finish & go back** button to complete the process.
 
@@ -128,12 +122,12 @@ Make sure the OKR Details panel is enabled in the [**OKR Overview settings**](ht
 
 #### OKR Details page
 
-1. On the *OKR details* page, scroll down to the **Alignment** section.
-2. Under **Alignment**, click the **+Add** button and select **Sub-strategic theme**/**Sub-objective**/**Key result**.
+1. On the *OKR details* page, go to the **Child OKRs** tab.
+2. Click the **+Add** button and select **Sub-strategic theme**/**Sub-objective**/**Key result**.
 
-![A dropdown under the Add button on the OKR details page.](/cms_trial/assets/5c93e7d0-c800-4cd3-b4a2-531cfee46aa3.png)
+![details-page-create-okr.png](/cms_trial/assets/e1565139-69a2-4243-8f14-bd73071a60f0.png)
 
 1. On the new OKR creation screen, fill in the [details (attributes)](/cms_trial/space/SPM/2324726185/OKR+attributes/).
 2. Click the **Create** button to complete the process.
 
-If the button is missing, you are viewing Key Result details.
+If the tab is missing, you are viewing the Key Result details page.

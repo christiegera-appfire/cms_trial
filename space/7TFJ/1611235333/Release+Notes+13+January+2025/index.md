@@ -8,10 +8,6 @@ Our team is thrilled to announce the latest release of 7pace Timetracker for Jir
 
 ## Enhancements
 
-Learn about the features in this release by listening to the following AI-generated “Deep Dive” podcast:
-
-<https://appfire.wistia.com/medias/rsuyl1eclz>
-
 ## Monthly view enhancements
 
 7pace Timetracker's [Monthly view](/cms_trial/space/7TFJ/1202094136/Monthly+view/) has been enhanced, making it easier to access important information and increase overall readability.
@@ -42,12 +38,19 @@ Video transcript:
 
 ---
 
-**Questions and feedback**
+▢ **Questions and feedback**
 
 - Explore exciting features, pricing updates, reviews, and more on the [Marketplace](https://marketplace.atlassian.com/apps/1235398/7pace-timetracker-for-jira?hosting=cloud&tab=overview).
 - Stuck with something? Raise a ticket with our [support team](https://appfire.atlassian.net/servicedesk/customer/portal/11).
 - Do you love using our app? Let us know what you think [here](mailto:support@7pace.com).
 
-**Credits**
+▢ **Credits**
 
 A heartfelt thank you to our valued customers! Your incredible support inspires us to improve our apps continually. We appreciate your trust in 7pace Timetracker for Jira!
+
+[unmapped inline: placeholder]
+
+|  |  |
+| --- | --- |
+| **Release date** | January 13, 2025 |
+| **Highlights** | - Monthly view enhancements: Jira issues are color-coded, making it easier to identify their type (bug, story, task, epic) - Timepicker enhancements: 7pace Timetracker’s timepickers can now be used to add time to existing worklogs, or to combine time to apply the correct duration. - Use private views in the Times Explorer to quickly access your preferred report configurations. |

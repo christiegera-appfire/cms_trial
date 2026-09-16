@@ -39,7 +39,7 @@ Depending on the module structure, inline changes can be made in the areas indic
 | Portfolio → Initiative costs and budgets: Budget | inline-edit-portfolio.png |
 | [BigPicture Administration](/cms_trial/space/SPM/1918829342/App+administration/) | Administration → Resources → Skills | Color is chosen in the Skills settings |
 
-Note that you can also inline edit Strategic theme/Objective and Key Result data in selected OKR columns. Visit [Edit OKRs](/cms_trial/space/SPM/1918669695/Edit+OKRs/) to learn more.
+Note that you can also inline edit Strategic theme/Objective and Key Result data in selected OKR columns. Visit [Edit OKRs](/cms_trial/space/SPM/1918669695/Edit+OKR/) to learn more.
 
 ## Editable fields
 
@@ -116,7 +116,7 @@ Depending on the module structure, inline changes can be made in the areas indic
 | [Financials](/cms_trial/space/SPM/1918404223/Financials+module+(NEW)/) | - Initiative → Work costs breakdown: Summary, Start date, End date, Team - Portfolio → Initiative costs and budgets: Budget  Screenshot of inline editing in the Financials module. |
 | [BigPicture Administration](/cms_trial/space/SPM/1918829342/App+administration/) | - Administration → Resources → Skills  Screenshot of inline editing in BigPicture Administration. |
 
-Note that you can also inline edit Strategic theme/Objective and Key Result data in selected OKR columns. Visit [Edit OKRs](/cms_trial/space/SPM/1918669695/Edit+OKRs/) to learn more.
+Note that you can also inline edit Strategic theme/Objective and Key Result data in selected OKR columns. Visit [Edit OKRs](/cms_trial/space/SPM/1918669695/Edit+OKR/) to learn more.
 
 ## Editable fields
 

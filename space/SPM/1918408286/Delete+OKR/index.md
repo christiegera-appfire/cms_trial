@@ -23,34 +23,27 @@ You can delete an OKR on the following pages:
 - [OKR Details side panel](/cms_trial/space/SPM/1918865686/OKR+Details+side+panel/)
 - [*Tree view*](/cms_trial/space/SPM/1918801711/Tree+view/) page
 
-### Overview page
+1. Open the context menu for the OKR you want to delete on one of the following:
 
-1. Click **More actions** (**…**) next to the OKR.
+   1. *Overview* page:
+
+      1. Click **More actions** (**…**) next to the OKR.
+
+         ![Context menu on the okr overview page.](/cms_trial/assets/bebee14e-668e-4275-9485-365ba293c2e2.png)
+   2. *OKR Details* page:
+
+      1. Click **More actions** (**…**) in the top-right corner.
+
+         ![Context menu on the okr details page.](/cms_trial/assets/914f1545-68b4-4dc8-a045-9234f37b2c32.png)
+   3. OKR Details side panel:
+
+      1. Click **More actions** (**…**).
+
+         ![Context menu on the OKR details side panel.](/cms_trial/assets/3885e758-0062-47f9-8f6b-962c965fbaf3.png)
+   4. *Tree view* page:
+
+      1. Click **More actions** (…) on the OKR you want to delete.
+
+         ![Context menu on the tree view page.](/cms_trial/assets/de1260a7-4559-49c7-8166-3a21e4b3478b.png)
 2. Select **Delete**.
 3. Click **Delete** to confirm deletion.
-
-![delete-okr.png](/cms_trial/assets/37b0d102-600d-4d0b-907e-a038cb36fe7c.png)
-
-### OKR details side panel
-
-1. Click **More actions** (**…**).
-2. Select **Delete**.
-3. Click **Delete** to confirm deletion.
-
-![delete-okr-from-panel.png](/cms_trial/assets/706829f9-da26-41a2-a255-fbc062382a72.png)
-
-### OKR details page
-
-1. Open the dropdown under **More actions** (**…**).
-2. Select **Delete**.
-3. Click **Delete** to confirm deletion.
-
-![okr-delete-from-panel.png](/cms_trial/assets/ee558743-01f0-4354-8b4d-5163f9832172.png)
-
-### Tree view page
-
-1. On the OKR you want to delete, click **More actions** (**…**).
-2. Select **Delete**.
-3. Click **Delete** to confirm deletion.
-
-![delete-okr-from-tree.png](/cms_trial/assets/563b78ce-261e-4ec0-9a5a-64a59448cb31.png)

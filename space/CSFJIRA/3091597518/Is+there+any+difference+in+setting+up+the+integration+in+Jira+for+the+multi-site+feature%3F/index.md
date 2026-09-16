@@ -1,6 +1,6 @@
 # Is there any difference in setting up the integration in Jira for the multi-site feature?
 
-No, you can follow the [Setting up your integration in Jira](/cms_trial/space/CSFJIRA/1873412559/Set+up+your+integration+in+Jira/) documentation for each Jira site that you are setting up for your Salesforce configuration.
+No, you can follow the [Setting up your integration in Jira](/cms_trial/space/CSFJIRA/1873412559/Set+up+your+integration/) documentation for each Jira site that you are setting up for your Salesforce configuration.
 
 ## Related content
 

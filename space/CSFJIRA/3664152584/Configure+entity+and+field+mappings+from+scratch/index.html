@@ -1,0 +1,401 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
+<meta charset="utf-8">
+<title>Configure entity and field mappings from scratch | Appfire Docs</title>
+<meta name="description" content="If your use case is not following any of the provided templates, you can start building your own mapping the way you need it. In this article, we&#x27;ll guide…">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/cms_trial/tokens.css">
+<link rel="stylesheet" href="/cms_trial/styles.css">
+<meta name="robots" content="noindex, nofollow">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Configure entity and field mappings from scratch",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/CSFJIRA/3664152584/Configure+entity+and+field+mappings+from+scratch/",
+  "dateModified": "2026-09-16T11:05:28.133Z"
+}
+</script>
+</head>
+<body>
+<div id="top-nav-mount">
+<header class="top-nav">
+  <div class="top-nav-inner">
+    <a class="top-nav-brand" href="/cms_trial/"><img class="top-nav-logo top-nav-logo-dark" src="/cms_trial/brand-assets/appfire-lockup-white.svg" alt="Appfire" loading="lazy"><img class="top-nav-logo top-nav-logo-light" src="/cms_trial/brand-assets/appfire-lockup-black.svg" alt="Appfire" loading="lazy"><span class="top-nav-divider"></span><span class="top-nav-docs-label">Docs</span></a>
+    <nav class="top-nav-links">
+      <a href="/cms_trial/product-directory/">Product directory</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
+    </nav>
+  </div>
+</header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
+</div>
+<div class="shell">
+  <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CSFJIRA/3092054544/Book+a+demo+for+Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira (Cloud)</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1873739795/Get+started+with+Connector+for+Salesforce+%26+Jira/">Get started with Connector for Salesforce &amp; Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/1873412559/Set+up+your+integration/">Set up your integration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CSFJIRA/3664152459/Configure+entity+and+field+mappings+from+templates/">Configure entity and field mappings from templates</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Configure entity and field mappings from scratch</span></nav>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3664152584" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
+    </div>
+    <h1>Configure entity and field mappings from scratch</h1>
+    <div class="page-meta">Updated today · 5 min read</div>
+    <p>If your use case is not following any of the provided templates, you can start building your own mapping the way you need it. In this article, we'll guide you in creating a mapping for a custom work item type.</p><h2 id="before-you-start">Before you start</h2><p>Make sure you have:</p><ul><li><p>Administrator rights in Jira - only administrators can set up the mappings</p></li><li><p>Added all required Salesforce objects to be available in Jira, see more <a href="/cms_trial/space/CSFJIRA/1853653945/Configure+connection+settings/"><u>Available Salesforce objects</u></a>.</p></li><li><p>Created a <a href="/cms_trial/space/CSFJIRA/1873379785/Bind+a+space+to+a+connection+(Jira+Cloud)/"><u>Binding between a project and a connection</u></a>.</p></li><li><p>Understand Jira field-type compatibility with Salesforce field types to map fields correctly. Visit the <a href="/cms_trial/space/CSFJIRA/1522369149/Jira+field+type+to+Salesforce+field+type+compatibility/"><u>Jira Field Type to Salesforce Field Type compatibility</u></a> page to learn more.</p></li></ul><h3 id="1-configure-entity-mappings">1. Configure entity mappings</h3><ol><li><p>In the <em>Entity mapping</em> step, click <strong>Create </strong>under<strong> </strong>the<strong> Create from scratch </strong>option.</p><img alt="Create from scratch option" class="doc-image" loading="lazy" src="/cms_trial/assets/c612c1b4-26f5-43ca-8634-0bde18fe16d3.png"/></li><li><p>Select the <strong>Jira work item type</strong> and the corresponding <strong>Salesforce object type</strong>.<br/>For example, select a custom <em>Technical debt</em> Jira work item type and a case as the Salesforce object type to associate Jira tasks with Salesforce <em>case</em> records.</p><img alt="entity mapping" class="doc-image" loading="lazy" src="/cms_trial/assets/e5610a38-2999-47a3-bfac-dc34987e0388.png"/></li><li><p>Click <strong>Add entity mapping</strong>.</p><img alt="Add entity mapping" class="doc-image" loading="lazy" src="/cms_trial/assets/98d60123-b26f-4ade-a56c-fff6ece22105.png"/></li><li><p>Repeat the steps until you have mapped all required entities.</p></li></ol><h3 id="2-configure-field-mappings">2. Configure field mappings</h3><ol><li><p>Click the entity mapping you have created, for example, <em><strong>Technical debt </strong></em><strong>-&gt; Case</strong> mapping.</p><img alt="field mappings" class="doc-image" loading="lazy" src="/cms_trial/assets/951bfddf-5c80-478a-8539-682592a8b53e.png"/></li><li><p>Select the <strong>Jira fields</strong> that match the corresponding <strong>Salesforce fields</strong>. <br/>The example below matches:</p><ul><li><p>the <em>Summary</em> <strong>Jira field</strong> to the <em>Subject</em> <strong>Salesforce field</strong> </p></li><li><p><em>Description</em> to <em>Description</em></p></li><li><p><em>Priority</em> to <em>Priority</em></p><img alt="image-20260907-060401.png" class="doc-image" loading="lazy" src="/cms_trial/assets/b6657d7f-297f-424a-b030-3afa91cd410f.png"/></li></ul></li><li><p>Click <strong>Add field mapping</strong>.</p></li><li><p>Customize the <strong>Sync direction</strong> by clicking the arrow buttons if needed.<br/>For example, configure the sync direction for <em>Priority</em> to synchronize fields only from Salesforce to Jira because the Salesforce support team decides the task priority. For the <em>Description</em> and <em>Summary</em> fields, keep the default bidirectional synchronization. <br/>For details, check <a href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/edit-v2/3664152584#5.-Create-inbound-only-or-outbound-only-mappings">Create inbound-only or outbound-only mappings</a>.</p><img alt="Sync direction" class="doc-image" loading="lazy" src="/cms_trial/assets/638b9022-db0b-44c8-a8dd-98dea667e5dd.png"/></li></ol><div class="columns" style="grid-template-columns: 100.0fr;"><div><h3 id="3-set-default-value">3. Set default value</h3><p>Before synchronizing data between Jira and Salesforce, decide how to handle field values not covered by the mapping. Setting default values and actions lets you choose whether you want to copy the original value, force a custom value, leave it empty (if allowed), or raise an error to ensure all field values are synchronized according to your needs. Choose one of the following options:</p><ul><li><p><strong>Copy value</strong>:<strong> </strong>Connector copies and uses the original field value from the source to the destination system. (This is the default option.) <br/>For example, if you want Jira work item status to match their equivalents in Salesforce, this option ensures that a Jira work item with the <em>In Progress</em> status is set to <em>In Progress</em> in Salesforce.</p></li><li><p><strong>Set value</strong>: Connector assigns a predefined value of your choice for the field. <br/>For example, if you want all Jira work items to have <em>UI </em>as their component in Salesforce, regardless of their original component, you can set <em>UI</em> as a default component in Salesforce. This ensures consistent categorization of Jira work items in Salesforce.</p></li><li><p><strong>Set empty</strong>:<strong> </strong> Connector sets the field value to empty. This option is not available for required fields that need to have their value set.</p></li><li><p><strong>Raise error</strong>: Connector raises an error, and synchronization fails.</p></li></ul><div class="panel panel-note"><p>When creating a Jira work item from Salesforce, field values are filled based on the mapping or default values you’ve set. However, there’s one exception, which is the Priority.</p><p>Jira doesn’t allow the Priority field to be empty, so it always has a default value set. If the Priority field is empty in Salesforce, the value is populated with the Jira default priority instead of the one set in the Connector for Salesforce &amp; Jira. The correct Priority value, as configured in the Connector, will only synchronize after pushing from Salesforce.</p></div><p>To define default values:</p><ol><li><p>Click the <strong>Menu</strong> (<span class="inline-icon" title="inline icon">▢</span>) icon next to the selected Jira and Salesforce field mapping and select <strong>Configure</strong>.</p><img alt="image-20260907-062107.png" class="doc-image" loading="lazy" src="/cms_trial/assets/c23489b5-1610-48ab-831f-7f3353e09295.png"/></li><li><p>Select a <strong>Jira</strong> <strong>default</strong> and <strong>Salesforce default </strong>value:</p><ul><li><p><strong>Copy value</strong></p></li><li><p><strong>Set value </strong>(requires entering your preferred value)</p></li><li><p><strong>Set empty</strong></p></li><li><p><strong>Raise error</strong></p><img alt="image-20260907-073654.png" class="doc-image" loading="lazy" src="/cms_trial/assets/e6e29166-5449-41f9-93e8-b332917f80e1.png"/></li></ul></li><li><p>Click <strong>Configure</strong>.</p></li></ol></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h3 id="4-configure-value-mappings">4. Configure value mappings</h3><p>Additionally, you can define specific value mappings to match Jira and Salesforce field values to make sure the values are translated to the existing terminology. For example:</p><ul><li><p>Mapping the Jira priority <em>Highest</em> with Salesforce priority <em>Critical</em>.</p></li><li><p>Mapping the Jira component <em>UI</em> with Salesforce Case Reason <em>User Interface</em>.</p></li></ul><div class="panel panel-note"><p>If the value is not mapped, Connector for Salesforce &amp; Jira continues according to the defined <a href="/cms_trial/space/CSFJIRA/3664152584/Configure+entity+and+field+mappings+from+scratch/"><u>default values</u></a>.</p></div><p>To map field values:</p><ol><li><p>Click the <strong>Menu</strong> (<span class="inline-icon" title="inline icon">▢</span>) icon next to the selected Jira and Salesforce Field mapping and select <strong>Configure</strong>.</p><img alt="image-20260804-103636.png" class="doc-image" loading="lazy" src="/cms_trial/assets/a63f854b-5ae1-4686-bd1d-1f143b2d0c02.png"/></li><li><p>Enter Jira and Salesforce values accordingly.<br/>For example:</p><ul><li><p><em>Highest</em> to <em>Critical</em></p></li><li><p><em>High</em> to <em>High</em></p></li><li><p><em>Medium</em> to <em>Medium</em></p></li><li><p><em>Low</em> to <em>Low</em></p><img alt="image-20260907-065018.png" class="doc-image" loading="lazy" src="/cms_trial/assets/686f844a-acfe-478d-b3a4-f9a8ca7e0191.png"/></li></ul></li><li><p>If the Jira field value is of user type, select available Jira users from the dropdown list.</p><img alt="image-20260907-072123.png" class="doc-image" loading="lazy" src="/cms_trial/assets/c573dd58-35b6-4042-86d1-9e5d1c891686.png"/></li><li><p>Click <strong>Add</strong>.</p></li><li><p>Click <strong>Configure</strong>.</p></li></ol></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h3 id="5-create-inbound-only-or-outbound-only-mappings">5. Create inbound-only or outbound-only mappings</h3><p>By default, a field mapping applies in both directions: a change in Jira updates Salesforce, and a change in Salesforce updates Jira. However, some fields may need to flow in one direction only. For example, you may want agents to update case descriptions in Salesforce without those changes overwriting content in Jira, or the other way around. You can also configure separate value mappings for each direction (inbound or outbound). This also lets you map values in a one-to-many relationship. Create two records for the same field, one for each direction, and then proceed with configuring the value mappings.</p><p>For example:</p><ol><li><p>Map the <strong>Components</strong> Jira field to the <strong>Case Reason </strong>Salesforce field separately for each direction (inbound or outbound).</p><img alt="image-20260804-104002.png" class="doc-image" loading="lazy" src="/cms_trial/assets/27f65909-fc91-413a-b81e-87e2f2dec89b.png"/></li><li><p>For inbound-only mapping, map, for example, <strong>UI</strong> Jira task value with the <strong>User Interface </strong>Case Reason Salesforce value.</p><img alt="contentId-3664152584" class="doc-image" loading="lazy" src="/cms_trial/assets/57485172-9edb-480c-8f5d-63f3a6d9741e.png"/></li><li><p>For outbound-only mapping, map, for example, <strong>Installation</strong> Jira task value with the <strong>Packaging </strong>Case Reason Salesforce value.</p><img alt="contentId-3664152584" class="doc-image" loading="lazy" src="/cms_trial/assets/365e8261-152e-4e00-b083-5a6e33f5b89b.png"/></li></ol></div></div><h2 id="next-steps">Next steps</h2><ul><li><p><a href="/cms_trial/space/CSFJIRA/3663725288/Associate+Jira+work+items+with+Salesforce+records+from+Jira/"><u>Associate Salesforce records from Jira</u></a></p></li></ul>
+  </main>
+  <aside class="sidebar">
+<div class="brand"><span class="brand-mark">Appfire Docs</span></div>
+<div class="brand-tag">Live docs, fetched from Confluence via API.</div>
+<nav><ul><li><a href="/cms_trial/space/CSFJIRA/3092054544/Book+a+demo+for+Connector+for+Salesforce+%26+Jira/">Book a demo for Connector for Salesforce &amp; Jira</a></li><li><details open><summary><a href="/cms_trial/space/CSFJIRA/470745117/Connector+for+Salesforce+%26+Jira/">Connector for Salesforce &amp; Jira</a></summary><ul><li><a href="/cms_trial/space/CSFJIRA/1873740701/Overview/">Overview</a></li><li><details open><summary><a href="/cms_trial/space/CSFJIRA/1873739795/Get+started+with+Connector+for+Salesforce+%26+Jira/">Get started with Connector for Salesforce &amp; Jira</a></summary><ul><li><a href="/cms_trial/space/CSFJIRA/1873412305/System+and+platform+requirements/">System and platform requirements</a></li><li><a href="/cms_trial/space/CSFJIRA/1873477874/Installation/">Installation</a></li><li><details open><summary><a href="/cms_trial/space/CSFJIRA/1873412559/Set+up+your+integration/">Set up your integration</a></summary><ul><li><a href="/cms_trial/space/CSFJIRA/1873379599/Set+up+a+connection+to+Salesforce+(Jira+Cloud)/">Set up a connection to Salesforce (Jira Cloud)</a></li><li><a href="/cms_trial/space/CSFJIRA/1873772649/Set+up+your+integration+in+Salesforce/">Set up your integration in Salesforce</a></li><li><a href="/cms_trial/space/CSFJIRA/1873379785/Bind+a+space+to+a+connection+(Jira+Cloud)/">Bind a space to a connection (Jira Cloud)</a></li><li><details open><summary><a href="/cms_trial/space/CSFJIRA/3664152459/Configure+entity+and+field+mappings+from+templates/">Configure entity and field mappings from templates</a></summary><ul><li><a href="/cms_trial/space/CSFJIRA/3664152584/Configure+entity+and+field+mappings+from+scratch/" class="active">Configure entity and field mappings from scratch</a></li></ul></details></li><li><a href="/cms_trial/space/CSFJIRA/3663725288/Associate+Jira+work+items+with+Salesforce+records+from+Jira/">Associate Jira work items with Salesforce records from Jira</a></li></ul></details></li><li><a href="/cms_trial/space/CSFJIRA/1873510679/Classic+Connector+for+Salesforce+and+NextGen+Connector+for+Salesforce+%26+Jira+comparison/">Classic Connector for Salesforce and NextGen Connector for Salesforce &amp; Jira comparison</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CSFJIRA/1874100241/Configuration/">Configuration</a></summary><ul><li><a href="/cms_trial/space/CSFJIRA/1873380265/Configure+settings+in+Jira/">Configure settings in Jira</a></li><li><a href="/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field+and+value+mappings/">Configure entity, field and value mappings</a></li><li><a href="/cms_trial/space/CSFJIRA/1873740170/Configure+settings+in+Salesforce/">Configure settings in Salesforce</a></li><li><a href="/cms_trial/space/CSFJIRA/1873740233/Configure+Lightning+Web+components/">Configure Lightning Web components</a></li><li><a href="/cms_trial/space/CSFJIRA/1874001954/Automate+your+integration/">Automate your integration</a></li><li><a href="/cms_trial/space/CSFJIRA/1873511950/Automatically+retry+failed+sync+jobs/">Automatically retry failed sync jobs</a></li><li><a href="/cms_trial/space/CSFJIRA/1873380661/Understand+Salesforce+API+call+usage/">Understand Salesforce API call usage</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CSFJIRA/3091727249/User+guides/">User guides</a></summary><ul><li><a href="/cms_trial/space/CSFJIRA/1918802420/Get+started+for+users/">Get started for users</a></li><li><a href="/cms_trial/space/CSFJIRA/3091760268/Work+with+associations/">Work with associations</a></li><li><a href="/cms_trial/space/CSFJIRA/3091628846/Work+with+comments/">Work with comments</a></li><li><a href="/cms_trial/space/CSFJIRA/1962541918/Search+Salesforce+Object+from+Jira/">Search Salesforce Object from Jira</a></li><li><a href="/cms_trial/space/CSFJIRA/1754432218/Work+with+attachments/">Work with attachments</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CSFJIRA/2139357355/Use+cases/">Use cases</a></summary><ul><li><a href="/cms_trial/space/CSFJIRA/2139357389/Create+a+two-way+workflow+between+Jira+work+items+and+Salesforce+Manufacturing+request/">Create a two-way workflow between Jira work items and Salesforce Manufacturing request</a></li><li><a href="/cms_trial/space/CSFJIRA/2139881603/Create+a+two-way+workflow+between+JSM+and+Salesforce+on-site+support/">Create a two-way workflow between JSM and Salesforce on-site support</a></li><li><a href="/cms_trial/space/CSFJIRA/2139357509/Create+a+two-way+workflow+between+Jira+work+items+and+Salesforce+Marketing+Campaigns/">Create a two-way workflow between Jira work items and Salesforce Marketing Campaigns</a></li><li><a href="/cms_trial/space/CSFJIRA/2140045422/Create+a+two-way+workflow+between+Jira+work+item+and+Salesforce+Legal+records/">Create a two-way workflow between Jira work item and Salesforce Legal records</a></li><li><a href="/cms_trial/space/CSFJIRA/3374219265/Sync+SLA+deadlines+from+Jira+to+Salesforce+using+Connector+for+Salesforce+%26+Jira+and+Time+to+SLA/">Sync SLA deadlines from Jira to Salesforce using Connector for Salesforce &amp; Jira and Time to SLA</a></li><li><a href="/cms_trial/space/CSFJIRA/3255336965/Native+Salesforce+reporting+on+Jira+data/">Native Salesforce reporting on Jira data</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CSFJIRA/1685193166/API+reference/">API reference</a></summary><ul><li><a href="/cms_trial/space/CSFJIRA/1853817917/Authenticate+REST+APIs/">Authenticate REST APIs</a></li><li><a href="/cms_trial/space/CSFJIRA/1684308828/Associate+API%3A+POST+%2Fexternal%2Fapi%2Fassociation/">Associate API: POST /external/api/association</a></li><li><a href="/cms_trial/space/CSFJIRA/1685258704/Push+API%3A+POST+%2Fexternal%2Fapi%2Fpush%2Fproject/">Push API: POST /external/api/push/project</a></li><li><a href="/cms_trial/space/CSFJIRA/1853818000/Bulk+associations%3A+GET+%2Fexternal%2Fapi%2Fassociations/">Bulk associations: GET /external/api/associations</a></li><li><a href="/cms_trial/space/CSFJIRA/1854374644/Bulk+associations%3A+POST+%2Fexternal%2Fapi%2Fassociations/">Bulk associations: POST /external/api/associations</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CSFJIRA/2161049701/Migrate+Connector+for+Salesforce+%26+Jira+Data+Center+to+Cloud/">Migrate Connector for Salesforce &amp; Jira Data Center to Cloud</a></summary><ul><li><a href="/cms_trial/space/CSFJIRA/2161082491/Connector+for+Salesforce+%26+Jira+feature+differences+for+Jira+DC+and+Cloud/">Connector for Salesforce &amp; Jira feature differences for Jira DC and Cloud</a></li><li><a href="/cms_trial/space/CSFJIRA/2161082534/Migration+path+Connector+for+Salesforce+%26+Jira+Server+or+Data+Center+to+Cloud/">Migration path Connector for Salesforce &amp; Jira Server or Data Center to Cloud</a></li><li><a href="/cms_trial/space/CSFJIRA/2160984266/Step+1+-+Plan+out+your+migration/">Step 1 - Plan out your migration</a></li><li><a href="/cms_trial/space/CSFJIRA/2160754916/Step+2+-+Prepare+your+Jira+Data+Center+migration+data/">Step 2 - Prepare your Jira Data Center migration data</a></li><li><a href="/cms_trial/space/CSFJIRA/2161049766/Step+3+-+Import+data+and+settings+into+the+Jira+Cloud+site/">Step 3 - Import data and settings into the Jira Cloud site</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CSFJIRA/3091858027/Release+notes/">Release notes</a></summary><ul><li><a href="/cms_trial/space/CSFJIRA/3663724562/Release+notes+16+September+2026/">Release notes 16 September 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3664150531/Release+notes+15+September+2026/">Release notes 15 September 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3566829572/Release+notes+7+September+2026/">Release notes 7 September 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3536323119/Release+notes+20+August+2026/">Release notes 20 August 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3539306087/Release+notes+13+August+2026/">Release notes 13 August 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3470688338/Release+notes+3+August+2026/">Release notes 3 August 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3490611266/Release+notes+29+July+2026/">Release notes 29 July 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3487563793/Release+notes+28+July+2026/">Release notes 28 July 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3483041825/Release+notes+27+July+2026/">Release notes 27 July 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3470688504/Release+notes+21+July+2026/">Release notes 21 July 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3465970130/Release+notes+20+July+2026+ver+26.0.0/">Release notes 20 July 2026 ver 26.0.0</a></li><li><a href="/cms_trial/space/CSFJIRA/3466657795/Release+notes+20+July+2026/">Release notes 20 July 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3451945120/Release+notes+14+July+2026/">Release notes 14 July 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3447259177/Release+notes+13+July+2026/">Release notes 13 July 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3422028003/Release+notes+6+July+2026/">Release notes 6 July 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3421995070/Release+notes+2+July+2026/">Release notes 2 July 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3417211019/Release+notes+22+June+2026/">Release notes 22 June 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3417210884/Release+notes+12+June+2026/">Release notes 12 June 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3314581525/Release+notes+2+June+2026/">Release notes 2 June 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3235741699/Release+notes+28+May+2026/">Release notes 28 May 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3136356478/Release+notes+25+May+2026/">Release notes 25 May 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3220930561/Breaking+changes+May+2026/">Breaking changes May 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3123709157/Release+notes+14+April+2026/">Release notes 14 April 2026</a></li><li><a href="/cms_trial/space/CSFJIRA/3091301834/Connector+for+Salesforce+%26+Jira+Cloud+(Jira+Add-on)+Release+Notes/">Connector for Salesforce &amp; Jira Cloud (Jira Add-on) Release Notes</a></li><li><a href="/cms_trial/space/CSFJIRA/3091728035/Jira+Cloud+for+Salesforce+(Salesforce+Package+on+AppExchange)+Release+Notes/">Jira Cloud for Salesforce (Salesforce Package on AppExchange) Release Notes</a></li><li><a href="/cms_trial/space/CSFJIRA/3091956915/Critical+version+upgrade+required/">Critical version upgrade required</a></li><li><a href="/cms_trial/space/CSFJIRA/3091956863/Connector+for+Salesforce+and+Jira+changes/">Connector for Salesforce and Jira changes</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CSFJIRA/2258337826/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/CSFJIRA/2258305383/Knowledge+Base/">Knowledge Base</a></li><li><a href="/cms_trial/space/CSFJIRA/2258141853/FAQ/">FAQ</a></li><li><a href="/cms_trial/space/CSFJIRA/2256309570/Book+a+demo/">Book a demo</a></li><li><a href="/cms_trial/space/CSFJIRA/2258305080/Appfire+Trust+Center/">Appfire Trust Center</a></li><li><a href="/cms_trial/space/CSFJIRA/2258141912/Contact+us/">Contact us</a></li><li><a href="/cms_trial/space/CSFJIRA/3319464284/Migration+to+Forge/">Migration to Forge</a></li><li><a href="/cms_trial/space/CSFJIRA/2258305117/Data+residency+and+realm+persistence/">Data residency and realm persistence</a></li><li><a href="/cms_trial/space/CSFJIRA/2376073217/Troubleshooting+missing+associations+after+update/">Troubleshooting missing associations after update</a></li><li><a href="/cms_trial/space/CSFJIRA/2258305251/Transitioning+of+Connector+for+Salesforce+%26+Jira+to+Appfire+infrastructure/">Transitioning of Connector for Salesforce &amp; Jira to Appfire infrastructure</a></li></ul></details></li></ul></details></li></ul></nav>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
+  <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#before-you-start">Before you start</a></li><li class="toc-level-3"><a href="#1-configure-entity-mappings">1. Configure entity mappings</a></li><li class="toc-level-3"><a href="#2-configure-field-mappings">2. Configure field mappings</a></li><li class="toc-level-3"><a href="#3-set-default-value">3. Set default value</a></li><li class="toc-level-3"><a href="#4-configure-value-mappings">4. Configure value mappings</a></li><li class="toc-level-3"><a href="#5-create-inbound-only-or-outbound-only-mappings">5. Create inbound-only or outbound-only mappings</a></li><li class="toc-level-2"><a href="#next-steps">Next steps</a></li></ul></div></aside>
+</div>
+<!-- "Get Help" — a plain link to the real, already-working Refined JSM
+     portal, at a different path on the SAME domain. No custom OAuth
+     backend needed for this: Refined's own JSM integration already
+     correctly handles brand-new, first-time visitors in production today,
+     which is exactly the case our earlier OAuth-based attempt structurally
+     couldn't solve (Atlassian's own consent screen blocks anyone with zero
+     prior relationship to the site, before ever reaching JSM). Styled to
+     match the rest of the site and left as a same-tab navigation (not
+     target="_blank") so clicking it feels like moving to another page on
+     one continuous site, not popping open a separate system. -->
+<a class="get-help-btn" href="https://support.appfire.com/page/support">Get Help</a>
+
+<!-- Advanced Tables (Table Plus, etc.) enhancement — reconstructs the parts
+     of the macro's real behavior that aren't stored as static content:
+     click-to-sort columns, computed numeric totals, and hover highlighting.
+     Harmless to include on every page — it does nothing if no
+     .advanced-table elements are present. -->
+<script>
+(function () {
+  document.querySelectorAll(".advanced-table").forEach(function (container) {
+    var table = container.querySelector("table");
+    if (!table) return;
+
+    var enableSorting = container.dataset.enableSorting === "true";
+    var autoTotal = container.dataset.autoTotal === "true";
+    var enableHighlighting = container.dataset.enableHighlighting === "true";
+    var highlightColor = container.dataset.highlightColor || "";
+
+    var headerRow = table.rows[0];
+    var tbody = table.tBodies[0] || table;
+
+    // Highlighting: toggle a background color on row hover, matching the
+    // macro's own configured highlight color rather than a fixed one.
+    if (enableHighlighting && highlightColor && headerRow) {
+      Array.prototype.slice.call(tbody.rows).forEach(function (row) {
+        if (row === headerRow) return;
+        row.addEventListener("mouseenter", function () { row.style.backgroundColor = highlightColor; });
+        row.addEventListener("mouseleave", function () { row.style.backgroundColor = ""; });
+      });
+    }
+
+    // Sorting: click a header cell to sort by that column. Numeric-aware —
+    // compares as numbers when both values parse as one, falls back to
+    // string comparison otherwise. Repeated clicks toggle ascending/descending.
+    if (enableSorting && headerRow) {
+      Array.prototype.forEach.call(headerRow.cells, function (cell, colIndex) {
+        cell.classList.add("sortable-col");
+        cell.title = "Click to sort";
+        var ascending = true;
+        cell.addEventListener("click", function () {
+          var rows = Array.prototype.slice.call(tbody.rows).filter(function (r) { return r !== headerRow; });
+          rows.sort(function (a, b) {
+            var av = (a.cells[colIndex] ? a.cells[colIndex].textContent : "").trim();
+            var bv = (b.cells[colIndex] ? b.cells[colIndex].textContent : "").trim();
+            var an = parseFloat(av), bn = parseFloat(bv);
+            var cmp = (!isNaN(an) && !isNaN(bn)) ? (an - bn) : av.localeCompare(bv);
+            return ascending ? cmp : -cmp;
+          });
+          rows.forEach(function (row) { tbody.appendChild(row); });
+          ascending = !ascending;
+        });
+      });
+    }
+
+    // Computed totals: sum any column where every non-empty cell parses as
+    // a number, appended as a footer row. This approximates the common
+    // case (a numeric sum) — the real macro lets authors choose different
+    // calculation types per column (min, max, average...), which isn't
+    // reconstructed here.
+    if (autoTotal && headerRow) {
+      var dataRows = Array.prototype.slice.call(tbody.rows).filter(function (r) { return r !== headerRow; });
+      var totals = [];
+      for (var c = 0; c < headerRow.cells.length; c++) {
+        (function (colIndex) {
+          var allNumeric = true, sum = 0, sawAny = false;
+          dataRows.forEach(function (row) {
+            var cell = row.cells[colIndex];
+            var text = cell ? cell.textContent.trim() : "";
+            if (text === "") return;
+            var n = parseFloat(text);
+            if (isNaN(n)) { allNumeric = false; return; }
+            sum += n;
+            sawAny = true;
+          });
+          totals.push(allNumeric && sawAny ? sum : null);
+        })(c);
+      }
+      if (totals.some(function (t) { return t !== null; })) {
+        var footRow = document.createElement("tr");
+        footRow.className = "advanced-table-total-row";
+        totals.forEach(function (t) {
+          var td = document.createElement("td");
+          td.textContent = t !== null ? String(t) : "";
+          footRow.appendChild(td);
+        });
+        tbody.appendChild(footRow);
+      }
+    }
+  });
+})();
+</script>
+
+<!-- Aura Tab Group enhancement — click-to-switch tabs. Harmless to include
+     on every page; does nothing if no .aura-tab-group elements exist. -->
+<script>
+(function () {
+  document.querySelectorAll(".aura-tab-group").forEach(function (group) {
+    var buttons = group.querySelectorAll(".aura-tab-btn");
+    buttons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var targetId = btn.dataset.target;
+        group.querySelectorAll(".aura-tab-btn").forEach(function (b) { b.classList.remove("active"); });
+        group.querySelectorAll(".aura-tab-panel").forEach(function (p) { p.classList.remove("active"); });
+        btn.classList.add("active");
+        var panel = document.getElementById(targetId);
+        if (panel) panel.classList.add("active");
+      });
+    });
+  });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Real TOC scroll-spy — highlights the currently-visible heading in the
+     "On this page" panel as the reader scrolls. Harmless no-op if there's
+     no .page-toc on the page (most pages with few/no headings). -->
+<script>
+(function () {
+  var tocLinks = document.querySelectorAll(".page-toc a[href^='#']");
+  if (!tocLinks.length) return;
+
+  var headingMap = {};
+  var headings = [];
+  tocLinks.forEach(function (link) {
+    var id = link.getAttribute("href").slice(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headingMap[id] = link;
+      headings.push(heading);
+    }
+  });
+  if (!headings.length) return;
+
+  var activeLink = null;
+  function setActive(id) {
+    var link = headingMap[id];
+    if (!link || link === activeLink) return;
+    if (activeLink) activeLink.classList.remove("active");
+    link.classList.add("active");
+    activeLink = link;
+  }
+
+  // rootMargin biases toward the upper third of the viewport, so a
+  // heading is marked "current" once it's crossed into the reading area,
+  // not only once it's scrolled to the very top edge.
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) setActive(entry.target.id);
+    });
+  }, { rootMargin: "-15% 0px -75% 0px", threshold: 0 });
+
+  headings.forEach(function (h) { observer.observe(h); });
+
+  // Sets the first heading active immediately on load, rather than
+  // leaving the TOC with nothing highlighted until the reader scrolls.
+  setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -13,13 +13,13 @@ To help you understand what to expect, we’ve broken down the rollout into clea
 | Phase 3 | March 27, 2026 | The new navigation becomes the **default for 30%** of users.  Users can still switch back to the old navigation. |
 | Phase 4 | May 19, 2026 | The new navigation becomes the **default for 60%** of users.  Users can still switch back to the old navigation. |
 | Phase 5 | June 10, 2026 | The new navigation becomes the **default for 100%** of users.  Users can still switch back to the old navigation. |
-| Phase 6 | October 1, 2026 | The new navigation is the **default for 100%** of users.  **The old navigation is deprecated and no longer available.** |
+| Phase 6 | December 1, 2026 | The new navigation is the **default for 100%** of users.  **The old navigation is deprecated and no longer available.** |
 
 ## New navigation onboarding
 
 After you switch to the new navigation, you’ll see a four-step onboarding process. It walks you through the key changes in the new navigation.
 
-![image-20260129-083119.png](/cms_trial/assets/04c649ea-6fa0-460b-825c-99131e82b4c4.png)
+![image-20260129-083119.png](/cms_trial/assets/f2dd608c-7fc3-49d7-ae54-a0d55aca07ea.png)
 
 ## Rollout FAQ
 
@@ -29,7 +29,7 @@ Yes. During the rollout phases, you can switch back to the old navigation at any
 
 ### How long will the old navigation remain available?
 
-The old navigation will remain available until the final rollout phase (scheduled for October 1, 2026). After full adoption, it will be deprecated and no longer accessible.
+The old navigation will remain available until the final rollout phase (scheduled for December 1, 2026). After full adoption, it will be deprecated and no longer accessible.
 
 ### Is the new navigation controlled by administrators, or can each user choose individually?
 
@@ -43,4 +43,4 @@ The new navigation will be available only on Cloud.
 
 We’d love to hear from you. Click the **Feedback** button available in all modules and share your thoughts. Alternatively, you can create a [Support](https://appfire.atlassian.net/servicedesk/customer/portal/11) ticket to submit your feedback.
 
-![image-20260206-120801.png](/cms_trial/assets/bd6442cf-ec59-4c51-80ee-bb05a1c39fa3.png)
+![image-20260206-120801.png](/cms_trial/assets/53db8d1f-2eda-4325-affc-a2035ba68b25.png)
