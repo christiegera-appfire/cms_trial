@@ -11,7 +11,6 @@ Before, people struggled with character limit in the responses. Now, there’s n
 ## Functions Summary
 
 - [fromJson](/cms_trial/space/PSJC/435028413/fromJson/)
-- [httpBasicAuthHeader](/cms_trial/space/PSJC/434602768/httpBasicAuthHeader/)
 - [httpCreateCookie](/cms_trial/space/PSJC/433654478/httpCreateCookie/)
 - [httpCreateHeader](/cms_trial/space/PSJC/434766083/httpCreateHeader/)
 - [httpCreateParameter](/cms_trial/space/PSJC/434766101/httpCreateParameter/)

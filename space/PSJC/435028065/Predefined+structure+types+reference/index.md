@@ -63,7 +63,7 @@ Standard structure types are core structures that handle fundamental Jira operat
 | HttpRequest | headers | HttpHeader [] | - [httpDelete](/cms_trial/space/PSJC/434733492/httpDelete/) - [httpGet](/cms_trial/space/PSJC/434472661/httpGet/) - [httpOptions](/cms_trial/space/PSJC/434995455/httpOptions/) | - [httpPatch](/cms_trial/space/PSJC/434930150/httpPatch/) - [httpPost](/cms_trial/space/PSJC/434766152/httpPost/) - [httpPut](/cms_trial/space/PSJC/434995476/httpPut/) |
 | cookies | HttpCookie [] |
 | parameters | HttpQueryParam [] |
-| HttpHeader | key | string | - [httpCreateHeader](/cms_trial/space/PSJC/434766083/httpCreateHeader/) - [httpBasicAuthHeader](/cms_trial/space/PSJC/434602768/httpBasicAuthHeader/) |
+| HttpHeader | key | string | - [httpCreateHeader](/cms_trial/space/PSJC/434766083/httpCreateHeader/) - [httpBasicAuthHeader](https://appfire.atlassian.net/wiki/spaces/PSJC/pages/434602768) |
 | value | string |
 | HttpCookie | name | string | - [httpCreateCookie](/cms_trial/space/PSJC/433654478/httpCreateCookie/) |
 | value | string |

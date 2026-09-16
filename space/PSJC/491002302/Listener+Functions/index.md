@@ -9,7 +9,6 @@ This section contains functions that enable users to handle project, user, vers
 - [getBoardFromEvent](/cms_trial/space/PSJC/692618342/getBoardFromEvent/)
 - [getEventClassName](/cms_trial/space/PSJC/524386310/getEventClassName/)
 - [getEventIssueChanges](/cms_trial/space/PSJC/518094926/getEventIssueChanges/)
-- [getEventIssueFieldChange](/cms_trial/space/PSJC/524124325/getEventIssueFieldChange/)
 - [getEventName](/cms_trial/space/PSJC/2416509032/getEventName/)
 - [getFilterFromEvent](/cms_trial/space/PSJC/720473609/getFilterFromEvent/)
 - [getIssueLinkFromEvent](/cms_trial/space/PSJC/519077889/getIssueLinkFromEvent/)
