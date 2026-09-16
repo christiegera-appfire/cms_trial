@@ -37,6 +37,10 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <div class="lang-picker">
+        <button class="lang-picker-btn" type="button" title="Translate this page" aria-label="Translate this page">🌐</button>
+        <div class="lang-picker-menu"></div>
+      </div>
       <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
         <span class="theme-toggle-icon-dark">☾</span>
         <span class="theme-toggle-icon-light">☀</span>
@@ -64,6 +68,58 @@
   });
 })();
 </script>
+<!-- Language picker — links to Google Translate's real, public proxy for
+     the CURRENT page (computed client-side from window.location), which
+     translates the actual live page on the fly. No API key, no per-
+     character cost, works today. Lower polish than a real native
+     multi-language site (shows Google's own banner, different domain
+     while translated) — a real starting point, not the final answer.
+
+     Languages chosen based on real signal: Atlassian's own cloud docs/
+     support content is only actively translated into Japanese beyond
+     English (confirmed via their own support documentation) — the
+     strongest available signal for what this specific audience actually
+     needs — plus the other major enterprise-software markets. -->
+<script>
+(function () {
+  var btn = document.querySelector(".lang-picker-btn");
+  var menu = document.querySelector(".lang-picker-menu");
+  if (!btn || !menu) return;
+
+  var LANGUAGES = [
+    { code: "ja", label: "日本語 (Japanese)" },
+    { code: "de", label: "Deutsch (German)" },
+    { code: "fr", label: "Français (French)" },
+    { code: "es", label: "Español (Spanish)" },
+    { code: "pt", label: "Português (Portuguese)" },
+    { code: "zh-CN", label: "中文 (Chinese, Simplified)" },
+  ];
+
+  menu.innerHTML = LANGUAGES.map(function (lang) {
+    return '<a href="#" data-lang="' + lang.code + '">' + lang.label + "</a>";
+  }).join("");
+
+  btn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    menu.classList.toggle("open");
+  });
+
+  document.addEventListener("click", function () {
+    menu.classList.remove("open");
+  });
+
+  menu.querySelectorAll("a").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      var lang = a.dataset.lang;
+      var currentUrl = window.location.href;
+      var translateUrl = "https://translate.google.com/translate?sl=en&tl=" + lang + "&u=" + encodeURIComponent(currentUrl);
+      window.open(translateUrl, "_blank", "noopener");
+      menu.classList.remove("open");
+    });
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
@@ -75,7 +131,7 @@
       </div>
     </div>
     <h1>Release notes September 2026</h1>
-    <div class="page-meta">Updated 6 days ago · 2 min read</div>
+    <div class="page-meta">Updated 7 days ago · 2 min read</div>
     <p><strong>Release date</strong>: <time datetime="2026-09-09">September 9, 2026</time></p><p>Our team is thrilled to announce the latest release of Configuration Manager for Jira (CMJ) Cloud.</p><hr/><h2 id="new-features">New features</h2><h2 id="scheduled-snapshots">Scheduled snapshots</h2><p>You can now schedule recurring snapshots of your Jira configuration to automatically capture changes over time. Choose from daily, weekly, biweekly, or monthly schedules to keep an up-to-date record of your configuration without creating snapshots manually.</p><p><a href="/cms_trial/space/CMJC/2506522887/Create+and+manage+snapshots/">Learn more about scheduled snapshots</a></p><hr/><h2 id="enhancements">Enhancements</h2><h2 id="onboarding-checklist">Onboarding checklist</h2><p>New CMJ Cloud admins can now use the <strong>Get started</strong> widget to complete the key setup steps, including authorizing an API token, creating their first snapshot, and deploying it.</p><h2 id="jsm-knowledge-base-support-for-server-to-cloud-migrations">JSM Knowledge Base support for Server-to-Cloud migrations</h2><p>CMJ Cloud now supports migrating Jira Service Management Knowledge Base configuration as part of Cloud-to-Cloud, and now, Server-to-Cloud migrations.</p><h2 id="support-for-jsm-language-translations">Support for JSM language translations</h2><p>CMJ Cloud now supports migrating JSM language settings, including portal and request type translations, notification templates, and customer notification translations.</p><h2 id="improved-admin-permission-checks">Improved admin permission checks</h2><p>CMJ Cloud now supports permission checks for Atlassian’s centralized user management, in addition to classic site administrator roles.</p><hr/><h2 id="bug-fixes">Bug fixes</h2><p>The following bugs are fixed in this release:</p><ul><li><p>Fixed issues that could prevent field scheme changes from being deployed.</p></li><li><p>Fixed an issue where internal system and app users appeared in Analyze Changes during cloud-to-cloud deployments.</p></li><li><p>Fixed an issue that prevented new People custom fields from being created because they were incorrectly treated as locked fields.</p></li><li><p>Fixed several UI issues in the onboarding and Settings pages, including incorrect links, layout problems on smaller screens, a missing Appfire icon, and outdated Get Started content.</p></li><li><p>Fixed an issue where the Next button in the migration wizard overlapped the Rovo icon.</p></li></ul><hr/><div class="columns" style="grid-template-columns: 50.0fr 50.0fr;"><div><p> <strong>Questions and feedback</strong></p><ul><li><p>Explore exciting features, pricing updates, reviews, and more on the <a href="https://marketplace.atlassian.com/apps/1211611/configuration-manager-for-jira-cmj?hosting=cloud&amp;tab=overview">Marketplace</a>.</p></li><li><p>Stuck with something? Raise a ticket through our <a href="https://appf.re/support">support portal</a>.</p></li><li><p>Do you love using our app? Let us know what you think <a href="https://marketplace.atlassian.com/apps/1211611/configuration-manager-for-jira-cmj?hosting=cloud&amp;tab=reviews">here</a>.</p></li></ul></div><div><p> <strong>Credits</strong></p><p>Thank you to our valued customers! Your incredible support and feedback inspire us to improve continuously. We appreciate your trust in Configuration Manager for Jira (CMJ) Cloud!</p></div></div>
   </main>
   <aside class="sidebar">

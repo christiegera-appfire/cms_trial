@@ -1,12 +1,8 @@
 # Get started with Rich Filters for Jira Dashboards for Cloud
 
-**Rich Filters for Jira Dashboards has been developed and deployed on Atlassian Forge, Atlassian’s most advanced cloud development platform.**
+This article gives newcomers to the [Rich Filters for Jira Dashboards](https://marketplace.atlassian.com/apps/1214789/rich-filters-for-jira-dashboards?hosting=cloud&tab=overview) app a quick introduction, explaining what it is and can do, how to access it, and how to use it to create a simple dashboard.
 
-See our [documentation](https://support.appfire.com/space/RFCDOC/3171189121) or contact [support](https://support.appfire.com/page/support) for help.
-
-This article provides newcomers to the [Rich Filters for Jira Dashboards](https://marketplace.atlassian.com/apps/1214789/rich-filters-for-jira-dashboards?hosting=cloud&tab=overview) app with a rapid introduction, explaining what it is and can do, how to access it, and how to use it to create a simple dashboard.
-
-## Prerequisites
+## Before you start
 
 - Access a Jira instance with the [Rich Filters for Jira Dashboards](https://marketplace.atlassian.com/apps/1214789/rich-filters-for-jira-dashboards?hosting=cloud&tab=overview) app installed.
 - One or more existing [Jira filters](https://support.atlassian.com/jira-software-cloud/docs/save-your-search-as-a-filter/) will be a base for your rich filters
@@ -43,9 +39,9 @@ When you've worked through all the steps in this tutorial, you should have a das
 
 ## Create and access rich filters
 
-A rich filter is an intelligent layer that sits on top of a basic Jira filter and provides advanced options for filtering and displaying the issues it returns. Let's examine how to access rich filters and create your first one.
+A rich filter is an intelligent layer that sits on top of a basic Jira filter and provides advanced options for filtering and displaying the issues it returns. Let's see how to access rich filters and create your first one.
 
-1. Once Rich Filters for Jira Dashboards is installed on your Jira instance, you can start to use it by selecting **Apps > Rich Filters** from the Jira menu.
+1. Once Rich Filters for Jira Dashboards is installed on your Jira instance, you can start to use it by selecting **Apps**>**Rich Filters** from the Jira menu.
 
    ![Rich Filters under Apps](/cms_trial/assets/ca4b0793-ebfd-4acb-bea5-a85d1bc61703.png)
 2. You should now be on the Rich Filter **Home** screen. Click **Create rich filter**.

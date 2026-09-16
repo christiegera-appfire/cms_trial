@@ -259,7 +259,7 @@ Time to SLA needs a calendar to track business hours and holidays.
    - **Salesforce Object:** Case
 7. Click **Add**.
 
-   ![Bug to Case mapping](/cms_trial/assets/a321d571-8d2e-40f5-8a5a-0aefc822ed4d.png)
+   ![image-20260916-113918.png](/cms_trial/assets/bae54dac-942b-48b6-81d4-579e891cf19a.png)
 
    This mapping lets you create Jira work items directly from Salesforce cases and keep data in sync.
 
@@ -276,8 +276,6 @@ Time to SLA needs a calendar to track business hours and holidays.
    - Status → Status
    - SLA Target Date - Resolution → SLA Resolution Deadline
    - SLA Target Date - First Response → SLA First Response Deadline
-
-     ![Field mappings](/cms_trial/assets/2ea46bf1-d98b-422f-9506-fa82c31d3a0f.png)
 
 #### 4.3. Map priority values
 

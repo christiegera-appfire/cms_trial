@@ -18,7 +18,7 @@ To create a box while in a Jira space, you must have sufficient [permissions](ht
 
    ![Get extra views for your Jira Space screen in the App widget.](/cms_trial/assets/010d6749-15ed-4615-80ba-9cbb936886eb.png)
 3. Select the box type you want to create for your Jira space. Use the navigation arrows to scroll through the available types. The options available depend on your box type setup. Only [own-scope](/cms_trial/space/SPM/1918766536/Scope+types/) boxes can be selected.  
-   When you click a box type, you will see a list of automatically active modules ([module availability](/cms_trial/space/SPM/1918503298/Define+available+modules/) can be customized after a box is created).
+   When you click a box type, you will see a list of automatically active modules ([module availability](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918503298) can be customized after a box is created).
 4. Click **Start working**to create a perfect match box.
 5. The box is ready. You can create timeboxes to subdivide the scope further and adjust the [box configuration](/cms_trial/space/SPM/1918666176/Box+configuration/) to best suit your needs.
 

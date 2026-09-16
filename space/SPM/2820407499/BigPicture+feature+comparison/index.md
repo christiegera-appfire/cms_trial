@@ -30,9 +30,9 @@ Last updated January 15, 2026
 | 7pace Timetracker | ✅ | ✅ |  |
 | [Jira team integration](/cms_trial/space/SPM/1918538178/Teams+based+on+Jira+teams/) | ✅ | ❌ |  |
 | [Connecting multiple Jira instances](/cms_trial/space/SPM/2214658323/Connect+another+Jira+instance+to+BigPicture/) | ✅ | ❌ |  |
-| [Reports](/cms_trial/space/SPM/1918502811/Reports+module/) (Reports module) | [Dependencies](/cms_trial/space/SPM/1918504971/Dependencies+report/) | ✅ | ❌ | The remaining reports in the Resources module are available in BP. |
+| [Reports](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918502811) (Reports module) | [Dependencies](/cms_trial/space/SPM/1918504971/Dependencies+report/) | ✅ | ❌ | The remaining reports in the Resources module are available in BP. |
 | [Cross-team dependencies](/cms_trial/space/SPM/1918668772/Cross-team+dependencies+report/) | ✅ | ❌ |
-| [Milestones and markers](/cms_trial/space/SPM/1918505294/Milestones+%26+Markers+report/) | ✅ | ❌ |
+| [Milestones and markers](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918505294) | ✅ | ❌ |
 | [Velocity](/cms_trial/space/SPM/1918833281/Velocity+report/) | ✅ | ❌ |
 | [Plan delay](/cms_trial/space/SPM/1918765989/Plan+delay+report/) | ✅ | ❌ |
 | [Capacity per period](/cms_trial/space/SPM/1918765199/Capacity+per+period+report/) | ✅ | ❌ |
@@ -42,7 +42,7 @@ Last updated January 15, 2026
 | Unlimited [scenarios](/cms_trial/space/SPM/1918634045/Scenarios/) (Gantt module, Resources module) | ✅ | ❌ | BP users can create up to 3 scenarios per box. |
 | [Baseline versioning](/cms_trial/space/SPM/1918633902/Manage+baseline+permissions+and+version+history/) | ✅ | ❌ |  |
 | Unlimited [box types](/cms_trial/space/SPM/1918830000/Box+types/) | ✅ | ❌ | BP users can have up to 11 active box types, including custom ones. |
-| [Module](/cms_trial/space/SPM/1918503298/Define+available+modules/) custom name | ✅ | ❌ | BPE users can rename default module names in every box and box type. |
+| [Module](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918503298) custom name | ✅ | ❌ | BPE users can rename default module names in every box and box type. |
 
 ## Can I upgrade my BigPicture license to BigPicture Enterprise?
 

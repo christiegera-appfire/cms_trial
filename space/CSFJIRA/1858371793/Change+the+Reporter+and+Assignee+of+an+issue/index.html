@@ -25,7 +25,7 @@
   "@type": "TechArticle",
   "headline": "Change the Reporter and Assignee of an issue",
   "url": "https://christiegera-appfire.github.io/cms_trial/space/CSFJIRA/1858371793/Change+the+Reporter+and+Assignee+of+an+issue/",
-  "dateModified": "2026-06-23T10:04:10.500Z"
+  "dateModified": "2026-09-16T11:32:07.784Z"
 }
 </script>
 </head>
@@ -37,6 +37,10 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <div class="lang-picker">
+        <button class="lang-picker-btn" type="button" title="Translate this page" aria-label="Translate this page">🌐</button>
+        <div class="lang-picker-menu"></div>
+      </div>
       <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
         <span class="theme-toggle-icon-dark">☾</span>
         <span class="theme-toggle-icon-light">☀</span>
@@ -64,6 +68,58 @@
   });
 })();
 </script>
+<!-- Language picker — links to Google Translate's real, public proxy for
+     the CURRENT page (computed client-side from window.location), which
+     translates the actual live page on the fly. No API key, no per-
+     character cost, works today. Lower polish than a real native
+     multi-language site (shows Google's own banner, different domain
+     while translated) — a real starting point, not the final answer.
+
+     Languages chosen based on real signal: Atlassian's own cloud docs/
+     support content is only actively translated into Japanese beyond
+     English (confirmed via their own support documentation) — the
+     strongest available signal for what this specific audience actually
+     needs — plus the other major enterprise-software markets. -->
+<script>
+(function () {
+  var btn = document.querySelector(".lang-picker-btn");
+  var menu = document.querySelector(".lang-picker-menu");
+  if (!btn || !menu) return;
+
+  var LANGUAGES = [
+    { code: "ja", label: "日本語 (Japanese)" },
+    { code: "de", label: "Deutsch (German)" },
+    { code: "fr", label: "Français (French)" },
+    { code: "es", label: "Español (Spanish)" },
+    { code: "pt", label: "Português (Portuguese)" },
+    { code: "zh-CN", label: "中文 (Chinese, Simplified)" },
+  ];
+
+  menu.innerHTML = LANGUAGES.map(function (lang) {
+    return '<a href="#" data-lang="' + lang.code + '">' + lang.label + "</a>";
+  }).join("");
+
+  btn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    menu.classList.toggle("open");
+  });
+
+  document.addEventListener("click", function () {
+    menu.classList.remove("open");
+  });
+
+  menu.querySelectorAll("a").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      var lang = a.dataset.lang;
+      var currentUrl = window.location.href;
+      var translateUrl = "https://translate.google.com/translate?sl=en&tl=" + lang + "&u=" + encodeURIComponent(currentUrl);
+      window.open(translateUrl, "_blank", "noopener");
+      menu.classList.remove("open");
+    });
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
@@ -75,8 +131,8 @@
       </div>
     </div>
     <h1>Change the Reporter and Assignee of an issue</h1>
-    <div class="page-meta">Updated 2 months ago · 2 min read</div>
-    <p>This page helps you configure the mappings to allow Connector for Salesforce to assign a different user to a created issue.</p><h2 id="guide">Guide</h2><div class="columns" style="grid-template-columns: 100.0fr;"><div><ol><li><p>Select <strong>Apps</strong> from the left sidebar in Jira.</p></li><li><p>Next to <em>Connector for Salesforce,</em> click <strong>Menu</strong> (<span class="inline-icon" title="inline icon">▢</span>) &gt; <strong>App settings</strong>.</p><img alt="Appsettings.png" class="doc-image" loading="lazy" src="/cms_trial/assets/6c8c76eb-a432-48c5-85b4-764de4561b15.png"/></li><li><p>Choose your desired <strong>Bindings</strong>, then click <strong>Mapping</strong>.</p><img alt="binding.png" class="doc-image" loading="lazy" src="/cms_trial/assets/ab9ad34e-5e31-4a3f-9616-31e0510617a7.png"/><p>On the <strong>Mapping Configuration</strong> screen, choose the <strong>Issue Type</strong> you want to configure. <br/>For this example, let's choose <strong>Task</strong>. </p></li><li><p>Click <strong>Mappings</strong>.</p><img alt="Mapping bindings.png" class="doc-image" loading="lazy" src="/cms_trial/assets/3349fbd7-3525-4247-88c2-4f1fed5f3048.png"/></li><li><p>The <strong>Task to Case field mappings</strong> dialog box appears.</p></li><li><p>In the <strong>Jira Field</strong>, choose <strong>Reporter</strong>, and in the <strong>Salesforce Field</strong>, choose <strong>Owner ID.</strong></p></li><li><p>Click<strong> + Add</strong>.</p><img alt="task to case mapping.png" class="doc-image" loading="lazy" src="/cms_trial/assets/3c6703f0-cdd1-4cea-963f-60b12dfd673d.png"/></li><li><p>Once you've clicked the <strong>+ Add</strong> button, click <strong>Configure</strong>.</p></li><li><p>Select a <strong>Jira</strong> <strong>default</strong> and <strong>Salesforce default </strong>value for unmapped reporters and assignees. <br/>For detailed instructions, see <a href="/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field+and+value+mappings/">Set default value</a>.</p></li><li><p> In <strong>Reporter</strong> field, add the <em>username</em> of the account you want to add.</p><img alt="Reporter field.png" class="doc-image" loading="lazy" src="/cms_trial/assets/49f08271-1bc0-4642-a8ca-93279bdf7565.png"/></li><li><p>For the <strong>Salesforce Fields Value</strong>, you are required to obtain an 18-character Owner ID.<br/>To get this, write down your 15-character User ID from your Salesforce profile URL:<br/></p><img alt="contentId-1858371793" class="doc-image" loading="lazy" src="/cms_trial/assets/9acee589-b586-40fb-a519-7f20058925c1.png"/></li><li><p>Use <a href="https://www.adminbooster.com/tool/15to18">this tool to make the conversion</a> of the User ID.<br/></p><img alt="contentId-1858371793" class="doc-image" loading="lazy" src="/cms_trial/assets/5c05c909-1492-4150-889e-6287bd300bd2.png"/></li><li><p>Copy the converted ID, paste it under the <strong>Owner ID </strong>column, click <strong>+ Add</strong>, then click <strong>Save</strong>.</p></li></ol><div class="panel panel-warning"><p>Make sure you paste or key in the Salesforce ID exactly as generated, with the correct case (this ID is case-sensitive). and with no spaces before or after the value. For example, <code>00590002fBnyAAE</code> is not the same as <code>00590002fbnyaae</code>.</p></div><img alt="contentId-1858371793" class="doc-image" loading="lazy" src="/cms_trial/assets/4366edf3-90e2-4abd-82ca-32318ab17787.png"/><img alt="contentId-1858371793" class="doc-image" loading="lazy" src="/cms_trial/assets/c10402d6-3918-4561-8074-9800ebbe0818.png"/><ol><li><p>In Salesforce, create a new case assigned to the designated owner, where the <strong>Owner</strong> in Salesforce is using the admin username that has already been mapped in Jira.</p></li><li><p><a href="/cms_trial/space/CSFJIRA/3091792703/Create+a+Jira+work+item+from+Salesforce/">Create a Jira Issue from Salesforce</a>.</p><img alt="contentId-1858371793" class="doc-image" loading="lazy" src="/cms_trial/assets/0783512f-0859-4a1e-95b1-5f6d0c8619b6.png"/></li><li><p>Back in Jira, you should now be able to see the admin user instead of "<em>Salesforce &amp; Jira Cloud Connector</em>" as the <strong>Reporter</strong>.</p><img alt="contentId-1858371793" class="doc-image" loading="lazy" src="/cms_trial/assets/8b8a2a84-ccf1-4ec7-99bc-f32c7f929c74.png"/></li><li><p>Go to Salesforce and change the <em>Case Owner</em> to change the case's owner to ensure the add-on can synchronize with the <strong>Reporter</strong> field. </p></li><li><p>Go back to Jira and <strong>Pull</strong> the updated changes made in Salesforce.<br/>You should now be able to see the new changes.<br/>The user must be manually mapped as well.</p></li></ol></div></div>
+    <div class="page-meta">Updated today · 2 min read</div>
+    <p>This page helps you configure the mappings to allow Connector for Salesforce to assign a different user to a created issue.</p><h2 id="guide">Guide</h2><div class="columns" style="grid-template-columns: 100.0fr;"><div><ol><li><p>Select <strong>Apps</strong> from the left sidebar in Jira.</p></li><li><p>Next to <em>Connector for Salesforce,</em> click <strong>Menu</strong> (<span class="inline-icon" title="inline icon">▢</span>) &gt; <strong>App settings</strong>.</p><img alt="Appsettings.png" class="doc-image" loading="lazy" src="/cms_trial/assets/6c8c76eb-a432-48c5-85b4-764de4561b15.png"/></li><li><p>Select your <strong>Binding</strong>, then click <strong>Menu</strong> (<span class="inline-icon" title="inline icon">▢</span>) &gt; <strong>Edit</strong>.</p><img alt="image-20260915-093429.png" class="doc-image" loading="lazy" src="/cms_trial/assets/e9c3e8fe-c53d-4875-84ca-c2371051690f.png"/></li><li><p>On the <em>Entity mapping </em>screen, select the mapping<strong> </strong>you want to configure.<br/>For this example, let's select <strong>Task </strong>-&gt;<strong> Case </strong>mapping. </p><img alt="Entity mapping" class="doc-image" loading="lazy" src="/cms_trial/assets/270a06f1-5475-4dd9-b48e-89a1652f68e2.png"/></li></ol><p>The <strong>Task → Case Field mappings </strong>window opens on the right.</p><ol><li><p>In the <strong>Jira Field</strong>, select <strong>Reporter</strong>, and in the <strong>Salesforce Field</strong>, select <strong>Owner ID.</strong></p></li><li><p>Click<strong> Add field mapping</strong>.</p><img alt="Field mapping" class="doc-image" loading="lazy" src="/cms_trial/assets/dd3104bc-5846-4c4c-b997-87c1e308fea4.png"/></li><li><p> Next to the new field mapping<strong>,</strong> click <strong>Menu</strong> (<span class="inline-icon" title="inline icon">▢</span>) &gt; <strong>Configure</strong>.</p><img alt="Configure option" class="doc-image" loading="lazy" src="/cms_trial/assets/0f1cba88-7ea7-4b7d-9825-d34dec4c4066.png"/></li><li><p>Select a <strong>Jira</strong> <strong>default</strong> and <strong>Salesforce default </strong>value for unmapped reporters and assignees. <br/>For detailed instructions, see <a href="/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field+and+value+mappings/">Set default value</a>.</p></li><li><p> Under the <strong>Reporter</strong> field, add the <em>username</em> of the account you want to add.</p><img alt="image-20260915-103116.png" class="doc-image" loading="lazy" src="/cms_trial/assets/44b9d38f-1c4f-4071-aeda-7d3070ee70fd.png"/></li><li><p>For the <strong>Salesforce Fields Value</strong>, you are required to obtain an 18-character Owner ID.<br/>To get this, write down your 15-character User ID from your Salesforce profile URL:<br/></p><img alt="contentId-1858371793" class="doc-image" loading="lazy" src="/cms_trial/assets/9acee589-b586-40fb-a519-7f20058925c1.png"/></li><li><p>Use <a href="https://www.adminbooster.com/tool/15to18">this tool to make the conversion</a> of the User ID.<br/></p><img alt="contentId-1858371793" class="doc-image" loading="lazy" src="/cms_trial/assets/5c05c909-1492-4150-889e-6287bd300bd2.png"/></li><li><p>Copy the converted ID, paste it under the <strong>Owner ID </strong>column, click <strong>+ Add</strong>, then click <strong>Configure</strong>.</p></li></ol><div class="panel panel-warning"><p>Make sure you paste or key in the Salesforce ID exactly as generated, with the correct case (this ID is case-sensitive). and with no spaces before or after the value. For example, <code>00590002fBnyAAE</code> is not the same as <code>00590002fbnyaae</code>.</p></div><img alt="image-20260915-103319.png" class="doc-image" loading="lazy" src="/cms_trial/assets/b52c42fb-3644-4bd0-a634-4ea2a35137c3.png"/><ol><li><p>In Salesforce, create a new case assigned to the designated owner, where the <strong>Owner</strong> in Salesforce is using the admin username that has already been mapped in Jira.</p></li><li><p><a href="/cms_trial/space/CSFJIRA/3091792703/Create+a+Jira+work+item+from+Salesforce/">Create a Jira Issue from Salesforce</a>.</p><img alt="contentId-1858371793" class="doc-image" loading="lazy" src="/cms_trial/assets/0783512f-0859-4a1e-95b1-5f6d0c8619b6.png"/></li><li><p>Back in Jira, you should now be able to see the admin user instead of "<em>Salesforce &amp; Jira Cloud Connector</em>" as the <strong>Reporter</strong>.</p><img alt="contentId-1858371793" class="doc-image" loading="lazy" src="/cms_trial/assets/8b8a2a84-ccf1-4ec7-99bc-f32c7f929c74.png"/></li><li><p>Go to Salesforce and change the <em>Case Owner</em> to change the case's owner to ensure the add-on can synchronize with the <strong>Reporter</strong> field. </p></li><li><p>Go back to Jira and <strong>Pull</strong> the updated changes made in Salesforce.<br/>You should now be able to see the new changes.<br/>The user must be manually mapped as well.</p></li></ol></div></div>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>

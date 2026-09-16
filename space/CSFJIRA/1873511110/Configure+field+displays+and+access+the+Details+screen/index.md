@@ -11,7 +11,9 @@ It also guides you on how to access the **Details** screen.
 
    ![App settings](/cms_trial/assets/4e12d48f-1928-4d7d-b055-113c3077bd0b.png)
 3. Under *Connector for Salesforce*, select **Connections**.
-4. On the **Salesforce Connections** screen, navigate to the **Connection** you want to configure and select **Configure.**
+4. On the **Salesforce Connections** screen, navigate to the **Connection** you want to configure and select **Menu** (▢) > **Configure.**
+
+   ![image-20260915-160219.png](/cms_trial/assets/f1606376-3f19-464b-a6b0-8b3aabf04ddc.png)
 5. On the **Connection Configuration** screen, navigate to the Salesforce Object desired and click **Fields** to continue configuration.
 
    ![contentId-1873511110](/cms_trial/assets/40f8b4c7-8f83-451f-a53b-52bb7210ee01.png)

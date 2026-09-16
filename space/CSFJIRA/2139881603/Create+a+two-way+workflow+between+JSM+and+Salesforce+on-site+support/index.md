@@ -76,30 +76,27 @@ In this scenario, we will be using the Case object type.
 
 ### 3. Map entities and fields in Connector for Salesforce & Jira
 
-1. In Jira, navigate to **Apps** > **Connector for Salesforce** > **App settings** > **Bindings**.
-2. Click **Mapping** for the JSM project you’re linking it to.
-3. Click **Add Entity Mapping,** and map:
+1. In Jira, navigate to **Apps** > **Connector for Salesforce** > **App settings**.
+2. Under **Connector for Salesforce**, click **Bindings.**
+3. Next to your JSM binding, click **Menu** (▢) > **Edit**.
+4. Map the Jira **Task** to the Salesforce **Case** object type.
+5. Click **Add Entity Mapping**
+6. For **Task** to **Case** field mappings, map:
 
-   - Jira **Task** with Salesforce **Case** object
-   - Jira **Task** with Salesforce **Contact** object
+   - Jira **Summary** field with the **Subject** field
+   - Jira **Description** field with the **Description** field
+   - Jira **Date of Visitation** field with the **Date of Visitation** field
+   - Jira **Time Slot for Visitation** field with the **Time Slot for Visitation** field
 
-     ![Screenshot showing entity mapping.](/cms_trial/assets/aed23134-b9f7-4c14-8310-19dc46d5dfbf.png)
-4. Click **Mappings** to map the fields from Salesforce to Jira for each of the **Issue types**:
+     ![Task to Case field mappings](/cms_trial/assets/7e372277-ee5d-4774-a2e5-bc2aa472470e.png)
+7. For **Task** to **Contact** field mappings, map:
 
-   - For **Task** to **Case** field mappings:
+- - Jira **Reporter’s email** field with the **Email** field
+  - Jira **Updated Phone Number** field with the **Business** **Phone** field
 
-     - Jira **Summary** field with the **Subject** field
-     - Jira **Description** field with the **Description** field
-     - Jira **Date of Visitation** field with the **Date of Visitation** field
-     - Jira **Time Slot for Visitation** field with the **Time Slot for Visitation** field
+    ![image-20260916-071757.png](/cms_trial/assets/73b58bac-5b8d-42b4-ac65-e4f96b116482.png)
 
-       ![Screenshot of mapping between Jira and Salesforce items.](/cms_trial/assets/9b8d6f98-999f-49bc-9a4b-e1425848dd69.png)
-   - For **Task** to **Contact** field mappings map:
-
-     - Jira **Reporter’s email** field with the **Email** field
-     - Jira **Updated Phone Number** field with the **Business** **Phone** field
-
-       ![Screenshot showing the Task to Contact field mappings.](/cms_trial/assets/7e969dc0-132a-48f3-a08c-d4567d3997c0.png)
+1. Click **Save.**
 
 ### 4. Associate Jira task with Salesforce records
 

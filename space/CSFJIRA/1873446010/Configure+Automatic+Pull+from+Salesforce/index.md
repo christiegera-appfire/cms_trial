@@ -30,7 +30,7 @@ Make sure you have:
 2. Under *Connector for Salesforce*, click **Connections**.
 3. On the *Salesforce Connections* window, navigate to the Connectionyou want to configure and click **Configure.**
 
-   ![Configure Connections](/cms_trial/assets/f5f40947-a483-4f29-a0d6-e1b86a117b6a.png)
+   ![image-20260916-113601.png](/cms_trial/assets/e3a89a00-b864-4740-a349-2f0dfb74403f.png)
 4. On the*Connection Configuration* window, find the *Connection Settings* and enable the **Allow Automatic Pull** option.
 5. Make sure the **Allow Modification** option is enabled.
 

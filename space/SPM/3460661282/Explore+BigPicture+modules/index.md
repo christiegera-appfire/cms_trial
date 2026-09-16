@@ -133,7 +133,7 @@ The Risks module is where you can assess the risk probability and consequence an
 - Display of [work items as risks and risks as work items](/cms_trial/space/SPM/1918701278/Manage+risks/)
 - Customizable risk register [column view](/cms_trial/space/SPM/1918504788/Customize+column+views/)
 
-### [Reports](/cms_trial/space/SPM/1918502811/Reports+module/)
+### [Reports](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918502811)
 
 The Reports module helps you visualize and communicate project, program, or portfolio progress in an organized, detailed way through various reports. The reports you generate in this module pull data only from those boxes you have access to.
 

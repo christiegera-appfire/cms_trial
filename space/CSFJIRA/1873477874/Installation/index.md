@@ -3,8 +3,9 @@
 To fully work with Connector for Salesforce & Jira, install the app in your Jira and on the Salesforce side.
 
 1. [Install Connector for Salesforce & Jira in](/cms_trial/space/CSFJIRA/1873412370/Install+the+Connector+in+Jira+Cloud/) [**Jira**](/cms_trial/space/CSFJIRA/1873412370/Install+the+Connector+in+Jira+Cloud/)[**Cloud**](/cms_trial/space/CSFJIRA/1873412370/Install+the+Connector+in+Jira+Cloud/)
-
 2. [Install the Salesforce package in Salesforce](/cms_trial/space/CSFJIRA/1758232704/Install+the+Salesforce+package+in+Salesforce/).
+
+   1. [Install the Connector for Salesforce package in sandbox](/cms_trial/space/CSFJIRA/3510861933/Install+the+Connector+for+Salesforce+package+in+sandbox/).
 
 ## Next steps
 

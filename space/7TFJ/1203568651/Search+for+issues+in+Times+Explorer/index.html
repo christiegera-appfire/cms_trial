@@ -52,6 +52,10 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <div class="lang-picker">
+        <button class="lang-picker-btn" type="button" title="Translate this page" aria-label="Translate this page">🌐</button>
+        <div class="lang-picker-menu"></div>
+      </div>
       <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
         <span class="theme-toggle-icon-dark">☾</span>
         <span class="theme-toggle-icon-light">☀</span>
@@ -79,6 +83,58 @@
   });
 })();
 </script>
+<!-- Language picker — links to Google Translate's real, public proxy for
+     the CURRENT page (computed client-side from window.location), which
+     translates the actual live page on the fly. No API key, no per-
+     character cost, works today. Lower polish than a real native
+     multi-language site (shows Google's own banner, different domain
+     while translated) — a real starting point, not the final answer.
+
+     Languages chosen based on real signal: Atlassian's own cloud docs/
+     support content is only actively translated into Japanese beyond
+     English (confirmed via their own support documentation) — the
+     strongest available signal for what this specific audience actually
+     needs — plus the other major enterprise-software markets. -->
+<script>
+(function () {
+  var btn = document.querySelector(".lang-picker-btn");
+  var menu = document.querySelector(".lang-picker-menu");
+  if (!btn || !menu) return;
+
+  var LANGUAGES = [
+    { code: "ja", label: "日本語 (Japanese)" },
+    { code: "de", label: "Deutsch (German)" },
+    { code: "fr", label: "Français (French)" },
+    { code: "es", label: "Español (Spanish)" },
+    { code: "pt", label: "Português (Portuguese)" },
+    { code: "zh-CN", label: "中文 (Chinese, Simplified)" },
+  ];
+
+  menu.innerHTML = LANGUAGES.map(function (lang) {
+    return '<a href="#" data-lang="' + lang.code + '">' + lang.label + "</a>";
+  }).join("");
+
+  btn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    menu.classList.toggle("open");
+  });
+
+  document.addEventListener("click", function () {
+    menu.classList.remove("open");
+  });
+
+  menu.querySelectorAll("a").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      var lang = a.dataset.lang;
+      var currentUrl = window.location.href;
+      var translateUrl = "https://translate.google.com/translate?sl=en&tl=" + lang + "&u=" + encodeURIComponent(currentUrl);
+      window.open(translateUrl, "_blank", "noopener");
+      menu.classList.remove("open");
+    });
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
@@ -90,7 +146,7 @@
       </div>
     </div>
     <h1>Search for issues in Times Explorer</h1>
-    <div class="page-meta">Updated 2 months ago · 1 min read</div>
+    <div class="page-meta">Updated 3 months ago · 1 min read</div>
     <div class="columns" style="grid-template-columns: 25.0fr 25.0fr 25.0fr 25.0fr;"><div></div><div></div><div></div><div><img alt="TryItButton (2).png" class="doc-image" loading="lazy" src="/cms_trial/assets/952bd243-427c-41d6-ab5a-475442b51a32.png"/></div></div><p>The <em>Times Explorer</em> lets you quickly search for worklog items. </p><h2 id="watch-the-video">Watch the video</h2><p>Review the following video to learn how to search for issues in <em>Times Explorer</em>.</p><div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/ObdJYlJahaI"></iframe></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><details><summary>Video transcript:</summary><p>The Times Explorer feature in Timetracker allows you to quickly search for all of your worklog items. To navigate to the Times Explorer in your Jira project, click Apps and then under YOUR APPS, click Timetracker. On the next screen, in the left-side menu, click Times Explorer. To search for items in the Times Explorer, type a word (or words) in the Issue Title, or words in the in the Project name, the day or month that the issue was logged, the start or end time, the person who created the worklog, or a person referenced in the worklog comment, or a person referenced in the worklog comment, text in the worklog comments, or anything else that is searchable in the worklog fields, including logged time. You can also focus your search on a specific date range using the date drop-down. Or, you can select a specific date range by clicking the calendar view selection and choosing a start and end date. The Times Explorer makes searching for your worklog items simple and straightforward.</p></details></div></div><h2 id="search-in-times-explorer">Search in Times Explorer</h2><p>Use the following steps to search for worklog items in the <em>Times Explorer</em>:</p><ol><li><p>Click <strong>Apps</strong> &gt; <strong>Timetracker</strong> &gt; <strong>Times Explorer</strong>. </p></li><li><p>In the <strong>Search</strong> box, enter terms from the following columns:</p><ol><li><p>Issue Title</p></li><li><p>Project </p></li><li><p>Date Logged</p></li><li><p>Person</p></li><li><p>Start</p></li><li><p>End</p></li><li><p>Logged Time</p></li></ol></li><li><p>You can also search for text in the worklog comments</p></li></ol><p>Note that you can also focus your search on a specific date range using the date dropdown. </p><img alt="The pre-defined date drop-down menu." class="doc-image" loading="lazy" src="/cms_trial/assets/23574d65-f517-4466-a58c-55d8e2a270a8.png"/><p>Or, you can select a specific date range by clicking the calendar and choosing a start and end date.</p><img alt="Select a date range in the Times Explorer" class="doc-image" loading="lazy" src="/cms_trial/assets/7b9ce3bb-48bf-4f00-b0a5-3a3ddb4af59b.png"/>
   </main>
   <aside class="sidebar">

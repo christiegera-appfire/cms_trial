@@ -37,6 +37,10 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <div class="lang-picker">
+        <button class="lang-picker-btn" type="button" title="Translate this page" aria-label="Translate this page">🌐</button>
+        <div class="lang-picker-menu"></div>
+      </div>
       <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
         <span class="theme-toggle-icon-dark">☾</span>
         <span class="theme-toggle-icon-light">☀</span>
@@ -64,6 +68,58 @@
   });
 })();
 </script>
+<!-- Language picker — links to Google Translate's real, public proxy for
+     the CURRENT page (computed client-side from window.location), which
+     translates the actual live page on the fly. No API key, no per-
+     character cost, works today. Lower polish than a real native
+     multi-language site (shows Google's own banner, different domain
+     while translated) — a real starting point, not the final answer.
+
+     Languages chosen based on real signal: Atlassian's own cloud docs/
+     support content is only actively translated into Japanese beyond
+     English (confirmed via their own support documentation) — the
+     strongest available signal for what this specific audience actually
+     needs — plus the other major enterprise-software markets. -->
+<script>
+(function () {
+  var btn = document.querySelector(".lang-picker-btn");
+  var menu = document.querySelector(".lang-picker-menu");
+  if (!btn || !menu) return;
+
+  var LANGUAGES = [
+    { code: "ja", label: "日本語 (Japanese)" },
+    { code: "de", label: "Deutsch (German)" },
+    { code: "fr", label: "Français (French)" },
+    { code: "es", label: "Español (Spanish)" },
+    { code: "pt", label: "Português (Portuguese)" },
+    { code: "zh-CN", label: "中文 (Chinese, Simplified)" },
+  ];
+
+  menu.innerHTML = LANGUAGES.map(function (lang) {
+    return '<a href="#" data-lang="' + lang.code + '">' + lang.label + "</a>";
+  }).join("");
+
+  btn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    menu.classList.toggle("open");
+  });
+
+  document.addEventListener("click", function () {
+    menu.classList.remove("open");
+  });
+
+  menu.querySelectorAll("a").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      var lang = a.dataset.lang;
+      var currentUrl = window.location.href;
+      var translateUrl = "https://translate.google.com/translate?sl=en&tl=" + lang + "&u=" + encodeURIComponent(currentUrl);
+      window.open(translateUrl, "_blank", "noopener");
+      menu.classList.remove("open");
+    });
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
@@ -75,7 +131,7 @@
       </div>
     </div>
     <h1>Installing or Uninstalling on Jira Cloud</h1>
-    <div class="page-meta">Updated 28 days ago · 3 min read</div>
+    <div class="page-meta">Updated 29 days ago · 3 min read</div>
     <div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="install-the-app">Install the app</h2><p>To install the app, follow these steps:</p><ol><li><p>Log in to your Jira Cloud instance as an administrator.</p></li><li><p>Click the <strong>Settings</strong> icon ⚙️ in the upper right corner and select <strong>Apps</strong>.</p></li><li><p>Search for ‘JMWE’ and select <strong>Jira Misc Workflow Extensions (JMWE)</strong>.</p></li><li><p>Click <strong>Try it free</strong>.</p></li><li><p>Click <strong>Accept &amp; Install</strong> to confirm the app installation.</p></li><li><p>The system displays a progress message for the operation.</p></li></ol><p>Click <strong>Get Started</strong> to go to the Welcome page for the app.</p><div class="panel panel-warning"><p><strong>Important</strong></p><p>After successfully installing the app, we recommend that you <a href="#">verify your Jira instance configuration</a> to make sure all JMWE features will be able to work properly.</p></div><h2 id="re-install-the-app">Re-install the app</h2><p>To uninstall and then re-install the app, follow these steps (don't skip <em>any</em>):</p><ol><li><p>Log in to your Jira Cloud instance as an administrator.</p></li><li><p>Click the <strong>Settings</strong> icon ⚙️ in the upper right corner and select <strong>Apps</strong>.</p></li><li><p>Click <strong>Manage apps</strong> and locate <strong>Jira Misc Workflow Extensions</strong>.</p></li><li><p>Click the app to display its details view.</p></li><li><p>Click <strong>Unsubscribe </strong>or<strong> Stop Trial </strong>(depending on your subscription status). </p></li><li><p>Click <strong>Uninstall.</strong></p></li><li><p>The system displays a progress message for the operation. Once finished, the app is removed from the <strong>Manage apps</strong> page.</p></li><li><p>Click <strong>Find new apps</strong> and search for ‘JMWE’.</p></li><li><p>Click the app to display its details view.</p></li><li><p>Click <strong>Subscribe.</strong></p></li><li><p>Click <strong>Accept &amp; Install</strong> to confirm the app installation.</p></li><li><p>The system displays a progress message for the operation. Once finished, the app is reinstalled.</p></li></ol><p>Click on <strong>Get Started</strong> to go to the Welcome page for the app.</p><div class="panel panel-warning"><ul><li><p>Reinstalling the app will not modify your configured workflows. However, while the app is inactive, Jira might start failing transitions that have JMWE post-functions configured, so you want to minimize the time between uninstallation and re-installation of the app.</p></li><li><p>Unsubscribing and then re-subscribing to the app will not impact billing, as long as you unsubscribe and then re-subscribe on the same day.</p></li></ul></div><h2 id="during-the-trial">During the trial</h2><p>After installing/enabling the add-on, your 30-day trial period begins.</p><p>If you terminate the trial within the 30-day period, you can re-subscribe to it within the original trial period. You cannot restart the trial beyond the original trial period; at that point, you will only be able to subscribe.</p><p>If you do not terminate the trial within the 30-day period, a subscription for the add-on begins, and your billing cycle starts. Canceling the add-on takes effect immediately, and you will not be refunded. If you'd like to completely remove the add-on, disable it. See <a href="https://appfire.atlassian.net/wiki/spaces/JMWEC/pages/466321985">Uninstalling or Disabling the Add-On</a> for more information.  </p><h2 id="uninstall-the-app">Uninstall the app</h2><p>To uninstall the app, follow these steps:</p><ol><li><p>Log in to your Jira Cloud instance as an administrator.</p></li><li><p>Click the <strong>Settings</strong> icon ⚙️ in the upper right corner of the screen and select <strong>Apps</strong>.</p></li><li><p>Select <strong>Manage apps</strong> and locate <strong>Jira Misc Workflow Extensions</strong>.</p></li><li><p>Click the app to display its details.</p></li><li><p>Click <strong>Unsubscribe </strong>or<strong> Stop Trial </strong>(depending on your subscription status).</p></li><li><p>Click <strong>Uninstall.</strong></p></li><li><p>The system displays a progress message for the operation. Once finished, the app is removed from Jira and will not display under <strong>Manage apps</strong>.</p></li></ol><p>You have uninstalled the <em>Jira Misc Workflow Extensions </em>app. </p><h2 id="disable-the-app">Disable the app</h2><p>To disable the app, follow these steps:</p><ol><li><p>Log in to your Jira Cloud instance as an administrator.</p></li><li><p>Click the <strong>Settings</strong> icon ⚙️ in the upper right corner of the screen and select <strong>Apps</strong>.</p></li><li><p>Select <strong>Manage apps</strong> and locate <strong>Jira Misc Workflow Extensions</strong>.</p></li><li><p>Click the app to display its details view.</p></li><li><p>Click <strong>Disable</strong>.</p></li><li><p>The system displays a progress message for the operation. Once finished, the <strong>Disable </strong>button is replaced with <strong>Enable</strong>.</p></li></ol><p>You have disabled the <em>Jira Misc Workflow Extensions </em>app.</p></div></div>
   </main>
   <aside class="sidebar">

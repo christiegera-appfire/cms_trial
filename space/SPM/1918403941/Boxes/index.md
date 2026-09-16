@@ -44,7 +44,7 @@ On the [box configuration](/cms_trial/space/SPM/1918666176/Box+configuration/) p
 
 ![Box configuration page.](/cms_trial/assets/9d1fa2b1-a139-402e-97d8-8e0ab9fd7daa.png)
 
-- [Modules](/cms_trial/space/SPM/1918503298/Define+available+modules/) (module availability depends on the box type and individual box settings)
+- [Modules](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918503298) (module availability depends on the box type and individual box settings)
 - [Security roles](/cms_trial/space/SPM/1918797447/Box-level+permissions/) (when you create a box based on a box type, default users and groups are added per the box type settings.
 
 ## [Types of boxes](/cms_trial/space/SPM/1918830000/Box+types/)
@@ -149,7 +149,7 @@ On the [box configuration](/cms_trial/space/SPM/1918666176/Box+configuration/) p
 
 ![Basic box details in the box configuration.](/cms_trial/assets/c6952cc9-8f17-4204-8161-04061dfbd4f8.png)
 
-- [**Modules**](/cms_trial/space/SPM/1918503298/Define+available+modules/) (module availability depends on the box type and individual box settings)
+- [**Modules**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918503298) (module availability depends on the box type and individual box settings)
 - [**Security roles**](/cms_trial/space/SPM/1918797447/Box-level+permissions/) (when you create a box based on a box type, default users and groups are added per the box type settings.
 
 ## Types of boxes

@@ -16,9 +16,9 @@ Make sure you have:
 
    ![Appsettings.png](/cms_trial/assets/fd0ae13c-d058-42dc-adb5-2108efa56f19.png)
 3. Under *Connector for Salesforce*, select **Connections**.
-4. Select the connection you want to configure and click **Configure**.
+4. Select the connection you want to configure and click **Menu** (▢) > **Configure**.
 
-   ![Connections.png](/cms_trial/assets/935cd506-f888-40a7-8cad-bfa3e6595c8a.png)
+   ![image-20260915-155727.png](/cms_trial/assets/20425c1a-283e-4af9-b965-3296aa429797.png)
 5. On the **Connection configuration** screen, scroll down to the **Filter Comments by Tag** section.
 
    ![Filter Comments by Tag section](/cms_trial/assets/9dd31c47-dba1-4599-a945-f0bb9848087e.png)

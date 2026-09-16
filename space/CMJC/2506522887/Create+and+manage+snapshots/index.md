@@ -21,20 +21,20 @@ Before creating a snapshot:
 
 ### Create a snapshot
 
-The following video will show you just how easy it is to create a CMJ snapshot.
+The following video will show you how to create a CMJ snapshot.
 
 Alternatively, you can follow our step-by-step guide for some more detailed explanations:
 
 1. In your Jira Cloud site, go to **Apps > Configuration Manager > Snapshots**.
 2. If you haven’t created or uploaded any snapshots yet, you’ll see a **New snapshot** button on the page. Otherwise, you can use the **New Snapshot** button in the top-right corner to create a snapshot.
 
-   ![Snapshots page showing the New snapshot button used to create a new snapshot.](/cms_trial/assets/d92a3046-0fac-4862-8735-6648ad82fcb8.png)
+   ![Snapshots page showing the New snapshot button used to create a new snapshot.](/cms_trial/assets/02e45bc1-e473-4e1d-af48-fe03c38e2a1f.png)
 3. On the *New snapshot* page, choose what you want to capture:
 
    - **Specific elements** – Select individual projects and configuration elements for a custom snapshot.
    - **Everything supported** – Include all currently supported projects and configuration elements in the snapshot.
 
-![New snapshot scope page with the Specific elements and Everything supported options available for creating a snapshot.](/cms_trial/assets/9c4da9d4-564d-4bf3-a96c-557d58ecee10.png)
+![New snapshot scope page with the Specific elements and Everything supported options available for creating a snapshot.](/cms_trial/assets/6b81c502-a8bb-4a74-b349-03faf39fbfa2.png)
 
 1. Enter a name for your snapshot.
 2. If you selected:
@@ -42,16 +42,16 @@ Alternatively, you can follow our step-by-step guide for some more detailed expl
    - **Specific elements** - click **Select** below the snapshot name field and choose the projects and configuration elements you want to include in the snapshot.  
      💡 *You only need to select the items you want to include. Any required dependencies are added automatically during snapshot creation.* [*Learn more*](#How-dependencies-work)
 
-     ![Configuration elements selector for choosing items to include in a snapshot.](/cms_trial/assets/923b0d1d-a2af-4feb-a292-c5d0518fb650.png)
+     ![Configuration elements selector for choosing items to include in a snapshot.](/cms_trial/assets/aa8d421d-b33f-4d6e-a0df-b986f081ec43.png)
    - **Everything supported** - proceed to the next step.
 
 1. When you’re ready with your selections, click **Next**.
 2. You’ll move to the last part of the creation process, where you have to write a **Description** for the snapshot.
 
-   ![Take snapshot page with the Description and Label field for the snapshot.](/cms_trial/assets/56d4fe04-ea73-427d-aa4f-3cb173399ce5.png)
+   ![Take snapshot page with the Description and Label field for the snapshot.](/cms_trial/assets/4fcd2e1d-40c4-4526-8131-733564675e52.png)
 3. (Optional) Add a label in the **Labels** field.
 
-   ![Take snapshot page showing the optional Description and Labels fields filled in before taking a snapshot.](/cms_trial/assets/c41c9d5b-4b89-4f48-a090-ec22a79a4780.png)
+   ![Take snapshot page showing the optional Description and Labels fields filled in before taking a snapshot.](/cms_trial/assets/73f36215-ac09-456c-8f79-898e0894dc5c.png)
 4. (Optional) To set up scheduled snapshots, click **Edit** next to the **Frequency** field and configure a recurring schedule. [Learn more](#Schedule-recurring-snapshots)
 5. Finally, click **Take snapshot** to start the export process.
 6. After the snapshot is created, you'll be taken to the **Snapshot Summary** tab, where you can review the snapshot details and the number of configuration elements it contains. You can also switch to the **Scope** tab to review all the projects and configuration elements included in the snapshot.
@@ -80,14 +80,14 @@ You can set the schedule when creating a snapshot or configure it later from the
 
 On the *Take snapshot* page, the **Frequency** section shows how often the snapshot will be created. By default, the snapshot is created just once.
 
-![Frequency.png](/cms_trial/assets/b11ff4d8-7c86-4523-ae64-d42db6432e80.png)
+![Frequency section on the Take snapshot page showing the current snapshot schedule.](/cms_trial/assets/9e6615d5-8b0e-4e8e-b7de-9ad489025008.png)
 
 To set up scheduled snapshots:
 
 1. Next to **Frequency**, click **Edit**.
 2. In the **Snapshot frequency** dialog, open the **Repeat** menu.
 
-   ![Repeat.png](/cms_trial/assets/3874c892-d90e-4172-a3d0-03c208ff3879.png)
+   ![Snapshot frequency dialog showing the Repeat menu for selecting a recurrence schedule.](/cms_trial/assets/2fcd84e6-df6b-426f-9af9-8d4cc599087d.png)
 3. Choose how often you want CMJ to take the snapshot:
 
    - **Do not repeat** – Create the snapshot only once.
@@ -100,11 +100,11 @@ To set up scheduled snapshots:
 
 The initial snapshot is created when you click **Take snapshot**. CMJ then creates new versions of the same snapshot according to the schedule you configured.
 
-#### Schedule snapshots on an already existing snapshot
+#### Schedule snapshots on an existing snapshot
 
 You can add, change, or disable the schedule after a snapshot has been created.
 
-1. Go to **Apps > Configuration Manager > Snapshots**.
+1. Go to **Apps** > **Configuration Manager** > **Snapshots**.
 2. Open the snapshot you want to manage.
 3. On the *Summary* screen, click the **Calendar** button in the upper-right corner.
 4. In the **Snapshot frequency** dialog, change the recurrence, days, or time as needed.
@@ -127,7 +127,7 @@ Additionally, you can use the manage options (…) for each snapshot to take the
 - **Open** a snapshot to review its details in the *Snapshot summary* screen.
 - **Delete** a snapshot you no longer need.
 
-![Snapshots list showing the Manage options menu.](/cms_trial/assets/fb1f1918-ea96-435b-a1e8-4d31dd8bcd7b.png)
+![Snapshots list showing the Manage options menu.](/cms_trial/assets/c40d5c95-8fb8-4063-bd06-8af6db73e894.png)
 
 ---
 
@@ -137,7 +137,7 @@ When you open a snapshot from the list, you’ll see its details. Here, you can 
 
 You can use the **Calendar** button in the upper-right corner to schedule new snapshot versions automatically or manage an existing schedule.
 
-![Calendar.png](/cms_trial/assets/d3d60a1d-301d-4bd5-8da8-4e47a475af7d.png)
+![Summary screen with the Calendar button for managing the snapshot schedule.](/cms_trial/assets/45f5f8dc-b7e7-47c4-b463-d4bb5aafbba8.png)
 
 On the *Summary* tab, you’ll have the following sections:
 
@@ -153,12 +153,12 @@ In this section, you can find information on whether and where the snapshot has 
 
 This section contains information about what configuration elements are included in the snapshot scope and how many of each you can find. [Learn more about the supported configuration elements](#What%E2%80%99s-included-in-a-snapshot)
 
-![Summary tab displaying snapshot details and a summary of included configuration elements.](/cms_trial/assets/f181d3e8-6447-46d4-afa8-a781f6b2e678.png)
+![Summary tab displaying snapshot details and a summary of included configuration elements.](/cms_trial/assets/01f7a3f9-427d-47cf-8814-9f7a6b64f5ff.png)
 
 On the *Comparison* tab, you can analyze the differences between two versions of the same snapshot scope. [Learn more about comparisons](https://support.appfire.com/space/CMJC/3417473252/Compare+snapshots)
 
-![Comparison tab that can show differences between two versions of the same snapshot.](/cms_trial/assets/6d115970-a522-473d-9328-5e8fd43d0771.png)
+![Comparison tab that can show differences between two versions of the same snapshot.](/cms_trial/assets/154e509a-3c4a-4bc2-850f-1477c8f0e0bd.png)
 
 On the *Scope* tab, you’re able to view the snapshot’s original scope and whether any changes have occurred to it (for example, in the screenshot below, you can see that one of the projects has been deleted and is no longer available for this version of the snapshot scope). When you create a new snapshot version, you’ll be using the exact scope you find here; you won’t need to select anything.
 
-![Scope tab listing the spaces and configuration elements included in the snapshot scope.](/cms_trial/assets/b501bb88-1f0b-4553-bab7-f111507206f4.png)
+![Scope tab listing the spaces and configuration elements included in the snapshot scope.](/cms_trial/assets/4e6eac8c-7f51-4113-92fe-4353f5dd2626.png)

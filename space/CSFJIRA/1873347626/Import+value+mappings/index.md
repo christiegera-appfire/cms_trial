@@ -17,26 +17,36 @@ The following are the limitations of this feature:
 
 ## Guide
 
-1. Go to **Apps** > *Connector for Salesforce*, and select **Bindings** from the side navigation bar.
-2. Click **Mappings** on the bindings of your choice.
-3. In the pop-up, click **Configure** on a field, then click **Import**.
+1. Select **Apps** from the left sidebar in Jira.
+2. Next to *Connector for Salesforce,* click **Menu** (▢) > **App settings**.
 
-   ![contentId-1873347626](/cms_trial/assets/cd41d93c-8ec3-4bff-b318-60804b3c10a4.png)
-4. In the **Upload file** phase, click **Upload a file** or drag and drop to upload the CSV file.  
+   ![Appsettings.png](/cms_trial/assets/cfc208de-f5be-4d59-bba0-b102debe6b0a.png)
+3. Select your **Binding**, then click **Menu** (▢) > **Edit**.
+4. Select the entity mapping.
+5. In the *Field mappings* section, click **Menu** (▢) > **Configure** for a selected field mapping.
+
+   ![Configure field mappings](/cms_trial/assets/6c60fdbc-1fd1-4b6e-b428-6209027b8a3f.png)
+6. Click **Import**.
+
+   ![image-20260915-112311.png](/cms_trial/assets/f4159daa-e089-4c27-a75b-980cc541315b.png)
+7. In the **Upload file** phase, click **Upload a file** or drag and drop to upload the CSV file.
+
+   ![image-20260915-112501.png](/cms_trial/assets/4f9c036f-d1df-4cba-bcec-81dca61e9bcf.png)
+
    The CSV file must be in format similar to the one shown.  
    *Jira Data* | *Salesforce Data*  
    *value 1* | *new value 1*  
    *value 2* | *new value 2*
 
    ![value-mapping-csv.png](/cms_trial/assets/e56ede48-7fc7-4992-9f90-36658dad0d3e.png)
-5. Click **Next** when you see the *File uploaded successfully!* message.
-6. Map the **CSV field** values to the existing **Value mapping field**, then click **Next**.
+8. Click **Next** when you see the *File uploaded successfully!* message.
+9. Map the **CSV field** values to the existing **Value mapping field**, then click **Next**.
 
    ![contentId-1873347626](/cms_trial/assets/a3692518-ccf7-4ad1-9a90-b67fc2446d72.png)
-7. In the **Summary** phase, go through the uploaded field data and verify them. Once verified, click **Import**.
+10. In the **Summary** phase, go through the uploaded field data and verify them. Once verified, click **Import**.
 
-   ![contentId-1873347626](/cms_trial/assets/e864cd19-9351-40bb-927e-77b589f55eda.png)
+    ![contentId-1873347626](/cms_trial/assets/e864cd19-9351-40bb-927e-77b589f55eda.png)
 
-   ℹ️ Toggling **Only show rows with problems** only shows you the fields uploaded that are flagged due to formatting issues or duplicate values.
+    ℹ️ Toggling **Only show rows with problems** only shows you the fields uploaded that are flagged due to formatting issues or duplicate values.
 
 When the value mapping import is successful, the *Entity Mapping updated successfully* message appears.

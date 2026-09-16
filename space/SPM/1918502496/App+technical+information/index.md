@@ -7,7 +7,6 @@ In this section, you can read about the technical aspects of an app to better un
 - [Data synchronization with connected tools](/cms_trial/space/SPM/1918404058/Data+synchronization+with+connected+tools/)
 - [Initial guide for administrators](/cms_trial/space/SPM/1918699108/Initial+guide+for+administrators/)
 - [Installation and updates](/cms_trial/space/SPM/1918797213/Installation+and+updates/)
-- [System authentication](/cms_trial/space/SPM/1918502890/System+authentication/)
 - [Sizing guide](/cms_trial/space/SPM/1918535738/Sizing+guide/)
 - [What's the difference](/cms_trial/space/SPM/1956905268/What%27s+the+difference/)
   - [OKR for Jira vs. BigPicture's OKR module](/cms_trial/space/SPM/1956479563/OKR+for+Jira+vs.+BigPicture%27s+OKR+module/)

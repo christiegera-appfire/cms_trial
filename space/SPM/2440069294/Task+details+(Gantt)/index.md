@@ -30,7 +30,7 @@ The task details dialog provides general information about a task and the status
 
 ## See task changes
 
-Click the **See changes** button on the task details dialog to open the **Infobar** > [**Change history**](/cms_trial/space/SPM/1918503025/Change+history/) tab.
+Click the **See changes** button on the task details dialog to open the **Infobar** > [**Change history**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918503025) tab.
 
 If the task detail dialog was expanded using the **Expand** option, you need to click it again to collapse it. Otherwise, the task details dialog will cover the Infobar.
 
@@ -64,6 +64,6 @@ The task details dialog provides general information about a task and the status
 
 ## See task changes
 
-Click the **See changes** button on the task details dialog to open the **Infobar** > [**Change history**](/cms_trial/space/SPM/1918503025/Change+history/) tab.
+Click the **See changes** button on the task details dialog to open the **Infobar** > [**Change history**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918503025) tab.
 
 If the task detail dialog was expanded using the **Expand** option, you need to click it again to collapse it. Otherwise, the task details dialog will cover the Infobar.

@@ -12,7 +12,7 @@ In the **hierarchy and timeline modes**, the column views configuration lets you
 
 ## Available fields
 
-A list of available fields is on the right during column view creation/editing. Additional Jira fields can be [added to the list](/cms_trial/space/SPM/1918406508/Custom+box+columns/), allowing users to add them to their column views in their own boxes.
+A list of available fields is on the right during column view creation/editing. Additional Jira fields can be [added to the list](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406508), allowing users to add them to their column views in their own boxes.
 
 ## Column view creator
 

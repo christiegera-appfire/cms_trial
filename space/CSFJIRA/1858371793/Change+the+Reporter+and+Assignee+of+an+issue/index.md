@@ -8,38 +8,40 @@ This page helps you configure the mappings to allow Connector for Salesforce to 
 2. Next to *Connector for Salesforce,* click **Menu** (▢) > **App settings**.
 
    ![Appsettings.png](/cms_trial/assets/6c8c76eb-a432-48c5-85b4-764de4561b15.png)
-3. Choose your desired **Bindings**, then click **Mapping**.
+3. Select your **Binding**, then click **Menu** (▢) > **Edit**.
 
-   ![binding.png](/cms_trial/assets/ab9ad34e-5e31-4a3f-9616-31e0510617a7.png)
+   ![image-20260915-093429.png](/cms_trial/assets/e9c3e8fe-c53d-4875-84ca-c2371051690f.png)
+4. On the *Entity mapping* screen, select the mappingyou want to configure.  
+   For this example, let's select **Task** -> **Case** mapping.
 
-   On the **Mapping Configuration** screen, choose the **Issue Type** you want to configure.   
-   For this example, let's choose **Task**.
-4. Click **Mappings**.
+   ![Entity mapping](/cms_trial/assets/270a06f1-5475-4dd9-b48e-89a1652f68e2.png)
 
-   ![Mapping bindings.png](/cms_trial/assets/3349fbd7-3525-4247-88c2-4f1fed5f3048.png)
-5. The **Task to Case field mappings** dialog box appears.
-6. In the **Jira Field**, choose **Reporter**, and in the **Salesforce Field**, choose **Owner ID.**
-7. Click**+ Add**.
+The **Task → Case Field mappings** window opens on the right.
 
-   ![task to case mapping.png](/cms_trial/assets/3c6703f0-cdd1-4cea-963f-60b12dfd673d.png)
-8. Once you've clicked the **+ Add** button, click **Configure**.
-9. Select a **Jira** **default** and **Salesforce default** value for unmapped reporters and assignees.   
+1. In the **Jira Field**, select **Reporter**, and in the **Salesforce Field**, select **Owner ID.**
+2. Click**Add field mapping**.
+
+   ![Field mapping](/cms_trial/assets/dd3104bc-5846-4c4c-b997-87c1e308fea4.png)
+3. Next to the new field mapping**,** click **Menu** (▢) > **Configure**.
+
+   ![Configure option](/cms_trial/assets/0f1cba88-7ea7-4b7d-9825-d34dec4c4066.png)
+4. Select a **Jira** **default** and **Salesforce default** value for unmapped reporters and assignees.   
    For detailed instructions, see [Set default value](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field+and+value+mappings/).
-10. In **Reporter** field, add the *username* of the account you want to add.
+5. Under the **Reporter** field, add the *username* of the account you want to add.
 
-    ![Reporter field.png](/cms_trial/assets/49f08271-1bc0-4642-a8ca-93279bdf7565.png)
-11. For the **Salesforce Fields Value**, you are required to obtain an 18-character Owner ID.  
-    To get this, write down your 15-character User ID from your Salesforce profile URL:
+   ![image-20260915-103116.png](/cms_trial/assets/44b9d38f-1c4f-4071-aeda-7d3070ee70fd.png)
+6. For the **Salesforce Fields Value**, you are required to obtain an 18-character Owner ID.  
+   To get this, write down your 15-character User ID from your Salesforce profile URL:
 
-    ![contentId-1858371793](/cms_trial/assets/9acee589-b586-40fb-a519-7f20058925c1.png)
-12. Use [this tool to make the conversion](https://www.adminbooster.com/tool/15to18) of the User ID.
+   ![contentId-1858371793](/cms_trial/assets/9acee589-b586-40fb-a519-7f20058925c1.png)
+7. Use [this tool to make the conversion](https://www.adminbooster.com/tool/15to18) of the User ID.
 
-    ![contentId-1858371793](/cms_trial/assets/5c05c909-1492-4150-889e-6287bd300bd2.png)
-13. Copy the converted ID, paste it under the **Owner ID** column, click **+ Add**, then click **Save**.
+   ![contentId-1858371793](/cms_trial/assets/5c05c909-1492-4150-889e-6287bd300bd2.png)
+8. Copy the converted ID, paste it under the **Owner ID** column, click **+ Add**, then click **Configure**.
 
 Make sure you paste or key in the Salesforce ID exactly as generated, with the correct case (this ID is case-sensitive). and with no spaces before or after the value. For example, `00590002fBnyAAE` is not the same as `00590002fbnyaae`.
 
-![contentId-1858371793](/cms_trial/assets/4366edf3-90e2-4abd-82ca-32318ab17787.png)![contentId-1858371793](/cms_trial/assets/c10402d6-3918-4561-8074-9800ebbe0818.png)
+![image-20260915-103319.png](/cms_trial/assets/b52c42fb-3644-4bd0-a634-4ea2a35137c3.png)
 
 1. In Salesforce, create a new case assigned to the designated owner, where the **Owner** in Salesforce is using the admin username that has already been mapped in Jira.
 2. [Create a Jira Issue from Salesforce](/cms_trial/space/CSFJIRA/3091792703/Create+a+Jira+work+item+from+Salesforce/).

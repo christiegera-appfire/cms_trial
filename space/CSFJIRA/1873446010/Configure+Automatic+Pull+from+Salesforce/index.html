@@ -25,7 +25,7 @@
   "@type": "TechArticle",
   "headline": "Configure Automatic Pull from Salesforce",
   "url": "https://christiegera-appfire.github.io/cms_trial/space/CSFJIRA/1873446010/Configure+Automatic+Pull+from+Salesforce/",
-  "dateModified": "2026-06-16T08:26:43.970Z"
+  "dateModified": "2026-09-16T11:36:14.317Z"
 }
 </script>
 </head>
@@ -37,6 +37,10 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <div class="lang-picker">
+        <button class="lang-picker-btn" type="button" title="Translate this page" aria-label="Translate this page">🌐</button>
+        <div class="lang-picker-menu"></div>
+      </div>
       <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
         <span class="theme-toggle-icon-dark">☾</span>
         <span class="theme-toggle-icon-light">☀</span>
@@ -64,6 +68,58 @@
   });
 })();
 </script>
+<!-- Language picker — links to Google Translate's real, public proxy for
+     the CURRENT page (computed client-side from window.location), which
+     translates the actual live page on the fly. No API key, no per-
+     character cost, works today. Lower polish than a real native
+     multi-language site (shows Google's own banner, different domain
+     while translated) — a real starting point, not the final answer.
+
+     Languages chosen based on real signal: Atlassian's own cloud docs/
+     support content is only actively translated into Japanese beyond
+     English (confirmed via their own support documentation) — the
+     strongest available signal for what this specific audience actually
+     needs — plus the other major enterprise-software markets. -->
+<script>
+(function () {
+  var btn = document.querySelector(".lang-picker-btn");
+  var menu = document.querySelector(".lang-picker-menu");
+  if (!btn || !menu) return;
+
+  var LANGUAGES = [
+    { code: "ja", label: "日本語 (Japanese)" },
+    { code: "de", label: "Deutsch (German)" },
+    { code: "fr", label: "Français (French)" },
+    { code: "es", label: "Español (Spanish)" },
+    { code: "pt", label: "Português (Portuguese)" },
+    { code: "zh-CN", label: "中文 (Chinese, Simplified)" },
+  ];
+
+  menu.innerHTML = LANGUAGES.map(function (lang) {
+    return '<a href="#" data-lang="' + lang.code + '">' + lang.label + "</a>";
+  }).join("");
+
+  btn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    menu.classList.toggle("open");
+  });
+
+  document.addEventListener("click", function () {
+    menu.classList.remove("open");
+  });
+
+  menu.querySelectorAll("a").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      var lang = a.dataset.lang;
+      var currentUrl = window.location.href;
+      var translateUrl = "https://translate.google.com/translate?sl=en&tl=" + lang + "&u=" + encodeURIComponent(currentUrl);
+      window.open(translateUrl, "_blank", "noopener");
+      menu.classList.remove("open");
+    });
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
@@ -75,8 +131,8 @@
       </div>
     </div>
     <h1>Configure Automatic Pull from Salesforce</h1>
-    <div class="page-meta">Updated 3 months ago · 9 min read</div>
-    <div class="columns" style="grid-template-columns: 100.0fr;"><div><p>When a support agent updates a case in Salesforce, the linked Jira issue should reflect that change without anyone having to trigger a manual sync. Automatic Pull makes this happen by using Apex triggers in Salesforce to detect record changes and push them to the associated Jira issues instantly.</p><p>This means your engineering team always works with up-to-date information, without relying on agents to remember to sync, and without administrators having to intervene every time a record changes.</p><p>This page walks you through everything you need to configure as a Jira and Salesforce administrator to allow Automatic Pull from Salesforce by enabling the <strong>Allow</strong> <strong>Automatic Pull </strong>option and configuring the required Salesforce triggers. </p><p>Automatic Pull only works if:</p><ul><li><p>Connection is configured to Allow Automatic Pull</p></li><li><p>Association is configured to Allow Automatic Pull</p></li><li><p>Salesforce Triggers for the respective objects are installed</p></li><li><p>Connection allows modification</p></li><li><p>The Salesforce object for which you configure the Automatic Pull trigger is configured to be available</p></li></ul><div class="panel panel-note"><p><strong>Automatic Pull in Jira</strong> is called the <strong>Automatic Push in Salesforce</strong>. The naming is chosen based on the user's point of view for the respective system.</p></div></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="before-you-start">Before you start</h2><p>Make sure you have:</p><ul><li><p>Administrator rights in Jira </p></li><li><p><a href="/cms_trial/space/CSFJIRA/1873347420/Configure+Salesforce+objects+and+fields+in+connection+search+results/">configure the available objects and fields</a> before proceeding with the following steps. </p></li><li><p><a href="/cms_trial/space/CSFJIRA/1758232704/Install+the+Salesforce+package+in+Salesforce/">Installed</a> and <a href="/cms_trial/space/CSFJIRA/1873346949/Set+up+a+connection+to+Jira/">configured</a> the Salesforce package </p></li></ul></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="enable-connection-to-allow-automatic-pull">Enable connection to allow Automatic Pull</h2><ol><li><p>Select <strong>Apps</strong> from the left sidebar in Jira.</p></li><li><p>Under <em>Connector for Salesforce</em>, click <strong>Connections</strong>.</p></li><li><p>On the <em>Salesforce Connections</em> window, navigate to the Connection<strong> </strong>you want to configure and click <strong>Configure.</strong></p><img alt="Configure Connections" class="doc-image" loading="lazy" src="/cms_trial/assets/f5f40947-a483-4f29-a0d6-e1b86a117b6a.png"/></li><li><p>On the<em> Connection Configuration</em> window, find the <em>Connection Settings</em> and enable the <strong>Allow Automatic Pull </strong>option. </p></li><li><p>Make sure the <strong>Allow Modification</strong> option is enabled.</p><img alt="Connection Configuration" class="doc-image" loading="lazy" src="/cms_trial/assets/61693cd2-3bf5-4543-8cf3-6d631143a0bc.png"/></li></ol></div></div><h2 id="enable-automatic-pull-for-an-association">Enable Automatic Pull for an association</h2><p>Automatic Pull from Salesforce has to be enabled/disabled per association. Set it up either when <a href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/470754430">creating an association</a> or later by <a href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/1953366688">Configuring an association</a>. Additionally, the preset configuration for the Automatic Pull switch can be configured on the <strong>Connection Configuration</strong> page.</p><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="create-and-deploy-apex-triggers">Create and Deploy Apex triggers</h2><p>The Connector relies on Apex triggers to be informed of changes on Salesforce records. These triggers have to be created and deployed manually in Salesforce. For Salesforce Enterprise and Unlimited editions, the standard deployment of Apex triggers is required (see Salesforce <a href="https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_deploying.htm">documentation</a>).</p><p>The following code samples show how to write triggers for <strong>Cases</strong>. To create triggers for other objects, replace the object name in the code accordingly.</p></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h3 id="push-to-jira-after-object-updated">Push to Jira after Object updated <br/> </h3><p><strong>Cloud</strong></p><h4 id="caseupdatedtrigger"><strong>CaseUpdatedTrigger</strong></h4><div class="code-block"><div class="code-block-header"><span class="code-block-lang">java</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-java">trigger CaseUpdatedTrigger on Case (after update) {
+    <div class="page-meta">Updated today · 9 min read</div>
+    <div class="columns" style="grid-template-columns: 100.0fr;"><div><p>When a support agent updates a case in Salesforce, the linked Jira issue should reflect that change without anyone having to trigger a manual sync. Automatic Pull makes this happen by using Apex triggers in Salesforce to detect record changes and push them to the associated Jira issues instantly.</p><p>This means your engineering team always works with up-to-date information, without relying on agents to remember to sync, and without administrators having to intervene every time a record changes.</p><p>This page walks you through everything you need to configure as a Jira and Salesforce administrator to allow Automatic Pull from Salesforce by enabling the <strong>Allow</strong> <strong>Automatic Pull </strong>option and configuring the required Salesforce triggers. </p><p>Automatic Pull only works if:</p><ul><li><p>Connection is configured to Allow Automatic Pull</p></li><li><p>Association is configured to Allow Automatic Pull</p></li><li><p>Salesforce Triggers for the respective objects are installed</p></li><li><p>Connection allows modification</p></li><li><p>The Salesforce object for which you configure the Automatic Pull trigger is configured to be available</p></li></ul><div class="panel panel-note"><p><strong>Automatic Pull in Jira</strong> is called the <strong>Automatic Push in Salesforce</strong>. The naming is chosen based on the user's point of view for the respective system.</p></div></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="before-you-start">Before you start</h2><p>Make sure you have:</p><ul><li><p>Administrator rights in Jira </p></li><li><p><a href="/cms_trial/space/CSFJIRA/1873347420/Configure+Salesforce+objects+and+fields+in+connection+search+results/">configure the available objects and fields</a> before proceeding with the following steps. </p></li><li><p><a href="/cms_trial/space/CSFJIRA/1758232704/Install+the+Salesforce+package+in+Salesforce/">Installed</a> and <a href="/cms_trial/space/CSFJIRA/1873346949/Set+up+a+connection+to+Jira/">configured</a> the Salesforce package </p></li></ul></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="enable-connection-to-allow-automatic-pull">Enable connection to allow Automatic Pull</h2><ol><li><p>Select <strong>Apps</strong> from the left sidebar in Jira.</p></li><li><p>Under <em>Connector for Salesforce</em>, click <strong>Connections</strong>.</p></li><li><p>On the <em>Salesforce Connections</em> window, navigate to the Connection<strong> </strong>you want to configure and click <strong>Configure.</strong></p><img alt="image-20260916-113601.png" class="doc-image" loading="lazy" src="/cms_trial/assets/e3a89a00-b864-4740-a349-2f0dfb74403f.png"/></li><li><p>On the<em> Connection Configuration</em> window, find the <em>Connection Settings</em> and enable the <strong>Allow Automatic Pull </strong>option. </p></li><li><p>Make sure the <strong>Allow Modification</strong> option is enabled.</p><img alt="Connection Configuration" class="doc-image" loading="lazy" src="/cms_trial/assets/61693cd2-3bf5-4543-8cf3-6d631143a0bc.png"/></li></ol></div></div><h2 id="enable-automatic-pull-for-an-association">Enable Automatic Pull for an association</h2><p>Automatic Pull from Salesforce has to be enabled/disabled per association. Set it up either when <a href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/470754430">creating an association</a> or later by <a href="https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/1953366688">Configuring an association</a>. Additionally, the preset configuration for the Automatic Pull switch can be configured on the <strong>Connection Configuration</strong> page.</p><div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="create-and-deploy-apex-triggers">Create and Deploy Apex triggers</h2><p>The Connector relies on Apex triggers to be informed of changes on Salesforce records. These triggers have to be created and deployed manually in Salesforce. For Salesforce Enterprise and Unlimited editions, the standard deployment of Apex triggers is required (see Salesforce <a href="https://developer.salesforce.com/docs/atlas.en-us.apexcode.meta/apexcode/apex_deploying.htm">documentation</a>).</p><p>The following code samples show how to write triggers for <strong>Cases</strong>. To create triggers for other objects, replace the object name in the code accordingly.</p></div></div><div class="columns" style="grid-template-columns: 100.0fr;"><div><h3 id="push-to-jira-after-object-updated">Push to Jira after Object updated <br/> </h3><p><strong>Cloud</strong></p><h4 id="caseupdatedtrigger"><strong>CaseUpdatedTrigger</strong></h4><div class="code-block"><div class="code-block-header"><span class="code-block-lang">java</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-java">trigger CaseUpdatedTrigger on Case (after update) {
     JCFS.API.pushUpdatesToJira();
 }</code></pre></div><p><strong>DC</strong></p><h4 id="caseupdatedtrigger-2"><strong>CaseUpdatedTrigger</strong></h4><div class="code-block"><div class="code-block-header"><span class="code-block-lang">java</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-java">trigger CaseUpdatedTrigger on Case (after update) {
     JSFS.API.pushUpdatesToJira();

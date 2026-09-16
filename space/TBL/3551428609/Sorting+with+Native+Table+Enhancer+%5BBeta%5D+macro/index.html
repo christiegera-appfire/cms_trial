@@ -37,6 +37,10 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <div class="lang-picker">
+        <button class="lang-picker-btn" type="button" title="Translate this page" aria-label="Translate this page">🌐</button>
+        <div class="lang-picker-menu"></div>
+      </div>
       <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
         <span class="theme-toggle-icon-dark">☾</span>
         <span class="theme-toggle-icon-light">☀</span>
@@ -64,6 +68,58 @@
   });
 })();
 </script>
+<!-- Language picker — links to Google Translate's real, public proxy for
+     the CURRENT page (computed client-side from window.location), which
+     translates the actual live page on the fly. No API key, no per-
+     character cost, works today. Lower polish than a real native
+     multi-language site (shows Google's own banner, different domain
+     while translated) — a real starting point, not the final answer.
+
+     Languages chosen based on real signal: Atlassian's own cloud docs/
+     support content is only actively translated into Japanese beyond
+     English (confirmed via their own support documentation) — the
+     strongest available signal for what this specific audience actually
+     needs — plus the other major enterprise-software markets. -->
+<script>
+(function () {
+  var btn = document.querySelector(".lang-picker-btn");
+  var menu = document.querySelector(".lang-picker-menu");
+  if (!btn || !menu) return;
+
+  var LANGUAGES = [
+    { code: "ja", label: "日本語 (Japanese)" },
+    { code: "de", label: "Deutsch (German)" },
+    { code: "fr", label: "Français (French)" },
+    { code: "es", label: "Español (Spanish)" },
+    { code: "pt", label: "Português (Portuguese)" },
+    { code: "zh-CN", label: "中文 (Chinese, Simplified)" },
+  ];
+
+  menu.innerHTML = LANGUAGES.map(function (lang) {
+    return '<a href="#" data-lang="' + lang.code + '">' + lang.label + "</a>";
+  }).join("");
+
+  btn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    menu.classList.toggle("open");
+  });
+
+  document.addEventListener("click", function () {
+    menu.classList.remove("open");
+  });
+
+  menu.querySelectorAll("a").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      var lang = a.dataset.lang;
+      var currentUrl = window.location.href;
+      var translateUrl = "https://translate.google.com/translate?sl=en&tl=" + lang + "&u=" + encodeURIComponent(currentUrl);
+      window.open(translateUrl, "_blank", "noopener");
+      menu.classList.remove("open");
+    });
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
@@ -75,7 +131,7 @@
       </div>
     </div>
     <h1>Sorting with Native Table Enhancer [Beta] macro</h1>
-    <div class="page-meta">Updated 15 days ago · 2 min read</div>
+    <div class="page-meta">Updated 16 days ago · 2 min read</div>
     <p>The Native Table Enhancer macro enables you to sort column values on the Confluence page and organize table data efficiently.</p><ul><li><p>The macro enables the sort feature by default when you insert it.</p></li><li><p>The macro saves the sort configuration set in macro setup mode as the default.</p></li><li><p>When sorting is enabled, you can sort columns in Confluence page view mode without edit permissions.</p></li></ul><div class="panel panel-warning"><p>The Native Table Enhancer macro is currently in beta. <a href="/cms_trial/space/TBL/3520037211/Native+Table+Enhancer+%5BBeta%5D+macro/"><u>Learn more</u></a>.</p></div><h2 id="using-sort-in-the-native-table-enhancer-macro">Using sort in the Native Table Enhancer macro</h2><div class="img-placeholder">[Unmapped macro: refined-tab — no content to fall back on]</div><div class="panel panel-note"><p>You need edit permissions to access the setup mode.</p></div><ul><li><p>Edit the macro to open the setup mode. Refer to <a href="/cms_trial/space/TBL/3568173057/Set+up+the+Native+Table+Enhancer+%5BBeta%5D+macro+features/"><u>Set up the Native Table Enhancer macro features</u></a>.</p></li><li><p>The macro enables the sort feature by default.</p><img alt="Sort is enabled by default in Native Table Enhancer macro" class="doc-image" loading="lazy" src="/cms_trial/assets/ce531bf4-2fa0-4f62-9183-a840818743f3.png"/></li><li><p>To disable sorting, click the Sort icon (<span class="inline-icon" title="inline icon">▢</span>).</p></li><li><p>Click <strong>Save</strong>.</p></li></ul><div class="img-placeholder">[Unmapped macro: refined-tab — no content to fall back on]</div><ul><li><p>To sort a column, click its column header. The macro sorts the column and displays the sort icon.</p><ul><li><p>You can click the specific column header to switch between ascending and descending order.</p><ul><li><p>Ascending order (<span class="inline-icon" title="inline icon">▢</span> ): Sorts column values from lowest to highest (A–Z or 0–9).</p></li><li><p>Descending order (<span class="inline-icon" title="inline icon">▢</span> ): Sorts column values from highest to lowest (Z–A or 9–0)</p></li></ul></li></ul></li><li><p>The table rows reorder based on the sorted column. For example, the <strong>Category</strong> column is sorted in ascending order.</p></li><li><p> Click <strong>Save</strong>. The macro saves the sort configuration set in macro setup mode as the default for each Confluence page refresh.</p><img alt="Save the macro sort configuration" class="doc-image" loading="lazy" src="/cms_trial/assets/2c1b870f-c354-41f2-bb91-256181283729.png"/></li></ul><div class="panel panel-note"><p>If you disable the sort feature in macro setup mode, it becomes unavailable in the Confluence page view mode.</p></div><div class="img-placeholder">[Unmapped macro: refined-tab — no content to fall back on]</div><ul><li><p>Once sort is enabled, you can sort the columns in Confluence page view mode and full-screen mode.</p></li><li><p>For example, in the page view mode, the <strong>Category column</strong> is sorted in descending order.</p><img alt="Sort columns in page view mode" class="doc-image" loading="lazy" src="/cms_trial/assets/03fb8821-dc04-48b7-81f9-2dd004bf7a10.png"/></li></ul>
   </main>
   <aside class="sidebar">

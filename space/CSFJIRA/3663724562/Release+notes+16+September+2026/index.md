@@ -48,4 +48,4 @@ This release replaces the old setup flow with a guided, step-by-step configurati
 
 **Credits**
 
-A heartfelt thank you to our valued customers! Your incredible support and feedback inspire us to improve our apps and products continually. You are the driving force behind why we create software. We appreciate your trust in Connector for Salesforce & Jira Cloud!
+A heartfelt thank you to our valued customers! Your incredible support and feedback inspire us to continually improve our apps and products. You are the driving force behind why we create software. We appreciate your trust in Connector for Salesforce & Jira Cloud!

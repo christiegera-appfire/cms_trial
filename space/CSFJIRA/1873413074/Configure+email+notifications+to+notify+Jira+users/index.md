@@ -18,7 +18,9 @@ Jira groups can be specified at the Connection level. This affects each binding 
 
    ![Appsettings.png](/cms_trial/assets/af6d1b71-9a03-46ee-b03f-c4f707383654.png)
 3. Under *Connector for Salesforce*, click **Connections**.
-4. On the *Salesforce Connections* screen, navigate to the **Connection** you want to configure and select **Configure.**
+4. On the *Salesforce Connections* screen, navigate to the **Connection** you want to configure and select **Menu** (▢) > **Configure.**
+
+   ![image-20260915-160132.png](/cms_trial/assets/51500f6d-fdd4-413e-8544-020f845180e6.png)
 5. Under **Notification Settings**, choose who you want to send notifications to by selecting:
 
    - **All recipients of Issue Commented event**

@@ -37,7 +37,6 @@ Currently, there are fourteen modules to choose from, each offering a different 
 - [Calendar module](/cms_trial/space/SPM/1918699000/Calendar+module/)
   - [Navigation and interface (Calendar)](/cms_trial/space/SPM/1918830944/Navigation+and+interface+(Calendar)/)
   - [Heatmap (Calendar)](/cms_trial/space/SPM/1918633596/Heatmap+(Calendar)/)
-- [Reports module](/cms_trial/space/SPM/1918502811/Reports+module/)
 - [Risk management module (NEW)](/cms_trial/space/SPM/1918699171/Risk+management+module+(NEW)/)
 - [Priorities module](/cms_trial/space/SPM/1918829653/Priorities+module/)
 - [OKR module](/cms_trial/space/SPM/1918535397/OKR+module/)
@@ -45,7 +44,7 @@ Currently, there are fourteen modules to choose from, each offering a different 
 
 ## Security and access (customize module availability)
 
-Default [module availability](/cms_trial/space/SPM/1918503298/Define+available+modules/) in individual boxes depends on their [box type](/cms_trial/space/SPM/1918830000/Box+types/) and [module configuration](/cms_trial/space/SPM/1918503298/Define+available+modules/):
+Default [module availability](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918503298) in individual boxes depends on their [box type](/cms_trial/space/SPM/1918830000/Box+types/) and [module configuration](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918503298):
 
 - Jira and App Admins can customize box type settings by enabling or disabling module availability in specific box types: **App Settings** (wrench icon) > **Administration** > **Box types** > select a **box type** from the list > **General** > **Modules**.
 
@@ -63,4 +62,4 @@ See the video on the module switcher below.
 
 ## Customize module name
 
-Jira/App/Box Admins can [change the default module names](/cms_trial/space/SPM/1918503298/Define+available+modules/) in every box type and in individual boxes to better reflect their unique business needs.
+Jira/App/Box Admins can [change the default module names](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918503298/Define+available+modules#Default-module-names) in every box type and in individual boxes to better reflect their unique business needs.

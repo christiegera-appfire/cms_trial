@@ -24,7 +24,7 @@ If your organization uses the OKRs framework, you can set and track individual O
 
 Set up priorities using one of the templates based on the popular prioritization methods (such as RICE and Quick Wins). You can edit the existing template and create a custom one. The module also offers priority poker.
 
-[**Read more**](/cms_trial/space/SPM/1918504313/Priorities/)
+[**Read more**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918504313)
 
 ---
 

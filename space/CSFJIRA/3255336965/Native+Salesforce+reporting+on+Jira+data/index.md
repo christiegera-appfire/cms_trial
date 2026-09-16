@@ -159,8 +159,6 @@ Add KPI metrics, donut chart, assignee bar chart, and aging table to a single da
 - [Subscribe to Dashboards](https://help.salesforce.com/s/articleView?id=analytics.dashboards_subscribe_lex.htm&language=en_US&type=5)
 - [Subscribe to Reports](https://help.salesforce.com/s/articleView?id=analytics.reports_subscribe_overview.htm&language=en_US&type=5)
 
-**Video reference**
-
 ---
 
 ## Reference

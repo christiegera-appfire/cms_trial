@@ -37,6 +37,10 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <div class="lang-picker">
+        <button class="lang-picker-btn" type="button" title="Translate this page" aria-label="Translate this page">🌐</button>
+        <div class="lang-picker-menu"></div>
+      </div>
       <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
         <span class="theme-toggle-icon-dark">☾</span>
         <span class="theme-toggle-icon-light">☀</span>
@@ -64,6 +68,58 @@
   });
 })();
 </script>
+<!-- Language picker — links to Google Translate's real, public proxy for
+     the CURRENT page (computed client-side from window.location), which
+     translates the actual live page on the fly. No API key, no per-
+     character cost, works today. Lower polish than a real native
+     multi-language site (shows Google's own banner, different domain
+     while translated) — a real starting point, not the final answer.
+
+     Languages chosen based on real signal: Atlassian's own cloud docs/
+     support content is only actively translated into Japanese beyond
+     English (confirmed via their own support documentation) — the
+     strongest available signal for what this specific audience actually
+     needs — plus the other major enterprise-software markets. -->
+<script>
+(function () {
+  var btn = document.querySelector(".lang-picker-btn");
+  var menu = document.querySelector(".lang-picker-menu");
+  if (!btn || !menu) return;
+
+  var LANGUAGES = [
+    { code: "ja", label: "日本語 (Japanese)" },
+    { code: "de", label: "Deutsch (German)" },
+    { code: "fr", label: "Français (French)" },
+    { code: "es", label: "Español (Spanish)" },
+    { code: "pt", label: "Português (Portuguese)" },
+    { code: "zh-CN", label: "中文 (Chinese, Simplified)" },
+  ];
+
+  menu.innerHTML = LANGUAGES.map(function (lang) {
+    return '<a href="#" data-lang="' + lang.code + '">' + lang.label + "</a>";
+  }).join("");
+
+  btn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    menu.classList.toggle("open");
+  });
+
+  document.addEventListener("click", function () {
+    menu.classList.remove("open");
+  });
+
+  menu.querySelectorAll("a").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      var lang = a.dataset.lang;
+      var currentUrl = window.location.href;
+      var translateUrl = "https://translate.google.com/translate?sl=en&tl=" + lang + "&u=" + encodeURIComponent(currentUrl);
+      window.open(translateUrl, "_blank", "noopener");
+      menu.classList.remove("open");
+    });
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
@@ -75,7 +131,7 @@
       </div>
     </div>
     <h1>Time to SLA for Jira Cloud Help Center</h1>
-    <div class="page-meta">Updated 8 days ago · 1 min read</div>
+    <div class="page-meta">Updated 9 days ago · 1 min read</div>
     <div class="panel panel-note"><p>Time to SLA for Jira Cloud runs on Atlassian Forge. If you used Time to SLA before the Forge migration, some Jira surfaces and app behaviors have changed.</p><p>Review <a href="/cms_trial/space/TTSC/2513797296/Changes+after+the+Forge+migration/"><strong>Changes after the Forge migration</strong></a> before updating automations, integrations, Dynamic Calendar fields, or workflows that depend on the SLA panel.</p></div><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><td><p><a href="/cms_trial/space/TTSC/35456108/Get+started+with+Time+to+SLA+for+Cloud/"><strong>Get started</strong></a></p><img alt="Time to SLA Get started icon." class="doc-image" loading="lazy" src="/cms_trial/assets/9073bbc6-bf5f-4712-aa12-785d68491b22.png"/></td><td><p><a href="/cms_trial/space/TTSC/36110821/Use+cases/"><strong>Use cases</strong></a></p><img alt="Time to SLA Use cases icon." class="doc-image" loading="lazy" src="/cms_trial/assets/30d7b2dd-7c38-4c1a-8ca9-456661e1c99a.png"/></td><td><p><a href="/cms_trial/space/TTSC/36012527/App+integrations/"><strong>Integrations</strong></a></p><img alt="Time to SLA Integrations icon." class="doc-image" loading="lazy" src="/cms_trial/assets/8f2de91c-b6e8-49dc-9ff1-da31fc1c5a57.png"/></td></tr><tr><td><p><a href="/cms_trial/space/TTSC/36209166/DC+to+Cloud+migration+guide/"><strong>Migrations</strong></a></p><img alt="Time to SLA Migrations icon." class="doc-image" loading="lazy" src="/cms_trial/assets/d63474c4-7ed0-4921-91ad-d4e0946961c3.png"/></td><td><p><a href="/cms_trial/space/TTSC/860717625/Release+notes/"><strong>Release notes</strong></a></p><img alt="Time to SLA Release notes icon." class="doc-image" loading="lazy" src="/cms_trial/assets/638d3c1b-2021-4455-8063-c352ddb3556f.png"/></td><td><p><a href="/cms_trial/space/TTSC/1669595182/Help+and+support/"><strong>Help and support</strong></a></p><img alt="Time to SLA Help and support icon." class="doc-image" loading="lazy" src="/cms_trial/assets/e926ca28-b7ea-4e1c-b17a-87c723ab4fb2.png"/></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><hr/><h3 id="does-your-company-already-use-time-to-sla">Does your company already use Time to SLA?</h3><p>If you're new to Time to SLA, use the <a href="/cms_trial/space/TTSC/35456108/Get+started+with+Time+to+SLA+for+Cloud/"><strong>Get started with Time to SLA for Cloud</strong></a> guide to create your first SLA.</p><h3 id="looking-to-set-up-time-to-sla-for-your-company">Looking to set up Time to SLA for your company?</h3><p>Check out our <a href="https://marketplace.atlassian.com/apps/1211843/time-to-sla?tab=overview&amp;hosting=cloud&amp;utm_source=appfire.com&amp;utm_medium=solutions&amp;utm_campaign=Time-to-SLA">Atlassian marketplace listing</a> and <a href="https://appfire.atlassian.net/servicedesk/customer/portals">request a free demo</a>.</p><h3 id="need-help">Need help?</h3><p>If you need assistance with Time to SLA, contact <a href="https://appfire.atlassian.net/servicedesk/customer/portals">support</a> or review <a href="/cms_trial/space/TTSC/1669595182/Help+and+support/"><strong>Help and support</strong></a><strong>.</strong></p>
   </main>
   <aside class="sidebar">

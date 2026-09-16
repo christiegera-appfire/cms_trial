@@ -17,7 +17,7 @@ You can use a Configuration of an existing box, duplicate it, and create a new b
 [Box configuration settings](/cms_trial/space/SPM/1918666176/Box+configuration/) of a box are applied to the new box:
 
 - [security (user roles)](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918633268)
-- [modules and their settings](/cms_trial/space/SPM/1918503298/Define+available+modules/)
+- [modules and their settings](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918503298)
 - [connected tools](/cms_trial/space/SPM/1918633230/Integrations/) and the scope owner (tool connections get replicated)
 
 [Inheritance mode](/cms_trial/space/SPM/1918700886/Inheritance+mode/) impacts the exact setup of the newly created box.
@@ -173,7 +173,7 @@ You can use the configuration of an existing box, duplicate it, and create a new
 [Box configuration settings](/cms_trial/space/SPM/1918666176/Box+configuration/) of a box are applied to the new box:
 
 - [security (user roles)](/cms_trial/space/SPM/1918829579/Permissions/)
-- [modules and their settings](/cms_trial/space/SPM/1918503298/Define+available+modules/)
+- [modules and their settings](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918503298)
 - [connected tools](/cms_trial/space/SPM/1918633230/Integrations/) and the scope owner (tool connections get replicated)
 
 [Inheritance mode](/cms_trial/space/SPM/1918700886/Inheritance+mode/) impacts the exact setup of the newly created box.

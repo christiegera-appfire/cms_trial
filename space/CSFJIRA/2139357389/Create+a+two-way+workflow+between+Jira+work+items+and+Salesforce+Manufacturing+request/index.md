@@ -49,9 +49,12 @@ In this scenario, we will be using the Case object type.
 5. To create custom Case fields in Salesforce, navigate to **Setup** > **Object Manager** > **Case** > **Fields & Relationships**.
 6. Click **New** and create:
 
-   - **ItemFamily** (*Picklist* field)
+   - **Item Family** (*Picklist* field)
    - **Item Request #1** (*Picklist Multi-Select* field)
    - **Item Request #1 Amount** (*Picklist Multi-Select* field)
+   - **Item Family2** (*Picklist* field)
+   - **Item Request #2** (*Picklist Multi-Select* field)
+   - **Item Request #2 Amount** (*Picklist Multi-Select* field)
 7. Click **Field Dependencies** to create a dependencyfor **Item Family** and **Item Request #1**. This will allow **Item Request #1** field to display different values depending on the value selected for the **Item Family** field.
 
    ![edit field dependency page showing an example Item Family and Item Request.](/cms_trial/assets/df7bf7cf-2724-4a92-9023-60c77919f665.png)
@@ -74,12 +77,12 @@ Create custom fields in Jira that correspond to the custom fields you've already
 
 ### 3. Map entities and fields in Connector for Salesforce & Jira
 
-1. In Jira, navigate to **Apps** > **Connector for Salesforce** > **App settings** > **Bindings**.
-2. Click **Mapping** for the project you’re linking it to.
-3. Click **Add Entity Mapping,** and map Jira work type with Salesforce objects:
-
-   - Jira **Task** with Salesforce **Case** object
-4. Click **Mappings** to map the fields from Salesforce to Jira for each of the **Issue types**. We can map cascading fields.
+1. In Jira, navigate to **Apps** > **Connector for Salesforce** > **App settings**.
+2. Under **Connector for Salesforce**, click **Bindings.**
+3. Next to your binding, click **Menu** (▢) > **Edit**.
+4. Map the Jira **Task** to the Salesforce **Case** object type.
+5. Click **Add Entity Mapping**.
+6. Select the newly created entity mapping and go to **Field mappings** on the right. Map the Jira fields with Salesforce fields. You can also map cascading fields.
 
    1. Jira **Description** field with the **Description** field
    2. Jira **Item Request #1** field with the **ItemFamily** and the dependent **Item Request #1** field
@@ -87,15 +90,15 @@ Create custom fields in Jira that correspond to the custom fields you've already
    4. Jira **Item Request #2** field with the **ItemFamily** and the dependent **Item Request #2** field
    5. Jira **Item Request #2 Amount** field with the **Item Request #2 Amount** field
 
-      ![2025-11-25_14-11-23.png](/cms_trial/assets/f5960902-e10c-442b-ad11-294f9c733984.png)
+      ![Binding](/cms_trial/assets/309300d1-15ff-42fd-872e-d15a3f7f727e.png)
 
 ### 4. Associate Jira task with Salesforce records
 
 1. Open the Jira task with the request.
-2. Under **Connector for Salesforce** click **Associate**.
+2. Under **Connector for Salesforce,** click **Associate**.
 
    1. Select **Case** from the **Object Type** dropdown and find your Salesforce record.
-   2. Select **Push to Salesforce then Pull from Salesforce** from the **After associating** dropdown list to update the data in Salesforce.
+   2. Select **Push to Salesforce, then Pull from Salesforce** from the **After associating** dropdown list to update the data in Salesforce.
 
 ### 5. Automation for Jira
 

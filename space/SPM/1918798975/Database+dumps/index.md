@@ -4,7 +4,7 @@ A backup of the app creates a dump of only the application database.It does not 
 
 **Limitations**:
 
-- Data from the [Priorities module](/cms_trial/space/SPM/1918504313/Priorities/) is not included in a backup. It cannot be restored using a database dump.
+- Data from the [Priorities module](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918504313) is not included in a backup. It cannot be restored using a database dump.
 - Data from the [OKR module](/cms_trial/space/SPM/1918405440/Objectives+%26+Key+Results+(OKR+module)/) is not included in the backup. It cannot be restored using a database dump. The OKR [import](/cms_trial/space/SPM/1918406659/Import+OKRs/)/[export](/cms_trial/space/SPM/1918668919/Export+OKRs/) functionality can be used for OKRs.
 
 ![contentId-1918798975](/cms_trial/assets/1ebb11d9-9734-4fcc-96e7-eb8c1f20cf41.png)

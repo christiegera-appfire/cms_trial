@@ -2,7 +2,7 @@
 
 Under the **Modules** tab, you can find the following sections:
 
-| - [Overview (App configuration)](/cms_trial/space/SPM/1918407114/Overview+(App+configuration)/) - [Risks (App configuration)](/cms_trial/space/SPM/1918505973/Risks+(App+configuration)/) - [Resources (App configuration)](/cms_trial/space/SPM/1918636014/Resources+(App+configuration)/) |
+| - [Overview (App configuration)](/cms_trial/space/SPM/1918407114/Overview+(App+configuration)/) - [Resources (App configuration)](/cms_trial/space/SPM/1918636014/Resources+(App+configuration)/) |
 | --- |
 
 ## Access and security

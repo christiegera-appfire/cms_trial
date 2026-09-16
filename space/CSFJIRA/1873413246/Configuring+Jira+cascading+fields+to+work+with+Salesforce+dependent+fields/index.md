@@ -40,7 +40,7 @@ This mode lets you synchronize only the Parent value of your Jira cascading sele
 
 This mode used to be the default behavior of the app if a Jira Cascading list was selected in the mapping.
 
-This mode allows you to synchronize only the Child value of your Jira cascading select list to a Salesforce picklist (dependent or non-dependent picklist).
+This mode lets you synchronize only the Child value of your Jira cascading select list to a Salesforce picklist field (dependent or non-dependent picklist).
 
 - The synchronization only works in one direction, from Jira to Salesforce.
 - You are **not** able to update based on the Parent value of your Jira cascading select list.
@@ -49,7 +49,7 @@ This mode allows you to synchronize only the Child value of your Jira cascading 
 
 ### Merged
 
-Merge mode lets you synchronize a combination of the Parent and Child value of your Jira cascading field to a Salesforce picklist (Parent/Child or non-dependent picklist).
+Merge mode lets you synchronize a combination of the Parent and Child value of your Jira cascading field to a Salesforce picklist field (Parent/Child or non-dependent picklist).
 
 - You are able to synchronize bi-directionally in this mode.
 - You are **not** able to update based on the Jira Cascading Child values.
@@ -68,23 +68,26 @@ You can define the Parent value of your Jira cascading select list to a Salesfo
 
 ![contentId-1873413246](/cms_trial/assets/d45e6328-1648-4ccf-b0d5-1aac70602a3b.png)
 
-Be aware that switching between synchronization modes will cause you to lose existing field value mappings. You will also be required to select a second (dependent) picklist when switching from either the first 3 modes to the Cascading mode.
+Be aware that switching between synchronization modes will result in losing existing field value mappings. You will also be required to select a second (dependent) picklist when switching from either of the first 3 modes to the Cascading mode.
 
-### Create a  Cascading field mapping
+### Create a Cascading field mapping
 
 1. Select a Jira cascading select list custom field in the field mapping.
 
-   ![screenshot of Cascading field mapping](/cms_trial/assets/f1b328ac-f149-4105-93cf-34f45ebf2554.png)
-2. Select the corresponding Salesforce field(s).  
-   Depending on the Cascading mode, you can either select only the first field or both.
+   ![Field mapping](/cms_trial/assets/0d5eb0b4-0064-40af-bdee-053f41357434.png)
+2. Select the appropriate synchronization mode that fits your use case.
 
-   ![screenshot of salesforce Cascading field mapping](/cms_trial/assets/5b5cb063-ae47-4c26-bc54-4aed2b5b53d9.png)
-3. Click **+ Add** to add the newly-created field mapping.
-4. Click **Configure** on the field mapping you just created.
+   ![Sync mode](/cms_trial/assets/517d5c7c-0dac-4d4d-b1eb-ec8d99eada81.png)
+3. Select the corresponding Salesforce field(s).  
+   Depending on the Sync mode selected, you can either select only the Salesforce field or also the dependent field.
 
-   ![screenshot of configuring field mapping](/cms_trial/assets/cf3a5bf2-9b2c-453a-9d20-8bae42afc0bb.png)
-5. Choose the appropriate synchronization mode that fits your use case.
+   ![image-20260915-115611.png](/cms_trial/assets/9a5c2869-ea9f-4cf4-bcf6-aeaa5e0cde62.png)
+4. Click **Add field mapping** to add the newly created field mapping.
+5. For the field mapping you just created, click **Menu** (▢) > **Configure**.
 
-   ![2025-10-15_11-36-35.png](/cms_trial/assets/be46bbd4-a7ce-405f-afa6-5b460757575d.png)
+   ![image-20260915-120202.png](/cms_trial/assets/7ba5813f-503d-463f-b372-8ada9a6b1790.png)
 6. Add the **Parent** or **Child** values for both Jira and Salesforce and click **Add**.
-7. Save the value mapping configuration when you are done.
+
+   ![image-20260915-120322.png](/cms_trial/assets/1b803e18-d6eb-4987-a455-b116dba4130f.png)
+7. Click **Configure** when you are done.
+8. Click **Save** to apply your changes.

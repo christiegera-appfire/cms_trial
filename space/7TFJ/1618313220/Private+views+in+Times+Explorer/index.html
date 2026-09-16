@@ -37,6 +37,10 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <div class="lang-picker">
+        <button class="lang-picker-btn" type="button" title="Translate this page" aria-label="Translate this page">🌐</button>
+        <div class="lang-picker-menu"></div>
+      </div>
       <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
         <span class="theme-toggle-icon-dark">☾</span>
         <span class="theme-toggle-icon-light">☀</span>
@@ -64,6 +68,58 @@
   });
 })();
 </script>
+<!-- Language picker — links to Google Translate's real, public proxy for
+     the CURRENT page (computed client-side from window.location), which
+     translates the actual live page on the fly. No API key, no per-
+     character cost, works today. Lower polish than a real native
+     multi-language site (shows Google's own banner, different domain
+     while translated) — a real starting point, not the final answer.
+
+     Languages chosen based on real signal: Atlassian's own cloud docs/
+     support content is only actively translated into Japanese beyond
+     English (confirmed via their own support documentation) — the
+     strongest available signal for what this specific audience actually
+     needs — plus the other major enterprise-software markets. -->
+<script>
+(function () {
+  var btn = document.querySelector(".lang-picker-btn");
+  var menu = document.querySelector(".lang-picker-menu");
+  if (!btn || !menu) return;
+
+  var LANGUAGES = [
+    { code: "ja", label: "日本語 (Japanese)" },
+    { code: "de", label: "Deutsch (German)" },
+    { code: "fr", label: "Français (French)" },
+    { code: "es", label: "Español (Spanish)" },
+    { code: "pt", label: "Português (Portuguese)" },
+    { code: "zh-CN", label: "中文 (Chinese, Simplified)" },
+  ];
+
+  menu.innerHTML = LANGUAGES.map(function (lang) {
+    return '<a href="#" data-lang="' + lang.code + '">' + lang.label + "</a>";
+  }).join("");
+
+  btn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    menu.classList.toggle("open");
+  });
+
+  document.addEventListener("click", function () {
+    menu.classList.remove("open");
+  });
+
+  menu.querySelectorAll("a").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      var lang = a.dataset.lang;
+      var currentUrl = window.location.href;
+      var translateUrl = "https://translate.google.com/translate?sl=en&tl=" + lang + "&u=" + encodeURIComponent(currentUrl);
+      window.open(translateUrl, "_blank", "noopener");
+      menu.classList.remove("open");
+    });
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
@@ -75,7 +131,7 @@
       </div>
     </div>
     <h1>Private views in Times Explorer</h1>
-    <div class="page-meta">Updated 2 months ago · 1 min read</div>
+    <div class="page-meta">Updated 3 months ago · 1 min read</div>
     <div class="columns" style="grid-template-columns: 25.0fr 25.0fr 25.0fr 25.0fr;"><div></div><div></div><div></div><div><img alt="TryItButton (2).png" class="doc-image" loading="lazy" src="/cms_trial/assets/cba7479f-9735-426f-be0c-e9e8abed1974.png"/></div></div><p>7pace Timetracker's private views increase productivity by providing quick access to your preferred report configurations.</p><h2 id="watch-the-video">Watch the video</h2><p>Review the following video to learn more about private views in the Times Explorer.</p><div class="columns" style="grid-template-columns: 100.0fr;"><div><div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/-Z0SBVBPQeE"></iframe></div></div></div><h2 id="create-a-private-view">Create a private view</h2><p>Use the following steps to create a private view:</p><ol><li><p>Open the <em>Times Explorer</em>.</p></li><li><p>In the upper right-hand corner, note that the current view is the <em>Default view</em>. Add a filter to only see issues from the Hybrid project.<br/></p><img alt="image-20250110-211042.png" class="doc-image" loading="lazy" src="/cms_trial/assets/0beb92cc-6e15-4de3-a9b2-6babc09ba21b.png"/></li><li><p>Now, in the upper right-hand corner, open the view drop-down and click <strong>Save as new view</strong>.<br/></p><img alt="image-20250110-211212.png" class="doc-image" loading="lazy" src="/cms_trial/assets/0febfb06-7538-42b2-bb5f-7a005312d73f.png"/></li><li><p>Enter a name for the new view and click <strong>Save layout</strong>.</p></li></ol><div class="panel panel-note"><p>When saving a second private view, you have the option to update the existing view or save a new view.</p></div><h2 id="delete-a-private-view">Delete a private view</h2><p>To delete a view, click the delete button to the right of the view name.</p><img alt="image-20250110-210838.png" class="doc-image" loading="lazy" src="/cms_trial/assets/8fbaf434-b939-49ca-a83c-a8537ae2bc8c.png"/><p>Note that there is an Undo option that displays in the lower right-hand corner, just in case the private view was deleted by accident.</p><img alt="image-20250110-210907.png" class="doc-image" loading="lazy" src="/cms_trial/assets/e1ea4272-14f0-4d68-abed-f81cc9aae2e0.png"/>
   </main>
   <aside class="sidebar">

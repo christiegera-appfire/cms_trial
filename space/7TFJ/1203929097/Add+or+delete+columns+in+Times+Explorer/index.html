@@ -37,6 +37,10 @@
     <nav class="top-nav-links">
       <a href="/cms_trial/product-directory/">Product directory</a>
       <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <div class="lang-picker">
+        <button class="lang-picker-btn" type="button" title="Translate this page" aria-label="Translate this page">🌐</button>
+        <div class="lang-picker-menu"></div>
+      </div>
       <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
         <span class="theme-toggle-icon-dark">☾</span>
         <span class="theme-toggle-icon-light">☀</span>
@@ -64,6 +68,58 @@
   });
 })();
 </script>
+<!-- Language picker — links to Google Translate's real, public proxy for
+     the CURRENT page (computed client-side from window.location), which
+     translates the actual live page on the fly. No API key, no per-
+     character cost, works today. Lower polish than a real native
+     multi-language site (shows Google's own banner, different domain
+     while translated) — a real starting point, not the final answer.
+
+     Languages chosen based on real signal: Atlassian's own cloud docs/
+     support content is only actively translated into Japanese beyond
+     English (confirmed via their own support documentation) — the
+     strongest available signal for what this specific audience actually
+     needs — plus the other major enterprise-software markets. -->
+<script>
+(function () {
+  var btn = document.querySelector(".lang-picker-btn");
+  var menu = document.querySelector(".lang-picker-menu");
+  if (!btn || !menu) return;
+
+  var LANGUAGES = [
+    { code: "ja", label: "日本語 (Japanese)" },
+    { code: "de", label: "Deutsch (German)" },
+    { code: "fr", label: "Français (French)" },
+    { code: "es", label: "Español (Spanish)" },
+    { code: "pt", label: "Português (Portuguese)" },
+    { code: "zh-CN", label: "中文 (Chinese, Simplified)" },
+  ];
+
+  menu.innerHTML = LANGUAGES.map(function (lang) {
+    return '<a href="#" data-lang="' + lang.code + '">' + lang.label + "</a>";
+  }).join("");
+
+  btn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    menu.classList.toggle("open");
+  });
+
+  document.addEventListener("click", function () {
+    menu.classList.remove("open");
+  });
+
+  menu.querySelectorAll("a").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      var lang = a.dataset.lang;
+      var currentUrl = window.location.href;
+      var translateUrl = "https://translate.google.com/translate?sl=en&tl=" + lang + "&u=" + encodeURIComponent(currentUrl);
+      window.open(translateUrl, "_blank", "noopener");
+      menu.classList.remove("open");
+    });
+  });
+})();
+</script>
 </div>
 <div class="shell">
   <main class="content">
@@ -75,7 +131,7 @@
       </div>
     </div>
     <h1>Add or delete columns in Times Explorer</h1>
-    <div class="page-meta">Updated 2 months ago · 1 min read</div>
+    <div class="page-meta">Updated 3 months ago · 1 min read</div>
     <div class="columns" style="grid-template-columns: 25.0fr 25.0fr 25.0fr 25.0fr;"><div></div><div></div><div></div><div><img alt="TryItButton (2).png" class="doc-image" loading="lazy" src="/cms_trial/assets/0762d9c9-48b9-4f26-a9b6-2f01336a0eb7.png"/></div></div><p>You can add or delete columns in the <em>Times Explorer</em> table and customize how your issues display.</p><h2 id="watch-the-video">Watch the video</h2><p>Review the following video to learn how to edit columns in the Times Explorer.</p><div class="columns" style="grid-template-columns: 100.0fr;"><div><div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/uiZ5t8vrYbk"></iframe></div></div></div><h2 id="add-or-delete-columns">Add or delete columns</h2><p>You can add or delete columns in the <em>Times Explorer</em> table and customize how your issues display.</p><p>Use the following steps to customize the <em>Times Explorer</em> table columns:</p><ol><li><p>Click <strong>Apps</strong> &gt; <strong>Timetracker</strong> &gt; <strong>Times Explorer</strong>.</p></li><li><p>Click <strong>Settings</strong>.<br/></p><img alt="Click Settings to open the Customize columns dialog." class="doc-image" loading="lazy" src="/cms_trial/assets/13fa5464-f5b3-4b00-9a78-a1f3b60b50d9.png"/></li><li><p>The Custom columns modal opens.</p></li><li><p>There are two types of columns to select: </p><ol><li><p><strong>7pace columns</strong> - Columns specific to Timetracker issues.</p></li><li><p><strong>Jira columns</strong> - Correspond to the baseline fields that are available in Jira projects. <br/></p><img alt="7pace and Jira columns can be added to the Times Explorer" class="doc-image" loading="lazy" src="/cms_trial/assets/dc98ea69-7926-41be-b6f1-e6be98c0b48b.png"/></li></ol></li><li><p>Scroll through the columns and select or deselect them, which automatically adds or deletes them from the <em>Times Explorer</em> table. </p></li><li><p>Or, you can search for columns by typing the name of the column in the Search columns field and clicking the column checkbox. <br/></p><img alt="Enter a checkmark to display a column in the Times Explorer" class="doc-image" loading="lazy" src="/cms_trial/assets/808a2988-0aca-4984-8ac7-fb7747c9e317.png"/></li></ol>
   </main>
   <aside class="sidebar">

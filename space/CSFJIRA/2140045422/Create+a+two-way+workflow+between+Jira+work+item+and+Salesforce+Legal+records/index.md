@@ -70,21 +70,19 @@ Create custom fields in Jira that correspond to the custom fields you've already
 
 ### 3. Map entities and fields in Connector for Salesforce & Jira
 
-1. In Jira, navigate to **Apps** > **Connector for Salesforce** > **App settings** > **Bindings.**
-2. Click **Mapping** for the JSM project you’re linking it to.
-3. Click **Add Entity Mapping,** and map:
-
-   - Jira **Task** with Salesforce **Case** object
-
-     ![Screenshot of adding entity mapping in Jira.](/cms_trial/assets/13e044a4-e44a-4f8e-b6b1-6f285a4845a6.png)
-4. Click **Mappings** to map the fields from Salesforce to Jira for **Task** to **Case** field mappings:
+1. In Jira, navigate to **Apps** > **Connector for Salesforce** > **App settings**.
+2. Under **Connector for Salesforce**, click **Bindings.**
+3. Next to your JSM binding, click **Menu** (▢) > **Edit**.
+4. Map the Jira **Task** to the Salesforce **Case** object type.
+5. Click **Add Entity Mapping**
+6. For **Task** to **Case** field mappings, map:
 
    - Jira **Summary** field with the **Subject** field
    - Jira **Contract Type** field with the **Contract Type** field
    - Jira **Contract Due Date**  field with the **Contract Due Date**  field
    - (Optional) **Pending for Legal?** field with the **Pending for Legal?** field
 
-     ![Screenshot of mapping the fields from Salesforce to Jira for task to case field mapping.](/cms_trial/assets/3e8d2a66-efb7-45c0-9b21-c8e61693d337.png)
+     ![ Entity Mapping](/cms_trial/assets/52c34e71-d561-4e81-bdad-633f8c711070.png)
 
 ### Associate Jira task with Salesforce records
 

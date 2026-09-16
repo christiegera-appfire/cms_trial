@@ -10,7 +10,7 @@ You can import OKRs to BigPicture using API endpoints. Visit the [BigPicture Dev
 
 ## Permissions
 
-Only [permitted users](/cms_trial/space/SPM/1918505859/Priorities+module+permissions/) can import OKRs:
+Only [permitted users](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918505859) can import OKRs:
 
 - Jira Admin
 - In-module Admin

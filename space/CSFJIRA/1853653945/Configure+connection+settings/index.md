@@ -18,7 +18,7 @@ Make sure you have:
 3. Under *Connector for Salesforce*, click **Connections**.
 4. Select a connection, then click **Configure**.
 
-   ![image-20260813-123526.png](/cms_trial/assets/5f95fd93-48a3-4162-b902-2baf771dc511.png)
+   ![Configure connection](/cms_trial/assets/fb0ec903-e725-477f-b27e-585ca1d705f9.png)
 
 ## Available Salesforce objects
 
