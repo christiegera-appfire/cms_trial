@@ -72,6 +72,10 @@ _THEME_TOGGLE_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "t
 with open(_THEME_TOGGLE_PATH) as _f:
     THEME_TOGGLE_SCRIPT = _f.read()
 
+_LANGUAGE_PICKER_PATH = os.path.join(os.path.dirname(os.path.abspath(__file__)), "language_picker_widget.html")
+with open(_LANGUAGE_PICKER_PATH) as _f:
+    LANGUAGE_PICKER_SCRIPT = _f.read()
+
 # Inline and blocking, deliberately — this has to run BEFORE any CSS
 # paints, or a saved light-theme preference would flash the default dark
 # theme for an instant on every single page load before snapping to
@@ -123,6 +127,10 @@ TOP_NAV_TEMPLATE = """
     <nav class="top-nav-links">
       <a href="{path_prefix}/product-directory/">Product directory</a>
       <a href="{path_prefix}/search/">Search <kbd>⌘K</kbd></a>
+      <div class="lang-picker">
+        <button class="lang-picker-btn" type="button" title="Translate this page" aria-label="Translate this page">🌐</button>
+        <div class="lang-picker-menu"></div>
+      </div>
       <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
         <span class="theme-toggle-icon-dark">☾</span>
         <span class="theme-toggle-icon-light">☀</span>
@@ -226,7 +234,7 @@ def render_top_nav(brand, path_prefix=""):
     return TOP_NAV_TEMPLATE.format(
         path_prefix=path_prefix,
         logo_html=logo_html,
-    ) + THEME_TOGGLE_SCRIPT
+    ) + THEME_TOGGLE_SCRIPT + LANGUAGE_PICKER_SCRIPT
 
 
 def render_page_toc_panel(headings):
