@@ -33,7 +33,7 @@ Last updated January 15, 2026
 | [Reports](/cms_trial/space/SPM/1918502811/Reports+module/) (Reports module) | [Dependencies](/cms_trial/space/SPM/1918504971/Dependencies+report/) | ✅ | ❌ | The remaining reports in the Resources module are available in BP. |
 | [Cross-team dependencies](/cms_trial/space/SPM/1918668772/Cross-team+dependencies+report/) | ✅ | ❌ |
 | [Milestones and markers](/cms_trial/space/SPM/1918505294/Milestones+%26+Markers+report/) | ✅ | ❌ |
-| [Velocity](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918833281) | ✅ | ❌ |
+| [Velocity](/cms_trial/space/SPM/1918833281/Velocity+report/) | ✅ | ❌ |
 | [Plan delay](/cms_trial/space/SPM/1918765989/Plan+delay+report/) | ✅ | ❌ |
 | [Capacity per period](/cms_trial/space/SPM/1918765199/Capacity+per+period+report/) | ✅ | ❌ |
 | [Contextual reports](/cms_trial/space/SPM/2481848664/Contextual+reports/) | ✅ | ❌ |  |

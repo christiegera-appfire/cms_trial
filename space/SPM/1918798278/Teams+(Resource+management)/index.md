@@ -115,7 +115,7 @@ Inherited teams are marked with an arrow next to the team name.
 
 ## **Global teams in timebox schedules**
 
-The timebox schedule works only with global teams. Once connected, your current box teams will no longer work. Only global teams linked to the timebox schedule will be available. See more on the [Timebox schedule](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1989214530) page.
+The timebox schedule works only with global teams. Once connected, your current box teams will no longer work. Only global teams linked to the timebox schedule will be available. See more on the [Timebox schedule](/cms_trial/space/SPM/1989214530/Timebox+schedules/) page.
 
 ## Teams (Resources management) (new navigation)
 
@@ -230,4 +230,4 @@ Inherited teams are marked with an arrow next to the team name.
 
 ## **Global teams in timebox schedules**
 
-The timebox schedule works only with global teams. Once connected, your current box teams will no longer work. Only global teams linked to the timebox schedule will be available. See more on the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1989214530> page.
+The timebox schedule works only with global teams. Once connected, your current box teams will no longer work. Only global teams linked to the timebox schedule will be available. See more on the [Timebox schedules](/cms_trial/space/SPM/1989214530/Timebox+schedules/) page.

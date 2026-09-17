@@ -35,7 +35,7 @@ Work items can be connected with [dependencies](/cms_trial/space/SPM/1918536086/
 [Infobar](/cms_trial/space/SPM/1918799264/Infobar+(Gantt)/) is a contextual sidebar that provides comprehensive information about the contents of the current box. It consists of the following tabs:
 
 - [Dependencies](/cms_trial/space/SPM/1918800450/Dependencies+(Infobar)/)
-- [Overdue tasks](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918834482)
+- [Overdue tasks](/cms_trial/space/SPM/1918834482/Overdue+tasks+(Infobar)/)
 - [Milestones](/cms_trial/space/SPM/1918537479/Milestones/)
 - [Critical path](/cms_trial/space/SPM/1918833710/Critical+path+(Infobar)/)
 - [Change history](/cms_trial/space/SPM/1918503025/Change+history/)
@@ -245,7 +245,7 @@ Work items can be connected with [dependencies](/cms_trial/space/SPM/1918536086/
 [Infobar](/cms_trial/space/SPM/1918799264/Infobar+(Gantt)/) is a contextual sidebar that provides comprehensive information about the contents of the current box. It consists of the following tabs:
 
 - [Dependencies](/cms_trial/space/SPM/1918800450/Dependencies+(Infobar)/)
-- [Overdue tasks](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918834482)
+- [Overdue tasks](/cms_trial/space/SPM/1918834482/Overdue+tasks+(Infobar)/)
 - [Milestones](/cms_trial/space/SPM/1918537479/Milestones/)
 - [Critical path](/cms_trial/space/SPM/1918833710/Critical+path+(Infobar)/)
 - [Change history](/cms_trial/space/SPM/1918503025/Change+history/)

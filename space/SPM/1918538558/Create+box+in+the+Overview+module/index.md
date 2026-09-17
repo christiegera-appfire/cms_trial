@@ -89,7 +89,7 @@ To add a box based on timebox schedule, click the **Add New** icon and switch on
 
 Timeboxes from timebox schedule are available in the Overview module in the list and in the box switcher. In the list they can be edited by App Admin - they are greyed out for different kind of users.
 
-For more information, check the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1989214530> page.
+For more information, check the [Timebox schedules](/cms_trial/space/SPM/1989214530/Timebox+schedules/) page.
 
 ### Create same-level and sub-boxes
 
@@ -204,7 +204,7 @@ Timeboxes from the timebox schedule are available in the Overview module in the 
 
 <https://app.arcade.software/share/DzhVgYdnKX0uxMRW3JiR>
 
-For more information, check the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1989214530> page.
+For more information, check the [Timebox schedules](/cms_trial/space/SPM/1989214530/Timebox+schedules/) page.
 
 ### Create same-level and sub-boxes
 

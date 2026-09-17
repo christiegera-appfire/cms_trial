@@ -18,7 +18,7 @@ If you plan to migrate Dataplane to Jira Cloud, you must plan and choose the str
 
 |  |
 | --- |
-| From your Dataplane Reports Data Center instance, use the Migration Assistant to complete all the pre-migration assessment steps. The pre-migration assessment steps are:   - Assess app - Prepare your app - Assess and prepare users |
+| From your Dataplane Reports Data Center instance, use the Migration Assistant to complete all the pre-migration assessment steps. The pre-migration assessment steps are:   - Assess app - Prepare your app (select the app) - Accept the migration policy - Assess and prepare users and email domains |
 
 1. Install or access the Migration Assistant.
 
@@ -99,9 +99,9 @@ If you skip this step or run it out of order, users will end up with two pending
 4. Migrate Advanced Roadmaps plans.
 
    ![Dashboard Hub migration step for Advanced Roadmaps data](/cms_trial/assets/4c083fe3-a2d2-4d79-84ce-8474fbc32a44.png)
-5. Migrate Jira native dashboards, filters, and related items. If you aren’t sure which native Jira dashboards to include, select **All dashboards**. This helps ensure your migration runs smoothly.
+5. Migrate Jira native dashboards, filters, and related items. We recommend that you select **All dashboards**. Atlassian considers a dashboard as linked only if it uses native Jira gadgets and names the project in its permissions. It doesn’t recognise DataPlane gadgets so a DataPlane dashboard gets skipped, and your report has nowhere to land in your Cloud site. **All dashboards** avoids this and makes sure your reports arrive intact.
 
-   ![Dashboard Hub migration dashboard selection step](/cms_trial/assets/84edf708-dcd5-4cb3-9032-d73a43be14da.png)
+   ![Dashboard Hub migration dashboard selection step](/cms_trial/assets/b1b0b83f-2190-4dea-a068-d59e84ecc22f.png)
 6. Migrate users and groups. Even if you have previously migrated them, selecting these options will migrate only the diff between your previous migration and the current state.
 7. Select the option **All**. Expect to see the number of apps that you marked as *Needed in cloud*.
 
@@ -238,30 +238,27 @@ When you are ready, click **Run** to start migrating to your Cloud instance.
 
 ## Post-migration reports and messages
 
-When the migration is complete, a URL link is created.
-
-Click the link to view the post-migration report. In the post-migration report, messages are displayed showing items that were skipped in the migration and why.
+When the migration is complete, a URL link is created. Click the link to view the post-migration report. In the post-migration report, messages are displayed showing items that were skipped in the migration and why.
 
 The types of messages that are provided are:
 
-- Skipped messages
+### Skipped messages
 
-Skipped messages are displayed when one or more reports/records cannot be imported.  
-For example, if a type of report in Dataplane Report is yet to be implemented on the Cloud or the owner of a report (user account) does not exist in the Cloud.
+Skipped messages appear when one or more reports or records could not be imported — for example, when a Dataplane report type is not yet supported on Cloud. For each skipped record, we write one skippedMessage.
 
-For each skipped record, we write 1 skippedMessage.
+### Warning messages
 
-- Warning message
+Warning messages alert that there is a problem in a report. For example, if the configuration contains a reference to a custom field that does not exist on Cloud. The reports with warning messages count towards importedCounts.
 
-Warning messages alert that there is a problem in a report. For example, if the configuration contains a reference to a custom field that does not exist on Cloud.
-
-The reports with warning messages count towards importedCounts.
-
-- Error message
+### Error messages
 
 Error messages let you know of major problems encountered during the migration.
 
-**Access and permission notifications**
+### Reassigned reports
+
+If a report’s owner doesn’t exist in Cloud (for example, the account was suspended, is invalid, or the person has left), we don’t drop the report. We reassign it to the Jira admin and flag it in the post-migration report so you can hand it to the right person. This now applies to native Jira dashboards and their embedded gadgets as well as Dataplane reports. After migration, review the reassigned items and set the correct owner in Cloud.
+
+### Access and permission notifications
 
 Review these items carefully:
 
@@ -269,7 +266,7 @@ Review these items carefully:
 - Missing project role assignments needed for viewing data
 - Restrictions on datasource access
 
-**Verification tasks after migration:**
+## Verification tasks after migration
 
 When your migration finishes:
 

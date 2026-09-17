@@ -24,6 +24,8 @@ The Advanced Tables for Confluence app includes powerful and feature rich macros
   - [Column group calculation with Advanced Table Viewer macro](/cms_trial/space/TBL/3219587079/Column+group+calculation+with+Advanced+Table+Viewer+macro/)
   - [Advanced Table Viewer macro glossary](/cms_trial/space/TBL/1765245023/Advanced+Table+Viewer+macro+glossary/)
   - [Advanced Table Viewer for your CSV data](/cms_trial/space/TBL/2112356514/Advanced+Table+Viewer+for+your+CSV+data/)
+  - [Manage column visibility with Advanced Table Viewer macro](/cms_trial/space/TBL/3637706822/Manage+column+visibility+with+Advanced+Table+Viewer+macro/)
+  - [Manage calculated columns with Advanced Table Viewer macro](/cms_trial/space/TBL/3643965558/Manage+calculated+columns+with+Advanced+Table+Viewer+macro/)
 - [Native Table Enhancer [Beta] macro](/cms_trial/space/TBL/3520037211/Native+Table+Enhancer+%5BBeta%5D+macro/)
   - [Set up the Native Table Enhancer [Beta] macro features](/cms_trial/space/TBL/3568173057/Set+up+the+Native+Table+Enhancer+%5BBeta%5D+macro+features/)
   - [Analyze Native Table Enhancer [Beta] macro data with Atlassian Rovo](/cms_trial/space/TBL/3568173411/Analyze+Native+Table+Enhancer+%5BBeta%5D+macro+data+with+Atlassian+Rovo/)
@@ -35,3 +37,4 @@ The Advanced Tables for Confluence app includes powerful and feature rich macros
   - [Column calculation with Native Table Enhancer [Beta] macro](/cms_trial/space/TBL/3565584387/Column+calculation+with+Native+Table+Enhancer+%5BBeta%5D+macro/)
   - [Column group calculation with Native Table Enhancer [Beta] macro](/cms_trial/space/TBL/3567878145/Column+group+calculation+with+Native+Table+Enhancer+%5BBeta%5D+macro/)
   - [Native Table Enhancer macro glossary](/cms_trial/space/TBL/3584360457/Native+Table+Enhancer+macro+glossary/)
+  - [Manage column visibility with Native Table Enhancer [Beta] macro](/cms_trial/space/TBL/3639115855/Manage+column+visibility+with+Native+Table+Enhancer+%5BBeta%5D+macro/)
