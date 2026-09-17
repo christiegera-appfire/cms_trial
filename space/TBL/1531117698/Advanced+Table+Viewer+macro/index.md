@@ -31,14 +31,15 @@ You can add the macro to a Confluence page using one of the following methods:
 
 |  |  |
 | --- | --- |
-| **Select from the macro browser** | Advanced Table Viewer Advanced Tables macro browser with Advanced Table Viewer selected |
-| **Macro shortcut (New editor)** | /Advanced Table Viewer Insert Advanced Table Viewer using macro shortcut |
+| **Select from the macro browser** | Advanced Table Viewer  Image — asset pipeline pending Advanced Tables macro browser with Advanced Table Viewer selected |
+| **Macro shortcut (New editor)** | /Advanced Table Viewer  Image — asset pipeline pending Insert Advanced Table Viewer using macro shortcut |
 
 [Unmapped macro: refined-tab — no content to fall back on]
 
 - You can import data from **CSV**, **Excel, and JSON** data sources.
 
-  ![ATV_select data source.png](/cms_trial/assets/d3099bea-5f0d-4025-a449-bd107190069c.png)
+  Image — asset pipeline pending  
+  ATV\_select data source.png
 - To configure the CSV data source, refer to [Configure CSV data source in Advanced Table Viewer macro](/cms_trial/space/TBL/1782972884/Configure+CSV+data+source+in+Advanced+Table+Viewer+macro/).
 - To configure an Excel data source, refer to [Configure Excel data source in Advanced Table Viewer macro](/cms_trial/space/TBL/3122888898/Configure+Excel+data+source+in+Advanced+Table+Viewer+macro/).
 - To configue JSON data source, refer to [Configure JSON data source in Advanced Table Viewer macro](/cms_trial/space/TBL/3297017872/Configure+JSON+data+source+in+Advanced+Table+Viewer+macro/).

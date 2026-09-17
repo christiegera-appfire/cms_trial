@@ -6,7 +6,7 @@ This page describes features that are supported **only** in [**BigPicture Advanc
 
 ## Contextual reports - old navigation
 
-Click to exoand the guide
+Click to expand the guide
 
 The following modules:
 
@@ -66,7 +66,7 @@ Contextual reports are not available in the Root box.
 
 Each module displays a specific set of default reports. To hide or enable other reports, click the **plus (+)** button and select or unselect the report from the dropdown.
 
-![The dropdown under the Charts button.](/cms_trial/assets/e7e2003f-fca8-4ec9-8a50-37fb03a4d4e1.png)
+![The dropdown under the Charts button.](/cms_trial/assets/e8b220e9-f60f-477a-8671-044aef9ed601.png)
 
 ## Contextual reports
 
@@ -80,7 +80,7 @@ Visit the following pages to learn more about the individual report:
 
 ## Contextual reports - new navigation
 
-Click to exoand the guide
+Click to expand the guide
 
 The following modules:
 
@@ -142,7 +142,7 @@ Contextual reports are not available in the Root box.
 
 Each module displays a specific set of default reports. To hide or enable other reports, click the **plus (+)** button and select or unselect the report from the dropdown.
 
-![Screenshot of enabling or disabling contextual reports.](/cms_trial/assets/fca051aa-2f72-4260-9460-72b236d56417.png)
+![Screenshot of enabling or disabling contextual reports.](/cms_trial/assets/7ccf4771-05e2-4687-b99d-9e9522e07b8e.png)
 
 ## Contextual reports
 

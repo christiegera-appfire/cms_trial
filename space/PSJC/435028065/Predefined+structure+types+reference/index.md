@@ -136,13 +136,13 @@ Standard structure types are core structures that handle fundamental Jira operat
 | JFieldConfigurationScheme | id | integer | - [admGetAllFieldConfigSchemes](/cms_trial/space/PSJC/514818850/admGetAllFieldConfigSchemes/) - [admGetFieldConfigScheme](/cms_trial/space/PSJC/515146283/admGetFieldConfigScheme/) |
 | name | string |
 | description | string |
-| JFieldConfiguration | id | integer | - [admGetFieldConfigById](/cms_trial/space/PSJC/860717838/admGetFieldConfigById/) - [admCreateFieldConfig](/cms_trial/space/PSJC/861667573/admCreateFieldConfig/) | - [admUpdateFieldConfig](/cms_trial/space/PSJC/861733003/admUpdateFieldConfig/) |
+| JFieldConfiguration | id | integer | - [admGetFieldConfigById](https://appfire.atlassian.net/wiki/spaces/PSJC/pages/860717838) - [admCreateFieldConfig](https://appfire.atlassian.net/wiki/spaces/PSJC/pages/861667573) | - [admUpdateFieldConfig](/cms_trial/space/PSJC/861733003/admUpdateFieldConfig/) |
 | name | string |
 | description | string |
 | isDefault | boolean |
-| JFieldConfigITMapping | fieldConfigurationId | integer | - [admGetFieldConfigITMappings](/cms_trial/space/PSJC/860357745/admGetFieldConfigITMappings/) |
+| JFieldConfigITMapping | fieldConfigurationId | integer | - [admGetFieldConfigITMappings](https://appfire.atlassian.net/wiki/spaces/PSJC/pages/860357745) |
 | issueTypeId | integer |
-| JFieldConfigurationItem | field | string | - [admGetAllFieldConfigItems](/cms_trial/space/PSJC/862224438/admGetAllFieldConfigItems/) |  |
+| JFieldConfigurationItem | field | string | - [admGetAllFieldConfigItems](https://appfire.atlassian.net/wiki/spaces/PSJC/pages/862224438) |  |
 | description | string |
 | renderer | string |
 | hidden | boolean |
@@ -233,7 +233,7 @@ Standard structure types are core structures that handle fundamental Jira operat
 | projecttype | string |
 | JProjectIssueTypes | projectKey | string | - [admAddCustomFieldOptions](/cms_trial/space/PSJC/791282009/admAddCustomFieldOptions/) - [admDeleteCustomFieldOptions](/cms_trial/space/PSJC/790627240/admDeleteCustomFieldOptions/) - [admGetCustomFieldOptions](/cms_trial/space/PSJC/791511311/admGetCustomFieldOptions/) - [admUpdateCustomFieldOptions](/cms_trial/space/PSJC/790528847/admUpdateCustomFieldOptions/) |
 | issueTypesNames | string [] |
-| JRemoteIssueLink | id | integer | - [getWebLink](/cms_trial/space/PSJC/957940055/getWebLink/) - [getWebLinksForIssue](/cms_trial/space/PSJC/958955774/getWebLinksForIssue/) - [updateWebLink](/cms_trial/space/PSJC/958333364/updateWebLink/) |
+| JRemoteIssueLink | id | integer | - [getWebLink](https://appfire.atlassian.net/wiki/spaces/PSJC/pages/957940055) - [getWebLinksForIssue](https://appfire.atlassian.net/wiki/spaces/PSJC/pages/958955774) - [updateWebLink](https://appfire.atlassian.net/wiki/spaces/PSJC/pages/958333364) |
 | globalId | string |
 | appName | string |
 | relationship | string |

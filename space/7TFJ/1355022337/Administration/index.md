@@ -19,3 +19,4 @@ Use the links below to learn more about 7pace Timetracker for Jira and how you c
   - [BigPicture teams](/cms_trial/space/7TFJ/3138257098/BigPicture+teams/)
 - [7pace Timetracker to Jira synchronization](/cms_trial/space/7TFJ/3491495942/7pace+Timetracker+to+Jira+synchronization/)
 - [Work preferences](/cms_trial/space/7TFJ/3572597090/Work+preferences/)
+- [Audit log](/cms_trial/space/7TFJ/3672933357/Audit+log/)

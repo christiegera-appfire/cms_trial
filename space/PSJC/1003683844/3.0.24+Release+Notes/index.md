@@ -8,7 +8,7 @@ Our team is pleased to announce the 3.0.24 release of Power Scripts for Jira Clo
 
 ## New features
 
-- Ability to process incoming emails. Check [Incoming Mail configuration](/cms_trial/space/PSJC/994018140/Incoming+Mail+configuration/) and [Incoming Mail Processing Functions](/cms_trial/space/PSJC/999162356/Incoming+Mail+Processing+Functions/)
+- Ability to process incoming emails. Check <https://appfire.atlassian.net/wiki/spaces/PSJC/pages/994018140> and <https://appfire.atlassian.net/wiki/spaces/PSJC/pages/999162356>
 - Added groupsInRole()
 - Web link routines added getWebLink(), getWebLinksForIssue(), updateWebLink(), deleteWebLink()
 - Issue types scheme functions added

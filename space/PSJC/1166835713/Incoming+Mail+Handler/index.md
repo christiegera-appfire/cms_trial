@@ -2,7 +2,7 @@
 
 Incoming emails can be efficiently processed using SIL scripting, providing an unparalleled level of flexibility. Review the following video for an overview of this feature.
 
-The sample script used in the video is listed below. For more details, please see the [configuration page](/cms_trial/space/PSJC/994018140/Incoming+Mail+configuration/) that describes this feature.
+The sample script used in the video is listed below. For more details, please see the [configuration page](https://appfire.atlassian.net/wiki/spaces/PSJC/pages/994018140) that describes this feature.
 
 ```text
 IncomingEmail mail = getIncomingEmail();

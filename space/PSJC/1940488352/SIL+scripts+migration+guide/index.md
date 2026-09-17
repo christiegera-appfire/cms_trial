@@ -136,12 +136,12 @@ getFieldById("summary").setValue("Value to set");
 
 ### Mail handler scripts
 
-The Power Scripts [incoming email service](/cms_trial/space/PSJC/994018140/Incoming+Mail+configuration/) works differently in Jira Cloud than in Data Center. Due to Atlassian’s Cloud architecture, email scripts In Jira Cloud:
+The Power Scripts [incoming email service](https://appfire.atlassian.net/wiki/spaces/PSJC/pages/994018140) works differently in Jira Cloud than in Data Center. Due to Atlassian’s Cloud architecture, email scripts In Jira Cloud:
 
 - Cannot intercept messages sent to your primary Atlassian address ([youremail@atlassian.net](mailto:youremail@atlassian.net)).
 - Can only intercept emails going to an external email accounts, such as Gmail.
 
-Due to the differences in email handling between DC and Cloud, email scripts require different functions in each environment. Existing DC email scripts must be updated to use the [new Cloud-compatible functions](/cms_trial/space/PSJC/999162356/Incoming+Mail+Processing+Functions/).
+Due to the differences in email handling between DC and Cloud, email scripts require different functions in each environment. Existing DC email scripts must be updated to use the [new Cloud-compatible functions](https://appfire.atlassian.net/wiki/spaces/PSJC/pages/999162356).
 
 Data Center email handler script example
 

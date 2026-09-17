@@ -5,14 +5,10 @@ This section contains functions that enable users to handle links. There are 2 k
 ## Functions Summary
 
 - [createWebLink](/cms_trial/space/PSJC/434864417/createWebLink/)
-- [deleteWebLink](/cms_trial/space/PSJC/958071114/deleteWebLink/)
 - [getIssueLinksDetail](/cms_trial/space/PSJC/434602750/getIssueLinksDetail/)
-- [getWebLink](/cms_trial/space/PSJC/957940055/getWebLink/)
-- [getWebLinksForIssue](/cms_trial/space/PSJC/958955774/getWebLinksForIssue/)
 - [linkedIssues](/cms_trial/space/PSJC/434995421/linkedIssues/)
 - [linkIssue](/cms_trial/space/PSJC/434799241/linkIssue/)
 - [unlinkIssue](/cms_trial/space/PSJC/434995439/unlinkIssue/)
-- [updateWebLink](/cms_trial/space/PSJC/958333364/updateWebLink/)
 
 Structures used:
 

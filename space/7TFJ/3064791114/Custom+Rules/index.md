@@ -4,7 +4,7 @@
 
 Select **Settings** in the left panel and then **Custom Rules**:
 
-![settings-custom-rules.png](/cms_trial/assets/8d34a8aa-5ecc-40b4-9274-7391b97ed868.png)
+![settings-custom-rules.png](/cms_trial/assets/bfdfae2f-4f9f-4dfc-a10f-b61feaef1f4c.png)
 
 ## Search filters
 
@@ -12,21 +12,21 @@ Admin can configure up to three fields for filtering results in the Add Time:
 
 Switch the toggle and choose up to three fields from the drop-down list:
 
-![choose-fields.png](/cms_trial/assets/71296ca4-00af-4912-bde0-c835aacace34.png)
+![choose-fields.png](/cms_trial/assets/f1714712-4962-4d51-9b16-a2836fdee7f4.png)
 
 Click **Save** to save the settings:
 
-![save-settings.png](/cms_trial/assets/f5714c74-7f39-40c0-874d-05c949692cb4.png)
+![save-settings.png](/cms_trial/assets/2981aa52-e90b-408e-952c-d6cefb89df31.png)
 
 The fields are now available for filtering in the Add Time windows:
 
-![custom-search-fields.png](/cms_trial/assets/cde343be-8e30-40a3-a465-e4df978e53a0.png)
+![custom-search-fields.png](/cms_trial/assets/13aef1cc-bce7-4f4d-8b4c-c6d43f9ec2a7.png)
 
 ## Tracking details
 
 You can define whether choosing a work item, a comment, or both is required when adding or editing a worklog:
 
-![7pace-tracking-details.png](/cms_trial/assets/30db1321-a394-4a56-a5bb-ac396cfa0c50.png)
+![7pace-tracking-details.png](/cms_trial/assets/9cbd3d6a-685f-4297-a7e2-bed31cdfabf1.png)
 
 ## Time limitations
 
@@ -42,4 +42,11 @@ The limits you can set are:
 - 7 days
 - 30 days
 
-![time-limitations.png](/cms_trial/assets/64a89889-5935-4dae-a3a6-81e7e5edd05e.png)
+You can also restrict logging time:
+
+- to specific item types, e.g., Epic or Initiative
+- and specific statuses, e.g., Backlog, Closed.
+
+You can also limit the maximum duration for a single worklog.
+
+![time-limitations.png](/cms_trial/assets/f0f95800-32b8-4dfa-9478-075488bd5783.png)

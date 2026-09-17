@@ -18,7 +18,8 @@ The Beta version of macro includes three new features, row numbering, search, an
 - **Search**: Perform a dynamic search on the table data. For details, refer to [Search with Advanced Table Viewer macro [Beta] - cloud](/cms_trial/space/TBL/1764920560/Search+with+Advanced+Table+Viewer+macro/).
 - **Download**: Download the current table data as a CSV file. For details, refer to [Setup the Advanced Table Viewer macro [Beta] features](/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/).
 
-![Advanced Table Viewer_Search, row numbering and download](/cms_trial/assets/ec381dcb-f17d-4ed1-b39d-27486c6749a2.jpg)
+Image — asset pipeline pending  
+Advanced Table Viewer\_Search, row numbering and download
 
 ---
 
@@ -44,7 +45,8 @@ The Beta version of **Advanced Table Viewer** BETA macro is enhanced to provide:
   - [Configure Advanced Table Viewer macro [Beta]- cloud](/cms_trial/space/TBL/1782972884/Configure+CSV+data+source+in+Advanced+Table+Viewer+macro/).
   - [Setup the Advanced Table Viewer macro [Beta] features](/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/).
 
-![Advanced Table macro setup mode](/cms_trial/assets/76407d70-198c-474d-aa4e-60d5d4b28fbe.jpg)
+Image — asset pipeline pending  
+Advanced Table macro setup mode
 
 ## Full screen view
 
@@ -55,7 +57,8 @@ The full screenview is available in both page view and edit mode, allowing you t
 
 For more information, refer to the [Advanced Table Viewer macro glossary](/cms_trial/space/TBL/1765245023/Advanced+Table+Viewer+macro+glossary/).
 
-![Full screen from page view](/cms_trial/assets/3681910b-cffb-45a1-9259-c6ae005f2c1a.jpg)
+Image — asset pipeline pending  
+Full screen from page view
 
 ---
 
