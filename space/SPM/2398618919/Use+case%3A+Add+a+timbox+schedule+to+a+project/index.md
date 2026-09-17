@@ -8,7 +8,7 @@
 
 ## Preconditions
 
-- app admin An App Admin created a timebox schedule (TS) for your organization. If not, your Admin can find instructions on how to set up and assign a TS on the following page: [Timebox schedules](/cms_trial/space/SPM/1989214530/Timebox+schedules/)
+- app admin An App Admin created a timebox schedule (TS) for your organization. If not, your Admin can find instructions on how to set up and assign a TS on the following page: <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1989214530>
 
 ## Add a timebox schedule to your project step by step
 
@@ -83,4 +83,4 @@ Whether you assigned the TS to a new box or your App Admin assigned it to an exi
 
 - [Timeboxes](/cms_trial/space/SPM/1918766987/Timeboxes/)
 - [Timebox attributes](/cms_trial/space/SPM/3019800816/Timebox+attributes/)
-- [Timebox schedules](/cms_trial/space/SPM/1989214530/Timebox+schedules/)
+- <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1989214530>

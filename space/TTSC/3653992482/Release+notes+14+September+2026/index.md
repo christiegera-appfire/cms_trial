@@ -2,7 +2,7 @@
 
 **Release date**: September 14, 2026
 
-This page outlines the updates included in the latest release of Product for Jira Cloud.
+This page outlines the updates included in the latest release of Time to SLA for Jira Cloud.
 
 ---
 
@@ -38,6 +38,16 @@ To try it, go to **Reports** > **Workflow Intelligence** and create your first r
 
 Learn more about [**Workflow Intelligence reports**](/cms_trial/space/TTSC/3637936320/Workflow+Intelligence+report/).
 
+## Bug fixes
+
+The following bugs are fixed in this release:
+
+- Fixed an issue where resetting an SLA could fail with a **“Remote could not verify the Forge Invocation Token”** error because of incorrect Administration permission handling.
+- Fixed an issue in JCMA migrations where SLA contexts retained their Data Center SLA IDs instead of using the newly generated Cloud IDs. This could prevent users from editing the SLA panel after migration.
+- Fixed an issue where changing the configuration of a disabled SLA could unintentionally enable it.
+- Fixed an issue where an already executed, non-recurring SLA started action could run again if SLA recalculation occurred shortly after the SLA started. This could overwrite the result of a later SLA met action and leave related custom fields out of sync with the SLA’s current state.
+- Fixed an issue where SLA report date filters were incorrectly passed as the end date in REST calls. This affected all report types except the Executive report.
+
 ---
 
 **Questions and feedback**
@@ -48,4 +58,4 @@ Learn more about [**Workflow Intelligence reports**](/cms_trial/space/TTSC/36379
 
 **Credits**
 
-Thank you to our valued customers! Your incredible support and feedback inspire us to improve continuously. We appreciate your trust in Product!
+Thank you to our valued customers! Your incredible support and feedback inspire us to improve continuously. We appreciate your trust in Time to SLA!

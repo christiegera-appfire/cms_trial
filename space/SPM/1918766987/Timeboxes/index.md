@@ -11,7 +11,7 @@ There are two types of timeboxes:
 - Automatic (timeboxes synchronized with Jira sprints)
 - Manual (timeboxes added manually. The timeboxes you can add depend on the [box type settings](/cms_trial/space/SPM/1918766536/Scope+types/))
 
-App admins can configure timebox schedules to define a reusable timebox hierarchy (e.g., Year → Quarter → PI → Iteration) and apply it across multiple boxes. See more on the [Timebox schedules](/cms_trial/space/SPM/1989214530/Timebox+schedules/) page.
+App admins can configure timebox schedules to define a reusable timebox hierarchy (e.g., Year → Quarter → PI → Iteration) and apply it across multiple boxes. See more on the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1989214530> page.
 
 ![Timeboxes configuration on the box scope definition page.](/cms_trial/assets/036bef13-2aab-4df5-b7c5-de0b8ea94b0d.png)
 
@@ -134,7 +134,7 @@ There are two types of timeboxes:
 - Automatic (timeboxes synchronized with Jira sprints)
 - Manual (timeboxes added manually. The timeboxes you can add depend on the [box type settings](/cms_trial/space/SPM/1918766536/Scope+types/))
 
-App admins can configure timebox schedules to define a reusable timebox hierarchy (e.g., Year → Quarter → PI → Iteration) and apply it across multiple boxes. See more on the [Timebox schedules](/cms_trial/space/SPM/1989214530/Timebox+schedules/) page.
+App admins can configure timebox schedules to define a reusable timebox hierarchy (e.g., Year → Quarter → PI → Iteration) and apply it across multiple boxes. See more on the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1989214530> page.
 
 ![timeboxes-new-navigation.png](/cms_trial/assets/091ab20d-5e56-4817-a512-cf25a5b0817a.png)
 

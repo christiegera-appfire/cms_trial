@@ -94,7 +94,7 @@ The panel shows the same data as a Jira work item details page. If you have Skil
 
 ## Reports module
 
-Project reports help you communicate the status to your stakeholders, sponsors, and team. You can generate unlimited reports that you can customize and add to your report dashboard. In particular, the [Task report](/cms_trial/space/SPM/1918863921/Task+report/) that supports JQL lets you get the granular data you need.
+Project reports help you communicate the status to your stakeholders, sponsors, and team. You can generate unlimited reports that you can customize and add to your report dashboard. In particular, the [Task report](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918863921) that supports JQL lets you get the granular data you need.
 
 ### Gain more insights into tasks
 

@@ -18,12 +18,12 @@ The table presents a list of available actions and reports that can be generated
 
 | **Report** | **Description** |
 | --- | --- |
-| [Task report](/cms_trial/space/SPM/1918863921/Task+report/) | Counts the number of tasks in the project according to the entered criteria or sums the field values from the selected tasks. |
+| [Task report](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918863921) | Counts the number of tasks in the project according to the entered criteria or sums the field values from the selected tasks. |
 | [Risks matrix](/cms_trial/space/SPM/1918766396/Risks+matrix+report/) | Provides a quick view of the risks of a given project or portfolio. |
 | [Team dependencies](/cms_trial/space/SPM/1918668772/Cross-team+dependencies+report/) | Facilitates management of team dependencies within and between the projects. |
 | [Dependencies](/cms_trial/space/SPM/1918504971/Dependencies+report/) | Facilitates the management of dependencies both within and between projects. |
 | [Milestones & Markers](/cms_trial/space/SPM/1918505294/Milestones+%26+Markers+report/) | Provides a quick view of a given project's or portfolio's milestones and markers. |
-| [Velocity](/cms_trial/space/SPM/1918833281/Velocity+report/) | Counts and presents the amount of planned and done story points for subsequent iterations. |
+| [Velocity](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918833281) | Counts and presents the amount of planned and done story points for subsequent iterations. |
 | [Plan delays](/cms_trial/space/SPM/1918765989/Plan+delay+report/) | Provides a quick view of delayed tasks of a given project or portfolio. |
 | [Capacity per period](/cms_trial/space/SPM/1918765199/Capacity+per+period+report/) | Generates a capacity report for a given time period (total, distributed workload, remaining - for a skill, user, team, or total). |
 | Default reports | The standard BigPicture App includes five pre-configured reports. |
@@ -55,12 +55,12 @@ The table presents a list of available actions and reports that can be generated
 
 | **Report** | **Description** |
 | --- | --- |
-| [Task report](/cms_trial/space/SPM/1918863921/Task+report/) | Counts the number of tasks in the project according to the entered criteria or sums the field values from the selected tasks. |
+| [Task report](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918863921) | Counts the number of tasks in the project according to the entered criteria or sums the field values from the selected tasks. |
 | [Risks matrix](/cms_trial/space/SPM/1918766396/Risks+matrix+report/) | Provides a quick view of the risks of a given project or portfolio. |
 | [Team dependencies](/cms_trial/space/SPM/1918668772/Cross-team+dependencies+report/) | Facilitates management of team dependencies within and between the projects. |
 | [Dependencies](/cms_trial/space/SPM/1918504971/Dependencies+report/) | Facilitates the management of dependencies both within and between projects. |
 | [Milestones & Markers](/cms_trial/space/SPM/1918505294/Milestones+%26+Markers+report/) | Provides a quick view of a given project's or portfolio's milestones and markers. |
-| [Velocity](/cms_trial/space/SPM/1918833281/Velocity+report/) | Counts and presents the amount of planned and done story points for subsequent iterations. |
+| [Velocity](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918833281) | Counts and presents the amount of planned and done story points for subsequent iterations. |
 | [Plan delays](/cms_trial/space/SPM/1918765989/Plan+delay+report/) | Provides a quick view of delayed tasks of a given project or portfolio. |
 | [Capacity per period](/cms_trial/space/SPM/1918765199/Capacity+per+period+report/) | Generates a capacity report for a given time period (total, distributed workload, remaining - for a skill, user, team, or total). |
 | [Project health](https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=spm&title=Project%20health%20%28Red%2C%20Aamger%2C%20Green%29&linkCreation=true&fromPageId=1918502811) | Visualizes project health using the RAG (Red-Amber-Green) system. |

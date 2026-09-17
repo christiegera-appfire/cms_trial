@@ -131,7 +131,7 @@ In the "Manual" [workload contouring](https://appfire.atlassian.net/wiki/spaces/
 
 ### Task reports
 
-[Task reports](/cms_trial/space/SPM/1918863921/Task+report/) cannot be created for basic tasks.
+[Task reports](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918863921) cannot be created for basic tasks.
 
 ## BigPicture tasks (new navigation)
 
@@ -250,4 +250,4 @@ In the "Manual" [workload contouring](/cms_trial/space/SPM/1918767273/Workload+c
 
 ### Task reports
 
-[Task reports](/cms_trial/space/SPM/1918863921/Task+report/) cannot be created for BigPicture tasks.
+[Task reports](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918863921) cannot be created for BigPicture tasks.

@@ -4,7 +4,8 @@ This page provides a brief overview of the release notes for individual releases
 
 | **Title** | **Release date** | **Highlights** |
 | --- | --- | --- |
-| [Release notes 14 September 2026](/cms_trial/space/TTSC/3653992482/Release+notes+14+September+2026/) | 14 September 2026 | - Introducing Workflow Intelligence reports |
+| [Release notes 16 September 2026](/cms_trial/space/TTSC/3670704140/Release+notes+16+September+2026/) | 16 September 2026 | - SLA actions now support percentages up to 200%, clearer SLA action trigger wording - Bug fixes |
+| [Release notes 14 September 2026](/cms_trial/space/TTSC/3653992482/Release+notes+14+September+2026/) | 14 September 2026 | - Introducing Workflow Intelligence reports - Bug fixes |
 | [Release notes 11 September 2026](/cms_trial/space/TTSC/3659104319/Release+notes+11+September+2026/) | 11 September 2026 | - Bug fixes |
 | [Release notes 4 September 2026](/cms_trial/space/TTSC/3634233352/Release+notes+4+September+2026/) | 4 September 2026 | - Share Executive Reports with others - Bug fixes |
 | [Release notes 26 August 2026](/cms_trial/space/TTSC/3591183214/Release+notes+26+August+2026/) | 26 August 2026 | - Add a reason when manually resetting an SLA - Bug fixes |
