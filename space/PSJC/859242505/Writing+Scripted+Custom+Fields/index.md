@@ -37,4 +37,4 @@ return "And another paragraph containing emojis: {{emoji}}🙂||:slight_smile:||
 
 ## More examples
 
-For more Scripted Custom Field examples see [this page](https://appfire.atlassian.net/wiki/spaces/PSJC/pages/854327327) within the Tutorials and Recipes section.
+For more Scripted Custom Field examples see [this page](/cms_trial/space/PSJC/854327327/Scripted+Custom+Field+recipes/) within the Tutorials and Recipes section.

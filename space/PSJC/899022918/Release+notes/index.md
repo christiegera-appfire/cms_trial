@@ -42,9 +42,9 @@ Cloud deployments of Power Scripts automatically update to the latest version, e
 | [3.0.26 Release Notes](/cms_trial/space/PSJC/1033797796/3.0.26+Release+Notes/) | June 8, 2024 | - Two relatively minor security flaws are fixed in this release. - Better container management & statuses - Panels improvements |
 | [3.0.25 Release Notes](/cms_trial/space/PSJC/1009648681/3.0.25+Release+Notes/) | May 29, 2024 | - **Rushed release** - an initialization bug in our latest addition, the incoming mail feature, was preventing the container to start up. |
 | [3.0.24 Release Notes](/cms_trial/space/PSJC/1003683844/3.0.24+Release+Notes/) | May 25, 2024 | - Major features added: incoming email processing - Scripted Custom Fields can now be synced over - WebLinks functions - Issue Type Scheme functions |
-| [3.0.23 Release Notes](https://appfire.atlassian.net/wiki/spaces/PSJC/pages/933822467) | April 26, 2024 | - Minor bug fixes and performance improvements |
+| [3.0.23 Release Notes](/cms_trial/space/PSJC/933822467/3.0.23+Release+Notes/) | April 26, 2024 | - Minor bug fixes and performance improvements |
 | [3.0.22 Release Notes](/cms_trial/space/PSJC/923172868/3.0.22+Release+Notes/) | April 23, 2024 | - Minor bug fixes and performance improvements |
-| [3.0.21 Release Notes](https://appfire.atlassian.net/wiki/spaces/PSJC/pages/913899545) | April 17, 2024 | - Implemented new performance improvements - Introduced **Scripted Custom Fields** - Updated support for the execution of large updates and refreshing issues for dealing with asynchronous updates from other add-ons |
+| [3.0.21 Release Notes](/cms_trial/space/PSJC/913899545/3.0.21+Release+Notes/) | April 17, 2024 | - Implemented new performance improvements - Introduced **Scripted Custom Fields** - Updated support for the execution of large updates and refreshing issues for dealing with asynchronous updates from other add-ons |
 | [3.0.20 Release Notes](/cms_trial/space/PSJC/874512390/3.0.20+Release+Notes/) | March 11, 2024 | - The JQL page was completely redesigned - Added a token expiry mechanism - Added more than 50 new routines - Improved support, available options, and screens for custom fields - Added more than 50 new routines |
 
 Previous release notes are here: [Older Release Notes](/cms_trial/space/PSJC/573997127/Older+Release+Notes/)

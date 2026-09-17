@@ -13,5 +13,7 @@ This section contains the 2024 Power Scripts Release notes. For the latest relea
 - [3.0.26 Release Notes](/cms_trial/space/PSJC/1033797796/3.0.26+Release+Notes/)
 - [3.0.25 Release Notes](/cms_trial/space/PSJC/1009648681/3.0.25+Release+Notes/)
 - [3.0.24 Release Notes](/cms_trial/space/PSJC/1003683844/3.0.24+Release+Notes/)
+- [3.0.23 Release Notes](/cms_trial/space/PSJC/933822467/3.0.23+Release+Notes/)
 - [3.0.22 Release Notes](/cms_trial/space/PSJC/923172868/3.0.22+Release+Notes/)
+- [3.0.21 Release Notes](/cms_trial/space/PSJC/913899545/3.0.21+Release+Notes/)
 - [3.0.20 Release Notes](/cms_trial/space/PSJC/874512390/3.0.20+Release+Notes/)

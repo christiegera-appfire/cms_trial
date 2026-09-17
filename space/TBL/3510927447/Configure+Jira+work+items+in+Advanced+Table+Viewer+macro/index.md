@@ -21,7 +21,7 @@ This page details how to configure the Advanced Table Viewer macro to import Jir
   ![Advanced Tables macro shortcut for inserting Advanced Table Viewer](/cms_trial/assets/c2107f79-268d-4c5d-8af6-5143c48b4a49.jpg)
 - On the initial setup screen, click **Connect Data Source**.
 
-  ![connect datasource](/cms_trial/assets/20d75936-3cfa-44ed-a39c-5bc81bb290a0.jpg)
+  ![connect datasource on the setup screen.](/cms_trial/assets/20d75936-3cfa-44ed-a39c-5bc81bb290a0.jpg)
 - The *Select* *data source* dialog opens.
 - To configure the Jira data source, select **Jira work items** from the *Select data connector* dropdown. By default, the CSV data connector is selected.
 
