@@ -16,30 +16,28 @@ In the left sidebar in Jira, select **Apps** > **Dashboard Hub**. This is the ho
 
 ## Step 2: Create a blank dashboard
 
-**Why create from scratch?** You can start from a **template**, but some templates pull data from other tools like Bitbucket or Statuspage, which you need to connect first. Building from scratch on your default Jira datasource is the quickest way to a working dashboard.
-
 1. Option A: If this is the first time you open Dashboard Hub, click **Create dashboard** on the *Get started* page.  
    Option B: In Dashboard Hub, click **More actions** (**…**) in the top right, then select **Create dashboard**.
 2. Enter a name for your dashboard, for example, `My first dashboard`.
+
+**Why create from scratch?** You can start from a **template**, but some templates pull data from other tools like Bitbucket or Statuspage, which you need to connect first. Building from scratch on your default Jira datasource is the quickest way to a working dashboard.
 
 ---
 
 ## Step 3: Add gadgets
 
-**Concept · Gadget.** A gadget is a single chart, table, or report on your dashboard. You can choose from over 90, and we regularly add new ones.
-
 1. Click **Add gadget** at the top of the dashboard, or **Browse all**.
 
-   ![DH-MyFirstDashboard.png](/cms_trial/assets/0ad2b739-5515-43a5-a554-bc82002bf4bf.png)
+   ![The create a new dashboard page in Dashboard Hub](/cms_trial/assets/0ad2b739-5515-43a5-a554-bc82002bf4bf.png)
 2. Click **Select multiple** to add more than one gadget at a time.
 3. Select **Show only compatible datasource** to ensure only compatible gadgets are available.
 
-   ![DH-New dashboard selected toggles.png](/cms_trial/assets/c882c14a-44a9-4d27-bea0-dc56ca29c8ae.png)
+   ![The gadget selector in Dashboard Hub with the Select multiple and Show only compatible datasource options selected](/cms_trial/assets/c882c14a-44a9-4d27-bea0-dc56ca29c8ae.png)
 4. Select two or three gadgets, depending on the data you want to visualize. In this example, we select Jira Custom Charts, Progress Tracker, and Rich Text.
 
-Most gadgets use JQL queries or saved filters to determine the work items used to build the report.
-
 1. Click **Add gadgets**.
+
+**Concept · Gadget.** A gadget is a single chart, table, or report on your dashboard. You can choose from over 90, and we regularly add new ones.
 
 ---
 
@@ -53,12 +51,12 @@ Most gadgets have two parts to configure: *what it shows* (the data) and *how it
 2. The gadget name displays by default, but you can change it so it is more meaningful to you and your team.
 3. Your data is already connected. The instance where Dashboard Hub is installed is your default datasource, called **This Jira instance**.
 
-**Concept · Datasource.** A datasource is where a gadget gets its data. Dashboard Hub automatically reads the Jira site it's installed on, so you don't need to set anything up to get started. Want data from somewhere else later, like another Jira site, BigPicture, Bitbucket, or somewhere else through any REST API? You can add more datasources anytime, but you don't need to right now.
-
-1. If your instance has a large number of work items or spaces, you can add a JQL query or select a saved JQL filter to narrow the number of work items to load; query a specific work type, assignee, or space, for example, `project = Birch`.
+1. Most gadgets use JQL queries or saved filters to determine the work items used to build the report. If your instance has a large number of work items or spaces, add a JQL query or select a saved JQL filter to narrow the number of work items to load; query a specific work type, assignee, or space, for example, `project = Birch`.
 2. Click **Load**.
 
-   ![DH-My First dashboard-custom charts.png](/cms_trial/assets/e56f5cb6-6e31-46a3-8eb4-0067ffabf28f.png)
+   ![The Jira Custom Charts gadget configuration page in Dashboard Hub](/cms_trial/assets/e56f5cb6-6e31-46a3-8eb4-0067ffabf28f.png)
+
+**Concept · Datasource.** A datasource is where a gadget gets its data. Dashboard Hub automatically reads the Jira site it's installed on, so you don't need to set anything up to get started. Want data from somewhere else later, like another Jira site, BigPicture, Bitbucket, or somewhere else through any REST API? You can add more datasources anytime, but you don't need to right now.
 
 ---
 
@@ -70,7 +68,7 @@ Most gadgets have two parts to configure: *what it shows* (the data) and *how it
 4. (optional) If you want to include a statistic in the rendered gadget, select an option under **Show statistics**. In this example, we select **Total Work Items**.
 5. A preview of the rendered data displays. When you are happy with the visualization, click **Save**.
 
-   ![DH-Get-started-pie.png](/cms_trial/assets/6833e922-e77d-452f-b8a3-039acfaa61b1.png)
+   ![Preview of the Jira Custom Charts pie chart.](/cms_trial/assets/6833e922-e77d-452f-b8a3-039acfaa61b1.png)
 
 ---
 
@@ -84,7 +82,7 @@ The Progress Tracker gadget can display progress at the Epic, Theme, and Initiat
 
 1. Follow the instructions in Step 4, using a JQL query that matches your instance.
 
-   ![DH-Get-started-progress-tracker.png](/cms_trial/assets/2dc2e535-fabb-4dfd-9868-889a45de9cdc.png)
+   ![The Progress Tracker gadget configuration page in Dashboard Hub](/cms_trial/assets/2dc2e535-fabb-4dfd-9868-889a45de9cdc.png)
 2. Select the start and end date fields, for example **Created** and **Resolved**, or use custom fields.
 3. Select the metric to use to calculate progress, for example, **Work Item Count**.
 4. Choose the view type: **List** or **Extended**.
@@ -104,40 +102,28 @@ The Rich Text gadget is a utility gadget that doesn’t require a datasource. Us
 
 When you are ready, click **Save** in the top right of the dashboard. The new dashboard displays.
 
-![Screenshot 2026-08-27 at 15.29.47.png](/cms_trial/assets/2c848273-95d9-4057-ae2b-868ec076b961.png)
+![The rendered dashboard as configured in the instructions](/cms_trial/assets/2c848273-95d9-4057-ae2b-868ec076b961.png)
 
----
-
-## Step 8: Share it with your team
-
-You’ve created a dashboard that shows your team’s key metrics; now you want to share it. You can share a dashboard in a few ways, depending on the access viewers have to the data: share the dashboard with an internal link, create a public link, export it to PDF or PNG, or create a subscription. In this example, we will subscribe to the dashboard to receive snapshots on a set schedule.
-
-1. At the top of the dashboard, click **Share dashboard** > **Subscribe to dashboard**.
-2. Create the schedule:
-
-   1. Select the frequency and time
-   2. You are subscribed by default as the subscription creator. Select additional recipients (users or groups) if needed.
-   3. (optional) Set a password if you want to add password protection to the emailed snapshot.
-
-      ![DH-Get-started-subscribe.png](/cms_trial/assets/11b24376-084e-4a80-9a06-faa69a4b8ea6.png)
+That’s it! You created a dashboard that includes the distribution of the work types in a project, the progress of the project epics, and a text panel to explain the purpose of the dashboard to viewers.  
+See the *Next steps* section to learn about other dashboard features.
 
 ## Tips
 
 |  |  |
 | --- | --- |
-| **Save time when configuring multiple gadgets** | Want your reports to represent the same underlying data? Select the **Use these settings to configure empty compatible gadgets** option when you configure a gadget. |
+| **Save time when configuring multiple gadgets** | Want your individual reports to represent the same underlying data? Select the **Use these settings to configure empty compatible gadgets** option when you configure a gadget. |
 | **Reuse dashboards** | You configured a dashboard for one team; clone it and use **Bulk Update JQL** to change the underlying data for all compatible gadgets. |
 | **Your established Jira dashboard is missing key metrics** | Use Dashboard Hub gadgets in native Jira dashboards. They are available in the *Add a gadget* panel. |
-| **Try project dashboards** | Project dashboards give teams instant visibility into space-specific reports. These dashboards are populated with gadgets tailored to the space type, including dedicated dashboards for Jira Software and Jira Service Management.  The first time you open Dashboard Hub from a space, the app automatically creates and loads the dashboard in the **Dashboard Hub** tab. The space owner is assigned as the default dashboard owner. |
+| **Try project dashboards** | Project dashboards give teams instant visibility into space-specific reports. These dashboards are populated with gadgets tailored to the space type, including dashboards for Jira Software and Jira Service Management.  The first time you open Dashboard Hub from a space, the app automatically creates and loads the dashboard in the **Dashboard Hub** tab. The space owner is assigned as the default dashboard owner. |
 | **Customize the look and feel of a dashboard** | You can rearrange and resize individual gadgets in the dashboard. Most gadgets let you customize default colours and reorder or hide statistics and metrics. |
 
 ## Next steps
 
-You created your first dashboard and shared it with your team. What’s next?
+You created your first dashboard. What’s next?
 
-- [Explore our catalog of over 90 gadgets](https://support.appfire.com/space/RDD/146309915/Dashboard+gadgets+-+KPIs+and+metrics)
-- [Learn about connection types and datasources](https://support.appfire.com/space/RDD/146309943/Learn+about+datasources)
 - [Understand dashboard permissions](https://support.appfire.com/space/RDD/146309693/Dashboard+permissions)
+- [Subscribe to a dashboard](https://support.appfire.com/space/RDD/2934407285/Dashboard+subscriptions)
+- [Learn about connection types and datasources](https://support.appfire.com/space/RDD/146309943/Learn+about+datasources)
 - [Customize dashboard adaptive filters](https://support.appfire.com/space/RDD/146309549/Adaptive+Filters)
 - Learn more about the gadgets used in this example
 

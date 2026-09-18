@@ -4,7 +4,7 @@
 
 This page outlines the updates included in the latest release of Comala Document Management Cloud.
 
-**App version:** 50.22.0
+**App version:** 51.0.0
 
 **Release version:** 5.0.29
 
