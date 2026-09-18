@@ -248,6 +248,6 @@ Admins can disable the filter bar for externally shared dashboards.
 1. Go to **App settings** > **Global Access Restrictions**.
 2. Turn on **Restrict use of adaptive filters for external users**.
 
-Once disabled, the filter bar does not appear on any dashboard shared via a public link or through the customer portal. This setting applies globally and can’t be overridden at the individual dashboard level. Dashboards shared internally are not affected. See [Global Settings](/cms_trial/space/RDD/146309685/Manage+Global+Access+Restrictions/) to learn more about global access restrictions.
+Once disabled, the filter bar does not appear on any dashboard shared via a public link or through the customer portal. This setting applies globally and can’t be overridden at the individual dashboard level. Dashboards shared internally are not affected. See [Global Settings](/cms_trial/space/RDD/146309685/Global+Access+Restrictions/) to learn more about global access restrictions.
 
 ![Dashboard Hub Adaptive Filters restriction in Global Settings.](/cms_trial/assets/279ef0b8-d2d2-4331-a6ef-908222972efb.png)

@@ -1,4 +1,4 @@
-# Manage Feature Management
+# Feature Management
 
 ## Overview
 

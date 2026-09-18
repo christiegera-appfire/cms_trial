@@ -1,4 +1,4 @@
-# Manage Performance Options
+# Performance Options
 
 ## Overview
 

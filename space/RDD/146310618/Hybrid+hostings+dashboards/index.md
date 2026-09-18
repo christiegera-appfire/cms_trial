@@ -35,7 +35,7 @@ Creating a hybrid dashboard requires datasources for the different types of host
 ## Related pages
 
 - [Learn about datasources](/cms_trial/space/RDD/146309943/Learn+about+datasources/)
-- [Manage Datasource Restrictions](/cms_trial/space/RDD/1900118024/Manage+Datasource+Restrictions/)
+- [Datasource Restrictions](/cms_trial/space/RDD/1900118024/Datasource+Restrictions/)
 - [Manage permissions on datasources](/cms_trial/space/RDD/1899429890/Manage+permissions+on+datasources/)
 - [Manage Restrictions on Datasource Creation](/cms_trial/space/RDD/1798045983/Manage+Restrictions+on+Datasource+Creation/)
 - [Configure Datasource Allowlist Settings](/cms_trial/space/RDD/1687716085/Configure+Datasource+Allowlist+Settings/)

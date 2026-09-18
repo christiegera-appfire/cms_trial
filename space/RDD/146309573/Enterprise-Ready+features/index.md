@@ -31,9 +31,9 @@ Learn more about the [Advanced permissions in dashboards](/cms_trial/space/RDD/1
 
 To prevent app usage among some users and groups, admins can restrict access to the product by choosing whichusers and groups will be able to access the app functionality.
 
-Learn more about the [Global access restrictions](/cms_trial/space/RDD/146309685/Manage+Global+Access+Restrictions/).
+Learn more about the [Global access restrictions](/cms_trial/space/RDD/146309685/Global+Access+Restrictions/).
 
 ## See also
 
-- [Manage Performance Options](/cms_trial/space/RDD/811106832/Manage+Performance+Options/)
-- [Manage Feature Management](/cms_trial/space/RDD/2141683713/Manage+Feature+Management/)
+- [Manage Performance Options](/cms_trial/space/RDD/811106832/Performance+Options/)
+- [Manage Feature Management](/cms_trial/space/RDD/2141683713/Feature+Management/)

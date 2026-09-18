@@ -64,7 +64,7 @@ Performance in Dashboard Hub DC scales mainly with the number of concurrent gadg
 
 Dashboard Hub for Data Center is designed to run entirely within your Jira infrastructure and uses Jira’s APIs to collect and visualize data (or other APIs, depending on the gadget).
 
-Performance mainly depends on concurrent dashboard usage and the complexity of the data queries executed by gadgets. To ensure optimal performance in large environments, administrators can configure specific parameters under **Global Settings** → **Performance Options**, as described in [Manage Performance Options](/cms_trial/space/RDD/811106832/Manage+Performance+Options/).
+Performance mainly depends on concurrent dashboard usage and the complexity of the data queries executed by gadgets. To ensure optimal performance in large environments, administrators can configure specific parameters under **Global Settings** → **Performance Options**, as described in [Manage Performance Options](/cms_trial/space/RDD/811106832/Performance+Options/).
 
 ![Dashboard Hub scaling recommendations for large Jira Data Center instances](/cms_trial/assets/dc9d876d-c295-4423-818f-0606ef40517c.png)
 

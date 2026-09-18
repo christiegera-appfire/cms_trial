@@ -66,9 +66,9 @@ This option redirects the customer to a window with all the dashboards to which 
 
 ## See also
 
-- [Manage Feature Management](/cms_trial/space/RDD/2141683713/Manage+Feature+Management/)
-- [Manage Datasource Restrictions](/cms_trial/space/RDD/1900118024/Manage+Datasource+Restrictions/)
+- [Manage Feature Management](/cms_trial/space/RDD/2141683713/Feature+Management/)
+- [Manage Datasource Restrictions](/cms_trial/space/RDD/1900118024/Datasource+Restrictions/)
 - [Manage Permissions on Datasources](/cms_trial/space/RDD/1899429890/Manage+permissions+on+datasources/)
 - [Manage Restrictions on Datasource Creation](/cms_trial/space/RDD/1798045983/Manage+Restrictions+on+Datasource+Creation/)
 - [Dashboard permissions](/cms_trial/space/RDD/146309693/Dashboard+permissions/)
-- [Manage Global Access Restrictions](/cms_trial/space/RDD/146309685/Manage+Global+Access+Restrictions/)
+- [Manage Global Access Restrictions](/cms_trial/space/RDD/146309685/Global+Access+Restrictions/)

@@ -1,6 +1,6 @@
 # Manage calculated columns with Advanced Table Viewer macro
 
-The Advanced Table Viewer macro enables you to create calculated columns using values from other columns.
+The Advanced Table Viewer macro enables you to create custom calculated columns using values from other columns.
 
 - You can configure the calculated columns in the macro setup mode.
 - The macro displays the calculated columns in Confluence page edit and view mode.

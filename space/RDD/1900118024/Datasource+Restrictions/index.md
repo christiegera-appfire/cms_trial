@@ -1,4 +1,4 @@
-# Manage Datasource Restrictions
+# Datasource Restrictions
 
 ## Overview
 

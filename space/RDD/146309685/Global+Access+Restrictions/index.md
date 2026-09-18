@@ -1,4 +1,4 @@
-# Manage Global Access Restrictions
+# Global Access Restrictions
 
 ## Overview
 

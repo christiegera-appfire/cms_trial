@@ -53,7 +53,7 @@ To improve control over data access and reduce the risk of unauthorized visibili
 By default, datasources like “This Jira Instance” use **Owner View Mode** (see [datasource viewing modes](/cms_trial/space/RDD/146309943/Learn+about+datasources/)), meaning gadgets load data using the dashboard owner's permissions. This ensures a consistent view for all users.  
 With this new restriction enabled, gadgets will instead use **Viewer Mode**, showing data based on each viewer’s own permissions. Users without access to certain fields or projects will not see restricted information.
 
-This setting can be configured in **Global Settings > Datasource Restrictions** and does **not** apply to datasources using credentials (e.g., password or token). Read more [here](/cms_trial/space/RDD/1900118024/Manage+Datasource+Restrictions/).
+This setting can be configured in **Global Settings > Datasource Restrictions** and does **not** apply to datasources using credentials (e.g., password or token). Read more [here](/cms_trial/space/RDD/1900118024/Datasource+Restrictions/).
 
 ## Misc
 
