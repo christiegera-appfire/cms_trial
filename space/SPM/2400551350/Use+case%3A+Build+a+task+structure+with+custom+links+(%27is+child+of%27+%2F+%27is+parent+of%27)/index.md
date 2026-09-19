@@ -29,7 +29,8 @@ If a work item is linked to multiple parent tasks in Jira, BigPicture will displ
 
 The video presents how to create a task structure based on the **Parent-Child** relations.
 
-![Video presenting how to build task structure based on the Parent-Child relations.](/cms_trial/assets/15742cfd-828c-4ab4-9560-87e89095d23e.mp4)
+Image — asset pipeline pending  
+Video presenting how to build task structure based on the Parent-Child relations.
 
 ## Expected outcomes
 
