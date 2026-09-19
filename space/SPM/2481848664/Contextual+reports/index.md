@@ -66,8 +66,7 @@ Contextual reports are not available in the Root box.
 
 Each module displays a specific set of default reports. To hide or enable other reports, click the **plus (+)** button and select or unselect the report from the dropdown.
 
-Image — asset pipeline pending  
-The dropdown under the Charts button.
+![The dropdown under the Charts button.](/cms_trial/assets/e8b220e9-f60f-477a-8671-044aef9ed601.png)
 
 ## Contextual reports
 
@@ -121,11 +120,11 @@ Contextual reports are available in every [box scope type](/cms_trial/space/SPM/
 
 | **Module** | **How to access contextual reports** |
 | --- | --- |
-| Overview | Click **View** > **Reports.**  Image — asset pipeline pending Screenshot of accessing contextual reports in the Overview module. |
-| Gantt | Go to **Infobar** > **Reports**.  Image — asset pipeline pending Screenshot of accessing contextual reports in the Gantt module. |
-| Scope | Go to **Details** **View** > **Reports**.  Image — asset pipeline pending Screenshot of accessing contextual reports in the Scope module. |
-| Board | Go to **Infobar** > **Reports**.  Image — asset pipeline pending Screenshot of accessing contextual reports in the Board module. |
-| Resources | Go to **Backlog** > **Reports**.  Image — asset pipeline pending Screenshot of accessing contextual reports in the Resources module. |
+| Overview | Click **View** > **Reports.** Screenshot of accessing contextual reports in the Overview module. |
+| Gantt | Go to **Infobar** > **Reports**. Screenshot of accessing contextual reports in the Gantt module. |
+| Scope | Go to **Details** **View** > **Reports**. Screenshot of accessing contextual reports in the Scope module. |
+| Board | Go to **Infobar** > **Reports**. Screenshot of accessing contextual reports in the Board module. |
+| Resources | Go to **Backlog** > **Reports**. Screenshot of accessing contextual reports in the Resources module. |
 
 |  |  |  |
 | --- | --- | --- |
@@ -143,8 +142,7 @@ Contextual reports are not available in the Root box.
 
 Each module displays a specific set of default reports. To hide or enable other reports, click the **plus (+)** button and select or unselect the report from the dropdown.
 
-Image — asset pipeline pending  
-Screenshot of enabling or disabling contextual reports.
+![Screenshot of enabling or disabling contextual reports.](/cms_trial/assets/7ccf4771-05e2-4687-b99d-9e9522e07b8e.png)
 
 ## Contextual reports
 

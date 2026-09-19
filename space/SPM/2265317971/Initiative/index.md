@@ -6,27 +6,23 @@ This page describes features that are supported **only** in [**BigPicture Advanc
 
 The Planned vs Actual costs panel for an initiative displays the cost of effort in tasks in a specific initiative and its lower levels: program increments and iterations.
 
-Image — asset pipeline pending  
-initiative-main.png
+![initiative-main.png](/cms_trial/assets/9b8b392e-ab8d-4b02-ada5-7016093d6416.png)
 
 ## Top bar
 
 Here, you can change the period of the chart:
 
-Image — asset pipeline pending  
-initiative-period.png
+![initiative-period.png](/cms_trial/assets/47298af8-bd0e-482c-96f9-85a51495fcc0.png)
 
 You can choose a predefined value or set custom dates. The shortest period you can choose is one week and the longest is one year. Periods can be in the past or in the future (they are not constrain to a current year).
 
 Click the cost calculations icon to check the current cost calculation settings and edit them:
 
-Image — asset pipeline pending  
-initiative-calculations.png
+![initiative-calculations.png](/cms_trial/assets/73d22ff8-a421-4cfe-9550-4132e9e8e2e2.png)
 
 ## Cost summary
 
-Image — asset pipeline pending  
-cost-panel.png
+![cost-panel.png](/cms_trial/assets/9ce23ee4-5b81-462c-be18-d1f9ede240c9.png)
 
 Here, you can find a summary of the costs of this initiative.
 
@@ -60,8 +56,7 @@ Under the actual and remaining costs, you can see a bar representing the percent
 
 ## Total cost over time
 
-Image — asset pipeline pending  
-total-cost-over-time.png
+![total-cost-over-time.png](/cms_trial/assets/a53fb703-6c7e-4250-99e2-4f37bb89afa1.png)
 
 In the chart with one axis representing cost and the other time, you can check a visual representation of the cost of tasks in the initiative over time.
 
@@ -79,8 +74,7 @@ The blue horizontal line represents the budget.
 
 A red line that represents a budget milestone. Go to [the Budget milestones section](/cms_trial/space/SPM/1918830158/Financials+(Administration)/) for more information.
 
-Image — asset pipeline pending  
-Box view .jpg
+![Box view .jpg](/cms_trial/assets/6053663f-3828-49bd-80b0-68e93d31f238.jpg)
 
 ### Total cost tooltip
 
@@ -92,8 +86,7 @@ Hover over the top right corner of the chart and click the expand icon ▢ to ex
 
 ## Cost distribution by tasks
 
-Image — asset pipeline pending  
-Chart showing cost distribution by tasks next to a work costs breakdown.
+![Chart showing cost distribution by tasks next to a work costs breakdown.](/cms_trial/assets/fed46625-477c-4ac5-8e2f-a6337da3ffc9.png)
 
 This chart lets you see the Total cost of a specific task as a percentage share of the initiative’s total cost.
 
@@ -101,8 +94,7 @@ This chart lets you see the Total cost of a specific task as a percentage share 
 
 To use the this widget, you have to activate it in [the CapEx vs.OpEx settings](/cms_trial/space/SPM/1918830158/Financials+(Administration)/).
 
-Image — asset pipeline pending  
-capex-opex-initiative.png
+![capex-opex-initiative.png](/cms_trial/assets/211af807-49e7-4577-a38b-cfc2ed2958db.png)
 
 **CapEx** and **OpEx** are two primary categories for classifying a company's expenses.
 
@@ -127,13 +119,11 @@ Click to check an example
 
 The Financials module view:
 
-Image — asset pipeline pending  
-Example Financial module showing work costs breakdown.
+![Example Financial module showing work costs breakdown.](/cms_trial/assets/a38cc06c-a4cc-461b-918c-1c4301920987.png)
 
 The Resources module view:
 
-Image — asset pipeline pending  
-An example of the Resource module view.
+![An example of the Resource module view.](/cms_trial/assets/689377ad-3d78-4920-af50-5b8ffc82e567.png)
 
 - Effort estimate
 - Team - team to which an assignee of the task is assigned.

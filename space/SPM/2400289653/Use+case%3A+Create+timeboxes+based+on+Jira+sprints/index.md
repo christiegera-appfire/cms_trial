@@ -31,11 +31,9 @@ Remember that your Jira board can contain tasks, tasks of specific assignees, an
 
 For that reason, if the scope of the Jira board differs from the scope of the Jira project, add the project's board name to the **Board** in the Add work items from Jira. This will ensure all tasks from this board are included in the scope of the box.
 
-Image — asset pipeline pending  
-Box scope based on jira project and jira board.
+![Box scope based on jira project and jira board.](/cms_trial/assets/fb27a443-109e-4e5c-88e0-2219037b65c5.png)
 
-Image — asset pipeline pending  
-Create new box modal where you fill in box details.
+![Create new box modal where you fill in box details.](/cms_trial/assets/0245d6a0-ea01-4eba-8f36-a1a7a263562a.png)
 
 Your box is now created, and you are the Box Admin of this box.
 
@@ -43,20 +41,17 @@ Your box is now created, and you are the Box Admin of this box.
 2. Enable the **Timeboxes** option at the bottom of the page, and leave the **Automatic sprint-based timeboxes** checked.
 3. Add the Jira board under the **Board** and leave the **Box type** set to *Iteration*.
 
-Image — asset pipeline pending  
-Timeboxes settings on the Add work items from Jira page.
+![Timeboxes settings on the Add work items from Jira page.](/cms_trial/assets/db2c496e-4391-42b2-8194-93b713387868.png)
 
 Once BigPicture finds the selected Jira board, it lists the sprints that have been created so far.
 
-Image — asset pipeline pending  
-A list of Jira sprints detected by BigPicture on the Add work items from Jira page.
+![A list of Jira sprints detected by BigPicture on the Add work items from Jira page.](/cms_trial/assets/9e99bd15-8842-4577-b41d-a1a066f15e0c.png)
 
 1. **Save** your settings.
 
 Your Jira sprints are now organized into Iteration boxes and visible in the Overview module (on the Home and parent project box levels).
 
-Image — asset pipeline pending  
-A list of timeboxes based on Sprints under a parent project box.
+![A list of timeboxes based on Sprints under a parent project box.](/cms_trial/assets/7c6932fc-7570-4a3c-8d3f-3457910fe7cf.png)
 
 The video below recaps the entire process of creating sprint-based timeboxes in BigPicture.
 
@@ -106,11 +101,9 @@ Remember that your Jira board can contain tasks, tasks of specific assignees, an
 
 For that reason, if the scope of the Jira board differs from the scope of the Jira project, add the project's board name to the **Board** in the scope definition. This will ensure all tasks from this board are included in the scope of the box.
 
-Image — asset pipeline pending  
-Box scope based on jira project and jira board.
+![Box scope based on jira project and jira board.](/cms_trial/assets/fb27a443-109e-4e5c-88e0-2219037b65c5.png)
 
-Image — asset pipeline pending  
-Create new box modal where you fill in box details.
+![Create new box modal where you fill in box details.](/cms_trial/assets/0245d6a0-ea01-4eba-8f36-a1a7a263562a.png)
 
 Your box is now created, and you are the Box Admin of this box.
 
@@ -118,20 +111,17 @@ Your box is now created, and you are the Box Admin of this box.
 2. Enable the **Timeboxes** option at the bottom of the page, and leave the **Automatic sprint-based timeboxes** checked.
 3. Add the Jira board under the **Board** and leave the **Box type** set to *Iteration*.
 
-Image — asset pipeline pending  
-Timeboxes settings on the Add work items from Jira page.
+![Timeboxes settings on the Add work items from Jira page.](/cms_trial/assets/db2c496e-4391-42b2-8194-93b713387868.png)
 
 Once BigPicture finds the selected Jira board, it lists the sprints that have been created so far.
 
-Image — asset pipeline pending  
-A list of Jira sprints detected by BigPicture on the Add work items from Jira page.
+![A list of Jira sprints detected by BigPicture on the Add work items from Jira page.](/cms_trial/assets/9e99bd15-8842-4577-b41d-a1a066f15e0c.png)
 
 1. **Save** your settings.
 
 Your Jira sprints are now organized into Iteration boxes and visible in the Overview module (on the Home and parent project box levels).
 
-Image — asset pipeline pending  
-A list of timeboxes based on Sprints under a parent project box.
+![A list of timeboxes based on Sprints under a parent project box.](/cms_trial/assets/7c6932fc-7570-4a3c-8d3f-3457910fe7cf.png)
 
 The video below recaps the entire process of creating sprint-based timeboxes in BigPicture.
 
