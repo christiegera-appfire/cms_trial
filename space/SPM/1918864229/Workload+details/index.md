@@ -12,13 +12,15 @@ This detailed view works in time tracking ([Original and Remaining estimate](htt
 - Summary lane
 - Unassigned lane
 
-![Screenshot of the Workload details pop-up window in the new view of the Resources module.](/cms_trial/assets/7d4559bc-c23b-4d2e-b132-df813af9ff99.png)
+Image — asset pipeline pending  
+Screenshot of the Workload details pop-up window in the new view of the Resources module.
 
 ### Aggregation
 
 You can change the aggregation (daily, weekly, monthly, quarterly, yearly, by time boxes). To learn more, see the [Navigation and interface](/cms_trial/space/SPM/1918504016/Navigation+and+interface+(Resources)/) page.
 
-![Screenshot of the Aggregation menu in the new view of the Resources module.](/cms_trial/assets/5abdc55f-631e-41e8-9c59-ae7819a0e253.png)
+Image — asset pipeline pending  
+Screenshot of the Aggregation menu in the new view of the Resources module.
 
 ## Workload formula
 
@@ -31,7 +33,8 @@ Workload values are presented in hours. The following rules apply:
 
 The workload details dialog displays tasks with workload = 0 to signal to inform that some tasks need estimation.
 
-![Screenshot of the Workload details pop-up window in the new view of the Resources module.](/cms_trial/assets/d6681f07-5d6c-4e90-8d0b-5c43ad2d77fa.png)
+Image — asset pipeline pending  
+Screenshot of the Workload details pop-up window in the new view of the Resources module.
 
 ## Actions on a dialog box
 
@@ -39,8 +42,8 @@ The table describes how to resize and expand a dialog box.
 
 | **Action** | **Description** |
 | --- | --- |
-| Resize | You can change the dialog box size to make working with workload details easier. Video of resizing a dialog box in the Resources module. |
-| Expand | Click the **Expand** icon to see all workload details. Video of expanding a dialog box in the Resources module. |
+| Resize | You can change the dialog box size to make working with workload details easier.  Image — asset pipeline pending Video of resizing a dialog box in the Resources module. |
+| Expand | Click the **Expand** icon to see all workload details.  Image — asset pipeline pending Video of expanding a dialog box in the Resources module. |
 
 ## Workload details (new navigation)
 
@@ -54,13 +57,15 @@ This detailed view works in time tracking ([Original and Remaining estimate](htt
 - Summary lane
 - Unassigned lane
 
-![resources-capacity-icons.png](/cms_trial/assets/37815b66-751e-4044-bd7b-c4f6ed56d2bc.png)
+Image — asset pipeline pending  
+resources-capacity-icons.png
 
 ### Aggregation
 
 You can change the aggregation (daily, weekly, monthly, quarterly, yearly, by time boxes). To learn more, see the [Navigation and interface](/cms_trial/space/SPM/1918504016/Navigation+and+interface+(Resources)/) page.
 
-![resources-aggregation-2.png](/cms_trial/assets/9828b4bf-84e0-43bf-bb67-4b25c7294fdd.png)
+Image — asset pipeline pending  
+resources-aggregation-2.png
 
 ## Workload formula
 
@@ -73,4 +78,5 @@ Workload values are presented in hours. The following rules apply:
 
 The workload details dialog displays tasks with workload = 0 to signal to inform that some tasks need estimation.
 
-![workload-details.png](/cms_trial/assets/3bd696f1-05e5-47a7-8e5f-16d120e09e4b.png)
+Image — asset pipeline pending  
+workload-details.png

@@ -75,7 +75,8 @@ You can choose to completely hide or partially show restricted OKRs.
 
 In both cases, the progress of such OKRs will contribute to the completion of the parent OKR, while partial visibility lets you ensure that the progress of all top-level elements is coherent.
 
-![General settings in the OKR module.](/cms_trial/assets/2efb1798-b2e5-47bc-bb5b-34945e5f4d79.png)
+Image — asset pipeline pending  
+General settings in the OKR module.
 
 ## Restrictions inheritance
 
@@ -93,7 +94,8 @@ Based on this setup, you can:
 - Restrict only **Key Result1** and/or **Key Result2** (if the Strategic theme or Objective is not restricted).
 - Restrict only the **Objective** (if the Strategic theme is not restricted). This action will also cause Key Result1 and Key Result2 to be restricted.
 
-  ![A hierarchy of restricted OKRs.](/cms_trial/assets/7b54cce6-82bd-49b6-96ff-5915f0244c08.png)
+  Image — asset pipeline pending  
+  A hierarchy of restricted OKRs.
 - Restrict the **Strategic theme**. This action will also cause Objective, Key Result1, and Key Result2 to be restricted.
 
 ## Required permissions
@@ -112,27 +114,32 @@ OKR restrictions can be allowed and applied only by individuals with the require
 
 - If you want to restrict an existing OKR, go to its [**OKR detail page**](https://appfire.atlassian.net/wiki/spaces/SPMDRAFT/pages/1673724393/OKR+details+page?search_id=6353a544-ff22-4545-8f66-2040d9836863&additional_analytics=queryHash---ea7faa255dec6d7df3c4947162e52221c33182d6e35050a8b5d9e9d6ac4cf439) and click the **padlock icon**.
 
-  ![Restrict OKR modal with all three restriction options listed in the dropdown.](/cms_trial/assets/9f55a2bb-a218-488d-b211-d22d67d1dc8c.png)
+  Image — asset pipeline pending  
+  Restrict OKR modal with all three restriction options listed in the dropdown.
 - If you want to restrict a new OKR, open the new OKR creation screen and click the **Restrict** button.
 
-  ![Restrict OKR modal with all three restriction options listed in the dropdown.](/cms_trial/assets/fa9266e4-a8ba-4b91-9757-83e8eae3dfda.png)
+  Image — asset pipeline pending  
+  Restrict OKR modal with all three restriction options listed in the dropdown.
 
 1. A **Restrict OKR** modal displays. Select the restriction type:
 
    1. **Anyone can view and edit** (default state). This option does not introduce any restrictions.
    2. **Anyone can view, specific people or teams can edit**. This option allows all users and teams to view an OKR, but only selected users and teams can edit it.
 
-      ![restrict-okr-anyone-view-selected-edit.png](/cms_trial/assets/57c7e537-8534-4c22-adec-c31271c87002.png)
+      Image — asset pipeline pending  
+      restrict-okr-anyone-view-selected-edit.png
    3. **Only specific people or teams can view or edit**. This option allows only selected users and/or teams to view and edit an OKR. Select users/teams and grant them either a **View** or an Edit permission.
 
-      ![Only specific people or teams can view or edit option.](/cms_trial/assets/defb2f33-2cb5-44d9-acb0-9ec8e82b16ce.png)
+      Image — asset pipeline pending  
+      Only specific people or teams can view or edit option.
 2. **Save** to finish the process.
 
 The restricted OKR is now marked with the **closed padlock icon**, indicating that it is restricted to some users.
 
 If you restrict a parent OKR and open the restriction settings for a child OKR, a modal will display a message informing you that the parent OKR is already restricted. To change the child OKR’s restrictions, edit the restriction settings of the parent OKR.
 
-![okr-restrictions-inherited.png](/cms_trial/assets/4d545e8c-0bf9-4ffb-aeef-cab20d4c0e9b.png)
+Image — asset pipeline pending  
+okr-restrictions-inherited.png
 
 ## Permissions precedence
 
