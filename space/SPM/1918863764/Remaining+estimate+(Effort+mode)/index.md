@@ -18,8 +18,7 @@ The Remaining Estimate, if available, will be evenly distributed starting from t
 
 If the Remaining estimate is not available, the Original estimate will be displayed instead when available.
 
-Image — asset pipeline pending  
-contentId-1918863764
+![contentId-1918863764](/cms_trial/assets/261178a5-c30d-475d-85bf-cba9e66c0a00.png)
 
 ## How is workload calculated?
 
@@ -47,8 +46,7 @@ Start date until yesterday - The allocation on the past days is displayed as '0'
 
 Remaining duration (current date (today) to end date ) - the Remaining estimate is evenly distributed over the remaining duration:
 
-Image — asset pipeline pending  
-contentId-1918863764
+![contentId-1918863764](/cms_trial/assets/ddac7929-670a-4cde-9691-261d3d63bc40.png)
 
 There are also some additional rules related to special cases:
 
@@ -68,8 +66,7 @@ If the Task does not have a Remaining Estimate value you will see a warning, a r
 
 Warnings can help you in resolving the most common problems. To enable go to 'View > Warnings.
 
-Image — asset pipeline pending  
-contentId-1918863764
+![contentId-1918863764](/cms_trial/assets/72864b91-353c-4ab5-8cf1-2e73bdf81dc5.png)
 
 ## Remaining estimate (Effort mode) (new navigation)
 
@@ -89,8 +86,7 @@ The Remaining Estimate, if available, will be evenly distributed starting from t
 
 If the Remaining estimate is not available, the Original estimate will be displayed instead when available.
 
-Image — asset pipeline pending  
-remaining-calculation.png
+![remaining-calculation.png](/cms_trial/assets/a567bc1b-0ca8-43ce-baac-b669a5b366b4.png)
 
 ## How is workload calculated?
 
@@ -118,8 +114,7 @@ Start date until yesterday - The allocation on the past days is displayed as '0'
 
 Remaining duration (current date (today) to end date ) - the Remaining estimate is evenly distributed over the remaining duration:
 
-Image — asset pipeline pending  
-remaining-calculation-2.png
+![remaining-calculation-2.png](/cms_trial/assets/7ba77b5e-a684-4484-b94f-d1e6239dc06a.png)
 
 There are also some additional rules related to special cases:
 
@@ -139,5 +134,4 @@ If the Task does not have a Remaining Estimate value you will see a warning, a r
 
 Warnings can help you in resolving the most common problems. To enable go to 'View > Warnings.
 
-Image — asset pipeline pending  
-example-warning.png
+![example-warning.png](/cms_trial/assets/ac69a589-fb1d-45c1-98de-37c4f99e593c.png)
