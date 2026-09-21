@@ -12,11 +12,13 @@ To create a box while in a Jira space, you must have sufficient [permissions](ht
 1. Go to Jira and open a Jira space.
 2. From the **More** dropdown in the Jira top menu, select **BigPicture**.
 
-   ![How to access BigPicture app widget in Jira space.](/cms_trial/assets/0d0db054-0b4c-4fb1-8483-a555243256e2.png)
+   Image — asset pipeline pending  
+   How to access BigPicture app widget in Jira space.
 
    You are now in the App widget. **Get extra views for your Jira project**screen displays.
 
-   ![Get extra views for your Jira Space screen in the App widget.](/cms_trial/assets/010d6749-15ed-4615-80ba-9cbb936886eb.png)
+   Image — asset pipeline pending  
+   Get extra views for your Jira Space screen in the App widget.
 3. Select the box type you want to create for your Jira space. Use the navigation arrows to scroll through the available types. The options available depend on your box type setup. Only [own-scope](/cms_trial/space/SPM/1918766536/Scope+types/) boxes can be selected.  
    When you click a box type, you will see a list of automatically active modules ([module availability](/cms_trial/space/SPM/1918503298/Define+available+modules/) can be customized after a box is created).
 4. Click **Start working**to create a perfect match box.
@@ -24,7 +26,8 @@ To create a box while in a Jira space, you must have sufficient [permissions](ht
 
 The new box inherits its name from the Jira space, but you can rename it by [editing it inline](/cms_trial/space/SPM/1918637324/Inline+edit/). You can also move the box to nest it under another box, for example, a [Portfolio box](/cms_trial/space/SPM/1918634872/Create+portfolio+box/).
 
-![A Jira space is in the box as seen inside the App widget in Jira.](/cms_trial/assets/25de853c-3977-4d3e-83c8-3d0af9955ce1.png)
+Image — asset pipeline pending  
+A Jira space is in the box as seen inside the App widget in Jira.
 
 ### Conditions
 
