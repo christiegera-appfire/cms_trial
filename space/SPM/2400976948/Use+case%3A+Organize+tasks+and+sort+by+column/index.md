@@ -24,8 +24,7 @@ In this example, we want to organize tasks by the *End date* column in ascending
 
 The video presents how to organize tasks by the *End date* column.
 
-Image — asset pipeline pending  
-Video showing how to organize tasks by the End date column.
+![Video showing how to organize tasks by the End date column.](/cms_trial/assets/2173b87b-2842-4d27-b5de-5bd180ce57ff.mp4)
 
 locally **Sort by column**
 
@@ -43,8 +42,7 @@ In this example, we want to sort tasks by the **Status** column in descending or
 
 The video presents how to sort tasks by the *Status* column.
 
-Image — asset pipeline pending  
-Video showing how to sort tasks locally by the Status column.
+![Video showing how to sort tasks locally by the Status column.](/cms_trial/assets/bcad9b3e-4bac-47b1-8e09-f520d9ee7327.mp4)
 
 manually In this example, we want to manually move one task to the top of the list and indent two other tasks under it.
 
@@ -52,13 +50,11 @@ manually In this example, we want to manually move one task to the top of the li
 2. Right-click the task and select **Position** > **Move to top**.
 3. Multi-select two tasks, right-click, and select **Position** > **Indent**.
 
-Image — asset pipeline pending  
-reposition-tasks.mp4
+![reposition-tasks.mp4](/cms_trial/assets/860a461c-9068-4725-89e3-7b77a4200308.mp4)
 
 tip You can also drag and drop tasks or enable the **Editor slider** in the Gantt module and reposition them with the available arrows.
 
-Image — asset pipeline pending  
-editor-slider.mp4
+![editor-slider.mp4](/cms_trial/assets/f1837190-4275-4e97-8ba7-a34c8f6fb55d.mp4)
 
 ## Expected outcomes
 

@@ -2,7 +2,7 @@
 
 In this section, you can read about the technical aspects of an app to better understand how the app works, integrates, and operates:
 
-- [BigPicture feature comparison](/cms_trial/space/SPM/2820407499/BigPicture+feature+comparison/)
+- [BgPicture feature comparison](/cms_trial/space/SPM/3683680343/BgPicture+feature+comparison/)
 - [Data residency, collection, and analytics overview](/cms_trial/space/SPM/1918862093/Data+residency%2C+collection%2C+and+analytics+overview/)
 - [Data synchronization with connected tools](/cms_trial/space/SPM/1918404058/Data+synchronization+with+connected+tools/)
 - [Initial guide for administrators](/cms_trial/space/SPM/1918699108/Initial+guide+for+administrators/)

@@ -70,7 +70,7 @@ The macro now lets you create new calculated columns using values from other col
 - To add and configure a new calculated column, either click **Add calculated column** under **Calculated columns**, or click **+** at the end of the column headers in the left panel.
 
   ![NTE_Add calculated column.png](/cms_trial/assets/2b1ea710-051e-4316-bff1-ab43497342e0.png)
-- The *Add calculated column* dialog lets you calculate and derive a new column using the **Builder** or **Formula** tab. For more information, refer to [Manage calculated columns with Advanced Table Viewer macro](/cms_trial/space/TBL/3643965558/Manage+calculated+columns+with+Advanced+Table+Viewer+macro/).
+- The *Add calculated column* dialog lets you calculate and derive a new column using the **Builder** or **Formula** tab. For more information, refer to [Manage calculated columns with Native Table Enhancer macro](/cms_trial/space/TBL/3676897293/Manage+calculated+columns+with+Native+Table+Enhancer+macro/).
 - **Builder**: The **Builder** tab provides a user-friendly interface to configure simple mathematical operations without writing custom syntax.
 
   ![NTE_Builder tab.png](/cms_trial/assets/0a82ba04-89c0-48e2-8e6e-1c218984ab52.png)

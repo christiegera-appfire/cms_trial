@@ -2,96 +2,149 @@
 
 ## Overview
 
-The document report provides a list of all the approval activities in a space. The report can be filtered by one or more workflow states and assigned approvals for the current user. The report also includes the workflow applied to each document, including cases where multiple workflows are active in a space.
+The **Document Report** lists the approval activity for documents in a space. It also shows the workflow applied to each document, even when several workflows are active at once.
 
-No entries are displayed if there is no active workflow on a page or in the space.
+You can filter the report by:
+
+- **Workflow**
+- **State**
+- **Assigned reviewers**
+- **Pending reviewers**
+
+No entries appear if no active workflow exists on a page or in the space.
 
 **Non-admin users** see only the *Document Report* tab. *Space Workflows* and *Settings* tabs require space-admin permissions.
 
-## View the document report
+## View the Document Report
 
-To view the **Document Report**:
+To view the Document Report:
 
 1. Log in to your Confluence space.
-2. Choose **Comala document management** under *Space Apps*.
-3. Go to the *Document Report* tab.
+2. Under **Space Apps**, select **Comala Document Management**.
+3. Go to the **Document Report** tab.
 
-The document report displays workflow activities.
+The report opens and shows the approval activity for the space.
 
-![Space apps menu showing the Document Report tab.](/cms_trial/assets/3ea6277b-4dd6-4645-bdd4-5de6b7120918.png)![Document Report listing documents, workflow status, reviewers, and approvals.](/cms_trial/assets/dd2f257b-3f40-49e5-afe4-ca68a1c85e1b.png)
+![image-20260918-140217.png](/cms_trial/assets/8b618708-16aa-458e-9d0b-a8d81c863ddb.png)
 
-The Expiration column appears in the document report when at least one active workflow in the report includes a state with a due date. The due date is shown only when the workflow is currently in that state.
+### Report columns
 
-![Document Report showing the Expiration column for workflow states with due dates.](/cms_trial/assets/099e95e9-aed2-4057-ab63-8b04ad1fd004.png)
+The report table includes the following columns:
 
-1. If a page is in a workflow state that requires **multiple approvals**, each approval is shown as a separate icon in the **Reviewers** column.
+| **Column** | **Description** |
+| --- | --- |
+| **Title** | The document name, shown with a Page or Blog post icon. Click the title to open the content in Confluence. |
+| **Workflow** | The workflow applied to the document. |
+| **Scope** | Whether the workflow applies to a **Page** or a **Space**, shown with an icon. |
+| **State** | The current workflow state. |
+| **Expiration** | The due date for the current state, shown next to **State**. It appears when at least one active workflow includes a state with a due date, and only while the workflow is in that state. |
+| **Reviewers** | Approval status icons. Click an icon to see reviewer details. |
+| **Creator** | The user who created the content. |
+| **Owner** | The page owner. This is empty for blog posts. |
+| **Updated By** | The user who last updated the content. |
+| **Updated** | The date the content was last updated. |
 
-![Document Report showing multiple reviewer icons in the Reviewers column.](/cms_trial/assets/4421a42c-7ba0-4f51-9fbc-5fb6af668e97.png)
+If a page is in a workflow state that needs **multiple approvals**, each approval shows as a separate icon in the **Reviewers** column.
 
-5. Click a reviewer icon to view the details of the reviewer.
+![image-20260918-140930.png](/cms_trial/assets/d338f8d7-0263-4dad-9564-bc3480800784.png)
 
-![Reviewer details pop-up showing approval information.](/cms_trial/assets/df290f98-d033-4084-b4f9-651cbe8bd68c.png)
+Click a **reviewer** icon to see that reviewer’s details. The list of approvers is read-only.
 
-The list of approvers is read-only.
+![image-20260918-141150.png](/cms_trial/assets/3d2fb2ad-ad95-42f3-a586-63ddd74b19af.png)
 
-### Document Status - Obsolete
+### Show or hide columns
 
-When a workflow applied to a document is changed, and **no further workflow activity** has occurred since the change, the **Document Activity Report** shows the document’s status with a **grey state indicator**.
+Use the **Show or hide columns** menu in the table header to choose which columns appear.
 
-The state name is marked as **(Obsolete)** to indicate that it belonged to the previous workflow and is no longer active.
+- You can’t hide **Title** or **Expiration** (while Expiration is shown).
+- Your column choices are remembered in your browser.
 
-### Document Status - Not initialized
+![image-20260918-142135.png](/cms_trial/assets/9e0d7fb6-a0d2-49fa-9f5e-b5c658b71089.png)
 
-If a page has not yet entered a state in the currently applied workflow, its **Status** may appear as **Not Initialized** in the report.
+### Load more
 
-These pages can be initialized into a valid state in one of two ways:
+When there are more results than the report shows, select **Load more** to load the next set of documents.
 
-- Directly on the page using the **workflow** **state dialog**.
-- Through a **space initialization** for the applied workflow under **App Space Settings**.
+![image-20260921-050810.png](/cms_trial/assets/7bf4f411-9d53-4d8c-8fc4-4f50c7742032.png)
 
-This can be displayed for the document when either:
+### Refresh data
 
-- A workflow is first applied, but there has not yet been a workflow event or activity.
-- Multiple space workflows are active, and no applicable workflow for the document exists.
+If you’re a space administrator and a record seems to be missing, select **Refresh Data** to update the report.
+
+![document-report-refresh-data.png](/cms_trial/assets/b67e7dc9-c8e6-41eb-beb4-a2e28baa9ab7.png)
 
 ## Filter the report
 
-### Filter by status
+You can filter the report by workflow, state, assigned reviewers, and pending reviewers, and you can combine filters.
 
-The **Document Report** can be filtered by one or more workflow states using the **Filter by status** option.
+![image-20260921-054932.png](/cms_trial/assets/3668df14-ec0a-4685-b1e5-a734af5adc52.png)
 
-![Filter by status menu in the Document Report.](/cms_trial/assets/6bb0ba45-c072-485e-a229-da78c1800578.png)
+### Filter by workflow
 
-### My assigned approvals
+Select one or more workflows to show only their documents. Use the search box in the dropdown to find a workflow quickly.
 
-Click **My assigned approvals** to display the approvals assigned to you as the current user.
+![image-20260921-055020.png](/cms_trial/assets/5ca6a878-da31-47aa-92d1-a46dc5e3e31b.png)
 
-![Document Report filtered to My assigned approvals.](/cms_trial/assets/3dc54ef0-c0f4-4512-8739-5f93276d9f6b.png)
+### Filter by state
 
-### My pending approvals
+Select one or more workflow states to show only documents in those states. Use the search box in the dropdown to find a state quickly.
 
-Click **My pending approvals** to find the approvals for which you are assigned as a reviewer, but haven’t approved or rejected the document yet.
+![image-20260921-055044.png](/cms_trial/assets/97e2f468-f4be-4132-9ece-ce0cb327fe5e.png)
 
-![Document Report filtered to My pending approvals.](/cms_trial/assets/f37bcd22-5730-402c-9dca-807d20af98e0.png)
+### Filter by assigned reviewers
 
-When an approval is not complete, such as when multiple reviewers are assigned or a minimum number of approvals is required, your decision status is shown for this approval.
+Select one or more users to show documents where they’re assigned as reviewers. Search for reviewers by name.
+
+![image-20260921-055118.png](/cms_trial/assets/40b47c5b-a7cf-4d6d-86c4-ddc10cf4e79f.png)
+
+### Filter by pending reviewers
+
+Select one or more users to show documents with pending approvals. They’re assigned as a reviewer but haven’t approved or rejected the document yet. Search for reviewers by name.
+
+![image-20260921-055153.png](/cms_trial/assets/0796156c-d587-4f28-bd08-8664efde88c4.png)
+
+### Clear filters
+
+- **Clear selection** inside a filter removes only that filter.
+- **Clear filters** resets all active filters at once.
+
+![image-20260921-055417.png](/cms_trial/assets/f87d9fc9-53a2-48e9-828e-27b05aa88e3e.png)
+
+### No results
+
+When your filters return no matching documents, the report shows a no-results message. Adjust or clear the filters to see documents again.
+
+![image-20260921-055455.png](/cms_trial/assets/be426fda-7f09-4a9b-b89f-e9bc2fc0840f.png)
 
 ## Export to CSV
 
-The Document Report can be exported as a CSV file for offline analysis.
+You can export the **Document Report** as a CSV file for offline analysis.
 
-Click the **Export to CSV** button in the Document Report toolbar.
+Select **Export to CSV** in the *Document Report* toolbar.
 
-![Document Report toolbar showing the Export to CSV button.](/cms_trial/assets/63b7ac67-f3d0-47eb-b23c-4cee3502d24e.png)
+![image-20260921-053959.png](/cms_trial/assets/997af599-cd6c-408c-a473-b8fc6d3c7151.png)
 
-The exported file includes the following metadata for each document:
+The exported file includes the following for each document:
 
 - Space name and space key
 - Content type and title
 - Content ID and version
-- Creator and owner
-- Creation date and last update date
+- Creator
+- Owner
+- Last updated by
+- Last updated at
 - Workflow scope (space or page)
-- Workflow name and applied workflow version
+- Workflow name
+- Workflow version
+- Workflow state
+- Approval name
+- Approval reviewers
+- Review state
 
-The Document Report UI is limited to a single space at a time. Use CSV export to merge reports across multiple spaces and build custom dashboards.
+The file is named using this format:
+
+`space_document_report_[space_name]_[YYYYMMDD]_[HHMM].csv`
+
+![image-20260921-101155.png](/cms_trial/assets/dff35a4f-fe2a-4605-8273-a80d340ec05e.png)
+
+The report shows one space at a time. To combine data across spaces and build custom dashboards, use the CSV export.

@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
+<meta charset="utf-8">
+<title>Manage calculated columns with Native Table Enhancer macro | Appfire Docs</title>
+<meta name="description" content="The Native Table Enhancer macro enables you to create custom calculated columns using values from other columns.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/cms_trial/tokens.css">
+<link rel="stylesheet" href="/cms_trial/styles.css">
+<meta name="robots" content="noindex, nofollow">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Manage calculated columns with Native Table Enhancer macro",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/TBL/3676897293/Manage+calculated+columns+with+Native+Table+Enhancer+macro/",
+  "dateModified": "2026-09-18T12:46:24.066Z"
+}
+</script>
+</head>
+<body>
+<div id="top-nav-mount">
+<header class="top-nav">
+  <div class="top-nav-inner">
+    <a class="top-nav-brand" href="/cms_trial/"><img class="top-nav-logo top-nav-logo-dark" src="/cms_trial/brand-assets/appfire-lockup-white.svg" alt="Appfire" loading="lazy"><img class="top-nav-logo top-nav-logo-light" src="/cms_trial/brand-assets/appfire-lockup-black.svg" alt="Appfire" loading="lazy"><span class="top-nav-divider"></span><span class="top-nav-docs-label">Docs</span></a>
+    <nav class="top-nav-links">
+      <a href="/cms_trial/product-directory/">Product directory</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <div class="lang-picker">
+        <button class="lang-picker-btn" type="button" title="Translate this page" aria-label="Translate this page">🌐</button>
+        <div class="lang-picker-menu"></div>
+      </div>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
+    </nav>
+  </div>
+</header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
+<!-- Language picker — links to Google Translate's real, public proxy for
+     the CURRENT page (computed client-side from window.location), which
+     translates the actual live page on the fly. No API key, no per-
+     character cost, works today. Lower polish than a real native
+     multi-language site (shows Google's own banner, different domain
+     while translated) — a real starting point, not the final answer.
+
+     Languages chosen based on real signal: Atlassian's own cloud docs/
+     support content is only actively translated into Japanese beyond
+     English (confirmed via their own support documentation) — the
+     strongest available signal for what this specific audience actually
+     needs — plus the other major enterprise-software markets. -->
+<script>
+(function () {
+  var btn = document.querySelector(".lang-picker-btn");
+  var menu = document.querySelector(".lang-picker-menu");
+  if (!btn || !menu) return;
+
+  var LANGUAGES = [
+    { code: "ja", label: "日本語 (Japanese)" },
+    { code: "de", label: "Deutsch (German)" },
+    { code: "fr", label: "Français (French)" },
+    { code: "es", label: "Español (Spanish)" },
+    { code: "pt", label: "Português (Portuguese)" },
+    { code: "zh-CN", label: "中文 (Chinese, Simplified)" },
+  ];
+
+  menu.innerHTML = LANGUAGES.map(function (lang) {
+    return '<a href="#" data-lang="' + lang.code + '">' + lang.label + "</a>";
+  }).join("");
+
+  btn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    menu.classList.toggle("open");
+  });
+
+  document.addEventListener("click", function () {
+    menu.classList.remove("open");
+  });
+
+  menu.querySelectorAll("a").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      var lang = a.dataset.lang;
+      var currentUrl = window.location.href;
+      var translateUrl = "https://translate.google.com/translate?sl=en&tl=" + lang + "&u=" + encodeURIComponent(currentUrl);
+      window.open(translateUrl, "_blank", "noopener");
+      menu.classList.remove("open");
+    });
+  });
+})();
+</script>
+</div>
+<div class="shell">
+  <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/74812514/Featured+macros+-+Cloud/">Featured macros - Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/TBL/3520037211/Native+Table+Enhancer+%5BBeta%5D+macro/">Native Table Enhancer [Beta] macro</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Manage calculated columns with Native Table Enhancer macro</span></nav>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/TBL/pages/3676897293" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
+    </div>
+    <h1>Manage calculated columns with Native Table Enhancer macro</h1>
+    <div class="page-meta">Updated 2 days ago · 6 min read</div>
+    <p>The Native Table Enhancer macro enables you to create custom calculated columns using values from other columns. </p><ul><li><p>You can configure the calculated columns in the macro setup mode.</p></li><li><p>The macro displays the calculated columns in Confluence page edit and view mode.</p></li></ul><h2 id="manage-calculated-columns">Manage calculated columns</h2><div class="img-placeholder">[Unmapped macro: refined-tab — no content to fall back on]</div><div class="panel panel-note"><p>You need edit permissions to access the setup mode.</p></div><ul><li><p>To add a calculated column, edit the macro to open setup mode. Refer to <a href="/cms_trial/space/TBL/3568173057/Set+up+the+Native+Table+Enhancer+%5BBeta%5D+macro+features/">Set up the Native Table Enhancer macro features</a>.</p><img alt="Native Table enhancer_edit macro.png" class="doc-image" loading="lazy" src="/cms_trial/assets/05094c3d-0192-41fd-b989-78c1dc3c875e.png"/></li><li><p>Click <strong>Manage</strong> <strong>columns </strong>(<span class="inline-icon" title="inline icon">▢</span>). The <strong>Manage columns</strong> feature configuration panel appears on the right side of the screen.</p></li><li><p>To add a new calculated column, either click <strong>Add calculated column</strong> under <strong>Calculated columns</strong>, or click <strong>+</strong> at the end of the column headers in the left panel.</p><img alt="Native Table Enhancer_Manage columns.png" class="doc-image" loading="lazy" src="/cms_trial/assets/902be5b6-2c3f-41cc-abcb-10851986a82b.png"/></li></ul><ul><li><p>The <em>Add calculated column</em> dialog opens. It lets you derive new column data from existing column values on a row-by-row basis. </p><ul><li><p><strong>Column name</strong>: Enter the name for the new calculated column. </p></li><li><p>To perform calculations, you can use either <strong>Builder</strong> or <strong>Formula</strong> mode.</p><ul><li><p>To use Builder, refer to the <strong>Builder</strong> section on this page.</p></li><li><p>To use Formula, refer to the <strong>Formula</strong> section on this page.</p><img alt="Native Table Enhancer_Add calculated column.png" class="doc-image" loading="lazy" src="/cms_trial/assets/97ea98d0-421f-47d3-b3a4-7507a95e4d45.png"/></li></ul></li></ul></li></ul><h2 id="builder"><strong>Builder</strong></h2><ul><li><p>The <strong>Builder</strong> tab provides a user-friendly interface to configure simple mathematical operations without writing custom syntax. For more information, refer to <strong>Supported formulas</strong> section on this page.</p><ul><li><p><strong>Operation:</strong> Select the mathematical function from the dropdown, such as Sum, Minus, Multiply, or Divide, to execute across your chosen columns.</p></li><li><p><strong>Columns to calculate</strong>: The columns dropdown displays only the numeric columns from the table.</p><ul><li><p>Choose columns from the dropdown selectors to include in the calculation. As you select a column, the next dropdown selector shows the remaining numeric columns. </p></li><li><p>For example, to calculate the <em>Total cost</em>, choose <strong>Operation</strong> as <em>Sum and </em><strong>Columns to calculate</strong> as <em>Unit price ($)</em> and Annual Maintenance ($).</p></li><li><p>To add an additional column in the <strong>Sum</strong> operation, click <strong>Add column</strong>.</p><img alt="Native Table Enhancer_Add column.png" class="doc-image" loading="lazy" src="/cms_trial/assets/66492259-c27a-48ab-ad5a-d02bc76f7e44.png"/></li><li><p>The builder adds another column dropdown selector. Select the required column, for example, <em>Shipping Cost ($)</em>.</p><img alt="Native Table Enhancer_Add another column.png" class="doc-image" loading="lazy" src="/cms_trial/assets/17c84deb-1bef-4cf6-8a6f-c690125e3433.png"/></li></ul></li><li><p>As you choose the operation and select columns, the builder displays the saved formula and a preview of three table rows with the chosen columns and the new calculated column.</p></li><li><p>In the preview, the macro displays the new calculated column with a blue highlight and the prefix <em>fx.</em></p></li><li><p>To add the configured column to the table, click <strong>Save</strong>.</p><img alt="Native Table Enhancer_Builder_Sum.png" class="doc-image" loading="lazy" src="/cms_trial/assets/5aade846-2f5a-4efb-91eb-46b76cd57d90.png"/></li></ul></li></ul><div class="panel panel-note"><ul><li><p>Click the delete (<span class="inline-icon" title="inline icon">▢</span> )<strong> </strong>icon next to a column name to remove it from the calculation.</p></li><li><p>To include additional columns in the operation, click <strong>Add column</strong>. If all columns have been selected for the operation, then you cannot add more columns and the <strong>Add column</strong> button is disabled.</p><img alt="ATV_No numeric column left.png" class="doc-image" loading="lazy" src="/cms_trial/assets/05ac040d-fece-4c49-88ac-5cfa305696f9.png"/></li><li><p>The macro displays an error message if you try to save the calculated column with a column name that already exists or without selecting columns to calculate.</p></li></ul></div><ul><li><p>The macro setup mode displays the new calculated column in the left panel. </p></li><li><p>You can manage the calculated columns in the right panel. To edit and delete the calculated columns, refer to the <strong>Edit or delete calculated columns </strong>section on the page.</p><img alt="NTE_column added from builder tab.png" class="doc-image" loading="lazy" src="/cms_trial/assets/6daff666-fc9c-48ef-ba3a-ece1df54f107.png"/></li><li><p>Click <strong>Save</strong> and publish the changes. Both the page edit and view modes display the table with the newly added calculated column without the <em>fx</em> prefix.</p><img alt="Native table_Page view mode with new column.png" class="doc-image" loading="lazy" src="/cms_trial/assets/e1bf8126-0301-46dd-9cca-c6ba6fc554e7.png"/></li></ul><h2 id="formula"><strong>Formula</strong></h2><p>The <strong>Formula</strong> tab lets you write custom formulas using a formula editor. You can write simple or conditional formulas, similar to spreadsheet-like expressions. For more information, refer to the <strong>Supported formulas</strong> section on this page.</p><img alt="Native Table_Add calculated column_Formula.png" class="doc-image" loading="lazy" src="/cms_trial/assets/8e1acee7-cad9-4c18-b85c-40ee319a73cc.png"/><ul><li><p><strong>Enter formula</strong>: Enter the formula to calculate using values from the table columns. Type '[' and the macro displays the list of column names. You can reference any source column type.</p><ul><li><p>Type the formula using operators (such as +, -, *, /, or conditional functions) and insert columns by typing <code>[</code> to select them from the list. </p></li><li><p>The macro displays a preview of three table rows with the chosen columns and the new calculated column.</p></li><li><p>In the preview, the macro displays the new calculated column with a blue highlight and the prefix <em>fx.</em></p></li><li><p>For example, the formula checks for <strong>Stock Qty</strong> and returns <em>1</em> or <em>0</em> values for the Needs Reorder (Flag) column.</p><img alt="Native table_custom column_If condition.png" class="doc-image" loading="lazy" src="/cms_trial/assets/9f6fb75b-3b6e-4772-a309-a671515311bf.png"/></li></ul></li></ul><div class="panel panel-note"><p>The macro displays an error message if you try to save the calculated column with a column name that already exists or if the syntax is invalid.</p></div><ul><li><ul><li><p>To add the configured column to the table, click <strong>Save</strong>.</p></li><li><p>The macro setup mode displays the new calculated column in the left panel. </p></li><li><p>You can manage the calculated columns in the right panel. To edit and delete the calculated columns, refer to the <strong>Edit or delete calculated columns</strong> section on the page.</p><img alt="Native Table_column added from Formula tab.png" class="doc-image" loading="lazy" src="/cms_trial/assets/2535412f-4908-4cc4-b5c5-ab4cdaeab000.png"/></li></ul></li></ul><ul><li><p>Click <strong>Save</strong> and publish the changes. Both the page edit and view modes display the table with the newly added calculated column without the <em>fx</em> prefix.</p><img alt="Native Table enhancer_new calc column in page view mode.png" class="doc-image" loading="lazy" src="/cms_trial/assets/13a15d0d-0ab0-48a6-aaa2-631a91669c75.png"/></li></ul><div class="img-placeholder">[Unmapped macro: refined-tab — no content to fall back on]</div><p>After you create a calculated column, you can manage it under <strong>Manage columns</strong>.</p><p>The <strong>Calculated columns</strong> section displays the list of created calculated columns. You can edit or delete the calculated column.</p><p><strong>Edit calculated column</strong></p><ul><li><p>To edit a calculated column, click <strong>Edit</strong>.</p><img alt="Native Table Enhancer_column_Edit.png" class="doc-image" loading="lazy" src="/cms_trial/assets/9cd5f5f9-a9c4-45ce-9e17-d7383f245e6c.png"/></li></ul><div class="panel panel-note"><ul><li><p>After you add a new calculated column, you can also edit it from the <strong>Edit column</strong> option in the column header.</p><img alt="Native Table_setup mode_Edit calculated column.png" class="doc-image" loading="lazy" src="/cms_trial/assets/6ccd0385-cf4d-4943-9d5a-53ecbe644edb.png"/></li></ul></div><ul><li><p>The <em>Edit calculated column</em> dialog opens. You can make the required changes and save the calculated column. The configuration remains similar to adding a calculated column. For more information, refer to the <strong>Add calculated column</strong> section.</p><img alt="Native table_Edit calculated column.png" class="doc-image" loading="lazy" src="/cms_trial/assets/23cfc5b4-ec57-4339-ac8d-64d0648bb3f9.png"/></li></ul><p><strong>Delete calculated column</strong></p><ul><li><p>To delete a calculated column, click <strong>Delete,</strong> and the column is removed from the list. To apply the change, click <strong>Save</strong>.</p><img alt="Native table enhancer_Delete calc column.png" class="doc-image" loading="lazy" src="/cms_trial/assets/0ebfc5d3-8f67-4eba-93dd-0de197ee5895.png"/></li></ul><div class="img-placeholder">[Unmapped macro: refined-tab — no content to fall back on]</div><p>The Builder tab supports simple, single-operation math on numeric columns with no syntax to write. The Formula tab supports full spreadsheet-like expressions — operators, functions, conditionals, and any source column type.</p><h2 id="operators-and-functions">Operators and functions</h2><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p><strong>Capability</strong></p></th><th><p><strong>Builder tab</strong></p></th><th><p><strong>Formula tab</strong></p></th></tr><tr><td><p><strong>Column references</strong></p></td><td><p>Numeric source columns only (<code>[Column Name]</code>)</p></td><td><p>Any source column by name (<code>[Column Name]</code>)</p></td></tr><tr><td><p><strong>Sum (</strong><code>+</code><strong>)</strong></p></td><td><p>Yes, supports 3+ columns</p></td><td><p>Yes</p></td></tr><tr><td><p><strong>Minus (</strong><code>-</code><strong>)</strong></p></td><td><p>Yes, 2 columns only</p></td><td><p>Yes</p></td></tr><tr><td><p><strong>Multiply (</strong><code>*</code><strong>)</strong></p></td><td><p>Yes, supports 3+ columns</p></td><td><p>Yes</p></td></tr><tr><td><p><strong>Divide (</strong><code>/</code><strong>)</strong></p></td><td><p>Yes, 2 columns only</p></td><td><p>Yes</p></td></tr><tr><td><p><strong>Mixed operators in one expression</strong></p></td><td><p>No — one operator per calculated column</p></td><td><p>Yes, with standard precedence (<code>[A] + [B] * [C]</code>)</p></td></tr><tr><td><p><strong>Parentheses</strong></p></td><td><p>No</p></td><td><p>Yes (<code>([A] + [B]) * [C]</code>)</p></td></tr><tr><td><p><strong>Numeric / string / boolean literals</strong></p></td><td><p>No</p></td><td><p>Yes (<code>100</code>, <code>10.5</code>)</p><p>Yes (<code>"Done"</code>, <code>'Open'</code>)</p><p>Yes (<code>TRUE</code>, <code>FALSE</code>)</p></td></tr><tr><td><p><strong>Comparisons</strong> (<code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, <code>=</code>, <code>&lt;&gt;</code>)</p></td><td><p>No</p></td><td><p>Yes</p></td></tr><tr><td><p><strong>Row-wise functions</strong> — <code>SUM()</code>, <code>AVERAGE()</code>, <code>MIN()</code>, <code>MAX()</code>, <code>ABS()</code>, <code>ROUND()</code>, <code>IF()</code></p></td><td><p>No</p></td><td><p>Yes, evaluated across the arguments in the current row</p></td></tr><tr><td><p><strong>Unary minus</strong></p></td><td><p>No</p></td><td><p>Yes (<code>-[A] + [B]</code>)</p></td></tr><tr><td><p><code>SUMIF</code><strong> / </strong><code>COUNTIF</code><strong> / </strong><code>AVERAGEIF</code></p></td><td><p>No</p></td><td><p>No — these are column-level aggregates, not per-row calculations</p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><h2 id="examples">Examples</h2><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p>Tab</p></th><th><p>Expression</p></th><th><p>Result</p></th></tr><tr><td><p>Builder</p></td><td><p>SUM: Budget, Spend, Tax →</p><p> <code>[Budget] + [Spend] + [Tax]</code></p></td><td><p>Sum</p></td></tr><tr><td><p>Builder</p></td><td><p>Minus: Budget, Spend → </p><p><code>[Budget] - [Spend]</code></p></td><td><p>Difference</p></td></tr><tr><td><p>Builder</p></td><td><p>Multiply: Qty, Rate → </p><p><code>[Qty] * [Rate]</code></p></td><td><p>Product</p></td></tr><tr><td><p>Builder</p></td><td><p>Divide: Total, Count → </p><p><code>[Total] / [Count]</code></p></td><td><p>Quotient</p></td></tr><tr><td><p>Formula</p></td><td><p><code>[Budget] - [Spend]</code></p></td><td><p>Difference</p></td></tr><tr><td><p>Formula</p></td><td><p><code>[A] + [B] * [C]</code></p></td><td><p>A + (B × C), respecting operator precedence</p></td></tr><tr><td><p>Formula</p></td><td><p><code>IF([Status] = "Done", 1, 0)</code></p></td><td><p>Conditional value</p></td></tr><tr><td><p>Formula</p></td><td><p><code>SUM([A], [B], [C])</code></p></td><td><p>Sum of three cells in the same row</p></td></tr><tr><td><p>Formula</p></td><td><p><code>ROUND([Total] / [Qty], 2)</code></p></td><td><p>Rounded ratio</p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div>
+  </main>
+  <aside class="sidebar">
+<div class="brand"><span class="brand-mark">Appfire Docs</span></div>
+<div class="brand-tag">Live docs, fetched from Confluence via API.</div>
+<nav><ul><li><details open><summary><a href="/cms_trial/space/TBL/74809395/Advanced+Tables+for+Confluence/">Advanced Tables for Confluence</a></summary><ul><li><details><summary><a href="/cms_trial/space/TBL/74813990/Get+started+with+Advanced+Tables+for+Confluence+for+Cloud/">Get started with Advanced Tables for Confluence for Cloud</a></summary><ul><li><a href="/cms_trial/space/TBL/3131703327/Migrate+to+cloud/">Migrate to cloud</a></li></ul></details></li><li><a href="/cms_trial/space/TBL/74814277/Overview+-+cloud/">Overview - cloud</a></li><li><details><summary><a href="/cms_trial/space/TBL/74815154/Installation+and+configuration+-+cloud/">Installation and configuration - cloud</a></summary><ul><li><a href="/cms_trial/space/TBL/74814028/Installation/">Installation</a></li><li><a href="/cms_trial/space/TBL/74812041/Configuration+-+Cloud/">Configuration - Cloud</a></li><li><a href="/cms_trial/space/TBL/74814817/Uninstallation/">Uninstallation</a></li><li><a href="/cms_trial/space/TBL/3510698190/How+to+connect+the+Advanced+Tables+for+Confluence+app+to+the+Jira+application/">How to connect the Advanced Tables for Confluence app to the Jira application</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/TBL/74814716/Use+cases+-+cloud/">Use cases - cloud</a></summary><ul><li><a href="/cms_trial/space/TBL/74814629/How+to+use+regular+expressions+-+Cloud/">How to use regular expressions - Cloud</a></li><li><a href="/cms_trial/space/TBL/74812963/How+to+make+user-defined+column+styles+persist+-+Cloud/">How to make user-defined column styles persist - Cloud</a></li><li><a href="/cms_trial/space/TBL/74813085/How+to+make+user-defined+row+styles+persist+-+Cloud/">How to make user-defined row styles persist - Cloud</a></li><li><a href="/cms_trial/space/TBL/74813066/How+to+apply+filters+on+table+data+-+Cloud/">How to apply filters on table data - Cloud</a></li><li><a href="/cms_trial/space/TBL/74814340/How+to+perform+advanced+date+sorting+with+the+D+column+type+-+Cloud/">How to perform advanced date sorting with the D column type - Cloud</a></li><li><a href="/cms_trial/space/TBL/74814618/How+to+perform+advanced+date+sorting+with+M+column+type-+Cloud/">How to perform advanced date sorting with M column type- Cloud</a></li><li><a href="/cms_trial/space/TBL/74814374/How+to+change+the+format+of+date+columns+-+Cloud/">How to change the format of date columns - Cloud</a></li><li><a href="/cms_trial/space/TBL/74814193/How+to+change+the+format+of+numeric+columns+-+Cloud/">How to change the format of numeric columns - Cloud</a></li><li><a href="/cms_trial/space/TBL/74812579/Table+Plus+macro+examples+-+Cloud/">Table Plus macro examples - Cloud</a></li><li><a href="/cms_trial/space/TBL/74812519/CSV+(Comma+Separated+Values)+macro+examples+-+Cloud/">CSV (Comma Separated Values) macro examples - Cloud</a></li><li><a href="/cms_trial/space/TBL/74818011/JSON+Table+macro+examples+-+Cloud/">JSON Table macro examples - Cloud</a></li><li><a href="/cms_trial/space/TBL/74817969/Attachment+Table+macro+examples+-+Cloud/">Attachment Table macro examples - Cloud</a></li><li><a href="/cms_trial/space/TBL/3325657245/Advanced+Table+Viewer+macro+examples/">Advanced Table Viewer macro examples</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/TBL/74812514/Featured+macros+-+Cloud/">Featured macros - Cloud</a></summary><ul><li><a href="/cms_trial/space/TBL/74812542/Table+Plus+macro+-+Cloud/">Table Plus macro - Cloud</a></li><li><a href="/cms_trial/space/TBL/74812384/CSV+(Comma+Separated+Values)+macro+-+Cloud/">CSV (Comma Separated Values) macro - Cloud</a></li><li><a href="/cms_trial/space/TBL/74812316/JSON+Table+macro+-+Cloud/">JSON Table macro - Cloud</a></li><li><a href="/cms_trial/space/TBL/74812217/Attachment+Table+macro+-+Cloud/">Attachment Table macro - Cloud</a></li><li><a href="/cms_trial/space/TBL/1531117698/Advanced+Table+Viewer+macro/">Advanced Table Viewer macro</a></li><li><details open><summary><a href="/cms_trial/space/TBL/3520037211/Native+Table+Enhancer+%5BBeta%5D+macro/">Native Table Enhancer [Beta] macro</a></summary><ul><li><a href="/cms_trial/space/TBL/3568173057/Set+up+the+Native+Table+Enhancer+%5BBeta%5D+macro+features/">Set up the Native Table Enhancer [Beta] macro features</a></li><li><a href="/cms_trial/space/TBL/3568173411/Analyze+Native+Table+Enhancer+%5BBeta%5D+macro+data+with+Atlassian+Rovo/">Analyze Native Table Enhancer [Beta] macro data with Atlassian Rovo</a></li><li><a href="/cms_trial/space/TBL/3539308932/Row+styling+with+Native+Table+Enhancer+%5BBeta%5D+macro/">Row styling with Native Table Enhancer [Beta] macro</a></li><li><a href="/cms_trial/space/TBL/3549431418/Search+with+Native+Table+Enhancer+%5BBeta%5D+macro/">Search with Native Table Enhancer [Beta] macro</a></li><li><a href="/cms_trial/space/TBL/3551428609/Sorting+with+Native+Table+Enhancer+%5BBeta%5D+macro/">Sorting with Native Table Enhancer [Beta] macro</a></li><li><a href="/cms_trial/space/TBL/3558342661/Filter+columns+with+Native+Table+Enhancer+%5BBeta%5D+macro/">Filter columns with Native Table Enhancer [Beta] macro</a></li><li><a href="/cms_trial/space/TBL/3559129118/Group+columns+with+Native+Table+Enhancer+%5BBeta%5D+macro/">Group columns with Native Table Enhancer [Beta] macro</a></li><li><a href="/cms_trial/space/TBL/3565584387/Column+calculation+with+Native+Table+Enhancer+%5BBeta%5D+macro/">Column calculation with Native Table Enhancer [Beta] macro</a></li><li><a href="/cms_trial/space/TBL/3567878145/Column+group+calculation+with+Native+Table+Enhancer+%5BBeta%5D+macro/">Column group calculation with Native Table Enhancer [Beta] macro</a></li><li><a href="/cms_trial/space/TBL/3584360457/Native+Table+Enhancer+macro+glossary/">Native Table Enhancer macro glossary</a></li><li><a href="/cms_trial/space/TBL/3639115855/Manage+column+visibility+with+Native+Table+Enhancer+%5BBeta%5D+macro/">Manage column visibility with Native Table Enhancer [Beta] macro</a></li><li><a href="/cms_trial/space/TBL/3676897293/Manage+calculated+columns+with+Native+Table+Enhancer+macro/" class="active">Manage calculated columns with Native Table Enhancer macro</a></li></ul></details></li></ul></details></li><li><details><summary><a href="/cms_trial/space/TBL/74817747/Common+table+capabilities+-+Cloud/">Common table capabilities - Cloud</a></summary><ul><li><a href="/cms_trial/space/TBL/74814225/Column+types+-+Cloud/">Column types - Cloud</a></li><li><a href="/cms_trial/space/TBL/74815166/Augments+-+Cloud/">Augments - Cloud</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/TBL/74816002/Release+notes/">Release notes</a></summary><ul><li><a href="/cms_trial/space/TBL/3639312700/Release+notes+September+2026/">Release notes September 2026</a></li><li><a href="/cms_trial/space/TBL/3581607966/Release+notes+27+August+2026/">Release notes 27 August 2026</a></li><li><a href="/cms_trial/space/TBL/3488285400/Release+notes+30+July+2026/">Release notes 30 July 2026</a></li><li><a href="/cms_trial/space/TBL/3436478590/Release+notes+July+2026/">Release notes July 2026</a></li><li><a href="/cms_trial/space/TBL/3369304164/Release+notes+June+2026/">Release notes June 2026</a></li><li><a href="/cms_trial/space/TBL/3277324301/Release+notes+28+May+2026/">Release notes 28 May 2026</a></li><li><a href="/cms_trial/space/TBL/3265462603/Release+notes+21+May+2026/">Release notes 21 May 2026</a></li><li><a href="/cms_trial/space/TBL/3220209965/Release+notes+May+2026/">Release notes May 2026</a></li><li><a href="/cms_trial/space/TBL/3197435950/Release+notes+30+April+2026/">Release notes 30 April 2026</a></li><li><a href="/cms_trial/space/TBL/3159687174/Release+notes+23+April+2026/">Release notes 23 April 2026</a></li><li><a href="/cms_trial/space/TBL/3158049004/Release+notes+17+April+2026/">Release notes 17 April 2026</a></li><li><a href="/cms_trial/space/TBL/3122299250/Release+notes+14+April+2026/">Release notes 14 April 2026</a></li><li><a href="/cms_trial/space/TBL/3050111004/Release+notes+08+April+2026/">Release notes 08 April 2026</a></li><li><a href="/cms_trial/space/TBL/3016294412/Release+notes+17+March+2026/">Release notes 17 March 2026</a></li><li><a href="/cms_trial/space/TBL/2991456290/Release+notes+March+2026/">Release notes March 2026</a></li><li><a href="/cms_trial/space/TBL/2766798931/Release+notes+February+2026/">Release notes February 2026</a></li><li><a href="/cms_trial/space/TBL/2402615417/Release+notes+25+September+2025/">Release notes 25 September 2025</a></li><li><a href="/cms_trial/space/TBL/2368995338/Release+notes+19+September+2025/">Release notes 19 September 2025</a></li><li><a href="/cms_trial/space/TBL/2331508840/Release+notes+September+2025/">Release notes September 2025</a></li><li><a href="/cms_trial/space/TBL/2108293544/Release+notes+June+2025/">Release notes June 2025</a></li><li><a href="/cms_trial/space/TBL/2059927693/Release+notes+28+May+2025/">Release notes 28 May 2025</a></li><li><a href="/cms_trial/space/TBL/2008777573/Release+notes+May+2025/">Release notes May 2025</a></li><li><a href="/cms_trial/space/TBL/1946223576/Release+notes+April+2025/">Release notes April 2025</a></li><li><a href="/cms_trial/space/TBL/1864663217/Release+notes+19+March+2025/">Release notes 19 March 2025</a></li><li><a href="/cms_trial/space/TBL/1845789546/Release+notes+12+March+2025/">Release notes 12 March 2025</a></li><li><a href="/cms_trial/space/TBL/1804829772/Release+notes+March+2025/">Release notes March 2025</a></li><li><a href="/cms_trial/space/TBL/1547895248/Release+notes+December+2024/">Release notes December 2024</a></li><li><a href="/cms_trial/space/TBL/1342767373/Release+notes+07+October+2024/">Release notes 07 October 2024</a></li><li><a href="/cms_trial/space/TBL/860487975/Release+notes+28+March+2024/">Release notes 28 March 2024</a></li><li><a href="/cms_trial/space/TBL/837484625/Release+notes+March+2024/">Release notes March 2024</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/TBL/74814936/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/TBL/2172944490/Appfire+Trust+Center/">Appfire Trust Center</a></li><li><a href="/cms_trial/space/TBL/74815010/Data+security+and+privacy/">Data security and privacy</a></li><li><a href="/cms_trial/space/TBL/3529933064/Data+residency+and+Advanced+Tables+for+Confluence/">Data residency and Advanced Tables for Confluence</a></li></ul></details></li></ul></details></li></ul></nav>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
+  <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#manage-calculated-columns">Manage calculated columns</a></li><li class="toc-level-2"><a href="#builder">Builder</a></li><li class="toc-level-2"><a href="#formula">Formula</a></li><li class="toc-level-2"><a href="#operators-and-functions">Operators and functions</a></li><li class="toc-level-2"><a href="#examples">Examples</a></li></ul></div></aside>
+</div>
+<!-- "Get Help" — a plain link to the real, already-working Refined JSM
+     portal, at a different path on the SAME domain. No custom OAuth
+     backend needed for this: Refined's own JSM integration already
+     correctly handles brand-new, first-time visitors in production today,
+     which is exactly the case our earlier OAuth-based attempt structurally
+     couldn't solve (Atlassian's own consent screen blocks anyone with zero
+     prior relationship to the site, before ever reaching JSM). Styled to
+     match the rest of the site and left as a same-tab navigation (not
+     target="_blank") so clicking it feels like moving to another page on
+     one continuous site, not popping open a separate system. -->
+<a class="get-help-btn" href="https://support.appfire.com/page/support">Get Help</a>
+
+<!-- Advanced Tables (Table Plus, etc.) enhancement — reconstructs the parts
+     of the macro's real behavior that aren't stored as static content:
+     click-to-sort columns, computed numeric totals, and hover highlighting.
+     Harmless to include on every page — it does nothing if no
+     .advanced-table elements are present. -->
+<script>
+(function () {
+  document.querySelectorAll(".advanced-table").forEach(function (container) {
+    var table = container.querySelector("table");
+    if (!table) return;
+
+    var enableSorting = container.dataset.enableSorting === "true";
+    var autoTotal = container.dataset.autoTotal === "true";
+    var enableHighlighting = container.dataset.enableHighlighting === "true";
+    var highlightColor = container.dataset.highlightColor || "";
+
+    var headerRow = table.rows[0];
+    var tbody = table.tBodies[0] || table;
+
+    // Highlighting: toggle a background color on row hover, matching the
+    // macro's own configured highlight color rather than a fixed one.
+    if (enableHighlighting && highlightColor && headerRow) {
+      Array.prototype.slice.call(tbody.rows).forEach(function (row) {
+        if (row === headerRow) return;
+        row.addEventListener("mouseenter", function () { row.style.backgroundColor = highlightColor; });
+        row.addEventListener("mouseleave", function () { row.style.backgroundColor = ""; });
+      });
+    }
+
+    // Sorting: click a header cell to sort by that column. Numeric-aware —
+    // compares as numbers when both values parse as one, falls back to
+    // string comparison otherwise. Repeated clicks toggle ascending/descending.
+    if (enableSorting && headerRow) {
+      Array.prototype.forEach.call(headerRow.cells, function (cell, colIndex) {
+        cell.classList.add("sortable-col");
+        cell.title = "Click to sort";
+        var ascending = true;
+        cell.addEventListener("click", function () {
+          var rows = Array.prototype.slice.call(tbody.rows).filter(function (r) { return r !== headerRow; });
+          rows.sort(function (a, b) {
+            var av = (a.cells[colIndex] ? a.cells[colIndex].textContent : "").trim();
+            var bv = (b.cells[colIndex] ? b.cells[colIndex].textContent : "").trim();
+            var an = parseFloat(av), bn = parseFloat(bv);
+            var cmp = (!isNaN(an) && !isNaN(bn)) ? (an - bn) : av.localeCompare(bv);
+            return ascending ? cmp : -cmp;
+          });
+          rows.forEach(function (row) { tbody.appendChild(row); });
+          ascending = !ascending;
+        });
+      });
+    }
+
+    // Computed totals: sum any column where every non-empty cell parses as
+    // a number, appended as a footer row. This approximates the common
+    // case (a numeric sum) — the real macro lets authors choose different
+    // calculation types per column (min, max, average...), which isn't
+    // reconstructed here.
+    if (autoTotal && headerRow) {
+      var dataRows = Array.prototype.slice.call(tbody.rows).filter(function (r) { return r !== headerRow; });
+      var totals = [];
+      for (var c = 0; c < headerRow.cells.length; c++) {
+        (function (colIndex) {
+          var allNumeric = true, sum = 0, sawAny = false;
+          dataRows.forEach(function (row) {
+            var cell = row.cells[colIndex];
+            var text = cell ? cell.textContent.trim() : "";
+            if (text === "") return;
+            var n = parseFloat(text);
+            if (isNaN(n)) { allNumeric = false; return; }
+            sum += n;
+            sawAny = true;
+          });
+          totals.push(allNumeric && sawAny ? sum : null);
+        })(c);
+      }
+      if (totals.some(function (t) { return t !== null; })) {
+        var footRow = document.createElement("tr");
+        footRow.className = "advanced-table-total-row";
+        totals.forEach(function (t) {
+          var td = document.createElement("td");
+          td.textContent = t !== null ? String(t) : "";
+          footRow.appendChild(td);
+        });
+        tbody.appendChild(footRow);
+      }
+    }
+  });
+})();
+</script>
+
+<!-- Aura Tab Group enhancement — click-to-switch tabs. Harmless to include
+     on every page; does nothing if no .aura-tab-group elements exist. -->
+<script>
+(function () {
+  document.querySelectorAll(".aura-tab-group").forEach(function (group) {
+    var buttons = group.querySelectorAll(".aura-tab-btn");
+    buttons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var targetId = btn.dataset.target;
+        group.querySelectorAll(".aura-tab-btn").forEach(function (b) { b.classList.remove("active"); });
+        group.querySelectorAll(".aura-tab-panel").forEach(function (p) { p.classList.remove("active"); });
+        btn.classList.add("active");
+        var panel = document.getElementById(targetId);
+        if (panel) panel.classList.add("active");
+      });
+    });
+  });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Real TOC scroll-spy — highlights the currently-visible heading in the
+     "On this page" panel as the reader scrolls. Harmless no-op if there's
+     no .page-toc on the page (most pages with few/no headings). -->
+<script>
+(function () {
+  var tocLinks = document.querySelectorAll(".page-toc a[href^='#']");
+  if (!tocLinks.length) return;
+
+  var headingMap = {};
+  var headings = [];
+  tocLinks.forEach(function (link) {
+    var id = link.getAttribute("href").slice(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headingMap[id] = link;
+      headings.push(heading);
+    }
+  });
+  if (!headings.length) return;
+
+  var activeLink = null;
+  function setActive(id) {
+    var link = headingMap[id];
+    if (!link || link === activeLink) return;
+    if (activeLink) activeLink.classList.remove("active");
+    link.classList.add("active");
+    activeLink = link;
+  }
+
+  // rootMargin biases toward the upper third of the viewport, so a
+  // heading is marked "current" once it's crossed into the reading area,
+  // not only once it's scrolled to the very top edge.
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) setActive(entry.target.id);
+    });
+  }, { rootMargin: "-15% 0px -75% 0px", threshold: 0 });
+
+  headings.forEach(function (h) { observer.observe(h); });
+
+  // Sets the first heading active immediately on load, rather than
+  // leaving the TOC with nothing highlighted until the reader scrolls.
+  setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
+})();
+</script>
+
+</body>
+</html>

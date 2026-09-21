@@ -21,13 +21,11 @@ All tasks are converted to the same Jira work item type.
 
 To convert multiple tasks to Jira work items, first select the tasks.
 
-Image — asset pipeline pending  
-image-20260129-122400.png
+![image-20260129-122400.png](/cms_trial/assets/6bb9b1c5-98c2-434b-af3e-3d08204b8f27.png)
 
 Then, right-click on a task and select Convert to Jira issue.
 
-Image — asset pipeline pending  
-image-20260129-122443.png
+![image-20260129-122443.png](/cms_trial/assets/d34006f8-70b6-4ee5-8928-ab7e73b32750.png)
 
 Select the:
 
@@ -37,13 +35,11 @@ Select the:
 
 Then click **Save** to initiate the conversion.
 
-Image — asset pipeline pending  
-image-20260129-122537.png
+![image-20260129-122537.png](/cms_trial/assets/96df7e66-85c8-4b96-8d0f-19c16f5608ed.png)
 
 **Note**: The additional conversion screen that allows you to fill in Jira fields does not appear during a bulk conversion.
 
-Image — asset pipeline pending  
-image-20260129-123251.png
+![image-20260129-123251.png](/cms_trial/assets/dde85ac9-8eb5-40d9-b96b-adc90b3e739c.png)
 
 ## Homepage reports
 
@@ -56,20 +52,17 @@ Available reports:
 - Boxes by Status
 - OKRs by Status
 
-Image — asset pipeline pending  
-Homepage reports.png
+![Homepage reports.png](/cms_trial/assets/c6e57edc-c2c6-4cd2-966b-80af3abe4dfb.png)
 
 Adjust the view settings to ensure reports are visible.
 
-Image — asset pipeline pending  
-image-20260129-124817.png
+![image-20260129-124817.png](/cms_trial/assets/54c983a4-f905-433d-8b00-092999cac0dd.png)
 
 ### Reports have a refresh button
 
 To ensure data is up to date, you can manually refresh a report.
 
-Image — asset pipeline pending  
-image-20260129-124037.png
+![image-20260129-124037.png](/cms_trial/assets/7468fc46-d5d0-4ea6-92fa-57dcb880a43e.png)
 
 ---
 
@@ -79,8 +72,7 @@ image-20260129-124037.png
 
 ### Module shortcuts can be reordered using drag-and-drop.
 
-Image — asset pipeline pending  
-Reorder shortcuts.mov
+![Reorder shortcuts.mov](/cms_trial/assets/71bc6094-176f-4df4-a3d0-2076a39c9379.mov)
 
 ---
 
