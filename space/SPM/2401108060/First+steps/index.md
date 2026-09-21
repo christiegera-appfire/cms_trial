@@ -32,11 +32,11 @@ The next step is to add project tasks to the box.
 
 This course will give you an overview of how you can arrange your tasks into different hierarchical structures.
 
-#### Course 4: [Synchronize task start and end dates with Jira](/cms_trial/space/SPM/2400780594/Synchronize+task+start+and+end+dates+with+Jira/)
+#### Course 4: [Synchronize task start and end dates with Jira](https://appfire.atlassian.net/wiki/spaces/SPM/pages/2400780594)
 
 To ensure that tasks correctly synchronize between Jira and BigPicture, you need to map their Jira fields to their respective fields in BigPicture.
 
-#### Course 5: [Grant access to your box](/cms_trial/space/SPM/2400878722/Grant+access+to+your+box/)
+#### Course 5: [Grant access to your box](https://appfire.atlassian.net/wiki/spaces/SPM/pages/2400878722)
 
 You need to assign relevant box security roles so that teams and individual stakeholders can view, edit, or manage your box.
 

@@ -1,6 +1,6 @@
 # Project health (RAG)
 
-Visit the [Contextual reports](/cms_trial/space/SPM/2481848664/Contextual+reports/) page to learn about availability, permissions, and how to add reports to your view.
+Visit the [Contextual reports](https://appfire.atlassian.net/wiki/spaces/SPM/pages/2481848664) page to learn about availability, permissions, and how to add reports to your view.
 
 See the video about the project health report.
 

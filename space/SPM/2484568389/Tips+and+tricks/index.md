@@ -74,7 +74,7 @@ BigPicture can calculate a task’s start or end date based on the [task’s est
 
 By field mapping the Start Date/End Date in BigPicture to the Original Estimate in Jira, the task’s start/end date and the length of the taskbar automatically update whenever you change its estimate (or duration).
 
-Visit the [Synchronize task start and end dates with Jira](/cms_trial/space/SPM/2400780594/Synchronize+task+start+and+end+dates+with+Jira/) course and [Use cases](/cms_trial/space/SPM/2401107989/Use+cases/) pages to learn more about task date synchronization.
+Visit the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/2400780594> course and [Use cases](/cms_trial/space/SPM/2401107989/Use+cases/) pages to learn more about task date synchronization.
 
 ## Scope module
 

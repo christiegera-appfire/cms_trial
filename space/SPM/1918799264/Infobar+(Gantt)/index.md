@@ -18,7 +18,7 @@ The Infobar houses six sections, each providing crucial information about your p
 - [Critical path](/cms_trial/space/SPM/1918833710/Critical+path+(Infobar)/)
 - [Change history](/cms_trial/space/SPM/1918503025/Change+history/)
 - [Bulk change](/cms_trial/space/SPM/1918506627/Bulk+change/)
-- [Reports](/cms_trial/space/SPM/2481848664/Contextual+reports/)
+- [Reports](https://appfire.atlassian.net/wiki/spaces/SPM/pages/2481848664)
 
 ![An expanded view on the Gantt Infobar showing currenly available tabs.](/cms_trial/assets/5e836c58-f087-47a2-8fb8-a1a06b75eda5.png)
 
@@ -40,6 +40,6 @@ The Infobar houses six sections, each providing crucial information about your p
 - [Critical path](/cms_trial/space/SPM/1918833710/Critical+path+(Infobar)/)
 - [Change history](/cms_trial/space/SPM/1918503025/Change+history/)
 - [Bulk change](/cms_trial/space/SPM/1918506627/Bulk+change/)
-- [Reports](/cms_trial/space/SPM/2481848664/Contextual+reports/)
+- [Reports](https://appfire.atlassian.net/wiki/spaces/SPM/pages/2481848664)
 
 ![gantt-infobar.png](/cms_trial/assets/4403f8b0-4b46-431e-81c4-b688e0b96593.png)

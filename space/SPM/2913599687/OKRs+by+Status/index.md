@@ -4,7 +4,7 @@
 
 This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
 
-Visit the [Contextual reports](/cms_trial/space/SPM/2481848664/Contextual+reports/) page to learn about availability, permissions, and how to add reports to your view.
+Visit the [Contextual reports](https://appfire.atlassian.net/wiki/spaces/SPM/pages/2481848664) page to learn about availability, permissions, and how to add reports to your view.
 
 To learn more, see the video.
 
