@@ -1,4 +1,4 @@
-# Get started with 7pace Timetracker
+# Essential actions
 
 7pace Timetracker for Jira enables seamless time tracking on all work items with flexible timesheets and calendar views. Gain valuable insights for better planning and robust project reporting for budget management, status updates, billing, and more. With approval periods and manager approvals for submitted worklogs, guarantee accurate timekeeping and gain insights into progress, bottlenecks, and efficiencies.
 
