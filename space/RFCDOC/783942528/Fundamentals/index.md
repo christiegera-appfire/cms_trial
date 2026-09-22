@@ -10,3 +10,4 @@ These guides are designed to be standalone, so you can jump into topics of inter
 - [Use custom smart filters and smart columns on your dashboard](/cms_trial/space/RFCDOC/783942590/Use+custom+smart+filters+and+smart+columns+on+your+dashboard/)
 - [Display custom charts and quick tables on your dashboard](/cms_trial/space/RFCDOC/783942604/Display+custom+charts+and+quick+tables+on+your+dashboard/)
 - [Use rich filter counters and gauges in your dashboards](/cms_trial/space/RFCDOC/783942638/Use+rich+filter+counters+and+gauges+in+your+dashboards/)
+- [Dark theme](/cms_trial/space/RFCDOC/3467018247/Dark+theme/)

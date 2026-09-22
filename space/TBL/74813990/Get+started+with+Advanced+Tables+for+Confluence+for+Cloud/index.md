@@ -20,70 +20,91 @@ Advanced Tables for Confluence extends Confluence's native table capabilities wi
 
 Whatever your data source — CSV files, Excel spreadsheets, JSON data, page attachments, or native Confluence tables — Advanced Tables has the right macro for you.
 
-Additionally, the Advanced Table Viewer macro brings Atlassian Rovo integration — turning your table data into instant AI-driven insights, all within Confluence.
-
-## Watch the quick start videos
-
-### Advanced Table Viewer macro
-
-Import, format, and display CSV and Excel data from external sources as a structured table using an intuitive setup mode.
-
-Customize your table views with column filtering, row styling, row numbering, sorting, renamed headings, column totals, and more.
-
-Analyze table data instantly using Atlassian Rovo's AI-driven insights.
-
-[Learn more...](/cms_trial/space/TBL/1531117698/Advanced+Table+Viewer+macro/)
+Additionally, the Advanced Table Viewer and Native Table Enhancer macros bring Atlassian Rovo integration — turning your table data into instant AI-driven insights, all within Confluence.
 
 ---
 
-### Table Plus macro
+## Get started with a real use case
 
-Display native Confluence tables with enhanced styling and functionality.
+## Transform your Excel data into an interactive Confluence report
 
-Add row and column styling, sorting, data filtering, row numbering, column totals, and more.
+Get started with the Advanced Tables for Confluence app by completing this quick 12-step walkthrough of the Advanced Table Viewer macro.
 
-[Learn more...](/cms_trial/space/TBL/74812542/Table+Plus+macro+-+Cloud/)
+### 🚀 What will you do?
 
----
+In this 12-step walkthrough, you will configure the Advanced Table Viewer macro to import sample Excel data and apply real-time filtering, grouping, and column calculations.
 
-### CSV (Comma Separated Values) macro
+### 📌 Prerequisites and sample file
 
-Import, format, and display CSV and other delimited data as a Confluence table.
+- Install the latest version of the Advanced Tables for Confluence app on your cloud instance.
+- ⬇️ **Download** and save the Employee\_Directory.xlsx sample file to your desktop before beginning. ▢
 
-Enhance your table with row and column styling, sorting, data filtering, row numbering, column totals, and more.
+### 🔢 Step-by-step walkthrough
 
-[Learn more...](/cms_trial/space/TBL/74812384/CSV+(Comma+Separated+Values)+macro+-+Cloud/)
+⏱️ 6–8 minutes
 
-Try the **Advanced Table Viewer macro** for your CSV data. [Learn more](/cms_trial/space/TBL/2112356514/Advanced+Table+Viewer+for+your+CSV+data/).
+#### 🔹 **Insert macro and connect data source**
 
----
+1. **Insert the macro**: Type `/Advanced Table Viewer` in the Confluence page editor and press **Enter**.
 
-### Attachment Table macro
+   ![Insert ATV macro.png](/cms_trial/assets/55724c6c-6bff-4089-8e5a-6bb3e1dff1a3.png)
+2. **Connect Data Source:** On the initial macro setup screen, click **Connect Data Source**.
 
-Display a table of page or space attachments based on selection criteria such as name, comments, and labels.
+   ![Connect Data Source.png](/cms_trial/assets/e3a96329-f049-4f76-98d6-fd4f7add2e37.png)
+3. **Select Data Connector:** From the *Select data connector* dropdown, select **Excel**.
 
-Enhance your table with row and column styling, sorting, data filtering, row numbering, column totals, and more.
+   ![Select data connector as Excel.png](/cms_trial/assets/36eded93-001d-46c0-ab34-6724e9a67585.png)
+4. **Upload sample Excel file:** Click **Browse** and select `Employee_Directory.xlsx` from your computer, and upload it.
 
-[Learn more...](/cms_trial/space/TBL/74812217/Attachment+Table+macro+-+Cloud/)
+   ![Browse and select Excel file.png](/cms_trial/assets/6d60b826-c9e2-492b-b77e-b25e5eb91528.png)
+5. **Save the changes**:The macro will automatically display the first sheet name (`Employees`) and its columns. Click **Save** to enter setup mode.
 
----
+   ![ATV_macro displays sheet name and columns.png](/cms_trial/assets/60361c00-0e4e-49bf-91b2-1fa12794588f.png)
 
-### JSON Table macro
+#### 🔸 **Macro setup mode: Customize filters, grouping, and calculations**
 
-Import, format, and display JSON data as a Confluence table.
+1. **Enable and set column filter**: In the right panel, enable **Column filtering** (▢ ) and then enable **Column filters**.For the **Status** column, select the *dropdown* filter.
 
-Enhance your table with row and column styling, sorting, data filtering, row numbering, column totals, an option to select specific JSON fields, and more.
+   ![ATV_macro_Column filters.png](/cms_trial/assets/078167db-b5f5-4e5d-b835-14cbef47e3f0.png)
+2. **Enable Column Grouping:**  In the right panel, enable **Grouping**.
+3. **Group by Department**: Hover over the **Department** column header and click the grouping icon you see on the **Department** column header to group by this column.
 
-[Learn more…](/cms_trial/space/TBL/74812316/JSON+Table+macro+-+Cloud/)
+   ![ATV_grouping.png](/cms_trial/assets/15cd7ae6-1047-4656-9f74-2bbb63ca9860.png)
+4. **Configure group calculation:** In the **Salary ($)** column header, click **Edit Column** (▢ ) and select **Edit group calculation**.
 
----
+   ![ATV_Edit group calculation.png](/cms_trial/assets/2b5347ad-7ccd-4cd5-93db-701918ee559e.png)
+5. **Select** **Sum-up type**: Select the **Sum** checkbox and click **Save**.
 
-**Native Table Enhancer (Beta) macro**
+   ![Edit group calculation_Sum.png](/cms_trial/assets/eed1cc46-1da8-4ba7-9e64-951a7378cfbf.png)
+6. **Save the macro**: The macro displays the Sum of salaries at each department level. To save the macro configuration, click **Save**.
 
-The Native Table Enhancer macro transforms native Confluence tables. [Learn more](/cms_trial/space/TBL/3520037211/Native+Table+Enhancer+%5BBeta%5D+macro/).
+   ![ATV_Department column grouped.png](/cms_trial/assets/04d23c86-9a80-420f-880a-4eb7c4be0930.png)
+7. **Publish**: Click **Publish (**or **Update)** to save the page.
 
-- Apply advanced formatting, calculations, and custom views for data analysis using an intuitive setup mode.
-- Customize your table views with sorting, column filtering, row styling, row numbering, grouping, column and group calculations, and more.
-- Analyze table data instantly using Atlassian Rovo's AI-driven insights. [Learn more](/cms_trial/space/TBL/3568173411/Analyze+Native+Table+Enhancer+%5BBeta%5D+macro+data+with+Atlassian+Rovo/).
+   ![ATV_page view mode.png](/cms_trial/assets/f2e2cce1-2cc4-4778-a5d0-a42a67980fab.png)
 
-Advanced Tables for Confluence — Data Center documentation has moved to a dedicated space. Visit [Advanced Tables for Confluence - Data Center.](https://appfire.atlassian.net/wiki/spaces/atdc)
+#### ✅ Outcome: Publish and analyze table data
+
+Your Confluence page now features an interactive employee directory table where you can expand/collapse departments to view grouped salary totals and quickly filter records by employee status.
+
+Image — asset pipeline pending  
+Analyze table data in Confluence page.gif
+
+## 📚 **What’s next?**
+
+- To import Excel data using other data source types such as Attachment or URL, refer to [Configure Excel data source in Advanced Table Viewer macro](/cms_trial/space/TBL/3122888898/Configure+Excel+data+source+in+Advanced+Table+Viewer+macro/).
+- To analyze your table data using Atlassian Rovo, refer to [Analyze Advanced Table Viewer data with Atlassian Rovo](/cms_trial/space/TBL/3429499007/Analyze+Advanced+Table+Viewer+data+with+Atlassian+Rovo/).
+
+### **Quick-start videos**
+
+Get onboarded quickly — watch the [quick-start videos](/cms_trial/space/TBL/3647963421/Quick+start+guide+to+Advanced+Tables+for+Confluence/) for Advanced Tables for Confluence macros.
+
+### Migrate to cloud
+
+Are you planning to migrate from Data Center to cloud? Refer to the [Migration guide](/cms_trial/space/TBL/3131703327/Migrate+to+cloud/).
+
+### Use cases
+
+Refer to macro-specific [Use cases](/cms_trial/space/TBL/74814716/Use+cases+-+cloud/) to take full advantage of the app's capabilities.
+
+Advanced Tables for Confluence - Data Center documentation has moved to a dedicated space. Visit [Advanced Tables for Confluence - Data Center.](https://appfire.atlassian.net/wiki/spaces/atdc)

@@ -1,71 +1,69 @@
 # Quick start guide to Advanced Tables for Confluence
 
-## Transform your Excel data into an interactive Confluence report
+## Get onboarded quickly — watch the quick-start videos for Advanced Tables for Confluence macros
 
-Get started with the Advanced Tables for Confluence app by completing this quick 12-step walkthrough of the Advanced Table Viewer macro.
+### Advanced Table Viewer macro
 
-### 🚀 What will you do?
+Import, format, and display CSV and Excel data from external sources as a structured table using an intuitive setup mode.
 
-In this 12-step walkthrough, you will configure the Advanced Table Viewer macro to import sample Excel data and apply real-time filtering, grouping, and column calculations.
+Customize your table views with column filtering, row styling, row numbering, sorting, renamed headings, column totals, and more.
 
-### 📌 Prerequisites and sample file
+Analyze table data instantly using Atlassian Rovo's AI-driven insights.
 
-- Install the latest version of the Advanced Tables for Confluence app on your cloud instance.
-- ⬇️ **Download** and save the Employee\_Directory.xlsx sample file to your desktop before beginning. ▢
+[Learn more...](/cms_trial/space/TBL/1531117698/Advanced+Table+Viewer+macro/)
 
-### 🔢 Step-by-step walkthrough
+---
 
-⏱️ 6–8 minutes
+### **Native Table Enhancer (Beta) macro**
 
-#### 🔹 **Insert macro and connect data source**
+The Native Table Enhancer macro transforms native Confluence tables. [Learn more](/cms_trial/space/TBL/3520037211/Native+Table+Enhancer+%5BBeta%5D+macro/).
 
-1. **Insert the macro**: Type `/Advanced Table Viewer` in the Confluence page editor and press **Enter**.
+- Apply advanced formatting, calculations, and custom views for data analysis using an intuitive setup mode.
+- Customize your table views with sorting, column filtering, row styling, row numbering, grouping, column and group calculations, and more.
+- Analyze table data instantly using Atlassian Rovo's AI-driven insights. [Learn more](/cms_trial/space/TBL/3568173411/Analyze+Native+Table+Enhancer+%5BBeta%5D+macro+data+with+Atlassian+Rovo/).
 
-   ![Insert ATV macro.png](/cms_trial/assets/66bcf60a-10ed-4d3a-97f2-4ab9dc765cab.png)
-2. **Connect Data Source:** On the initial macro setup screen, click **Connect Data Source**.
+---
 
-   ![Connect Data Source.png](/cms_trial/assets/1f01013f-0094-46f3-b58b-40843bcdf468.png)
-3. **Select Data Connector:** From the *Select data connector* dropdown, select **Excel**.
+### Table Plus macro
 
-   ![Select data connector as Excel.png](/cms_trial/assets/1eeef363-2868-4bdf-99c5-41eaf272cc4b.png)
-4. **Upload sample Excel file:** Click **Browse** and select `Employee_Directory.xlsx` from your computer, and upload it.
+Display native Confluence tables with enhanced styling and functionality.
 
-   ![Browse and select Excel file.png](/cms_trial/assets/151fd47b-519a-45d0-9ae2-7237fc0da506.png)
-5. **Save the changes**:The macro will automatically display the first sheet name (`Employees`) and its columns. Click **Save** to enter setup mode.
+Add row and column styling, sorting, data filtering, row numbering, column totals, and more.
 
-   ![ATV_macro displays sheet name and columns.png](/cms_trial/assets/af083632-4200-40fe-9ccb-8aefc2a8fb49.png)
+[Learn more...](/cms_trial/space/TBL/74812542/Table+Plus+macro+-+Cloud/)
 
-#### 🔸 **Macro setup mode: Customize filters, grouping, and calculations**
+---
 
-1. **Enable and set column filter**: In the right panel, enable **Column filtering** (▢ ) and then enable **Column filters**.For the **Status** column, select the *dropdown* filter.
+### CSV (Comma Separated Values) macro
 
-   ![ATV_macro_Column filters.png](/cms_trial/assets/288532ec-a9c3-4384-8f4a-5155d5371040.png)
-2. **Enable Column Grouping:**  In the right panel, enable **Grouping**.
-3. **Group by Department**: Hover over the **Department** column header and click the grouping icon you see on the **Department** column header to group by this column.
+Import, format, and display CSV and other delimited data as a Confluence table.
 
-   ![ATV_grouping.png](/cms_trial/assets/f097ff66-f0f6-4120-8b30-2fd7ee9f4f44.png)
-4. **Configure group calculation:** In the **Salary ($)** column header, click **Edit Column** (▢ ) and select **Edit group calculation**.
+Enhance your table with row and column styling, sorting, data filtering, row numbering, column totals, and more.
 
-   ![ATV_Edit group calculation.png](/cms_trial/assets/6ed5c33e-92bd-455c-8111-23df7d49594d.png)
-5. **Select** **Sum-up type**: Select the **Sum** checkbox and click **Save**.
+[Learn more...](/cms_trial/space/TBL/74812384/CSV+(Comma+Separated+Values)+macro+-+Cloud/)
 
-   ![Edit group calculation_Sum.png](/cms_trial/assets/a3cec581-3883-4585-a20b-fcb19680d47f.png)
-6. **Save the macro**: The macro displays the Sum of salaries at each department level. To save the macro configuration, click **Save**.
+Try the **Advanced Table Viewer macro** for your CSV data. [Learn more](/cms_trial/space/TBL/2112356514/Advanced+Table+Viewer+for+your+CSV+data/).
 
-   ![ATV_Department column grouped.png](/cms_trial/assets/f5e03bf3-8b98-41a3-9622-f6ce74314505.png)
-7. **Publish**: Click **Publish (**or **Update)** to save the page.
+---
 
-   ![ATV_page view mode.png](/cms_trial/assets/0e6e5d3b-a540-49b2-8ac4-7c640a1100ff.png)
+### Attachment Table macro
 
-#### ✅ Outcome: Publish and analyze table data
+Display a table of page or space attachments based on selection criteria such as name, comments, and labels.
 
-Your Confluence page now features an interactive employee directory table where you can expand/collapse departments to view grouped salary totals and quickly filter records by employee status.
+Enhance your table with row and column styling, sorting, data filtering, row numbering, column totals, and more.
 
-Image — asset pipeline pending  
-Analyze table data in Confluence page.gif
+[Learn more...](/cms_trial/space/TBL/74812217/Attachment+Table+macro+-+Cloud/)
 
-## 📚 **What’s next?**
+---
 
-- To import Excel data using other data source types such as Attachment or URL, refer to [Configure Excel data source in Advanced Table Viewer macro](/cms_trial/space/TBL/3122888898/Configure+Excel+data+source+in+Advanced+Table+Viewer+macro/).
-- To analyze your table data using Atlassian Rovo, refer to [Analyze Advanced Table Viewer data with Atlassian Rovo](/cms_trial/space/TBL/3429499007/Analyze+Advanced+Table+Viewer+data+with+Atlassian+Rovo/).
-- To get onboarded quickly with other Advanced Tables for Confluence macros, [watch the quick-start videos](/cms_trial/space/TBL/74813990/Get+started+with+Advanced+Tables+for+Confluence+for+Cloud/).
+### JSON Table macro
+
+Import, format, and display JSON data as a Confluence table.
+
+Enhance your table with row and column styling, sorting, data filtering, row numbering, column totals, an option to select specific JSON fields, and more.
+
+[Learn more…](/cms_trial/space/TBL/74812316/JSON+Table+macro+-+Cloud/)
+
+---
+
+Advanced Tables for Confluence — Data Center documentation has moved to a dedicated space. Visit [Advanced Tables for Confluence - Data Center.](https://appfire.atlassian.net/wiki/spaces/atdc)
