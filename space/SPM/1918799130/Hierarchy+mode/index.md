@@ -198,7 +198,7 @@ You can switch between sorting and manual modes without losing the manual data o
 
 ### Display contextual reports
 
-You can enable or disable [contextual reports](https://appfire.atlassian.net/wiki/spaces/SPM/pages/2481848664).
+You can enable or disable [contextual reports](/cms_trial/space/SPM/2481848664/Contextual+reports/).
 
 ![Screenshot of contextual reports in the Overview module.](/cms_trial/assets/7bc5f901-578a-4b66-9777-e8ed4464453b.png)
 

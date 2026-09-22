@@ -40,7 +40,7 @@ Work items can be connected with [dependencies](/cms_trial/space/SPM/1918536086/
 - [Critical path](/cms_trial/space/SPM/1918833710/Critical+path+(Infobar)/)
 - [Change history](/cms_trial/space/SPM/1918503025/Change+history/)
 - [Bulk change](/cms_trial/space/SPM/1918506627/Bulk+change/)
-- [Reports](https://appfire.atlassian.net/wiki/spaces/SPM/pages/2481848664)
+- [Reports](/cms_trial/space/SPM/2481848664/Contextual+reports/)
 
 ### Resources panel
 
@@ -250,7 +250,7 @@ Work items can be connected with [dependencies](/cms_trial/space/SPM/1918536086/
 - [Critical path](/cms_trial/space/SPM/1918833710/Critical+path+(Infobar)/)
 - [Change history](/cms_trial/space/SPM/1918503025/Change+history/)
 - [Bulk change](/cms_trial/space/SPM/1918506627/Bulk+change/)
-- [Reports](https://appfire.atlassian.net/wiki/spaces/SPM/pages/2481848664)
+- [Reports](/cms_trial/space/SPM/2481848664/Contextual+reports/)
 
 ### Resource panel
 

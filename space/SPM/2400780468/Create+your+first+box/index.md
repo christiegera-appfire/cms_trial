@@ -55,7 +55,7 @@ See an interactive demo on how to create a new box in the Overview module.
 See more use cases related to creating a new box.
 
 - [Create a box with sample data](/cms_trial/space/SPM/2400616769/Use+case%3A+Create+a+box+with+sample+data/)
-- [Create a portfolio box](https://appfire.atlassian.net/wiki/spaces/SPM/pages/2400911420)
+- [Create a portfolio box](/cms_trial/space/SPM/2400911420/Use+case%3A+Create+a+portfolio+box/)
 - [Create a portfolio of portfolios](/cms_trial/space/SPM/2400682235/Use+case%3A+Create+a+portfolio+of+portfolios/)
 - [Create timeboxes based on Jira sprints](/cms_trial/space/SPM/2400289653/Use+case%3A+Create+timeboxes+based+on+Jira+sprints/)
 - [Add a timbox schedule to your project](/cms_trial/space/SPM/2398618919/Use+case%3A+Add+a+timbox+schedule+to+a+project/)

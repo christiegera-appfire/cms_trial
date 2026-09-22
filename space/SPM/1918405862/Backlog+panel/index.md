@@ -80,7 +80,7 @@ Double-click and complete the missing dates.
 
 ### Reports new view
 
-More information about reports: <https://appfire.atlassian.net/wiki/spaces/SPM/pages/2481848664>.
+More information about reports: [Contextual reports](/cms_trial/space/SPM/2481848664/Contextual+reports/).
 
 The Reports tab displays contextual reports you can show or hide by selecting or deselecting a report in the dropdown menu.
 
@@ -166,7 +166,7 @@ Double-click and complete the missing dates.
 
 ### Reports new view
 
-More information about reports: <https://appfire.atlassian.net/wiki/spaces/SPM/pages/2481848664>.
+More information about reports: [Contextual reports](/cms_trial/space/SPM/2481848664/Contextual+reports/).
 
 The Reports tab displays contextual reports you can show or hide by selecting or deselecting a report in the dropdown menu.
 

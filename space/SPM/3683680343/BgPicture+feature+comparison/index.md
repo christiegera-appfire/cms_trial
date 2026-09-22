@@ -20,7 +20,7 @@ The table on the [BigPicture Standard vs Advanced](/cms_trial/space/SPM/34516173
 | DashboardHub Pro | ✅ | ❌ |  |
 | 7pace Timetracker | ✅ | ❌ |  |
 | BigTemplate | ✅ | ✅ |  |
-| [Contextual reports](https://appfire.atlassian.net/wiki/spaces/SPM/pages/2481848664) | ✅ | ✅ | The **OKRs by Status** report is not available on DC. |
+| [Contextual reports](/cms_trial/space/SPM/2481848664/Contextual+reports/) | ✅ | ✅ | The **OKRs by Status** report is not available on DC. |
 
 ## Help and support
 

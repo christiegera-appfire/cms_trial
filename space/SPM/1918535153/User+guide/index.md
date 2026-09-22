@@ -83,4 +83,5 @@ If you want to learn more about configuring BigPicture, see the [Admin guide](/c
   - [Get started with Financials](/cms_trial/space/SPM/2269904975/Get+started+with+Financials/)
   - [Manage portfolio and initiative costs](/cms_trial/space/SPM/2269872316/Manage+portfolio+and+initiative+costs/)
   - [Advanced financial management](/cms_trial/space/SPM/2269708387/Advanced+financial+management/)
+  - [Financials module - use cases](/cms_trial/space/SPM/2475786745/Financials+module+-+use+cases/)
 - [Strategic Areas](/cms_trial/space/SPM/2325217590/Strategic+Areas/)
