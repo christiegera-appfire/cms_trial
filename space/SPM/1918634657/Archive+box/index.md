@@ -12,11 +12,13 @@ You can archive a box manually or have it automated. However, you cannot archive
 
 Box admins can manually archive a box in the Overview module.
 
-![Archive option in a box configuration](/cms_trial/assets/4474567f-3a47-436a-b95c-319832886442.png)
+Image — asset pipeline pending  
+Archive option in a box configuration
 
 A success message will appear after a [box is archived](/cms_trial/space/SPM/1918405770/Archived+boxes/):
 
-![Archivization confirmation message](/cms_trial/assets/c11c97fb-3e2e-44c1-8da0-ff5dc1c99efd.png)
+Image — asset pipeline pending  
+Archivization confirmation message
 
 Only the [**Own**](/cms_trial/space/SPM/1918766536/Scope+types/) [and](/cms_trial/space/SPM/1918766536/Scope+types/) [**None**](/cms_trial/space/SPM/1918766536/Scope+types/) [scope boxes](/cms_trial/space/SPM/1918766536/Scope+types/) can be manually archived/restored. Relevant sub-boxes are automatically archived with the parent—archiving the parent automatically archives all its children.
 
@@ -32,7 +34,8 @@ When enabled, the app will check if any user has used a given box or any of its 
 
 **Box auto-archiving** is enabled by default. Rules regarding the automatic archiving of boxes can be defined and changed in **App Configuration**> **Modules** >[**Overview**](/cms_trial/space/SPM/1918407114/Overview+(App+configuration)/).
 
-![App Configuration](/cms_trial/assets/247ee4c3-daf2-41c1-8461-1ae2a016ca4e.png)
+Image — asset pipeline pending  
+App Configuration
 
 #### Limitations
 
@@ -63,11 +66,13 @@ You can archive a box manually or have it automated. However, you cannot archive
 
 Box Admins can manually archive a box in the Overview module on the Main box level or while in the box they want to archive.
 
-![Archive option on the box options dropdown.](/cms_trial/assets/45687f93-7a8b-4343-b028-3463882ac02d.png)
+Image — asset pipeline pending  
+Archive option on the box options dropdown.
 
 A success message will appear after a [box is archived](/cms_trial/space/SPM/1918405770/Archived+boxes/).
 
-![Archivization confirmation message](/cms_trial/assets/c11c97fb-3e2e-44c1-8da0-ff5dc1c99efd.png)
+Image — asset pipeline pending  
+Archivization confirmation message
 
 Only the [**Own**](/cms_trial/space/SPM/1918766536/Scope+types/) [and](/cms_trial/space/SPM/1918766536/Scope+types/) [**None**](/cms_trial/space/SPM/1918766536/Scope+types/) [scope boxes](/cms_trial/space/SPM/1918766536/Scope+types/) can be manually archived/restored. Relevant sub-boxes are automatically archived with the parent—archiving the parent automatically archives all its children.
 
@@ -83,7 +88,8 @@ When enabled, the app checks whether any user has used a given box or any of its
 
 **Box auto-archiving** is enabled by default. Rules for automatic archiving of boxes can be defined and changed in **App Configuration** > **Modules** > [**Overview**](/cms_trial/space/SPM/1918407114/Overview+(App+configuration)/).
 
-![Box auto-archiving options.](/cms_trial/assets/858d5ebf-689f-4bdc-8d75-853ce7fa9a23.png)
+Image — asset pipeline pending  
+Box auto-archiving options.
 
 #### Limitations
 
