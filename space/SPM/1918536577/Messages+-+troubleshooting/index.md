@@ -6,7 +6,7 @@ Soft dependencies don’t have a scheduling impact.
 
 A strong dependency ensures that the starting point of a dependency is before the target point of a dependency.
 
-![contentId-1918536577](/cms_trial/assets/e6cbf5ec-8d5c-4bc4-a81c-fd296fd0ec70.png)
+![contentId-1918536577](/cms_trial/assets/835e49ce-9880-410f-9787-9891d9ee0b6c.png)
 
 Strong dependencies (solid line on a Gantt chart) connect tasks in the following ways:
 
@@ -36,7 +36,7 @@ A strong dependency makes it impossible to change the task dates in a way that w
 - Task can’t be moved in the Resources module
 - Task dates can’t be manually changed (editing a date of a Jira issue, Gantt module column, task details pop-up)
 
-![contentId-1918536577](/cms_trial/assets/e6cbf5ec-8d5c-4bc4-a81c-fd296fd0ec70.png)
+![contentId-1918536577](/cms_trial/assets/835e49ce-9880-410f-9787-9891d9ee0b6c.png)
 
 To see the dependencies, go to the Gantt module.
 
@@ -45,7 +45,7 @@ To see the dependencies, go to the Gantt module.
 - When dependencies are collapsed, you can click on a dependency dot to see the details.
 - When dependencies are expanded, you can see dependencies visualized as arrows connecting tasks.
 
-![contentId-1918536577](/cms_trial/assets/659a6f23-acc4-4963-9afb-26b52bccc714.mov)
+![contentId-1918536577](/cms_trial/assets/973a520b-d3fa-4ed8-93b2-560feb298649.mov)
 
 Solutions:
 
@@ -54,7 +54,7 @@ Solutions:
 - change the dependency type to ‘soft’ - soft dependencies don’t have a scheduling impact. They can be used to indicate a connection between tasks.
 - remove the dependency.
 
-![contentId-1918536577](/cms_trial/assets/f46b2c93-6035-45ac-bc09-5f47c0cc3d68.mov)
+![contentId-1918536577](/cms_trial/assets/5450f53c-da29-4ff1-a0d6-ea43b3889ef2.mov)
 
 ### Dates adjusted by a dependency
 
@@ -66,13 +66,13 @@ In the example below:
 - Scheduling mode of the target task was manual (dependency didn’t apply).
 - Scheduling mode of a task changed to auto bottom-up - dependency is applied. The task is moved.
 
-![contentId-1918536577](/cms_trial/assets/438aa0c2-eb05-475d-b5e4-be312f2f7d59.mov)
+![contentId-1918536577](/cms_trial/assets/3d4c0c57-1588-4ceb-a34f-03b0df243af4.mov)
 
 The dates of this task are determined by the dependency linking it to another task.
 
 When a target task doesn’t have start/end date, it is not on the timeline. Once a task is positioned on the timeline, dependency rules apply.
 
-![contentId-1918536577](/cms_trial/assets/6160bbf5-8714-4766-bdbb-fa190708ff89.mov)
+![contentId-1918536577](/cms_trial/assets/03f8f31c-f83e-49df-9866-b8612768bbd0.mov)
 
 ## Scheduling mode
 
@@ -84,11 +84,11 @@ The dates of this task depend on the dates of its parent, which is set to auto t
 
 When a task is in the ‘auto top-down’ scheduling mode, it adjusts its period to fit under the parent task.
 
-![contentId-1918536577](/cms_trial/assets/18b0a200-1309-4915-8336-f59155a769a4.png)
+![contentId-1918536577](/cms_trial/assets/94832d87-a647-42d5-9598-0475b15d738d.png)
 
 Parent-child relationships can be viewed in the Gantt module - task tree shows how tasks are nested.
 
-![contentId-1918536577](/cms_trial/assets/6583a454-489b-4f1c-91a2-c7f323ca7c09.mov)
+![contentId-1918536577](/cms_trial/assets/02d521e5-e015-472f-a744-79a37c718bc4.mov)
 
 Solutions:
 
@@ -100,7 +100,7 @@ Solutions:
   - of a child to ‘auto basic’ - a task responds only to dependencies and non-working days. Period and position of the parent are ignored.
 - change how tasks are nested in the tree
 
-![contentId-1918536577](/cms_trial/assets/47247546-f050-427d-8d9d-84da37601231.mov)
+![contentId-1918536577](/cms_trial/assets/f41399c2-d7a8-452c-a58d-0936a9030b08.mov)
 
 #### **Locked parent**
 
@@ -108,7 +108,7 @@ The dates of this task depend on the dates of its parent, which is set to Locked
 
 When a task is in a ‘locked’ scheduling mode, its period cannot be changed (can’t be repositioned on a timeline, dates can’t be manually changed). A child in an ‘auto top-down' scheduling mode adjusts its period to fit under a parent.
 
-![contentId-1918536577](/cms_trial/assets/3b7905f7-1870-4290-b3e1-ea5373fc038d.mov)
+![contentId-1918536577](/cms_trial/assets/db7cc56a-2caf-4fc4-8c30-98f3e822d5fe.mov)
 
 Solutions:
 
@@ -124,7 +124,7 @@ A task has a start/end date - start/end cannot be modified (the task can’t be 
 
 A task doesn’t have a start/end date - start/end date can’t be entered.
 
-![contentId-1918536577](/cms_trial/assets/fe7186fb-d15f-40bd-baaf-4759eb34847c.png)
+![contentId-1918536577](/cms_trial/assets/145461ee-4efd-4a81-8dc5-f62a67db1485.png)
 
 Solution:
 
@@ -138,7 +138,7 @@ The period of an auto bottom-up task is based on the periods of its children.
 
 When children don’t have a start/end date, the parent task doesn’t have dates.
 
-![contentId-1918536577](/cms_trial/assets/6ed2f7a1-b9e3-41e7-a0d3-c53bdd519c4e.mov)
+![contentId-1918536577](/cms_trial/assets/2a7e9471-64e9-4c58-9b82-87cf519b6bad.mov)
 
 Solution:
 
@@ -153,17 +153,17 @@ The dates of this task depend on the dates of its parent, which is set to Auto t
 
 Parent task dates are changed. The child task adjusts its period to fit the parent.
 
-![contentId-1918536577](/cms_trial/assets/03cb3f96-2368-414a-9004-ba30df645b5d.mov)
+![contentId-1918536577](/cms_trial/assets/ff5393b2-7b25-44d9-bd0c-e9fe4065f163.mov)
 
 The child didn’t have dates. Once the child is placed on a timeline, it adjusts to fit the parent.
 
-![contentId-1918536577](/cms_trial/assets/25801d30-cff9-40e3-a335-ee5a9fe03caf.mov)
+![contentId-1918536577](/cms_trial/assets/caf8f8a4-2323-47c7-86f4-4682a7f564ae.mov)
 
 **Locked parent**
 
 The dates of this task depend on the dates of its parent, which is set to Locked scheduling mode.
 
-![contentId-1918536577](/cms_trial/assets/280ea886-5000-4f21-89a2-2c0771a1fd6b.mov)
+![contentId-1918536577](/cms_trial/assets/3d7dce3d-c347-4284-8acf-9edf2c23e167.mov)
 
 ### Dates adjusted by subtasks
 
@@ -171,11 +171,11 @@ The dates of this task depend on the dates of its parent, which is set to Locked
 
 This task is set to the auto bottom-up scheduling mode, so its dates depend on the dates of its subtasks.
 
-![image-20241008-073017.png](/cms_trial/assets/cb893551-8db4-4cb0-87f2-316c22db9e35.png)
+![image-20241008-073017.png](/cms_trial/assets/d17e8817-e774-4cca-a6c8-635f1af3780d.png)
 
 See the video:
 
-![2024-10-08_09-21-47.mp4](/cms_trial/assets/1a0113ce-960a-4b2b-b0c1-bc8c7488c1c9.mp4)
+![2024-10-08_09-21-47.mp4](/cms_trial/assets/2951d59e-6fb5-47e8-a13d-eda0005a2cac.mp4)
 
 ## Field mapping
 
@@ -213,7 +213,7 @@ Make sure users have access to the App and Boxes as needed. Verify the [security
 
 Users must be added to BigPicture ([Administration > Security](https://appfire.atlassian.net/wiki/spaces/DLP/pages/298287400)) if not granted access to the app.
 
-![contentId-1918536577](/cms_trial/assets/251555ae-fae5-464a-8f25-52b99674ca51.png)
+![contentId-1918536577](/cms_trial/assets/10eea294-fcdb-45f5-89cb-80b41b30e40b.png)
 
 #### No Box access
 
@@ -226,7 +226,7 @@ The app will try to suggest to a user to create a "perfect match" Box:
 
 ### No permissions to create a Matching Box
 
-![contentId-1918536577](/cms_trial/assets/cff921ff-90cd-48d3-9c81-98ba34acdc66.png)
+![contentId-1918536577](/cms_trial/assets/2a001827-d1fc-4cb7-a6b4-bbf73810a437.png)
 
 You can't create a Box, because of App security settings.
 
@@ -237,21 +237,17 @@ In order to create a Box you need to:
 
 ## License invalid
 
-![image (10).png](/cms_trial/assets/b6e8a4e0-af2c-4616-bf47-88882430b2d4.png)
+![image (10).png](/cms_trial/assets/64425900-928f-46c8-b9ef-e9abe297ca9f.png)
 
 **Standard Atlassian licensing guidelines apply (**[**read more**](https://www.atlassian.com/licensing/purchase-licensing#licensing)**).**
 
 We don't sell licenses directly. All purchases must be made through the Atlassian marketplace.
 
-### BigPicture Enterprise
-
-BigPicture Enterprise is **NOT** a stand-alone product (BigPicture required).
-
 ## BigPicture loading crashed
 
 If you see the following screen, it means that the plugin failed to load:
 
-![contentId-1918536577](/cms_trial/assets/425d9cdb-c5c6-4703-b973-d02d1b77cd80.png)
+![contentId-1918536577](/cms_trial/assets/3a8fd7c2-6a44-4327-8ef3-5b81bfcf1150.png)
 
 It might occur in the following few situations.
 

@@ -1,8 +1,8 @@
 # New navigation - rollout plan
 
-We will soon start rolling out the new navigation in BigPicture and BigPicture Enterprise. This page will guide you through the different stages of the rollout, present the timeline, and provide a detailed FAQ to answer the most common questions.
+We will soon start rolling out the new navigation in BigPicture and BigPicture Advanced. This page will guide you through the different stages of the rollout, present the timeline, and provide a detailed FAQ to answer the most common questions.
 
-## Rollout phases for BigPicture and BigPicture Enterprise Cloud
+## Rollout phases for BigPicture and BigPicture Advanced Cloud
 
 To help you understand what to expect, we’ve broken down the rollout into clear phases, each highlighting the key steps and changes along the way.
 
@@ -19,7 +19,7 @@ To help you understand what to expect, we’ve broken down the rollout into clea
 
 After you switch to the new navigation, you’ll see a four-step onboarding process. It walks you through the key changes in the new navigation.
 
-![image-20260129-083119.png](/cms_trial/assets/f2dd608c-7fc3-49d7-ae54-a0d55aca07ea.png)
+![image-20260129-083119.png](/cms_trial/assets/f3ca150d-cee9-43e9-af35-dbed65188875.png)
 
 ## Rollout FAQ
 
@@ -43,4 +43,4 @@ The new navigation will be available only on Cloud.
 
 We’d love to hear from you. Click the **Feedback** button available in all modules and share your thoughts. Alternatively, you can create a [Support](https://appfire.atlassian.net/servicedesk/customer/portal/11) ticket to submit your feedback.
 
-![image-20260206-120801.png](/cms_trial/assets/53db8d1f-2eda-4325-affc-a2035ba68b25.png)
+![image-20260206-120801.png](/cms_trial/assets/13e6c466-43c3-4a17-9006-4fbc7932208e.png)

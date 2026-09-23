@@ -16,9 +16,9 @@ We recommend installing the app using Atlassian's Universal Plugin Manager, whic
 
 You must be logged in as a Jira admin to install the app - go to Jira Administration → Manage apps → Find new apps; and search for "BigPicture.”
 
-![contentId-1918797213](/cms_trial/assets/7ba18560-a33a-4263-996a-6918a20078b6.png)
+![contentId-1918797213](/cms_trial/assets/a8649637-2d9d-4f9a-a2ef-668ca65afa7a.png)
 
-Are you curious about BigPicture Enterprise? Click [here](https://appfire.atlassian.net/wiki/spaces/DOCUMENTATION/pages/275648486) to learn more about it!
+Are you curious about BigPicture Advanced? Click [here](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/) to learn more about it!
 
 ## Manual installation
 
@@ -26,7 +26,7 @@ If your instance is not connected to the Internet, or you want to test a specifi
 
 The only thing left is to upload the file to Jira. This can be done in Jira Administration → Manage apps → Manage apps. Select "Upload app" on the right-hand side.
 
-![contentId-1918797213](/cms_trial/assets/35c51b3d-fd75-44f3-8b8f-89bba137904a.png)![contentId-1918797213](/cms_trial/assets/95ec2258-a87a-4ca6-89a2-74b910a959aa.png)![contentId-1918797213](/cms_trial/assets/3b8716ea-8f5b-4638-bd80-27ff86067a8d.png)
+![contentId-1918797213](/cms_trial/assets/7cde8436-6e72-4734-9452-a37083270dc0.png)![contentId-1918797213](/cms_trial/assets/f7e5b6c7-aaec-4d85-9544-fd8c3b21d92f.png)![contentId-1918797213](/cms_trial/assets/92d5d83d-2c48-450d-9dcb-67eb41a67dfe.png)
 
 Important: Note that some problems may occur with upgrading your tasks after an update between two app versions, e.g., 8.0.2 → 8.3.0. To ensure all of your functions are updated correctly, upload the intermediate versions and refresh the **Home page**.
 
@@ -37,15 +37,15 @@ Important: Note that some problems may occur with upgrading your tasks after an 
 3. Download BigPicture version 8.1.12 from the [Marketplace](https://marketplace.atlassian.com/apps/1213016/biggantt-gantt-chart-for-jira?tab=overview&hosting=server), install it and proceed with any required steps to activate the app (such as upgrading the app database schema after opening it - go to the **Home** directory). If BigPicture works correctly in this version, please proceed to the next step. If there are any errors, please let us know about them and provide a new [Jira Support zip file](https://appfire.atlassian.net/wiki/spaces/DLP/pages/296981153).
 4. Check if the app works properly in version 8.1.12 - if yes, please perform the upgrade to the newest version from *Jira Administration > Manage apps*. If there are any errors, please provide a new Jira Support zip file.
 
-![contentId-1918797213](/cms_trial/assets/2b92f973-9eea-45b5-aef2-21db2e0cc435.png)
+![contentId-1918797213](/cms_trial/assets/f69abccb-9aea-4bce-87f4-26a203ea64ee.png)
 
 ## BigPicture updates
 
-From the 8.39.0 version, BigPicture is compatible with **Jira 10**. For more information, see the [Plugin compatibility](https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=DLP&title=Plugin%20Compatibility.) page.
+From version 8.39.0, BigPicture is compatible with **Jira 10**. For more information, see the [Plugin compatibility](https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=DLP&title=Plugin%20Compatibility.) page.
 
 ## Jira Cloud
 
-BigPicture is always automatically updated to the latest version on Jira Cloud.
+BigPicture automatically updates to the latest version on Jira Cloud.
 
 ## Jira Data Center
 
@@ -70,10 +70,10 @@ Once you have backups ready, you need to check what BigPicture version you have 
 
 1. Go to **BigPicture** > **Get help icon** > **About App**.
 
-   ![image-20241011-104720.png](/cms_trial/assets/6689da6b-b61d-4fa0-93bf-51a98e7e7851.png)
+   ![image-20241011-104720.png](/cms_trial/assets/0a50ef39-2af7-4af6-826d-c2bb3389fae6.png)
 2. The version is displayed.
 
-   ![image-20241011-104950.png](/cms_trial/assets/5ac77ce2-cea9-4182-95f4-d1dc9fd17cab.png)
+   ![image-20241011-104950.png](/cms_trial/assets/23eed705-c302-419b-9033-c4c9873fb90b.png)
 
 **Method 2:**
 
@@ -81,10 +81,10 @@ Once you have backups ready, you need to check what BigPicture version you have 
 2. Select **Manage apps** on the left.
 3. Locate BigPicture.
 
-   ![image-20241017-072716.png](/cms_trial/assets/336ab9a2-327a-415f-b2fb-6d7153ec4817.png)
+   ![image-20241017-072716.png](/cms_trial/assets/1c7b04a4-e596-45d0-8d79-b238c0b5695f.png)
 4. Expand the drop-down menu to see which BigPicture version is installed.
 
-   ![image-20241011-104254.png](/cms_trial/assets/2e99e9cd-ac4d-4753-b13e-a52ec92b640c.png)
+   ![image-20241011-104254.png](/cms_trial/assets/c1d0ae51-da01-48a2-baa0-0085c7b800e1.png)
 
 Depending on your version, follow the appropriate path described below.
 
@@ -123,17 +123,17 @@ We recommend migrating BigPicture before migrating Jira to Jira 9 or 10.
 2. Find BigPicture version 8.1.12.
 3. Expand the drop-down and click **Download**.
 
-   ![image-20241009-075016.png](/cms_trial/assets/e0340e73-f5cc-4828-b82e-2b2303060307.png)
+   ![image-20241009-075016.png](/cms_trial/assets/cdcc1100-9e96-4f1a-9c6c-813f03e7d1a1.png)
 4. When the file is downloaded, you need to upload it to Jira.
 5. Go to **Jira Administration** > **Manage apps**.
 6. Select **Manage apps** on the left.
 7. Click the **Upload app** button.   
    If you can’t see the **Upload app** button, you must enable it manually. For instructions, refer to the [How to re-enable plugin upload in Jira Data Center](https://confluence.atlassian.com/jirakb/how-to-re-enable-plugin-upload-in-jira-data-center-1364557898.html) article.
 
-   ![image-20241017-085011.png](/cms_trial/assets/de3b54dd-56ae-4c21-8d9b-36f14cbc172b.png)
+   ![image-20241017-085011.png](/cms_trial/assets/c834293b-68fa-438e-bc6e-d4dc9abf1a77.png)
 8. Choose a file and click **Upload**.
 
-   ![image-20241017-084852.png](/cms_trial/assets/9b50b8b9-0696-4a10-adc9-4f18c2bb5c77.png)
+   ![image-20241017-084852.png](/cms_trial/assets/e1ec11c8-9f6e-4e9c-9096-4050128bc417.png)
 9. After the update is complete, go to BigPicture.
 10. Perform a [database schema upgrade](https://appfire.atlassian.net/wiki/spaces/DLP/pages/300122393).
 11. In case of any problems, contact our [Support](https://appfire.atlassian.net/servicedesk/customer/portal/11).
@@ -154,7 +154,7 @@ To update BigPicture version 8.1.12 or higher to the latest version:
 2. Select **Manage apps** on the left.
 3. Locate BigPicture.
 
-   ![image-20241017-072716.png](/cms_trial/assets/336ab9a2-327a-415f-b2fb-6d7153ec4817.png)
+   ![image-20241017-072716.png](/cms_trial/assets/1c7b04a4-e596-45d0-8d79-b238c0b5695f.png)
 4. Click the **Update** button next to BigPicture.
 5. This will download and apply the latest version of the app. When finished, a success message appears.
 6. After the update is complete, go to BigPicture.
@@ -170,17 +170,17 @@ To update BigPicture version 8.1.12 or higher to the highest version compatible 
 3. Make sure the BigPicture version is compatible with your current Jira version.
 4. Expand the drop-down and click **Download** next to that version.
 
-   ![image-20241008-124404.png](/cms_trial/assets/350e9bb3-5ed7-485b-bac4-e2a642f3a742.png)
+   ![image-20241008-124404.png](/cms_trial/assets/93c449fd-0301-436e-ab21-a67c625efd35.png)
 5. When the file is downloaded, you need to upload it to Jira.
 6. Go to **Jira Administration** > **Manage apps**.
 7. Select **Manage apps** on the left.
 8. Click the **Upload app** button.   
    If you can’t see the **Upload app** button, you must enable it manually. For instructions, refer to the [How to re-enable plugin upload in Jira Data Center](https://confluence.atlassian.com/jirakb/how-to-re-enable-plugin-upload-in-jira-data-center-1364557898.html) article.
 
-   ![image-20241017-085011.png](/cms_trial/assets/de3b54dd-56ae-4c21-8d9b-36f14cbc172b.png)
+   ![image-20241017-085011.png](/cms_trial/assets/c834293b-68fa-438e-bc6e-d4dc9abf1a77.png)
 9. Choose a file and click **Upload**.
 
-   ![image-20241017-084852.png](/cms_trial/assets/9b50b8b9-0696-4a10-adc9-4f18c2bb5c77.png)
+   ![image-20241017-084852.png](/cms_trial/assets/e1ec11c8-9f6e-4e9c-9096-4050128bc417.png)
 10. After the update is complete, go to BigPicture.
 11. Perform a [database schema upgrade](https://appfire.atlassian.net/wiki/spaces/DLP/pages/300122393).
 12. In case of any problems, contact our [Support](https://appfire.atlassian.net/servicedesk/customer/portal/11).

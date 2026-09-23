@@ -1,5 +1,7 @@
 # OKR for Jira vs. BigPicture's OKR module
 
+## Internal page - access restricted to Appfire only
+
 On this page, you’ll find a detailed comparison between the standalone [OKR for Jira](https://marketplace.atlassian.com/apps/1221776/okr-for-jira?tab=overview&hosting=cloud) application and the [OKR module](/cms_trial/space/SPM/1918535397/OKR+module/) within BigPicture Advanced. The table presents the key elements, such as navigation, context, visibility settings, permissions, and feature parity.
 
 | **Compared element** | **OKR for Jira (standalone)** | **OKR module in BigPicture Advanced** |

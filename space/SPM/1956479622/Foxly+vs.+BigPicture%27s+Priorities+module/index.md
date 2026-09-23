@@ -1,5 +1,7 @@
 # Foxly vs. BigPicture's Priorities module
 
+## Internal page - access restricted to Appfire only
+
 On this page, you’ll find a detailed comparison between the standalone [Foxly](https://marketplace.atlassian.com/apps/1222824/foxly-requirements-backlog-prioritization-planning-poker?hosting=cloud&tab=overview) app and the [Priorities module](/cms_trial/space/SPM/1918829653/Priorities+module/) within BigPicture Advanced. The table presents the key elements, such as navigation, context, visibility settings, permissions, and feature parity.
 
 | **Compared element** | **Foxly (standalone)** | **Priorities module in BigPicture Advanced** |

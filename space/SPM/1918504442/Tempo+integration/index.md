@@ -8,7 +8,7 @@ To synchronize with Tempo Apps, make sure to have one of the following installed
 
 ## What features can be synchronized?
 
-The "Synchronize with Tempo" buttons trigger the synchronization between BigPicture Enterprise and the Tempo plugin of your choice.
+The "Synchronize with Tempo" buttons trigger the synchronization between BigPicture Advanced and the Tempo plugin of your choice.
 
 It is important to bear in mind that a user 'triggers' the synch-up - the synchronization between our plugin and Tempo plugins can be achieved only at the user’s request.
 
