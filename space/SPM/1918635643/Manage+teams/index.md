@@ -18,13 +18,11 @@ Depending on [resources configuration](/cms_trial/space/SPM/1918764262/Resource+
 
 You can use these fields in your JQL to create quick filters or a Jira board dedicated to a specific team.
 
-Image — asset pipeline pending  
-Screenshot of the Team code field in the Teams module.
+![Screenshot of the Team code field in the Teams module.](/cms_trial/assets/36002200-1629-4be4-a5e7-ce9728d86382.png)
 
 Team codes are usually displayed next to the team name. For example, when you switch to the **Team** **view** in the Resources module, the team code is displayed next to each team name and in the task details dialog.
 
-Image — asset pipeline pending  
-Screenshot of the team code label in the Resources module.
+![Screenshot of the team code label in the Resources module.](/cms_trial/assets/6e51f56e-f7d6-4f87-a4d6-bb10f16b838b.png)
 
 ### Labels
 
@@ -32,8 +30,7 @@ Labels are very convenient but prone to typos. BigPicture can automatically gene
 
 For example, Team Saphire uses the "SAPH" team code. The team label is added when you assign the team to a task.
 
-Image — asset pipeline pending  
-Screenshot of a Jira issue page with the team label field.
+![Screenshot of a Jira issue page with the team label field.](/cms_trial/assets/80d63e38-3a47-475b-a730-511eb8c7ba3c.png)
 
 ### Select list
 
@@ -41,8 +38,7 @@ Screenshot of a Jira issue page with the team label field.
 
 In the example below, the custom field labeled **Team code custom field** is populated with the Quality Assurance Team's code (QA).
 
-Image — asset pipeline pending  
-Screenshot of a Jira issue page with the Select list type field.
+![Screenshot of a Jira issue page with the Select list type field.](/cms_trial/assets/467bf31c-0a11-4f5b-8406-c680981c153d.png)
 
 ### Team board link
 
@@ -52,8 +48,7 @@ Use the **board link** to specify which Jira boards your teams use. This way, Bi
 
 To learn more about synchronization, see the [the Work items from Jira](https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=spm&title=Work%20items%20for%20Jira%20elements%20and%20actions&linkCreation=true&fromPageId=1918635643).
 
-Image — asset pipeline pending  
-Screenshot of the Board name column in the Teams module.
+![Screenshot of the Board name column in the Teams module.](/cms_trial/assets/0add4d6b-bbae-499b-b29a-eecf124405a9.png)
 
 #### Add Jira board link
 
@@ -64,12 +59,10 @@ To add a Jira board link to a selected team:
 3. Go to the **Details** tab.
 4. Select a Jira board from the drop-down menu. The drop-down shows a list of previously created [Jira Scrum boards](https://support.atlassian.com/jira-software-cloud/docs/create-a-board/).
 
-   Image — asset pipeline pending  
-   Screenshot of all Jira boards.
+   ![Screenshot of all Jira boards.](/cms_trial/assets/f3d15a3f-0532-4892-9860-bee191d233d8.png)
 5. Click **Save**.
 
-   Image — asset pipeline pending  
-   Screenshot of adding a Jira board to a selected team in the Teams module.
+   ![Screenshot of adding a Jira board to a selected team in the Teams module.](/cms_trial/assets/d8ebd803-baee-435b-82c7-81c2dc950a1a.png)
 
 ## Manage teams (new navigation)
 
@@ -89,8 +82,7 @@ Depending on [resources configuration](/cms_trial/space/SPM/1918764262/Resource+
 
 You can use these fields in your JQL to create quick filters or a Jira board dedicated to a specific team.
 
-Image — asset pipeline pending  
-teams-code-color.png
+![teams-code-color.png](/cms_trial/assets/222871b7-0a92-4e11-a8f1-45e153385395.png)
 
 Team codes are usually displayed next to the team name. For example, when you switch to the **Team** **view** in the Resources module, the team code is displayed next to each team name and in the task details dialog.
 
@@ -100,8 +92,7 @@ Labels are very convenient but prone to typos. BigPicture can automatically gene
 
 For example, Team Saphire uses the "SAPH" team code. The team label is added when you assign the team to a task.
 
-Image — asset pipeline pending  
-Screenshot of a Jira issue page with the team label field.
+![Screenshot of a Jira issue page with the team label field.](/cms_trial/assets/80d63e38-3a47-475b-a730-511eb8c7ba3c.png)
 
 ### Select list
 
@@ -109,8 +100,7 @@ Screenshot of a Jira issue page with the team label field.
 
 In the example below, the custom field labeled **Team code custom field** is populated with the Quality Assurance Team's code (QA).
 
-Image — asset pipeline pending  
-Screenshot of a Jira issue page with the Select list type field.
+![Screenshot of a Jira issue page with the Select list type field.](/cms_trial/assets/467bf31c-0a11-4f5b-8406-c680981c153d.png)
 
 ### Team board link
 
@@ -120,8 +110,7 @@ Use the **board link** to specify which Jira boards your teams use. This way, Bi
 
 To learn more about synchronization, see the [the Work items from Jira](https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=spm&title=Work%20items%20for%20Jira%20elements%20and%20actions&linkCreation=true&fromPageId=1918635643).
 
-Image — asset pipeline pending  
-teams-board.png
+![teams-board.png](/cms_trial/assets/1f6e28e4-0b83-4711-8181-842cc34fc146.png)
 
 #### Add Jira board link
 
@@ -132,6 +121,5 @@ To add a Jira board link to a selected team:
 3. Go to the **Details** tab.
 4. Select a Jira board from the drop-down menu. The drop-down shows a list of previously created [Jira Scrum boards](https://support.atlassian.com/jira-software-cloud/docs/create-a-board/).
 
-   Image — asset pipeline pending  
-   Screenshot of all Jira boards.
+   ![Screenshot of all Jira boards.](/cms_trial/assets/f3d15a3f-0532-4892-9860-bee191d233d8.png)
 5. Click **Save**.

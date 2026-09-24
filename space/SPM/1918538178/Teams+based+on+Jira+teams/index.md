@@ -11,8 +11,7 @@ In the Teams module:
 1. Go to **App Configuration** > **Integrations**
 2. Navigate to the **Jira Teams** tab
 
-   Image — asset pipeline pending  
-   The app configuration page.
+   ![The app configuration page.](/cms_trial/assets/595bf3aa-0b47-458c-be19-3d37cd5af174.png)
 3. Generate an API token and add it to the app:
 
    1. Log in to [Atlassian account](https://id.atlassian.com/manage-profile/security/api-tokens).
@@ -25,29 +24,24 @@ In the Teams module:
    1. Open URL [https://admin.atlassian.com](https://nostromo11.atlassian.net/admin/users)
    2. If you have access to more than one Organization, select the one associated with your BigPicture instance
 
-      Image — asset pipeline pending  
-      Jira settings page.
+      ![Jira settings page.](/cms_trial/assets/2ff442ed-7621-4564-b676-30633ba3e8e9.png)
    3. The ID can be found in the URL  
       <https://admin.atlassian.com/o/>**my-organization-id-xxxxx-xxxxxxx-xxxxxx**/overview
 
-      Image — asset pipeline pending  
-      image-20250127-121738.png
+      ![image-20250127-121738.png](/cms_trial/assets/d4866451-e6a6-433e-b179-a76c1890dd05.png)
    4. Copy the ID from the URL and paste it into the required field
 
-      Image — asset pipeline pending  
-      fields where you can enter organization's ID.
+      ![fields where you can enter organization's ID.](/cms_trial/assets/159f87b8-bc48-43d4-8e6d-ab52b8044abc.png)
 5. Enter the email address
 6. Click **Save**
 
 You will see a confirmation message:
 
-Image — asset pipeline pending  
-Connection confirmation message.
+![Connection confirmation message.](/cms_trial/assets/9207d1c3-bda6-4e40-8b80-aca2f7742bf0.png)
 
 Organization ID is listed on the page:
 
-Image — asset pipeline pending  
-successful sync confirmed on the app configuration page.
+![successful sync confirmed on the app configuration page.](/cms_trial/assets/9c1a1112-fcac-4808-9caf-1f2932f18fca.png)
 
 ## Expiration of tokens
 
@@ -71,8 +65,7 @@ In the Teams module:
 1. Click the **+** button.
 2. Select **Create new team based on Jira team**
 
-   Image — asset pipeline pending  
-   Create new teams based on Jira team option in the app.
+   ![Create new teams based on Jira team option in the app.](/cms_trial/assets/a52af3d9-b2b5-4f03-8413-970143b35b6d.png)
 3. Select a Jira Cloud team and fill out the fields:
 
    1. **Jira cloud team** (required)
@@ -81,15 +74,13 @@ In the Teams module:
    4. Board (optional)
    5. **Start date of Team memberships** (required)
 
-Image — asset pipeline pending  
-Create new team based on Jira team screen.
+![Create new team based on Jira team screen.](/cms_trial/assets/83e96579-b894-459f-bdbf-b75a171c75a2.png)
 
 1. Click **Create**.
 
 **Result**: A new team appears on the list.
 
-Image — asset pipeline pending  
-New team based on Jira team listed in the Teams module.
+![New team based on Jira team listed in the Teams module.](/cms_trial/assets/4e30cc30-4a9d-453a-ac3e-ceaff8608e44.png)
 
 ### Memberships
 
@@ -105,13 +96,11 @@ New team based on Jira team listed in the Teams module.
 
 You can’t create multiple box teams based on the same Jira team:
 
-Image — asset pipeline pending  
-Error message.
+![Error message.](/cms_trial/assets/8942a07c-4b00-4da6-8816-9fa3fe775f12.png)
 
 **You can assign the same app team to multiple boxes.**
 
-Image — asset pipeline pending  
-How to create team based on Jira in multiple boxes.
+![How to create team based on Jira in multiple boxes.](/cms_trial/assets/e55d8605-7965-4e1e-9369-05480e50c556.mp4)
 
 ### Can I synchronize an existing app team with a Jira team?
 
@@ -144,8 +133,7 @@ In a Teams module of a box:
 1. Click **Synchronize**
 2. Select Synchronize with Jira Cloud Teams
 
-Image — asset pipeline pending  
-Synchronize with Jira Cloud Teams option.
+![Synchronize with Jira Cloud Teams option.](/cms_trial/assets/f116cafb-5583-4984-977d-264d509421f3.png)
 
 ### Local synchronization (per team)
 
@@ -153,8 +141,7 @@ If a team has been edited in the app, for example, team members have been added 
 
 A pencil icon appears to teams that are excluded from the global synchronization.
 
-Image — asset pipeline pending  
-Local sync of the teams based on Jira teams.
+![Local sync of the teams based on Jira teams.](/cms_trial/assets/9926d397-dc25-420d-bf07-0423cfcc1f55.png)
 
 **How to trigger a synchronization**
 
@@ -163,5 +150,4 @@ To synchronize such a team, click the **re-synchronize button**:
 - synchronization applies only to one team
 - changes made in the app are overwritten with Jira team information
 
-Image — asset pipeline pending  
-How to resynchronize teams.
+![How to resynchronize teams.](/cms_trial/assets/dfe77d1f-25cf-486c-96af-dae8c1c4ac7a.mov)

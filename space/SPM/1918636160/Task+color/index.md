@@ -12,13 +12,11 @@ The feature is available in the Gantt and Resources modules.
 
 Gantt module:
 
-Image — asset pipeline pending  
-Screenshot of the Task color settings in the Gantt module.
+![Screenshot of the Task color settings in the Gantt module.](/cms_trial/assets/f800cf73-c355-4a19-baea-0a541ee877fe.png)
 
 Resources module:
 
-Image — asset pipeline pending  
-Screenshot of the Resources module with the View drop-down menu expanded.
+![Screenshot of the Resources module with the View drop-down menu expanded.](/cms_trial/assets/5dd08981-eeda-4ae8-b797-1108c4b66a14.png)
 
 ## Status-based colors
 
@@ -32,8 +30,7 @@ By default, the following colors are assigned to task statuses:
 - Blue - In Progress
 - Green - Done
 
-Image — asset pipeline pending  
-Screenshot of the Gantt module with the status-based colors.
+![Screenshot of the Gantt module with the status-based colors.](/cms_trial/assets/85bbe253-30fd-4e6c-9f07-3e64433cdf74.png)
 
 ## Manual task colors
 
@@ -45,13 +42,11 @@ If you want manual colors to be visible on the timeline:
 2. Set task color to **Manual**.
 3. Right-click anywhere on the task (either in the task structure or the timeline - don't click on the task key) and pick a color from a pop-up menu.
 
-   Image — asset pipeline pending  
-   Screenshot of changing the task color on the Gantt chart.
+   ![Screenshot of changing the task color on the Gantt chart.](/cms_trial/assets/41c172ca-52f3-417d-90e8-9f1e5b346255.png)
 
 To change the color for multiple tasks, select all relevant tasks and use the **Editor slider** panel to make the change for all selected tasks.
 
-Image — asset pipeline pending  
-Screenshot of changing the color for multiple tasks on the Gantt chart.
+![Screenshot of changing the color for multiple tasks on the Gantt chart.](/cms_trial/assets/4447ce28-d36c-458a-8c80-9bce435624f9.png)
 
 ### Resources module
 
@@ -61,15 +56,13 @@ If you want manual colors to be visible on the grid, enable relevant settings.
 2. Under the **Task color** section, click **Manual**.
 3. Right-click on a task and pick a color from a pop-up menu.
 
-   Image — asset pipeline pending  
-   Screenshot of right-clicking on a task in the Resources module to change a task's color.
+   ![Screenshot of right-clicking on a task in the Resources module to change a task's color.](/cms_trial/assets/ff2b7b8a-b50e-4028-9da8-5d0adc607da8.png)
 
 ## Constraints
 
 View settings can override task color (in both status and manual modes). In particular, the **Overdue** and **Critical path** views require overriding the task color setup.
 
-Image — asset pipeline pending  
-Screenshot of overdue tasks in the Gantt module.
+![Screenshot of overdue tasks in the Gantt module.](/cms_trial/assets/d9a6fe61-7b0d-4760-ab0b-1298e9b69b56.png)
 
 ## Calendar module - heatmap
 
@@ -87,13 +80,11 @@ The feature is available in the Gantt and Resources modules.
 
 Gantt module:
 
-Image — asset pipeline pending  
-Colored tasks on the timeline in the Gantt module.
+![Colored tasks on the timeline in the Gantt module.](/cms_trial/assets/11c86f6c-111d-4b4c-8872-64cf7685f8c2.png)
 
 Resources module:
 
-Image — asset pipeline pending  
-Colored tasks in the Resources module.
+![Colored tasks in the Resources module.](/cms_trial/assets/d61aec88-78f1-4c40-b5ba-07435e35f8c6.png)
 
 ## Status-based colors
 
@@ -107,8 +98,7 @@ By default, the following colors are assigned to task statuses:
 - **Blue** (In Progress)
 - **Green** (Done)
 
-Image — asset pipeline pending  
-Manual task colors displayed in the Gantt module.
+![Manual task colors displayed in the Gantt module.](/cms_trial/assets/b9f922aa-ab46-4800-bcac-31b7b3f2b53a.png)
 
 ## Manual task colors
 
@@ -116,8 +106,7 @@ Task colors are set to status-based by default. If you change the task color to 
 
 If the **Task color** is set to **Status** and you change it to manual by right-clicking it or using the editor slider, a system dialog will appear for confirmation. Click **Set color to manual** to automatically switch the **Task color** setting to **Manual**.
 
-Image — asset pipeline pending  
-Set colors on the timeline to manual confirmation dialog.
+![Set colors on the timeline to manual confirmation dialog.](/cms_trial/assets/07c4dabb-380b-4d78-8c96-830f644584e7.png)
 
 ### Gantt module
 
@@ -126,13 +115,11 @@ First, enable manual task colors.
 1. Open a dropdown under **View** and go to **Tasks Labels** > **Task color**.
 2. Set task color to **Manual**.
 
-Image — asset pipeline pending  
-A dropdown with the Manual task color option.
+![A dropdown with the Manual task color option.](/cms_trial/assets/bfaef329-1e7b-4f5d-96d9-33decb8735db.png)
 
 Next, change the color of a task. Right-click the task or taskbar (anywhere but the task name and task key) and select a color from a color palette.
 
-Image — asset pipeline pending  
-Taskbar context menu.
+![Taskbar context menu.](/cms_trial/assets/10320e97-34c2-463c-a58c-50c88626ea99.png)
 
 Alternatively, click **More options** (**…**) on the [editor slider](/cms_trial/space/SPM/1918635307/Editor+slider/) and select a color.
 
@@ -145,20 +132,17 @@ First, enable manual task colors.
 1. Open a dropdown under **View** and go to **Task color**.
 2. Set task color to **Manual**.
 
-Image — asset pipeline pending  
-A dropdown with the Manual task color option.
+![A dropdown with the Manual task color option.](/cms_trial/assets/06738a51-3ca8-49bd-ab20-9306f7ece9e8.png)
 
 Next, change the color of a task. Right-click the taskbar and select a color from the task color context menu.
 
-Image — asset pipeline pending  
-Task color context menu.
+![Task color context menu.](/cms_trial/assets/d0dded8b-8520-4c89-bc8b-f430cd51f3ea.png)
 
 ## Constraints
 
 Task indicators can override task color (in both status and manual modes). In particular, the **Parent task conflicts**, **Overdue tasks**, and **Critical path** require overriding the task color setup.
 
-Image — asset pipeline pending  
-Task indicators in the Gantt module.
+![Task indicators in the Gantt module.](/cms_trial/assets/e6c5c0ac-6fb6-4f43-aba9-74ca44955a54.png)
 
 ## Color-coded heatmap
 

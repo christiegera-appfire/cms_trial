@@ -24,13 +24,11 @@ The tile colors indicate whether resources are over-allocated or under-allocated
 
 **Note**: yellow is **NOT** used to indicate approaching over-allocation.
 
-Image — asset pipeline pending  
-Individuals, projects, skills - utilization coloring.png
+![Individuals, projects, skills - utilization coloring.png](/cms_trial/assets/2524a8c2-ea84-4a6a-81ed-6132c06244a8.png)
 
 **Example**: if a person has been assigned 7.8h of workload and their capacity is 8h, the grid cell is green
 
-Image — asset pipeline pending  
-image-20240819-084728.png
+![image-20240819-084728.png](/cms_trial/assets/fef6d0df-0d1d-4235-aafc-02e8ab70c812.png)
 
 ### Teams
 
@@ -38,13 +36,11 @@ image-20240819-084728.png
 - **yellow** - 80 to 101% utilization
 - **red** - 101% or higher utilization
 
-Image — asset pipeline pending  
-Teams - utilization coloring.png
+![Teams - utilization coloring.png](/cms_trial/assets/3dbc0436-a68b-49fd-9446-4f2b55d3c52d.png)
 
 **Example**:
 
-Image — asset pipeline pending  
-image-20240819-085900.png
+![image-20240819-085900.png](/cms_trial/assets/7276ef10-06da-4370-9c12-2214ce9ee5b0.png)
 
 ## Grouping
 
