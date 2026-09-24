@@ -21,8 +21,7 @@ You can find column views in the modules and features that support tree data str
 - App widget
 - WBS widget
 
-Image — asset pipeline pending  
-Column view in the Scope module.
+![Column view in the Scope module.](/cms_trial/assets/df160c5c-0099-4fa7-b0a7-952954e98d1a.png)
 
 ## Source of data in column views
 
@@ -36,15 +35,13 @@ Only Jira/App Admins and Box Editors can configure and save column views.
 
 Column views for the Overview, Scope, and Gantt modules can be configured on the individual box and the box type [configuration pages](/cms_trial/space/SPM/1918503715/Manage+column+views/).
 
-Image — asset pipeline pending  
-Box configuration page.
+![Box configuration page.](/cms_trial/assets/af5d112d-367a-4da3-ba0c-d873fcce6db6.png)
 
 ### Module, gadget, and widget pages
 
 You can also [customize the column view](/cms_trial/space/SPM/1918504788/Customize+column+views/) directly on the view while in the selected module, gadget, or widget. Save your changes as a new view, so that you can switch to that view again when you need it. Note that you cannot save changes in the column view in the Board module, Risks module, and Gantt gadget.
 
-Image — asset pipeline pending  
-Column view switcher i nthe Scope module.
+![Column view switcher i nthe Scope module.](/cms_trial/assets/354681a1-0a8a-4146-ab50-236609b18709.png)
 
 ## Column views (new navigation)
 
@@ -67,8 +64,7 @@ You can find column views in the modules and features that support a tree data s
 - App widget
 - WBS widget
 
-Image — asset pipeline pending  
-Screenshot of the column view in the Scope module.
+![Screenshot of the column view in the Scope module.](/cms_trial/assets/7ff52096-7348-4ca2-9e72-5c22172b73b0.png)
 
 ## Source of data in column views
 
@@ -82,12 +78,10 @@ Only Jira/App Admins and Box Editors can configure and save column views.
 
 Column views for the Overview, Scope, and Gantt modules can be configured on the individual box and the box type [configuration pages](/cms_trial/space/SPM/1918503715/Manage+column+views/).
 
-Image — asset pipeline pending  
-Screenshot of the Column views page in the box configuration.
+![Screenshot of the Column views page in the box configuration. ](/cms_trial/assets/0deb5641-d76e-4287-87f4-5191edbc6e41.png)
 
 ### Module, gadget, and widget pages
 
 You can also [customize the column view](/cms_trial/space/SPM/1918504788/Customize+column+views/) directly on the view while in the selected module, gadget, or widget. Save your changes as a new view so you can switch to it again when you need it. Note that you cannot save changes in the column view in the Board module, Risks module, and Gantt gadget.
 
-Image — asset pipeline pending  
-Screenshot of the saved column views in the Scope module.
+![Screenshot of the saved column views in the Scope module.](/cms_trial/assets/506f6bad-93f7-4c4f-b8bc-15ce35051d62.png)

@@ -65,6 +65,7 @@ If you want to learn more about configuring BigPicture, see the [Admin guide](/c
   - [Priorities](/cms_trial/space/SPM/1918504313/Priorities/)
 - [Reporting and coordinating work](/cms_trial/space/SPM/1918797353/Reporting+and+coordinating+work/)
   - [Reports module - available reports](/cms_trial/space/SPM/1918831317/Reports+module+-+available+reports/)
+  - [In-module reports](/cms_trial/space/SPM/2481946817/In-module+reports/)
   - [Gadgets](/cms_trial/space/SPM/1918830223/Gadgets/)
   - [Share view](/cms_trial/space/SPM/1918504353/Share+view/)
 - [Automations](/cms_trial/space/SPM/1918535176/Automations/)

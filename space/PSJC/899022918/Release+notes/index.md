@@ -14,6 +14,7 @@ Cloud deployments of Power Scripts automatically update to the latest version, e
 |  |  |  |
 | --- | --- | --- |
 | **Title** | **Release date** | **Highlights** |
+| [7.2.2 Release notes](https://support.appfire.com/space/PSJC/3692265482/7.2.2+Release+notes) | September 23, 2026 | - Bug fixes:    - Fixed Power Scripts execution container.   - Fixed a JCMA migration issue. |
 | [7.2.0 Release notes](https://support.appfire.com/space/PSJC/3623583758/7.2.0+Release+notes) | September 7, 2026 | - Bug fixes:    - Fixed the `hasLinkType` JQL keyword update.   - Fixed issue link listener triggers.   - Fixed the SIL Manager download context menu.   - Fixed Self Help Upload/Restore.   - Fixed the Live Fields license check.   - Fixed errors opening post functions and action links in new tabs. |
 | [7.1.0 Release notes](https://support.appfire.com/space/PSJC/3553690702/7.1.0+Release+notes) | August 11, 2026 | - Bug fix:    - Fixed unavailable workflow validations after an update. |
 | [7.0.0 Release notes](https://support.appfire.com/space/PSJC/3530293356/7.0.0+Release+notes) | August 10, 2026 | - Bug fix:    - Removed an incorrect license warning. |
