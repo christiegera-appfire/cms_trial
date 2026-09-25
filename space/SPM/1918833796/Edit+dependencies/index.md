@@ -31,7 +31,8 @@ You can modify a dependency using the dialog box when you click a dependency arr
 5. Make changes. The source/target tasks are marked when scrolling the drop-down menu.
 6. When ready, click **Save**.
 
-![Video of editing a dependency.](/cms_trial/assets/dd694681-b24a-48a4-926a-75d83bf4da70.mp4)
+Image — asset pipeline pending  
+Video of editing a dependency.
 
 ## Dependency arrow
 
@@ -40,7 +41,8 @@ Make sure that dependencies are expanded (displayed as arrows):
 1. Expand the **Dependencies** menu from the top.
 2. Under the **Display** option, click **Expanded**.
 
-![Screenshot of selecting expanded dependencies in the Gantt module.](/cms_trial/assets/a1592a35-2df2-4b4f-a7d8-77a65304e18b.png)
+Image — asset pipeline pending  
+Screenshot of selecting expanded dependencies in the Gantt module.
 
 To edit a dependency:
 

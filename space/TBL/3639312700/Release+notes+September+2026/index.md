@@ -10,7 +10,7 @@ Version: 8.1.0
 
 ## New features
 
-The **Advanced Table Viewer** and **Native Table Enhancer** macros now lets you manage columns to control **column visibility** and **add calculated columns**.
+The **Advanced Table Viewer** and **Native Table Enhancer** macros now let you manage columns to control **column visibility** and **add calculated columns**.
 
 For the Sum-up type Sum and Count, under Edit column calculation, you can add a condition so only matching rows are included in the summary.
 
@@ -20,10 +20,10 @@ For the Sum-up type Sum and Count, under Edit column calculation, you can add a 
 
 #### Manage column visibility
 
-- To configure column visibility in macro setup mode, enable **Manage columns**.
-- Under **Columns**, you can select or clear the checkbox and click **Save**. For more information, refer to [Manage column visibility with Advanced Table Viewer macro](/cms_trial/space/TBL/3637706822/Manage+column+visibility+with+Advanced+Table+Viewer+macro/).
+1. To configure column visibility in macro setup mode, enable **Manage columns**.
+2. Under **Columns**, you can select or clear the checkbox and click **Save**. For more information, refer to [Manage column visibility with Advanced Table Viewer macro](/cms_trial/space/TBL/3637706822/Manage+column+visibility+with+Advanced+Table+Viewer+macro/).
 
-  ![ATV_deselect columns copy.png](/cms_trial/assets/fa0a8c1c-f7e4-490b-92bf-b6bb024926a1.png)
+   ![ATV_deselect columns copy.png](/cms_trial/assets/fa0a8c1c-f7e4-490b-92bf-b6bb024926a1.png)
 
 #### Manage calculated columns
 
@@ -58,10 +58,10 @@ The macro now lets you create new calculated columns using values from other col
 
 #### Manage column visibility
 
-- To configure column visibility in macro setup mode, enable **Manage columns**.
-- Under **Columns**, you can select or clear the checkbox and click **Save**. For more information, refer to [Manage column visibility with Native Table Enhancer macro](/cms_trial/space/TBL/3639115855/Manage+column+visibility+with+Native+Table+Enhancer+%5BBeta%5D+macro/).
+1. To configure column visibility in macro setup mode, enable **Manage columns**.
+2. Under **Columns**, you can select or clear the checkbox and click **Save**. For more information, refer to [Manage column visibility with Native Table Enhancer macro](/cms_trial/space/TBL/3639115855/Manage+column+visibility+with+Native+Table+Enhancer+%5BBeta%5D+macro/).
 
-  ![Native Table_column visibility_deselect columns copy.png](/cms_trial/assets/5d2e9528-48bb-41f4-a84c-f37140ff7c65.png)
+   ![Native Table_column visibility_deselect columns copy.png](/cms_trial/assets/5d2e9528-48bb-41f4-a84c-f37140ff7c65.png)
 
 #### Manage calculated columns
 
