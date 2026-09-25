@@ -11,7 +11,7 @@ The OKR details page displays data for the Strategic theme, Objective, or Key Re
 - [Restrict OKR](/cms_trial/space/SPM/1918864985/OKR+restrictions+(per+OKR)/)
 
 - The scope of your actions on this page depends on your role/granted permissions.
-- Visit the [Edit OKRs](https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=spm&title=Edit%20OKR&linkCreation=true&fromPageId=1918536390) page to learn more about editing details on the *OKR Details* page.
+- Visit the [Edit OKRs](/cms_trial/space/SPM/1918669695/Edit+OKR/) page to learn more about editing details on the *OKR Details* page.
 
 ## Access the OKR details page
 
@@ -22,23 +22,23 @@ You can access the *OKR details* page through the:
 1. On the **OKR details side panel**, click the **More actions** (**…**) button.
 2. Select **Details** from the dropdown.
 
-![OKR details side panel. The additional menu is opened.](/cms_trial/assets/adb452dd-4fef-4e74-8574-07820e16e60c.png)
+![OKR details side panel. The additional menu is opened.](/cms_trial/assets/e4658a61-ec79-4097-9569-1666d5b2e957.png)
 
 ### OKR key link
 
 Similar to the Jira work item key link, the OKR key link is unique and opens the details page for the selected OKR.
 
-![OKR key link on the progress dashboard page.](/cms_trial/assets/21e4701e-6c11-486d-bbc4-8b8db771e5b9.png)
+![OKR key link on the progress dashboard page.](/cms_trial/assets/7e23fc48-bdc2-4f62-8b4b-e4454efdc12f.png)
 
 ## OKR details page
 
 Below, you can find a quick guide through the main sections and tabs, helping you understand how to use them to stay on top of your goals.
 
-![OKR Details page (Progress tab).](/cms_trial/assets/80ff63be-57d7-4630-b5ee-c7efb97141ad.png)
+![OKR Details page (Progress tab).](/cms_trial/assets/d01dff93-cbfa-4ca9-908c-7e270368b262.png)
 
 ### OKR key, status, name, and description
 
-![okr-details-page-full1.png](/cms_trial/assets/e16acd9c-417e-49f8-8d14-e20a791f1bd0.png)
+![okr-details-page-full1.png](/cms_trial/assets/fe80bdf2-4edb-484e-907c-b1c3dcf2aa01.png)
 
 #### 1. Breadcrumbs
 
@@ -68,13 +68,13 @@ The **Details** section displays all [OKR attributes](/cms_trial/space/SPM/23247
 
 You can edit all fields inline except **Last updated**. If the item you are viewing is a Strategic theme, you cannot edit its **Type**.
 
-![Details section on the OKR details page.](/cms_trial/assets/f9a969e9-e0d1-4c5a-b20c-a748318bf895.png)
+![Details section on the OKR details page.](/cms_trial/assets/38625596-ed19-4248-8aa8-54c7e98495be.png)
 
 ### Progress (tab)
 
 The **Progress** tab displays details about the selected OKR and its progress.
 
-![Progress chart, milestones, and the activity section on the OKR details page.](/cms_trial/assets/550d9c10-0941-44c4-bf72-00583742e9d1.png)
+![Progress chart, milestones, and the activity section on the OKR details page.](/cms_trial/assets/5e0752b8-b7c3-488d-9597-4aa88c3ba674.png)
 
 #### 1. Progress chart
 
@@ -86,7 +86,7 @@ If you are viewing a Strategic theme or Objective, the chart displays status tag
 
 If the OKR you are viewing is a Key Result, the chart displays Start, Current, and Target values.
 
-![Key Result values on the progress chart.](/cms_trial/assets/24e277c8-b1e1-4539-bc38-291a4e6d519e.png)
+![Key Result values on the progress chart.](/cms_trial/assets/6fc8d116-ec40-4e5f-824a-330d5111e342.png)
 
 #### 3. Milestones
 
@@ -99,7 +99,7 @@ In this section, you can:
 - Filter milestones by the **Upcoming**, **Achieved**, **Missed** statuses.
 - Sort milestones by **Due date**, **Name**, or **Status**.
 
-Learn more about [OKR milestones](https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=spm&title=OKR%20milestones&linkCreation=true&fromPageId=1918536390).
+Learn more about [OKR milestones](/cms_trial/space/SPM/3667657103/OKR+milestones/).
 
 #### 4. Activity
 
@@ -117,7 +117,7 @@ In this section, you can:
 
 The **Child OKRs** tab is available only for Strategic themes and Objectives. It displays all direct child items for the selected OKR.
 
-![Child OKRs tab.](/cms_trial/assets/2604aa0b-f4fa-4ff2-9b76-a0b8d8cf35c1.png)
+![Child OKRs tab.](/cms_trial/assets/e7def693-aa8b-4125-92fc-3e725dc89796.png)
 
 In this tab, you can:
 
@@ -130,7 +130,7 @@ In this tab, you can:
 
 The **Linked work** tab displays all work items and boxes connected directly to the Key Result (KR). For Strategic Themes or Objectives, the tab aggregates all work items linked to their child KRs.
 
-![The Linked Work tab.](/cms_trial/assets/a546d31e-7acd-4bd4-baf2-62fdcf3be3cd.png)
+![The Linked Work tab.](/cms_trial/assets/a738b4b1-d7b4-40ce-a335-1f517f41356f.png)
 
 #### 1. Jira work items
 
@@ -173,7 +173,7 @@ The **Linked OKRs** tab lists OKR dependencies, contributions, and copies of the
 
 Dependency and contribution links do not affect OKR progress.
 
-![details-page-linked-okrs.png](/cms_trial/assets/26e9f07b-483a-4448-ae2a-cf9af849a136.png)
+![details-page-linked-okrs.png](/cms_trial/assets/b4e5a975-5f85-4ca1-82d7-5be42bf27ed2.png)
 
 #### 1. Dependencies
 
