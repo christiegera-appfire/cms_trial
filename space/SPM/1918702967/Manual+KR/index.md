@@ -75,7 +75,7 @@ The change in progress is reflected in the OKR module’s individual pages:
 
 - [*Overview*](/cms_trial/space/SPM/1918834317/OKR+Overview/) page (**Progress** column)
 - [*Hierarchy*](/cms_trial/space/SPM/1918669889/OKR+Hierarchy/) page
-- [*Progress Dashboard*](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918801225) page
+- [*Progress Dashboard*](/cms_trial/space/SPM/1918801225/Progress+Dashboard/) page
 - [*OKR Details*](/cms_trial/space/SPM/1918536390/OKR+details+page/) page (**Progress** tab)
 
 ![okr-details-page-kr-progress.png](/cms_trial/assets/5aca35c1-b9cc-4974-9b9e-9147356615a0.png)

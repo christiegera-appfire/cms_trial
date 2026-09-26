@@ -101,7 +101,7 @@ In the Teams module, you create teams and manage team memberships to streamline 
 
 **Notable features**:
 
-- Creation of [teams based on Jira teams](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918801541)
+- Creation of [teams based on Jira teams](/cms_trial/space/SPM/1918801541/Create+teams+based+on+Jira+teams/)
 - Creation of [teams based on Jira groups](/cms_trial/space/SPM/1918702803/Create+new+team+based+on+Jira+group/)
 - An insight into which initiatives teams are assigned to
 - Convenient team membership management

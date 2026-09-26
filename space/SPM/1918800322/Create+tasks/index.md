@@ -48,7 +48,7 @@ This requires you to create a template first using the Task Template Creation 
 
 ### Import from file
 
-You can import your task templates from other tools, such as MS Project, MS Excel, or a CSV file. For more information, see the [Import from a file](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918800781) page.
+You can import your task templates from other tools, such as MS Project, MS Excel, or a CSV file. For more information, see the [Import from a file](/cms_trial/space/SPM/1918800781/Import+from+file/) page.
 
 ![contentId-1918800322](/cms_trial/assets/1232edeb-c76b-421a-a7fe-046633fcd69d.png)
 
@@ -153,7 +153,7 @@ This requires you to create a template first, using the [task template](/cms_tr
 
 ### Import from file
 
-You can import your task templates from other tools, such as MS Project, MS Excel, or a CSV file. For more information, see the [Import from a file](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918800781) page.
+You can import your task templates from other tools, such as MS Project, MS Excel, or a CSV file. For more information, see the [Import from a file](/cms_trial/space/SPM/1918800781/Import+from+file/) page.
 
 ### Clone from another box
 

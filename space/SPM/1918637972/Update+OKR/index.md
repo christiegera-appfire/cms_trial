@@ -70,6 +70,6 @@ Automated updates made using the API and OKRobot are marked with the appropriate
 
 ![The activity section.](/cms_trial/assets/bb14f8e3-77c4-41c7-9d75-920bc345649e.png)
 
-For the latest updates, you can view them in the **Last update** column on the [*Progress Dashboard*](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918801225) page.
+For the latest updates, you can view them in the **Last update** column on the [*Progress Dashboard*](/cms_trial/space/SPM/1918801225/Progress+Dashboard/) page.
 
 ![image-20260601-091141.png](/cms_trial/assets/b10bd845-19f4-459c-8d29-fc715dbfc9d6.png)

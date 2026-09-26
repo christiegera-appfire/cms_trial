@@ -38,6 +38,6 @@ Deleting a box will not delete the tasks in its scope. However, you will lose th
 
 You can also bulk delete selected boxes.
 
-Just like tasks, you can [multi-select boxes](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918832779) on the box hierarchy while in the Hierarchy or Timeline mode. When the boxes are highlighted, right-click any of them and select **Delete**.
+Just like tasks, you can [multi-select boxes](/cms_trial/space/SPM/1918832779/Multiselect+tasks/) on the box hierarchy while in the Hierarchy or Timeline mode. When the boxes are highlighted, right-click any of them and select **Delete**.
 
 ![A delete option for mutiple boxes being highlighted.](/cms_trial/assets/62c29dec-63f7-42f7-ad09-9cd565ec1273.png)

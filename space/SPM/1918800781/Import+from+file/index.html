@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
+<meta charset="utf-8">
+<title>Import from file | Appfire Docs</title>
+<meta name="description" content="You can easily import your task templates from tools like MS Project, MS Excel, CSV, or OpenDocument files. The option is available in Gantt and Scope…">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/cms_trial/tokens.css">
+<link rel="stylesheet" href="/cms_trial/styles.css">
+<meta name="robots" content="noindex, nofollow">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Import from file",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/SPM/1918800781/Import+from+file/",
+  "dateModified": "2026-08-26T19:50:40.714Z"
+}
+</script>
+</head>
+<body>
+<div id="top-nav-mount">
+<header class="top-nav">
+  <div class="top-nav-inner">
+    <a class="top-nav-brand" href="/cms_trial/"><img class="top-nav-logo top-nav-logo-dark" src="/cms_trial/brand-assets/appfire-lockup-white.svg" alt="Appfire" loading="lazy"><img class="top-nav-logo top-nav-logo-light" src="/cms_trial/brand-assets/appfire-lockup-black.svg" alt="Appfire" loading="lazy"><span class="top-nav-divider"></span><span class="top-nav-docs-label">Docs</span></a>
+    <nav class="top-nav-links">
+      <a href="/cms_trial/product-directory/">Product directory</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <div class="lang-picker">
+        <button class="lang-picker-btn" type="button" title="Translate this page" aria-label="Translate this page">🌐</button>
+        <div class="lang-picker-menu"></div>
+      </div>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
+    </nav>
+  </div>
+</header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
+<!-- Language picker — links to Google Translate's real, public proxy for
+     the CURRENT page (computed client-side from window.location), which
+     translates the actual live page on the fly. No API key, no per-
+     character cost, works today. Lower polish than a real native
+     multi-language site (shows Google's own banner, different domain
+     while translated) — a real starting point, not the final answer.
+
+     Languages chosen based on real signal: Atlassian's own cloud docs/
+     support content is only actively translated into Japanese beyond
+     English (confirmed via their own support documentation) — the
+     strongest available signal for what this specific audience actually
+     needs — plus the other major enterprise-software markets. -->
+<script>
+(function () {
+  var btn = document.querySelector(".lang-picker-btn");
+  var menu = document.querySelector(".lang-picker-menu");
+  if (!btn || !menu) return;
+
+  var LANGUAGES = [
+    { code: "ja", label: "日本語 (Japanese)" },
+    { code: "de", label: "Deutsch (German)" },
+    { code: "fr", label: "Français (French)" },
+    { code: "es", label: "Español (Spanish)" },
+    { code: "pt", label: "Português (Portuguese)" },
+    { code: "zh-CN", label: "中文 (Chinese, Simplified)" },
+    { code: "pl", label: "Polski (Polish)" },
+  ];
+
+  menu.innerHTML = LANGUAGES.map(function (lang) {
+    return '<a href="#" data-lang="' + lang.code + '">' + lang.label + "</a>";
+  }).join("");
+
+  btn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    menu.classList.toggle("open");
+  });
+
+  document.addEventListener("click", function () {
+    menu.classList.remove("open");
+  });
+
+  menu.querySelectorAll("a").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      var lang = a.dataset.lang;
+      var currentUrl = window.location.href;
+      var translateUrl = "https://translate.google.com/translate?sl=en&tl=" + lang + "&u=" + encodeURIComponent(currentUrl);
+      window.open(translateUrl, "_blank", "noopener");
+      menu.classList.remove("open");
+    });
+  });
+})();
+</script>
+</div>
+<div class="shell">
+  <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/SPM/2960687492/Refined+tab+macro%3A+Test+page+with+a+title/">BigPicture PPM and Strategic Portfolio Management</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/SPM/1616808611/BigPicture+PPM+and+Strategic+Portfolio+Management/">BigPicture PPM and Strategic Portfolio Management</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/SPM/1918535153/User+guide/">User guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/SPM/1918404512/Tasks%2C+milestones/">Tasks, milestones</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/SPM/1918503986/Manage+tasks/">Manage tasks</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/SPM/1918832443/Create+task/">Create task</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Import from file</span></nav>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918800781" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
+    </div>
+    <h1>Import from file</h1>
+    <div class="page-meta">Updated 1 month ago · 10 min read</div>
+    <h2 id="import-from-file-old-navigation">Import from file (old navigation)</h2><details><summary>Click to expand the guide</summary><p>You can easily import your task templates from tools like MS Project, MS Excel, CSV, or OpenDocument files. The option is available in Gantt and Scope modules.</p><p>Box admins and Jira admins can import tasks from a file. When the <a href="/cms_trial/space/SPM/1918535770/App-level+permissions/">Permissions for everyone</a> option is enabled, every logged-in user can import tasks from a file. </p><p>To import tasks from a file:</p><ol><li><p>Expand the<strong> Add task +</strong> drop-down menu.</p></li><li><p>Select <strong>Import tasks from file</strong>.</p></li></ol><img alt="Screenshot of the Import from file feature in the Scope module." class="doc-image" loading="lazy" src="/cms_trial/assets/e02c0cf7-7de8-40f3-9906-86c455ed364c.png"/><h2 id="upload-a-file">Upload a file</h2><p>The maximum file upload size is 300MB. The following file types are supported:</p><ul><li><p> .mpp</p></li><li><p> .mpx</p></li><li><p>.xls</p></li><li><p>.xlsx</p></li><li><p>.ods</p></li><li><p>.csv </p></li></ul><h2 id="import-data-from-ms-project">Import data from MS Project</h2><p>Once you import a file from MS Project, all columns with data will be automatically detected. </p><div class="panel panel-note"><p>Check a list of supported fields in the <em>Supported fields</em> section below. </p></div><p>To import tasks:</p><ol><li><p>Expand the<strong> Add task +</strong> drop-down menu.</p></li><li><p>Select <strong>Import tasks from file</strong>.</p></li><li><p>Upload a file. </p></li><li><p>Select how the tasks should be converted:</p><ol><li><p>Jira work items (parents will be converted to default issue types)</p></li><li><p>Jira work items (parents will be converted to epics)</p></li><li><p>BigPicture basic tasks</p></li></ol></li><li><p>Select the Jira space where the tasks will be created. For more info, see the <em>Select Jira space </em>section below. </p></li><li><p>Add Jira labels to identify imported tasks.</p></li><li><p>Enable <strong>Add labels as an additional filter for the box scope</strong> if you want the entered labels to be added as filters on the <a href="/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/">Work items from Jira</a> page. </p></li><li><p>Decide whether the<a href="/cms_trial/space/SPM/1918865340/Strong+dependencies+(App+configuration)/"> ASAP mode</a> for dependencies should be on or off. </p></li><li><p>When ready, click <strong>Import</strong>. </p></li></ol><img alt="Screenshot of importing a Microsoft Project file with tasks in the Gantt module." class="doc-image" loading="lazy" src="/cms_trial/assets/c9550cea-93ad-4f7b-8a43-d3f281eb8e0e.png"/><div class="panel panel-note"><p>Note that sub-tasks will be imported as default work item types.</p></div><p>To see a real example, watch the video below.</p><div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/ZGsjq6SpeL4"></iframe></div><h2 id="import-data-from-ms-excel-openoffice">Import data from MS Excel / OpenOffice</h2><p>When importing MS Excel or OpenOffice files, you need to define the columns corresponding to the imported data. To simplify this step, BigPicture tries to recognize the column names and completes the fields accordingly.</p><div class="panel panel-note"><p>Check a list of supported fields in the <em>Supported fields</em> section below. </p></div><p>To import tasks:</p><ol><li><p>Expand the<strong> Add task +</strong> drop-down menu.</p></li><li><p>Select <strong>Import tasks from file</strong>.</p></li><li><p>Upload a file. </p></li><li><p>Select how the tasks should be converted:</p><ol><li><p>Jira work items (parents will be converted to default issue types)</p></li><li><p>Jira work items (parents will be converted to epics)</p></li><li><p>BigPicture basic tasks</p></li></ol></li><li><p>Select the Jira space where the tasks will be created. For more info, see the <em>Select Jira space </em>section below. </p></li><li><p>Add Jira labels to identify imported tasks.</p></li><li><p>Enable <strong>Add labels as an additional filter for the box scope</strong> if you want the entered labels to be added as filters on the <a href="/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/">Work items from Jira</a> page. </p></li><li><p>Match the columns from the selected file to the corresponding task fields. You can set the relationships between tasks (<strong>Parent row</strong> and <strong>Link </strong>columns).</p></li><li><p>When ready, click <strong>Import</strong>.</p></li></ol><img alt="Screenshot of importing an Excel file with tasks in the Gantt module." class="doc-image" loading="lazy" src="/cms_trial/assets/50d48657-aa91-4cfe-9d38-e526b4b90428.png"/><h2 id="import-tasks-without-dates">Import tasks without dates</h2><p>The import mechanism allows to support tasks with a single date or undated tasks in the file. These tasks will be imported with one date or without dates.</p><h2 id="supported-fields">Supported fields </h2><p>The table below presents the supported fields for particular files. </p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p><strong>Supported field</strong></p></th><th><p><strong>Files - .xls, .xlsx, .csv, .ods (column name)</strong></p></th><th><p><strong>Files - .mpp, .mpx (column name)</strong></p></th></tr><tr><td><p>Summary</p></td><td><p>("Summary")</p></td><td><p>("Task Name")</p></td></tr><tr><td><p>Start Date</p></td><td><p>("Start Date")</p></td><td><p>("Start")</p></td></tr><tr><td><p>End Date</p></td><td><p>("End Date")</p></td><td><p>("Finish")</p></td></tr><tr><td><p>Issue type</p></td><td><p>("Issue Type")</p></td><td><p>-</p></td></tr><tr><td><p>Assignee</p></td><td><p>("Assignee")</p></td><td><p>("Resource Name")</p></td></tr><tr><td><p>Original Estimate</p></td><td><p>("Original Estimate")</p></td><td><p>("Work")</p></td></tr><tr><td><p>Milestone</p></td><td><p>-</p></td><td><p>("Milestone")</p></td></tr><tr><td><p>Baseline Start Date</p></td><td><p>-</p></td><td><p>("Baseline Start")</p></td></tr><tr><td><p>Baseline End Date</p></td><td><p>-</p></td><td><p>("Baseline Finish")</p></td></tr><tr><td><p>Progress</p></td><td><p>-</p></td><td><p>("% Complete")</p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><h2 id="select-jira-space">Select Jira space</h2><p>To carry out the import successfully, you need to define a Jira space where the imported issues should be created. Tasks are visualized in BigPicture and must exist somewhere in Jira itself. </p><p>You can:</p><ul><li><p>Use one of your current spaces. New issues will be added to the existing ones.</p></li><li><p>You can also set up a new, empty Jira space in advance. It is possible to create a new Jira space using the <strong>Create with shared configuration</strong> option. This will result in copying the Jira space setup (permission, notification, issue security, workflow, work item types, issue type screen, and field configuration). For more information, refer to the screenshots below.</p></li></ul><div class="img-placeholder">[Unmapped block: nestedExpand]</div><h2 id="xlsx-data-format">XLSX data format</h2><p>If the .xlsx file has been created by exporting BigPicture data, it can be easily imported.</p><p>Otherwise, ensure that data is formatted in the following way:</p><img alt="Screenshot of an XLSX file." class="doc-image" loading="lazy" src="/cms_trial/assets/a0ad4750-89b6-4524-8401-0c02269e7954.png"/><p><strong>Start date, End date</strong> - can be read in the following formats:</p><ul><li><p>yyyy-MM-dd (e.g. 2021-12-31)</p></li><li><p>dd-MM-yyyy (e.g. 31-12-2021)</p></li><li><p>MMM/dd/yyyy (e.g. Dec/31/2021).</p></li></ul><p><strong>Parent Row</strong> - the Excel row in which the parent of the task is</p><img alt="Screenshot of a parent row in an imported file." class="doc-image" loading="lazy" src="/cms_trial/assets/9e475dbc-3beb-4f95-acc5-dbd5ff308a76.png"/><img alt="Screenshot of the parent task on the task tree." class="doc-image" loading="lazy" src="/cms_trial/assets/ce6163d9-2a49-4cdd-ac0e-3669a13b66e8.png"/><p><strong>Link </strong>- a cell with dependencies/links, for example, 16FS-1 or 21SS+1, where:<br/>16, 21 - pointer to Excel's row with the linked task;<br/>FS, SS - link type:</p><ul><li><p>FS - finish to start;</p></li><li><p>SS - start to start;</p></li><li><p>FF - finish to finish;</p></li><li><p>SF - start to finish.</p></li><li><p>-1/+1 - link lag in days.</p></li></ul><img alt="Screenshot with an example of a link cell." class="doc-image" loading="lazy" src="/cms_trial/assets/3214fde7-f55f-425e-8ed3-819eb56bd6cd.png"/><p>In this case:</p><ul><li><p>The target of a link is in row 33</p></li><li><p>Start to finish link</p></li><li><p>0 lag days</p></li></ul><img alt="Screenshot with an example of an imported file." class="doc-image" loading="lazy" src="/cms_trial/assets/3f987dc5-d251-4115-810d-9841561379b4.png"/><img alt="Screenshot with an example of the task tree before exporting." class="doc-image" loading="lazy" src="/cms_trial/assets/65e614bf-4297-4b87-9a57-eedd78c430fb.png"/><h2 id="possible-problems-and-solutions">Possible problems and solutions</h2><h3 id="the-import-from-file-option-is-greyed-out">The Import from file option is greyed out. </h3><p>The scope type dictates whether the option is available. If a box was created using a box type with <strong>own scope</strong>, the option is available. </p><p>For boxes with <strong>sub</strong> and <strong>none</strong> scopes, the <strong>Import from file</strong> option<strong> </strong>is<strong> unavailable.</strong>  </p><h3 id="required-fields">Required fields</h3><p>Make sure that all fields have been set to <strong>optional</strong> in the Jira field configuration before importing a file. </p><p>The process of making this adjustment is demonstrated below.</p><div class="img-placeholder">[Unmapped block: nestedExpand]</div><h3 id="mapping-task-assignee">Mapping task assignee</h3><p>By importing from .mpp files, the system maps information about task assignees, so imported values are correct. To make sure the <strong>Assignee </strong>value is imported correctly, double-check if the value in the <strong>Resource name</strong> field in the .mpp file is the same as the value in the user's <strong>full name</strong> field in Jira (the case of characters will be ignored).</p><p>If there is no user match, the <strong>Assignee</strong> field will be set to <strong>Unassigned</strong>.</p><h3 id="circular-link-dependencies">Circular link dependencies</h3><p>Once the file is imported, the application will not create strong dependencies if the circular dependency is identified (circular dependencies also include parent dependencies). </p><h3 id="link-id">Link ID</h3><ul><li><p>Link with missing ID</p></li><li><p>Missing Parent Task ID</p></li></ul><h3 id="period-check-failure">Period check failure</h3><p>The start date is later than the end date. </p></details><h2 id="import-from-file-new-navigation">Import from file (new navigation)</h2><details><summary>Click to expand the guide</summary><p>You can easily import your task templates from tools like MS Project, MS Excel, CSV, or OpenDocument files. The option is available in the Gantt and Scope modules.</p><p>Box admins and Jira admins can import tasks from a file. When the <a href="/cms_trial/space/SPM/1918535770/App-level+permissions/">Permissions for everyone</a> option is enabled, every logged-in user can import tasks from a file. </p><p>To import tasks from a file:</p><ol><li><p>Expand the<strong> Tasks</strong> menu.</p></li><li><p>Select <strong>Import from file</strong>.</p></li></ol><img alt="Screenshot of the Import from file option in the Gantt module." class="doc-image" loading="lazy" src="/cms_trial/assets/f7dd1dcc-62f8-4f0f-b05d-7a8995a6d316.png"/><h2 id="upload-a-file-2">Upload a file</h2><p>The maximum file upload size is 300MB. The following file types are supported:</p><ul><li><p> .mpp</p></li><li><p> .mpx</p></li><li><p>.xls</p></li><li><p>.xlsx</p></li><li><p>.ods</p></li><li><p>.csv </p></li></ul><h2 id="import-data-from-ms-project-2">Import data from MS Project</h2><p>Once you import a file from MS Project, all columns with data will be automatically detected. </p><div class="panel panel-note"><p>Check a list of supported fields in the <em>Supported fields</em> section below. </p></div><p>To import tasks:</p><ol><li><p>Expand the<strong> Tasks</strong> menu.</p></li><li><p>Select <strong>Import from file</strong>.</p></li><li><p>Upload a file. </p></li><li><p>Select how the tasks should be converted:</p><ol><li><p>Jira work items (parents will be converted to default work item types)</p></li><li><p>Jira work items (parents will be converted to epics)</p></li><li><p>BigPicture tasks</p></li></ol></li><li><p>Select the Jira space where the work items will be created. For more info, see the <em>Select Jira space </em>section below. </p></li><li><p>Add Jira labels to identify imported tasks.</p></li><li><p>Enable <strong>Add labels as an additional filter for the box scope</strong> if you want the entered labels to be added as filters on the <a href="/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/">Work items from Jira</a> page. </p></li><li><p>Decide whether the<a href="/cms_trial/space/SPM/1918865340/Strong+dependencies+(App+configuration)/"> ASAP mode</a> for dependencies should be on or off. </p></li><li><p>When ready, click <strong>Import</strong>. </p></li></ol><img alt="Screenshot of importing a Microsoft Project file with tasks in the Gantt module." class="doc-image" loading="lazy" src="/cms_trial/assets/c9550cea-93ad-4f7b-8a43-d3f281eb8e0e.png"/><div class="panel panel-note"><p>Note that sub-tasks will be imported as default work item types.</p></div><p>To see a real example, watch the video below.</p><div class="video-embed"><iframe allowfullscreen="" src="https://www.youtube.com/embed/ZGsjq6SpeL4"></iframe></div><h2 id="import-data-from-ms-excel-openoffice-2">Import data from MS Excel / OpenOffice</h2><p>When importing MS Excel or OpenOffice files, you need to define the columns corresponding to the imported data. To simplify this step, BigPicture tries to recognize the column names and completes the fields accordingly.</p><div class="panel panel-note"><p>Check a list of supported fields in the <em>Supported fields</em> section below. </p></div><p>To import tasks:</p><ol><li><p>Expand the<strong> Tasks</strong> menu.</p></li><li><p>Select <strong>Import from file</strong>.</p></li><li><p>Upload a file. </p></li><li><p>Select how the tasks should be converted:</p><ol><li><p>Jira work items (parents will be converted to default work item types)</p></li><li><p>Jira work items (parents will be converted to epics)</p></li><li><p>BigPicture tasks</p></li></ol></li><li><p>Select the Jira space where the work items will be created. For more info, see the <em>Select Jira space </em>section below. </p></li><li><p>Add Jira labels to identify imported tasks.</p></li><li><p>Enable <strong>Add labels as an additional filter for the box scope</strong> if you want the entered labels to be added as filters on the <a href="/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/">Work items from Jira</a> page. </p></li><li><p>Match the columns from the selected file to the corresponding task fields. You can set the relationships between tasks (<strong>Parent row</strong> and <strong>Link </strong>columns).</p></li><li><p>When ready, click <strong>Import</strong>.</p></li></ol><img alt="Screenshot of importing an Excel file with tasks in the Gantt module." class="doc-image" loading="lazy" src="/cms_trial/assets/50d48657-aa91-4cfe-9d38-e526b4b90428.png"/><h2 id="import-tasks-without-dates-2">Import tasks without dates</h2><p>The import mechanism supports both single-date and undated tasks in the file. These tasks will be imported with one date or without dates.</p><h2 id="supported-fields-2">Supported fields </h2><p>The table below presents the supported fields for particular files. </p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p><strong>Supported field</strong></p></th><th><p><strong>Files - .xls, .xlsx, .csv, .ods (column name)</strong></p></th><th><p><strong>Files - .mpp, .mpx (column name)</strong></p></th></tr><tr><td><p>Summary</p></td><td><p>("Summary")</p></td><td><p>("Task Name")</p></td></tr><tr><td><p>Start Date</p></td><td><p>("Start Date")</p></td><td><p>("Start")</p></td></tr><tr><td><p>End Date</p></td><td><p>("End Date")</p></td><td><p>("Finish")</p></td></tr><tr><td><p>Work item type</p></td><td><p>("Work item Type")</p></td><td><p>-</p></td></tr><tr><td><p>Assignee</p></td><td><p>("Assignee")</p></td><td><p>("Resource Name")</p></td></tr><tr><td><p>Original Estimate</p></td><td><p>("Original Estimate")</p></td><td><p>("Work")</p></td></tr><tr><td><p>Milestone</p></td><td><p>-</p></td><td><p>("Milestone")</p></td></tr><tr><td><p>Baseline Start Date</p></td><td><p>-</p></td><td><p>("Baseline Start")</p></td></tr><tr><td><p>Baseline End Date</p></td><td><p>-</p></td><td><p>("Baseline Finish")</p></td></tr><tr><td><p>Progress</p></td><td><p>-</p></td><td><p>("% Complete")</p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><h2 id="select-jira-space-2">Select Jira space</h2><p>To carry out the import successfully, you need to define a Jira space where the imported work items should be created. Tasks are visualized in BigPicture and must exist somewhere in Jira itself. </p><p>You can:</p><ul><li><p>Use one of your current spaces. New items will be added to the existing ones.</p></li><li><p>You can also set up a new, empty Jira space in advance. It is possible to create a new Jira space using the <strong>Create with shared configuration</strong> option. This will result in copying the Jira space setup (permission, notification, work item security, workflow, work item types, work item type screen, and field configuration). For more information, refer to the screenshots below.</p></li></ul><div class="img-placeholder">[Unmapped block: nestedExpand]</div><h2 id="xlsx-data-format-2">XLSX data format</h2><p>If the .xlsx file has been created by exporting BigPicture data, it can be easily imported.</p><p>Otherwise, ensure that data is formatted in the following way:</p><img alt="Screenshot of an XLSX file." class="doc-image" loading="lazy" src="/cms_trial/assets/a0ad4750-89b6-4524-8401-0c02269e7954.png"/><p><strong>Start date, End date</strong> - can be read in the following formats:</p><ul><li><p>yyyy-MM-dd (e.g. 2021-12-31)</p></li><li><p>dd-MM-yyyy (e.g. 31-12-2021)</p></li><li><p>MMM/dd/yyyy (e.g. Dec/31/2021).</p></li></ul><p><strong>Parent Row</strong> - the Excel row in which the parent of the task is</p><img alt="Screenshot of a parent row in an imported file." class="doc-image" loading="lazy" src="/cms_trial/assets/9e475dbc-3beb-4f95-acc5-dbd5ff308a76.png"/><img alt="Screenshot of the parent task on the task tree." class="doc-image" loading="lazy" src="/cms_trial/assets/ce6163d9-2a49-4cdd-ac0e-3669a13b66e8.png"/><p><strong>Link </strong>- a cell with dependencies/links, for example, 16FS-1 or 21SS+1, where:<br/>16, 21 - pointer to Excel's row with the linked task;<br/>FS, SS - link type:</p><ul><li><p>FS - finish to start;</p></li><li><p>SS - start to start;</p></li><li><p>FF - finish to finish;</p></li><li><p>SF - start to finish.</p></li><li><p>-1/+1 - link lag in days.</p></li></ul><img alt="Screenshot with an example of a link cell." class="doc-image" loading="lazy" src="/cms_trial/assets/3214fde7-f55f-425e-8ed3-819eb56bd6cd.png"/><p>In this case:</p><ul><li><p>The target of a link is in row 33</p></li><li><p>Start to finish link</p></li><li><p>0 lag days</p></li></ul><img alt="Screenshot with an example of an imported file." class="doc-image" loading="lazy" src="/cms_trial/assets/3f987dc5-d251-4115-810d-9841561379b4.png"/><img alt="Screenshot with an example of the task tree before exporting." class="doc-image" loading="lazy" src="/cms_trial/assets/65e614bf-4297-4b87-9a57-eedd78c430fb.png"/><h2 id="possible-problems-and-solutions-2">Possible problems and solutions</h2><h3 id="the-import-from-file-option-is-greyed-out-2">The Import from file option is greyed out. </h3><p>The scope type dictates whether the option is available. If a box was created using a box type with <strong>own scope</strong>, the option is available. </p><p>For boxes with <strong>sub</strong> and <strong>none</strong> scopes, the <strong>Import from file</strong> option<strong> </strong>is<strong> unavailable.</strong>  </p><h3 id="required-fields-2">Required fields</h3><p>Make sure that all fields have been set to <strong>optional</strong> in the Jira field configuration before importing a file. </p><p>The process of making this adjustment is demonstrated below.</p><div class="img-placeholder">[Unmapped block: nestedExpand]</div><h3 id="mapping-task-assignee-2">Mapping task assignee</h3><p>By importing from .mpp files, the system maps information about task assignees, so imported values are correct. To make sure the <strong>Assignee </strong>value is imported correctly, double-check if the value in the <strong>Resource name</strong> field in the .mpp file is the same as the value in the user's <strong>full name</strong> field in Jira (the case of characters will be ignored).</p><p>If there is no user match, the <strong>Assignee</strong> field will be set to <strong>Unassigned</strong>.</p><h3 id="circular-link-dependencies-2">Circular link dependencies</h3><p>Once the file is imported, the application will not create strong dependencies if the circular dependency is identified (circular dependencies also include parent dependencies). </p><h3 id="link-id-2">Link ID</h3><ul><li><p>Link with missing ID</p></li><li><p>Missing Parent Task ID</p></li></ul><h3 id="period-check-failure-2">Period check failure</h3><p>The start date is later than the end date. </p></details>
+  </main>
+  <aside class="sidebar">
+<div class="brand"><span class="brand-mark">Appfire Docs</span></div>
+<div class="brand-tag">Live docs, fetched from Confluence via API.</div>
+<nav><ul><li><a href="/cms_trial/space/SPM/2960687492/Refined+tab+macro%3A+Test+page+with+a+title/">Refined tab macro: Test page with a title</a></li><li><details open><summary><a href="/cms_trial/space/SPM/1616808611/BigPicture+PPM+and+Strategic+Portfolio+Management/">BigPicture PPM and Strategic Portfolio Management</a></summary><ul><li><details><summary><a href="/cms_trial/space/SPM/1918796796/Get+started/">Get started</a></summary><ul><li><a href="/cms_trial/space/SPM/3689381889/Get+to+know+BigPicture/">Get to know BigPicture</a></li><li><a href="/cms_trial/space/SPM/3460661282/Explore+BigPicture+modules/">Explore BigPicture modules</a></li><li><a href="/cms_trial/space/SPM/2401108060/First+steps/">First steps</a></li><li><a href="/cms_trial/space/SPM/2401107989/Use+cases/">Use cases</a></li><li><a href="/cms_trial/space/SPM/1918404279/Key+concepts/">Key concepts</a></li><li><a href="/cms_trial/space/SPM/1918666375/Glossary/">Glossary</a></li><li><a href="/cms_trial/space/SPM/1918535300/Keyboard+shortcuts/">Keyboard shortcuts</a></li><li><a href="/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/">BigPicture Standard vs Advanced</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/SPM/1918502496/App+technical+information/">App technical information</a></summary><ul><li><a href="/cms_trial/space/SPM/3683680343/BgPicture+feature+comparison/">BgPicture feature comparison</a></li><li><a href="/cms_trial/space/SPM/1918862093/Data+residency%2C+collection%2C+and+analytics+overview/">Data residency, collection, and analytics overview</a></li><li><a href="/cms_trial/space/SPM/1918404058/Data+synchronization+with+connected+tools/">Data synchronization with connected tools</a></li><li><a href="/cms_trial/space/SPM/1918699108/Initial+guide+for+administrators/">Initial guide for administrators</a></li><li><a href="/cms_trial/space/SPM/1918797213/Installation+and+updates/">Installation and updates</a></li><li><a href="/cms_trial/space/SPM/1918502890/System+authentication/">System authentication</a></li><li><a href="/cms_trial/space/SPM/1918535738/Sizing+guide/">Sizing guide</a></li><li><a href="/cms_trial/space/SPM/3488285408/Backup%2C+restore%2C+and+migrate/">Backup, restore, and migrate</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/SPM/1918796728/Admin+guide/">Admin guide</a></summary><ul><li><a href="/cms_trial/space/SPM/1918698881/App+configuration/">App configuration</a></li><li><a href="/cms_trial/space/SPM/1918829342/App+administration/">App administration</a></li><li><a href="/cms_trial/space/SPM/1918666176/Box+configuration/">Box configuration</a></li><li><a href="/cms_trial/space/SPM/1918829579/Permissions/">Permissions</a></li><li><a href="/cms_trial/space/SPM/1918633316/Personal/">Personal</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/SPM/1918535153/User+guide/">User guide</a></summary><ul><li><a href="/cms_trial/space/SPM/1918403941/Boxes/">Boxes</a></li><li><details open><summary><a href="/cms_trial/space/SPM/1918404512/Tasks%2C+milestones/">Tasks, milestones</a></summary><ul><li><a href="/cms_trial/space/SPM/1918700059/Types+of+tasks/">Types of tasks</a></li><li><a href="/cms_trial/space/SPM/1918862867/Task+attributes/">Task attributes</a></li><li><a href="/cms_trial/space/SPM/1918634571/Task+data+sync/">Task data sync</a></li><li><details open><summary><a href="/cms_trial/space/SPM/1918503986/Manage+tasks/">Manage tasks</a></summary><ul><li><details open><summary><a href="/cms_trial/space/SPM/1918832443/Create+task/">Create task</a></summary><ul><li><details open><summary><a href="/cms_trial/space/SPM/1918800781/Import+from+file/" class="active">Import from file</a></summary><ul><li><a href="/cms_trial/space/SPM/3416851775/Import+MS+Project+tasks/">Import MS Project tasks</a></li></ul></details></li><li><a href="/cms_trial/space/SPM/1918800322/Create+tasks/">Create tasks</a></li><li><a href="/cms_trial/space/SPM/1918636677/Clone+tasks+%2F+Clone+from+another+box/">Clone tasks / Clone from another box</a></li><li><a href="/cms_trial/space/SPM/1918702714/Task+template/">Task template</a></li></ul></details></li><li><a href="/cms_trial/space/SPM/1918667878/Add+existing+tasks+to+a+box/">Add existing tasks to a box</a></li><li><a href="/cms_trial/space/SPM/1918765477/Edit+task/">Edit task</a></li><li><a href="/cms_trial/space/SPM/1918832779/Multiselect+tasks/">Multiselect tasks</a></li><li><a href="/cms_trial/space/SPM/1918636457/Undo+operation+on+task/">Undo operation on task</a></li><li><a href="/cms_trial/space/SPM/1918406592/Delete+task/">Delete task</a></li><li><a href="/cms_trial/space/SPM/1926399570/Convert+tasks+and+milestones/">Convert tasks and milestones</a></li></ul></details></li><li><a href="/cms_trial/space/SPM/1918503025/Change+history/">Change history</a></li><li><a href="/cms_trial/space/SPM/1918667546/Organize+tasks%2F+Default+task+order/">Organize tasks/ Default task order</a></li><li><a href="/cms_trial/space/SPM/1918699867/Task+in+multiple+boxes/">Task in multiple boxes</a></li><li><a href="/cms_trial/space/SPM/1918405510/Task+synchronization+with+sub-boxes+(timeboxes)/">Task synchronization with sub-boxes (timeboxes)</a></li><li><a href="/cms_trial/space/SPM/1918832018/Task+structure/">Task structure</a></li></ul></details></li><li><a href="/cms_trial/space/SPM/1918797388/View+adjustments/">View adjustments</a></li><li><a href="/cms_trial/space/SPM/1918764262/Resource+management/">Resource management</a></li><li><a href="/cms_trial/space/SPM/1918502862/Risk+management/">Risk management</a></li><li><a href="/cms_trial/space/SPM/1918862135/Planning+and+tracking+work/">Planning and tracking work</a></li><li><a href="/cms_trial/space/SPM/1918797353/Reporting+and+coordinating+work/">Reporting and coordinating work</a></li><li><a href="/cms_trial/space/SPM/1918535176/Automations/">Automations</a></li><li><a href="/cms_trial/space/SPM/1918633230/Integrations/">Integrations</a></li><li><a href="/cms_trial/space/SPM/1918633194/Financials+management/">Financials management</a></li><li><a href="/cms_trial/space/SPM/2325217590/Strategic+Areas/">Strategic Areas</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/SPM/1918633143/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/SPM/1918829836/Troubleshooting/">Troubleshooting</a></li><li><a href="/cms_trial/space/SPM/1918666463/Report+problem/">Report problem</a></li><li><a href="/cms_trial/space/SPM/1918796832/BigPicture+cloud+limitations/">BigPicture cloud limitations</a></li><li><a href="/cms_trial/space/SPM/1918699076/EULA+and+Privacy+Policy/">EULA and Privacy Policy</a></li><li><a href="/cms_trial/space/SPM/2326102151/End+of+support+for+BigPicture+Power-Up+for+Trello/">End of support for BigPicture Power-Up for Trello</a></li><li><a href="/cms_trial/space/SPM/2383446254/AI+assistant/">AI assistant</a></li><li><a href="/cms_trial/space/SPM/2484568389/Tips+and+tricks/">Tips and tricks</a></li><li><a href="/cms_trial/space/SPM/2897150073/New+navigation/">New navigation</a></li><li><a href="/cms_trial/space/SPM/3483959305/BigPicture+Enterprise+migration+to+BigPicture+Advanced/">BigPicture Enterprise migration to BigPicture Advanced</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/SPM/1918535028/BigPicture+modules/">BigPicture modules</a></summary><ul><li><a href="/cms_trial/space/SPM/1918502655/Overview+module/">Overview module</a></li><li><a href="/cms_trial/space/SPM/1918797129/Gantt+module/">Gantt module</a></li><li><a href="/cms_trial/space/SPM/1918666763/Scope+module/">Scope module</a></li><li><a href="/cms_trial/space/SPM/1918796888/Board+module/">Board module</a></li><li><a href="/cms_trial/space/SPM/1918535323/Goals+module/">Goals module</a></li><li><a href="/cms_trial/space/SPM/1918535629/Resources+module/">Resources module</a></li><li><a href="/cms_trial/space/SPM/1918829775/Teams+module/">Teams module</a></li><li><a href="/cms_trial/space/SPM/1918666681/Risks+module/">Risks module</a></li><li><a href="/cms_trial/space/SPM/1918699000/Calendar+module/">Calendar module</a></li><li><a href="/cms_trial/space/SPM/1918502811/Reports+module/">Reports module</a></li><li><a href="/cms_trial/space/SPM/1918699171/Risk+management+module+(NEW)/">Risk management module (NEW)</a></li><li><a href="/cms_trial/space/SPM/1918829653/Priorities+module/">Priorities module</a></li><li><a href="/cms_trial/space/SPM/1918535397/OKR+module/">OKR module</a></li><li><a href="/cms_trial/space/SPM/1918404223/Financials+module+(NEW)/">Financials module (NEW)</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/SPM/1918535130/Release+notes/">Release notes</a></summary><ul><li><a href="/cms_trial/space/SPM/3070984195/Upcoming+Changes%3A+Merging+Board+and+Goals+Modules/">Upcoming Changes: Merging Board and Goals Modules</a></li><li><a href="/cms_trial/space/SPM/3482747495/App+Editions+announcement+Jul+24%2C+2026/">App Editions announcement Jul 24, 2026</a></li><li><a href="/cms_trial/space/SPM/3500834822/Release+notes+Jul+30%2C+2026/">Release notes Jul 30, 2026</a></li><li><a href="/cms_trial/space/SPM/3413219617/Release+notes+Jun+29%2C+2026/">Release notes Jun 29, 2026</a></li><li><a href="/cms_trial/space/SPM/3310911527/Release+notes+Jun+1%2C+2026/">Release notes Jun 1, 2026</a></li><li><a href="/cms_trial/space/SPM/3262087294/Release+notes+May+18%2C+2026/">Release notes May 18, 2026</a></li><li><a href="/cms_trial/space/SPM/3098247218/Release+notes%2C+Apr+09%2C+2026/">Release notes, Apr 09, 2026</a></li><li><a href="/cms_trial/space/SPM/2988048429/Release+notes%2C+Mar+16%2C+2026/">Release notes, Mar 16, 2026</a></li><li><a href="/cms_trial/space/SPM/2954821713/Release+notes%2C+Mar+2%2C+2026/">Release notes, Mar 2, 2026</a></li><li><a href="/cms_trial/space/SPM/2891350023/Release+notes%2C+Feb+16%2C+2026/">Release notes, Feb 16, 2026</a></li><li><a href="/cms_trial/space/SPM/2814935048/Release+notes%2C+Jan+29%2C+2026/">Release notes, Jan 29, 2026</a></li><li><a href="/cms_trial/space/SPM/2681274405/Release+notes%2C+Dec+29%2C+2025/">Release notes, Dec 29, 2025</a></li><li><a href="/cms_trial/space/SPM/2606628988/Release+notes%2C+Dec+08%2C+2025/">Release notes, Dec 08, 2025</a></li><li><a href="/cms_trial/space/SPM/2523136511/Release+notes%2C+Nov+17%2C+2025/">Release notes, Nov 17, 2025</a></li><li><a href="/cms_trial/space/SPM/2481881402/Release+notes%2C+Nov+3%2C+2025/">Release notes, Nov 3, 2025</a></li><li><a href="/cms_trial/space/SPM/2463531497/Release+notes%2C+October+20%2C+2025/">Release notes, October 20, 2025</a></li><li><a href="/cms_trial/space/SPM/2420310646/Release+notes%2C+October+1%2C+2025/">Release notes, October 1, 2025</a></li><li><a href="/cms_trial/space/SPM/2372370711/Release+notes%2C+September+16%2C+2025/">Release notes, September 16, 2025</a></li><li><a href="/cms_trial/space/SPM/2325053820/Release+notes%2C+September+1%2C+2025/">Release notes, September 1, 2025</a></li><li><a href="/cms_trial/space/SPM/2264989850/Release+notes+August+12%2C+2025/">Release notes August 12, 2025</a></li><li><a href="/cms_trial/space/SPM/2229960740/Release+notes+July+28%2C+2025/">Release notes July 28, 2025</a></li><li><a href="/cms_trial/space/SPM/2193556458/Release+notes+July+14%2C+2025/">Release notes July 14, 2025</a></li><li><a href="/cms_trial/space/SPM/2158362627/Release+notes+June+30%2C+2025/">Release notes June 30, 2025</a></li><li><a href="/cms_trial/space/SPM/2091548906/Release+notes+June+05+2025/">Release notes June 05 2025</a></li><li><a href="/cms_trial/space/SPM/2045084850/Release+notes+May+20%2C+2025/">Release notes May 20, 2025</a></li><li><a href="/cms_trial/space/SPM/1989116520/Release+notes+Apr+29%2C+2025/">Release notes Apr 29, 2025</a></li><li><a href="/cms_trial/space/SPM/1918404311/Release+notes+Apr+2%2C+2025/">Release notes Apr 2, 2025</a></li></ul></details></li></ul></details></li><li><a href="/cms_trial/space/SPM/1956479563/OKR+for+Jira+vs.+BigPicture%27s+OKR+module/">OKR for Jira vs. BigPicture's OKR module</a></li><li><a href="/cms_trial/space/SPM/1956479622/Foxly+vs.+BigPicture%27s+Priorities+module/">Foxly vs. BigPicture's Priorities module</a></li></ul></nav>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
+  <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#import-from-file-old-navigation">Import from file (old navigation)</a></li><li class="toc-level-2"><a href="#upload-a-file">Upload a file</a></li><li class="toc-level-2"><a href="#import-data-from-ms-project">Import data from MS Project</a></li><li class="toc-level-2"><a href="#import-data-from-ms-excel-openoffice">Import data from MS Excel / OpenOffice</a></li><li class="toc-level-2"><a href="#import-tasks-without-dates">Import tasks without dates</a></li><li class="toc-level-2"><a href="#supported-fields">Supported fields </a></li><li class="toc-level-2"><a href="#select-jira-space">Select Jira space</a></li><li class="toc-level-2"><a href="#xlsx-data-format">XLSX data format</a></li><li class="toc-level-2"><a href="#possible-problems-and-solutions">Possible problems and solutions</a></li><li class="toc-level-3"><a href="#the-import-from-file-option-is-greyed-out">The Import from file option is greyed out. </a></li><li class="toc-level-3"><a href="#required-fields">Required fields</a></li><li class="toc-level-3"><a href="#mapping-task-assignee">Mapping task assignee</a></li><li class="toc-level-3"><a href="#circular-link-dependencies">Circular link dependencies</a></li><li class="toc-level-3"><a href="#link-id">Link ID</a></li><li class="toc-level-3"><a href="#period-check-failure">Period check failure</a></li><li class="toc-level-2"><a href="#import-from-file-new-navigation">Import from file (new navigation)</a></li><li class="toc-level-2"><a href="#upload-a-file-2">Upload a file</a></li><li class="toc-level-2"><a href="#import-data-from-ms-project-2">Import data from MS Project</a></li><li class="toc-level-2"><a href="#import-data-from-ms-excel-openoffice-2">Import data from MS Excel / OpenOffice</a></li><li class="toc-level-2"><a href="#import-tasks-without-dates-2">Import tasks without dates</a></li><li class="toc-level-2"><a href="#supported-fields-2">Supported fields </a></li><li class="toc-level-2"><a href="#select-jira-space-2">Select Jira space</a></li><li class="toc-level-2"><a href="#xlsx-data-format-2">XLSX data format</a></li><li class="toc-level-2"><a href="#possible-problems-and-solutions-2">Possible problems and solutions</a></li><li class="toc-level-3"><a href="#the-import-from-file-option-is-greyed-out-2">The Import from file option is greyed out. </a></li><li class="toc-level-3"><a href="#required-fields-2">Required fields</a></li><li class="toc-level-3"><a href="#mapping-task-assignee-2">Mapping task assignee</a></li><li class="toc-level-3"><a href="#circular-link-dependencies-2">Circular link dependencies</a></li><li class="toc-level-3"><a href="#link-id-2">Link ID</a></li><li class="toc-level-3"><a href="#period-check-failure-2">Period check failure</a></li></ul></div></aside>
+</div>
+<!-- "Get Help" — a plain link to the real, already-working Refined JSM
+     portal, at a different path on the SAME domain. No custom OAuth
+     backend needed for this: Refined's own JSM integration already
+     correctly handles brand-new, first-time visitors in production today,
+     which is exactly the case our earlier OAuth-based attempt structurally
+     couldn't solve (Atlassian's own consent screen blocks anyone with zero
+     prior relationship to the site, before ever reaching JSM). Styled to
+     match the rest of the site and left as a same-tab navigation (not
+     target="_blank") so clicking it feels like moving to another page on
+     one continuous site, not popping open a separate system. -->
+<a class="get-help-btn" href="https://support.appfire.com/page/support">Get Help</a>
+
+<!-- Advanced Tables (Table Plus, etc.) enhancement — reconstructs the parts
+     of the macro's real behavior that aren't stored as static content:
+     click-to-sort columns, computed numeric totals, and hover highlighting.
+     Harmless to include on every page — it does nothing if no
+     .advanced-table elements are present. -->
+<script>
+(function () {
+  document.querySelectorAll(".advanced-table").forEach(function (container) {
+    var table = container.querySelector("table");
+    if (!table) return;
+
+    var enableSorting = container.dataset.enableSorting === "true";
+    var autoTotal = container.dataset.autoTotal === "true";
+    var enableHighlighting = container.dataset.enableHighlighting === "true";
+    var highlightColor = container.dataset.highlightColor || "";
+
+    var headerRow = table.rows[0];
+    var tbody = table.tBodies[0] || table;
+
+    // Highlighting: toggle a background color on row hover, matching the
+    // macro's own configured highlight color rather than a fixed one.
+    if (enableHighlighting && highlightColor && headerRow) {
+      Array.prototype.slice.call(tbody.rows).forEach(function (row) {
+        if (row === headerRow) return;
+        row.addEventListener("mouseenter", function () { row.style.backgroundColor = highlightColor; });
+        row.addEventListener("mouseleave", function () { row.style.backgroundColor = ""; });
+      });
+    }
+
+    // Sorting: click a header cell to sort by that column. Numeric-aware —
+    // compares as numbers when both values parse as one, falls back to
+    // string comparison otherwise. Repeated clicks toggle ascending/descending.
+    if (enableSorting && headerRow) {
+      Array.prototype.forEach.call(headerRow.cells, function (cell, colIndex) {
+        cell.classList.add("sortable-col");
+        cell.title = "Click to sort";
+        var ascending = true;
+        cell.addEventListener("click", function () {
+          var rows = Array.prototype.slice.call(tbody.rows).filter(function (r) { return r !== headerRow; });
+          rows.sort(function (a, b) {
+            var av = (a.cells[colIndex] ? a.cells[colIndex].textContent : "").trim();
+            var bv = (b.cells[colIndex] ? b.cells[colIndex].textContent : "").trim();
+            var an = parseFloat(av), bn = parseFloat(bv);
+            var cmp = (!isNaN(an) && !isNaN(bn)) ? (an - bn) : av.localeCompare(bv);
+            return ascending ? cmp : -cmp;
+          });
+          rows.forEach(function (row) { tbody.appendChild(row); });
+          ascending = !ascending;
+        });
+      });
+    }
+
+    // Computed totals: sum any column where every non-empty cell parses as
+    // a number, appended as a footer row. This approximates the common
+    // case (a numeric sum) — the real macro lets authors choose different
+    // calculation types per column (min, max, average...), which isn't
+    // reconstructed here.
+    if (autoTotal && headerRow) {
+      var dataRows = Array.prototype.slice.call(tbody.rows).filter(function (r) { return r !== headerRow; });
+      var totals = [];
+      for (var c = 0; c < headerRow.cells.length; c++) {
+        (function (colIndex) {
+          var allNumeric = true, sum = 0, sawAny = false;
+          dataRows.forEach(function (row) {
+            var cell = row.cells[colIndex];
+            var text = cell ? cell.textContent.trim() : "";
+            if (text === "") return;
+            var n = parseFloat(text);
+            if (isNaN(n)) { allNumeric = false; return; }
+            sum += n;
+            sawAny = true;
+          });
+          totals.push(allNumeric && sawAny ? sum : null);
+        })(c);
+      }
+      if (totals.some(function (t) { return t !== null; })) {
+        var footRow = document.createElement("tr");
+        footRow.className = "advanced-table-total-row";
+        totals.forEach(function (t) {
+          var td = document.createElement("td");
+          td.textContent = t !== null ? String(t) : "";
+          footRow.appendChild(td);
+        });
+        tbody.appendChild(footRow);
+      }
+    }
+  });
+})();
+</script>
+
+<!-- Aura Tab Group enhancement — click-to-switch tabs. Harmless to include
+     on every page; does nothing if no .aura-tab-group elements exist. -->
+<script>
+(function () {
+  document.querySelectorAll(".aura-tab-group").forEach(function (group) {
+    var buttons = group.querySelectorAll(".aura-tab-btn");
+    buttons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var targetId = btn.dataset.target;
+        group.querySelectorAll(".aura-tab-btn").forEach(function (b) { b.classList.remove("active"); });
+        group.querySelectorAll(".aura-tab-panel").forEach(function (p) { p.classList.remove("active"); });
+        btn.classList.add("active");
+        var panel = document.getElementById(targetId);
+        if (panel) panel.classList.add("active");
+      });
+    });
+  });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Real TOC scroll-spy — highlights the currently-visible heading in the
+     "On this page" panel as the reader scrolls. Harmless no-op if there's
+     no .page-toc on the page (most pages with few/no headings). -->
+<script>
+(function () {
+  var tocLinks = document.querySelectorAll(".page-toc a[href^='#']");
+  if (!tocLinks.length) return;
+
+  var headingMap = {};
+  var headings = [];
+  tocLinks.forEach(function (link) {
+    var id = link.getAttribute("href").slice(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headingMap[id] = link;
+      headings.push(heading);
+    }
+  });
+  if (!headings.length) return;
+
+  var activeLink = null;
+  function setActive(id) {
+    var link = headingMap[id];
+    if (!link || link === activeLink) return;
+    if (activeLink) activeLink.classList.remove("active");
+    link.classList.add("active");
+    activeLink = link;
+  }
+
+  // rootMargin biases toward the upper third of the viewport, so a
+  // heading is marked "current" once it's crossed into the reading area,
+  // not only once it's scrolled to the very top edge.
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) setActive(entry.target.id);
+    });
+  }, { rootMargin: "-15% 0px -75% 0px", threshold: 0 });
+
+  headings.forEach(function (h) { observer.observe(h); });
+
+  // Sets the first heading active immediately on load, rather than
+  // leaving the TOC with nothing highlighted until the reader scrolls.
+  setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
+})();
+</script>
+
+</body>
+</html>

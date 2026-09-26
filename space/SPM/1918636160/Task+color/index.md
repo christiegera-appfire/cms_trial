@@ -123,7 +123,7 @@ Next, change the color of a task. Right-click the task or taskbar (anywhere but 
 
 Alternatively, click **More options** (**…**) on the [editor slider](/cms_trial/space/SPM/1918635307/Editor+slider/) and select a color.
 
-If you want to change the color for multiple tasks, [multi-select all relevant tasks](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918832779). Then, right-click any selected task to open a context menu or open the editor slider panel and select a color.
+If you want to change the color for multiple tasks, [multi-select all relevant tasks](/cms_trial/space/SPM/1918832779/Multiselect+tasks/). Then, right-click any selected task to open a context menu or open the editor slider panel and select a color.
 
 ### Resources module
 

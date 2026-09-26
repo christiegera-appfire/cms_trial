@@ -130,7 +130,7 @@ The **Dependencies** button controls the visibility of the dependency links on y
 
 ### Browse dependencies
 
-Check this option to open the **Dependencies** tab in Gantt’s [**Infobar**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918800450).
+Check this option to open the **Dependencies** tab in Gantt’s [**Infobar**](/cms_trial/space/SPM/1918800450/Dependencies+(Infobar)/).
 
 ## Taskbar (new navigation)
 
@@ -273,6 +273,6 @@ The **Dependencies** button controls the visibility of the dependency links on y
 
 ### Browse dependencies
 
-Check this option to open the **Dependencies** tab in Gantt’s [**Infobar**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918800450).
+Check this option to open the **Dependencies** tab in Gantt’s [**Infobar**](/cms_trial/space/SPM/1918800450/Dependencies+(Infobar)/).
 
 ![Screenshot of the Dependencies menu expanded in the Gantt module.](/cms_trial/assets/6665b256-9cbe-40d6-b24c-0a7a0248d8c9.png)

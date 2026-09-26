@@ -54,7 +54,7 @@ Everyone with Administer Priorities module permission can create a poker session
 
 When creating a poker game, you can choose between:
 
-- [Real-time poker](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918801308)
+- [Real-time poker](/cms_trial/space/SPM/1918801308/Real-time+poker/)
 - [Async (offline) poker](/cms_trial/space/SPM/1918538495/Async+(offline)+priority+poker/)
 
 ![Screenshot of creating a priority poker game in the Priorities module.](/cms_trial/assets/9c20f317-2e7a-444d-ba0d-52288db5a324.png)

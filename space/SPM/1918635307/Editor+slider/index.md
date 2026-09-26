@@ -15,7 +15,7 @@ To enable the editor slider, go to the **View** options and check **Editor slide
 The editor slider appears when you:
 
 - Click the whitespace in the Gantt timeline section.
-- [Multiselect](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918832779) or [select in bulk](/cms_trial/space/SPM/1918506627/Bulk+change/) work items on the task structure.
+- [Multiselect](/cms_trial/space/SPM/1918832779/Multiselect+tasks/) or [select in bulk](/cms_trial/space/SPM/1918506627/Bulk+change/) work items on the task structure.
 
 ## Actions with the editor slider
 
@@ -64,7 +64,7 @@ To enable the editor slider, go to the **View** options and check **Editor slide
 The editor slider appears when you:
 
 - Click the whitespace in the Gantt timeline section.
-- [Multiselect](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918832779) or [select in bulk](/cms_trial/space/SPM/1918506627/Bulk+change/) work items on the task structure.
+- [Multiselect](/cms_trial/space/SPM/1918832779/Multiselect+tasks/) or [select in bulk](/cms_trial/space/SPM/1918506627/Bulk+change/) work items on the task structure.
 
 ## Actions with the editor slider
 
