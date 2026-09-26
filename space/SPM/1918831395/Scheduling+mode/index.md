@@ -48,7 +48,7 @@ Keep in mind that a change in a task scheduling mode can have a significant sche
 
 In the Gantt module, there are multiple ways of changing a scheduling mode.
 
-You can change the scheduling mode of a single task (or a group of tasks, using the [multi-select](/cms_trial/space/SPM/1918832779/Multiselect+tasks/) option) by using the **right-click** dialog:
+You can change the scheduling mode of a single task (or a group of tasks, using the [multi-select](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918832779) option) by using the **right-click** dialog:
 
 ![one-task-scheduling.png](/cms_trial/assets/6e515c14-8cfc-4103-acb5-dc890118ef42.png)
 
@@ -269,7 +269,7 @@ Keep in mind that a change in task scheduling mode can have a significant impact
 
 In the Gantt module, there are multiple ways to change the scheduling mode.
 
-You can change the scheduling mode of a single task (or a group of tasks, using the [multi-select](/cms_trial/space/SPM/1918832779/Multiselect+tasks/) option) by using the **right-click** dialog:
+You can change the scheduling mode of a single task (or a group of tasks, using the [multi-select](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918832779) option) by using the **right-click** dialog:
 
 ![Screenshot of changing the scheduling mode for a task in the Gantt module.](/cms_trial/assets/316a070a-a146-41a1-91d7-e811a7e3a4b4.png)
 

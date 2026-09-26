@@ -260,7 +260,7 @@ The effects of the parent box period mode on the child box period are outlined i
 
 #### Bulk move
 
-Just like with tasks, you can use the [multi-select](/cms_trial/space/SPM/1918832779/Multiselect+tasks/) feature to move multiple boxes at once. Validation is performed for each box; if any box can't be moved, the entire operation fails, and no boxes are moved. In other words, the system will either successfully move all the boxes or none at all.
+Just like with tasks, you can use the [multi-select](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918832779) feature to move multiple boxes at once. Validation is performed for each box; if any box can't be moved, the entire operation fails, and no boxes are moved. In other words, the system will either successfully move all the boxes or none at all.
 
 For example, say you created a Portfolio box using the Portfolio box type. If you want to move an Agile Project and Program boxes under a Portfolio box, you will be able to do it. That’s because the Portfolio box is the None scope box type, while the Agile and Program boxes were created with the Own scope. In such a case, you can select both and place them under the portfolio.
 

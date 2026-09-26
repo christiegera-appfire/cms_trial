@@ -14,7 +14,7 @@ BigPicture tasks are stored only in BigPicture and are not synchronized with Jir
 
 Before importing tasks from a Microsoft Project file into BigPicture, make sure that:
 
-- The [**Import from file**](/cms_trial/space/SPM/1918800781/Import+from+file/) feature is available (requires [BigTemplate](https://marketplace.atlassian.com/apps/1215229/bigtemplate-export-to-pdf-word-excel)).
+- The [**Import from file**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918800781) feature is available (requires [BigTemplate](https://marketplace.atlassian.com/apps/1215229/bigtemplate-export-to-pdf-word-excel)).
 - You have the necessary permissions:
 
   - Box admins and Jira admins can import tasks from a file.

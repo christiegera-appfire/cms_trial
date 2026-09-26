@@ -34,10 +34,10 @@ Work items can be connected with [dependencies](/cms_trial/space/SPM/1918536086/
 
 [Infobar](/cms_trial/space/SPM/1918799264/Infobar+(Gantt)/) is a contextual sidebar that provides comprehensive information about the contents of the current box. It consists of the following tabs:
 
-- [Dependencies](/cms_trial/space/SPM/1918800450/Dependencies+(Infobar)/)
+- [Dependencies](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918800450)
 - [Overdue tasks](/cms_trial/space/SPM/1918834482/Overdue+tasks+(Infobar)/)
 - [Milestones](/cms_trial/space/SPM/1918537479/Milestones/)
-- [Critical path](/cms_trial/space/SPM/1918833710/Critical+path+(Infobar)/)
+- [Critical path](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918833710)
 - [Change history](/cms_trial/space/SPM/1918503025/Change+history/)
 - [Bulk change](/cms_trial/space/SPM/1918506627/Bulk+change/)
 - [Reports](/cms_trial/space/SPM/2481848664/Contextual+reports/)
@@ -160,7 +160,7 @@ The **Dependencies** button controls the visibility of the dependency links on y
 
   - Expanded
   - Collapsed
-- Browse dependencies (open the **Dependencies** tab in the [**Infobar**](/cms_trial/space/SPM/1918800450/Dependencies+(Infobar)/))
+- Browse dependencies (open the **Dependencies** tab in the [**Infobar**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918800450))
 
 ### Hide/Show Resources
 
@@ -244,10 +244,10 @@ Work items can be connected with [dependencies](/cms_trial/space/SPM/1918536086/
 
 [Infobar](/cms_trial/space/SPM/1918799264/Infobar+(Gantt)/) is a contextual sidebar that provides comprehensive information about the contents of the current box. It consists of the following tabs:
 
-- [Dependencies](/cms_trial/space/SPM/1918800450/Dependencies+(Infobar)/)
+- [Dependencies](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918800450)
 - [Overdue tasks](/cms_trial/space/SPM/1918834482/Overdue+tasks+(Infobar)/)
 - [Milestones](/cms_trial/space/SPM/1918537479/Milestones/)
-- [Critical path](/cms_trial/space/SPM/1918833710/Critical+path+(Infobar)/)
+- [Critical path](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918833710)
 - [Change history](/cms_trial/space/SPM/1918503025/Change+history/)
 - [Bulk change](/cms_trial/space/SPM/1918506627/Bulk+change/)
 - [Reports](/cms_trial/space/SPM/2481848664/Contextual+reports/)
@@ -353,7 +353,7 @@ Alternatively, click **More actions** (**…**) on the **Summary** column (or th
 
     - Expanded
     - Collapsed
-  - Browse dependencies (open the **Dependencies** tab in the [**Infobar**](/cms_trial/space/SPM/1918800450/Dependencies+(Infobar)/))
+  - Browse dependencies (open the **Dependencies** tab in the [**Infobar**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918800450))
 - [Editor slider](/cms_trial/space/SPM/1918635307/Editor+slider/)
 - [Resource panel](/cms_trial/space/SPM/1918798033/Resources+panel+in+Gantt+module/)
 

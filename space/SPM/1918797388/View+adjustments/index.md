@@ -16,7 +16,6 @@ Find out more on the next pages:
   - [Quick filters](/cms_trial/space/SPM/1918635901/Quick+filters/)
   - [Custom filters](/cms_trial/space/SPM/1918504733/Custom+filters/)
   - [Date range filters](/cms_trial/space/SPM/1918799022/Date+range+filters/)
-  - [Filter options](/cms_trial/space/SPM/1918832564/Filter+options/)
   - [Favorite / Filter by (Overview module)](/cms_trial/space/SPM/1918505078/Favorite+%2F+Filter+by+(Overview+module)/)
   - [Swimlane filters (Resources module)](/cms_trial/space/SPM/1989083455/Swimlane+filters+(Resources+module)/)
 - [Group tasks](/cms_trial/space/SPM/1918830289/Group+tasks/)

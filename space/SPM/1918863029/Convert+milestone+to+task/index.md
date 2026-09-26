@@ -1,6 +1,6 @@
 # Convert milestone to task
 
-In the Gantt module, you can convert a milestone to a task (and a [task to a milestone](/cms_trial/space/SPM/1918537200/Convert+task+to+milestone/)). Milestones can be converted to tasks in [bulk](/cms_trial/space/SPM/1918832779/Multiselect+tasks/).
+In the Gantt module, you can convert a milestone to a task (and a [task to a milestone](/cms_trial/space/SPM/1918537200/Convert+task+to+milestone/)). Milestones can be converted to tasks in [bulk](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918832779).
 
 A task converted from a milestone will have the start and end dates the same as the date of the milestone it was converted from.
 

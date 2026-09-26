@@ -108,7 +108,7 @@ On the [*Overview*](/cms_trial/space/SPM/1918834317/OKR+Overview/) page, you can
 
 ### Progress dashboard (page)
 
-The [*Progress Dashboard*](/cms_trial/space/SPM/1918801225/Progress+Dashboard/) page features an **OKRs with most recent milestone missed** section, letting you to review OKRs with overdue milestones and inspect them individually on their respective *OKR Details* pages.
+The [*Progress Dashboard*](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918801225) page features an **OKRs with most recent milestone missed** section, letting you to review OKRs with overdue milestones and inspect them individually on their respective *OKR Details* pages.
 
 ![OKRs with most recent milestone missed section on the Progress Dashboard page.](/cms_trial/assets/e39e6c03-cd84-4ba4-aa4d-fc7a9bb65596.png)
 

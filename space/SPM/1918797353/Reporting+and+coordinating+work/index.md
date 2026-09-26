@@ -8,7 +8,7 @@ Features like [Share view](/cms_trial/space/SPM/1918504353/Share+view/) and [Gad
 
 ### OKR module
 
-Use the [Progress Dashboard](/cms_trial/space/SPM/1918801225/Progress+Dashboard/) that provides a clear overview of your team's OKRs, highlighting achievements, overall performance, and areas that need attention. With the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918864924>, you can view key OKR data on your Jira dashboard, along with other project metrics and stats.
+Use the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918801225> that provides a clear overview of your team's OKRs, highlighting achievements, overall performance, and areas that need attention. With the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918864924>, you can view key OKR data on your Jira dashboard, along with other project metrics and stats.
 
 Additionally, the [Share view (OKR module)](/cms_trial/space/SPM/1918408436/Share+view+(OKR+module)/) feature allows you to share your current OKR module view, including filters, sorting, and column setup, ensuring seamless collaboration across teams.
 

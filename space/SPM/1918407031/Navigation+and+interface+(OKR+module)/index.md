@@ -97,7 +97,7 @@ You can zoom in or out of the view, collapse or expand sub-item cards, and filte
 
 ![An overview of the Progress Dashboard page in the OKR module.](/cms_trial/assets/3ce6df2c-dfb4-44f6-af42-ab1fed66fd16.png)
 
-The [Progress Dashboard](/cms_trial/space/SPM/1918801225/Progress+Dashboard/) provides a clear, visual overview of your OKRs. It visualizes team progress, successes, and areas for improvement as pie charts, bar charts, and lists.
+The [Progress Dashboard](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918801225) provides a clear, visual overview of your OKRs. It visualizes team progress, successes, and areas for improvement as pie charts, bar charts, and lists.
 
 Data displayed on this page can only be viewed. If you want to update a status or review an OKR, go to the Overview page or visit the OKR details page for the individual OKR.
 
@@ -192,6 +192,6 @@ You can zoom in or out of the view, collapse or expand sub-item cards, and filte
 
 ![A Progress Dashboard page.](/cms_trial/assets/4b283183-5189-4c5a-80aa-8367b3c8952c.png)
 
-The [*Progress Dashboard*](/cms_trial/space/SPM/1918801225/Progress+Dashboard/) page provides a clear, visual overview of your OKRs. It visualizes team progress, successes, and areas for improvement as pie charts, bar charts, and lists.
+The [*Progress Dashboard*](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918801225) page provides a clear, visual overview of your OKRs. It visualizes team progress, successes, and areas for improvement as pie charts, bar charts, and lists.
 
 Data displayed on this page can only be viewed. If you want to update a status or review an OKR, go to the Overview page or visit the OKR details page for the individual OKR.

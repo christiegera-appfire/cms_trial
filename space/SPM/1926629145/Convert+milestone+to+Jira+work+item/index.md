@@ -4,7 +4,7 @@
 
 Click to expand the guide
 
-In the Gantt module, you can convert a milestone to a Jira issue (and a [Jira issue to a milestone](/cms_trial/space/SPM/1918537200/Convert+task+to+milestone/)). Milestones cannot be converted to JIra issues in [bulk](/cms_trial/space/SPM/1918832779/Multiselect+tasks/).
+In the Gantt module, you can convert a milestone to a Jira issue (and a [Jira issue to a milestone](/cms_trial/space/SPM/1918537200/Convert+task+to+milestone/)). Milestones cannot be converted to JIra issues in [bulk](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918832779).
 
 - A Jira issue converted from a milestone will have the start and end dates the same as the date of the milestone it was converted from.
 - Only milestones that were created or converted from [basic tasks](/cms_trial/space/SPM/1918405930/Basic+tasks+%2F+BigPicture+tasks/) can be converted to Jira issues.
@@ -43,7 +43,7 @@ In the Gantt module, you can convert a milestone to a Jira issue (and a [Jira is
 
 Click to expand the guide
 
-In the Gantt module, you can convert a milestone to a Jira work item (and a [Jira work item to a milestone](/cms_trial/space/SPM/1918537200/Convert+task+to+milestone/)). Milestones cannot be converted to Jira work items in [bulk](/cms_trial/space/SPM/1918832779/Multiselect+tasks/).
+In the Gantt module, you can convert a milestone to a Jira work item (and a [Jira work item to a milestone](/cms_trial/space/SPM/1918537200/Convert+task+to+milestone/)). Milestones cannot be converted to Jira work items in [bulk](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918832779).
 
 - A Jira work item converted from a milestone will have the start and end dates the same as the date of the milestone it was converted from.
 - Only milestones that were created or converted from [BigPicture tasks](/cms_trial/space/SPM/1918405930/Basic+tasks+%2F+BigPicture+tasks/) can be converted to Jira work items.
