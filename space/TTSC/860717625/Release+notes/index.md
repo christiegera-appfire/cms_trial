@@ -4,6 +4,8 @@ This page provides a brief overview of the release notes for individual releases
 
 | **Title** | **Release date** | **Highlights** |
 | --- | --- | --- |
+| [Release notes 25 September 2026](/cms_trial/space/TTSC/3708321800/Release+notes+25+September+2026/) | 25 September 2026 | - Faster SLA configuration page loading - Optimized report generation - Bug fixes |
+| [Release notes 23 September 2026](/cms_trial/space/TTSC/3692724227/Release+notes+23+September+2026/) | 23 September 2026 | - Clearer AND/OR options for SLA conditions - Bug fixes |
 | [Release notes 16 September 2026](/cms_trial/space/TTSC/3670704140/Release+notes+16+September+2026/) | 16 September 2026 | - SLA actions now support percentages up to 200%, clearer SLA action trigger wording - Bug fixes |
 | [Release notes 14 September 2026](/cms_trial/space/TTSC/3653992482/Release+notes+14+September+2026/) | 14 September 2026 | - Introducing Workflow Intelligence reports - Bug fixes |
 | [Release notes 11 September 2026](/cms_trial/space/TTSC/3659104319/Release+notes+11+September+2026/) | 11 September 2026 | - Bug fixes |
