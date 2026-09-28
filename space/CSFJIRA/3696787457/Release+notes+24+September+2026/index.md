@@ -4,7 +4,7 @@
 
 This page outlines the updates included in the latest release of Connector for Salesforce & Jira Cloud.
 
-**Jira version**: 29.1.0
+**Jira Marketplace** **version**: 29.1.0
 
 ---
 

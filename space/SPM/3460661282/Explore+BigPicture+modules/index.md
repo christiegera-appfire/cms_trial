@@ -64,6 +64,8 @@ It's especially useful during planning sessions, like Program Increment (PI) Pla
 - Customizable [card views](/cms_trial/space/SPM/1918832263/Card+view+creator/)
 - Timebox [reports](/cms_trial/space/SPM/1918502941/Board+module+reports/)
 
+See the video
+
 ### [Goals](/cms_trial/space/SPM/1918535323/Goals+module/)
 
 The Goals module is a high-level board based on agile Program Increments that focuses on high-level planning, including forecasts and commitments, rather than particular tasks. You can configure it for specific durations, set goals for the upcoming PI, and then use it to review and change the status of the goals.

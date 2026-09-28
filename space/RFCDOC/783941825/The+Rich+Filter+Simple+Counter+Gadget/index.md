@@ -6,7 +6,7 @@ The *Rich Filter Simple Counter* gadget displays issue counts, field sums, and
 
 - the collection of issues used for the counting can be further filtered using *Rich Filter Controller* gadgets;
 - the gadget itself can further refine the results by applying a gadget-specific JQL called *working query*;
-- for the same collection of issues, the gadget can display multiple results at the same time – based on the number of issues (*Issue Count*), the sum of numeric and time-tracking fields (such as *Story Points* or *Original Estimate*), or on custom values;
+- for the same collection of issues, the gadget can display multiple results at the same time – based on the number of issues (*Issue Count*), the sum of numeric and time-tracking fields (such as *Story Points* or *Original Estimate*), Service Management SLA fields (*Time to first response*), or on custom values;
 - the content of the gadget can be [exported](/cms_trial/space/RFCDOC/783942966/Export+data/) to PDF, Excel (.xlsx), and CSV formats.
 
 ![custom value dashboard.png](/cms_trial/assets/63592193-ece4-4f1b-8fc1-7d117450f957.png)

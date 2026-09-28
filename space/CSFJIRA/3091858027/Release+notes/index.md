@@ -4,6 +4,7 @@ We have a short release lifecycle so that we can always try to improve our produ
 
 | **Title** | **Highlights** | **Platform** | **Release date** |
 | --- | --- | --- | --- |
+| [Release notes 28 September 2026](https://appfire.atlassian.net/wiki/pages/resumedraft.action?draftId=3707011442&draftShareId=bd5ee240-3369-4976-834d-74871f65d259&atlOrigin=eyJpIjoiNDU5ZDg5OWQ4ZDM2NDg1ZWJkMzRlM2UyMGIwODZkZDUiLCJwIjoiYyJ9) | - Bug fixes | Jira Cloud | September 28, 2026 |
 | [Release notes 24 September 2026](/cms_trial/space/CSFJIRA/3696787457/Release+notes+24+September+2026/) | - General monitoring enhancements | Jira Cloud | September 24, 2026 |
 | [Release notes 17 September 2026](/cms_trial/space/CSFJIRA/3673030657/Release+notes+17+September+2026/) | - Getting started page update | SALESFORCE | September 17, 2026 |
 | [Release notes 16 September 2026](/cms_trial/space/CSFJIRA/3663724562/Release+notes+16+September+2026/) | - New guided onboarding experience - Improved entity and field mapping view - Entity and field mapping templates - Configuration testing after setup | Jira Cloud | September 16, 2026 |
