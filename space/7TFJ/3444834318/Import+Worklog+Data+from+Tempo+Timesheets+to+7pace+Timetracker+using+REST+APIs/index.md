@@ -1,6 +1,6 @@
 # Import Worklog Data from Tempo Timesheets to 7pace Timetracker using REST APIs
 
-![image for instruction.png](/cms_trial/assets/a8a7df0c-9349-40e5-9b18-9774a25522cb.png)
+![image for instruction.png](/cms_trial/assets/1ee6556f-4235-4061-a372-94198fcb6ebd.png)
 
 This guide explains how to perform a one-time historical import of your worklog data from **Tempo Timesheets** (Jira Cloud) into **7pace Timetracker** using the REST APIs of both platforms.
 
@@ -31,15 +31,15 @@ For example, if a cut-off date is February 15, 2026, all worklogs up to and incl
 
 Migration will be executed on behalf of a specific user, and the pool of migrated worklogs **is limited by this user's permissions**. **Administrators are also subject to this limitation**. To access more worklogs, the user must have proper permissions in place. As described in this article, the user must configure one of the following permissions <https://help.tempo.io/kb/latest/worklog-of-users-not-visible>
 
-#### All worklogs in the instance
+### All worklogs in the instance
 
 Assign the user a role in “Permission Roles,” as shown in the screenshot below.
 
 Caution: The UI for adding the user to the group is not intuitive. You may need to enter the full email address to display the Jira user's full name.
 
-![image for instruction.png](/cms_trial/assets/a8a7df0c-9349-40e5-9b18-9774a25522cb.png)
+![image for instruction.png](/cms_trial/assets/1ee6556f-4235-4061-a372-94198fcb6ebd.png)
 
-#### More granular permissions
+### More granular permissions
 
 All of the below require “[Browse Projects](https://help.tempo.io/timesheets/latest/project-permissions) permission for the Jira project”:
 
@@ -191,6 +191,10 @@ Tempo work attributes can be mapped to 7pace custom fields by passing the `custo
 
 **Example Payload with Custom Fields:**
 
+Resize code snippet
+
+Resize code snippet
+
 ```text
 {
   "duration": 3600,
@@ -213,6 +217,14 @@ Tempo work attributes can be mapped to 7pace custom fields by passing the `custo
 }
 ```
 
+Resize code snippet
+
+Resize element
+
+Resize code snippet
+
+Resize element
+
 ---
 
 ### Step 3: Importing into 7pace
@@ -222,6 +234,10 @@ Once your data is mapped, send it to the 7pace Public REST API to create the wor
 **7pace Endpoint:** `POST https://timehubjra.7pace.com/api/v2/worklogs/migrated`
 
 **Example Payload:**
+
+Resize code snippet
+
+Resize code snippet
 
 ```text
 {
@@ -233,7 +249,31 @@ Once your data is mapped, send it to the 7pace Public REST API to create the wor
 }
 ```
 
+Resize code snippet
+
+Resize code snippet
+
 **Example Request:**
+
+Resize element
+
+Resize code snippet
+
+Resize element
+
+Resize element
+
+Resize code snippet
+
+Resize element
+
+Resize element
+
+Resize code snippet
+
+Resize element
+
+Resize code snippet
 
 ```text
 curl --request POST 'https://timehubjra.7pace.com/api/v2/worklogs/migrated' \
@@ -247,6 +287,50 @@ curl --request POST 'https://timehubjra.7pace.com/api/v2/worklogs/migrated' \
     "externalItemId": "10024"
   }'
 ```
+
+Resize code snippet
+
+Resize element
+
+Resize code snippet
+
+Resize element
+
+Resize element
+
+Resize code snippet
+
+Resize element
+
+Resize element
+
+Resize element
+
+Resize element
+
+Resize element
+
+Resize element
+
+Resize element
+
+Resize element
+
+Resize code snippet
+
+Resize element
+
+Resize element
+
+Resize element
+
+Resize element
+
+Resize element
+
+Resize element
+
+Resize element
 
 ---
 
@@ -309,3 +393,14 @@ If the endpoint `POST api/v2/worklogs` was used to create worklogs during migrat
 Deleting such worklogs from Tempo will cascade the deletion of corresponding worklogs in 7pace!
 
 ‌
+
+## Impact of suspending/removing Jira users on Tempo
+
+Suspending, deactivating, or removing Jira users does not prevent migrating their Tempo worklogs to 7pace Timetracker. Tempo continues to return worklogs for inactive, suspended, or deleted Jira users, so exporting those worklogs from Tempo remains supported. For details, see <https://help.tempo.io/timesheets/latest/tempo-permissions-and-inactive-or-deleted-jira-use>.
+
+7pace Timetracker can also handle these worklogs during and after migration:
+
+1. 7pace can create migrated worklogs for suspended, inactive, or deleted users. If the user was never created in 7pace, you may need to use the migration endpoint `POST /api/v2/worklogs/migrated` to create the worklog.
+2. 7pace can display the migrated worklogs. However, user information may be incomplete after an Atlassian account is deleted. For example, the user name may appear as “Former user” instead of the user’s full name. For more information, see <https://support.atlassian.com/atlassian-account/docs/delete-your-atlassian-account/>.
+
+Because Tempo can export these worklogs and 7pace can create and display them, migrating Tempo worklogs for suspended, inactive, deactivated, or removed Jira users is supported.

@@ -15,7 +15,7 @@ Less frequently used settings have been hidden under **Advanced configuration**.
 There are three different scope types (those settings are [adjusted for a box type](https://appfire.atlassian.net/wiki/spaces/SPMDRAFT/pages/1858864073/Scope+definition+box+types?force_transition=71b47b01-cff8-41bd-bee2-c5d1099fd965)):
 
 - [Own-scope](/cms_trial/space/SPM/1918765868/Own-scope/)
-- [Sub-scope](/cms_trial/space/SPM/1918799715/Sub-scope/)
+- [Sub-scope](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918799715)
 - [None (aggregations only)](/cms_trial/space/SPM/1918537743/None+(aggregations+only)/)
 
 ![image-20251201-090442.png](/cms_trial/assets/fa86a7d1-ac1f-420d-8a26-454c6542b09c.png)
@@ -62,7 +62,7 @@ Less frequently used settings have been hidden under **Advanced configuration**.
 There are three different scope types (those settings are [adjusted for a box type](/cms_trial/space/SPM/1918766536/Scope+types/)):
 
 - [Own-scope](/cms_trial/space/SPM/1918765868/Own-scope/)
-- [Sub-scope](/cms_trial/space/SPM/1918799715/Sub-scope/)
+- [Sub-scope](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918799715)
 - [None (aggregations only)](/cms_trial/space/SPM/1918537743/None+(aggregations+only)/)
 
 ![work-items-from-jira.png](/cms_trial/assets/d0a1ed42-627c-4206-9216-8e6001ac402c.png)

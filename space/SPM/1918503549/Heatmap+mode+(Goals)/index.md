@@ -54,7 +54,7 @@ Settings are applicable only in a manual heatmap mode.
 
 Settings are changed per Box type.
 
-App admins can define the colors for each Box type in App administration > [Box types](/cms_trial/space/SPM/1918830000/Box+types/) > Select the box type to edit > Goals > Colors.
+App admins can define the colors for each Box type in App administration > [Box types](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830000) > Select the box type to edit > Goals > Colors.
 
 ![image-20260508-102158.png](/cms_trial/assets/0b0883f8-3979-4e35-8ff2-f2eefdcc5ac7.png)
 
@@ -110,6 +110,6 @@ Each health status can have a description defining its meaning. For example, gre
 
 Settings are applicable only in a manual heatmap mode. Settings are changed per box type.
 
-App admins can define the colors for each Box type in App administration > [Box types](/cms_trial/space/SPM/1918830000/Box+types/) > Select the box type to edit > Goals > Colors.
+App admins can define the colors for each Box type in App administration > [Box types](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830000) > Select the box type to edit > Goals > Colors.
 
 ![image-20260508-102211.png](/cms_trial/assets/647e1ff7-8a1b-4620-8a92-4c6d730f9597.png)

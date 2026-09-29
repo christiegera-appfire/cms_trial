@@ -37,7 +37,7 @@ The box scope is always a subset of the scope already defined at an upper level 
 
 [Unmapped block: nestedExpand]
 
-See the [Sub-scope](/cms_trial/space/SPM/1918799715/Sub-scope/) page to learn more about box configuration.
+See the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918799715> page to learn more about box configuration.
 
 ### Sub-scope definition template
 
@@ -90,7 +90,7 @@ The box scope is always a subset of the scope already defined at an upper level 
 
 [Unmapped block: nestedExpand]
 
-See the [Sub-scope](/cms_trial/space/SPM/1918799715/Sub-scope/) page to learn more about box configuration.
+See the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918799715> page to learn more about box configuration.
 
 ### Sub-scope definition template
 

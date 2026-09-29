@@ -30,7 +30,7 @@ The video presents a short overview of the OKR module.
 
 ## Access the OKR module
 
-This module is available in all [box types](/cms_trial/space/SPM/1918830000/Box+types/). Use the **module switcher** at the top and select the **OKR** from the dropdown to access the OKR module.
+This module is available in all [box types](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830000). Use the **module switcher** at the top and select the **OKR** from the dropdown to access the OKR module.
 
 ![An overview of the OKR module in BigPicture. The module switcher is expanded.](/cms_trial/assets/8f17dc92-2e8d-4a34-97e5-f75adbd25da8.png)
 
@@ -79,7 +79,7 @@ The video presents a short overview of the OKR module.
 
 ## Access the OKR module
 
-This module is available in all [box types](/cms_trial/space/SPM/1918830000/Box+types/). Use the **module list** on the left to access the OKR module.
+This module is available in all [box types](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830000). Use the **module list** on the left to access the OKR module.
 
 ![Screenshot of the OKR module.](/cms_trial/assets/cdeb6b1d-9fa3-49ba-b907-cf5936cac1e6.png)
 

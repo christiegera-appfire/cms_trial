@@ -2,17 +2,6 @@
 
 App-level (or global) permissions determine access to the app and its pages, and the scope of actions users can perform within the app.
 
-**Temporary access issue for OKR and Priorities**
-
-Currently, Jira Administrators may not automatically have access to the OKR and Priorities modules in BigPicture.
-
-Until this issue is fixed, Jira Administrators must be granted access to these modules directly in BigPicture. To provide access, assign either:
-
-- App Admin role, or
-- App OKR Admin and App Priorities Admin roles.
-
-A fix is planned for late August or early September 2026.
-
 ## Navigation and access
 
 Only Jira and App Admins can access global security settings.
@@ -20,11 +9,11 @@ Only Jira and App Admins can access global security settings.
 1. Click the **App settings** button.
 2. Select **Administration** > **Security** from the dropdown.
 
-![Screenshot of the Security tab under Administration.](/cms_trial/assets/b973d91d-bf6c-4d98-be4c-af1adb31ef3c.png)
+![Screenshot of the Security tab under Administration.](/cms_trial/assets/60911d68-eaca-40ab-8f9a-bdc154ea82b2.png)
 
 You are now on the **Administration** > **Security** page.
 
-![Screenshot of the Security page in the BigPicture Administration.](/cms_trial/assets/319b8633-4ffc-4931-a0fe-92ecb836ada3.png)
+![Screenshot of the Security page in the BigPicture Administration.](/cms_trial/assets/95d74ce7-b611-4b85-804b-1a28601e029c.png)
 
 ## App Security (page)
 
@@ -32,7 +21,7 @@ You are now on the **Administration** > **Security** page.
 
 This toggle switch changes permissions in BigPicture only. It doesn't affect user permissions in Jira.
 
-![Screenshot of the Every user is the App Admin toggle switch.](/cms_trial/assets/48ea85c5-f82c-419d-b8c7-268cefc41ac3.png)
+![Screenshot of the Every user is the App Admin toggle switch.](/cms_trial/assets/829ac00b-1a2d-43ae-b1c7-7dcf1d9a6421.png)
 
 #### Toggle switched ON
 
@@ -43,7 +32,7 @@ When enabled, every logged-in Jira user has the same administrative level of ac
 
 When the **Every user is the App Admin** toggle is on, you can't assign global roles to individual users or Jira groups because all users have full access to manage the app and boxes.
 
-Likewise, this toggle disables [box-level security settings](/cms_trial/space/SPM/1918797447/Box-level+permissions/) (security roles for [box types](/cms_trial/space/SPM/1918830000/Box+types/) are not affected).
+Likewise, this toggle disables [box-level security settings](/cms_trial/space/SPM/1918797447/Box-level+permissions/) (security roles for [box types](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830000) are not affected).
 
 | **App** ***Security*** **page** | **Box** ***Security*** **page** |
 | --- | --- |
@@ -110,7 +99,7 @@ A Jira user was not assigned the App User role. As a result, they:
 
 - Can't see BigPicture under Jira’s **Apps**
 
-![A spalsh screen informing about insufficient permission to access BigPicture.](/cms_trial/assets/68910587-a4f2-42a9-bd7e-6ba43aeaea09.png)
+![A spalsh screen informing about insufficient permission to access BigPicture.](/cms_trial/assets/9762c351-aef6-471f-a1e6-ec803d321650.png)
 
 A Jira user was assigned the App User role, but not a box-level security role to any of the boxes. As a result, they:
 
@@ -118,7 +107,7 @@ A Jira user was assigned the App User role, but not a box-level security role to
 - Can open BigPicture
 - Can't access any box data in BigPicture
 
-![A spalsh screen informing about insufficient permission to see box data BigPicture.](/cms_trial/assets/7f83de05-5d91-4c66-8e71-10cc63f7ae6f.png)
+![A spalsh screen informing about insufficient permission to see box data BigPicture.](/cms_trial/assets/9b961590-de01-45fb-862a-46870eb315b2.png)
 
 #### App Resource Admin
 
@@ -138,10 +127,10 @@ Jira and App Admins can grant global roles in BigPicture in the following ways:
 1. On the *Security* page, find the security role you want to assign.
 2. Click **Manage assignments** next to the role.
 
-   ![Screenshot of the Manage assignments button.](/cms_trial/assets/19f84c81-35ad-4a36-9b78-67b6047677ae.png)
+   ![Screenshot of the Manage assignments button.](/cms_trial/assets/0a368f4d-0506-4106-b475-b5c73e0e09f4.png)
 3. From the dropdown, under **Users**, select a Jira user or multiple users in one go; if you want to add a Jira group or groups to a specific role, select them from the list under **Groups**.
 
-   ![Screenshot of the Manage assignments window.](/cms_trial/assets/6a545a80-36c5-4082-a0b9-1fe88ad371bc.png)
+   ![Screenshot of the Manage assignments window.](/cms_trial/assets/12753387-af83-4376-90fe-b47a69eeda11.png)
 
 The roles are assigned, and you don't need to confirm them with any additional buttons.
 
@@ -150,7 +139,7 @@ Alternatively:
 1. Click the **+Assign role** button.
 2. A dialog appears. Select whether you want to assign a user or a group.
 
-   ![Screenshot of the Assign security role window.](/cms_trial/assets/8561fb6a-4f8f-4486-893f-a055a35abc40.png)
+   ![Screenshot of the Assign security role window.](/cms_trial/assets/8f028709-50dc-4e87-9875-cfc576789e39.png)
 
 1. Next, select the global role from the list.
 

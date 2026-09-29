@@ -2,7 +2,7 @@
 
 ## Box type vs box configuration
 
-**Box type** settings contain the default settings applicable to multiple boxes (all boxes of a given type). Those settings are adjusted in **App Administration**. To check the settings that are only box type specific, go to [Box types](/cms_trial/space/SPM/1918830000/Box+types/).
+**Box type** settings contain the default settings applicable to multiple boxes (all boxes of a given type). Those settings are adjusted in **App Administration**. To check the settings that are only box type specific, go to <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830000>.
 
 See an interactive demo on how to access the box type settings.
 

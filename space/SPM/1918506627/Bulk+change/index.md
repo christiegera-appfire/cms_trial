@@ -2,7 +2,7 @@
 
 ## About bulk change
 
-The bulk edit option applies only to the [**own-scope**](/cms_trial/space/SPM/1918765868/Own-scope/) and [**sub-scope**](/cms_trial/space/SPM/1918799715/Sub-scope/) [boxes](/cms_trial/space/SPM/1918799715/Sub-scope/). You cannot bulk edit tasks in the [none-scope](/cms_trial/space/SPM/1918537743/None+(aggregations+only)/) types of boxes, like Portfolio.
+The bulk edit option applies only to the [**own-scope**](/cms_trial/space/SPM/1918765868/Own-scope/) and [**sub-scope**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918799715) [boxes](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918799715). You cannot bulk edit tasks in the [none-scope](/cms_trial/space/SPM/1918537743/None+(aggregations+only)/) types of boxes, like Portfolio.
 
 Tasks bulk change in the Gantt module lets you modify multiple tasks simultaneously instead of editing them one by one. This feature can streamline your workflow and save time, especially if you manage large projects consisting of hundreds of tasks. Bulk changes also help you ensure uniformity across similar tasks by applying the same changes, reducing the risk of errors.
 

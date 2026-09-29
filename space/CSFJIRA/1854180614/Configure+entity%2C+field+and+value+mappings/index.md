@@ -33,7 +33,7 @@ Both methods lead to the same mapping configuration. The difference is how much 
 | **Use template** | A supported, common workflow where you want a faster starting point. | Review the preconfigured entity, field, sync-direction, and value mappings. Add or adjust mappings as needed. |
 | **Create from scratch** | A custom Jira work item type, Salesforce object, or workflow that does not match a template. | Select every entity pair and field pair, then set sync direction, default handling, and value mappings. |
 
-Available templates: **Bug escalation**, **Feature requests**, **Deal enablement**, and **Deal & feature sync**. A template provides an initial configuration with entity, field, and value mappings. See [Configure entity and field mappings with templates](/cms_trial/space/CSFJIRA/3664152459/Configure+entity+and+field+mappings+from+templates/) for guidance.
+Available templates: **Bug escalation**, **Feature requests**, **Deal enablement**, **Deal & feature sync,** and **Support requests**. A template provides an initial configuration with entity, field, and value mappings. See [Configure entity and field mappings with templates](/cms_trial/space/CSFJIRA/3664152459/Configure+entity+and+field+mappings+from+templates/) for guidance.
 
 ## Configuration options
 

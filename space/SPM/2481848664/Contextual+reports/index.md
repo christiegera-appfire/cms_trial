@@ -42,7 +42,7 @@ In such a case, the "Only your set of data is taken into account" message displa
 
 ### Access
 
-Contextual reports are available in every [box scope type](/cms_trial/space/SPM/1918766536/Scope+types/) and [box type](/cms_trial/space/SPM/1918830000/Box+types/) except the Home/root box.
+Contextual reports are available in every [box scope type](/cms_trial/space/SPM/1918766536/Scope+types/) and [box type](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830000) except the Home/root box.
 
 - Overview (top of the module)
 - Scope (Details View > Reports)
@@ -116,7 +116,7 @@ In such a case, the "Only your set of data is taken into account" message displa
 
 ### Access
 
-Contextual reports are available in every [box scope type](/cms_trial/space/SPM/1918766536/Scope+types/) and [box type](/cms_trial/space/SPM/1918830000/Box+types/) except the Home/root box. See the details in the table below.
+Contextual reports are available in every [box scope type](/cms_trial/space/SPM/1918766536/Scope+types/) and [box type](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830000) except the Home/root box. See the details in the table below.
 
 | **Module** | **How to access contextual reports** |
 | --- | --- |

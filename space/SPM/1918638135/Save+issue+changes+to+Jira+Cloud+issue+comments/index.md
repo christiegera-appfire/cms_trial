@@ -6,5 +6,4 @@ Working with the Gantt module may update multiple dependent tasks with a single 
 
 Such updates may also occur when the scope of the box is defined.
 
-Image — asset pipeline pending  
-contentId-1918638135
+![contentId-1918638135](/cms_trial/assets/ec075902-13e9-449a-b7d8-1f0055aae1e3.png)

@@ -132,7 +132,7 @@
       </div>
     </div>
     <h1>Sum up story points for issues in an Epic</h1>
-    <div class="page-meta">Updated 1 month ago · 1 min read</div>
+    <div class="page-meta">Updated 2 months ago · 1 min read</div>
     <div class="columns" style="grid-template-columns: 100.0fr;"><div><h2 id="problem">Problem</h2><p>You want to have a field that contains the sum of all the story points under an Epic.</p><h2 id="solution">Solution</h2><p>Create a scripted field that calculates the total story points by checking if the current issue is an Epic, then finding all child issues and summing their story point values. The script only processes issues with story points greater than 0 to avoid null value errors.</p></div></div><h3 id="script">Script</h3><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">integer sum = 0;
 if(issueType == "Epic") {
     for(string i in selectIssues("parent = " + key)) {

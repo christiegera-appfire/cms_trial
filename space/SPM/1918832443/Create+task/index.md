@@ -13,7 +13,7 @@ BigPicture offers several ways to create tasks, giving you flexibility based on 
 
 Find out more on the next pages:
 
-| - [Import from file](/cms_trial/space/SPM/1918800781/Import+from+file/)   - [Import MS Project tasks](/cms_trial/space/SPM/3416851775/Import+MS+Project+tasks/) - [Create tasks](/cms_trial/space/SPM/1918800322/Create+tasks/) - [Clone tasks / Clone from another box](/cms_trial/space/SPM/1918636677/Clone+tasks+%2F+Clone+from+another+box/) - [Task template](/cms_trial/space/SPM/1918702714/Task+template/) |
+| - [Create tasks](/cms_trial/space/SPM/1918800322/Create+tasks/) - [Clone tasks / Clone from another box](/cms_trial/space/SPM/1918636677/Clone+tasks+%2F+Clone+from+another+box/) - [Task template](/cms_trial/space/SPM/1918702714/Task+template/) |
 | --- |
 
 ## Create task (new navigation)
@@ -29,5 +29,5 @@ BigPicture offers several ways to create tasks, giving you flexibility based on 
 
 Find out more on the next pages:
 
-| - [Import from file](/cms_trial/space/SPM/1918800781/Import+from+file/)   - [Import MS Project tasks](/cms_trial/space/SPM/3416851775/Import+MS+Project+tasks/) - [Create tasks](/cms_trial/space/SPM/1918800322/Create+tasks/) - [Clone tasks / Clone from another box](/cms_trial/space/SPM/1918636677/Clone+tasks+%2F+Clone+from+another+box/) - [Task template](/cms_trial/space/SPM/1918702714/Task+template/) |
+| - [Create tasks](/cms_trial/space/SPM/1918800322/Create+tasks/) - [Clone tasks / Clone from another box](/cms_trial/space/SPM/1918636677/Clone+tasks+%2F+Clone+from+another+box/) - [Task template](/cms_trial/space/SPM/1918702714/Task+template/) |
 | --- |

@@ -21,7 +21,7 @@ This release expands what you can configure for approvals in a workflow:
 - Automatically reset approvals when a page is updated after approval.
 - Use clearer approval labels in the workflow builder.
 
-![advanced-approvals.png](/cms_trial/assets/28a8e753-d8a4-490c-b9c9-8fcf125f1743.png)
+![Edit approval page showing the new advanced approval configuration options.](/cms_trial/assets/879a7eac-7634-4f05-90a5-419c26cd1d1f.png)
 
 ### Workflow engine improvements
 

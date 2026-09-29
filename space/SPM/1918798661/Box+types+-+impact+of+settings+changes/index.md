@@ -4,7 +4,7 @@
 
 ## The impact of changes in the box type settings
 
-Changing a [box type's](/cms_trial/space/SPM/1918830000/Box+types/) settings affects the boxes created with it. Depending on the settings, the change can affect the existing boxes, new boxes created after the change in settings, or both.
+Changing a [box type's](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830000) settings affects the boxes created with it. Depending on the settings, the change can affect the existing boxes, new boxes created after the change in settings, or both.
 
 ### Change of the scope type
 
@@ -107,7 +107,7 @@ The table below shows how a given change in the Box type settings impacts existi
 
 ## The impact of changes in the box type settings
 
-Changing a [box type's](/cms_trial/space/SPM/1918830000/Box+types/) settings affects the boxes created with it. Depending on the settings, the change can affect the existing boxes, new boxes created after the change in settings, or both.
+Changing a [box type's](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830000) settings affects the boxes created with it. Depending on the settings, the change can affect the existing boxes, new boxes created after the change in settings, or both.
 
 ### Change of the scope type
 

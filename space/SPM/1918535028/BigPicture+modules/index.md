@@ -45,7 +45,7 @@ Currently, there are fourteen modules to choose from, each offering a different 
 
 ## Security and access (customize module availability)
 
-Default [module availability](/cms_trial/space/SPM/1918503298/Define+available+modules/) in individual boxes depends on their [box type](/cms_trial/space/SPM/1918830000/Box+types/) and [module configuration](/cms_trial/space/SPM/1918503298/Define+available+modules/):
+Default [module availability](/cms_trial/space/SPM/1918503298/Define+available+modules/) in individual boxes depends on their [box type](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830000) and [module configuration](/cms_trial/space/SPM/1918503298/Define+available+modules/):
 
 - Jira and App Admins can customize box type settings by enabling or disabling module availability in specific box types: **App Settings** (wrench icon) > **Administration** > **Box types** > select a **box type** from the list > **General** > **Modules**.
 

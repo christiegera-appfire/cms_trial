@@ -2,7 +2,7 @@
 
 ## Overview
 
-new Dashboard Hub’s **Assets Custom Charts** gadget lets you create customized charts, pivot tables, and tables using data from [Atlassian Assets](https://www.atlassian.com/platform/platform-apps/assets) (CMDB). Query your asset objects with Assets Query Language (AQL), then aggregate and visualize the results, for example, chart laptop counts by service status, track software license expiry dates by vendor, or compare asset status distributions across office locations.
+Dashboard Hub’s **Assets Custom Charts** gadget lets you create customized charts, pivot tables, and tables using data from [Atlassian Assets](https://www.atlassian.com/platform/platform-apps/assets) (CMDB). Query your asset objects with Assets Query Language (AQL), then aggregate and visualize the results, for example, chart laptop counts by service status, track software license expiry dates by vendor, or compare asset status distributions across office locations.
 
 ![Asset Custom Charts showing assets per status in a pie chart and table view.](/cms_trial/assets/f175aead-5195-4bf9-96ab-dab8f72f7cae.jpg)
 
@@ -67,7 +67,7 @@ Or
 
 If you select a table view type, there are additional options to consider:
 
-- The **columns** that will appear in the list to display the search results. For example, Name, Key, Revision, Tier, or Creation date. At least one column has to be present. Drag a column name to reorder the columns.
+- The **columns** that will appear in the list to display the search results. For example, Name, Key, Revision, Object type, Tier, or Creation date. At least one column has to be present. Drag a column name to reorder the columns.
 - You canenable **Group results by selected columns** if you want to group results by the previously selected columns, for example, select `Department` to see one row per department. See the [group results](/cms_trial/space/RDD/3294855178/Assets+Custom+Charts/) section for more information.
 - Select an aggregation if you need to perform calculations:Count, sum, max, min, mean, or average over the results. For example, add a count aggregation to show how many laptops each department has. See the [aggregations](/cms_trial/space/RDD/3294855178/Assets+Custom+Charts/) section for more information.
 
@@ -106,7 +106,7 @@ You can select a specific attribute or field to act as the basis for organizing 
 
 - **Rows (dimensions)**:The selected row represents the field used for grouping.
 - **Aggregation**: Aggregations get the values of grouped rows as the input of that function to return a calculated value.
-- **Field:** The displayed field values depend on the chosen aggregation type.
+- **Field**:The displayed field values depend on the chosen aggregation type.
 
 ### 2D Pivot Table
 
@@ -228,7 +228,3 @@ Click a color icon to open the color picker. You can define a color by hexadecim
 ## Integrations
 
 - Assets in Jira Service Management (formerly, Insight)
-
-## Dashboards
-
-This gadget isn’t included in any of our dashboard templates.
