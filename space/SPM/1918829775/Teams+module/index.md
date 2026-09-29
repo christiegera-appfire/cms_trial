@@ -12,7 +12,7 @@ In the Gantt, Resources, and Board modules, you can quickly assign tasks to a re
 
 ![Screenshot of the Gantt module with the Team column added to the view.](/cms_trial/assets/1b840e85-27f7-4b8f-8dc4-af794891be38.png)
 
-The [global teams](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918798278) you create can be assigned to multiple boxes. Then, you can easily convert them into box teams, which cannot be reassigned.
+The [global teams](/cms_trial/space/SPM/1918798278/Teams+(Resource+management)/) you create can be assigned to multiple boxes. Then, you can easily convert them into box teams, which cannot be reassigned.
 
 ![Screenshot of the Teams module in BigPicture.](/cms_trial/assets/66eac296-0750-4450-b820-8617a8357daf.png)
 
@@ -42,7 +42,7 @@ In the Gantt, Resources, and Board modules, you can quickly assign tasks to a re
 
 ![gantt-team.png](/cms_trial/assets/4e9aa076-c7ed-4017-9283-4a2e6d5271a8.png)
 
-The [global teams](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918798278) you create can be assigned to multiple boxes. Then, you can easily convert them into box teams, which cannot be reassigned.
+The [global teams](/cms_trial/space/SPM/1918798278/Teams+(Resource+management)/) you create can be assigned to multiple boxes. Then, you can easily convert them into box teams, which cannot be reassigned.
 
 ![global-teams.png](/cms_trial/assets/ea0c4635-0b70-4d90-8276-5a99ec8af881.png)
 

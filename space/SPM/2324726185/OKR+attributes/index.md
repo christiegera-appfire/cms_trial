@@ -19,14 +19,14 @@ note A Strategic theme and sub-themes, as well as Objectives and sub-Objectives,
 | Name | A descriptive name for your OKR. |
 | Description | A brief description of the OKR for stakeholders. |
 | Progress tracking | Determines whether the OKR’s progress is to be automatic or manual. |
-| [Period](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918797926) | Defines the timeframe for completing the OKR. |
+| [Period](/cms_trial/space/SPM/1918797926/OKR+Settings/) | Defines the timeframe for completing the OKR. |
 | Expected start | Expected start date of the OKR. |
 | Expected end | Expected completion date of the OKR. |
 | [Type](/cms_trial/space/SPM/1918635736/OKR+types/) | OKR type (for example, the default types are Company, Team, Personal. You can customize OKR types in the module settings).  note You cannot edit the OKR type for Strategic themes and sub-themes. Their type is always the “Strategic theme” type. |
 | Owner | The assignee responsible for delivering the OKR.  By default, it is the person who created the OKR, but you can edit it later. |
 | Collaborators | Team members/ other stakeholders responsible for delivering the OKR. |
 | [Teams](/cms_trial/space/SPM/1918701406/OKR+Teams/) | Teams involved in delivering the OKR. |
-| [Labels](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918797926) | A descriptive tag that is used for categorizing and organizing the OKR. |
+| [Labels](/cms_trial/space/SPM/1918797926/OKR+Settings/) | A descriptive tag that is used for categorizing and organizing the OKR. |
 | Contribution ([Weight](/cms_trial/space/SPM/1918636591/Add+weight+(contribution)+to+OKR/)) | It reflects how much a child OKR contributes to its parent OKR’s progress upon full completion.  note By default, all OKRs under the same Strategic theme share the contribution equally, but you can edit contribution values for individual OKRs. Top-level parent OKRs have no contribution. |
 
 ### OKR update

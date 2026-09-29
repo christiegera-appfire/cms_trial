@@ -62,7 +62,7 @@ When the App or Box Admin assigns a box-level role to a Jira user who is not an 
 
 ### Inheritance of the security roles
 
-[Security roles are inherited](/cms_trial/space/SPM/1918700886/Inheritance+mode/) from parents to children, never the other way round. The box role can be acquired in two ways, depending on the [box type](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830000) settings:
+[Security roles are inherited](/cms_trial/space/SPM/1918700886/Inheritance+mode/) from parents to children, never the other way round. The box role can be acquired in two ways, depending on the [box type](/cms_trial/space/SPM/1918830000/Box+types/) settings:
 
 - Own with inherited (roles can be inherited and also assigned manually)
 - Inherited only (roles can only be inherited; manual assignment is unavailable)

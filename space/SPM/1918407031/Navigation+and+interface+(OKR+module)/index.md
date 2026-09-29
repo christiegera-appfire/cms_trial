@@ -8,7 +8,7 @@ This page describes features that are supported **only** in [**BigPicture Advanc
 
 Click to expand the guide
 
-The OKR module interface is divided into three main pages (modes), each providing unique features to help you track and manage your OKRs for individual projects and the entire portfolio. The interface also houses individual [module settings](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918797926) that are applicable only to the OKR module.
+The OKR module interface is divided into three main pages (modes), each providing unique features to help you track and manage your OKRs for individual projects and the entire portfolio. The interface also houses individual [module settings](/cms_trial/space/SPM/1918797926/OKR+Settings/) that are applicable only to the OKR module.
 
 ## OKR module pages
 

@@ -15,7 +15,7 @@ Check the following pages to get to know different ways to create Teams:
 
 Allocating teams is required to start working with the [Objectives](https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=spm&title=Objectives%20module&linkCreation=true&fromPageId=1918669581) and [Board](https://appfire.atlassian.net/wiki/spaces/DLPDRAFT/pages/297567561) modules. Allocating teams is not required in the [Resources](/cms_trial/space/SPM/1918535629/Resources+module/) module, although it is recommended as the module provides built-in team-specific filters.
 
-If you plan to re-use your team, you can create [global teams](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918798278).
+If you plan to re-use your team, you can create [global teams](/cms_trial/space/SPM/1918798278/Teams+(Resource+management)/).
 
 ![Screenshot of the Teams module in BigPicture.](/cms_trial/assets/a84a4150-35aa-420e-8a2f-c76d14d5803f.png)
 

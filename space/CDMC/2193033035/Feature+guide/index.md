@@ -16,6 +16,7 @@ Follow the sections below to configure administrative settings, architect custom
   - [Assign reviewers through the workflow state dialog](/cms_trial/space/CDMC/2192968161/Assign+reviewers+through+the+workflow+state+dialog/)
 - [Searching and Reporting](/cms_trial/space/CDMC/2193066247/Searching+and+Reporting/)
   - [Document activity (document-level)](/cms_trial/space/CDMC/2193162907/Document+activity+(document-level)/)
+  - [Document report - Global level](/cms_trial/space/CDMC/3713531915/Document+report+-+Global+level/)
   - [Document report - Space level](/cms_trial/space/CDMC/2193033420/Document+report+-+Space+level/)
 - [Notifications](/cms_trial/space/CDMC/2193001238/Notifications/)
 - [Apply workflows](/cms_trial/space/CDMC/2192870271/Apply+workflows/)

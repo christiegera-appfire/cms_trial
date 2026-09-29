@@ -20,7 +20,7 @@ These settings can be inherited when a new box is created or moved to an upper-l
 
 ## Security and access
 
-Inheritance mode is set up for a [box type](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830000), meaning all Boxes of a given type have the same setup.
+Inheritance mode is set up for a [box type](/cms_trial/space/SPM/1918830000/Box+types/), meaning all Boxes of a given type have the same setup.
 
 Inheritance mode is set up for each element separately. This means you can, for example, ensure Column views are inherited, but Quick filters aren't.
 

@@ -23,7 +23,7 @@ During the box creation process, you define the following basic box attributes:
 
 ![Create box dialog.](/cms_trial/assets/aeace28c-8497-41a7-bc3c-c3ab23c60b7d.png)
 
-- Type (you specify the [box type](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830000) you want to serve as the template for your new box. The availability of the box types in the dropdown depends on the new box’s location in the box hierarchy and the supported [box parent types](/cms_trial/space/SPM/1918832188/Box+type+attributes/))
+- Type (you specify the [box type](/cms_trial/space/SPM/1918830000/Box+types/) you want to serve as the template for your new box. The availability of the box types in the dropdown depends on the new box’s location in the box hierarchy and the supported [box parent types](/cms_trial/space/SPM/1918832188/Box+type+attributes/))
 - Name (name your box to reflect the purpose or goal of the initiative, such as the project name)
 - Icon and color (select the icon and icon background color for your box. This is a purely visual element that is meant to help you identify your box and does not impact any settings or box behavior. A colored icon is displayed in both the [Overview module](/cms_trial/space/SPM/1918502655/Overview+module/) and the [box switcher](/cms_trial/space/SPM/1918667414/Navigate+between+boxes+(box+switcher)/). The default setup can be changed either during the creation of a box or later in its configuration).
 - Start/end date (the duration of the box. It can depend on the tasks' dates or the [period mode and sequentiality](/cms_trial/space/SPM/1918669073/Period+mode+and+sequentiality/) as defined in the box type)
@@ -47,7 +47,7 @@ On the [box configuration](/cms_trial/space/SPM/1918666176/Box+configuration/) p
 - [Modules](/cms_trial/space/SPM/1918503298/Define+available+modules/) (module availability depends on the box type and individual box settings)
 - [Security roles](/cms_trial/space/SPM/1918797447/Box-level+permissions/) (when you create a box based on a box type, default users and groups are added per the box type settings.
 
-## [Types of boxes](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830000)
+## [Types of boxes](/cms_trial/space/SPM/1918830000/Box+types/)
 
 Box types are pre-configured templates that make new box creation faster. The “contents” you want to put in your box determine the type of box you want to use for your new box.
 
@@ -69,7 +69,7 @@ The scope of the box is defined on the **box configuration** > **Tasks** > [**Sc
 
 Boxes can contain other boxes (sub-boxes), even if those have their own sub-boxes. The parent-child relationships allow you to build complex box hierarchies, manually [move boxes](/cms_trial/space/SPM/1918406916/Move+box+in+box+hierarchy/) along the hierarchy, and sort them.
 
-You cannot nest any box type under every other box type—the box relationships depend on the [box type](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830000) settings where you define parent types.
+You cannot nest any box type under every other box type—the box relationships depend on the [box type](/cms_trial/space/SPM/1918830000/Box+types/) settings where you define parent types.
 
 ## Settings that affect tasks in a box
 
@@ -87,7 +87,7 @@ Task structure in your box can be generated automatically with the [structure bu
 
 ### [Default task scheduling mode](/cms_trial/space/SPM/1918667098/Configure+task+scheduling/)
 
-The default scheduling option on the [box type](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830000) configuration page determines how new tasks added to the box will interact with the scheduling mechanism, including factors like task dependencies and parent/child relationships.
+The default scheduling option on the [box type](/cms_trial/space/SPM/1918830000/Box+types/) configuration page determines how new tasks added to the box will interact with the scheduling mechanism, including factors like task dependencies and parent/child relationships.
 
 You can manually change task scheduling mode in every module and gadget that supports [column view](/cms_trial/space/SPM/1918404907/Column+views/).
 
@@ -128,7 +128,7 @@ During the box creation process, you define the following basic box attributes:
 
 ![Create box dialog.](/cms_trial/assets/aeace28c-8497-41a7-bc3c-c3ab23c60b7d.png)
 
-- **Type** (you specify the [box type](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830000) you want to serve as the template for your new box. The availability of the box types in the dropdown depends on the new box’s location in the box hierarchy and the supported [box parent types](/cms_trial/space/SPM/1918832188/Box+type+attributes/))
+- **Type** (you specify the [box type](/cms_trial/space/SPM/1918830000/Box+types/) you want to serve as the template for your new box. The availability of the box types in the dropdown depends on the new box’s location in the box hierarchy and the supported [box parent types](/cms_trial/space/SPM/1918832188/Box+type+attributes/))
 - **Name** (name your box to reflect the purpose or goal of the initiative, such as the project name)
 - **Icon** and **icon background color** (select the icon and icon background color for your box. This is a purely visual element that is meant to help you identify your box and does not impact any settings or box behavior. A colored icon is displayed in both the [Overview module](/cms_trial/space/SPM/1918502655/Overview+module/) and the [box switcher](/cms_trial/space/SPM/1918667414/Navigate+between+boxes+(box+switcher)/). The default setup can be changed either during the creation of a box or later in its configuration).
 - **Start and end dates** (the duration of the box. It can depend on the tasks' dates or the [period mode and sequentiality](/cms_trial/space/SPM/1918669073/Period+mode+and+sequentiality/) as defined in the box type)
@@ -154,7 +154,7 @@ On the [box configuration](/cms_trial/space/SPM/1918666176/Box+configuration/) p
 
 ## Types of boxes
 
-[Box types](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830000) are preconfigured templates that speed up new box creation. The “contents” you want to put in your box determine the type of box you want to use for your new box.
+[Box types](/cms_trial/space/SPM/1918830000/Box+types/) are preconfigured templates that speed up new box creation. The “contents” you want to put in your box determine the type of box you want to use for your new box.
 
 There are many different box types, but all of them can be categorized as:
 
@@ -174,7 +174,7 @@ The scope of the box is defined in the **box configuration** > **Tasks** > [**Wo
 
 Boxes can contain other boxes (sub-boxes), even if those have their own sub-boxes. The parent-child relationships allow you to build complex [box hierarchies](/cms_trial/space/SPM/1918535907/Box+hierarchy/), manually [move boxes](/cms_trial/space/SPM/1918406916/Move+box+in+box+hierarchy/) along the hierarchy, and sort them.
 
-You cannot nest any box type under every other box type—the box relationships depend on the [box type](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830000) settings, where you define parent types.
+You cannot nest any box type under every other box type—the box relationships depend on the [box type](/cms_trial/space/SPM/1918830000/Box+types/) settings, where you define parent types.
 
 ## Settings that affect tasks in a box
 
@@ -192,7 +192,7 @@ You cannot nest any box type under every other box type—the box relationships 
 
 ### Default task scheduling mode
 
-The default [task scheduling](/cms_trial/space/SPM/1918667098/Configure+task+scheduling/) option on the [box type](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830000) configuration page determines how new tasks added to the box interact with the scheduling mechanism, including factors such as task dependencies and parent/child relationships.
+The default [task scheduling](/cms_trial/space/SPM/1918667098/Configure+task+scheduling/) option on the [box type](/cms_trial/space/SPM/1918830000/Box+types/) configuration page determines how new tasks added to the box interact with the scheduling mechanism, including factors such as task dependencies and parent/child relationships.
 
 You can manually change the task scheduling mode in every module and gadget that supports [column view](/cms_trial/space/SPM/1918404907/Column+views/).
 

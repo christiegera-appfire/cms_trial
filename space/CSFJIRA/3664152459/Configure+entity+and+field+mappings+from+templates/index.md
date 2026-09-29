@@ -20,14 +20,16 @@ Make sure you have:
 
 ## Configure mapping with templates
 
-You can select a template with ready entity and field mappings. There are four templates you can choose from:
+You can select a template with ready entity and field mappings. There are five templates you can choose from:
 
-- **Bug escalation**:To track unresolved bugs and bring cases from Salesforce to your engineering team in Jira. Maps Jira Bug work item type with Salesforce Case object type.
-- **Feature requests**: To send customer feature requests from Salesforce into Jira and track them as they move through development in both platforms. Maps Jira Story work item type to Salesforce Case object type.
+- **Bug escalation**:Tracks unresolved bugs and brings cases from Salesforce to your engineering team in Jira. Maps the Jira Bug work item type to the Salesforce Case object type.
+- **Feature requests**: Sends customer feature requests from Salesforce into Jira and tracks them as they move through development in both platforms. Maps Jira Story work item type to Salesforce Case object type.
 - **Deal enablement**: Connect Salesforce opportunities to Jira work items. Maps Jira Epic work item type to Salesforce Opportunity object type.
-- **Deal & feature sync:** Bring sales, product, and engineering into one workflow. Send Salesforce opportunities and customer requests to Jira, so every team stays aligned and always up to date. Maps Jira Epic work item type to Salesforce Opportunity object type, and Jira Story work item type to Salesforce Case object type.
+- **Deal & feature sync**:Brings sales, product, and engineering into one workflow. Send Salesforce opportunities and customer requests to Jira, so every team stays aligned and always up to date. Maps Jira Epic work item type to Salesforce Opportunity object type, Jira Story to Salesforce Case, and Jira Bug to Salesforce Case.
+- **Support requests**: Converts customer-reported issues into Jira Service Management (JSM) incidents or change requests. The template maps Jira (System) Incident and (System) Change work item types to Salesforce Case object type. The template works only with JSM Premium.   
+  For more details, see [Mapping templates reference](/cms_trial/space/CSFJIRA/3710386504/Mapping+templates+reference/).
 
-  ![Templates](/cms_trial/assets/2c76ff7f-b0bd-46ff-8e1a-55ddb3bae6db.png)
+  ![mapping templates](/cms_trial/assets/fa372468-9ce5-45f9-a4b6-5aae462bd1cb.png)
 
 1. Select **Apps** from the left sidebar in Jira.
 2. Next to *Connector for Salesforce,* click **Menu** (▢) > **App settings**.
@@ -53,7 +55,7 @@ You can select a template with ready entity and field mappings. There are four t
 | Summary | ← → Bidirectional | Subject |
 | Status | ← → Bidirectional | Status |
 | Priority | ← → Bidirectional | Priority |
-| Decription | ← → Bidirectional | Description |
+| Description | ← → Bidirectional | Description |
 
 ![image-20260916-084130.png](/cms_trial/assets/4df34e9a-4010-4808-b2f6-906d6d4ab077.png)
 
@@ -75,5 +77,6 @@ Using the Bug escalation template, the Jira work item type *Bug* maps to the Sal
 
 - [Associate Salesforce records from Jira](/cms_trial/space/CSFJIRA/3663725288/Associate+Jira+work+items+with+Salesforce+records+from+Jira/)
 - If you want to configure your custom mappings, go to the [Configure entity and field mappings from scratch](/cms_trial/space/CSFJIRA/3664152584/Configure+entity+and+field+mappings+from+scratch/) page.
+- [Mapping templates reference](/cms_trial/space/CSFJIRA/3710386504/Mapping+templates+reference/)
 
 ## 

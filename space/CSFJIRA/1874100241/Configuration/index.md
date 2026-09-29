@@ -15,6 +15,7 @@ Let’s connect - [schedule a demo with us](https://calendly.com/business-integr
   - [Configuring Jira cascading fields to work with Salesforce dependent fields](/cms_trial/space/CSFJIRA/1873413246/Configuring+Jira+cascading+fields+to+work+with+Salesforce+dependent+fields/)
   - [Jira field type to Salesforce field type compatibility](/cms_trial/space/CSFJIRA/1522369149/Jira+field+type+to+Salesforce+field+type+compatibility/)
   - [Change the Reporter and Assignee of an issue](/cms_trial/space/CSFJIRA/1858371793/Change+the+Reporter+and+Assignee+of+an+issue/)
+  - [Mapping templates reference](/cms_trial/space/CSFJIRA/3710386504/Mapping+templates+reference/)
 - [Configure settings in Salesforce](/cms_trial/space/CSFJIRA/1873740170/Configure+settings+in+Salesforce/)
   - [Configure settings in the Salesforce package](/cms_trial/space/CSFJIRA/1873445530/Configure+settings+in+the+Salesforce+package/)
   - [Filter projects in the Create Jira Issue dialog box](/cms_trial/space/CSFJIRA/1873511284/Filter+projects+in+the+Create+Jira+Issue+dialog+box/)

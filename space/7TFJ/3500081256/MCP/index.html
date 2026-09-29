@@ -1,0 +1,480 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
+<meta charset="utf-8">
+<title>MCP | Appfire Docs</title>
+<meta name="description" content="MCP integration is currently available for beta testing with select partner organizations. You can reach out to check availability for testing via support…">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/cms_trial/tokens.css">
+<link rel="stylesheet" href="/cms_trial/styles.css">
+<meta name="robots" content="noindex, nofollow">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "MCP",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/7TFJ/3500081256/MCP/",
+  "dateModified": "2026-09-29T12:43:04.202Z"
+}
+</script>
+</head>
+<body>
+<div id="top-nav-mount">
+<header class="top-nav">
+  <div class="top-nav-inner">
+    <a class="top-nav-brand" href="/cms_trial/"><img class="top-nav-logo top-nav-logo-dark" src="/cms_trial/brand-assets/appfire-lockup-white.svg" alt="Appfire" loading="lazy"><img class="top-nav-logo top-nav-logo-light" src="/cms_trial/brand-assets/appfire-lockup-black.svg" alt="Appfire" loading="lazy"><span class="top-nav-divider"></span><span class="top-nav-docs-label">Docs</span></a>
+    <nav class="top-nav-links">
+      <a href="/cms_trial/product-directory/">Product directory</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <div class="lang-picker">
+        <button class="lang-picker-btn" type="button" title="Translate this page" aria-label="Translate this page">🌐</button>
+        <div class="lang-picker-menu"></div>
+      </div>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
+    </nav>
+  </div>
+</header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
+<!-- Language picker — links to Google Translate's real, public proxy for
+     the CURRENT page (computed client-side from window.location), which
+     translates the actual live page on the fly. No API key, no per-
+     character cost, works today. Lower polish than a real native
+     multi-language site (shows Google's own banner, different domain
+     while translated) — a real starting point, not the final answer.
+
+     Languages chosen based on real signal: Atlassian's own cloud docs/
+     support content is only actively translated into Japanese beyond
+     English (confirmed via their own support documentation) — the
+     strongest available signal for what this specific audience actually
+     needs — plus the other major enterprise-software markets. -->
+<script>
+(function () {
+  var btn = document.querySelector(".lang-picker-btn");
+  var menu = document.querySelector(".lang-picker-menu");
+  if (!btn || !menu) return;
+
+  var LANGUAGES = [
+    { code: "ja", label: "日本語 (Japanese)" },
+    { code: "de", label: "Deutsch (German)" },
+    { code: "fr", label: "Français (French)" },
+    { code: "es", label: "Español (Spanish)" },
+    { code: "pt", label: "Português (Portuguese)" },
+    { code: "zh-CN", label: "中文 (Chinese, Simplified)" },
+    { code: "pl", label: "Polski (Polish)" },
+  ];
+
+  menu.innerHTML = LANGUAGES.map(function (lang) {
+    return '<a href="#" data-lang="' + lang.code + '">' + lang.label + "</a>";
+  }).join("");
+
+  btn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    menu.classList.toggle("open");
+  });
+
+  document.addEventListener("click", function () {
+    menu.classList.remove("open");
+  });
+
+  menu.querySelectorAll("a").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      var lang = a.dataset.lang;
+      var currentUrl = window.location.href;
+      var translateUrl = "https://translate.google.com/translate?sl=en&tl=" + lang + "&u=" + encodeURIComponent(currentUrl);
+      window.open(translateUrl, "_blank", "noopener");
+      menu.classList.remove("open");
+    });
+  });
+})();
+</script>
+</div>
+<div class="shell">
+  <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/7TFJ/1196624163/7pace+Timetracker+for+Jira/">7pace Timetracker for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFJ/1196624163/7pace+Timetracker+for+Jira/">7pace Timetracker for Jira</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/7TFJ/1355022337/Administration/">Administration</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">MCP</span></nav>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/7TFJ/pages/3500081256" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
+    </div>
+    <h1>MCP</h1>
+    <div class="page-meta">Updated today · 3 min read</div>
+    <div class="panel panel-note"><p>MCP integration is currently available for <strong>beta testing</strong> with select partner organizations. You can reach out to check availability for testing via <a href="https://appfire.atlassian.net/servicedesk/customer/portal/11"><u>support portal</u></a>.</p></div><p>The <strong>Model Context Protocol (MCP)</strong> integration in 7pace Timetracker enables AI coding assistants (such as Cursor and Claude Desktop) to interact directly with 7pace Timetracker. Using MCP, your AI assistant can analyze your coding activity, Git commits, active branches, and prompt history to propose and automatically record accurate time logs.</p><h2 id="access">Access</h2><p>Before individual users can connect their AI clients, MCP must be enabled at the organization level by a 7pace Administrator:</p><ol><li><p>Open <strong>7pace Settings</strong>.</p></li><li><p>Select the <strong>Integrations</strong> tab.</p></li><li><p>Locate the <strong>MCP Integration</strong> section.</p></li><li><p>Click <strong>Enable MCP</strong> and acknowledge the administrative agreements and permission requirements.</p></li></ol><img alt="enable-mcp.png" class="doc-image" loading="lazy" src="/cms_trial/assets/db5d3406-ef3e-4093-91e8-53f41b92fe8f.png"/><p>The following acknowledges and administrative agreements are required to enable the MCP option:</p><ul><li><p><strong>Terms and conditions</strong>: “I acknowledge that our use of the services is governed by Appfire's terms and conditions.</p><p><a href="https://apps.appf.re/7pace/jira/doc/ssa"><u>View Appfire’s terms and conditions﻿</u></a><u>“</u></p></li><li><p><strong>Data and privacy</strong>: 'I acknowledge that we have received and read the privacy policy.</p><p><a href="https://apps.appf.re/7pace/jira/doc/privacy-policy"><u>View Appfire’s privacy policy﻿</u></a><u>“</u></p></li><li><p><strong>Enable MCP for your organization</strong>: 'I acknowledge that members of our organization will be able to connect AI agents to 7pace through MCP using personal API tokens. AI agents may create worklogs on a user's behalf, subject to individual consent, and may make mistakes.</p><p><a href="https://apps.appf.re/7pace/jira/doc/mcp">View MCP documentation﻿</a><a href="https://apps.appf.re/7pace/jira/doc/mcp"><u>﻿</u></a><br/><a href="https://apps.appf.re/7pace/jira/doc/eula"><u>View EULA﻿</u></a><u>“</u></p></li></ul><h2 id="connecting-ai-clients">Connecting AI clients</h2><p>In <strong>7pace Settings</strong> navigate to personal Settings, next <strong>MCP / API Tokens.</strong></p><img alt="mcp-tokens.png" class="doc-image" loading="lazy" src="/cms_trial/assets/2c7ab778-1217-476c-9645-b68ebca6b1ff.png"/><h3 id="step-1-generate-an-api-token">Step 1: Generate an API token</h3><p>Click <strong>Create Token</strong> to generate a new personal token for MCP access. Choose a name and validity date. Tokens can be valid for up to one year. You can choose a shorter validity date.</p><p>Select <strong>Create</strong>.</p><img alt="create-token-1.png" class="doc-image" loading="lazy" src="/cms_trial/assets/eb8b7abe-fff3-4a85-bf07-c775d6e6b0c2.png"/><p>Now you can copy the token.</p><div class="panel panel-warning"><p>Copy and save the token. You <strong>CANNOT</strong> recover the token after this step is finished.</p></div><img alt="create-token-2.png" class="doc-image" loading="lazy" src="/cms_trial/assets/9873580c-15bd-4b30-b96f-beb72b16d078.png"/><h3 id="step-2-configure-your-client">Step 2: Configure your client</h3><p>You can connect your client using either of the following methods using the MCP server URL <code>https://timehubjra.7pace.com/mcp</code>:</p><ul><li><p><strong>Quick Setup (Recommended for Cursor):</strong> Click <strong>Copy cursor configuration</strong>. This copies a pre-formatted configuration block directly to your clipboard. Paste it into your Cursor MCP settings.</p></li><li><p><strong>Manual Setup:</strong> Copy the generated API Token manually, then paste the token into your AI agent's MCP configuration settings.</p></li></ul><div class="panel panel-note"><p>Save the configuration in your client. The connection takes effect immediately without needing to restart the app.</p></div><h4 id="configuration-examples">Configuration Examples</h4><h4 id="cursor-cursor-mcp-json">Cursor <strong>(</strong><code>.cursor/mcp.json</code><strong>):</strong></h4><div class="code-block"><div class="code-block-header"><span class="code-block-lang">json</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-json">{
+  "mcpServers": {
+    "7pace": {
+      "url": "https://timehubjra.7pace.com/mcp",
+      "headers": {
+        "Authorization": "Bearer &lt;YOUR_TOKEN&gt;"
+      }
+    }
+  }
+}</code></pre></div><h4 id="claude-desktop-claude-desktop-config-json">Claude Desktop<strong> (</strong><code>claude_desktop_config.json</code><strong>):</strong></h4><div class="code-block"><div class="code-block-header"><span class="code-block-lang">json</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-json">{
+  "mcpServers": {
+    "7pace": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote@0.1.38",
+        "https://timehubjra.7pace.com/mcp",
+        "--header",
+        "Authorization: Bearer &lt;YOUR_TOKEN&gt;"
+      ]
+    }
+  }
+}</code></pre></div><h2 id="example-usage-logging-time-using-mcp">Example usage: Logging Time using MCP</h2><h3 id="interacting-with-the-ai-agent">Interacting with the AI Agent</h3><p>Prompt your AI assistant using natural language commands, such as:</p><ul><li><p><em>"Log time for the work I did today."</em></p></li><li><p><em>"Log time to DEMO-6."</em></p></li></ul><h3 id="how-the-mcp-agent-works">How the MCP Agent Works</h3><ol><li><p><strong>Context Gathering:</strong> The agent invokes MCP server commands (such as <code>list_worklogs</code>) to retrieve existing worklogs, prompt activity count, Git branch names, and commit history.</p></li><li><p><strong>Target Resolution:</strong> If a Jira issue key is not explicitly provided, the agent attempts to infer the target issue key from your active Git branch or commit messages.</p></li><li><p><strong>Break and Gap Detection:</strong> Calculates duration while accounting for coding gaps, non-interactive periods, and breaks.</p></li></ol><h2 id="safety-guardrails-and-validation-policies">Safety Guardrails and Validation Policies</h2><p>To prevent unauthorized or erroneous time entries, 7pace MCP incorporates several strict guardrails:</p><ul><li><p><strong>Multi-Step Proposal Confirmation:</strong> The agent generates a <em>proposed worklog</em> detailing duration, target issue key, commit/prompt summary, and proposed comments. The user <strong>must explicitly confirm</strong> the proposal before any worklog is recorded in 7pace.</p></li><li><p><strong>Duplicate and Conflict Detection:</strong> Automatically flags and blocks overlapping worklog entries or duplicate logs for the same activity.</p></li><li><p><strong>Capacity and Period Locking:</strong> Strictly enforces workspace daily hour limits and period lock restrictions.</p></li><li><p><strong>Custom Rules and Required Fields:</strong> Enforces project rules, required custom fields (for example, billing items), and issue status restrictions.</p></li><li><p><strong>Throttling and Data Privacy:</strong> Protects sensitive data and limits request rates.</p></li></ul>
+  </main>
+  <aside class="sidebar">
+<div class="brand"><span class="brand-mark">Appfire Docs</span></div>
+<div class="brand-tag">Live docs, fetched from Confluence via API.</div>
+<nav><ul><li><details open><summary><a href="/cms_trial/space/7TFJ/1196624163/7pace+Timetracker+for+Jira/">7pace Timetracker for Jira</a></summary><ul><li><details><summary><a href="/cms_trial/space/7TFJ/3689152529/Get+to+know+7pace+Timetracker+for+Jira/">Get to know 7pace Timetracker for Jira</a></summary><ul><li><a href="/cms_trial/space/7TFJ/1821540369/Essential+actions/">Essential actions</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFJ/1812595110/User+Guide/">User Guide</a></summary><ul><li><a href="/cms_trial/space/7TFJ/1202094136/Monthly+view/">Monthly view</a></li><li><a href="/cms_trial/space/7TFJ/1201930328/Weekly+view/">Weekly view</a></li><li><a href="/cms_trial/space/7TFJ/1828782116/Timesheet+view/">Timesheet view</a></li><li><a href="/cms_trial/space/7TFJ/1920729127/Times+Explorer+view/">Times Explorer view</a></li><li><a href="/cms_trial/space/7TFJ/1202651216/Report+on+time/">Report on time</a></li><li><a href="/cms_trial/space/7TFJ/2934210708/Worklog+suggestions/">Worklog suggestions</a></li><li><a href="/cms_trial/space/7TFJ/3152543901/7pace+in+Jira/">7pace in Jira</a></li><li><a href="/cms_trial/space/7TFJ/3572924445/Calendar+integration/">Calendar integration</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFJ/2651455520/Approval+periods/">Approval periods</a></summary><ul><li><a href="/cms_trial/space/7TFJ/2290122780/Time+approvals+for+Managers/">Time approvals for Managers</a></li><li><a href="/cms_trial/space/7TFJ/2183954434/Lock+time+periods/">Lock time periods</a></li><li><a href="/cms_trial/space/7TFJ/2445705291/Notifications+for+approval+periods/">Notifications for approval periods</a></li><li><a href="/cms_trial/space/7TFJ/3067674729/Submit+period/">Submit period</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/7TFJ/1355022337/Administration/">Administration</a></summary><ul><li><a href="/cms_trial/space/7TFJ/1355415553/Working+with+Custom+Fields/">Working with Custom Fields</a></li><li><a href="/cms_trial/space/7TFJ/2670198799/Approval+period+settings/">Approval period settings</a></li><li><a href="/cms_trial/space/7TFJ/1875247419/Manage+roles+and+permissions/">Manage roles and permissions</a></li><li><a href="/cms_trial/space/7TFJ/1201864750/Switch+between+light+and+dark+display+modes/">Switch between light and dark display modes</a></li><li><a href="/cms_trial/space/7TFJ/1987510406/Connect+external+systems+by+API/">Connect external systems by API</a></li><li><a href="/cms_trial/space/7TFJ/2697494529/Integrations/">Integrations</a></li><li><a href="/cms_trial/space/7TFJ/2460221765/Customize+regional+settings/">Customize regional settings</a></li><li><a href="/cms_trial/space/7TFJ/2945744949/Custom+search/">Custom search</a></li><li><a href="/cms_trial/space/7TFJ/3064791114/Custom+Rules/">Custom Rules</a></li><li><a href="/cms_trial/space/7TFJ/3444834318/Import+Worklog+Data+from+Tempo+Timesheets+to+7pace+Timetracker+using+REST+APIs/">Import Worklog Data from Tempo Timesheets to 7pace Timetracker using REST APIs</a></li><li><a href="/cms_trial/space/7TFJ/2106556524/BigPicture+integration/">BigPicture integration</a></li><li><a href="/cms_trial/space/7TFJ/3491495942/7pace+Timetracker+to+Jira+synchronization/">7pace Timetracker to Jira synchronization</a></li><li><a href="/cms_trial/space/7TFJ/3500081256/MCP/" class="active">MCP</a></li><li><a href="/cms_trial/space/7TFJ/3572597090/Work+preferences/">Work preferences</a></li><li><a href="/cms_trial/space/7TFJ/3672933357/Audit+log/">Audit log</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFJ/1833697433/Use+Cases/">Use Cases</a></summary><ul><li><a href="/cms_trial/space/7TFJ/2115797698/Using+7pace+Timetracker+for+Jira+with+Dashboard+Hub+Pro/">Using 7pace Timetracker for Jira with Dashboard Hub Pro</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFJ/1611366405/Release+Notes/">Release Notes</a></summary><ul><li><a href="/cms_trial/space/7TFJ/3672474273/Release+Notes+17+September+2026/">Release Notes 17 September 2026</a></li><li><a href="/cms_trial/space/7TFJ/3627778056/Release+Notes+3+September+2026/">Release Notes 3 September 2026</a></li><li><a href="/cms_trial/space/7TFJ/3570958405/Release+Notes+20+August+2026/">Release Notes 20 August 2026</a></li><li><a href="/cms_trial/space/7TFJ/3568631831/Release+Notes+6+August+2026/">Release Notes 6 August 2026</a></li><li><a href="/cms_trial/space/7TFJ/3504373830/Release+Notes+23+July+2026/">Release Notes 23 July 2026</a></li><li><a href="/cms_trial/space/7TFJ/3482484863/Release+Notes+9+July+2026/">Release Notes 9 July 2026</a></li><li><a href="/cms_trial/space/7TFJ/3402137938/Release+Notes+25+June+2026/">Release Notes 25 June 2026</a></li><li><a href="/cms_trial/space/7TFJ/3369369740/Release+Notes+12+June+2026/">Release Notes 12 June 2026</a></li><li><a href="/cms_trial/space/7TFJ/3369304070/Release+Notes+8+June+2026/">Release Notes 8 June 2026</a></li><li><a href="/cms_trial/space/7TFJ/3216965814/Release+Notes+5+May+2026/">Release Notes 5 May 2026</a></li><li><a href="/cms_trial/space/7TFJ/3107094561/Release+Notes+7+April+2026/">Release Notes 7 April 2026</a></li><li><a href="/cms_trial/space/7TFJ/3051946034/Release+Notes++19+March+2026/">Release Notes  19 March 2026</a></li><li><a href="/cms_trial/space/7TFJ/2987327658/Release+Notes++5+March+2026/">Release Notes  5 March 2026</a></li><li><a href="/cms_trial/space/7TFJ/2896658962/Release+Notes+19+February+2026/">Release Notes 19 February 2026</a></li><li><a href="/cms_trial/space/7TFJ/2668494850/Release+Notes+19+December+2025/">Release Notes 19 December 2025</a></li><li><a href="/cms_trial/space/7TFJ/2430206009/Release+Notes+7+October+2025/">Release Notes 7 October 2025</a></li><li><a href="/cms_trial/space/7TFJ/2338095105/Release+Notes+5+September+2025/">Release Notes 5 September 2025</a></li><li><a href="/cms_trial/space/7TFJ/3162341433/Release+Notes+16+April+2026/">Release Notes 16 April 2026</a></li><li><a href="/cms_trial/space/7TFJ/2290941956/Release+Notes+21+August+2025/">Release Notes 21 August 2025</a></li><li><a href="/cms_trial/space/7TFJ/2253783158/Release+Notes+5+August+2025/">Release Notes 5 August 2025</a></li><li><a href="/cms_trial/space/7TFJ/2194014476/Release+Notes+14+July+2025/">Release Notes 14 July 2025</a></li><li><a href="/cms_trial/space/7TFJ/2186936321/Release+Notes+10+July+2025/">Release Notes 10 July 2025</a></li><li><a href="/cms_trial/space/7TFJ/2042888217/Release+Notes+19+May+2025/">Release Notes 19 May 2025</a></li><li><a href="/cms_trial/space/7TFJ/1611235333/Release+Notes+13+January+2025/">Release Notes 13 January 2025</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/7TFJ/2549776797/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/7TFJ/2548662684/Data+security+and+availability/">Data security and availability</a></li><li><a href="/cms_trial/space/7TFJ/3382313065/FAQ/">FAQ</a></li><li><a href="/cms_trial/space/7TFJ/3553100664/7pace+Timetracker+for+Jira+Data+Residency+Policy/">7pace Timetracker for Jira Data Residency Policy</a></li></ul></details></li></ul></details></li><li><a href="/cms_trial/space/7TFJ/3568304134/Jira+to+7pace+Timetracker+synchronization/">Jira to 7pace Timetracker synchronization</a></li><li><a href="/cms_trial/space/7TFJ/3066921055/Best+practices+for+tracking+time+as+a+Developer/">Best practices for tracking time as a Developer</a></li><li><a href="/cms_trial/space/7TFJ/3067412542/Best+practices+for+tracking+time+as+a+Project+Lead/">Best practices for tracking time as a Project Lead</a></li></ul></nav>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
+  <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#access">Access</a></li><li class="toc-level-2"><a href="#connecting-ai-clients">Connecting AI clients</a></li><li class="toc-level-3"><a href="#step-1-generate-an-api-token">Step 1: Generate an API token</a></li><li class="toc-level-3"><a href="#step-2-configure-your-client">Step 2: Configure your client</a></li><li class="toc-level-4"><a href="#configuration-examples">Configuration Examples</a></li><li class="toc-level-4"><a href="#cursor-cursor-mcp-json">Cursor (.cursor/mcp.json):</a></li><li class="toc-level-4"><a href="#claude-desktop-claude-desktop-config-json">Claude Desktop (claude_desktop_config.json):</a></li><li class="toc-level-2"><a href="#example-usage-logging-time-using-mcp">Example usage: Logging Time using MCP</a></li><li class="toc-level-3"><a href="#interacting-with-the-ai-agent">Interacting with the AI Agent</a></li><li class="toc-level-3"><a href="#how-the-mcp-agent-works">How the MCP Agent Works</a></li><li class="toc-level-2"><a href="#safety-guardrails-and-validation-policies">Safety Guardrails and Validation Policies</a></li></ul></div></aside>
+</div>
+<!-- "Get Help" — a plain link to the real, already-working Refined JSM
+     portal, at a different path on the SAME domain. No custom OAuth
+     backend needed for this: Refined's own JSM integration already
+     correctly handles brand-new, first-time visitors in production today,
+     which is exactly the case our earlier OAuth-based attempt structurally
+     couldn't solve (Atlassian's own consent screen blocks anyone with zero
+     prior relationship to the site, before ever reaching JSM). Styled to
+     match the rest of the site and left as a same-tab navigation (not
+     target="_blank") so clicking it feels like moving to another page on
+     one continuous site, not popping open a separate system. -->
+<a class="get-help-btn" href="https://support.appfire.com/page/support">Get Help</a>
+
+<!-- Advanced Tables (Table Plus, etc.) enhancement — reconstructs the parts
+     of the macro's real behavior that aren't stored as static content:
+     click-to-sort columns, computed numeric totals, and hover highlighting.
+     Harmless to include on every page — it does nothing if no
+     .advanced-table elements are present. -->
+<script>
+(function () {
+  document.querySelectorAll(".advanced-table").forEach(function (container) {
+    var table = container.querySelector("table");
+    if (!table) return;
+
+    var enableSorting = container.dataset.enableSorting === "true";
+    var autoTotal = container.dataset.autoTotal === "true";
+    var enableHighlighting = container.dataset.enableHighlighting === "true";
+    var highlightColor = container.dataset.highlightColor || "";
+
+    var headerRow = table.rows[0];
+    var tbody = table.tBodies[0] || table;
+
+    // Highlighting: toggle a background color on row hover, matching the
+    // macro's own configured highlight color rather than a fixed one.
+    if (enableHighlighting && highlightColor && headerRow) {
+      Array.prototype.slice.call(tbody.rows).forEach(function (row) {
+        if (row === headerRow) return;
+        row.addEventListener("mouseenter", function () { row.style.backgroundColor = highlightColor; });
+        row.addEventListener("mouseleave", function () { row.style.backgroundColor = ""; });
+      });
+    }
+
+    // Sorting: click a header cell to sort by that column. Numeric-aware —
+    // compares as numbers when both values parse as one, falls back to
+    // string comparison otherwise. Repeated clicks toggle ascending/descending.
+    if (enableSorting && headerRow) {
+      Array.prototype.forEach.call(headerRow.cells, function (cell, colIndex) {
+        cell.classList.add("sortable-col");
+        cell.title = "Click to sort";
+        var ascending = true;
+        cell.addEventListener("click", function () {
+          var rows = Array.prototype.slice.call(tbody.rows).filter(function (r) { return r !== headerRow; });
+          rows.sort(function (a, b) {
+            var av = (a.cells[colIndex] ? a.cells[colIndex].textContent : "").trim();
+            var bv = (b.cells[colIndex] ? b.cells[colIndex].textContent : "").trim();
+            var an = parseFloat(av), bn = parseFloat(bv);
+            var cmp = (!isNaN(an) && !isNaN(bn)) ? (an - bn) : av.localeCompare(bv);
+            return ascending ? cmp : -cmp;
+          });
+          rows.forEach(function (row) { tbody.appendChild(row); });
+          ascending = !ascending;
+        });
+      });
+    }
+
+    // Computed totals: sum any column where every non-empty cell parses as
+    // a number, appended as a footer row. This approximates the common
+    // case (a numeric sum) — the real macro lets authors choose different
+    // calculation types per column (min, max, average...), which isn't
+    // reconstructed here.
+    if (autoTotal && headerRow) {
+      var dataRows = Array.prototype.slice.call(tbody.rows).filter(function (r) { return r !== headerRow; });
+      var totals = [];
+      for (var c = 0; c < headerRow.cells.length; c++) {
+        (function (colIndex) {
+          var allNumeric = true, sum = 0, sawAny = false;
+          dataRows.forEach(function (row) {
+            var cell = row.cells[colIndex];
+            var text = cell ? cell.textContent.trim() : "";
+            if (text === "") return;
+            var n = parseFloat(text);
+            if (isNaN(n)) { allNumeric = false; return; }
+            sum += n;
+            sawAny = true;
+          });
+          totals.push(allNumeric && sawAny ? sum : null);
+        })(c);
+      }
+      if (totals.some(function (t) { return t !== null; })) {
+        var footRow = document.createElement("tr");
+        footRow.className = "advanced-table-total-row";
+        totals.forEach(function (t) {
+          var td = document.createElement("td");
+          td.textContent = t !== null ? String(t) : "";
+          footRow.appendChild(td);
+        });
+        tbody.appendChild(footRow);
+      }
+    }
+  });
+})();
+</script>
+
+<!-- Aura Tab Group enhancement — click-to-switch tabs. Harmless to include
+     on every page; does nothing if no .aura-tab-group elements exist. -->
+<script>
+(function () {
+  document.querySelectorAll(".aura-tab-group").forEach(function (group) {
+    var buttons = group.querySelectorAll(".aura-tab-btn");
+    buttons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var targetId = btn.dataset.target;
+        group.querySelectorAll(".aura-tab-btn").forEach(function (b) { b.classList.remove("active"); });
+        group.querySelectorAll(".aura-tab-panel").forEach(function (p) { p.classList.remove("active"); });
+        btn.classList.add("active");
+        var panel = document.getElementById(targetId);
+        if (panel) panel.classList.add("active");
+      });
+    });
+  });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Real TOC scroll-spy — highlights the currently-visible heading in the
+     "On this page" panel as the reader scrolls. Harmless no-op if there's
+     no .page-toc on the page (most pages with few/no headings). -->
+<script>
+(function () {
+  var tocLinks = document.querySelectorAll(".page-toc a[href^='#']");
+  if (!tocLinks.length) return;
+
+  var headingMap = {};
+  var headings = [];
+  tocLinks.forEach(function (link) {
+    var id = link.getAttribute("href").slice(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headingMap[id] = link;
+      headings.push(heading);
+    }
+  });
+  if (!headings.length) return;
+
+  var activeLink = null;
+  function setActive(id) {
+    var link = headingMap[id];
+    if (!link || link === activeLink) return;
+    if (activeLink) activeLink.classList.remove("active");
+    link.classList.add("active");
+    activeLink = link;
+  }
+
+  // rootMargin biases toward the upper third of the viewport, so a
+  // heading is marked "current" once it's crossed into the reading area,
+  // not only once it's scrolled to the very top edge.
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) setActive(entry.target.id);
+    });
+  }, { rootMargin: "-15% 0px -75% 0px", threshold: 0 });
+
+  headings.forEach(function (h) { observer.observe(h); });
+
+  // Sets the first heading active immediately on load, rather than
+  // leaving the TOC with nothing highlighted until the reader scrolls.
+  setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
+})();
+</script>
+
+</body>
+</html>

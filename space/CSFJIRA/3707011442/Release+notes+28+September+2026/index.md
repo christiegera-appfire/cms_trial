@@ -8,6 +8,18 @@ This page outlines the updates included in the latest release of Connector for S
 
 ---
 
+## Jira Cloud Enhancement
+
+**New Support request mapping template**
+
+We've added a new mapping template, **Support request**, for teams working across Customer Support and IT Operations. It connects Salesforce Cases to Jira Service Management (JSM) Incident or Change work items, so customer-reported problems reach the right IT workflow instantly, and both teams stay aligned.
+
+The template is available in the template picker when you set up a new mapping, and it works only with JSM Premium.
+
+For details, see [Configure entity and field mappings from templates](/cms_trial/space/CSFJIRA/3664152459/Configure+entity+and+field+mappings+from+templates/)
+
+---
+
 ## Jira Cloud **Bug Fixes**
 
 - **Security fixes**: Fixed security vulnerabilities.

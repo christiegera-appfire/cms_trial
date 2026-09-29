@@ -12,7 +12,7 @@ Either add a new project and create a configuration or modify the existing one.
 
 ![contentId-1918767884](/cms_trial/assets/8f6777bd-ab18-45f7-809f-c7891c5f7bea.png)
 
-## [Team code](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918798278)
+## [Team code](/cms_trial/space/SPM/1918798278/Teams+(Resource+management)/)
 
 The functioning of team codes is dependent on resource configuration.
 
