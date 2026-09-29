@@ -24,4 +24,5 @@ If it is not possible to determine a correct task period because the assignee ha
 
 When you change the task's assignee, it might cause automatic rescheduling of the task. This will occur if the new assignee's schedule differs from the previous one. The only exception to this rule is when a task is in the **Locked** mode, as its position will not be recalculated.
 
-![image-20250325-094534.png](/cms_trial/assets/fc0449b5-07fb-4b26-96c8-b781d6bd43ba.png)
+Image — asset pipeline pending  
+image-20250325-094534.png

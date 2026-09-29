@@ -45,7 +45,7 @@ If you want to import data from other sources such as CSV, Excel, JSON, and Jira
 | [Unmapped macro: refined-button — no content to fall back on] | [Unmapped macro: refined-button — no content to fall back on] | [Unmapped macro: refined-button — no content to fall back on] |
 | [Unmapped macro: refined-button — no content to fall back on] | [Unmapped macro: refined-button — no content to fall back on] | [Unmapped macro: refined-button — no content to fall back on] |
 | [Unmapped macro: refined-button — no content to fall back on] | [Unmapped macro: refined-button — no content to fall back on] | [Unmapped macro: refined-button — no content to fall back on] |
-| [Unmapped macro: refined-button — no content to fall back on] | [Unmapped macro: refined-button — no content to fall back on] |  |
+| [Unmapped macro: refined-button — no content to fall back on] | [Unmapped macro: refined-button — no content to fall back on] |
 
 ## Insert and configure the macro
 

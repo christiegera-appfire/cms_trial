@@ -10,7 +10,8 @@ The effort required for task completion is used to calculate the skill demand an
 
 The App admin can manage project skills on the **Administration** > **Resources** > **Skills** page.
 
-![Administration page featuring a list of different skills.](/cms_trial/assets/8699eba8-26c9-4b51-a671-d276d959cc51.png)
+Image — asset pipeline pending  
+Administration page featuring a list of different skills.
 
 ## Skill attributes
 

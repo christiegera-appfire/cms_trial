@@ -3,7 +3,7 @@
 **Connect End of Support**: Atlassian has [announced](https://www.atlassian.com/blog/developer/announcing-connect-end-of-support-timeline-and-next-steps) the end of support for the Connect framework in late 2026.
 
 - At Appfire, we are committed to maintaining the highest standards of security, reliability, and performance across our solutions.
-- As part of this commitment, the **Advanced Tables for Confluence** cloud app has been developed and deployed on **Atlassian Forge**, Atlassian’s most advanced cloud development platform. For more information about the upgrade, refer to the [Release notes February 2026](/cms_trial/space/TBL/2766798931/Release+notes+February+2026/).
+- As part of this commitment, the **Advanced Tables for Confluence** cloud app has been developed and deployed on **Atlassian Forge**, Atlassian’s most advanced cloud development platform. For more information, refer to [Upgrade the Advanced Tables for Confluence app to Forge Remote](/cms_trial/space/TBL/3683352651/Upgrade+the+Advanced+Tables+for+Confluence+app+to+Forge+Remote/).
 - The Advanced Tables for Confluence app on Forge remote now **offers an improved macro editor experience**.
 - The **Connect version** of Advanced Tables for Confluence is out of date and will no longer receive updates. **Contact your Confluence administrator** to **update** the app.
 - Contact our [support team](https://appf.re/support) if you have any questions.
