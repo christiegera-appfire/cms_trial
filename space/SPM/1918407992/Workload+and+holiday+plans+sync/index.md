@@ -2,7 +2,8 @@
 
 ## Workload and holiday plans synchronization
 
-![image-20240122-084827.png](/cms_trial/assets/e14931bc-dba7-4e5b-8567-8f3d75ed5177.png)
+Image — asset pipeline pending  
+image-20240122-084827.png
 
 The Workload Schemes which were imported from the Tempo plugin can be distinguished by:
 
@@ -61,4 +62,5 @@ You can set automatic synchronization with Tempo and define items to synchronize
 4. Define synchronization time.
 5. Click **Save**.
 
-![image-20240131-115044.png](/cms_trial/assets/f21cddde-8d85-48b4-8e29-33d1eb463d64.png)
+Image — asset pipeline pending  
+image-20240131-115044.png

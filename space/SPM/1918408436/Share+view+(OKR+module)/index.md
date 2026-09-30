@@ -23,7 +23,8 @@ You can find the **Share view** button:
 - On the top menu.
 - Next to the saved view on the **view switcher** under **More actions** (**…**).
 
-![The Overview page. The share view button and option on the context menu are highlighted.](/cms_trial/assets/2dd803ea-d004-4303-a1b7-76af1e6e5e2a.png)
+Image — asset pipeline pending  
+The Overview page. The share view button and option on the context menu are highlighted.
 
 1. Click the **Share view** ▢ button.
 2. The URL is automatically copied, and you can send it to other stakeholders using email, Slack, etc.
