@@ -10,15 +10,25 @@ This page outlines the updates included in the latest release of Comala Document
 
 ---
 
+**Important: Manual app update required**
+
+This release requires additional app permissions and does not upgrade automatically. A Confluence site administrator must manually approve the update to enable the features described on this page. Until the update is approved, your site continues to run the previous version of the app.
+
 ## New features and enhancements
 
 ### Global Document Report
 
 - View the status of documents and approvals across all your spaces in a single global report, instead of checking each space individually.
 
+![image-20260930-110828.png](/cms_trial/assets/a0d70a8f-cf7a-4916-85d4-2d33cc8e886c.png)
+
+[Learn more](/cms_trial/space/CDMC/3713531915/Document+report+-+Global+level/)
+
 ### Onboarding experience
 
 - A new onboarding experience helps you get started faster, with use-case cards and a guided Get Started flow that applies a recommended workflow to your space.
+
+![image-20260930-113456.png](/cms_trial/assets/2706535a-409e-4cca-9bdc-a9e9e9d98c4b.png)
 
 ### Workflow engine improvements
 
