@@ -26,8 +26,7 @@ The search box is available in the following [modules](/cms_trial/space/SPM/1918
 
 The text search is the default mode. Click the icon next to the search field to switch between the TEXT and the JQL modes:
 
-Image — asset pipeline pending  
-text-jql.png
+![text-jql.png](/cms_trial/assets/7a9dd0d1-f487-4c16-8394-406831569ff7.png)
 
 ### Text search
 
@@ -48,8 +47,7 @@ For example, the search checks the contents of **all text fields** of Jira issue
   - Text field (<225 characters)
   - Read-only text field
 
-Image — asset pipeline pending  
-text-search.png
+![text-search.png](/cms_trial/assets/6287af60-acde-4375-bf63-ee36535e570e.png)
 
 In the case of the Overview module, which shows Boxes, you can text search using:
 
@@ -68,13 +66,11 @@ Search applies also to a hidden column(s). The box with results is visible once 
 
 Start typing in the search box to open the JQL drop-down, which will help you find the query.
 
-Image — asset pipeline pending  
-jql-search.png
+![jql-search.png](/cms_trial/assets/428434dd-2753-4e25-8d82-75398b565d93.png)
 
 The icon will change to red if the JQL query you typed is incorrect.
 
-Image — asset pipeline pending  
-Incorrect JQL query highlighted in red
+![Incorrect JQL query highlighted in red](/cms_trial/assets/5338419b-9499-4a9b-a373-ef2c0cf79440.png)
 
 For example, to search for a task in the Done status category, type in the following JQL query: "`statusCategory = Done`".
 
@@ -92,8 +88,7 @@ Tasks that do NOT match the filter will be grayed-out. This applies to parent ta
 
 ## Snipe to result
 
-Image — asset pipeline pending  
-snapie-to-result.png
+![snapie-to-result.png](/cms_trial/assets/8657f1d4-bf21-4abf-a179-4e962cdbb74f.png)
 
 ### Availability
 
@@ -113,8 +108,7 @@ How does **Snipe to result** work?
 - Counts the number of matches.
 - Works in both TEXT and JQL modes.
 
-Image — asset pipeline pending  
-snipe-to-result.png
+![snipe-to-result.png](/cms_trial/assets/6d7a6889-b892-4159-a7ee-e5e4b170afc0.png)
 
 You can easily switch between the results by using the arrows in the search box.
 
@@ -123,8 +117,7 @@ You can easily switch between the results by using the arrows in the search box.
 
 **Note**: If a filer option **Show basic tasks when using Jira filters** is active, **all** basic tasks are included in the search results. When you snipe between the tasks, basic tasks are included in the rotation (even when they don’t match the search query).
 
-Image — asset pipeline pending  
-show-basic-tasks.png
+![show-basic-tasks.png](/cms_trial/assets/5f63f812-9834-412a-b5ac-a37ca5b0290e.png)
 
 ## Snipe to task
 
@@ -132,8 +125,7 @@ The option is available in the Gantt module, Change History panel.
 
 The "**snipe to task"**button takes you to a task and selects it.
 
-Image — asset pipeline pending  
-change-history-snipe.png
+![change-history-snipe.png](/cms_trial/assets/fe993117-cb08-4379-b826-f0401e434ff3.png)
 
 ## Clear the search
 
@@ -165,8 +157,7 @@ The search box is available in the following [modules](/cms_trial/space/SPM/1918
 
 The text search is the default mode. Click the icon next to the search field to switch between the TEXT and the JQL modes.
 
-Image — asset pipeline pending  
-Screenshot of the serach box in the Gantt module.
+![Screenshot of the serach box in the Gantt module.](/cms_trial/assets/33b79be3-4ccb-4043-bf06-7fedbfd4e53c.png)
 
 ### Text search
 
@@ -187,8 +178,7 @@ For example, the search checks the contents of **all text fields** of Jira work 
   - Text field (<225 characters)
   - Read-only text field
 
-Image — asset pipeline pending  
-Screenshot of an example showing how to use the search box in the Gantt module.
+![Screenshot of an example showing how to use the search box in the Gantt module.](/cms_trial/assets/57882bad-4d06-4766-9dc2-74208a0b4947.png)
 
 In the case of the Overview module, which shows boxes, you can text search using:
 
@@ -207,13 +197,11 @@ Search also applies to hidden columns. The box with results is visible once the 
 
 Start typing in the search box to open the JQL drop-down, which will help you find the query.
 
-Image — asset pipeline pending  
-Screenshot of the JQL search in the Gantt module.
+![Screenshot of the JQL search in the Gantt module.](/cms_trial/assets/54ac06e3-8fd7-4036-b9db-5347017e532a.png)
 
 The icon will change to red if the JQL query you typed is incorrect.
 
-Image — asset pipeline pending  
-Incorrect JQL query highlighted in red
+![Incorrect JQL query highlighted in red](/cms_trial/assets/5338419b-9499-4a9b-a373-ef2c0cf79440.png)
 
 For example, to search for a task in the Done status category, type in the following JQL query: "`statusCategory = Done`".
 
@@ -241,8 +229,7 @@ The feature is available in the following modules:
 
 Use the **Snipe to result** option to highlight all tasks that fit the search criteria. It works similarly to the "Ctrl+F" feature in any web browser. The whole row is highlighted not only the searched text. Tasks are visible on the WBS and chart (timeline).
 
-Image — asset pipeline pending  
-Screenshot of the Snipe to result button in the search box in the Gantt module.
+![Screenshot of the Snipe to result button in the search box in the Gantt module.](/cms_trial/assets/66dd3d74-b246-4b78-8963-4f274993f4a1.png)
 
 How does **Snipe to result** work?
 
@@ -252,8 +239,7 @@ How does **Snipe to result** work?
 - Counts the number of matches.
 - Works in both TEXT and JQL modes.
 
-Image — asset pipeline pending  
-Screenshot of using the Snipe to result option in the Gantt module.
+![Screenshot of using the Snipe to result option in the Gantt module.](/cms_trial/assets/53a38626-bbd5-4ab0-b056-5506694abd3e.png)
 
 You can easily switch between the results by using the arrows in the search box.
 
@@ -262,15 +248,13 @@ You can easily switch between the results by using the arrows in the search box.
 
 **Note**: If the filter option **Show BigPicture tasks when using Jira filters** is active, **all** BigPicture tasks are included in the search results. When you snipe between the tasks, BigPicture tasks are included in the rotation (even when they don’t match the search query).
 
-Image — asset pipeline pending  
-Screenshot of the Show BigPicture tasks when using Jira filters option enabled in the Gantt module.
+![Screenshot of the Show BigPicture tasks when using Jira filters option enabled in the Gantt module.](/cms_trial/assets/11f42d40-7967-4b6c-a1b3-4bd9d35b7692.png)
 
 ## Snipe to task
 
 The option is available in the Gantt module, **Change history** panel. The **Snipe to task**button takes you to a task and selects it.
 
-Image — asset pipeline pending  
-Screenshot of the Snipe to task option in the Gantt module.
+![Screenshot of the Snipe to task option in the Gantt module.](/cms_trial/assets/10e9747d-988e-4acb-b1e0-3ebbe39da69f.png)
 
 ## Clear the search
 

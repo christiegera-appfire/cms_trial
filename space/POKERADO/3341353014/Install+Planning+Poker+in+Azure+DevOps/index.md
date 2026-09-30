@@ -52,7 +52,7 @@ If your team uses a controlled rollout process, install the extension in a test 
    Confirm that **Planning Poker** appears in the list of installed extensions.
 4. 4
 
-   Open Azure Boards and check whether Planning Poker entry points are available where your team expects to estimate work: work item details, backlog or sprint estimation flows, and query-based or selected-work-item flows.
+   Open **Boards** and confirm Planning Poker modules are available where your team expects to estimate work: work item details, backlog or sprint estimation flows, and query-based or selected-work-item flows.
 
 The installation is complete when:
 
