@@ -4,6 +4,7 @@ We have a short release lifecycle so that we can always try to improve our produ
 
 | **Title** | **Highlights** | **Platform** | **Release date** |
 | --- | --- | --- | --- |
+| [Release notes 1 October 2026](/cms_trial/space/CSFJIRA/3714908169/Release+notes+1+October+2026/) | - Automatically push updates to Jira work items from Salesforce Flows - Bug fixes | Jira Cloud  SALESFORCE | October 1, 2026 |
 | [Release notes 28 September 2026](https://appfire.atlassian.net/wiki/pages/resumedraft.action?draftId=3707011442&draftShareId=bd5ee240-3369-4976-834d-74871f65d259&atlOrigin=eyJpIjoiNDU5ZDg5OWQ4ZDM2NDg1ZWJkMzRlM2UyMGIwODZkZDUiLCJwIjoiYyJ9) | - Support request mapping template - Bug fixes | Jira Cloud | September 28, 2026 |
 | [Release notes 24 September 2026](/cms_trial/space/CSFJIRA/3696787457/Release+notes+24+September+2026/) | - General monitoring enhancements | Jira Cloud | September 24, 2026 |
 | [Release notes 17 September 2026](/cms_trial/space/CSFJIRA/3673030657/Release+notes+17+September+2026/) | - Getting started page update | SALESFORCE | September 17, 2026 |

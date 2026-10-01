@@ -28,7 +28,7 @@ Let’s connect - [schedule a demo with us](https://calendly.com/business-integr
   - [Configure Visualforce components](/cms_trial/space/CSFJIRA/1873445794/Configure+Visualforce+components/)
   - [Use Jira Issues (NextGen) with Visualforce](/cms_trial/space/CSFJIRA/1873511459/Use+Jira+Issues+(NextGen)+with+Visualforce/)
 - [Automate your integration](/cms_trial/space/CSFJIRA/1874001954/Automate+your+integration/)
-  - [Automatically create Jira work items with Salesforce Flows](/cms_trial/space/CSFJIRA/3627581468/Automatically+create+Jira+work+items+with+Salesforce+Flows/)
+  - [Automate Jira actions with Salesforce Flow Builder](/cms_trial/space/CSFJIRA/3627581468/Automate+Jira+actions+with+Salesforce+Flow+Builder/)
   - [Configure Automatic Pull from Salesforce](/cms_trial/space/CSFJIRA/1873446010/Configure+Automatic+Pull+from+Salesforce/)
   - [Configure workflow post functions in Jira](/cms_trial/space/CSFJIRA/1873969278/Configure+workflow+post+functions+in+Jira/)
   - [Automatic Jira Issue Creation and Push Updates in the same trigger](/cms_trial/space/CSFJIRA/1873511732/Automatic+Jira+Issue+Creation+and+Push+Updates+in+the+same+trigger/)

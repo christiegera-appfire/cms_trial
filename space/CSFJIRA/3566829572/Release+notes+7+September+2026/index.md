@@ -26,7 +26,7 @@ Set it up once in Flow Builder: select your trigger, connection, Jira space, and
 - **Stay in sync.** Salesforce records and Jira work items are automatically linked and kept up to date.
 - **Full flexibility.** Allows you to create triggers depending on your needs, as available in Flow Builder under Actions.
 
-For details, see [Automatically create Jira work items from Salesforce Flows](/cms_trial/space/CSFJIRA/3627581468/Automatically+create+Jira+work+items+with+Salesforce+Flows/).
+For details, see [Automatically create Jira work items from Salesforce Flows](/cms_trial/space/CSFJIRA/3627581468/Automate+Jira+actions+with+Salesforce+Flow+Builder/).
 
 ## Comments filtering
 

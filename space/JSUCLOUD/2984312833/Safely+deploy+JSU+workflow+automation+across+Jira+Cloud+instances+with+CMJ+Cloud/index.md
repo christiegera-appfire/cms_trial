@@ -49,5 +49,3 @@ The following step-by-step guide shows just how easy the whole process is.
 2. [Create a snapshot](https://appfire.atlassian.net/wiki/spaces/CMJC/pages/2506522887) in the source Jira Cloud instance and include the projects that contain workflows modified by **JSU**. **CMJ Cloud** automatically captures the associated workflow configurations and app data as part of the snapshot.
 3. Review the snapshot to ensure all relevant configuration items are included. No additional app-specific adjustments are required.
 4. [Deploy the snapshot](https://appfire.atlassian.net/wiki/spaces/CMJC/pages/2507112493) to the target Jira Cloud instance using the standard **CMJ Cloud** deployment process. During deployment, **CMJ Cloud** remaps object references and applies the workflow configuration while preserving protected target-side customizations.
-
-<https://appfire.wistia.com/medias/e3u7xci8jl>

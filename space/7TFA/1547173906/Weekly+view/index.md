@@ -6,8 +6,6 @@
 
 Review the following video for details about how to use *Weekly* view.
 
-<https://fast.wistia.com/embed/medias/88djwfx5mm.jsonp>
-
 ## Weekly view
 
 7pace Timetracker's *Weekly* view provides visual options for inputting, editing, copying, and deleting time. To access the Weekly view, go to the left-hand pane, and click **7pace Timetracker** > **Weekly**.

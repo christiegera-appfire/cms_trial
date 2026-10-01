@@ -6,11 +6,9 @@
 
 For this use case, you need to create a temporary Jira Cloud site. It can be either a Jira Cloud site or a sandbox provided by Atlassian for testing purposes. The sandbox will act as a test environment where you can make changes safely, and when ready, deploy them to your production environment. [Learn more about setting up Atlassian sandboxes](https://support.atlassian.com/organization-administration/docs/manage-product-sandboxes/).
 
-![contentId-258053021](/cms_trial/assets/d1c61f67-2eae-4eaa-b1e4-0bafe15ccd7a.png)
+![contentId-258053021](/cms_trial/assets/46b562c5-771c-45db-9660-9d10eeb45cf1.png)
 
 CMJ Cloud is built to protect the integrity of the destination Jira Cloud site by blocking breaking changes. The app analyzes each change that will be introduced. It then identifies the ones that aren't compatible with the destination Jira Cloud's project configurations.
-
-<https://fast.wistia.com/embed/medias/ykgkuwnuds.jsonp>
 
 ## Use case steps
 

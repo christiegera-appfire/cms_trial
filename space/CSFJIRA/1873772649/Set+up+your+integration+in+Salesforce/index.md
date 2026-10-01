@@ -25,7 +25,7 @@ Want a quick overview before diving in? The interactive walkthrough below covers
 
    - [For NextGen](/cms_trial/space/CSFJIRA/3092284698/Associate+a+Jira+work+item+from+Salesforce+with+Jira+Issues+(NextGen)/)
 
-1. (Optional) Enable automatic synchronization with Jira with Flow Builder: [Automatically create Jira work items with Salesforce Flows](/cms_trial/space/CSFJIRA/3627581468/Automatically+create+Jira+work+items+with+Salesforce+Flows/)   
+1. (Optional) Enable automatic synchronization with Jira with Flow Builder: [Automatically create Jira work items with Salesforce Flows](/cms_trial/space/CSFJIRA/3627581468/Automate+Jira+actions+with+Salesforce+Flow+Builder/)   
    Or with Apex triggers:
 
    - [Configure automated synchronization from Salesforce](/cms_trial/space/CSFJIRA/1873446010/Configure+Automatic+Pull+from+Salesforce/).
