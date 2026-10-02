@@ -14,20 +14,22 @@ The JMWE MCP server can assist with script translations during a migration from 
 
 ## Translating migrated scripts
 
-After you have completed a migration using JMCA, use the Post migration page to start the script translation process. You will need access to an AI tool such as ChatGPT, Claude, or Cursor, and you will need to be able to [add the JMWE MCP server](/cms_trial/space/JMWEC/3594617123/Using+the+JMWE+MCP+Server/) to that tool.
+After you have completed a migration using JMCA, use the *Post migration* page to start the script translation process. You will need access to an AI tool such as ChatGPT, Claude, or Cursor, and you will need to be able to [add the JMWE MCP server](/cms_trial/space/JMWEC/3594617123/Using+the+JMWE+MCP+Server/) to that tool.
 
 The **JMWE MCP server** is still in beta. You should thoroughly test using this tool in your migration process before implementing it in a production environment!
 
 Once you’ve added the MCP server, follow these steps:
 
-1. First, export your JMWE configuration. From the **Post migration** page, click **Export configuration** in the upper right corner of the page (Figure 1, right).
+**Note**: The Export/Import functionality detailed below is currently pre-release; if you would like to access this feature, please reach out to your EAP representative.
+
+![The JMWE Cloud Post migration administration page including MCP export and import](/cms_trial/assets/a4e6382d-326e-450a-a5aa-74655b5a094c.png)
+
+1. First, export your JMWE configuration. From the *Post migration* page, click **Export configuration** in the upper right corner of the page (Figure 1, right).
 2. Save the JSON file to your machine.
 3. In your AI tool with the JMWE MCP server configured, add the downloaded JSON file to a new chat. Prompt the AI to convert the file using the JMWE MCP.   
    [note icon] **Note**: Make sure you have verified the connection to the MCP server and have added it to the chat, if necessary.
 4. When the conversion is complete, your AI tool will provide a new JSON file with the converted scripts included. Save that file so you can upload it to your JMWE instance.
-5. In the **Post migration** page, click **Import configuration** and select the converted JSON file.
+5. In the *Post migration* page, click **Import configuration** and select the converted JSON file.
 6. Review each outlined change and select the changes you want to apply. Click **Apply selected changes**.
 
 When the update is complete, return to the [Post migration](/cms_trial/space/JMWEC/465473765/Post+migration/) page to address any remaining errors. Thoroughly test your migration before moving it into Production.
-
-![The JMWE Cloud Post migration administration page including MCP export and import](/cms_trial/assets/111d18c1-a438-4f4a-839c-962c0397ff48.png)

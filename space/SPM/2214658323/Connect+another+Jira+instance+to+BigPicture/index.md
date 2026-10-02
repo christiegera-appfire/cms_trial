@@ -1,7 +1,5 @@
 # Connect another Jira instance to BigPicture
 
-New connections between Jira instances are temporarily unavailable. If you have already configured multiple Jira instances, your existing connections will continue to work. However, you cannot create new connections at this time.
-
 ## Connect another Jira instance to BigPicture (old navigation)
 
 Connecting another instance allows BigPicture on your primary instance to integrate data from more than one Jira instance. The process involves setting up a connection in BigPicture and configuring a webhook on the secondary Jira Cloud instance.
@@ -28,7 +26,7 @@ To use additional Jira Clouds, you need to:
 3. Enter the email address associated with the user account you will use for the connection on the secondary instance.
 4. You will need an API token from the secondary Jira Cloud instance. Leave this field ready for the next step (keep the
 
-![new-jira-cloud-connection.png](/cms_trial/assets/a8e54f9a-ca76-443c-9c3d-a1ffe4fe8ba8.png)
+![new-jira-cloud-connection.png](/cms_trial/assets/aac7569c-7f03-4769-9219-85cbaedf1fff.png)
 
 ## Generate an API Token on the Secondary Jira Cloud Instance
 
@@ -44,11 +42,11 @@ To use additional Jira Clouds, you need to:
 1. Return to the BigPicture connection setup page on your primary instance.
 2. Paste the copied API token into the designated field.
 
-   ![api-token-generated.png](/cms_trial/assets/1637d19a-1c7f-47b0-904c-ad2edbee9805.png)
+   ![api-token-generated.png](/cms_trial/assets/4bafb31c-b5fc-40ce-854f-265c8fe43166.png)
 3. Click **Next**.
 4. After clicking next, BigPicture will request an **endpoint URL** for a webhook.
 
-   ![new-jira-cloud-connection-end-point.png](/cms_trial/assets/456ebe5d-a946-411c-a9c6-d904a0c24fb1.png)
+   ![new-jira-cloud-connection-end-point.png](/cms_trial/assets/9edcbbad-786c-4571-bab8-4c5fa56dd9e4.png)
 
 ## Create the Webhook on the Secondary Jira Cloud Instance
 
@@ -104,7 +102,7 @@ To use additional Jira Clouds, you need to:
 3. Enter the email address associated with the user account you will use for the connection on the secondary instance.
 4. You will need an API token from the secondary Jira Cloud instance. Leave this field ready for the next step (keep the
 
-![new-jira-cloud-connection.png](/cms_trial/assets/a8e54f9a-ca76-443c-9c3d-a1ffe4fe8ba8.png)
+![new-jira-cloud-connection.png](/cms_trial/assets/aac7569c-7f03-4769-9219-85cbaedf1fff.png)
 
 ## Generate an API Token on the Secondary Jira Cloud Instance
 
@@ -120,11 +118,11 @@ To use additional Jira Clouds, you need to:
 1. Return to the BigPicture connection setup page on your primary instance.
 2. Paste the copied API token into the designated field.
 
-   ![api-token-generated.png](/cms_trial/assets/1637d19a-1c7f-47b0-904c-ad2edbee9805.png)
+   ![api-token-generated.png](/cms_trial/assets/4bafb31c-b5fc-40ce-854f-265c8fe43166.png)
 3. Click **Next**.
 4. After clicking next, BigPicture will request an **endpoint URL** for a webhook.
 
-   ![new-jira-cloud-connection-end-point.png](/cms_trial/assets/456ebe5d-a946-411c-a9c6-d904a0c24fb1.png)
+   ![new-jira-cloud-connection-end-point.png](/cms_trial/assets/9edcbbad-786c-4571-bab8-4c5fa56dd9e4.png)
 
 ## Create the Webhook on the Secondary Jira Cloud Instance
 

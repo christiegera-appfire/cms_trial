@@ -12,12 +12,6 @@ BigPicture Cloud is faster to implement, competitively priced, and highly flexib
 
 Backed by Appfire, it offers a scalable, deeply embedded solution with unified support, security, and compliance under a single EULA.
 
-## Request a demo
-
-**Want to find out more about BigPicture?**
-
-[Unmapped macro: button-handy — no content to fall back on]
-
 ## Functionalities overview
 
 [Unmapped macro: cfm-cards — no content to fall back on]
