@@ -20,8 +20,6 @@ The **JMWE MCP server** is still in beta. You should thoroughly test using this 
 
 Once you’ve added the MCP server, follow these steps:
 
-![The JMWE Cloud Post migration administration page including MCP export and import](/cms_trial/assets/111d18c1-a438-4f4a-839c-962c0397ff48.png)
-
 1. First, export your JMWE configuration. From the **Post migration** page, click **Export configuration** in the upper right corner of the page (Figure 1, right).
 2. Save the JSON file to your machine.
 3. In your AI tool with the JMWE MCP server configured, add the downloaded JSON file to a new chat. Prompt the AI to convert the file using the JMWE MCP.   
@@ -31,3 +29,5 @@ Once you’ve added the MCP server, follow these steps:
 6. Review each outlined change and select the changes you want to apply. Click **Apply selected changes**.
 
 When the update is complete, return to the [Post migration](/cms_trial/space/JMWEC/465473765/Post+migration/) page to address any remaining errors. Thoroughly test your migration before moving it into Production.
+
+![The JMWE Cloud Post migration administration page including MCP export and import](/cms_trial/assets/111d18c1-a438-4f4a-839c-962c0397ff48.png)

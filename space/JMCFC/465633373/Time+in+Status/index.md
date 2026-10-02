@@ -58,9 +58,10 @@ Follow the steps above to add a custom field to your Jira instance, then follow 
 
 You are viewing the documentation for **Jira Cloud**.
 
-<https://appfire.wistia.com/medias/l2jume7dhn>
+| On This Page |
+| --- |
 
-![Time in Status Screen](/cms_trial/assets/355629d4-7431-455c-9839-24e0b86a90bf.png)![Jira Misc Custom Fields (JMCF) Cloud time in status screen association](/cms_trial/assets/89440ce3-4f8c-4e6c-91bf-b946332bcd03.png)
+![Time in Status Screen](/cms_trial/assets/8ffcdd04-e2a0-4e71-ad62-d22edf114d0f.png)![customField-AssociateScreens.png](/cms_trial/assets/a8ebef3d-394f-433c-9a6d-d1b602eae48f.png)
 
 ## Edit a custom field
 

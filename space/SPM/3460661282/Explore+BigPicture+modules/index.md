@@ -36,6 +36,8 @@ It offers flexible features like drag-and-drop scheduling, resource capacity ove
 - Project and cross-project [dependencies](/cms_trial/space/SPM/1918538718/Display+dependencies/)
 - [Infobar](/cms_trial/space/SPM/1918799264/Infobar+(Gantt)/) with comprehensive tasks and box details
 
+See the video
+
 ### [Scope](/cms_trial/space/SPM/1918666763/Scope+module/)
 
 The Scope module helps you define and manage the boundaries of your projects, initiatives, and tasks. It provides a clear overview of the work involved, helping you break down larger objectives into manageable pieces. This ensures that your project stays focused and aligned with strategic goals.
