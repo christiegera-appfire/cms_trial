@@ -2,7 +2,7 @@
 
 **About this page**
 
-This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
+This page describes features that are supported **only** in [**BigPicture Advanced**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/3451617346). These features are not available in BigPicture Standard.
 
 The BigPicture Financials module by Appfire offers a powerful, integrated solution for managing project and portfolio costs directly within BigPicture. Financials moves beyond the limitations of external tools and manual processes, providing a comprehensive overview of your financial landscape, enabling smarter, data-driven decisions.
 

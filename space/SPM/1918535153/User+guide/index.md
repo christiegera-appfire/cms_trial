@@ -60,7 +60,6 @@ If you want to learn more about configuring BigPicture, see the [Admin guide](/c
   - [Warnings](/cms_trial/space/SPM/1918764811/Warnings/)
   - [Markers](/cms_trial/space/SPM/1918699490/Markers/)
   - [Create notes](/cms_trial/space/SPM/2372665547/Create+notes/)
-  - [Multi-team planning](/cms_trial/space/SPM/3028287562/Multi-team+planning/)
   - [Multi-team planning in Resources](/cms_trial/space/SPM/3503685635/Multi-team+planning+in+Resources/)
   - [Priorities](/cms_trial/space/SPM/1918504313/Priorities/)
 - [Reporting and coordinating work](/cms_trial/space/SPM/1918797353/Reporting+and+coordinating+work/)

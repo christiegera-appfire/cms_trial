@@ -2,7 +2,7 @@
 
 **About this page**
 
-This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
+This page describes features that are supported **only** in [**BigPicture Advanced**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/3451617346). These features are not available in BigPicture Standard.
 
 OKR Milestones break down long-term goals into time-bound checkpoints between your start and target values. They let teams to measure incremental progress, flag trajectory risks early with automated status updates (Upcoming, Achieved, or Missed), and keep OKRs on track well before the final deadline.
 

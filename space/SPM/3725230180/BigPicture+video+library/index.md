@@ -24,7 +24,7 @@ Explore videos about BigPicture modules and learn about their key features and c
 
 ## New navigation
 
-Meet the [new BigPicture navigation](/cms_trial/space/SPM/2897150073/New+navigation/). A faster, smarter, and more intuitive way to work is here. We’ve redesigned BigPicture navigation to give you a smoother experience and better access to what matters most.
+Meet the [new BigPicture navigation](https://appfire.atlassian.net/wiki/spaces/SPM/pages/2897150073). A faster, smarter, and more intuitive way to work is here. We’ve redesigned BigPicture navigation to give you a smoother experience and better access to what matters most.
 
 | **Area** | **Video** |
 | --- | --- |

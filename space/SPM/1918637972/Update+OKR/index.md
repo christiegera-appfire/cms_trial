@@ -2,7 +2,7 @@
 
 **About this page**
 
-This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
+This page describes features that are supported **only** in [**BigPicture Advanced**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/3451617346). These features are not available in BigPicture Standard.
 
 On the update page, you can update the progress and status of individual OKRs as your teams work toward them. We suggest updating the OKR status regularly, either weekly or monthly, to stay focused on OKRs while working on daily tasks.
 

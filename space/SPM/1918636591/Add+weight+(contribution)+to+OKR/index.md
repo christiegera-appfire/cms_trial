@@ -2,7 +2,7 @@
 
 **About this page**
 
-This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
+This page describes features that are supported **only** in [**BigPicture Advanced**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/3451617346). These features are not available in BigPicture Standard.
 
 The weight of a child OKR is a numeric value that defines its relative importance or impact when calculating the parent OKR’s overall progress. It allows teams to prioritize high-impact goals over smaller supporting tasks. Instead of treating every child item equally, weighting lets you scale its contribution.
 

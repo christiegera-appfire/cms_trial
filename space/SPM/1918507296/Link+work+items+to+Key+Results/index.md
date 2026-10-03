@@ -2,7 +2,7 @@
 
 **About this page**
 
-This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
+This page describes features that are supported **only** in [**BigPicture Advanced**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/3451617346). These features are not available in BigPicture Standard.
 
 Linking specific tasks to Key Results (KRs) is an effective way to ensure alignment and clarity that every effort contributes meaningfully to achieving Objectives. It also lets you track KR progress based on the status of linked work items/tasks.
 

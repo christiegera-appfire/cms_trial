@@ -18,7 +18,7 @@ You must be logged in as a Jira admin to install the app - go to Jira Administra
 
 ![contentId-1918797213](/cms_trial/assets/a8649637-2d9d-4f9a-a2ef-668ca65afa7a.png)
 
-Are you curious about BigPicture Advanced? Click [here](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/) to learn more about it!
+Are you curious about BigPicture Advanced? Click [here](https://appfire.atlassian.net/wiki/spaces/SPM/pages/3451617346) to learn more about it!
 
 ## Manual installation
 
