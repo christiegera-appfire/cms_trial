@@ -2,7 +2,7 @@
 
 **About this page**
 
-This page describes features that are supported **only** in [**BigPicture Advanced**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/3451617346). These features are not available in BigPicture Standard.
+This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
 
 Once a project is underway, the Financials module continuously tracks your spending against the budget you've set. The system's ability to provide **real-time actual costs** is a key benefit, offering an immediate and accurate view of your project's financial status based on the work being performed.
 

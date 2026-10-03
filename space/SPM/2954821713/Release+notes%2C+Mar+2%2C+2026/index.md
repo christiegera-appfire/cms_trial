@@ -12,7 +12,7 @@ Our team is thrilled to announce the latest release of BigPicture Enterprise Clo
 
 A faster, smarter, and more intuitive way to work is here. We’ve redesigned BigPicture navigation to give you a smoother experience and better access to what matters most.
 
-- Discover what’s new, explore key improvements, and **review feature name updates** on the [New navigation](https://appfire.atlassian.net/wiki/spaces/SPM/pages/2897150073) page.
+- Discover what’s new, explore key improvements, and **review feature name updates** on the [New navigation](/cms_trial/space/SPM/2897150073/New+navigation/) page.
 - The rollout will happen gradually, and the previous navigation will be retired in **September 2026**.
 
 ---

@@ -5,7 +5,7 @@
 Click to expand the guide
 
 - For detailed information about available endpoints, check [the API Documentation](https://developer.bigpicture.one/reference/whatisbigpicture).
-- If you are looking for information about API specifically for the OKR module, visit the [OKR API](https://appfire.atlassian.net/wiki/spaces/SPM/pages/3064169104) page.
+- If you are looking for information about API specifically for the OKR module, visit the [OKR API](/cms_trial/space/SPM/3064169104/OKR+API/) page.
 
 Tokens are used to authenticate BigPicture in other applications.
 
@@ -53,7 +53,7 @@ Click to expand the guide
 API tokens are used to authenticate BigPicture in other applications.
 
 - For detailed information about all available endpoints, check [the API Documentation](https://developer.bigpicture.one/reference/whatisbigpicture).
-- If you are looking for information about API specifically for the OKR module, visit the [OKR API](https://appfire.atlassian.net/wiki/spaces/SPM/pages/3064169104) page.
+- If you are looking for information about API specifically for the OKR module, visit the [OKR API](/cms_trial/space/SPM/3064169104/OKR+API/) page.
 
 Your tokens need to be treated as securely as any other password.
 

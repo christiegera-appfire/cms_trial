@@ -2,9 +2,9 @@
 
 **About the BigPicture gadgets**
 
-BigPicture gadgets are supported with[**BigPicture Standard**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/3451617346).
+BigPicture gadgets are supported with[**BigPicture Standard**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/).
 
-**Exception**: The OKR gadget is supported **only** with [**BigPicture Advanced**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/3451617346). The OKR module is not available in the standard version of BigPicture.
+**Exception**: The OKR gadget is supported **only** with [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). The OKR module is not available in the standard version of BigPicture.
 
 Bring your BigPicture data into centralized, shareable dashboards and report on it your way.
 
@@ -226,7 +226,7 @@ Just drag any segment or value from the six dots on the left side of the segment
 
 **About the OKR gadget**
 
-This gadget is supported **only** with [**BigPicture Advanced**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/3451617346). The OKR module is not available in the standard version of BigPicture.
+This gadget is supported **only** with [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). The OKR module is not available in the standard version of BigPicture.
 
 The BigPicture OKRs gadget lets you display your BigPicture OKR progress directly in Dashboard Hub. Select the Objectives you want to track, filter by period, owner, team, or status, and view the results as a tree of Objectives and Key Results with customizable columns, or use Dashboard Hub’s charts and aggregations to analyze them, such as a pie chart of OKRs per team.
 
@@ -257,7 +257,7 @@ You must be a Jira administrator, an In-module administrator, or have the **API 
 3. Enter a name for the token and click **Create**.
 4. Copy the token and store it securely. You can’t retrieve it later.
 
-For more information, see [OKR API](https://appfire.atlassian.net/wiki/spaces/SPM/pages/3064169104).
+For more information, see [OKR API](/cms_trial/space/SPM/3064169104/OKR+API/).
 
 ### Add a BigPicture OKRs datasource
 

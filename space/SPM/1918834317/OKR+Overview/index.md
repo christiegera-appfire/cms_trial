@@ -2,7 +2,7 @@
 
 **About this page**
 
-This page describes features that are supported **only** in [**BigPicture Advanced**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/3451617346). These features are not available in BigPicture Standard.
+This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
 
 The *Overview* page offers a comprehensive view of your company’s Strategic themes, Objectives, and Key Results in a hierarchical structure, showing how smaller goals contribute to larger ones. This flexible hierarchy can also reveal boxes and work items directly linked to their respective Key Results.
 

@@ -2,7 +2,7 @@
 
 **About this page**
 
-This page describes integration features that are supported **only** in [**BigPicture Advanced**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/3451617346). These features are not available in BigPicture Standard.
+This page describes integration features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
 
 Integrating BigPicture with Workday allows for automated synchronization of employee absences, ensuring that project timelines are always up to date.
 

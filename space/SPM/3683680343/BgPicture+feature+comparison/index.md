@@ -4,7 +4,7 @@ Last updated January 15, 2026
 
 ## BigPicture Advanced Cloud vs. BigPicture Cloud
 
-The table on the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/3451617346>page presents the differences between BigPicture Standard and Advanced plans for Jira Cloud and information about changing you plan.
+The table on the [BigPicture Standard vs Advanced](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/)page presents the differences between BigPicture Standard and Advanced plans for Jira Cloud and information about changing you plan.
 
 ## BigPicture Advanced Cloud vs. BigPicture Enterprise Data Center
 

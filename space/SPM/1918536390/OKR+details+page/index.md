@@ -2,7 +2,7 @@
 
 **About this page**
 
-This page describes features that are supported **only** in [**BigPicture Advanced**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/3451617346). These features are not available in BigPicture Standard.
+This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
 
 The OKR details page displays data for the Strategic theme, Objective, or Key Result, depending on which item you are viewing. On the OKR details page, you can:
 

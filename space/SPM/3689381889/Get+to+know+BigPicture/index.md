@@ -2,7 +2,7 @@
 
 BigPicture helps you turn Jira work into a connected plan for projects and portfolios. Whether you're managing a single project or coordinating work across the organization, BigPicture gives teams and leaders the visibility they need to plan confidently, balance resources, manage risks, and stay aligned with strategic priorities.
 
-Feature availability depends on the [BigPicture subscription plan](https://appfire.atlassian.net/wiki/spaces/SPM/pages/3451617346).
+Feature availability depends on the [BigPicture subscription plan](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/).
 
 ## Strategic Portfolio Management (SPM)
 

@@ -2,7 +2,7 @@
 
 **About this page**
 
-This page describes features that are supported **only** in [**BigPicture Advanced**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/3451617346). These features are not available in BigPicture Standard.
+This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
 
 The Financials module provides powerful views designed to give you a clear, visual representation of your project and portfolio finances directly on your dashboard. These views help you monitor key financial metrics, track performance against your budget, and gain valuable insights into your cost data.
 

@@ -70,7 +70,7 @@ If no start date is provided, the date picker opens on today’s date.
 
 A new banner will appear at the top of the page to remind users that the old navigation will be deprecated on December 1, 2026.
 
-The banner can be closed. If closed, it will appear again two weeks before the deprecation date as a final reminder. To learn more, see the [New navigation](https://appfire.atlassian.net/wiki/spaces/SPM/pages/2897150073) page.
+The banner can be closed. If closed, it will appear again two weeks before the deprecation date as a final reminder. To learn more, see the [New navigation](/cms_trial/space/SPM/2897150073/New+navigation/) page.
 
 ![BigPicture_December_1.png](/cms_trial/assets/88eb8f63-4498-4d46-b872-ab55239da5d7.png)
 

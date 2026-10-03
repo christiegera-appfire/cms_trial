@@ -2,7 +2,7 @@
 
 **About this page**
 
-This page describes features that are supported **only** in [**BigPicture Advanced**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/3451617346). These features are not available in BigPicture Standard.
+This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
 
 The first step in effective financial tracking is to define a clear and realistic budget for your project or initiative. The Financials module in BigPicture lets you establish this, providing a fixed reference point against which you can measure performance throughout the project lifecycle.
 
