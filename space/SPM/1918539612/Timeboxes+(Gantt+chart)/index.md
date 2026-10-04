@@ -9,7 +9,7 @@
 
 You can create and edit timeboxes using the [Hierarchy](/cms_trial/space/SPM/1918799130/Hierarchy+mode/) and [Timeline](/cms_trial/space/SPM/1918538282/Timeline+mode/) view modes of the Overview module.
 
-Timeboxes are suitable for both agile and non-agile teams. Non-agile teams can simply rename Program Increments and Iterations to years, quarters, or months, and start planning their short- or long-term goals using the [Board module](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918796888).
+Timeboxes are suitable for both agile and non-agile teams. Non-agile teams can simply rename Program Increments and Iterations to years, quarters, or months, and start planning their short- or long-term goals using the [Board module](/cms_trial/space/SPM/1918796888/Board+module/).
 
 In the SAFe ART box, timeboxes can represent:
 

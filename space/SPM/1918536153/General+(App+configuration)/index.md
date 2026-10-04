@@ -4,7 +4,7 @@ Under the **General** tab, you can configure the following:
 
 - Field mapping and additional task settings
 - Dependencies
-- Live synchronization (the tab is moved under the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918764560> page)
+- Live synchronization (the tab is moved under the [Performance (App configuration)](/cms_trial/space/SPM/1918764560/Performance+(App+configuration)/) page)
 
 ![Screenshot of the App Configuration page.](/cms_trial/assets/af5df651-3d26-4e11-84f0-20acf1c87a77.png)
 

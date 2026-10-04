@@ -1,6 +1,8 @@
 # Get started with Financials
 
-[Excerpt "app\_editions\_advanced\_page" from page "Get started" not found]
+**About this page**
+
+This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
 
 BigPicture's **Financials module** centralizes budget and expenditure tracking directly within your project management environment. This eliminates the need for external tools like spreadsheets and manual data reconciliation, providing **real-time insights** into project and portfolio costs.
 

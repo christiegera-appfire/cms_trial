@@ -47,7 +47,7 @@ To add dates to a task in the [Scope module](/cms_trial/space/SPM/1918666763/Sco
 
 ### Board module
 
-To add dates to a task in the [Board module](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918796888):
+To add dates to a task in the [Board module](/cms_trial/space/SPM/1918796888/Board+module/):
 
 1. Right-click on a task and select **Edit**.
 2. Complete the dates.
@@ -225,7 +225,7 @@ To add dates to a task in the [Scope module](/cms_trial/space/SPM/1918666763/Sco
 
 ### Board module
 
-To add dates to a task in the [Board module](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918796888):
+To add dates to a task in the [Board module](/cms_trial/space/SPM/1918796888/Board+module/):
 
 1. Go to **Infobar** > **Backlog**.
 2. Edit the **Start Date** and **End Date** fields (make sure that these columns are added to the current [column view](/cms_trial/space/SPM/1918404907/Column+views/)).

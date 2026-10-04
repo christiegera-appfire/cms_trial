@@ -41,7 +41,7 @@ The effort mode can be expressed in the following units:
 - Percent
 - Story points
 
-Refer to the [Effort mod](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918764313)e page for more information.
+Refer to the [Effort mod](/cms_trial/space/SPM/1918764313/Effort+modes/)e page for more information.
 
 ## Holiday plan
 

@@ -1,6 +1,8 @@
 # OKR Settings
 
-[Excerpt "app\_editions\_advanced\_page" from page "Get started" not found]
+**About this page**
+
+This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
 
 The OKR module has separate settings that allow users to customize features such as visualizing linked work items, defining timelines, and adjusting notification preferences. These options provide flexibility and ensure the module meets the unique needs of different teams or organizations.
 

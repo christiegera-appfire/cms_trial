@@ -1,6 +1,8 @@
 # Priority poker game list
 
-[Excerpt "app\_editions\_advanced\_page" from page "Get started" not found]
+**About this page**
+
+This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
 
 The**Priority poker game list**screen allows you to find the game you already created, see the list of the games you can join, or inspect the games that were already finished and prioritized work items. Once you create some poker sessions, you can view, join, or invite others to the game.
 

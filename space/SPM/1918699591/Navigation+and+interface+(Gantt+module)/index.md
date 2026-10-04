@@ -166,7 +166,7 @@ The **Dependencies** button controls the visibility of the dependency links on y
 
 Click the **Hide/Show Resources** button to open the Resources panel. When the panel is enabled, the button with additional options appears next to it:
 
-- [Effort mode](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918764313) (set the effort mode for your resources)
+- [Effort mode](/cms_trial/space/SPM/1918764313/Effort+modes/) (set the effort mode for your resources)
 
   - Original Estimate
   - Remaining Estimate

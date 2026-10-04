@@ -19,7 +19,7 @@ You can also track the status of your goals: see if they are still open, complet
 
 With the SAFe®-based goals, you can effectively manage Program Increments and Iteration goals.
 
-Compared to the [Board module](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918796888), it focuses on high-level planning, including forecasts and commitments, rather than particular tasks.
+Compared to the [Board module](/cms_trial/space/SPM/1918796888/Board+module/), it focuses on high-level planning, including forecasts and commitments, rather than particular tasks.
 
 Also, this module lets you communicate what your Teams are working on to everyone interested.
 
@@ -64,7 +64,7 @@ You can also track the status of your goals, see if they are still open, complet
 
 With the SAFe®-based goals, you can effectively manage Program Increments and Iteration goals.
 
-Compared to the [Board module](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918796888), it focuses on high-level planning, including forecasts and commitments, rather than particular tasks.
+Compared to the [Board module](/cms_trial/space/SPM/1918796888/Board+module/), it focuses on high-level planning, including forecasts and commitments, rather than particular tasks.
 
 Also, this module lets you communicate what your teams are working on to everyone interested.
 

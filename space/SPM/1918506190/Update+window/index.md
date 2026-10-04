@@ -1,6 +1,6 @@
 # Update window
 
-This option relates to BigPicture updates. For data synchronization updates, check the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918764560> page.
+This option relates to BigPicture updates. For data synchronization updates, check the [Performance (App configuration)](/cms_trial/space/SPM/1918764560/Performance+(App+configuration)/) page.
 
 Here, you can set a preferred 4-hour BigPicture update time window. By setting the time window outside your organization's working hours, you can ensure that an update does not affect any user.
 

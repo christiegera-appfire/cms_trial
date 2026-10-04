@@ -1,6 +1,8 @@
 # Edit and delete risks
 
-[Excerpt "app\_editions\_old\_risks" from page "Get started" not found]
+**About this page**
+
+This page describes the Risks module, which is available only for legacy customers. For new implementations of BigPicture, use the [**Risk Management**](/cms_trial/space/SPM/1918798201/Risk+management+module+(new+module)/) module instead.
 
 ## Edit and delete risks (old navigation)
 

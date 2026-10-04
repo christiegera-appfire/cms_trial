@@ -1,6 +1,8 @@
 # Tree view
 
-[Excerpt "app\_editions\_advanced\_page" from page "Get started" not found]
+**About this page**
+
+This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
 
 In the Tree view, you can see all the Strategic Themes, sub-Strategic Themes, Objectives, sub-objectives, and Key Results (OKRs) you created in a single session.
 

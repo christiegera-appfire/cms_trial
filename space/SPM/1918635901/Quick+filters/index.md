@@ -12,7 +12,7 @@ Quick filters are displayed in the header just below the links in the following 
 
 - [Gantt](/cms_trial/space/SPM/1918797129/Gantt+module/)
 - [Scope](/cms_trial/space/SPM/1918666763/Scope+module/)
-- [Board](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918796888)
+- [Board](/cms_trial/space/SPM/1918796888/Board+module/)
 - [Resources](/cms_trial/space/SPM/1918535629/Resources+module/)
 - [Risks](/cms_trial/space/SPM/1918535629/Resources+module/)
 - [Calendar](/cms_trial/space/SPM/1918699000/Calendar+module/)
@@ -78,7 +78,7 @@ Quick filters are displayed in the header just below the links in the following 
 
 - [Gantt](/cms_trial/space/SPM/1918797129/Gantt+module/)
 - [Scope](/cms_trial/space/SPM/1918666763/Scope+module/)
-- [Board](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918796888)
+- [Board](/cms_trial/space/SPM/1918796888/Board+module/)
 - [Resources](/cms_trial/space/SPM/1918535629/Resources+module/)
 - [Risks](/cms_trial/space/SPM/1918535629/Resources+module/)
 - [Calendar](/cms_trial/space/SPM/1918699000/Calendar+module/)

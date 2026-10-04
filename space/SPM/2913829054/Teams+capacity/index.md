@@ -1,6 +1,8 @@
 # Teams capacity
 
-[Excerpt "app\_editions\_advanced\_page" from page "Get started" not found]
+**About this page**
+
+This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
 
 Visit the [Contextual reports](/cms_trial/space/SPM/2481848664/Contextual+reports/) page to learn about availability, permissions, and how to add reports to your view.
 

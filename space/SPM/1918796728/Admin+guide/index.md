@@ -11,6 +11,7 @@ If you want to learn more about BigPicture features, see the [User guide](/cms_t
   - [Modules (App configuration)](/cms_trial/space/SPM/1918405394/Modules+(App+configuration)/)
   - [Integrations (App configuration)](/cms_trial/space/SPM/1918405249/Integrations+(App+configuration)/)
   - [Widgets](/cms_trial/space/SPM/1918832064/Widgets/)
+  - [Performance (App configuration)](/cms_trial/space/SPM/1918764560/Performance+(App+configuration)/)
   - [License](/cms_trial/space/SPM/1918503677/License/)
   - [Region](/cms_trial/space/SPM/1918862810/Region/)
   - [Advanced](/cms_trial/space/SPM/1918862279/Advanced/)

@@ -18,7 +18,7 @@ Key benefits of task dates based on estimates include:
 
 ### Box level
 
-For more information, see the [Field mapping](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918700586) page.
+For more information, see the [Field mapping](/cms_trial/space/SPM/1918700586/Field+mapping/) page.
 
 **Method 1:**
 
@@ -151,7 +151,7 @@ Key benefits of task dates based on estimates include:
 
 ## Configure field mapping (sync) for start/end dates
 
-For more information, see the [Field mapping](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918700586) page.
+For more information, see the [Field mapping](/cms_trial/space/SPM/1918700586/Field+mapping/) page.
 
 ### Box-level field-mapping
 

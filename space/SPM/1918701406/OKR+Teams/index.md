@@ -1,6 +1,8 @@
 # OKR Teams
 
-[Excerpt "app\_editions\_advanced\_page" from page "Get started" not found]
+**About this page**
+
+This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
 
 In the OKR module, you can assign an OKR to a specific team and filter the main view by that team for a focused view. You can also display team stats on the [*Progress Dashboard*](/cms_trial/space/SPM/1918801225/Progress+Dashboard/)page, receive team-specific notifications, and access additional team features.
 

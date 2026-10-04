@@ -45,7 +45,7 @@ For example, if the box name is *Iteration,* the automatically generated name of
 
 ### Box status
 
-The box status is displayed next to the box name in the box switcher. You can [change the box status](/cms_trial/space/SPM/1918829911/Box+lifecycle/) in different sections of the app. In the Overview module, use the right-click or drag-and-drop option when in the [Kanban mode](/cms_trial/space/SPM/1918700991/Kanban+board+mode/). You can also change the status in the [Board module](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918796888) or on the [scope definition page](https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=spm&title=Work%20items%20for%20Jira%20elements%20and%20actions&linkCreation=true&fromPageId=1918667414) in the box configuration.
+The box status is displayed next to the box name in the box switcher. You can [change the box status](/cms_trial/space/SPM/1918829911/Box+lifecycle/) in different sections of the app. In the Overview module, use the right-click or drag-and-drop option when in the [Kanban mode](/cms_trial/space/SPM/1918700991/Kanban+board+mode/). You can also change the status in the [Board module](/cms_trial/space/SPM/1918796888/Board+module/) or on the [scope definition page](https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=spm&title=Work%20items%20for%20Jira%20elements%20and%20actions&linkCreation=true&fromPageId=1918667414) in the box configuration.
 
 The status is indicated using colors, and the following color-coded statuses are available:
 
@@ -128,7 +128,7 @@ For example, if the box name is Iteration*,* the automatically generated name of
 
 ### Box status
 
-The box status is displayed next to the box name in the box switcher. You can [change the box status](/cms_trial/space/SPM/1918829911/Box+lifecycle/) in different sections of the app. In the Overview module, use the right-click or drag-and-drop option when in the [Kanban mode](/cms_trial/space/SPM/1918700991/Kanban+board+mode/). You can also change the status in the [Board module](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918796888) or on the [scope definition page](https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=spm&title=Work%20items%20for%20Jira%20elements%20and%20actions&linkCreation=true&fromPageId=1918667414) in the box configuration.
+The box status is displayed next to the box name in the box switcher. You can [change the box status](/cms_trial/space/SPM/1918829911/Box+lifecycle/) in different sections of the app. In the Overview module, use the right-click or drag-and-drop option when in the [Kanban mode](/cms_trial/space/SPM/1918700991/Kanban+board+mode/). You can also change the status in the [Board module](/cms_trial/space/SPM/1918796888/Board+module/) or on the [scope definition page](https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=spm&title=Work%20items%20for%20Jira%20elements%20and%20actions&linkCreation=true&fromPageId=1918667414) in the box configuration.
 
 The status is indicated using colors, and the following color-coded statuses are available:
 

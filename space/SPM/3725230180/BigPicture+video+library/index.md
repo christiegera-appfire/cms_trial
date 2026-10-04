@@ -11,7 +11,7 @@ Explore videos about BigPicture modules and learn about their key features and c
 | [Overview](/cms_trial/space/SPM/1918502655/Overview+module/) |  |
 | [Gantt](/cms_trial/space/SPM/1918797129/Gantt+module/) |  |
 | [Scope](/cms_trial/space/SPM/1918666763/Scope+module/) |  |
-| [Board](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918796888) |  |
+| [Board](/cms_trial/space/SPM/1918796888/Board+module/) |  |
 | [Goals](/cms_trial/space/SPM/1918535323/Goals+module/) |  |
 | [Resources](/cms_trial/space/SPM/1918535629/Resources+module/) |  |
 | [Teams](/cms_trial/space/SPM/1918829775/Teams+module/) |  |

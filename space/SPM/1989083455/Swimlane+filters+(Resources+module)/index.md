@@ -100,7 +100,7 @@ than a specific value (for example, 80) expressed in the
 
 unit.
 
-The unit of the value must be the same as the one set in the [**Effort mode**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918764313) settings.
+The unit of the value must be the same as the one set in the [**Effort mode**](/cms_trial/space/SPM/1918764313/Effort+modes/) settings.
 
 ![Filter workload and capacity swimlane in the resources module.](/cms_trial/assets/d18f3c6e-a4be-4890-96ac-33c2d6d49286.mp4)
 
@@ -214,7 +214,7 @@ than a specific value (for example, 80) expressed in the
 
 unit.
 
-The unit of the value must be the same as the one set in the [**Effort mode**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918764313) settings.
+The unit of the value must be the same as the one set in the [**Effort mode**](/cms_trial/space/SPM/1918764313/Effort+modes/) settings.
 
 ![Screenshot of filtering by Workload and capacity in the Resources module.](/cms_trial/assets/ee7dba99-51f2-4a03-932e-747670f79076.png)
 

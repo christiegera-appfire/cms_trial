@@ -16,7 +16,7 @@ Learn how to access and interpret detailed information about allocated workload 
 
 Understand how color-coding in the Resources module indicates resource utilization levels based on workload and capacity (team-based and total). This helps identify over or under-allocated resources.
 
-## [Workload contouring](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918767273)
+## [Workload contouring](/cms_trial/space/SPM/1918767273/Workload+contouring/)
 
 Learn to distribute effort across a task's duration using modes like Flat, Front-loaded, Back-loaded, and Manual. Understand how to edit workload contouring.
 

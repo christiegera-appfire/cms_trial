@@ -27,7 +27,7 @@ See the video to learn more about the module.
 | Search box | The search box works in two modes:   - TXT - Simple text search based on the **Summary** field. - JQL - Advanced search using JQL with additional JQL commands added by the App. |
 | View | Change the view options:   - Layout:    - Compact   - Normal   - Wide - WBS Lines:    - Horizontal   - Vertical |
 | [Column views](/cms_trial/space/SPM/1918404907/Column+views/) | Add or remove the columns in the current view, then save the changes as a new view. |
-| [Edit task](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918765477) | **Right-click** a task to prompt a context menu letting you edit, reposition, and delete a task. Screenshot showing the context menu options Edit, Position, Delete. |
+| [Edit task](/cms_trial/space/SPM/1918765477/Edit+task/) | **Right-click** a task to prompt a context menu letting you edit, reposition, and delete a task. Screenshot showing the context menu options Edit, Position, Delete. |
 | [Delete task](/cms_trial/space/SPM/1918406592/Delete+task/) | To delete a task, **right-click** on it and select **Delete** from the context menu. Confirm action with **Delete**. Context menu with the Delete option selected. Alternatively, click a task and then click the **bin** icon. To confirm, click **Delete** again. delete-task-scope.png Remember that once you delete a task in BigPicture, it will also be removed from Jira. |
 | [Live sync](/cms_trial/space/SPM/1918404058/Data+synchronization+with+connected+tools/) | Jira admins can enable the Live sync feature. It lets you see data changes without refreshing a page. With live sync, your data will be instantly updated when users update their tasks. |
 | [Detail view panel](/cms_trial/space/SPM/1918503360/Detail+view+panel/) | Displays task details similarly to the Jira issue details page. |
@@ -41,7 +41,7 @@ See the video to learn more about the module.
 
 ## Scope module in portfolio boxes
 
-You can use the Scope module to visualize the entire scope of your projects across multiple sub-boxes of one portfolio box. To learn more, visit the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918700619> page.
+You can use the Scope module to visualize the entire scope of your projects across multiple sub-boxes of one portfolio box. To learn more, visit the [Gantt module in portfolio boxes](/cms_trial/space/SPM/1918700619/Gantt+module+in+portfolio+boxes/) page.
 
 ## Scope module (new navigation)
 
@@ -68,7 +68,7 @@ See the video to learn more about the module.
 | [Filters](/cms_trial/space/SPM/1918503449/Filters+and+search/) | Mark your favorite filters and filter the list of tasks to see only the items that you are interested in. There are two types of filters:   - Quick Filters - Narrows down the visible scope based on JQL statements. - Date range - Narrows down the visible scope to the defined period. - Custom - Combine two values from the dropdowns. |
 | Search box | The search box works in two modes:   - TXT - Simple text search based on the **Summary** field. - JQL - Advanced search using JQL with additional JQL commands added by the App. |
 | [Column views](/cms_trial/space/SPM/1918404907/Column+views/) | Add or remove the columns in the current view, then save the changes as a new view. |
-| [Edit task](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918765477) | **Right-click** a task to open a context menu that lets you open a Jira window to edit, reposition, and delete the task. Screenshot of the task in the Scope module after right-clicking on the task. |
+| [Edit task](/cms_trial/space/SPM/1918765477/Edit+task/) | **Right-click** a task to open a context menu that lets you open a Jira window to edit, reposition, and delete the task. Screenshot of the task in the Scope module after right-clicking on the task. |
 | [Delete task](/cms_trial/space/SPM/1918406592/Delete+task/) | To delete a task, **right-click** on it and select **Delete** from the context menu. Confirm action with **Delete**. Screenshot of the right-click Delete on a task in the Scope module. Alternatively, click a task and then click the **bin** icon. To confirm, click **Delete** again. Screenshot of deleting a Jira work item in the Scope module. Remember that once you delete a work item in BigPicture, it will also be removed from Jira. |
 | [Live sync](/cms_trial/space/SPM/1918404058/Data+synchronization+with+connected+tools/) | Jira admins can enable the Live sync feature. It lets you see data changes without refreshing a page. With live sync, your data will be instantly updated when users update their tasks. |
 | [Detail view panel](/cms_trial/space/SPM/1918503360/Detail+view+panel/) | Displays task details similarly to the Jira work item details page. |
@@ -82,4 +82,4 @@ See the video to learn more about the module.
 
 ## Scope module in portfolio boxes
 
-You can use the Scope module to visualize the entire scope of your projects across multiple sub-boxes of one portfolio box. To learn more, visit the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918700619> page.
+You can use the Scope module to visualize the entire scope of your projects across multiple sub-boxes of one portfolio box. To learn more, visit the [Gantt module in portfolio boxes](/cms_trial/space/SPM/1918700619/Gantt+module+in+portfolio+boxes/) page.

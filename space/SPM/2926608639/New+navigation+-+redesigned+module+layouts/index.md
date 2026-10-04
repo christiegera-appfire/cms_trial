@@ -43,7 +43,7 @@ The new navigation provides a clearer structure and more intuitive access to key
 
 ![Screenshot of the new navigation changes in the Scope module.](/cms_trial/assets/8a930d64-09f1-4459-b5b1-2169689224b6.png)
 
-[Board module](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918796888)
+[Board module](/cms_trial/space/SPM/1918796888/Board+module/)
 
 - Use the arrow next to the module name to access the **Swimlanes**, **Capacity planning**, or **Reports view**.
 - Features have been reorganized into logical categories to make navigation more intuitive.

@@ -162,7 +162,7 @@ Click the task you want to inspect to open the Task details modal. This modal di
 
 In addition, you can [edit most of those details inline](/cms_trial/space/SPM/1918637324/Inline+edit/).
 
-For example, you can re-assign the task and change its dates, estimates, [workload contouring](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918767273), and status. Click the field you want to edit and change values as you see fit. To fit more details on the screen, expand the modal or manually stretch it.
+For example, you can re-assign the task and change its dates, estimates, [workload contouring](/cms_trial/space/SPM/1918767273/Workload+contouring/), and status. Click the field you want to edit and change values as you see fit. To fit more details on the screen, expand the modal or manually stretch it.
 
 ![Task details modal.](/cms_trial/assets/817e0020-ba82-41e4-96d1-7ba3eadb40f0.png)
 

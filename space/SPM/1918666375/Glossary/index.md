@@ -234,7 +234,7 @@ With the Resource panel enabled, the workload of each resource (assignee) will b
 
 The workload data is filter-sensitive, i.e., only the tasks in the current view are included in the workload calculation. You can use Quick Filters or the Search Box to filter out tasks and simulate different scenarios.
 
-As a rule, the effort is distributed evenly throughout a task, but you can change how it is distributed in the Resources module. To learn more, see [Workload contouring](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918767273).
+As a rule, the effort is distributed evenly throughout a task, but you can change how it is distributed in the Resources module. To learn more, see [Workload contouring](/cms_trial/space/SPM/1918767273/Workload+contouring/).
 
 ### Risk
 
@@ -637,7 +637,7 @@ With the Resource panel enabled, the workload of each resource (assignee) will b
 
 The workload data is filter-sensitive, i.e., only the tasks in the current view are included in the workload calculation. You can use Quick Filters or the Search Box to filter out tasks and simulate different scenarios.
 
-As a rule, the effort is distributed evenly throughout a task, but you can change how it is distributed in the Resources module. To learn more, see [Workload contouring](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918767273).
+As a rule, the effort is distributed evenly throughout a task, but you can change how it is distributed in the Resources module. To learn more, see [Workload contouring](/cms_trial/space/SPM/1918767273/Workload+contouring/).
 
 ### Risk
 
