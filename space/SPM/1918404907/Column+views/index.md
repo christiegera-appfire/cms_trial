@@ -25,7 +25,7 @@ You can find column views in the modules and features that support tree data str
 
 ## Source of data in column views
 
-The data in the columns comes from the in-app fields and Jira fields. What you see in each column depends on how your fields are mapped in the app. To ensure your columns display the correct data, be sure to check your [field mapping settings](/cms_trial/space/SPM/1918700586/Field+mapping/).
+The data in the columns comes from the in-app fields and Jira fields. What you see in each column depends on how your fields are mapped in the app. To ensure your columns display the correct data, be sure to check your [field mapping settings](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918700586).
 
 ## Configure column views
 
@@ -68,7 +68,7 @@ You can find column views in the modules and features that support a tree data s
 
 ## Source of data in column views
 
-The data in the columns comes from the in-app fields and Jira fields. What you see in each column depends on how your fields are mapped in the app. To ensure your columns display the correct data, be sure to check your [field mapping settings](/cms_trial/space/SPM/1918700586/Field+mapping/).
+The data in the columns comes from the in-app fields and Jira fields. What you see in each column depends on how your fields are mapped in the app. To ensure your columns display the correct data, be sure to check your [field mapping settings](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918700586).
 
 ## Configure column views
 

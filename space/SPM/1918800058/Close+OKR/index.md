@@ -1,8 +1,6 @@
 # Close OKR
 
-**About this page**
-
-This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
+[Excerpt "app\_editions\_advanced\_page" from page "Get started" not found]
 
 Closing OKRs is an important step in their lifecycle. It is where you assess whether the goals you've set for a particular period (typically a quarter or a year) have been achieved.
 

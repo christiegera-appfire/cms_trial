@@ -73,7 +73,7 @@ This webhook needs to be created on the **secondary** Jira Cloud instance.
 
 1. Once the connection is successful, you will encounter further configuration steps within BigPicture, such as **field mapping** and **scope definition**.
 
-   1. **Field mapping** is not automatically created or copied, therefore you have to configure field mapping for each newly connected Jira instance. For more information, go to [Field mapping](/cms_trial/space/SPM/1918700586/Field+mapping/)
+   1. **Field mapping** is not automatically created or copied, therefore you have to configure field mapping for each newly connected Jira instance. For more information, go to <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918700586>
    2. **Scope definition** - when another Jira Cloud instance is added to the app, you can add it to a box scope in box configuration and define scope’s details:
 
 ## Connect another Jira instance to BigPicture (new navigation)
@@ -149,5 +149,5 @@ This webhook needs to be created on the **secondary** Jira Cloud instance.
 
 1. Once the connection is successful, you will encounter further configuration steps within BigPicture, such as **field mapping** and **scope definition**.
 
-   1. **Field mapping** is not automatically created or copied, therefore you have to configure field mapping for each newly connected Jira instance. For more information, go to [Field mapping](/cms_trial/space/SPM/1918700586/Field+mapping/)
+   1. **Field mapping** is not automatically created or copied, therefore you have to configure field mapping for each newly connected Jira instance. For more information, go to <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918700586>
    2. **Scope definition** - when another Jira Cloud instance is added to the app, you can add it to a box scope in box configuration and define scope’s details:

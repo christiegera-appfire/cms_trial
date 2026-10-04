@@ -1,8 +1,6 @@
 # Clone OKR
 
-**About this page**
-
-This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
+[Excerpt "app\_editions\_advanced\_page" from page "Get started" not found]
 
 Cloning OKRs lets you quickly replicate existing OKRs for a new cycle or project, saving time and effort. This is especially useful when the Objectives and Key Results are similar or carry over from one period to the next.
 

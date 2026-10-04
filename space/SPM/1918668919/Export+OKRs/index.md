@@ -1,8 +1,6 @@
 # Export OKRs
 
-**About this page**
-
-This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
+[Excerpt "app\_editions\_advanced\_page" from page "Get started" not found]
 
 The export option helps you want to extract current OKRs from the OKR module to share with stakeholders, update progress reports, or integrate them into other tools for analysis and decision-making.
 

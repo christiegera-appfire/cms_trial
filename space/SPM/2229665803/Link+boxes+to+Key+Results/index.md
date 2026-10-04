@@ -1,8 +1,6 @@
 # Link boxes to Key Results
 
-**About this page**
-
-This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
+[Excerpt "app\_editions\_advanced\_page" from page "Get started" not found]
 
 Instead of linking multiple Jira work items to a Key Result individually, you can now organize them into a single box and link the entire box to the KR. As you add or remove tasks from the box, the KR’s progress will update automatically (for auto-KRs only) without the need to manually manage individual links.
 

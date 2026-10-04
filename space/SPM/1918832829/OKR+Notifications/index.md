@@ -1,8 +1,6 @@
 # OKR Notifications
 
-**About this page**
-
-This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
+[Excerpt "app\_editions\_advanced\_page" from page "Get started" not found]
 
 Updating your OKRs regularly is key to tracking progress and reaching your goals, but it can be easy to forget. That's where email reminders help.
 

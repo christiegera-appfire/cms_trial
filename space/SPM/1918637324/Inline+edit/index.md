@@ -23,7 +23,7 @@ Depending on the module structure, inline changes can be made in the areas indic
 | Data → Group tasks | Setting To Do status in the Gantt module |
 | [Scope](/cms_trial/space/SPM/1918666763/Scope+module/) | Column views | Setting an end date in the Scope module |
 | Data → Group tasks | Choosing assignee in the Scope module |
-| [Board](/cms_trial/space/SPM/1918796888/Board+module/) | Task cards  To learn more about customizing Task Cards, go to [Card view creator](/cms_trial/space/SPM/1918832263/Card+view+creator/). | Choosing color in the Board module |
+| [Board](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918796888) | Task cards  To learn more about customizing Task Cards, go to [Card view creator](/cms_trial/space/SPM/1918832263/Card+view+creator/). | Choosing color in the Board module |
 | Backlog |
 | [Resources](/cms_trial/space/SPM/1918535629/Resources+module/) | Task details dialog (Task details) | Task details in the Resource module |
 | Workload details → Workload contouring  Workload contouring can be edited only in the manual workload mode. Otherwise, it is calculated automatically. | Choosing contouring in the Resources module |
@@ -108,7 +108,7 @@ Depending on the module structure, inline changes can be made in the areas indic
 | [Overview](/cms_trial/space/SPM/1918502655/Overview+module/) | - Column views (Hierarchy mode & Timeline mode)  Screenshot of inline editing in the Overview module. |
 | [Gantt](/cms_trial/space/SPM/1918797129/Gantt+module/) | - Column views - Gantt chart (task details dialog) - View → Group  Screenshot of inline editing in the Gantt module. |
 | [Scope](/cms_trial/space/SPM/1918666763/Scope+module/) | - Column views - View → Group  Screenshot of inline editing in the Scope module. |
-| [Board](/cms_trial/space/SPM/1918796888/Board+module/) | - Task cards (to learn more about customizing task cards, go to [Card view creator](/cms_trial/space/SPM/1918832263/Card+view+creator/)) - Backlog  Screenshot of inline editing in the Board module. |
+| [Board](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918796888) | - Task cards (to learn more about customizing task cards, go to [Card view creator](/cms_trial/space/SPM/1918832263/Card+view+creator/)) - Backlog  Screenshot of inline editing in the Board module. |
 | [Resources](/cms_trial/space/SPM/1918535629/Resources+module/) | - Task details dialog (task details) - Workload details → Workload contouring  Workload contouring can be edited only in the manual workload mode. Otherwise, it is calculated automatically. - Backlog  Screenshot of inline editing in the Resources module. |
 | [Teams](/cms_trial/space/SPM/1918829775/Teams+module/) | - Membership period (Start Date) - Team member availability  Screenshot of inline editing in the Teams module. |
 | [Risks](/cms_trial/space/SPM/1918666681/Risks+module/) | - Risk cards - Risk table  Screenshot of inline editing in the Risks module. |

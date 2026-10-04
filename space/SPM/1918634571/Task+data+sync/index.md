@@ -28,7 +28,7 @@ They can also vary depending on the external platform.
 
 Configuring field mapping ensures that data from Jira fields in your issues matches the fields in BigPicture.
 
-[**Read more**](/cms_trial/space/SPM/1918700586/Field+mapping/)
+[**Read more**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918700586)
 
 ---
 

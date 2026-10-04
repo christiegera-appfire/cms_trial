@@ -1,8 +1,6 @@
 # OKR AI (Suggest Key Results)
 
-**About this page**
-
-This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
+[Excerpt "app\_editions\_advanced\_page" from page "Get started" not found]
 
 OKR AI helps you generate Key Results quickly and with less manual effort. Based on the Objective’s summary and description, it suggests up to five relevant Key Results you can edit, refine, and create in one go.
 

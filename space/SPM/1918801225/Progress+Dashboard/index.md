@@ -1,8 +1,6 @@
 # Progress Dashboard
 
-**About this page**
-
-This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
+[Excerpt "app\_editions\_advanced\_page" from page "Get started" not found]
 
 The *Progress Dashboard* page provides a clear, visual overview of your OKRs, helping you track progress, celebrate successes, and pinpoint areas for improvement. It’s ideal for meetings, presentations, and day-to-day management.
 

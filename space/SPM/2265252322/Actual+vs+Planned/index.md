@@ -1,8 +1,6 @@
 # Actual vs Planned
 
-**About this page**
-
-This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
+[Excerpt "app\_editions\_advanced\_page" from page "Get started" not found]
 
 The Actual vs Planned costs panel for the portfolio displays the effort costs for all tasks in the portfolio, broken down into specific initiatives.
 

@@ -128,5 +128,5 @@ The field mapping for each project can be customized, but only by the Jira or Ap
 - [Concept of a field](/cms_trial/space/SPM/1918633429/Concept+of+a+field/)
 - [Fields](/cms_trial/space/SPM/1918635376/Fields/)
 - [Built-in fields](/cms_trial/space/SPM/1918832240/Built-in+fields/)
-- [Field mapping](/cms_trial/space/SPM/1918700586/Field+mapping/)
+- <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918700586>
 - [Mapping options for built-in fields](/cms_trial/space/SPM/1926234390/Mapping+options+for+built-in+fields/)

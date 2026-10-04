@@ -88,5 +88,5 @@ With the Resources module, you can effectively manage the workload and capacity 
 ## Additional resources
 
 - [Create portfolio box](/cms_trial/space/SPM/1918634872/Create+portfolio+box/)
-- [Gantt module in portfolio boxes](/cms_trial/space/SPM/1918700619/Gantt+module+in+portfolio+boxes/)
+- <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918700619>
 - [Resources module in portfolio boxes](/cms_trial/space/SPM/1918766197/Resources+module+in+portfolio+boxes/)

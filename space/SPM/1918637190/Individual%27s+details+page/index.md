@@ -48,7 +48,7 @@ The table presents the information that can be found under the Teams section.
 
 To assign a skill to an individual, the App admin must first [add skills](/cms_trial/space/SPM/1918669478/Add%2C+edit%2C+and+delete+skills/) on the **Administration** > **Resources** > **Skills** page. Each skill has a start date (required field) and end date. Resources can be assigned to multiple skills at the same time.
 
-See the [Assign skills](/cms_trial/space/SPM/1918702159/Assign+skills/) page to learn how to assign skills to individuals.
+See the [Assign skills](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918702159) page to learn how to assign skills to individuals.
 
 ## Workload plans
 

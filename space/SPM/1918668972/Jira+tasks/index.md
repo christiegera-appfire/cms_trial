@@ -31,7 +31,7 @@ Once imported or created, you can manage Jira tasks through various modules:
 - Provides an Agile view for tracking work using Scrum boards or Kanban boards.
 - Syncs with Jira boards and supports sprint planning directly within BigPicture.
 
-[**Read more**](/cms_trial/space/SPM/1918796888/Board+module/)
+[**Read more**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918796888)
 
 ---
 

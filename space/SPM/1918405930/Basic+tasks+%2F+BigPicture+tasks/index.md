@@ -242,7 +242,7 @@ It is possible to quickly assign a given team to BigPicture tasks by inline edit
 
 ## Workload of BigPicture tasks
 
-In the "Manual" [workload contouring](/cms_trial/space/SPM/1918767273/Workload+contouring/) mode, you can assign workload to BigPicture tasks. It will be accounted for in the general capacity calculation in the same manner as all other tasks.
+In the "Manual" [workload contouring](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918767273) mode, you can assign workload to BigPicture tasks. It will be accounted for in the general capacity calculation in the same manner as all other tasks.
 
 ![Screenshot of a BigPicture task with the Manual contouring mode selected.](/cms_trial/assets/7bdb6c33-2e5b-4569-9a0d-c8d4d2b68727.png)
 

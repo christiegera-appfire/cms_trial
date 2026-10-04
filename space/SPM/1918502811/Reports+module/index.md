@@ -19,7 +19,7 @@ The table presents a list of available actions and reports that can be generated
 | **Report** | **Description** |
 | --- | --- |
 | [Task report](/cms_trial/space/SPM/1918863921/Task+report/) | Counts the number of tasks in the project according to the entered criteria or sums the field values from the selected tasks. |
-| [Risks matrix](/cms_trial/space/SPM/1918766396/Risks+matrix+report/) | Provides a quick view of the risks of a given project or portfolio. |
+| [Risks matrix](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766396) | Provides a quick view of the risks of a given project or portfolio. |
 | [Team dependencies](/cms_trial/space/SPM/1918668772/Cross-team+dependencies+report/) | Facilitates management of team dependencies within and between the projects. |
 | [Dependencies](/cms_trial/space/SPM/1918504971/Dependencies+report/) | Facilitates the management of dependencies both within and between projects. |
 | [Milestones & Markers](/cms_trial/space/SPM/1918505294/Milestones+%26+Markers+report/) | Provides a quick view of a given project's or portfolio's milestones and markers. |
@@ -56,7 +56,7 @@ The table presents a list of available actions and reports that can be generated
 | **Report** | **Description** |
 | --- | --- |
 | [Task report](/cms_trial/space/SPM/1918863921/Task+report/) | Counts the number of tasks in the project according to the entered criteria or sums the field values from the selected tasks. |
-| [Risks matrix](/cms_trial/space/SPM/1918766396/Risks+matrix+report/) | Provides a quick view of the risks of a given project or portfolio. |
+| [Risks matrix](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766396) | Provides a quick view of the risks of a given project or portfolio. |
 | [Team dependencies](/cms_trial/space/SPM/1918668772/Cross-team+dependencies+report/) | Facilitates management of team dependencies within and between the projects. |
 | [Dependencies](/cms_trial/space/SPM/1918504971/Dependencies+report/) | Facilitates the management of dependencies both within and between projects. |
 | [Milestones & Markers](/cms_trial/space/SPM/1918505294/Milestones+%26+Markers+report/) | Provides a quick view of a given project's or portfolio's milestones and markers. |

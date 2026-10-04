@@ -6,7 +6,7 @@
 
 Click the **Workload** or **Remaining capacity** cells to display a dialog containing detailed information about all allocated workloads resulting from the tasks in a given period.
 
-This detailed view works in time tracking ([Original and Remaining estimate](https://appfire.atlassian.net/wiki/spaces/DLP/pages/297768632)), and [Story points effort modes](/cms_trial/space/SPM/1918764313/Effort+modes/). The dialog appears whenever you click any **Workload** or **Remaining capacity** cell within:
+This detailed view works in time tracking ([Original and Remaining estimate](https://appfire.atlassian.net/wiki/spaces/DLP/pages/297768632)), and [Story points effort modes](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918764313). The dialog appears whenever you click any **Workload** or **Remaining capacity** cell within:
 
 - Individuals, Teams, Projects, or Skills swimlane
 - Summary lane
@@ -48,7 +48,7 @@ The table describes how to resize and expand a dialog box.
 
 Click the **Workload** or **Remaining capacity** cells to display a dialog containing detailed information about all allocated workloads resulting from the tasks in a given period.
 
-This detailed view works in time tracking ([Original and Remaining estimate](https://appfire.atlassian.net/wiki/spaces/DLP/pages/297768632)), and [Story points effort modes](/cms_trial/space/SPM/1918764313/Effort+modes/). The dialog appears whenever you click any **Workload**, **Remaining capacity** or **Capacity** cell within:
+This detailed view works in time tracking ([Original and Remaining estimate](https://appfire.atlassian.net/wiki/spaces/DLP/pages/297768632)), and [Story points effort modes](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918764313). The dialog appears whenever you click any **Workload**, **Remaining capacity** or **Capacity** cell within:
 
 - Individuals, Teams, Projects, or Skills swimlane
 - Summary lane

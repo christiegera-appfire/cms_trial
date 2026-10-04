@@ -1,8 +1,6 @@
 # Forecast future costs (Estimate Costs)
 
-**About this page**
-
-This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
+[Excerpt "app\_editions\_advanced\_page" from page "Get started" not found]
 
 Beyond tracking what you've already spent, the Financials module in BigPicture provides the capability to **forecast future costs**, often referred to as **remaining cost**. This crucial feature lets you anticipate upcoming expenditures based on the remaining work, helping you manage your budget proactively and make informed decisions about resource allocation and project trajectory.
 

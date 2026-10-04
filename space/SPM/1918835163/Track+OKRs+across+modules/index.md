@@ -1,8 +1,6 @@
 # Track OKRs across modules
 
-**About this page**
-
-This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
+[Excerpt "app\_editions\_advanced\_page" from page "Get started" not found]
 
 ## Track OKRs across modules (old navigation)
 
@@ -112,7 +110,7 @@ Go to **Data** > **Group Tasks** and toggle the column. You can group your view 
 
 The **Objectives**, **Key Results**, and **OKR Type** columns:
 
-- Cannot be [field mapped](/cms_trial/space/SPM/1918700586/Field+mapping/) with any other Jira field.
+- Cannot be [field mapped](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918700586) with any other Jira field.
 - Cannot be [edited inline](/cms_trial/space/SPM/1918637324/Inline+edit/). You can edit OKR data only in the OKR module.
 - Cannot be [aggregated](/cms_trial/space/SPM/1918636993/Column+data+aggregation+methods/). But you can pin them to keep them always visible in your current view.
 
@@ -224,6 +222,6 @@ Go to **Data** > **Group Tasks** and toggle the column. You can group your view 
 
 The **Objectives**, **Key Results**, and **OKR Type** columns:
 
-- Cannot be [field mapped](/cms_trial/space/SPM/1918700586/Field+mapping/) with any other Jira field.
+- Cannot be [field mapped](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918700586) with any other Jira field.
 - Cannot be [edited inline](/cms_trial/space/SPM/1918637324/Inline+edit/). You can edit OKR data only in the OKR module.
 - Cannot be [aggregated](/cms_trial/space/SPM/1918636993/Column+data+aggregation+methods/). But you can pin them to keep them always visible in your current view.

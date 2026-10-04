@@ -1,8 +1,6 @@
 # OKR fields vs BigPicture fields
 
-**About this page**
-
-This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
+[Excerpt "app\_editions\_advanced\_page" from page "Get started" not found]
 
 The OKR module includes fields for storing information specific to your OKRs. Some OKR fields are available in the Gantt and Scope modules.
 

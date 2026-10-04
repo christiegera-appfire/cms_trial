@@ -1,8 +1,6 @@
 # OKR linked work items data sync (and auto-progress update)
 
-**About this page**
-
-This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
+[Excerpt "app\_editions\_advanced\_page" from page "Get started" not found]
 
 Auto-KRs rely on linked work items to keep their progress up to date. This means that any changes made to those work items in other modules need to be synchronized with the OKR module.
 

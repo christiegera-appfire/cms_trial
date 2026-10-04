@@ -1,8 +1,6 @@
 # Add new prioritization view
 
-**About this page**
-
-This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
+[Excerpt "app\_editions\_advanced\_page" from page "Get started" not found]
 
 In the Priorities module, you can add and save prioritization views to tailor the display. Customize filters, columns, sorting, and the priority matrix to adjust your view. You can also set the default view for first-time users. Saved views are stored per box.
 

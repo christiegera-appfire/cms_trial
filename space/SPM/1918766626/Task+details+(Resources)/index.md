@@ -22,9 +22,9 @@ The task details dialog provides general information about a task and the status
 | Resources | - Assignee - Team - Required skills | - Assignee (or use the [Find perfect match](/cms_trial/space/SPM/1918405181/Find+the+perfect+match/) icon to assign the most suitable resource) - Team (or use the [Find perfect match](/cms_trial/space/SPM/1918405181/Find+the+perfect+match/) icon to assign the most suitable resource) - Required skills |
 | Scheduling | - Start date - End date - Duration - [Scheduling mode](/cms_trial/space/SPM/1918831395/Scheduling+mode/) | - Start date - End date - Duration - Scheduling mode |
 | Agile | - Sprint - [Story Points](/cms_trial/space/SPM/1918506126/Story+points+(Effort+mode)/) | - Sprint - Story points |
-| [Time estimates](/cms_trial/space/SPM/1918764313/Effort+modes/) | - [Original estimate](/cms_trial/space/SPM/1918407058/Original+estimate+(Effort+mode)/) - [Remaining estimate](/cms_trial/space/SPM/1918863764/Remaining+estimate+(Effort+mode)/) - Logged work | - Original estimate - Remaining estimate |
+| [Time estimates](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918764313) | - [Original estimate](/cms_trial/space/SPM/1918407058/Original+estimate+(Effort+mode)/) - [Remaining estimate](/cms_trial/space/SPM/1918863764/Remaining+estimate+(Effort+mode)/) - Logged work | - Original estimate - Remaining estimate |
 | Technical info | - Project - In scope of (displays all IDs of the boxes in which the task is (even if you can’t access these boxes) - Task ID |  |
-| [Workload contouring](/cms_trial/space/SPM/1918767273/Workload+contouring/) | - Contouring mode - [Effort mode](/cms_trial/space/SPM/1918764313/Effort+modes/) - Distributed effort - Workload contour, including a mini-view of the Workload and the Remaining capacity shown for the weekly duration of the task | - Contouring mode |
+| [Workload contouring](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918767273) | - Contouring mode - [Effort mode](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918764313) - Distributed effort - Workload contour, including a mini-view of the Workload and the Remaining capacity shown for the weekly duration of the task | - Contouring mode |
 | Warnings | - Warnings |  |
 
 ## Empty field values
@@ -55,9 +55,9 @@ The task details dialog provides general information about a task and the status
 | Resources | - Assignee - Team - Required skills | - Assignee (or use the [Find perfect match](/cms_trial/space/SPM/1918405181/Find+the+perfect+match/) icon to assign the most suitable resource) - Team (or use the [Find perfect match](/cms_trial/space/SPM/1918405181/Find+the+perfect+match/) icon to assign the most suitable resource) - Required skills |
 | Scheduling | - Start date - End date - Duration - [Scheduling mode](/cms_trial/space/SPM/1918831395/Scheduling+mode/) | - Start date - End date - Duration - Scheduling mode |
 | Agile | - Sprint - [Story Points](/cms_trial/space/SPM/1918506126/Story+points+(Effort+mode)/) | - Sprint - Story points |
-| [Time estimates](/cms_trial/space/SPM/1918764313/Effort+modes/) | - [Original estimate](/cms_trial/space/SPM/1918407058/Original+estimate+(Effort+mode)/) - [Remaining estimate](/cms_trial/space/SPM/1918863764/Remaining+estimate+(Effort+mode)/) - Logged work | - Original estimate - Remaining estimate |
+| [Time estimates](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918764313) | - [Original estimate](/cms_trial/space/SPM/1918407058/Original+estimate+(Effort+mode)/) - [Remaining estimate](/cms_trial/space/SPM/1918863764/Remaining+estimate+(Effort+mode)/) - Logged work | - Original estimate - Remaining estimate |
 | Technical info | - Project - In scope of (displays all IDs of the boxes in which the task is (even if you can’t access these boxes) - Task ID |  |
-| [Workload contouring](/cms_trial/space/SPM/1918767273/Workload+contouring/) | - Contouring mode - [Effort mode](/cms_trial/space/SPM/1918764313/Effort+modes/) - Distributed effort - Workload contour, including a mini-view of the Workload and the Remaining capacity shown for the weekly duration of the task | - Contouring mode |
+| [Workload contouring](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918767273) | - Contouring mode - [Effort mode](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918764313) - Distributed effort - Workload contour, including a mini-view of the Workload and the Remaining capacity shown for the weekly duration of the task | - Contouring mode |
 | Warnings | - Warnings |  |
 
 ## Empty field values

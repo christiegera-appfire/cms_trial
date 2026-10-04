@@ -49,7 +49,7 @@ In the **back-loaded mode**, extra effort is gradually added, beginning at the t
 
 ### Manual Contouring Mode
 
-Manual contouring mode cannot be enabled if the [effort mode](/cms_trial/space/SPM/1918764313/Effort+modes/) is set to story points.
+Manual contouring mode cannot be enabled if the [effort mode](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918764313) is set to story points.
 
 You can manually adjust workload contour by switching to manual mode. Once activated, you can manually spread the workload directly on the task details dialog box.
 

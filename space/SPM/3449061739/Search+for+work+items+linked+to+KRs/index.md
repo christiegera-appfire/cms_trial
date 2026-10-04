@@ -1,8 +1,6 @@
 # Search for work items linked to KRs
 
-**About this page**
-
-This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
+[Excerpt "app\_editions\_advanced\_page" from page "Get started" not found]
 
 If you want to find work items associated with your OKRs for bulk updates or analysis, you can use JQL (Jira Query Language) to search for work items connected to either a specific Key Result or to all KRs under a specific Objective.
 

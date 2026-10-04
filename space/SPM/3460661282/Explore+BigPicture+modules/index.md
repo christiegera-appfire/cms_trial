@@ -51,7 +51,7 @@ The Scope module helps you define and manage the boundaries of your projects, in
 
 See the video
 
-### [Board](/cms_trial/space/SPM/1918796888/Board+module/)
+### [Board](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918796888)
 
 The Board module is a powerful tool for visualizing feature delivery dates and cross-team dependencies. It helps teams plan their tasks and coordinate work across teams.
 
@@ -92,7 +92,7 @@ This module allows for streamlined resource planning, tracking, and optimization
 
 - Full visibility into resource allocation, workload, availability, capacity, and skills
 - [Two-level grouping](/cms_trial/space/SPM/1918701793/Swimlanes+and+grouping/) by individuals, projects, teams, and skills
-- Different [effort modes](/cms_trial/space/SPM/1918764313/Effort+modes/) (Original Estimate, Remaining Estimate, and story points)
+- Different [effort modes](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918764313) (Original Estimate, Remaining Estimate, and story points)
 - Different effort expression units (hours, man-days, percent, story points)
 - [Yearly timeline view](/cms_trial/space/SPM/1918702075/Time+period+and+aggregation/) for long-term planning
 - Customizable [filters](/cms_trial/space/SPM/1918503449/Filters+and+search/) and rich visibility options

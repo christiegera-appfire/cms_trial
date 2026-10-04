@@ -1,8 +1,6 @@
 # OKR Hierarchy
 
-**About this page**
-
-This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
+[Excerpt "app\_editions\_advanced\_page" from page "Get started" not found]
 
 The *Hierarchy* page visualizes a family tree for your company's goals. It shows how big, ambitious goals (like the company vision) are broken down into smaller, actionable steps for different teams. The hierarchical view helps everyone understand how their work fits into the bigger picture.
 

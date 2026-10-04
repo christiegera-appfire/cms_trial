@@ -1,8 +1,6 @@
 # Financials module permissions
 
-**About this page**
-
-This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
+[Excerpt "app\_editions\_advanced\_page" from page "Get started" not found]
 
 Access to the financial information is restricted. Only people assigned a financial role can interact with the information.
 

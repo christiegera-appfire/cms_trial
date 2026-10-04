@@ -40,7 +40,7 @@ Display the critical path for your tasks directly on the Gantt chart in the Gant
 
 Display task progress on a column in the Gantt module’s column view, on the taskbar, and on the task details.
 
-[**Read more**](/cms_trial/space/SPM/1918764665/Task+progress/)
+[**Read more**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918764665)
 
 ---
 

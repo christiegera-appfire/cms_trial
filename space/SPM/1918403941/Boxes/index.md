@@ -77,7 +77,7 @@ You cannot nest any box type under every other box type—the box relationships 
 
 Task period alignment is an [automatic scheduling mechanism](/cms_trial/space/SPM/1918535176/Automations/) that aligns or adjusts the tasks' start/end dates with the box's start/end dates.
 
-### [Field mapping](/cms_trial/space/SPM/1918700586/Field+mapping/)
+### [Field mapping](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918700586)
 
 Field mapping ensures that the data from Jira fields inside your Jira issues correspond to the fields in BigPicture. You can configure fields on the global (general mapping) and project (custom mapping) levels.
 
@@ -184,7 +184,7 @@ You cannot nest any box type under every other box type—the box relationships 
 
 ### Field mapping
 
-[Field mapping](/cms_trial/space/SPM/1918700586/Field+mapping/) ensures that the data from Jira fields inside your Jira work items corresponds to the fields in BigPicture. You can configure fields on the global (general mapping) and project (custom mapping) levels.
+[Field mapping](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918700586) ensures that the data from Jira fields inside your Jira work items corresponds to the fields in BigPicture. You can configure fields on the global (general mapping) and project (custom mapping) levels.
 
 ### Task structure
 

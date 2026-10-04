@@ -2,7 +2,7 @@
 
 ## Problem
 
-You receive the following validation error message when saving your general or custom [field mapping](/cms_trial/space/SPM/1918700586/Field+mapping/) settings:
+You receive the following validation error message when saving your general or custom [field mapping](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918700586) settings:
 
 ![Validation error that says Changes not saved. Field mapping must be unique - each field can be selected for mapping only once.](/cms_trial/assets/c3f1aace-a02c-47b1-8491-06a3e9145389.png)
 
@@ -17,4 +17,4 @@ To solve the issue, select another suitable field from the dropdown to replace t
 ## More information
 
 - [Fields](/cms_trial/space/SPM/1918635376/Fields/)
-- [Field mapping](/cms_trial/space/SPM/1918700586/Field+mapping/)
+- <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918700586>

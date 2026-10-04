@@ -1,8 +1,6 @@
 # Objectives & Key Results (OKR module)
 
-**About this page**
-
-This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
+[Excerpt "app\_editions\_advanced\_page" from page "Get started" not found]
 
 In the OKR module, you can create and manage OKRs throughout their [full lifecycle](/cms_trial/space/SPM/1918863610/OKR+lifecycle+and+management/) and then update and track their progress in a single or multiple boxes.
 
