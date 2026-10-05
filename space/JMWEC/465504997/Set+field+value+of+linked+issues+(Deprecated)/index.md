@@ -1,6 +1,6 @@
 # Set field value of linked issues (Deprecated)
 
-This post function has been deprecated for some time, and will be completely removed by the end of **December 2025**. Once this post function has been removed from JMWE, you will not be able to:
+This post function has been deprecated for some time, and will be completely removed by the end of **September 2026**. Once this post function has been removed from JMWE, you will not be able to:
 
 - **Add** another instance
 - **Edit** any existing instances

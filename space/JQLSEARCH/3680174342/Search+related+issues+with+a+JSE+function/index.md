@@ -4,7 +4,7 @@
 
 JQL Search Extensions functions let you perform searches that use other JQL queries as input. This lets to answer questions about relationships between groups of Jira issues.
 
-In this example, you'll use `linkedIssuesOfQuery()` to find issues linked to issues returned by another JQL query.
+In this example, you'll use `Issue in parentsOfIssuesInQuery` to find issues linked to issues returned by another JQL query.
 
 ## Search issues by their links
 
@@ -25,17 +25,19 @@ Replace `Bug` with a project key from your Jira instance and, if necessary, repl
 
 This search contains two parts.
 
-The inner query:
+**The inner query:**
 
-Project =
+`Project = BIG and type=Epic`
 
 identifies the initial set of issues.
 
-The JSE function:
+**The JSE function:**
 
-`linkedIssuesOfQuery()`
+`issue in parentsOfIssuesInQuery()`
 
 uses those search results to find issues connected to them by the specified issue link relationship.
+
+![2026-10-05_15-27-49.jpeg](/cms_trial/assets/02a842bb-960f-4343-a8ab-9b16311d0aca.jpeg)
 
 There is an important difference between JSE keywords and functions:
 

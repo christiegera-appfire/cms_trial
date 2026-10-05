@@ -1,4 +1,4 @@
-# Get started with Power Scripts for Jira Cloud
+# Introduction to Power Scripts for Jira Cloud
 
 Power Scripts is the fastest way to build advanced automations and truly customize Jira to your needs using Simple Issue Language (SIL) scripting. Power Scripts offers unlimited automation rule runs, regardless of your Jira plan.
 

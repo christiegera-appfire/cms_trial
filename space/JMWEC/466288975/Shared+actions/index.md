@@ -106,7 +106,7 @@ The post function panel of the Automation Rule Builder includes two different wa
 ### Simple view
 
 Image — asset pipeline pending  
-JMWE for Jira Cloud rule builder post function interface in simple view mode
+admin-EventBasedActionPostFunctionsSimpleView.png
 
 The simple view (Figure, right) of your action's post functions includes an expandable tile for each post function. You can reorder them using the **Up** ▢ and **Down** ▢ buttons to the left of the tile. You can edit, delete, or duplicate any of them by expanding the tile using the arrow to the right.
 
@@ -130,7 +130,7 @@ The advanced view adds the **Post function details** section to the **bottom** o
 It also switches the right-hand panel to a condensed list (Figure, right) of the included post functions, with a handle for reordering them, an edit button for quick access to the post function configuration, and an action button that includes the options to duplicate, delete, or disable the post function.
 
 Image — asset pipeline pending  
-JMWE for Jira Cloud rule builder post function interface in advanced view mode
+admin-EventBasedActionPostFunctionsAdvancedView.png
 
 ![admin-EventBasedActionPostFunctionsSimpleView.png](/cms_trial/assets/c1dfa3d7-0a9b-4d18-ac58-12fa61b9639c.png)![admin-EventBasedActionPostFunctionsAdvancedView.png](/cms_trial/assets/fb2df4ea-c03b-4947-b8e1-119781921cae.png)
 

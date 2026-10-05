@@ -64,9 +64,9 @@ Before updating your workflow, you need to add a custom field to your Jira insta
 
 To edit a workflow:
 
-1. Log into your Jira Server instance as an Administrator.
+1. Log in to your Jira Cloud instance as an Administrator.
 2. Click on the **Settings** icon ⚙️ in the upper right corner.
-3. Select **Issues**.
+3. Select **Work items**.
 4. In the left-hand panel, click **Workflows**.
 5. Click **Actions (** [actionmenu icon] ) for the workflow you want to edit and select **Edit**.
 

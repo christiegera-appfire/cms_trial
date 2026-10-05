@@ -83,20 +83,6 @@ If the scheduled action runs *more than once per hour*, the number of issues is 
 
 Select one of the following to set the creator of the issue:
 
-This option enables you to configure as which Jira user the post-function will run.
-
-- **Current user** - The current user will be the author of the action.
-- **Add-on user** -The add-on user will be the author of the action.
-- **Selected user** -The user in the **Select user** field will be the author of the action.
-
-  - **Select user** - *Only available when* ***Selected user*** *is set.* Select a user from the pull-down menu. Enter a name to search for a specific user account.
-- **User in selected field** - The user value from the **Select field** field.
-
-  - **Select field** - *Only available when* ***User in selected field*** *is set.* Select a User Picker field; if you select a User Picker (multiple users) field, only the first user will be used.
-- **User from script** - The user value returned from a Nunjucks script.
-
-If you select any option other than **Run as add-on user**, so that the assignment appears to be done by the current user or a specific user, the selected user will need to have the **Edit Issues** permission for the issue being updated.
-
 ## Post-functions
 
 ![JMWE for Jira Cloud scheduled action post functions configuration panel](/cms_trial/assets/c77b58bb-76bc-4edb-8cc0-d8c1da4fec50.png)
@@ -120,7 +106,7 @@ The post function panel of the Automation Rule Builder includes two different wa
 ### Simple view
 
 Image — asset pipeline pending  
-JMWE for Jira Cloud rule builder post function interface in simple view mode
+admin-EventBasedActionPostFunctionsSimpleView.png
 
 The simple view (Figure, right) of your action's post functions includes an expandable tile for each post function. You can reorder them using the **Up** ▢ and **Down** ▢ buttons to the left of the tile. You can edit, delete, or duplicate any of them by expanding the tile using the arrow to the right.
 
@@ -144,7 +130,7 @@ The advanced view adds the **Post function details** section to the **bottom** o
 It also switches the right-hand panel to a condensed list (Figure, right) of the included post functions, with a handle for reordering them, an edit button for quick access to the post function configuration, and an action button that includes the options to duplicate, delete, or disable the post function.
 
 Image — asset pipeline pending  
-JMWE for Jira Cloud rule builder post function interface in advanced view mode
+admin-EventBasedActionPostFunctionsAdvancedView.png
 
 ## Error handling
 

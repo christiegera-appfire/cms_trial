@@ -1,6 +1,6 @@
 # Import Worklog Data from Tempo Timesheets to 7pace Timetracker using REST APIs
 
-![image for instruction.png](/cms_trial/assets/4d0ff453-acbb-4fc3-8142-1b58174ca3f1.png)
+![image for instruction.png](/cms_trial/assets/0d38b786-0203-45de-975a-66a4c073de17.png)
 
 This guide explains how to perform a one-time historical import of your worklog data from **Tempo Timesheets** (Jira Cloud) into **7pace Timetracker** using the REST APIs of both platforms.
 
@@ -37,7 +37,7 @@ Assign the user a role in “Permission Roles,” as shown in the screenshot bel
 
 Caution: The UI for adding the user to the group is not intuitive. You may need to enter the full email address to display the Jira user's full name.
 
-![image for instruction.png](/cms_trial/assets/4d0ff453-acbb-4fc3-8142-1b58174ca3f1.png)
+![image for instruction.png](/cms_trial/assets/0d38b786-0203-45de-975a-66a4c073de17.png)
 
 #### More granular permissions
 

@@ -95,18 +95,6 @@ In this section you will create a custom field that represents the escalated sta
 
 Once you have the custom fields added to your issues, you can update the workflow.
 
-To add a post-function:
-
-1. Log into your Jira Server instance as an Administrator.
-2. Click on the **Settings** icon ⚙️ in the upper right corner.
-3. Select **Issues**.
-4. In the left-hand panel, click **Workflows**.
-5. Click **Actions (** [actionmenu icon] ) for the workflow you want to edit and select **Edit**.
-6. Edit the Transition:
-
-   1. When viewing the Workflow in **Diagram** view, select the Transition and click the **Post Functions** link. Click **Add post function** at the top of the list of existing post functions.
-   2. When viewing the Workflow in **Text** view, click the name of the Transition then select the **Post Functions** tab. Click **Add post function** at the top of the list of existing post functions.
-
 ## 4. Add a *Set issue field(s)* post-function to the “Fix Rejected” transition
 
 The last step of this Recipe is to add a [Set issue field(s)](/cms_trial/space/JMWEC/465504849/Set+issue+fields/) post-function to the transition between the **Resolved** status and the **Reopened** status. This post-function will only fire conditionally - if the **Rejected Count** field value is greater than or equal to 3, the post-function will set the **Escalated** field to True.

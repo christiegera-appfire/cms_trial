@@ -10,43 +10,51 @@ Worklog Suggestions are currently accessible using two primary workflows:
 
 ### Add Time Dialog
 
-![image (7).png](/cms_trial/assets/c4bfce9f-c932-4d03-8b0f-7c110b2bb509.png)
+![add-time-worklog-suggestions.png](/cms_trial/assets/e44cadf9-42b1-4695-bc4e-d36a041e09d0.png)
 
-When the Add Time dialog is initialized, a dedicated suggestions panel appears on the left. This panel populates a list of Jira items the user has likely interacted with recently. Where data is available, the system will also pre-populate:
+When the Add Time dialog is initialized, a dedicated suggestions panel appears on the left. This panel contains a list of Jira items the user has likely interacted with recently. Where data is available, the system also pre-populates:
 
 - **Suggested Durations** (calculated from your 7pace history)
 - **Custom Fields**
 - **Worklog Comments**
 
-### The Weekly view
+After choosing a work item, Comments and Custom Field values are also suggested (if there are enough previous actions related to the item).
+
+### Weekly view
 
 This feature is being rolled out **gradually** (approximately 10% of users per day) to ensure stability. It will be available to all users soon. If you require immediate access, please **contact our** [**support team**](https://appfire.atlassian.net/servicedesk/customer/portal/11).
 
 In the Weekly view, you can switch the Worklog Suggestions toggle to see suggestions:
 
-![show-suggestions-toggle.png](/cms_trial/assets/88a3e8c3-7da6-4eba-9918-f88ad1974cce.png)
+![show-suggestions-toggle.png](/cms_trial/assets/58060e72-06cb-400a-ba0a-6836bb820ac4.png)
 
 Once you do this, suggestions are displayed in the view:
 
-![weekly-sugesstions.png](/cms_trial/assets/fec86d82-1685-4f9d-b4a2-bb74bb1f5b9e.png)
+![weekly-sugesstions.png](/cms_trial/assets/9a407563-d14a-473d-9e69-35dd8ba0c273.png)
 
 You can:
 
-![suggestions-options.png](/cms_trial/assets/8ee3d0f2-0ac6-4e56-babe-05b8faba2368.png)
+![suggestions-options.png](/cms_trial/assets/96cb7eb1-8c7c-4974-a28c-60f99b9a979f.png)
 
 - **Edit** suggestion. Clicking this option opens the Add worklog from suggestion form with date, time, duration, and comment fields filled in. You can save the worklog as it is, or edit details before selecting **Save**.
 
-  ![edit-suggestions.png](/cms_trial/assets/cff9dca5-5615-4a05-a11f-52676a32b41d.png)
+  ![edit-suggestions.png](/cms_trial/assets/53ccc334-fd85-4306-98b1-41f8cceb7835.png)
 - **Dismiss** suggestion. Choosing this option removes the suggestion from the Weekly view
 - **Accept** suggestion. After doing this, you can add a related work item (or leave it empty) and save the suggested worklog:
 
-  ![add-missing-information.png](/cms_trial/assets/78966c94-79d0-4584-8ba6-651188e17504.png)
+  ![add-missing-information.png](/cms_trial/assets/66299cc0-e390-4f7b-ba35-f9e13c275716.png)
 
 ### Work item workload suggestion
 
 If a related Jira work item is In Progress, values for some fields in the 7pace Add Time panel are suggested based on workload suggestions.
 
-![work-item-workload-suggestions.png](/cms_trial/assets/00b5971d-e48c-4868-9b12-fd87ad4ce6e4.png)
+![work-item-workload-suggestions.png](/cms_trial/assets/f27b4d7e-2288-4ec5-9798-c7cec7c5e4f0.png)
+
+### Timesheet view
+
+![worklog-suggestions-timesheet.png](/cms_trial/assets/75ba7ff5-be44-4a59-aaba-e58191ab927c.png)
+
+When adding a worklog through Timesheet, the comment and custom field values are suggested based on the previously logged worklogs. The suggestions are marked with the Workload Suggestion icons and can be changed.
 
 ## Calculation logic and data sources
 
@@ -64,7 +72,7 @@ To ensure accurate results, the timezone settings in Jira must be configured cor
 
 ## Settings
 
-![worklog-suggestions.png](/cms_trial/assets/0cd2b96c-6761-4ac8-9fa5-e0daeaed6821.png)
+![worklog-suggestions.png](/cms_trial/assets/c0f6c8e4-434b-4865-85d5-b82caf8ce66b.png)
 
 Go to **Settings > Worklog suggestions** to choose preferred worklog suggestion calculation method.
 
