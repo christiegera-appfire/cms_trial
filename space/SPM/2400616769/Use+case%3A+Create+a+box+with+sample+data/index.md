@@ -12,7 +12,7 @@
 ## Preconditions
 
 - app user You were granted the [App User role](/cms_trial/space/SPM/1918535770/App-level+permissions/) (to open BigPicture).
-- box admin sub-box creator You were granted a [Box Admin or Sub-box Creator](/cms_trial/space/SPM/1918797447/Box-level+permissions/) role of the Home/root box (to access BigPicture and create new boxes).
+- box admin sub-box creator You were granted a [Box Admin or Sub-box Creator](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918797447) role of the Home/root box (to access BigPicture and create new boxes).
 
 ## Create a sample box step-by-step
 
@@ -87,5 +87,5 @@ The video below shows the sample box creation process from the perspective of th
 
 - [Box types](/cms_trial/space/SPM/1918830000/Box+types/)
 - [Box configuration](/cms_trial/space/SPM/1918666176/Box+configuration/)
-- [Box-level permissions](/cms_trial/space/SPM/1918797447/Box-level+permissions/)
+- <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918797447>
 - [First steps](/cms_trial/space/SPM/2401108060/First+steps/)

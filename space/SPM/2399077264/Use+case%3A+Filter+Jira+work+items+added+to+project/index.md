@@ -13,7 +13,7 @@
 ### Preconditions
 
 - app user You were granted the [App User role](/cms_trial/space/SPM/1918535770/App-level+permissions/) (to open BigPicture)
-- box admin You were granted a [Box Admin](/cms_trial/space/SPM/1918797447/Box-level+permissions/) role of the Home box / the required box (to access box configuration)
+- box admin You were granted a [Box Admin](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918797447) role of the Home box / the required box (to access box configuration)
 
 ### Track initiative progress within a large Jira space step-by-step
 
@@ -54,7 +54,7 @@ This query leverages three primary clauses connected by the logical operator `OR
 ### Preconditions
 
 - app user You were granted the [App User role](/cms_trial/space/SPM/1918535770/App-level+permissions/) (to open BigPicture).
-- box admin You were granted a [Box Admin](/cms_trial/space/SPM/1918797447/Box-level+permissions/) role of the Home box / the required box (to access box configuration).
+- box admin You were granted a [Box Admin](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918797447) role of the Home box / the required box (to access box configuration).
 
 ### Track selected epics and their related work step-by-step
 
@@ -80,7 +80,7 @@ This query leverages three primary clauses connected by the logical operator `OR
 ### Preconditions
 
 - app user You were granted the [App User role](/cms_trial/space/SPM/1918535770/App-level+permissions/) (to open BigPicture)
-- box admin You were granted a [Box Admin](/cms_trial/space/SPM/1918797447/Box-level+permissions/) role of the Home box / the required box (to access box configuration)
+- box admin You were granted a [Box Admin](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918797447) role of the Home box / the required box (to access box configuration)
 
 ### **Create a task structure for Jira Standard** step-by-step
 
@@ -107,7 +107,7 @@ This query leverages three primary clauses connected by the logical operator `OR
 ### Preconditions
 
 - app user You were granted the [App User role](/cms_trial/space/SPM/1918535770/App-level+permissions/) (to open BigPicture)
-- box admin You were granted a [Box Admin](/cms_trial/space/SPM/1918797447/Box-level+permissions/) role of the Home box / the required box (to access box configuration)
+- box admin You were granted a [Box Admin](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918797447) role of the Home box / the required box (to access box configuration)
 
 ### Define the box scope by filtering with labels step-by-step
 
@@ -131,7 +131,7 @@ Alternatively, add the label to the **Label** field.
 ### Preconditions
 
 - app user You were granted the [App User role](/cms_trial/space/SPM/1918535770/App-level+permissions/) (to open BigPicture)
-- box admin You were granted a [Box Admin](/cms_trial/space/SPM/1918797447/Box-level+permissions/) role of the Home box / the required box (to access box configuration)
+- box admin You were granted a [Box Admin](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918797447) role of the Home box / the required box (to access box configuration)
 
 ### Track initiative progress within a large Jira space step-by-step
 
@@ -172,7 +172,7 @@ This query leverages three primary clauses connected by the logical operator `OR
 ### Preconditions
 
 - app user You were granted the [App User role](/cms_trial/space/SPM/1918535770/App-level+permissions/) (to open BigPicture).
-- box admin You were granted a [Box Admin](/cms_trial/space/SPM/1918797447/Box-level+permissions/) role of the Home box / the required box (to access box configuration).
+- box admin You were granted a [Box Admin](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918797447) role of the Home box / the required box (to access box configuration).
 
 ### Track selected epics and their related work step-by-step
 
@@ -198,7 +198,7 @@ This query leverages three primary clauses connected by the logical operator `OR
 ### Preconditions
 
 - app user You were granted the [App User role](/cms_trial/space/SPM/1918535770/App-level+permissions/) (to open BigPicture)
-- box admin You were granted a [Box Admin](/cms_trial/space/SPM/1918797447/Box-level+permissions/) role of the Home box / the required box (to access box configuration)
+- box admin You were granted a [Box Admin](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918797447) role of the Home box / the required box (to access box configuration)
 
 ### **Create a task structure for Jira Standard** step-by-step
 
@@ -225,7 +225,7 @@ This query leverages three primary clauses connected by the logical operator `OR
 ### Preconditions
 
 - app user You were granted the [App User role](/cms_trial/space/SPM/1918535770/App-level+permissions/) (to open BigPicture)
-- box admin You were granted a [Box Admin](/cms_trial/space/SPM/1918797447/Box-level+permissions/) role of the Home box / the required box (to access box configuration)
+- box admin You were granted a [Box Admin](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918797447) role of the Home box / the required box (to access box configuration)
 
 ### Define the box scope by filtering with labels step-by-step
 

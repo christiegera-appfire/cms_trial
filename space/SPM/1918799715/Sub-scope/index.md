@@ -51,7 +51,7 @@ Those operations include:
 
 ## Automatic timeboxes (synchronize Jira sprints)
 
-Go to the [Timeboxes](/cms_trial/space/SPM/1918766987/Timeboxes/) page to find out more about synchronizing Jira sprints
+Go to the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766987> page to find out more about synchronizing Jira sprints
 
 ## Sub-scope (new navigation)
 
@@ -106,4 +106,4 @@ Those operations include:
 
 ## Automatic timeboxes (synchronize Jira sprints)
 
-Go to the [Timeboxes](/cms_trial/space/SPM/1918766987/Timeboxes/) page to find out more about synchronizing Jira sprints
+Go to the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766987> page to find out more about synchronizing Jira sprints

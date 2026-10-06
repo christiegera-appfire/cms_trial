@@ -4,7 +4,7 @@ Widgets allow you to integrate some of the app’s capabilities into Jira seamle
 
 Functionalities vary with the widget type. You can configure the available widgets:
 
-| - [WBS widget](/cms_trial/space/SPM/1918767142/WBS+widget/)   - [WBS widget on Jira work item page](/cms_trial/space/SPM/1918539704/WBS+widget+on+Jira+work+item+page/) - [Skill widget](/cms_trial/space/SPM/1918701583/Skill+widget/)   - [Skill widget on Jira work item page](/cms_trial/space/SPM/1918801383/Skill+widget+on+Jira+work+item+page/) - [BigPicture widget](/cms_trial/space/SPM/1918764979/BigPicture+widget/)   - [BigPicture widget on Jira space screen](/cms_trial/space/SPM/1918506548/BigPicture+widget+on+Jira+space+screen/) - [OKR widget](/cms_trial/space/SPM/2576875874/OKR+widget/)   - [OKR widget on Jira work item page](/cms_trial/space/SPM/3488154683/OKR+widget+on+Jira+work+item+page/) |
+| - [Skill widget](/cms_trial/space/SPM/1918701583/Skill+widget/)   - [Skill widget on Jira work item page](/cms_trial/space/SPM/1918801383/Skill+widget+on+Jira+work+item+page/) - [BigPicture widget](/cms_trial/space/SPM/1918764979/BigPicture+widget/)   - [BigPicture widget on Jira space screen](/cms_trial/space/SPM/1918506548/BigPicture+widget+on+Jira+space+screen/) - [OKR widget](/cms_trial/space/SPM/2576875874/OKR+widget/)   - [OKR widget on Jira work item page](/cms_trial/space/SPM/3488154683/OKR+widget+on+Jira+work+item+page/) |
 | --- |
 
 ## Access and security

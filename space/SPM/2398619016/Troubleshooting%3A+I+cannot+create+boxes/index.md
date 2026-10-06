@@ -12,7 +12,7 @@
 - Who can solve the problem? app admin jira admin box admin
 - Where to solve it? **Configuration** > **Security**
 
-There are four [box-level roles](/cms_trial/space/SPM/1918797447/Box-level+permissions/):
+There are four [box-level roles](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918797447):
 
 - Box Admin
 - Box Editor
@@ -52,5 +52,5 @@ For that reason, in the Overview module, Sub-box Creators cannot see boxes other
 
 ## More information
 
-- [Box-level permissions](/cms_trial/space/SPM/1918797447/Box-level+permissions/)
+- <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918797447>
 - [Inheritance mode](/cms_trial/space/SPM/1918700886/Inheritance+mode/)

@@ -8,7 +8,7 @@ Click to expand the guide
 
 The **Board** module is a powerful tool whose primary purpose is to visualize and highlight new feature delivery dates and cross-team dependencies. However, if you work in non-agile teams, you can plan your tasks and coordinate the work you plan with the other teams.
 
-The Board module is very helpful during planning sessions (such as Program Increment (PI) Planning or Iteration planning) as it can show capacities across different teams. But there is much more the Board module can help you with. For example, it can boost the way you monitor [timebox](/cms_trial/space/SPM/1918766987/Timeboxes/) execution thanks to its built-in reporting features and various progress bars that will help you and your team stay on track.
+The Board module is very helpful during planning sessions (such as Program Increment (PI) Planning or Iteration planning) as it can show capacities across different teams. But there is much more the Board module can help you with. For example, it can boost the way you monitor [timebox](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766987) execution thanks to its built-in reporting features and various progress bars that will help you and your team stay on track.
 
 ![Main view of the Board module](/cms_trial/assets/ae0383dd-ac3a-4c39-a2a3-5d209f192e93.png)
 
@@ -78,7 +78,7 @@ Click to expand the guide
 
 The **Board** module is a powerful tool whose primary purpose is to visualize and highlight new feature delivery dates and cross-team dependencies. However, if you work in non-agile teams, you can plan your tasks and coordinate the work you plan with the other teams.
 
-The Board module is very helpful during planning sessions (such as Program Increment (PI) Planning or Iteration planning) as it can show capacities across different teams. But there is much more the Board module can help you with. For example, it can boost the way you monitor [timebox](/cms_trial/space/SPM/1918766987/Timeboxes/) execution thanks to its built-in reporting features and various progress bars that will help you and your team stay on track.
+The Board module is very helpful during planning sessions (such as Program Increment (PI) Planning or Iteration planning) as it can show capacities across different teams. But there is much more the Board module can help you with. For example, it can boost the way you monitor [timebox](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766987) execution thanks to its built-in reporting features and various progress bars that will help you and your team stay on track.
 
 ![Screenshot of the Board module in BigPicture.](/cms_trial/assets/efa4759d-4207-41c6-ae1c-48492528e537.png)
 

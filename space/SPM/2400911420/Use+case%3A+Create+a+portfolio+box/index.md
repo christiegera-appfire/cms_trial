@@ -9,7 +9,7 @@
 ## Preconditions
 
 - You can see and open the BigPicture app (you have [App User](/cms_trial/space/SPM/1918535770/App-level+permissions/) role).
-- You are a Home [Box Admin or Sub-Box Creator](/cms_trial/space/SPM/1918797447/Box-level+permissions/) (to create boxes under the Home box).
+- You are a Home [Box Admin or Sub-Box Creator](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918797447) (to create boxes under the Home box).
 - Optionally: Your organization already has at least one project or program box created that you can nest under a portfolio.
 
 ## Create a portfolio box step-by-step

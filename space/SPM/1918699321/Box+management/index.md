@@ -15,4 +15,4 @@ The list of actions you can carry out in relation to boxes.
 
 ## Timeboxes
 
-To learn more about configuring timeboxes, see the [Timeboxes](/cms_trial/space/SPM/1918766987/Timeboxes/) page.
+To learn more about configuring timeboxes, see the [Timeboxes](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766987) page.

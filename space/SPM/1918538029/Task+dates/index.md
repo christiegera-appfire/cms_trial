@@ -10,7 +10,7 @@ To start working in BigPicture, you need to create a box and add tasks to this b
 
 It is not required for tasks to have the start and end dates defined:
 
-- Tasks have dates if the **Start Date** and **End Date** fields are set in Jira and the field mapping is configured. For more information, refer to the [Start/end date fields](/cms_trial/space/SPM/1918834667/Start%2Fend+date+of+newly+created+tasks/) article.
+- Tasks have dates if the **Start Date** and **End Date** fields are set in Jira and the field mapping is configured. For more information, refer to the [Start/end date fields](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918834667) article.
 - Tasks without dates (the **Start Date** and **End Date** fields are not set in Jira) can also be added to a box in BigPicture (from the 8.19 version of BigPicture).
 
 ## Add dates to tasks without dates in BigPicture
@@ -190,7 +190,7 @@ To start working in BigPicture, you need to create a box and add tasks to this b
 
 It is not required for tasks to have start and end dates defined:
 
-- Tasks have dates if the **Start Date** and **End Date** fields are set in Jira and the field mapping is configured. For more information, refer to the [Start/end date fields](/cms_trial/space/SPM/1918834667/Start%2Fend+date+of+newly+created+tasks/) article.
+- Tasks have dates if the **Start Date** and **End Date** fields are set in Jira and the field mapping is configured. For more information, refer to the [Start/end date fields](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918834667) article.
 - Tasks without dates (the **Start Date** and **End Date** fields are not set in Jira) can also be added to a box in BigPicture.
 
 ## Add dates to tasks without dates in BigPicture

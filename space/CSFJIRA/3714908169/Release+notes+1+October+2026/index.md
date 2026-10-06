@@ -16,7 +16,7 @@ This page outlines the updates included in the latest release of Connector for S
 
 With the new **Push updates to Jira** action in Salesforce Flows, you can keep Jira work items in sync with Salesforce, automatically and without manual effort.
 
-Set it up once in Flow Builder: select your trigger and Jira connection, and every matching record change is automatically pushed to the associated Jira work items, following the synchronization rules configured for that connection. You can use the action in record-triggered flows and in schedule-triggered flows. Setup is easier than before, as you no longer need to manually enable Apex Class Access in Profiles.
+Set it up once in Flow Builder: select your trigger and Jira connection, and every matching record change is automatically pushed to the associated Jira work items, following the synchronization rules configured for that connection. You can use the action in record-triggered flows and schedule-triggered flows. Setup is easier than before, as you no longer need to manually enable Apex Class Access in Profiles.
 
 For example, you can create a record-triggered flow that pushes Case updates to associated Jira work items whenever an escalated Case changes. Or you can create a schedule-triggered flow that pushes updates for a specific record at regular times.
 

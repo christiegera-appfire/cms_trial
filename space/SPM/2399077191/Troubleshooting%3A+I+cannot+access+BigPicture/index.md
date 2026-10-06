@@ -14,7 +14,7 @@ If you can see the BigPicture app in the dropdown under **Apps** in Jira, but up
 - Who can solve the problem? app admin jira admin box admin
 - Where to solve it? **Box configuration page** > **Security**
 
-There are four [box-level roles](/cms_trial/space/SPM/1918797447/Box-level+permissions/):
+There are four [box-level roles](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918797447):
 
 - Box Admin
 - Box Editor
@@ -60,4 +60,4 @@ Visit the [Troubleshooting: I cannot create boxes](/cms_trial/space/SPM/23986190
 ## More information
 
 - [App-level permissions](/cms_trial/space/SPM/1918535770/App-level+permissions/)
-- [Box-level permissions](/cms_trial/space/SPM/1918797447/Box-level+permissions/)
+- <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918797447>

@@ -19,7 +19,7 @@ The following options are available:
   - Values on heatmap (displays values on the [colored bars](/cms_trial/space/SPM/1918636529/Workload%2C+capacity%2C+and+utilization+-+tile+coloring/) in every enabled row)
   - Tasks (displays tasks in respective swimlanes)
   - Overall assignment (shows all the tasks assigned to a resource across all the boxes the resource is assigned to)
-  - [Timeboxes](/cms_trial/space/SPM/1918766987/Timeboxes/) (if configured, displays timeboxes)
+  - [Timeboxes](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766987) (if configured, displays timeboxes)
 - Warnings:
 
   - Estimates
@@ -67,7 +67,7 @@ Modify the 'View' options (deselect items). The grayed-out grid days indicate ti
 
 ![view-options.png](/cms_trial/assets/957c1c37-9f61-428a-8de1-19b70a26922e.png)![days-grid.png](/cms_trial/assets/9704fd60-88dc-4d60-bf51-e8d1aacff525.png)
 
-## [Timeboxes](/cms_trial/space/SPM/1918766987/Timeboxes/)
+## [Timeboxes](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766987)
 
 There is a graphical representation of timebox aggregation periods when no timeboxes are shown on a timeline.
 
@@ -135,7 +135,7 @@ The following options are available:
   - Values on heatmap (displays values on the [colored bars](/cms_trial/space/SPM/1918636529/Workload%2C+capacity%2C+and+utilization+-+tile+coloring/) in every enabled row)
   - Tasks (displays tasks in respective swimlanes)
   - Overall assignment (shows all the tasks assigned to a resource across all the boxes the resource is assigned to)
-  - [Timeboxes](/cms_trial/space/SPM/1918766987/Timeboxes/) (if configured, displays timeboxes)
+  - [Timeboxes](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766987) (if configured, displays timeboxes)
 - Warnings:
 
   - Estimates
@@ -183,7 +183,7 @@ The grayed-out grid days indicate time off for a given resource.
 
 ![non-work-days.png](/cms_trial/assets/af0b11b0-3063-4611-9ce1-25cd9317b80b.png)
 
-## [Timeboxes](/cms_trial/space/SPM/1918766987/Timeboxes/)
+## [Timeboxes](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766987)
 
 There is a graphical representation of timebox aggregation periods when no timeboxes are shown on a timeline.
 

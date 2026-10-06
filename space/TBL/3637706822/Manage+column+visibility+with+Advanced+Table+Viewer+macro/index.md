@@ -2,7 +2,7 @@
 
 The Advanced Table Viewer macro enables you to show or hide table columns.
 
-- You can configure the column visibility in the macro setup mode.
+- Configure column visibility in the macro setup mode.
 - The macro displays only the selected columns in Confluence page edit and view mode.
 
 **Manage column visibility**
@@ -17,7 +17,7 @@ You need edit permissions to access the setup mode.
 
    ![ATV_Manage columns_macro edit mode.png](/cms_trial/assets/15e48bb4-9be7-4c56-897d-466d378ce3d9.png)
 2. Click **Manage** **columns** (▢). The **Manage** **columns** feature configuration panel appears on the right side of the screen.
-3. You will see a list of column names. To show or hide columns, refer to the **Show or hide** **columns** section.
+3. The configuration panel displays the list of column names. To show or hide columns, refer to the **Show or hide** **columns** section.
 
    ![ATV_manage columns_right panel.png](/cms_trial/assets/60541ddf-2c79-4511-97e0-bbc64e602fcf.png)
 
@@ -38,7 +38,7 @@ To hide any column:
 
    ![ATV_Manage columns_page view mode.png](/cms_trial/assets/75c9af76-c62a-4490-a28a-92cb3a571d2c.png)
 
-To display the hidden columns in the table again:
+To display hidden columns again:
 
 - Edit the macro, and under **Manage columns**, select the columns.
 - To apply changes, click **Save**.

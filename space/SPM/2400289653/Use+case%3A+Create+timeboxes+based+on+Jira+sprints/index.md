@@ -12,7 +12,7 @@ Click to expand the guide
 
 ## Preconditions
 
-- box admin sub-box creator You are a Home [Box Admin or Sub-Box Creator](/cms_trial/space/SPM/1918797447/Box-level+permissions/) (to create boxes under the Home box), or
+- box admin sub-box creator You are a Home [Box Admin or Sub-Box Creator](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918797447) (to create boxes under the Home box), or
 - box admin If the Agile project box already exists, you are its Box Admin.
 - You have a space with Sprints and a backlog of tasks set up in Jira.
 
@@ -65,7 +65,7 @@ The video below recaps the entire process of creating sprint-based timeboxes in 
 ## Additional resources
 
 - [Create box](/cms_trial/space/SPM/1918406376/Create+box/)
-- [Timeboxes](/cms_trial/space/SPM/1918766987/Timeboxes/)
+- <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766987>
 - [Scope types](/cms_trial/space/SPM/1918766536/Scope+types/)
 - [Work items from Jira elements and actions](/cms_trial/space/SPM/1918766444/Work+items+from+Jira+elements+and+actions/)
 - [Board module](/cms_trial/space/SPM/1918796888/Board+module/)
@@ -82,7 +82,7 @@ Click to expand the guide
 
 ## Preconditions
 
-- box admin sub-box creator You are a Home [Box Admin or Sub-Box Creator](/cms_trial/space/SPM/1918797447/Box-level+permissions/) (to create boxes under the Home box), or
+- box admin sub-box creator You are a Home [Box Admin or Sub-Box Creator](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918797447) (to create boxes under the Home box), or
 - box admin If the Agile project box already exists, you are its Box Admin.
 - You have a space with Sprints and a backlog of tasks set up in Jira.
 
@@ -135,7 +135,7 @@ The video below recaps the entire process of creating sprint-based timeboxes in 
 ## Additional resources
 
 - [Create box](/cms_trial/space/SPM/1918406376/Create+box/)
-- [Timeboxes](/cms_trial/space/SPM/1918766987/Timeboxes/)
+- <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766987>
 - [Scope types](/cms_trial/space/SPM/1918766536/Scope+types/)
 - [Work items from Jira elements and actions](/cms_trial/space/SPM/1918766444/Work+items+from+Jira+elements+and+actions/)
 - [Board module](/cms_trial/space/SPM/1918796888/Board+module/)

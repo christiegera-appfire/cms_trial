@@ -45,7 +45,7 @@ On the [box configuration](/cms_trial/space/SPM/1918666176/Box+configuration/) p
 ![Box configuration page.](/cms_trial/assets/9d1fa2b1-a139-402e-97d8-8e0ab9fd7daa.png)
 
 - [Modules](/cms_trial/space/SPM/1918503298/Define+available+modules/) (module availability depends on the box type and individual box settings)
-- [Security roles](/cms_trial/space/SPM/1918797447/Box-level+permissions/) (when you create a box based on a box type, default users and groups are added per the box type settings.
+- [Security roles](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918797447) (when you create a box based on a box type, default users and groups are added per the box type settings.
 
 ## [Types of boxes](/cms_trial/space/SPM/1918830000/Box+types/)
 
@@ -55,7 +55,7 @@ There are many different box types, but all of them can be categorized as:
 
 - [Portfolio type](/cms_trial/space/SPM/1918634872/Create+portfolio+box/) (portfolio boxes are designed to hold any amount of project and program boxes, including their children (sub-boxes))
 - Project types (project boxes, such as Agile Project box, Classic Project box, and Hybrid Project box, are designed to help you manage projects using a specific methodology)
-- Sub-boxes/[timeboxes](/cms_trial/space/SPM/1918766987/Timeboxes/) (sub-boxes are child boxes to any other box that holds them in the [box hierarchy](/cms_trial/space/SPM/1918535907/Box+hierarchy/). For a portfolio box, an Agile Project box can be a sub-box; and for an Agile box, a Sprint can be its sub-box. A sub-box that is not a portfolio, program, or project box is typically called a timebox because it has a set duration, such as Program Increment, Iteration, Stage, etc.)
+- Sub-boxes/[timeboxes](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766987) (sub-boxes are child boxes to any other box that holds them in the [box hierarchy](/cms_trial/space/SPM/1918535907/Box+hierarchy/). For a portfolio box, an Agile Project box can be a sub-box; and for an Agile box, a Sprint can be its sub-box. A sub-box that is not a portfolio, program, or project box is typically called a timebox because it has a set duration, such as Program Increment, Iteration, Stage, etc.)
 
 In addition, you can create a custom box and configure it to perfectly fit your initiative and project management methodology.
 
@@ -150,7 +150,7 @@ On the [box configuration](/cms_trial/space/SPM/1918666176/Box+configuration/) p
 ![Basic box details in the box configuration.](/cms_trial/assets/c6952cc9-8f17-4204-8161-04061dfbd4f8.png)
 
 - [**Modules**](/cms_trial/space/SPM/1918503298/Define+available+modules/) (module availability depends on the box type and individual box settings)
-- [**Security roles**](/cms_trial/space/SPM/1918797447/Box-level+permissions/) (when you create a box based on a box type, default users and groups are added per the box type settings.
+- [**Security roles**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918797447) (when you create a box based on a box type, default users and groups are added per the box type settings.
 
 ## Types of boxes
 
@@ -160,7 +160,7 @@ There are many different box types, but all of them can be categorized as:
 
 - [Portfolio type](/cms_trial/space/SPM/1918634872/Create+portfolio+box/) (portfolio boxes are designed to hold any number of project and program boxes, including their children (sub-boxes))
 - Project types (project boxes, such as Agile Project box, Classic Project box, and Hybrid Project box, are designed to help you manage projects using a specific methodology)
-- Sub-boxes/[timeboxes](/cms_trial/space/SPM/1918766987/Timeboxes/) (sub-boxes are child boxes to any other box in the [box hierarchy](/cms_trial/space/SPM/1918535907/Box+hierarchy/)). For a Portfolio box, an Agile Project box can be a sub-box; and for an Agile box, a Sprint can be its sub-box. A sub-box that is not a portfolio, program, or project box is typically called a timebox because it has a set duration, such as Program Increment, Iteration, Stage, etc.)
+- Sub-boxes/[timeboxes](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766987) (sub-boxes are child boxes to any other box in the [box hierarchy](/cms_trial/space/SPM/1918535907/Box+hierarchy/)). For a Portfolio box, an Agile Project box can be a sub-box; and for an Agile box, a Sprint can be its sub-box. A sub-box that is not a portfolio, program, or project box is typically called a timebox because it has a set duration, such as Program Increment, Iteration, Stage, etc.)
 
 In addition, you can create a custom box and configure it to fit your initiative and project management methodology perfectly.
 

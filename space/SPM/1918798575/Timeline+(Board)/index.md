@@ -2,7 +2,7 @@
 
 ## About the timeline in the Board module
 
-The Board module visualizes project [timeboxes](/cms_trial/space/SPM/1918766987/Timeboxes/) (Program Increments, Sprints, or Iterations) on a horizontal timeline. You can add date markers to the timeline to highlight important events on your timeline, like milestones or stakeholder meetings.
+The Board module visualizes project [timeboxes](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766987) (Program Increments, Sprints, or Iterations) on a horizontal timeline. You can add date markers to the timeline to highlight important events on your timeline, like milestones or stakeholder meetings.
 
 ![Timeline and markers in the board module.](/cms_trial/assets/d432fd85-015e-4747-ba68-1ce1e8e166aa.png)
 

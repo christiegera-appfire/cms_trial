@@ -18,7 +18,7 @@ The Gantt and Scope modules allow you to structure your tasks manually. There ar
 
 You can move selected tasks or groups of tasks (using the multi-select feature).
 
-Once the parent-child relationship is created, it will appear in all modules that can display the task structure: [Board backlog](/cms_trial/space/SPM/1918633681/Infobar+(Board)/), Scope, Gantt, and [WBS widget](/cms_trial/space/SPM/1918767142/WBS+widget/).
+Once the parent-child relationship is created, it will appear in all modules that can display the task structure: [Board backlog](/cms_trial/space/SPM/1918633681/Infobar+(Board)/), Scope, Gantt, and [WBS widget](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918767142).
 
 ## Move tasks manually
 

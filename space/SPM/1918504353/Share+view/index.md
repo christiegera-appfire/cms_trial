@@ -55,7 +55,7 @@ The **Share view** feature of the app lets you share selected features across di
 
 **Workaround:**
 
-1. Enable the [WBS widget](/cms_trial/space/SPM/1918767142/WBS+widget/).
+1. Enable the [WBS widget](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918767142).
 2. Use the **Show on Gantt** link.
 
    ![Screenshot of an issue page with the Show on Gantt button.](/cms_trial/assets/3958cf80-b954-4758-b9e0-0574c1dfba9b.png)
@@ -118,7 +118,7 @@ The **Share view** feature of the app lets you share selected features across di
 
 **Workaround:**
 
-1. Enable the [WBS widget](/cms_trial/space/SPM/1918767142/WBS+widget/).
+1. Enable the [WBS widget](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918767142).
 2. Use the **Show on Gantt** link.
 
    ![Screenshot of the WBS on a work item page in Jira.](/cms_trial/assets/ca8062fe-4313-4a52-b8fc-e6993ca14a9a.png)

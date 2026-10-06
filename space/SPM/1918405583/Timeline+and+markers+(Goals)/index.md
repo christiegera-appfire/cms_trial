@@ -4,7 +4,7 @@
 
 Click to expand the guide
 
-The timeline adjusts dynamically to match the [timebox](/cms_trial/space/SPM/1918766987/Timeboxes/) dates. It lets you add [markers](/cms_trial/space/SPM/1918699490/Markers/) by clicking directly on the timeline.
+The timeline adjusts dynamically to match the [timebox](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766987) dates. It lets you add [markers](/cms_trial/space/SPM/1918699490/Markers/) by clicking directly on the timeline.
 
 For example, markers can represent milestones. *'Milestones are used to track progress toward a specific goal or event. There are three types of SAFe milestones: Program Increment (PI), fixed-date, and learning milestones.'* © Scaled Agile, Inc.
 
@@ -74,7 +74,7 @@ You can also edit or delete the markers directly from the markers list.
 
 Click to expand the guide
 
-The timeline adjusts dynamically to match the [timebox](/cms_trial/space/SPM/1918766987/Timeboxes/) dates. It lets you add [markers](/cms_trial/space/SPM/1918699490/Markers/) by clicking directly on the timeline.
+The timeline adjusts dynamically to match the [timebox](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766987) dates. It lets you add [markers](/cms_trial/space/SPM/1918699490/Markers/) by clicking directly on the timeline.
 
 For example, markers can represent milestones. *'Milestones are used to track progress toward a specific goal or event. There are three types of SAFe milestones: Program Increment (PI), fixed-date, and learning milestones.'* © Scaled Agile, Inc.
 

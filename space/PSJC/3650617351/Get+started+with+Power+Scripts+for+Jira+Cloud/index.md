@@ -15,5 +15,5 @@ Choose what you want to do.
 | **I want to...** | **Estimated time** | **Read this** |
 | --- | --- | --- |
 | Create and run my first SIL script | 5 minutes | [Create and run your first script](https://appfire.atlassian.net/wiki/spaces/PSJC/pages/3651272726) |
-| Run a script when something happens in Jira | 10 minutes | [Automate an action with a listener](https://appfire.atlassian.net/wiki/spaces/PSJC/pages/3650682902) |
-| Use custom JQL keywords in my Jira searches | 10 minutes | [Extend Jira searches with JQL](https://appfire.atlassian.net/wiki/spaces/PSJC/pages/3651731477) |
+| Run a script when something happens in Jira | 10 minutes | [Automate an action with a listener](/cms_trial/space/PSJC/3650682902/Automate+an+action+with+a+listener/) |
+| Use custom JQL keywords in my Jira searches | 10 minutes | [Extend Jira searches with JQL](/cms_trial/space/PSJC/3651731477/Extend+Jira+searches+with+JQL/) |
