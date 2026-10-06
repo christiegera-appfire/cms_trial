@@ -23,6 +23,7 @@ Our user guides are organized to help you create dashboards, add gadgets, and co
 - [Admin tools](/cms_trial/space/RDD/2116583951/Admin+tools/)
   - [Global Access Restrictions](/cms_trial/space/RDD/146309685/Global+Access+Restrictions/)
   - [Manage access to the Jira Service Management Customer Portal](/cms_trial/space/RDD/146309699/Manage+access+to+the+Jira+Service+Management+Customer+Portal/)
+  - [Dashboard Hub audit log](/cms_trial/space/RDD/3659464768/Dashboard+Hub+audit+log/)
   - [Performance Options](/cms_trial/space/RDD/811106832/Performance+Options/)
   - [Datasource Restrictions](/cms_trial/space/RDD/1900118024/Datasource+Restrictions/)
   - [How to change a dashboard owner](/cms_trial/space/RDD/1157562476/How+to+change+a+dashboard+owner/)

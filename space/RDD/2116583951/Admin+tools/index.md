@@ -2,6 +2,7 @@
 
 - [Global Access Restrictions](/cms_trial/space/RDD/146309685/Global+Access+Restrictions/)
 - [Manage access to the Jira Service Management Customer Portal](/cms_trial/space/RDD/146309699/Manage+access+to+the+Jira+Service+Management+Customer+Portal/)
+- [Dashboard Hub audit log](/cms_trial/space/RDD/3659464768/Dashboard+Hub+audit+log/)
 - [Performance Options](/cms_trial/space/RDD/811106832/Performance+Options/)
   - [Manage Data Refresh - Client Cache](/cms_trial/space/RDD/1362657355/Manage+Data+Refresh+-+Client+Cache/)
   - [Set the Default Maximum Work Item Limit](/cms_trial/space/RDD/1069711378/Set+the+Default+Maximum+Work+Item+Limit/)

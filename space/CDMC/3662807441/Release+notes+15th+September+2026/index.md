@@ -19,7 +19,7 @@ We’ve enhanced the Space Document Report to give more context at a glance and 
 #### **Richer content details**
 
 - Added content type icons (Page or Blog post) in the **Title** column, with a tooltip on hover.
-- Added scope icons in the Scope column to distinguish between Space and Page workflows.
+- Added scope icons in the **Scope** column to distinguish between Space and Page workflows.
 - Added **Creator** and **Owner** columns to show the content author and page owner for each item.
 
 #### **More powerful filtering**

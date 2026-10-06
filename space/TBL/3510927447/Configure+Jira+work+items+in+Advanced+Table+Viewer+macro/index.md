@@ -10,6 +10,46 @@ The Advanced Table Viewer macro supports importing Jira work items from the Jira
 
 **Permission boundaries**: Jira data visibility in Confluence is strictly bound by Jira permissions, including project and work item security-level permissions, so end users see only the Jira data they already have permission to view.
 
+**Watch the video to import Jira work items into Confluence using the Advanced Table Viewer macro**
+
+Video transcript
+
+Alex, an Engineering Manager, is preparing the Platform project Sprint report so stakeholders can track the planned and completed work in the current sprint.
+
+In this video, you'll see how Alex uses the Advanced Table Viewer macro to import Jira work items.
+
+In the Platform project Sprint report, he inserts the Advanced Table Viewer macro, clicks Connect Data Source, and selects Jira work items.
+
+The macro loads the default Jira query and fields from the Jira site connected to this Confluence site.
+
+To import the sprint work items, Alex enters a JQL query and clicks Search.
+
+The macro validates the **JQL query** and returns the count of work items found. Users see only the work items they have permission to view in Jira.
+
+The Column field shows a few default Jira fields. To show sprint status, Alex adds Sprint and Story point estimate fields and removes the Updated field, keeping the focus on sprint details.
+
+Alex clicks **Save** to import the work items. The macro opens in setup mode, a full-screen experience for easier configuration, with the configuration options in the right panel.
+
+Alex enables Column grouping and groups the table by Sprint and then by Priority.
+
+To show planned effort, in the Story point estimate column properties, Alex applies the Sum group calculation.
+
+Next, in the Status column properties, he applies a conditional COUNTIF group calculation to count only work items with Done status.
+
+He drags the Story point estimate column to reorder the column.
+
+Alex saves the macro configuration and publishes the page.
+
+Alex can click Refresh at any time to update the table with the latest Jira work item details.
+
+Stakeholders now have a clear view of planned effort and completed work for the Platform project Sprint, right inside Confluence.
+
+If you found this video helpful, like the video and subscribe to Appfire's YouTube channel for more Advanced Tables for Confluence tutorials.
+
+Thanks for watching!
+
+---
+
 This page details how to configure the Advanced Table Viewer macro to import Jira work items.
 
 ## Configure the Jira work items

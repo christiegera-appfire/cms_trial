@@ -1,17 +1,17 @@
-# on-approval-assigned
+# on approval assigned
 
 ## Overview
 
-Use the **on-approval-assigned** event in a workflow trigger to listen for a reviewer assignment event and execute one or more trigger actions.
+Use the **on approval assigned** (`on-assign`) event in a workflow trigger to listen for a reviewer assignment event and execute one or more trigger actions.
 
-By including a trigger condition, the assignment event in a workflow trigger can be constrained to listen for the approval event in a named state within the workflow, such as the workflow's final or initial state.
+By adding a trigger condition, you can constrain the assignment event in a workflow trigger to listen for the approval event in a named state within the workflow, such as the workflow's final or initial state.
 
-## Example `“on-approval-assigned"` event
+## Example `“on-assign"` event
 
 ```text
 "triggers":
 [
-	{"event": "on-approval-assigned",
+	{"event": "on-assign",
 	"conditions":
 	[
 		{"state":"Review"}

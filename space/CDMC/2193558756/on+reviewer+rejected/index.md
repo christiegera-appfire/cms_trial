@@ -1,8 +1,8 @@
-# on-reject
+# on reviewer rejected
 
 ## Overview
 
-Use the **on-reject** event in a workflow trigger to listen for an approval reject event and execute one or more trigger actions.
+Use the **on reviewer rejected** (`on-reject`) event in a workflow trigger to listen for an approval reject event and execute one or more trigger actions.
 
 By including a trigger condition, the reject event in a workflow trigger can be constrained to listen for the approval reject event in a named state, the workflow's final state, or the initial state.
 

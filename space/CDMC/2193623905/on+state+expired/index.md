@@ -1,8 +1,8 @@
-# on-expire
+# on state expired
 
 ## Overview
 
-Use the on-expire event in a workflow trigger to listen for a state-expired event and execute one or more trigger actions.
+Use the **on state expired** (`on-expire`) event in a workflow trigger to listen for a state-expired event and execute one or more trigger actions.
 
 By adding a trigger condition, you can constrain the expiration event to a named state, the workflow's final state, or the initial state.
 
@@ -36,6 +36,6 @@ There are two actions in the above example
 - the `"change-state"` action to transition the workflow to the **Review** state, and
 - `"set-message"` notification action
 
-![Comala onexpire event warning notification message](/cms_trial/assets/9c3e5e87-1262-4222-bb23-c81accf0a0e0.png)
+![Comala onexpire event warning notification message](/cms_trial/assets/aeb05058-074d-4b56-946c-077decd26a39.png)
 
 If a trigger action is present, it can include one or more conditions. If no conditions are added, the trigger listens for an expiration event for any state.

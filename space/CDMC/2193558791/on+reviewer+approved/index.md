@@ -1,8 +1,8 @@
-# on-approve
+# on reviewer approved
 
 ## Overview
 
-Use the **on-approve** event in a workflow trigger to listen for an approval event and execute one or more trigger actions.
+Use the **on reviewer approved** (`on-approve`) event in a workflow trigger to listen for an approval event and execute one or more trigger actions.
 
 By including a trigger condition, the approve event in a workflow trigger can be constrained to listen for the approval event in a named state, such as the workflow's final or initial state.
 

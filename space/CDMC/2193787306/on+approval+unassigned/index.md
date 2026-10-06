@@ -1,8 +1,8 @@
-# on-unassign
+# on approval unassigned
 
 ## Overview
 
-Use the **on-unassign** event in a workflow trigger to listen for a reviewer unassignment event and execute one or more trigger actions.
+Use the **on approval unassigned** (`on-unassign`) event in a workflow trigger to listen for a reviewer unassignment event and execute one or more trigger actions.
 
 By including a trigger condition, the unassign event in a workflow trigger can be constrained to listen for unassignment of an approval reviewer in a named state, such as the workflow’s final or initial state.
 

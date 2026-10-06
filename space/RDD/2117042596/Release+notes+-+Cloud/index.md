@@ -2,6 +2,7 @@
 
 | **Title** | **Highlights** | **Release date** |
 | --- | --- | --- |
+| [Release notes 6 October 2026](/cms_trial/space/RDD/3639902230/Release+notes+6+October+2026/) | - Audit log feature - Asset Custom Charts enhancements - Worklog Insights enhancements - Improvements to the JCMA migration experience - Bug fixes | October 6, 2026 |
 | [Release notes September 2026](/cms_trial/space/RDD/3584426122/Release+notes+1+September+2026/) | - UI improvements - Time to SLA gadgets enhancements - Improvements to the JCMA migration experience - Bug fixes | September 1, 2026 |
 | [Release notes August 2026](https://support.appfire.com/space/RDD/3432710149/Release+notes+August+2026) | - BigPicture OKRs - My Subscriptions - Enhancements | August 11, 2026 |
 | [Release notes 25 June 2026](/cms_trial/space/RDD/3367829671/Release+notes+25+June+2026/) | - JQL Custom Segments - Bug fixes | June 25, 2026 |

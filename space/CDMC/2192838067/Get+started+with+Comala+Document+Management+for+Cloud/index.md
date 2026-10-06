@@ -22,23 +22,23 @@ Run one page through a full review to see how the app works. You apply a workflo
 1. Open a page in a space where Comala Document Management is enabled, or create a test page. When the app is on, a **Document Management** indicator appears in the page byline.
 2. In the page byline, select the **Document Management** status indicator to open the *Workflow State* dialog.
 
-   ![Workflow State Dialog with the Apply to Content and Apply to Space options.](/cms_trial/assets/2aed087a-ae28-4827-a4d2-ddf50eda4a68.png)
-3. Select **Apply to Content**, then pick a workflow. Comala ships with ready-made example workflows, so choose one that includes a review and an approval, then select **Apply Workflow**.
+   ![Workflow State Dialog with the Apply to Content and Apply to Space options.](/cms_trial/assets/2c4ae264-3249-4ffa-80f8-09a22eed3385.png)
+3. Select **Apply to Content**, then pick a workflow. Comala includes ready-made example workflows, so choose one that includes a review and an approval, then select **Apply Workflow**.
 
-   ![image-20260914-201044.png](/cms_trial/assets/eb7d6c7b-a0dd-4ae6-adb3-d98e08d3ce88.png)
+   ![image-20260914-201044.png](/cms_trial/assets/6806b550-e21f-457a-9e95-4f86e970de99.png)
 4. Confirm the first state (for example, **In Review**) in the page byline.
 
-   ![image-20260914-201208.png](/cms_trial/assets/5db3043a-ce03-4f1a-89e3-01d77b2e810b.png)
+   ![image-20260914-201208.png](/cms_trial/assets/6c882d4d-90e2-4000-8e4a-f61691c93b9c.png)
 5. In the dialog, assign a reviewer. To test the full flow yourself, assign your own account. Reviewers are notified by email and an on-screen alert.
 6. As a reviewer, open the dialog and select **Approve**.
 
-   ![image-20260914-201431.png](/cms_trial/assets/93494a2b-5efc-4798-a995-91d9303efa43.png)
+   ![image-20260914-201431.png](/cms_trial/assets/d5033b58-b871-47d4-a582-4c5ab39644b8.png)
 7. The status badge changes to **Approved** in the byline.
 
-   ![image-20260915-041038.png](/cms_trial/assets/82f3d043-2013-4144-b7ac-e453fcc62a4d.png)
+   ![image-20260915-041038.png](/cms_trial/assets/4254e3ad-b735-43ed-af52-ccd8145e5a87.png)
 8. Go to **Space Apps > Comala Document Management > Document Report** to review the audit trail. The report lists each page’s title, applied workflow, scope, workflow state, and reviewers (click a reviewer to see who approved and when). If your workflow uses due dates, an **Expiration** column also appears.
 
-![image-20260629-053807.png](/cms_trial/assets/06ab5c84-e0c3-47c9-99c9-64862e8d60f7.png)
+![image-20260629-053807.png](/cms_trial/assets/a40ca97e-40f0-46dd-a5f8-835b1f08aa5e.png)
 
 Your page now shows a live status and records every decision. No spreadsheets, no email chase.
 
@@ -48,16 +48,16 @@ Your page now shows a live status and records every decision. No spreadsheets, n
 
 Each page with an active workflow shows its current state in the byline. Anyone who opens the page knows whether it is in review or approved.
 
-![image-20260616-132413.png](/cms_trial/assets/0b5abab9-19ba-4aac-b50c-a2bb4dca39b3.png)
+![image-20260616-132413.png](/cms_trial/assets/69966fa0-87e2-49cd-845a-66ad41b75641.png)
 
 [Learn more about workflow states](/cms_trial/space/CDMC/2193066115/States/)
 
 ### Review and approve in one dialog
 
-Assign reviewers, set deadlines, and record decisions from the Workflow State dialog. Reviewers act without leaving the page.   
+Assign reviewers, set deadlines, and record decisions from the *Workflow State* dialog. Reviewers act without leaving the page.   
 You can also require reviewers to authenticate their decisions using [e-signature capabilities](/cms_trial/space/CDMC/2192903044/E-signatures+(credentials)/) to ensure secure and verifiable approvals.
 
-![Add Approval dialog displaying configuration options for approval settings, outcome criteria, and reviewers.](/cms_trial/assets/2b7df553-8121-4ad4-85e7-c9f7043970b1.png)
+![Add Approval dialog displaying configuration options for approval settings, outcome criteria, and reviewers.](/cms_trial/assets/faec4898-aebf-43e2-94df-4b6712c21036.png)
 
 [Learn more about approvals](/cms_trial/space/CDMC/2193195490/Approvals/)
 
@@ -65,7 +65,7 @@ You can also require reviewers to authenticate their decisions using [e-signatur
 
 Triggers run actions on workflow events, such as emailing a reviewer, locking a page during approval, or setting an expiry date on approved content.
 
-![image-20260629-053111.png](/cms_trial/assets/e0ef5397-6f92-46a9-9afd-533b54f03d52.png)
+![image-20260629-053111.png](/cms_trial/assets/1d8ea523-c473-455d-a44a-9e88447eee35.png)
 
 [Learn more about triggers](/cms_trial/space/CDMC/2192967825/Triggers/)
 
@@ -78,7 +78,7 @@ For example,
 - Assignees are notified when assigned to review a page or blog
 - Notifications are sent when the expiry date is reached for content with the *Content Expiry workflow*.
 
-![CDM workflow notifications.](/cms_trial/assets/0a9921ce-bdea-46fd-967d-a8ad085a7910.png)
+![CDM workflow notifications.](/cms_trial/assets/add470e1-3fc7-4e3b-8fb1-6c87d2939d7f.png)
 
 [Learn more about notifications](/cms_trial/space/CDMC/2193001238/Notifications/)
 

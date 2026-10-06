@@ -27,10 +27,10 @@ This section explains how to add and configure the gadget.
 3. (*optional*) The name field is completed by default. You can edit the name to make it more meaningful to your team.
 4. Select the datasource from which you want to retrieve work item statistics. To learn more about datasource types, see [Datasources](/cms_trial/space/RDD/2116682228/Datasources/).
 5. (*optional*) Use the filter options to limit the work items used to generate the statistics. You can select a Jira filter or enter a JQL query. See *How to filter the data* below for examples.
-6. Select a date range for the worklogs you want to analyze: Last 4 months or Weekly. See *How to filter the data* below for examples.
+6. Select a date range for the worklogs you want to analyze: Last 4 months or Weekly. The dates available are based on the earliest and latest worklog dates. See *How to filter the data* below for examples.
 7. Select how to group the results of the date range. You can group by Day, Week, Month, Quarter, or Year.
 8. Select a view type to best visualize data. Options include table view, pie chart, and bar or line charts.
-9. (*optional*) Depending on the view type you select, choose how to group the data. See the filtering options in the next section for more information.
+9. If you selected a chart type above, choose how to group the data; select the projects, users, or groups. See *How to filter the data* below for more details.
 10. Click **Add** to save the configuration and add the gadget to your dashboard.
 
 You can resize or reposition any gadget on a dashboard to prioritize specific data and improve the layout.
@@ -51,9 +51,9 @@ The JQL filter works the same way as in Jira. Enter a valid JQL query or select 
 
 ### Date range
 
-Select a preset or use **Custom** to select a date range to include in the report.
+Select a preset or use **Custom** to select a date range for the worklogs to include in the report.
 
-- **Group dates by**: Select an option to apply to the resulting work items. For example, if your date range is **This Quarter**, you might select **Group by week**.
+- **Group dates by**: Select an option to apply to the resulting worklogs. For example, if your date range is **This Quarter**, you might select **Group by week**.
 
 Wide date ranges, for example, an entire year, across large spaces, can increase load times. If you experience slowness, narrow the date range or use a JQL filter first.
 
@@ -61,8 +61,8 @@ Wide date ranges, for example, an entire year, across large spaces, can increase
 
 Some view types include options to segment the data into smaller, meaningful groups so you can spot patterns and make better decisions. For example, in a Grouped bar chart, you can compare work logged across different spaces, see how time is spread across work types, or break down contributions by user.
 
-- **Select projects**: If you use a chart to visualize the data, you can limit the work items to be analyzed to specific projects.
-- **Work logged by**: If you use a chart to visualize the data, you can limit the work items to be analyzed to specific users.
+- **Select projects**: If you use a chart to visualize the data, you can limit the worklogs analyzed to specific projects.
+- **Work logged by**: If you use a chart to visualize the data, you can limit the worklogs to specific users, or Jira groups.
 
 ## Migrations from Dataplane Reports
 
