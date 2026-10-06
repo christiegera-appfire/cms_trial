@@ -14,7 +14,7 @@ See the video below for a short overview of the Calendar module.
 | --- | --- |
 | View adjustments:   - First day of the week - End date mode | In the View dropdown menu, you can set the first day of the week to Saturday, Sunday, or Monday. |
 | The end date mode displays tasks as one-day events based on their end date. This view mode lets you focus on task deadlines. |
-| [Navigate the calendar](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830944) | You can navigate the Calendar in the following ways:   - Scroll while hovering your mouse over it to move forward or backward by one month. - Use the navigation buttons or keyboard shortcuts to move forward or backward by one month. - Select the date from the date picker. The calendar will adjust the month and year. |
+| [Navigate the calendar](/cms_trial/space/SPM/1918830944/Navigation+and+interface+(Calendar)/) | You can navigate the Calendar in the following ways:   - Scroll while hovering your mouse over it to move forward or backward by one month. - Use the navigation buttons or keyboard shortcuts to move forward or backward by one month. - Select the date from the date picker. The calendar will adjust the month and year. |
 | Show all tasks | Click **Show all tasks** on the calendar to view all tasks scheduled for a given date. A task list is displayed in a separate window. |
 | Upcoming tasks panel | Open the sidebar to see the list of upcoming tasks that are counted for each day starting from today. |
 | [Heatmap mode](/cms_trial/space/SPM/1918633596/Heatmap+(Calendar)/) | When the Calendar heatmap is on, tasks are color-coded like in the Gantt module. When it's off, all tasks appear gray. Screenshot of the Heatmap mode option enabled in the Calendar module. |
@@ -43,7 +43,7 @@ See the video below for a short overview of the Calendar module.
 | --- | --- |
 | View adjustments:   - First day of the week - End date mode | In the View dropdown menu, you can set the first day of the week to Saturday, Sunday, or Monday. |
 | The end date mode displays tasks as one-day events based on their end date. This view mode lets you focus on task deadlines. |
-| [Navigate the calendar](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830944) | You can navigate the Calendar in the following ways:   - Scroll while hovering your mouse over it to move forward or backward by one month. - Use the navigation buttons or keyboard shortcuts to move forward or backward by one month. - Select the date from the date picker. The calendar will adjust the month and year. |
+| [Navigate the calendar](/cms_trial/space/SPM/1918830944/Navigation+and+interface+(Calendar)/) | You can navigate the Calendar in the following ways:   - Scroll while hovering your mouse over it to move forward or backward by one month. - Use the navigation buttons or keyboard shortcuts to move forward or backward by one month. - Select the date from the date picker. The calendar will adjust the month and year. |
 | Show all tasks | Click **Show all tasks** on the calendar to view all tasks scheduled for a given date. A task list is displayed in a separate window. |
 | Upcoming tasks panel | Open the sidebar to see the list of upcoming tasks that are counted for each day starting from today. |
 | [Heatmap mode](/cms_trial/space/SPM/1918633596/Heatmap+(Calendar)/) | When the Calendar heatmap is on, tasks are color-coded like in the Gantt module. When it's off, all tasks appear gray. Screenshot of the Heatmap mode option enabled in the Calendar module. |

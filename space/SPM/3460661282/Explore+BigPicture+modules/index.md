@@ -55,7 +55,7 @@ See the video
 
 The Board module is a powerful tool for visualizing feature delivery dates and cross-team dependencies. It helps teams plan their tasks and coordinate work across teams.
 
-It's especially useful during planning sessions, like Program Increment (PI) Planning, Sprint, or iteration planning, as it shows backlog and team capacities. Additionally, the Board module can enhance the way you track [timebox](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766987) execution.
+It's especially useful during planning sessions, like Program Increment (PI) Planning, Sprint, or iteration planning, as it shows backlog and team capacities. Additionally, the Board module can enhance the way you track [timebox](/cms_trial/space/SPM/1918766987/Timeboxes/) execution.
 
 **Notable features**:
 

@@ -103,7 +103,7 @@ Click **More actions** (**…**) next to the timeline buttons to open the contex
 ![Show more information on the Gantt timeline.](/cms_trial/assets/19a18044-922f-479b-b6c5-6d8385a30c0f.png)
 
 - [Markers](/cms_trial/space/SPM/1918699490/Markers/) (markers help you remember important dates throughout your project or [portfolio](/cms_trial/space/SPM/1918700619/Gantt+module+in+portfolio+boxes/). The marker showing the current date cannot be disabled)
-- [Timeboxes](/cms_trial/space/SPM/1918539612/Timeboxes+(Gantt+chart)/) (available only when the [timeboxes are configured](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766987))
+- [Timeboxes](/cms_trial/space/SPM/1918539612/Timeboxes+(Gantt+chart)/) (available only when the [timeboxes are configured](/cms_trial/space/SPM/1918766987/Timeboxes/))
 - [Week numbers](/cms_trial/space/SPM/1918801444/Week+numbers+(Gantt+chart)/) (enable to display week numbers)
 
 ## Timeline (Gantt chart) (new navigation)
@@ -209,5 +209,5 @@ Click **More actions** (**…**) next to the timeline buttons to open the contex
 ![gantt-additional.png](/cms_trial/assets/8b85c95b-8c3e-4ef3-8840-d43ad1ad1454.png)
 
 - [Markers](/cms_trial/space/SPM/1918699490/Markers/) (markers help you remember important dates throughout your project or [portfolio](/cms_trial/space/SPM/1918700619/Gantt+module+in+portfolio+boxes/). The marker showing the current date cannot be disabled)
-- [Timeboxes](/cms_trial/space/SPM/1918539612/Timeboxes+(Gantt+chart)/) (available only when the [timeboxes are configured](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766987))
+- [Timeboxes](/cms_trial/space/SPM/1918539612/Timeboxes+(Gantt+chart)/) (available only when the [timeboxes are configured](/cms_trial/space/SPM/1918766987/Timeboxes/))
 - [Week numbers](/cms_trial/space/SPM/1918801444/Week+numbers+(Gantt+chart)/) (enable to display week numbers)

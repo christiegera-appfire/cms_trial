@@ -16,6 +16,6 @@ Settings related to Jira warning log.
 
 ---
 
-### [Warning log (BigPicture)](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918862905)
+### [Warning log (BigPicture)](/cms_trial/space/SPM/1918862905/App+warning+log/)
 
 Settings related to the app warning log.

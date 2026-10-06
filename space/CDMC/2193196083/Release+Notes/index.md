@@ -8,6 +8,7 @@ Check out the upcoming **features** and the **latest release logs** below to see
 
 | **Release** | **App version** | **Release version** | **Highlights** | **Date** |
 | --- | --- | --- | --- | --- |
+| [Release notes 2nd October 2026](/cms_trial/space/CDMC/3735486472/Release+notes+2nd+October+2026/) | 52.1.0 | 5.0.33 | **Bug fixes** | October 2, 2026 |
 | [Release notes 29th September 2026](/cms_trial/space/CDMC/3710583063/Release+notes+29th+September+2026/) | 52.0.0 | 5.0.32 | **New features and enhancements**   - Global Document Report - Onboarding experience - Workflow engine improvements   **Bug fixes**  **Security updates**  **Maintenance and platform updates** | September 29, 2026 |
 | [Release notes 23rd September 2026](/cms_trial/space/CDMC/3692199999/Release+notes+23rd+September+2026/) | 51.2.0 | 5.0.31 | **New features and enhancements**   - Advanced approvals - Workflow engine improvements - Document activity improvements   **Bug fixes**  **Security updates**  **Maintenance and platform updates** | September 23, 2026 |
 | [Release notes 22nd September 2026](/cms_trial/space/CDMC/3687186656/Release+notes+22nd+September+2026/) | 51.1.0 | 5.0.30 | **Enhancements:**  dynamic value references in workflows (`@Event.Label@, @Event.FileName@`) and dynamic condition values; triggering event in workflow context; clearer guest permission message.  **Bug fixes**  **Security and platform updates** | September 22, 2026 |

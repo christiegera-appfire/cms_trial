@@ -20,15 +20,15 @@ This release requires additional app permissions and does not upgrade automatica
 
 - View the status of documents and approvals across all your spaces in a single global report, instead of checking each space individually.
 
-![image-20260930-110828.png](/cms_trial/assets/a0d70a8f-cf7a-4916-85d4-2d33cc8e886c.png)
+![Global Document Report showing document and approval status across spaces.](/cms_trial/assets/27753eba-cfdc-4adb-94d3-078426c1dcc0.png)
 
-[Learn more](/cms_trial/space/CDMC/3713531915/Document+report+-+Global+level/)
+[Learn more about the Global Document Report](/cms_trial/space/CDMC/3713531915/Document+report+-+Global+level/)
 
 ### Onboarding experience
 
 - A new onboarding experience helps you get started faster, with use-case cards and a guided Get Started flow that applies a recommended workflow to your space.
 
-![image-20260930-113456.png](/cms_trial/assets/2706535a-409e-4cca-9bdc-a9e9e9d98c4b.png)
+![Onboarding experience with use-case cards and the guided Get Started flow.](/cms_trial/assets/257b9af7-66f0-4763-a0b3-44f1ec33d65c.png)
 
 ### Workflow engine improvements
 

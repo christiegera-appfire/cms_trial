@@ -10,7 +10,7 @@ To start working with the Financials module, activate it in [the box settings or
 
 ## Security roles
 
-A user has to have access to a specific box (for which calculations are made) or to the Home box (which gives access to all the boxes) to access the Financials module. To find out more, check [the box-level permission settings](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918797447).
+A user has to have access to a specific box (for which calculations are made) or to the Home box (which gives access to all the boxes) to access the Financials module. To find out more, check [the box-level permission settings](/cms_trial/space/SPM/1918797447/Box-level+permissions/).
 
 The following table presents detailed relations between the security role and the box role.
 

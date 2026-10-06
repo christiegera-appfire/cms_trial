@@ -3,7 +3,7 @@
 In general, you can find information on Security settings on the following pages:
 
 - [App-level permissions](/cms_trial/space/SPM/1918535770/App-level+permissions/)
-- <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918797447>
+- [Box-level permissions](/cms_trial/space/SPM/1918797447/Box-level+permissions/)
 - [Module-specific permissions](/cms_trial/space/SPM/1918536362/Module-specific+permissions/)
 
 Security roles are always inherited from upper-level boxes. Therefore, security roles defined in the Home (root) box function as a default for all boxes in the hierarchy. If someone is a Box Admin of the Home (root) box, they automatically have the same permissions in all sub-boxes through the hierarchy.

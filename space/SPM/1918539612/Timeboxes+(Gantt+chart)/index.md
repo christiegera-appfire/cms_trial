@@ -2,7 +2,7 @@
 
 ## Overview
 
-[Timeboxes](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766987) define consecutive timeframes used for work planning. They represent such sub-boxes as Sprints, Iterations, Program Increments, and Stages.
+[Timeboxes](/cms_trial/space/SPM/1918766987/Timeboxes/) define consecutive timeframes used for work planning. They represent such sub-boxes as Sprints, Iterations, Program Increments, and Stages.
 
 - You can only display sequential box types using the Gantt module.
 - The boxes with [sequentiality](/cms_trial/space/SPM/1918669073/Period+mode+and+sequentiality/) set as **Overlapping** will not be displayed. You can change the sequentiality on the [box type configuration](/cms_trial/space/SPM/1918666176/Box+configuration/) page: **Administration** > **Box types** > select box type > **Advanced** (requires the [App Admin](/cms_trial/space/SPM/1918829579/Permissions/) security role).
@@ -51,7 +51,7 @@ There are two strategies:
 
 ![additional-information-gantt-timeline.png](/cms_trial/assets/1375a794-5e01-4fb6-95bc-ac4a0d6bd8e6.png)
 
-1. [Configure timeboxes](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766987) for your project.
+1. [Configure timeboxes](/cms_trial/space/SPM/1918766987/Timeboxes/) for your project.
 2. Click **More actions** (**…**) in the upper-right corner of the Gantt timeline to open the context menu.
 3. Check the **Timeboxes**.
 

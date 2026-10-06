@@ -8,7 +8,7 @@
 
 ## Preconditions
 
-- box admin sub-box creator You are a Portfolio [Box Admin or Sub-box Creator](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918797447) (to add new portfolio boxes).
+- box admin sub-box creator You are a Portfolio [Box Admin or Sub-box Creator](/cms_trial/space/SPM/1918797447/Box-level+permissions/) (to add new portfolio boxes).
 - box admin You are a Home Box Admin (to nest other portfolio boxes under your portfolio box)
 - Jira admin App admin Your Jira or App Admin has adjusted **Parent type** settings on the Portfolio **box type configuration** page (if not, see the detailed instructions for your Admin below)
 

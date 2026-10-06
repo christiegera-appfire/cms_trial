@@ -35,6 +35,7 @@ Currently, there are fourteen modules to choose from, each offering a different 
 - [Risks module](/cms_trial/space/SPM/1918666681/Risks+module/)
   - [Navigation and interface (Risks)](/cms_trial/space/SPM/1918667482/Navigation+and+interface+(Risks)/)
 - [Calendar module](/cms_trial/space/SPM/1918699000/Calendar+module/)
+  - [Navigation and interface (Calendar)](/cms_trial/space/SPM/1918830944/Navigation+and+interface+(Calendar)/)
   - [Heatmap (Calendar)](/cms_trial/space/SPM/1918633596/Heatmap+(Calendar)/)
 - [Reports module](/cms_trial/space/SPM/1918502811/Reports+module/)
 - [Risk management module (NEW)](/cms_trial/space/SPM/1918699171/Risk+management+module+(NEW)/)

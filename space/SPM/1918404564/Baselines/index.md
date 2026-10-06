@@ -30,7 +30,7 @@ Baselines work for tasks with start and end dates; they CANNOT be created for ta
 
 ### Permissions
 
-For information about the baseline related permissions, check the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918797447> page.
+For information about the baseline related permissions, check the [Box-level permissions](/cms_trial/space/SPM/1918797447/Box-level+permissions/) page.
 
 ### Task Baseline Creation
 

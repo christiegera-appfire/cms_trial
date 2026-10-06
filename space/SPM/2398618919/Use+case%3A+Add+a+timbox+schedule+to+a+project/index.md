@@ -81,6 +81,6 @@ Whether you assigned the TS to a new box or your App Admin assigned it to an exi
 
 ## Additional resources
 
-- <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766987>
+- [Timeboxes](/cms_trial/space/SPM/1918766987/Timeboxes/)
 - [Timebox attributes](/cms_trial/space/SPM/3019800816/Timebox+attributes/)
 - [Timebox schedules](/cms_trial/space/SPM/1989214530/Timebox+schedules/)

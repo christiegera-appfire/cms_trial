@@ -177,7 +177,7 @@ Any user can check details about the box resulting from its box type settings in
 
 The following box information columns are available on the Overview module:
 
-- [Period mode](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918834623)
+- [Period mode](/cms_trial/space/SPM/1918834623/Scheduling+mode+field/)
 - Sequentiality
 - Created date
 - [Scope type](/cms_trial/space/SPM/1918766536/Scope+types/)
@@ -382,7 +382,7 @@ Any user can check details about the box resulting from its box type settings in
 
 The following box information columns are available on the Overview module:
 
-- [Period mode](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918834623)
+- [Period mode](/cms_trial/space/SPM/1918834623/Scheduling+mode+field/)
 - Sequentiality
 - Created date
 - [Scope type](/cms_trial/space/SPM/1918766536/Scope+types/)
