@@ -2,7 +2,7 @@
 
 ## Save and reuse an extended search
 
-Once you've created an extended JQL search that returns the issues you need, you don't have to rebuild it every time.
+Once you've created an extended JQL search that returns the work items you need, you don't have to rebuild it every time.
 
 JQL Search Extensions lets you save an Extended Search query as a filter so you can return to the search later and use the results in your Jira workflows.
 

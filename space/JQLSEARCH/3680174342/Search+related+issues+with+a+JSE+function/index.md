@@ -2,11 +2,13 @@
 
 ## Search related issues with a JSE function
 
-JQL Search Extensions functions let you perform searches that use other JQL queries as input. This lets to answer questions about relationships between groups of Jira issues.
+JQL Search Extensions functions lets you perform searches that use other JQL queries as input. This lets you answer questions about relationships between groups of Jira users.
 
 In this example, you'll use `Issue in parentsOfIssuesInQuery` to find issues linked to issues returned by another JQL query.
 
 ## Search issues by their links
+
+Suppose you want to find work items connected to the `Bug` work item type through a specific issue link. Follow the steps below:
 
 Suppose you want to find issues connected to issues in the `Bug` by a particular issue link type.
 
@@ -19,9 +21,20 @@ Suppose you want to find issues connected to issues in the `Bug` by a particular
 
 Replace `Bug` with a project key from your Jira instance and, if necessary, replace the link description with an issue link type used by your Jira configuration.
 
-![2026-09-23_17-58-48.jpeg](/cms_trial/assets/e4ed48a1-582e-445c-93dd-3bafbea6250d.jpeg)
+![2026-10-06_19-20-37.png](/cms_trial/assets/b6e79847-3fa9-490f-a153-48640f5962bf.png)![2026-09-23_17-58-48.jpeg](/cms_trial/assets/e4ed48a1-582e-445c-93dd-3bafbea6250d.jpeg)
 
 ## How the query works
+
+AttachmentExtension is a JSE keyword.  
+JSE keywords extend the issue information that you can reference in a JQL query. In this example:
+
+- AttachmentExtension specifies the issue information you want to search.
+- = specifies the comparison.
+- png specifies the attachment extension you want to find.
+
+Together:  
+AttachmentExtension = png  
+means: **Find issues with an attachment that has the PNG file extension.**
 
 This search contains two parts.
 

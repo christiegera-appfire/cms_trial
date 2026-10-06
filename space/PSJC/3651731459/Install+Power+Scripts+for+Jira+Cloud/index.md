@@ -16,4 +16,4 @@ You can restart your trial only during the original trial period. Once the trial
 
 ## Next steps
 
-Now that Power Scripts for Jira Cloud is installed, <https://appfire.atlassian.net/wiki/spaces/PSJC/pages/3651272726>.
+Now that Power Scripts for Jira Cloud is installed, [Create and run your first script](/cms_trial/space/PSJC/3651272726/Create+and+run+your+first+script/).
