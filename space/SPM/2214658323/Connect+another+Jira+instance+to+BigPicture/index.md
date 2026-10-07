@@ -2,152 +2,130 @@
 
 ## Connect another Jira instance to BigPicture (old navigation)
 
-Connecting another instance allows BigPicture on your primary instance to integrate data from more than one Jira instance. The process involves setting up a connection in BigPicture and configuring a webhook on the secondary Jira Cloud instance.
+Click to see the instructions
 
-To use additional Jira Clouds, you need to:
+Connecting another instance allows BigPicture on your primary instance to integrate data from more than one Jira instance.
+
+To use additional Jira Cloud instances, you need to:
 
 - connect them to the app
 - add them to the scope of your boxes
 
-**Steps required to add another Jira Cloud instance:**
+### Prerequisites
 
-## Initiate the Connection in BigPicture (Primary Instance)
+Before you add a connection, make sure that:
 
-1. Navigate to **App settings** → **Integrations** → **Connections** within BigPicture on your primary Jira Cloud instance (`nostromo6` in this example).
+- You’re an administrator of the primary Jira Cloud instance.
+- You have an account on the Jira Cloud instance you want to connect, with the **Administer** and **User Picker** permissions.
+
+## **Steps required to add another Jira Cloud instance:**
+
+1. Navigate to **App configuration** → **Integrations** → **Connections** within BigPicture on your primary Jira Cloud instance.
+
+   ![Screenshot of the Connections tab in BigPicture Integrations.](/cms_trial/assets/87fb0a3a-88ca-434b-b0e3-7cdfd88d8832.png)
 2. Click the **+ Add new connection** option.
 3. Choose the **Jira Cloud** option.
 
-1. You can also initiate adding an instance in box configuration → Tasks → Scope definition:
+   ![Screenshot of the Add new connection button in BigPicture Integrations.](/cms_trial/assets/f3bbcf2c-18b7-4fb9-a023-a07e00071e4b.png)
 
-## Configure the New Connection Details in BigPicture
+1. You can also initiate adding an instance in **box configuration** → **Tasks** → **Work items from Jira**:
 
-1. Provide a name for the new connection (in this example, `nostromo 13`).
-2. Enter the URL of the secondary Jira Cloud instance you want to connect. This URL can be copied from the browser's address bar for the secondary instance.
-3. Enter the email address associated with the user account you will use for the connection on the secondary instance.
-4. You will need an API token from the secondary Jira Cloud instance. Leave this field ready for the next step (keep the
+   ![Screenshot of the Add new integration button in the box configuration.](/cms_trial/assets/06344810-b56b-4643-b109-091a457de45b.png)
+2. You’ll be redirected to another page, where you’ll need to select the instance you want to connect to your primary instance.
 
-![new-jira-cloud-connection.png](/cms_trial/assets/aac7569c-7f03-4769-9219-85cbaedf1fff.png)
+   ![Screenshot of selecting an additional instance to connect with the primary instance in BigPicture.](/cms_trial/assets/4e0113fa-895c-4e21-8f87-070861a86def.png)
+3. When selected, click **Accept**.
+4. Once the connection is successful, you will see a message to configure the field mapping between your primary Jira Cloud instance and a connected Jira Cloud instance. Field mapping is not automatically created or copied, therefore you have to configure field mapping for each newly connected Jira instance. For more information, go to [Field mapping](/cms_trial/space/SPM/1918700586/Field+mapping/).
 
-## Generate an API Token on the Secondary Jira Cloud Instance
+   1. Click **Map fields** to start field mapping configuration now. You’ll be redirected to the **App configuration** → **General** → **Fields** page.
+   2. Click **Start working** if you want to continue working without configuring field mapping now.
 
-1. Go to: [id.atlassian.com/manage-profiles/security/api-tokens](https://id.atlassian.com/manage-profile/security/api-tokens) . Log in with your Atlassian credentials.
-2. Choose the **Create a new API token** option. Choose name and expiration date.
+      ![Screenshot of the Field mapping configuration message that appears once the connection is set.](/cms_trial/assets/27ae95ff-027c-4fa2-a731-0a1ccd7bced8.png)
+5. You can see your connected instance on the **Connections** page.
 
-**Important:** API tokens have a maximum lifespan of one year. To maintain the connection, you must renew the token before it expires. The connection isn't permanent after setting it up once; the token needs renewal.
+   ![Screenshot of the Connections page when another instance is connected.](/cms_trial/assets/53945680-cd4c-4d71-9b86-e0df4feb7a49.png)
 
-1. Copy this token immediately, as once the window is closed, you cannot retrieve it later. It is recommended to paste it into a temporary location like a notepad.
+## **Create the webhook on the secondary Jira Cloud instance**
 
-## Paste the Token and Proceed in BigPicture
+To create the webhook connection on the secondary Jira Cloud instance, you’ll need a webhook URL provided by our Support team. Contact [Support](https://appfire.atlassian.net/servicedesk/customer/portal/11) to get the required URL before creating the webhook.
 
-1. Return to the BigPicture connection setup page on your primary instance.
-2. Paste the copied API token into the designated field.
+We’re working on enabling automatic webhook registration to eliminate this manual step in the future.
 
-   ![api-token-generated.png](/cms_trial/assets/4bafb31c-b5fc-40ce-854f-265c8fe43166.png)
-3. Click **Next**.
-4. After clicking next, BigPicture will request an **endpoint URL** for a webhook.
-
-   ![new-jira-cloud-connection-end-point.png](/cms_trial/assets/9edcbbad-786c-4571-bab8-4c5fa56dd9e4.png)
-
-## Create the Webhook on the Secondary Jira Cloud Instance
-
-This webhook needs to be created on the **secondary** Jira Cloud instance.
-
-1. Return to the secondary Jira Cloud instance browser tab.
+1. Return to the **secondary Jira Cloud** instance browser tab.
 2. Navigate to **Jira settings** → **System** and then **WebHooks**.
 3. Click to **Create a WebHook**.
-4. Name the webhook (for example,`connection to nostromo6`).
+
+   ![Screenshot of creating. anew Webhook in Jira.](/cms_trial/assets/2296c3d8-30b7-4234-874f-193e0cb3d6f6.png)
+4. Name the webhook.
 5. Ensure the webhook is **enabled**.
-6. Paste the **endpoint link generated by the app** (the URL provided by BigPicture in the previous section) into the URL field.
-7. Select all the checkbox of the events that should trigger the webhook.
+
+   ![Screenshot of providing Webhook details in Jira.](/cms_trial/assets/6797a565-bdbe-4133-95ef-e92ba931afba.png)
+6. Paste the webhook URL provided by our [Support team](https://appfire.atlassian.net/servicedesk/customer/portal/11) into the URL field.
+7. Select all the checkboxes for the events that should trigger the webhook.
 8. The exception is **Exclude body**, which should be left **unchecked**.
-9. **Create** (or save) the webhook.
-
-## Complete the Connection in BigPicture
-
-1. Return to the BigPicture connection setup page on your primary instance.
-2. Click **Connect**.
-3. If you get an error, you likely need to **go back one step** in the BigPicture setup and then click **Connect** again to ensure BigPicture recognizes the newly created webhook.
-4. Proceed through the steps again. The connection process should successfully proceed with the webhook now registered on the secondary instance.
-
-## Subsequent Steps (Field Mapping and Scope Definition)
-
-1. Once the connection is successful, you will encounter further configuration steps within BigPicture, such as **field mapping** and **scope definition**.
-
-   1. **Field mapping** is not automatically created or copied, therefore you have to configure field mapping for each newly connected Jira instance. For more information, go to [Field mapping](/cms_trial/space/SPM/1918700586/Field+mapping/)
-   2. **Scope definition** - when another Jira Cloud instance is added to the app, you can add it to a box scope in box configuration and define scope’s details:
+9. To confirm, click **Create**.
 
 ## Connect another Jira instance to BigPicture (new navigation)
 
-Connecting another instance allows BigPicture on your primary instance to integrate data from more than one Jira instance. The process involves setting up a connection in BigPicture and configuring a webhook on the secondary Jira Cloud instance.
+Click to see the instructions
 
-To use additional Jira Clouds, you need to:
+Connecting another instance allows BigPicture on your primary instance to integrate data from more than one Jira instance.
+
+To use additional Jira Cloud instances, you need to:
 
 - connect them to the app
 - add them to the scope of your boxes
 
-**Steps required to add another Jira Cloud instance:**
+### Prerequisites
 
-## Initiate the Connection in BigPicture (Primary Instance)
+Before you add a connection, make sure that:
 
-1. Navigate to **App settings** → **Integrations** → **Connections** within BigPicture on your primary Jira Cloud instance (`nostromo6` in this example).
+- You’re an administrator of the primary Jira Cloud instance.
+- You have an account on the Jira Cloud instance you want to connect, with the **Administer** and **User Picker** permissions.
+
+## **Steps required to add another Jira Cloud instance:**
+
+1. Navigate to **App configuration** → **Integrations** → **Connections** within BigPicture on your primary Jira Cloud instance.
+
+   ![Screenshot of the Connections tab in BigPicture Integrations.](/cms_trial/assets/87fb0a3a-88ca-434b-b0e3-7cdfd88d8832.png)
 2. Click the **+ Add new connection** option.
 3. Choose the **Jira Cloud** option.
 
-1. You can also initiate adding an instance in box configuration → Tasks → Work items from Jira:
+   ![Screenshot of the Add new connection button in BigPicture Integrations.](/cms_trial/assets/f3bbcf2c-18b7-4fb9-a023-a07e00071e4b.png)
 
-## Configure the New Connection Details in BigPicture
+1. You can also initiate adding an instance in **box configuration** → **Tasks** → **Work items from Jira**:
 
-1. Provide a name for the new connection (in this example, `nostromo 13`).
-2. Enter the URL of the secondary Jira Cloud instance you want to connect. This URL can be copied from the browser's address bar for the secondary instance.
-3. Enter the email address associated with the user account you will use for the connection on the secondary instance.
-4. You will need an API token from the secondary Jira Cloud instance. Leave this field ready for the next step (keep the
+   ![Screenshot of the Add new integration button in the box configuration.](/cms_trial/assets/06344810-b56b-4643-b109-091a457de45b.png)
+2. You’ll be redirected to another page, where you’ll need to select the instance you want to connect to your primary instance.
 
-![new-jira-cloud-connection.png](/cms_trial/assets/aac7569c-7f03-4769-9219-85cbaedf1fff.png)
+   ![Screenshot of selecting an additional instance to connect with the primary instance in BigPicture.](/cms_trial/assets/4e0113fa-895c-4e21-8f87-070861a86def.png)
+3. When selected, click **Accept**.
+4. Once the connection is successful, you will see a message to configure the field mapping between your primary Jira Cloud instance and a connected Jira Cloud instance. Field mapping is not automatically created or copied, therefore you have to configure field mapping for each newly connected Jira instance. For more information, go to [Field mapping](/cms_trial/space/SPM/1918700586/Field+mapping/).
 
-## Generate an API Token on the Secondary Jira Cloud Instance
+   1. Click **Map fields** to start field mapping configuration now. You’ll be redirected to the **App configuration** → **General** → **Fields** page.
+   2. Click **Start working** if you want to continue working without configuring field mapping now.
 
-1. Go to: [id.atlassian.com/manage-profiles/security/api-tokens](https://id.atlassian.com/manage-profile/security/api-tokens) . Log in with your Atlassian credentials.
-2. Choose the **Create a new API token** option. Choose name and expiration date.
+      ![Screenshot of the Field mapping configuration message that appears once the connection is set.](/cms_trial/assets/27ae95ff-027c-4fa2-a731-0a1ccd7bced8.png)
+5. You can see your connected instance on the **Connections** page.
 
-**Important:** API tokens have a maximum lifespan of one year. To maintain the connection, you must renew the token before it expires. The connection isn't permanent after setting it up once; the token needs renewal.
+   ![Screenshot of the Connections page when another instance is connected.](/cms_trial/assets/53945680-cd4c-4d71-9b86-e0df4feb7a49.png)
 
-1. Copy this token immediately, as once the window is closed, you cannot retrieve it later. It is recommended to paste it into a temporary location like a notepad.
+## **Create the webhook on the secondary Jira Cloud instance**
 
-## Paste the Token and Proceed in BigPicture
+To create the webhook connection on the secondary Jira Cloud instance, you’ll need a webhook URL provided by our Support team. Contact [Support](https://appfire.atlassian.net/servicedesk/customer/portal/11) to get the required URL before creating the webhook.
 
-1. Return to the BigPicture connection setup page on your primary instance.
-2. Paste the copied API token into the designated field.
+We’re working on enabling automatic webhook registration to eliminate this manual step in the future.
 
-   ![api-token-generated.png](/cms_trial/assets/4bafb31c-b5fc-40ce-854f-265c8fe43166.png)
-3. Click **Next**.
-4. After clicking next, BigPicture will request an **endpoint URL** for a webhook.
-
-   ![new-jira-cloud-connection-end-point.png](/cms_trial/assets/9edcbbad-786c-4571-bab8-4c5fa56dd9e4.png)
-
-## Create the Webhook on the Secondary Jira Cloud Instance
-
-This webhook needs to be created on the **secondary** Jira Cloud instance.
-
-1. Return to the secondary Jira Cloud instance browser tab.
+1. Return to the **secondary Jira Cloud** instance browser tab.
 2. Navigate to **Jira settings** → **System** and then **WebHooks**.
 3. Click to **Create a WebHook**.
-4. Name the webhook (for example,`connection to nostromo6`).
+
+   ![Screenshot of creating. anew Webhook in Jira.](/cms_trial/assets/2296c3d8-30b7-4234-874f-193e0cb3d6f6.png)
+4. Name the webhook.
 5. Ensure the webhook is **enabled**.
-6. Paste the **endpoint link generated by the app** (the URL provided by BigPicture in the previous section) into the URL field.
-7. Select all the checkbox of the events that should trigger the webhook.
+
+   ![Screenshot of providing Webhook details in Jira.](/cms_trial/assets/6797a565-bdbe-4133-95ef-e92ba931afba.png)
+6. Paste the webhook URL provided by our [Support team](https://appfire.atlassian.net/servicedesk/customer/portal/11) into the URL field.
+7. Select all the checkboxes for the events that should trigger the webhook.
 8. The exception is **Exclude body**, which should be left **unchecked**.
-9. **Create** (or save) the webhook.
-
-## Complete the Connection in BigPicture
-
-1. Return to the BigPicture connection setup page on your primary instance.
-2. Click **Connect**.
-3. If you get an error, you likely need to **go back one step** in the BigPicture setup and then click **Connect** again to ensure BigPicture recognizes the newly created webhook.
-4. Proceed through the steps again. The connection process should successfully proceed with the webhook now registered on the secondary instance.
-
-## Subsequent Steps (Field Mapping and Scope Definition)
-
-1. Once the connection is successful, you will encounter further configuration steps within BigPicture, such as **field mapping** and **scope definition**.
-
-   1. **Field mapping** is not automatically created or copied, therefore you have to configure field mapping for each newly connected Jira instance. For more information, go to [Field mapping](/cms_trial/space/SPM/1918700586/Field+mapping/)
-   2. **Scope definition** - when another Jira Cloud instance is added to the app, you can add it to a box scope in box configuration and define scope’s details:
+9. To confirm, click **Create**.

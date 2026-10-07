@@ -1,6 +1,6 @@
 # Product comparison
 
-![Comala Document Management product comparison header](/cms_trial/assets/12334505-3c12-45f2-a193-e30597a59b41.png)
+![Comala Document Management product comparison header](/cms_trial/assets/bfc58785-3f5c-49b7-89e5-50e666ec1aec.png)
 
 Last updated July 10, 2026
 

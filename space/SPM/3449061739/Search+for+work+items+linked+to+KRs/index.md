@@ -16,7 +16,7 @@ To use JQL search to find linked work items (Jira work items) to specific OKRs:
 2. Select **View all work items** at the bottom of the dropdown.
 3. On the **All work** page, select **JQL** (next to the search bar).
 
-![Jira All Work page. The JQL button is highlighted.](/cms_trial/assets/2716e0a9-55ae-4bbc-90b4-f52872dc9693.png)
+![Jira All Work page. The JQL button is highlighted.](/cms_trial/assets/a97b456a-91dc-4fec-aee8-eb2f0d3cdb6a.png)
 
 1. Enter your JQL query and press **Enter** to run it. Your search results will be displayed based on the criteria in your JQL query.
 
@@ -26,10 +26,5 @@ In the JQL input field, use the following queries to find work items connected t
 
 | **JQL query** | **Notes** |
 | --- | --- |
-| - `linkedToKRs("KR-1, KR-2")` | Search for Jira work items linked to the specified KR using the KR key.  e.g.: `work item in linkedToKRs("KR-1,KR-2")` |
-| - `linkedToObjectives("O-1, O-2")` | Search for Jira work items linked to all KRs under a specified Objective using the Objective key. |
-| - `kr="Key result name"` - `work item.property[okrs2].krNames = "KR Name"` | Search for Jira work items linked to the specified KR using the KR name. |
-| - `objective="Objective name"` - `work item.property[okrs2].objectiveNames = "Objective Name"` | Search for Jira work items linked to all KRs under a specified Objective using the Objective name. |
-| - `work item.property[okrs2].krIds = {id}` | Search for Jira work items linked to the specified KR using the KR ID. |
-
-The `kr="Key result name"` and `objective="Objective name"` queries will soon be deprecated.
+| - `linkedToBPKRs("KR-1, KR-2")` | Search for Jira work items linked to the specified KR using the KR key.  e.g.: `work item in linkedToBPKRs("KR-1,KR-2")` |
+| - `linkedToBPObjectives("O-1, O-2")` | Search for Jira work items linked to all KRs under a specified Objective using the Objective key.  e.g.: `workItem in linkedToBPObjectives("O-9")` |

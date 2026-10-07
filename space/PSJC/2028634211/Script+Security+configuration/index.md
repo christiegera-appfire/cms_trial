@@ -12,7 +12,7 @@ To access the *Script Security* page, click **Power Scripts** > **Settings** > *
 | --- | --- |
 | **Grant inline exec** | Controls who can execute code that is passed remotely (not stored in the system). The system identifies this type of code execution with the internal identifier `kepler://inline-source`.  While it’s always recommended to be wary of granting execution rights to non-privileged users, take particular caution with the **Grant inline exec** permissions, as these allow users to run any code they submit, not just pre-approved scripts. |
 | **Grant read** | Controls who can view script content; can be assigned to specific users or groups for individual pre-approved scripts. |
-| **Grant exec** | Controls who can execute stored scripts via REST and applies specifically to remote execution [scenarios.](http://scenarios.It) It can be assigned to specific users or groups for individual pre-approved scripts. |
+| **Grant exec** | Controls who can execute stored scripts via REST and applies specifically to remote execution scenarios. It can be assigned to specific users or groups for individual pre-approved scripts. |
 
 If the *Script Security*page displays a *Nothing here* message, this indicates that no additional permissions have been granted beyond the defaults.
 

@@ -6,7 +6,7 @@ Requires the [Comala Publishing app](https://marketplace.atlassian.com/apps/143/
 
 Use the **publish-page** trigger action when you need greater flexibility and control over when and where a page is published to another space in your Confluence Cloud site. It’s ideal for complex workflows and staged content releases, publishing your pages automatically at different workflow stages.
 
-![Comala visual editor publishpage trigger action configuration](/cms_trial/assets/1cd1110e-8961-4ab2-ba61-d27daa502f72.png)
+![Comala visual editor publishpage trigger action configuration](/cms_trial/assets/fba9f1a8-5378-439f-85ba-0c73d6b1b4c5.png)
 
 You can use the **Publish Page** action in a **workflow trigger** to publish a page when a specific workflow event occurs.
 
@@ -28,21 +28,21 @@ This trigger action is only available when [Comala Publishing Cloud](https://ap
 
 For the workflow shown below:
 
-![Comala custom workflow flowchart with firstpublish state](/cms_trial/assets/53c33f4c-11d1-4e4d-8a0d-d7d7619c7f1b.png)
+![Comala custom workflow flowchart with firstpublish state](/cms_trial/assets/1e7ae0ce-61ae-44cd-9baf-39fc5cfd9fc6.png)
 
 You can add the following workflow trigger using the visual editor:
 
-![Comala visual editor trigger for firstpublish state with publishpage action](/cms_trial/assets/83d8ea1c-9d93-4e26-b6f7-0cfb7499e261.png)
+![Comala visual editor trigger for firstpublish state with publishpage action](/cms_trial/assets/d73d8c52-93e2-4d92-a20f-4fa43c8ab319.png)
 
 This publishes the page on the state change to the **First Publish** state in the applied workflow.
 
 The **Publish Page** action (the `“publish-page`” macro) publishes the content in the target space on the state change event.
 
-![Comala page published confirmation message](/cms_trial/assets/524f325e-5495-4358-a156-1b2dab7aef03.png)
+![Comala page published confirmation message](/cms_trial/assets/08b67f5c-880f-496f-886d-532b699693c5.png)
 
 The content bylines are updated on the source space page.
 
-![Comala publishing byline with synced workflow state and publishing dialog](/cms_trial/assets/d3e9f588-1d5f-4dd9-9b3b-51ce3ea6b014.png)
+![Comala publishing byline with synced workflow state and publishing dialog](/cms_trial/assets/ef324a56-a1d3-48f0-bcd1-9cebdae2645e.png)
 
 The target space for publishing the page is configured in the [Comala Publishing space settings](https://appfire.atlassian.net/wiki/spaces/CPCL/pages/646252290). Publishing can also occur based on the Comala Publishing app configuration, such as a space publishing action or a single-page publishing action, **including publishing on a transition to the workflow final state.**
 
@@ -67,4 +67,4 @@ Adding a workflow trigger with a **Publish Page** action prevents the Comala Pub
 
 Workflow triggers can also be added and edited in the code editor.
 
-![Comala code editor publishpage trigger configuration](/cms_trial/assets/4a83fe4e-f95a-416b-96b5-afcf64c984b5.png)
+![Comala code editor publishpage trigger configuration](/cms_trial/assets/03e96bad-c023-4e6c-9b2f-f898afbe208f.png)

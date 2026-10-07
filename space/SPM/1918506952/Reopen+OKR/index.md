@@ -13,6 +13,5 @@ You can reopen OKRs only on their respective [*OKR Details*](/cms_trial/space/SP
 1. Click **More actions** (**…**).
 2. Select **Reopen**.
 
-   Image — asset pipeline pending  
-   Dropdown menu under More actions on the close OKR details page.
+   ![Dropdown menu under More actions on the close OKR details page.](/cms_trial/assets/e4117177-a7a4-4cdc-8956-985c4cd768c7.png)
 3. The OKR is now open again.

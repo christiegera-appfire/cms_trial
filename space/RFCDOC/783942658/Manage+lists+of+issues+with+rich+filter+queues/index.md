@@ -1,10 +1,10 @@
 # Manage lists of issues with rich filter queues
 
-[Rich Filters for Jira Dashboards](https://marketplace.atlassian.com/apps/1214789/rich-filters-for-jira-dashboards?hosting=cloud&tab=overview) provides **queues**, which allow you to manage lists of issues in Rich Filter Results gadgets efficiently. In this article, you'll learn how to create multiple queues to manage your work and see how queues interact with views and working queries.
+[Rich Filters for Jira Dashboards](https://marketplace.atlassian.com/apps/1214789/rich-filters-for-jira-dashboards?hosting=cloud&tab=overview) provides **queues** that let you to manage issue lists efficiently in Rich Filter Results gadgets. In this article, you'll learn how to create multiple queues to manage your work and see how queues interact with views and working queries.
 
 This article covers the basics of rich filter queues and provides a simple work management example. If you are specifically interested in service management, check out Build a Service Management Dashboard with Rich Filters.
 
-## Prerequisites
+## Before you start
 
 - A basic understanding of Jira dashboards and rich filters, as explained in [Get started with Rich Filters for Jira Dashboards](/cms_trial/space/RFCDOC/783942462/Get+started+with+Rich+Filters+for+Jira+Dashboards+for+Cloud/).
 - A basic understanding of [Jira Query Language (JQL)](https://www.atlassian.com/software/jira/guides/expand-jira/jql).
@@ -70,13 +70,10 @@ Let's create two initial queues — one to display top-priority work items and o
 If you go back to your dashboard and [refresh it](/cms_trial/space/RFCDOC/783942462/Get+started+with+Rich+Filters+for+Jira+Dashboards+for+Cloud/), you should see no difference—by default, Rich Filter Results gadgets display all issues along with any defined views. Let's change the Rich Filter Results gadget to show our queues.
 
 1. Open the configuration form of your **Rich Filter Results** gadget (as described in the [Easier configuration with the](/cms_trial/space/RFCDOC/783942532/Customize+issue+views+and+gadget+scope/) [*Rich filter*](/cms_trial/space/RFCDOC/783942532/Customize+issue+views+and+gadget+scope/) [menu](/cms_trial/space/RFCDOC/783942532/Customize+issue+views+and+gadget+scope/)).
-2. In the **Display** section, select the **Queues & Hierarchies** option.   
-   The *Queues & Hierarchies* section is now displayed in the configuration form instead of the *Views* section.
-3. Under **Queues & Hierarchies**, select the **Show all** option.
+2. Click the **Queues** radio button in the **Display** section to make the gadget display queues; the *Queues* section is now displayed in the config form instead of the *Views* section. Leave the default **Show all queues** option selected, as shown below. 
 
-   ![image-20260812-153242.png](/cms_trial/assets/3eb26506-7b7c-49e3-b084-026951a57b40.png)
-4. Click **Submit** to save your configuration.   
-   Your Rich Filter Results gadget will now display your queues. Note how, in our Top priority queue, only a subset of the data is being shown — the total issues number is smaller as we only look at our filtered top-priority items.
+   ![Rich Filter Results gadget config form Display section, showing the Queues and Display all queues radio buttons selected](/cms_trial/assets/c67c29a4-88f7-441a-b072-72aa8cc5f5a4.png)
+3. Click **Submit** to save your config. Your Rich Filter Results gadget will now display your queues. Note how, in our Top priority queue, only a subset of the data is being shown — the total issues number is smaller as we only look at our filtered top-priority items.
 
    ![Queues Display.png](/cms_trial/assets/bf45c92b-717c-488f-a3cb-d8832ec10ff1.png)
 

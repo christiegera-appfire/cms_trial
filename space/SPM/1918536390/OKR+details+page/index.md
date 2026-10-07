@@ -13,6 +13,8 @@ The OKR details page displays data for the Strategic theme, Objective, or Key Re
 - The scope of your actions on this page depends on your role/granted permissions.
 - Visit the [Edit OKRs](/cms_trial/space/SPM/1918669695/Edit+OKR/) page to learn more about editing details on the *OKR Details* page.
 
+Below, you can watch a short video overview.
+
 ## Access the OKR details page
 
 You can access the *OKR details* page through the:
@@ -22,23 +24,23 @@ You can access the *OKR details* page through the:
 1. On the **OKR details side panel**, click the **More actions** (**…**) button.
 2. Select **Details** from the dropdown.
 
-![OKR details side panel. The additional menu is opened.](/cms_trial/assets/e4658a61-ec79-4097-9569-1666d5b2e957.png)
+![OKR details side panel. The additional menu is opened.](/cms_trial/assets/533c4ddb-0c75-46f2-a493-2d26d9899836.png)
 
 ### OKR key link
 
 Similar to the Jira work item key link, the OKR key link is unique and opens the details page for the selected OKR.
 
-![OKR key link on the progress dashboard page.](/cms_trial/assets/7e23fc48-bdc2-4f62-8b4b-e4454efdc12f.png)
+![OKR key link on the progress dashboard page.](/cms_trial/assets/7a2f8abf-58c2-48a5-a735-0ff82d1f01f6.png)
 
 ## OKR details page
 
 Below, you can find a quick guide through the main sections and tabs, helping you understand how to use them to stay on top of your goals.
 
-![OKR Details page (Progress tab).](/cms_trial/assets/d01dff93-cbfa-4ca9-908c-7e270368b262.png)
+![OKR Details page (Progress tab).](/cms_trial/assets/b7bdb938-a996-47a5-9c9d-44c7b5db66f6.png)
 
 ### OKR key, status, name, and description
 
-![okr-details-page-full1.png](/cms_trial/assets/fe80bdf2-4edb-484e-907c-b1c3dcf2aa01.png)
+![okr-details-page-full1.png](/cms_trial/assets/e2b84489-1924-434a-976e-8c146e95f38b.png)
 
 #### 1. Breadcrumbs
 
@@ -68,13 +70,13 @@ The **Details** section displays all [OKR attributes](/cms_trial/space/SPM/23247
 
 You can edit all fields inline except **Last updated**. If the item you are viewing is a Strategic theme, you cannot edit its **Type**.
 
-![Details section on the OKR details page.](/cms_trial/assets/38625596-ed19-4248-8aa8-54c7e98495be.png)
+![Details section on the OKR details page.](/cms_trial/assets/fe9196ec-46dd-4870-9dec-94f280d7c5e8.png)
 
 ### Progress (tab)
 
 The **Progress** tab displays details about the selected OKR and its progress.
 
-![Progress chart, milestones, and the activity section on the OKR details page.](/cms_trial/assets/5e0752b8-b7c3-488d-9597-4aa88c3ba674.png)
+![Progress chart, milestones, and the activity section on the OKR details page.](/cms_trial/assets/a8dcd713-876b-4998-b864-828612cdc1f8.png)
 
 #### 1. Progress chart
 
@@ -86,7 +88,7 @@ If you are viewing a Strategic theme or Objective, the chart displays status tag
 
 If the OKR you are viewing is a Key Result, the chart displays Start, Current, and Target values.
 
-![Key Result values on the progress chart.](/cms_trial/assets/6fc8d116-ec40-4e5f-824a-330d5111e342.png)
+![Key Result values on the progress chart.](/cms_trial/assets/827733c7-02f2-4a86-87df-048f077e498b.png)
 
 #### 3. Milestones
 
@@ -117,7 +119,7 @@ In this section, you can:
 
 The **Child OKRs** tab is available only for Strategic themes and Objectives. It displays all direct child items for the selected OKR.
 
-![Child OKRs tab.](/cms_trial/assets/e7def693-aa8b-4125-92fc-3e725dc89796.png)
+![Child OKRs tab.](/cms_trial/assets/0c168565-46e1-4076-b4bb-636d80865b2d.png)
 
 In this tab, you can:
 
@@ -130,7 +132,7 @@ In this tab, you can:
 
 The **Linked work** tab displays all work items and boxes connected directly to the Key Result (KR). For Strategic Themes or Objectives, the tab aggregates all work items linked to their child KRs.
 
-![The Linked Work tab.](/cms_trial/assets/a738b4b1-d7b4-40ce-a335-1f517f41356f.png)
+![The Linked Work tab.](/cms_trial/assets/5b102c00-58a3-4018-9473-902fe786a576.png)
 
 #### 1. Jira work items
 
@@ -173,7 +175,7 @@ The **Linked OKRs** tab lists OKR dependencies, contributions, and copies of the
 
 Dependency and contribution links do not affect OKR progress.
 
-![details-page-linked-okrs.png](/cms_trial/assets/b4e5a975-5f85-4ca1-82d7-5be42bf27ed2.png)
+![details-page-linked-okrs.png](/cms_trial/assets/5afc2ab8-2d28-461f-869c-5d0b0a73e1ac.png)
 
 #### 1. Dependencies
 
