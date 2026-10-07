@@ -8,6 +8,18 @@ The audit log records changes to your datasources, dashboards, and gadgets, incl
 
 Only Jira or Confluence administrators can view the audit log. It records actions taken inside Dashboard Hub and doesn’t replace your site administrator audit log.
 
+Watch the short intro video to the audit log, or read the next sections to get started.
+
+Video transcript
+
+﻿You rely on your dashboards for accurate reporting. But they can often change. Gadgets are updated, data sources are added, or permissions get removed. But who made those changes and when? The Dashboard Hub audit log answers that. It's available in Dashboard Hub Pro and Dashboard Hub for Confluence. Here, we're in Jira.
+
+The changes we record are stored for one year, and only Jira or Confluence admins can access the log. You'll find it in your app admin settings. Quick filter cards show how much activity you've had. Grouped by object type. Click a card to view only those changes, For example, only gadget changes. The table breaks down every event. Time stamp, the user, what happened, and the object that was affected. Use the filter bar to find logs by date, user, object, or event to find a specific change and open details for the full record of the change.
+
+That's what makes it useful day to day. If you notice a public link was enabled where it shouldn't be, you can step in before it becomes a problem. And it works the other way too. When you've asked someone to lock a datasource or update a gadget, the log confirms it was actually done, by whom, and when. If you need the data elsewhere, export the whole log as a CSV for your own analysis or compliance. That's the audit log in Dashboard Hub. Clarity on every change in one place.
+
+If this was helpful, hit like and subscribe to Appfire's YouTube channel to discover more about using Dashboard Hub for all your reporting needs in Jira and Confluence.
+
 ## How to view the audit log
 
 Jira administrators can access the audit log in Dashboard Hub’s App Settings.
