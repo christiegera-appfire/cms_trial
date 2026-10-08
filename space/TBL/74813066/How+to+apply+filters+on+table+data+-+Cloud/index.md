@@ -24,13 +24,11 @@ To use this feature, users must enable the *Display data filter* option from th
 
 For this example, the data from the [Monthly temperatures](https://appfire.atlassian.net/wiki/spaces/TBL/pages/74812593) page was entered as a comma separated value list in the macro body itself.
 
-Image — asset pipeline pending  
-Advanced Tables Table Plus macro filter parameter settings
+![Advanced Tables Table Plus macro filter parameter settings](/cms_trial/assets/9a9d62b0-91c2-4bce-9b88-2391d7a263ae.png)
 
 ### Example result
 
-Image — asset pipeline pending  
-Advanced Tables filter panel displayed beside table data
+![Advanced Tables filter panel displayed beside table data](/cms_trial/assets/4ee33d49-348b-4815-9a7c-43ff582ccb5e.jpg)
 
 ### Sample filters applied to the table
 
@@ -38,7 +36,7 @@ The following table lists certain sample requirements, filters applied, and the
 
 | **Requirement** | **Filter applied** | **Result** |
 | --- | --- | --- |
-| Display temperatures for the months of January, March, and May | **ja|ma** | Image — asset pipeline pending Advanced Tables table filter example with filtered results |
-| Display data with temperatures in the 60s | **60** | Image — asset pipeline pending Advanced Tables table filter example with another filter selection |
-| Display data with temperatures in the range of 40 to 45 degrees | **4[0-5]** | Image — asset pipeline pending Advanced Tables table filter example with multiple matching rows |
-| Display the temperatures for the last quarter of the year | **ber** | Image — asset pipeline pending Advanced Tables table filter example with filtered table output |
+| Display temperatures for the months of January, March, and May | **ja|ma** | Advanced Tables table filter example with filtered results |
+| Display data with temperatures in the 60s | **60** | Advanced Tables table filter example with another filter selection |
+| Display data with temperatures in the range of 40 to 45 degrees | **4[0-5]** | Advanced Tables table filter example with multiple matching rows |
+| Display the temperatures for the last quarter of the year | **ber** | Advanced Tables table filter example with filtered table output |
