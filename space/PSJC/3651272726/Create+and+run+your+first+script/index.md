@@ -14,7 +14,7 @@ Make sure you have:
 ## Create your first script
 
 1. Go to **Settings** (⚙️) > **Marketplace Apps** > **Power Scripts** > **SIL Manager**.
-2. In the **Files** panel, select the `silprograms` directory.
+2. In the **Files** panel, select the `silprograms` folder.
 
    ![PS-files-panel.png](/cms_trial/assets/9e2589cd-b4f1-44f7-8860-0a89e0ff0701.png)
 3. Click **File** > **New file**, or right-click the directory and select **New** > **File**. Create a SIL file named `duedate.sil`.
@@ -23,7 +23,9 @@ Make sure you have:
    `dueDate = currentDate() + "5d";`
 5. Click the **Save** icon.
 
-The `dueDate` standard variable represents the Due date field of the Jira work item. The `currentDate()` function returns the current date, and the `+` `"5d"` adds five days to the current date. You can find standard variables, functions, and other SIL syntax in [Simple Issue Language](/cms_trial/space/PSJC/434798967/Simple+Issue+Language/).
+SIL scripts are case-sensitive.
+
+The `dueDate` standard variable represents the Due date field of the Jira work item. The `currentDate()` function returns the current date, and the `+` `"5d"` adds five days to the current date. You can find standard variables, functions, and other SIL syntax in[Simple Issue Language](/cms_trial/space/PSJC/434798967/Simple+Issue+Language/).
 
 ![PS-sil-example.png](/cms_trial/assets/6187d12a-616d-4285-bb14-56f87400cf63.png)
 
@@ -44,7 +46,7 @@ The selected work item is now associated with your script. When you run the scri
 Now that you've selected the work item the script will run against, check the script for errors before running it.
 
 1. Click the **Check** icon.
-2. Review the results and confirm that the script does not contain errors.
+2. Review the results and confirm the script does not contain errors.
 3. Click the **Run** icon.
 4. Review the execution results and confirm that the script ran successfully.
 

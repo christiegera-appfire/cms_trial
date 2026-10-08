@@ -14,7 +14,7 @@ Make sure you have:
 ## Create the listener script
 
 1. Open **SIL Manager**. Go to **Settings** (⚙️) > **Marketplace Apps** > **Power Scripts** > **SIL Manager**.
-2. In the **Files** panel, select the `silprograms` directory. You can also click **File** > **New folder**, or right-click the directory and select **New** > **Folder** and create a folder for your script named `Listeners`.
+2. In the **Files** panel, select the `silprograms` folder. You can also click **File** > **New folder**, or right-click the directory and select **New** > **Folder** and create a folder for your script named `Listeners`.
 
    ![PS-files-panel.png](/cms_trial/assets/7f558143-da34-43e9-92f4-4490b3d2c5c9.png)
 3. Select the `Listeners` folder, then click **File > New file**, or right-click the folder and select **New > File**. Name the file `short_description_listener.sil`.
@@ -30,7 +30,8 @@ if(length(description) < 50) {
 }
 ```
 
-1. Click the **Save** icon.
+1. Click the **Check** icon. Review the results and confirm the script has no errors.
+2. Click the **Save** icon.
 
 The script checks the work item description. If it has fewer than 50 characters, Power Scripts adds a comment to the work item asking for more information.
 
@@ -41,7 +42,7 @@ The script does not run automatically until you configure a listener and connect
 1. Go to **Power Scripts** > **Configurations** > **Automations** > **Listeners**.
 2. Click **Add listener**. The **Add New Listener** dialog opens.
 3. From **Choose the script**, click the **Select** icon, locate the script you just created, and click **Select**.
-4. Select **Issue Created** as the event. When the event occurs, in this case, when a work item is created, the listener runs the script.
+4. Select **Issue Created** as the event. You can type the event name in the **Select events** field instead of scrolling through the list. When the event occurs, in this case, when a work item is created, the listener runs the script.
 5. If needed, limit the listener to the project or work item type you want to use for testing.
 6. Click **Add** to save the listener.
 

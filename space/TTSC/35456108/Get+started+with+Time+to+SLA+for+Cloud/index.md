@@ -103,7 +103,7 @@ The SLA panel is your real-time view of how well your team is meeting your servi
 
 ![An SLA panel created by Time to SLA for Jira Cloud on the Jira work item view.](/cms_trial/assets/7eaa5751-e108-460a-80b9-7ae31a3477e2.png)
 
-To see the SLA panel on your existing work items, you must [recalculate your SLA data](#)**.**
+To see the SLA panel on your existing work items, you must [recalculate your SLA data](/cms_trial/space/TTSC/35456416/Recalculation/)**.**
 
 Having problems? Here are quick solutions:
 
