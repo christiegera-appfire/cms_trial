@@ -14,7 +14,7 @@ This page outlines the updates included in the latest release of Comala Document
 
 ### Global and Space Settings
 
-- **Settings** tabs now use consistent naming and ordering across *Global Settings* and *Space Settings*.
+- *Settings* tabs now use consistent naming and ordering across *Global Settings* and *Space Settings*.
 
 ### Space Workflows
 

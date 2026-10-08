@@ -4,13 +4,13 @@
 
 Many Jira Cloud customers rely on powerful workflow apps like Jira Misc Workflow Extensions (JMWE) and Jira Suite Utilities (JSU) to automate processes, enforce governance, and reduce manual work. As Jira environments grow, teams often need to move these workflows between instances — for example, when promoting changes from test to production, consolidating instances, or supporting mergers and acquisitions.
 
-CMJ Cloud makes it easy to move workflows that include JMWE and JSU configurations between Jira Cloud instances, helping teams standardize automation, reduce risk, and save time.
+CMJ Cloud makes it easy to move workflows that include supported JMWE and JSU configurations between Jira Cloud instances, helping teams standardize automation, reduce risk, and save time.
 
 ---
 
 ## The Challenge
 
-Workflows that depend on JMWE or JSU are often complex. They can contain scripts, validators, conditions, post-functions, and deeply nested configuration data. These configurations frequently reference environment-specific Jira object IDs, such as custom fields, which differ between instances. Recreating this setup manually is time-consuming and increases the risk of configuration errors. At the same time, teams need to ensure that any intentional customizations in the target environment are not accidentally overwritten.
+Workflows that depend on JMWE or JSU are often complex. They can contain scripts, validators, conditions, post functions, and deeply nested configuration data. These configurations frequently reference environment-specific Jira object IDs, such as custom fields, which differ between instances. Recreating this setup manually is time-consuming and increases the risk of configuration errors. At the same time, teams need to ensure that any intentional customizations in the target environment are not accidentally overwritten.
 
 As a result, teams either avoid reusing proven automation or spend significant effort rebuilding workflows in each environment.
 
@@ -18,7 +18,7 @@ As a result, teams either avoid reusing proven automation or spend significant e
 
 ## The CMJ Cloud Solution
 
-CMJ Cloud provides built-in support for deploying workflows that include JMWE and JSU app data as part of its standard migration and deployment process. When exporting configurations, CMJ Cloud captures the full workflow structure, including app-specific settings. During deployment, it intelligently remaps Jira object references so that workflows align with the target environment.
+CMJ Cloud provides built-in support for deploying workflows that include supported JMWE and JSU app data as part of its standard migration and deployment process. When exporting configurations, CMJ Cloud captures the workflow structure, including supported app-specific settings. During deployment, it remaps supported Jira object references so that workflows align with the target environment.
 
 The following step-by-step guide shows just how easy the whole process is.
 
@@ -30,21 +30,27 @@ The following step-by-step guide shows just how easy the whole process is.
 
 ## JMWE App Support
 
-CMJ Cloud understands how JMWE builds workflow logic for conditions, validators, and post-functions.
+CMJ Cloud supports the deployment of JMWE workflow extensions, including conditions, validators, and post functions.
 
-During deployment, CMJ Cloud safely synchronizes JMWE-generated logic with the target environment while intentionally protecting any custom scripts or JQL already configured on the target. This ensures workflows behave consistently across environments without overwriting local customizations.
+During deployment, CMJ Cloud reads JMWE's internal workflow logic and safely synchronizes supported configurations with the target environment. It updates system-generated logic where needed for consistency while preserving any custom scripts or JQL already configured on the target.
 
-Post-functions are deployed as expected, allowing teams to reuse JMWE-driven automation with confidence.
+Post functions are created and configured as expected, but script-like inputs on the target remain untouched to avoid disrupting existing customizations.
+
+**Behavior limitations**
+
+Some post functions, such as Slack-related or shared action functions, are deployed with their configurations, but external references are not resolved during deployment. Event-based and scheduled actions are not currently supported.
 
 **Benefits:**
 
-- Reuse complex JMWE automation across environments
-- Avoid manual script updates or reconfiguration
-- Reduce risk when promoting workflows to production
+- Reuse supported JMWE workflow extensions across environments
+- Preserve existing custom scripts and JQL on the target
+- Reduce the risk of configuration errors when promoting workflows to production
 
 ---
 
 ## JSU App Support
+
+CMJ Cloud supports the deployment of all 12 JSU workflow configurations, including 9 post functions, 2 conditions, and 1 validator.
 
 JSU workflows often include deeply nested rules and multiple Jira object references. CMJ Cloud handles this complexity automatically.
 
@@ -54,8 +60,8 @@ This allows teams to migrate even advanced JSU automation without simplifying or
 
 **Benefits:**
 
-- Deploy complex JSU workflows without manual effort
+- Deploy all supported JSU workflow configurations without manual effort
 - Maintain workflow logic and structure across instances
-- Ensure correct field and object mapping every time
+- Automatically map Jira field and object references during deployment
 
 ---

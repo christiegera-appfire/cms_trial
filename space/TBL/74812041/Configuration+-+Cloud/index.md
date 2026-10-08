@@ -2,26 +2,44 @@
 
 Check out this video for detailed configuration guidance, including how to set up and use custom Profiles.
 
+## Advanced Tables Configuration
+
 After [installing](/cms_trial/space/TBL/74814028/Installation/) or updating the Advanced Tables for Confluence app, configure the app settings in the Advanced Table Configuration screen.
 
-To navigate to the screen:
+You can navigate to the configuration screen from either **Settings** or the **App connections** section.
+
+To navigate to the configuration screen from **Settings**:
+
+1. Log in as a Confluence administrator and select **Settings**(▢).
+2. In the left navigation, under **Apps**, click **Advanced Tables Configuration**.
+3. The **Advanced Tables** **Configuration** page opens.
+
+   ![AT_Global configuration page.png](/cms_trial/assets/0b28f44b-90e8-4d26-b47e-db35f8507f02.png)
+
+To navigate to the configuration screen from the **App** **connections** section.
 
 1. Log in to <https://admin.atlassian.com/> as a Confluence administrator and select your **organization**.
 2. In the left navigation pane, go to **Apps** and under **Sites**, click the **Site** name.
-3. The **Site settings** page opens.
-4. Under **Site settings**, click **Connected apps**.
-5. From the **Connected apps** page, you can view, update, configure, and uninstall installed apps.
-6. Search for **Advanced Tables for Confluence** and click **More actions** (…).
+3. The **Site settings** page opens. Under **Site settings**, click **Connected apps**.
+4. On the **Connected apps** page, search for **Advanced Tables for Confluence** and click **View app details**.
 
-   ![Connected Apps page with Advanced Tables and More actions menu](/cms_trial/assets/7cb6dd57-ed84-454c-929d-941fe00d05e6.jpg)
-7. Click **Configure,** and the **Advanced Tables** **Configuration** page opens.
+   ![Advanced Tables_connected apps.jpg](/cms_trial/assets/76bffa18-0287-4448-b97a-c470a4900844.jpg)
+5. The app **Details** page opens. Go to the **Connections** tab.
+
+   ![App details page_connections.png](/cms_trial/assets/35c5b5b2-221b-45ad-877f-fc7ba0896eb4.png)
+6. In the **App connections** section, for the Confluence app, under **Actions**, click **Configure**.
+
+   ![Connections_click Configure.png](/cms_trial/assets/22826e09-cfe3-4b83-a9f3-5307cf4f4daa.png)
+7. The **Advanced Tables** **Configuration** page opens.
+
+   ![AT_Global Config page.png](/cms_trial/assets/dc6be8cb-f240-4690-beb8-587db73ce574.png)
 
 The following configuration options are available:
 
 - [Global Configuration](/cms_trial/space/TBL/74812041/Configuration+-+Cloud/)
 - [Profiles](/cms_trial/space/TBL/74812041/Configuration+-+Cloud/) (available for CSV Table, JSON Table, and Advanced Table Viewer macros)
 
-## Global configuration
+### Global configuration
 
 Use the toggle to enable or disable the *Global configuration* settings.
 
@@ -37,13 +55,13 @@ As an administrator, you can:
 | Enable Ask Rovo | ON | - This applies to the **Advanced Table Viewer** and **Native Table Enhancer** macros. - Enable this option toactivate the **Ask Rovo** button in the Advanced Table Viewer macro and Native Table Enhancer macros. When a user opens Ask Rovo in the macro, the table data is sent to Rovo for analysis. Before enabling, review [Rovo usage allowance](https://support.atlassian.com/rovo/docs/rovo-usage-limits/). - You can disable the **Enable Ask Rovo** toggle at any time to manage Rovo usage. When disabled, the Ask Rovo button remains visible in the macro but is disabled, with a tooltip prompting users to contact their Confluence Administrator. - For more information, refer to [Analyze Advanced Table Viewer data with Atlassian Rovo](/cms_trial/space/TBL/3429499007/Analyze+Advanced+Table+Viewer+data+with+Atlassian+Rovo/) and [Analyze Native Table Enhancer data with Atlassian Rovo](/cms_trial/space/TBL/3568173411/Analyze+Native+Table+Enhancer+%5BBeta%5D+macro+data+with+Atlassian+Rovo/).   - Rovo is automatically [activated](https://www.atlassian.com/software/rovo/guides/admin-guide/rovo-activation) for Enterprise, Premium, and Standard Cloud plans. To fully use Rovo, AI must be enabled on each site to which Rovo has been added. If Rovo is not enabled, contact your Atlassian Organization Administrator. [Read more](https://support.atlassian.com/organization-administration/docs/manage-rovo-access/). - If Ask Rovo isn't working, contact your Atlassian Organization Administrator to check **Atlassian Administration > Rovo > Rovo access** and confirm Confluence isn't on the blocked list. [Read more](https://support.atlassian.com/organization-administration/docs/manage-rovo-access/). |
 | Help us improve the product | ON | Enable this option to report usage data that helps us improve the app continually. The app does not send any private user data or personally identifiable information. To learn more about what is being sent, refer to [Data security and privacy](/cms_trial/space/TBL/74815010/Data+security+and+privacy/). |
 
-## Profiles
+### Profiles
 
 Profiles consist of a common set of parameters that allow users to use the configured profile in the macros. Some advantages of using profiles are:
 
 - Profiles allow user authentication required by some URLs to be hidden from page viewers and editors. Only Confluence administrators have access to this information.
 - Enables macro editors to quickly configure the macro by reusing a shared definition for URL access.
-- Relative addressing can be used making the page content less likely to require changes when base URLs are relocated.
+- Relative addressing can be used, making the page content less likely to require changes when base URLs are relocated.
 
   - Macro configured URL (that is not a full URL) is appended to the profile provided URL.
 
