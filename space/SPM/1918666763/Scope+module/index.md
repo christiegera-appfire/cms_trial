@@ -10,7 +10,7 @@ The **Scope module** is a customizable task list. It lets you freely [arrange co
 
 You can also [edit task details inline](/cms_trial/space/SPM/1918637324/Inline+edit/) and [export](https://appfire.atlassian.net/wiki/spaces/BTc/pages/3536519213) the view for reporting.
 
-The module's key features are the multi-level hierarchies, quick filters, and [advanced aggregation](/cms_trial/space/SPM/1918636993/Column+data+aggregation+methods/).
+The module's key features are the multi-level hierarchies, quick filters, and [advanced aggregation](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918636993).
 
 See the video to learn more about the module.
 
@@ -53,7 +53,7 @@ The **Scope module** is a customizable task list. It lets you freely [arrange co
 
 You can also [edit task details inline](/cms_trial/space/SPM/1918637324/Inline+edit/) and [export](https://appfire.atlassian.net/wiki/spaces/BTc/pages/3536519213) the view for reporting.
 
-The module's key features are the multi-level hierarchies, quick filters, and [advanced aggregation](/cms_trial/space/SPM/1918636993/Column+data+aggregation+methods/).
+The module's key features are the multi-level hierarchies, quick filters, and [advanced aggregation](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918636993).
 
 See the video to learn more about the module.
 

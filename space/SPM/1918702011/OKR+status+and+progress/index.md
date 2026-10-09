@@ -57,7 +57,7 @@ When you close an OKR, you can assign it a status to better reflect the reason f
 The progress and status of your OKRs can be tracked only in the OKR module on the:
 
 - [*Overview*](/cms_trial/space/SPM/1918834317/OKR+Overview/) page (**Progress** column)
-- [*Hierarchy*](/cms_trial/space/SPM/1918669889/OKR+Hierarchy/) page
+- [*Hierarchy*](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918669889) page
 - [*Progress Dashboard*](/cms_trial/space/SPM/1918801225/Progress+Dashboard/) page
 - [*OKR Details*](/cms_trial/space/SPM/1918536390/OKR+details+page/) page
 - [OKR Details side panel](/cms_trial/space/SPM/1918865686/OKR+Details+side+panel/)

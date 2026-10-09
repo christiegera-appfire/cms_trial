@@ -61,7 +61,7 @@ The interactive presentation below walks you through the box editing in all Over
 1. On the **Edit details** screen, change the box details.
 2. **Save** to finish the process.
 
-#### Overview module ([Kanban board mode](/cms_trial/space/SPM/1918700991/Kanban+board+mode/))
+#### Overview module ([Kanban board mode](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918700991))
 
 1. Go to the **Overview module** and open the **Home box**.
 2. **Right-click** the box card (anywhere but the box name link)
@@ -233,7 +233,7 @@ The interactive presentation below walks you through the box editing in all Over
 1. On the **Edit details** screen, change the box details.
 2. **Save** to finish the process.
 
-#### Overview module ([Kanban board mode](/cms_trial/space/SPM/1918700991/Kanban+board+mode/))
+#### Overview module ([Kanban board mode](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918700991))
 
 1. Open the Main box in the Overview module.
 2. **Right-click** the box card (anywhere but the box name link)

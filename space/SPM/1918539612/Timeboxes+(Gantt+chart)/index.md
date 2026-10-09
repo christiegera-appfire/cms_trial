@@ -36,7 +36,7 @@ The colors of the boxes reflect the current status:
 - **In progress** (blue)
 - **Closed** (green)
 
-You can change the box status using the Overview module's [Kanban board mode](/cms_trial/space/SPM/1918700991/Kanban+board+mode/), or by using the **right-click** context menu.
+You can change the box status using the Overview module's [Kanban board mode](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918700991), or by using the **right-click** context menu.
 
 ## Auto-scheduling
 

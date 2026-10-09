@@ -6,16 +6,6 @@ This guide provides all the essential information to configure BigPicture. Explo
 
 If you want to learn more about BigPicture features, see the [User guide](/cms_trial/space/SPM/1918535153/User+guide/).
 
-- [App configuration](/cms_trial/space/SPM/1918698881/App+configuration/)
-  - [General (App configuration)](/cms_trial/space/SPM/1918536153/General+(App+configuration)/)
-  - [Modules (App configuration)](/cms_trial/space/SPM/1918405394/Modules+(App+configuration)/)
-  - [Integrations (App configuration)](/cms_trial/space/SPM/1918405249/Integrations+(App+configuration)/)
-  - [Widgets](/cms_trial/space/SPM/1918832064/Widgets/)
-  - [Performance (App configuration)](/cms_trial/space/SPM/1918764560/Performance+(App+configuration)/)
-  - [License](/cms_trial/space/SPM/1918503677/License/)
-  - [Region](/cms_trial/space/SPM/1918862810/Region/)
-  - [Advanced](/cms_trial/space/SPM/1918862279/Advanced/)
-  - [OKR Settings](/cms_trial/space/SPM/1918797926/OKR+Settings/)
 - [App administration](/cms_trial/space/SPM/1918829342/App+administration/)
   - [Box types](/cms_trial/space/SPM/1918830000/Box+types/)
   - [Resources](/cms_trial/space/SPM/1918831342/Resources/)

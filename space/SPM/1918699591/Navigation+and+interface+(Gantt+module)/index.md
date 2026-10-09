@@ -19,7 +19,7 @@ The Gantt module consists of four main sections:
 
 The upper-left section features a [task structure](/cms_trial/space/SPM/1918832018/Task+structure/) that represents the scope of the box. You can [automatically arrange](/cms_trial/space/SPM/1918832018/Task+structure/) the box contents into a specific hierarchy. You can also create the hierarchy for your work items [manually](/cms_trial/space/SPM/1918669003/Manual+task+structure/), or combine a manual and automatic approach.
 
-The work items arrange into columns, forming a [column view](/cms_trial/space/SPM/1918668270/Column+view+(Gantt+and+Scope+modules)/). Most of the columns can be [aggregated](/cms_trial/space/SPM/1918636993/Column+data+aggregation+methods/), and the custom views can be saved.
+The work items arrange into columns, forming a [column view](/cms_trial/space/SPM/1918668270/Column+view+(Gantt+and+Scope+modules)/). Most of the columns can be [aggregated](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918636993), and the custom views can be saved.
 
 ### Gantt chart (Gantt timeline)
 
@@ -229,7 +229,7 @@ The Gantt module consists of four main sections:
 
 The upper-left section features a [task structure](/cms_trial/space/SPM/1918832018/Task+structure/) that represents the scope of the box. You can [automatically arrange](/cms_trial/space/SPM/1918832018/Task+structure/) the box contents into a specific hierarchy. You can also create the hierarchy for your work items [manually](/cms_trial/space/SPM/1918669003/Manual+task+structure/), or combine a manual and automatic approach.
 
-The work items are arranged into columns, forming a [column view](/cms_trial/space/SPM/1918668270/Column+view+(Gantt+and+Scope+modules)/). Most of the columns can be [aggregated](/cms_trial/space/SPM/1918636993/Column+data+aggregation+methods/), and the custom views can be saved.
+The work items are arranged into columns, forming a [column view](/cms_trial/space/SPM/1918668270/Column+view+(Gantt+and+Scope+modules)/). Most of the columns can be [aggregated](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918636993), and the custom views can be saved.
 
 ### Gantt chart (Gantt timeline)
 

@@ -8,7 +8,7 @@ Click to expand the guide
 
 When you select a risk register from the list, you'll be taken to the risks table, where you can track all risks within the selected register. This view lets you apply filters to narrow the results, customize the table by adding columns, generate reports, and create new risks without leaving the module. Most importantly, you can assign values to the metrics, ensuring comprehensive risk assessment and management.
 
-The table consists of issue types defined when creating the risk register ([you can customize it anytime](/cms_trial/space/SPM/1918669991/Risk+register+general+settings/)). The issue types come from the Jira projects that are in the scope of the box you’re in.
+The table consists of issue types defined when creating the risk register ([you can customize it anytime](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918669991)). The issue types come from the Jira projects that are in the scope of the box you’re in.
 
 ![An example of a Risk Register.](/cms_trial/assets/f510fb40-667b-44fd-871a-44daf4cc8b84.png)
 
@@ -89,7 +89,7 @@ Click to expand the guide
 
 When you select a risk register from the list, you'll be taken to the risks table, where you can track all risks within the selected register. This view lets you apply filters to narrow the results, customize the table by adding columns, generate reports, and create new risks without leaving the module. Most importantly, you can assign values to the metrics, ensuring comprehensive risk assessment and management.
 
-The table consists of work item types defined when creating the risk register ([you can customize it anytime](/cms_trial/space/SPM/1918669991/Risk+register+general+settings/)). The work item types come from the Jira spaces that are in the scope of the box you’re in.
+The table consists of work item types defined when creating the risk register ([you can customize it anytime](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918669991)). The work item types come from the Jira spaces that are in the scope of the box you’re in.
 
 ![Screenshot of the Risks table in the Risk Management module.](/cms_trial/assets/1a7d25be-049c-4918-ab3f-446ffbb868c4.png)
 

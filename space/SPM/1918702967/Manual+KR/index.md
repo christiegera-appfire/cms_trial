@@ -74,7 +74,7 @@ As the current value increases, the app calculates the progress according to the
 The change in progress is reflected in the OKR module’s individual pages:
 
 - [*Overview*](/cms_trial/space/SPM/1918834317/OKR+Overview/) page (**Progress** column)
-- [*Hierarchy*](/cms_trial/space/SPM/1918669889/OKR+Hierarchy/) page
+- [*Hierarchy*](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918669889) page
 - [*Progress Dashboard*](/cms_trial/space/SPM/1918801225/Progress+Dashboard/) page
 - [*OKR Details*](/cms_trial/space/SPM/1918536390/OKR+details+page/) page (**Progress** tab)
 

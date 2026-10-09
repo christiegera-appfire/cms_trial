@@ -60,4 +60,4 @@ Click the **Close** button when ready.
 
 1. When you’re done, remember to check the results you want to create and click the **Create KRs** button to add the selected KRs.   
    You can stay on the *Tree view* page to generate more ideas, add new OKRs manually, or click **Finish & go back** to return to the Overview page.
-2. The new KRs are visible under their parent Objective on the [*Tree view*](/cms_trial/space/SPM/1918801711/Tree+view/), [*Overview*](/cms_trial/space/SPM/1918834317/OKR+Overview/), and [*Hierarchy*](/cms_trial/space/SPM/1918669889/OKR+Hierarchy/) pages.
+2. The new KRs are visible under their parent Objective on the [*Tree view*](/cms_trial/space/SPM/1918801711/Tree+view/), [*Overview*](/cms_trial/space/SPM/1918834317/OKR+Overview/), and [*Hierarchy*](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918669889) pages.

@@ -41,7 +41,7 @@ Switch to compact mode if you want to fit more cards on the screen. Read more on
 
 ![Screenshot of the View menu in the Board module.](/cms_trial/assets/480f9785-53cf-4365-9ede-49bb2dd23e08.png)
 
-### [Task warnings](/cms_trial/space/SPM/1918636230/Task+warnings+(Board+module)/)
+### [Task warnings](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918636230)
 
 To see warnings, ensure the **Task warnings** option is active, as indicated by a checkmark.
 
@@ -118,7 +118,7 @@ Switch to compact mode if you want to fit more cards on the screen. Click **View
 
 ![Screenshot of the compact layout in the Board module.](/cms_trial/assets/778f042f-d2bd-4ee1-8b6c-48bd12dbc8c9.png)
 
-### [Task warnings](/cms_trial/space/SPM/1918636230/Task+warnings+(Board+module)/)
+### [Task warnings](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918636230)
 
 To see warnings, click **View** > **Task warnings**.
 

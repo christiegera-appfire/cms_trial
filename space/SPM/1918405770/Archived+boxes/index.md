@@ -31,7 +31,7 @@ You can also add an **Archived**column to the view:
 
 ![Archived column](/cms_trial/assets/23401814-90fe-4f5d-ae18-e347a4148d61.png)![Archived column](/cms_trial/assets/6308c840-6107-49f5-9f6b-d58d7ab40783.png)
 
-Archived Boxes have a label (in the [Kanban](/cms_trial/space/SPM/1918700991/Kanban+board+mode/) mode).
+Archived Boxes have a label (in the [Kanban](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918700991) mode).
 
 ![Archived box in kanban mode](/cms_trial/assets/e28c7e4e-6a76-41aa-9fdd-191cee34b6c9.png)
 

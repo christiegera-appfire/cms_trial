@@ -222,7 +222,7 @@ Available view settings depend on the selected swimlane type.
 | --- | --- |
 | **View > Layout**   - Compact - Regular - Wide  Screenshot of the Layout options in the Board module. | - Team - Team members - Priority - Color |
 | **View > Aggregation**  Type:   - None - Work progress - Capacity allocation   Aggregate by:   - Story points - Tasks - Time spent (standard format, days, or hours)   When the aggregation is set to **Capacity allocation** by **Story points,** you can edit the capacity:   1. Click on the **Edit** icon next to capacity. 2. Enter capacity in story points. 3. When ready, click **Save**.   When a team member is assigned to more than one team, you cannot edit their capacity on the swimlane. To edit the capacity, go to [**Board > Capacity planning**](/cms_trial/space/SPM/1918798757/Capacity+planning+(Board+module)/). Screenshot of the capacity planning section in the Board module. | - Team - Team members |
-| **View >** [**Task warnings**](/cms_trial/space/SPM/1918636230/Task+warnings+(Board+module)/)  Tasks are marked in orange, and an **exclamation mark** icon appears next to each task that requires attention. Screenshot of task warnings enabled in the Board module. | - Team - Team members - Status - Priority - Color |
+| **View >** [**Task warnings**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918636230)  Tasks are marked in orange, and an **exclamation mark** icon appears next to each task that requires attention. Screenshot of task warnings enabled in the Board module. | - Team - Team members - Status - Priority - Color |
 | **View > Objectives**  If objectives are defined, they are displayed above tasks. Screenshot of Objectives enabled in the Board module. | - Team |
 
 ## Swimlane value

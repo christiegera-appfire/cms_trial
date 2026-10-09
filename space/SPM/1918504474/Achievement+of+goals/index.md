@@ -85,7 +85,7 @@ Keep in mind that the status of the Box determines the possibility to set the Bu
 | In progress | editable | editable |
 | Closed | not editable | not editable |
 
-The [business value must be enabled](/cms_trial/space/SPM/1918701325/Objectives+-+Business+value+and+associated+work/) for a box type. Otherwise, PBV and ABV fields will be hidden.
+The [business value must be enabled](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918701325) for a box type. Otherwise, PBV and ABV fields will be hidden.
 
 PBV - Planned Business Value
 
@@ -258,7 +258,7 @@ Keep in mind that the status of the Box determines the possibility to set the Bu
 | In progress | Editable | Editable |
 | Closed | Not editable | Not editable |
 
-The [business value must be enabled](/cms_trial/space/SPM/1918701325/Objectives+-+Business+value+and+associated+work/) for a box type. Otherwise, PBV and ABV fields will be hidden.
+The [business value must be enabled](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918701325) for a box type. Otherwise, PBV and ABV fields will be hidden.
 
 PBV - Planned Business Value
 

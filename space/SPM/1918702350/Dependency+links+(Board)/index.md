@@ -6,7 +6,7 @@ With the **Board** module, you can display both **strong** and **soft links**. T
 
 ## Configuration
 
-Dependencies can synchronize with Jira links in the [App's configuration](/cms_trial/space/SPM/1918698881/App+configuration/), which requires Jira admin permissions.
+Dependencies can synchronize with Jira links in the [App's configuration](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918698881), which requires Jira admin permissions.
 
 ![image-20240925-083110.png](/cms_trial/assets/e5ecc421-a85c-4b81-97f1-8358b78eb5d3.png)
 

@@ -114,7 +114,7 @@ The **Objectives**, **Key Results**, and **OKR Type** columns:
 
 - Cannot be [field mapped](/cms_trial/space/SPM/1918700586/Field+mapping/) with any other Jira field.
 - Cannot be [edited inline](/cms_trial/space/SPM/1918637324/Inline+edit/). You can edit OKR data only in the OKR module.
-- Cannot be [aggregated](/cms_trial/space/SPM/1918636993/Column+data+aggregation+methods/). But you can pin them to keep them always visible in your current view.
+- Cannot be [aggregated](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918636993). But you can pin them to keep them always visible in your current view.
 
 ## Track OKRs across modules (new navigation)
 
@@ -226,4 +226,4 @@ The **Objectives**, **Key Results**, and **OKR Type** columns:
 
 - Cannot be [field mapped](/cms_trial/space/SPM/1918700586/Field+mapping/) with any other Jira field.
 - Cannot be [edited inline](/cms_trial/space/SPM/1918637324/Inline+edit/). You can edit OKR data only in the OKR module.
-- Cannot be [aggregated](/cms_trial/space/SPM/1918636993/Column+data+aggregation+methods/). But you can pin them to keep them always visible in your current view.
+- Cannot be [aggregated](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918636993). But you can pin them to keep them always visible in your current view.

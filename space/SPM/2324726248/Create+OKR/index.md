@@ -57,7 +57,7 @@ During OKR creation, you can restrict your new OKR. Visit the [Restrict OKR](/cm
 You can create a parent Strategic theme and a parent Objective for your initiative, project, program, or portfolio directly on the:
 
 - [*OKR Overview*](/cms_trial/space/SPM/1918834317/OKR+Overview/) page
-- [*OKR Hierarchy*](/cms_trial/space/SPM/1918669889/OKR+Hierarchy/) page
+- [*OKR Hierarchy*](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918669889) page
 - [*Progress Dashboard*](/cms_trial/space/SPM/1918801225/Progress+Dashboard/) page
 
 (Note that all three of those pages share the same top menu, so you can follow the steps while viewing any of them.)

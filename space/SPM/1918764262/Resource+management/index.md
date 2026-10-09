@@ -22,7 +22,7 @@ Workload and capacity are the two co-existing concepts behind resource managemen
 - Workload is the amount of work assigned to or expected from a particular resource within a specific period.
 - [Capacity](/cms_trial/space/SPM/1918765081/Capacity+calculation/) is the maximum amount of work or output that a resource can handle or deliver within a specific period. It represents the limit to which a resource can be utilized without overloading or underutilizing it.
 
-The Resources module visualizes resource capacity and workload in the form of [color-coded bars](/cms_trial/space/SPM/1918636529/Workload%2C+capacity%2C+and+utilization+-+tile+coloring/) whose colors and capacity thresholds can be customized. You can click the bar to open a dialog with full [workload details](/cms_trial/space/SPM/1918864229/Workload+details/). To find out details on an individual task, click the taskbar to open a dialog with [task details](/cms_trial/space/SPM/1918766626/Task+details+(Resources)/).
+The Resources module visualizes resource capacity and workload in the form of [color-coded bars](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918636529) whose colors and capacity thresholds can be customized. You can click the bar to open a dialog with full [workload details](/cms_trial/space/SPM/1918864229/Workload+details/). To find out details on an individual task, click the taskbar to open a dialog with [task details](/cms_trial/space/SPM/1918766626/Task+details+(Resources)/).
 
 Refer to the [Workload and capacity](/cms_trial/space/SPM/1918634628/Workload+and+capacity/) page for more information.
 
