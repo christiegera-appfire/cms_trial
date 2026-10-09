@@ -11,7 +11,7 @@ The **Column calculation** feature supports the following calculation types: **S
 - You can configure column calculations only in macro setup mode and cannot change them in Confluence page view mode.
 - You can summarize specific rows with conditions (**SUMIF** and **COUNTIF**)
 - - For **Sum** and **Count,** the macro provides **conditional calculations** to summarize only the values in rows that match the condition. This works like SUMIF and COUNTIF in spreadsheets. The condition can use any column in the table, not only the column you are calculating.
-- The feature adds a summarized row below the table header.
+- The macro adds a summarized row below the table header.
 - The macro displays the configured Sum-up values in the Confluence page view mode.
 
   ![Native Table Enhancer_Edit Column calculation dialog](/cms_trial/assets/df939309-f6ea-47bb-956d-5bee71a8c226.png)

@@ -24,6 +24,12 @@ Field configurations are used ultimately to set up the hidden or required field 
 - [admUpdateFieldConfig](/cms_trial/space/PSJC/861733003/admUpdateFieldConfig/)
 - [admUpdateFieldConfigItem](/cms_trial/space/PSJC/861733016/admUpdateFieldConfigItem/)
 - [admUpdateFieldConfigScheme](/cms_trial/space/PSJC/860324334/admUpdateFieldConfigScheme/)
+- [admAssociateFieldWithScheme](/cms_trial/space/PSJC/3743613025/admAssociateFieldWithScheme/)
+- [admDisassociateFieldFromScheme](/cms_trial/space/PSJC/3743907879/admDisassociateFieldFromScheme/)
+- [admGetAllFieldSchemes](/cms_trial/space/PSJC/3743350855/admGetAllFieldSchemes/)
+- [admProjectUsesFieldSchemeModel](/cms_trial/space/PSJC/3743842360/admProjectUsesFieldSchemeModel/)
+- [admRemoveFieldSchemeFieldParameters](/cms_trial/space/PSJC/3743907887/admRemoveFieldSchemeFieldParameters/)
+- [admUpdateFieldSchemeFieldParameters](/cms_trial/space/PSJC/3743547583/admUpdateFieldSchemeFieldParameters/)
 
 Structures used:
 

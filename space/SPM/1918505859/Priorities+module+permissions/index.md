@@ -4,22 +4,31 @@
 
 This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
 
-## Default permissions
+Access to the Priorities module is based on:
 
-By default, every user has full permissions (Administer BigPicture Advanced Priorities).
+- [App roles](/cms_trial/space/SPM/1918535770/App-level+permissions/) (**Administration** > **Security**)
 
-## Change permissions
+  ![Screenshot of App roles in BigPicture. ](/cms_trial/assets/534fa3c2-ab44-4f31-92a4-6178696f8c3f.png)
+- [Box-level roles](/cms_trial/space/SPM/1918797447/Box-level+permissions/) (**Box configuration** > **Security**)
 
-To change permissions, you need to be a Jira Administrator.
+  ![Screenshot of the Security tab in the box configuration.](/cms_trial/assets/7d52b697-b0bd-4261-acce-51503d130d84.png)
 
-1. Go to **Jira settings** > **System** > **Security** > **Global permissions**.
+## Permissions matrix
 
-![Screenshot of the available permissions for the Priorities module in BigPicture Enterprise.](/cms_trial/assets/98d43f1c-3160-4547-8604-c3b991438bf5.png)
+The table below presents the actions available to each App and box role in the Priorities module.
 
-## Available permissions
-
-| **Permission** | **Description** |
-| --- | --- |
-| Administer BigPicture Advanced Priorities | Users with this permission can:   - Configure prioritization templates (edit, create, delete). - Prioritize issues. - Access the priority matrix in the BigPicture Priorities module. |
-| Manage BigPicture Advanced saved views | Users with this permission can:   - Create, edit, and delete saved views in the BigPicture Priorities module.   All users have permission to view saved views. |
-| Access BigPicture Advanced priority poker | Users with this permission can:   - View, create, delete, and play poker games in Priority Poker, in the BigPicture Priorities module.   Users can only delete games they created. |
+| **Action in the Priorities module** | **App Admin** | **App Priorities Admin** | **Box Admin** | **Box Editor** | **Box Viewer** |
+| --- | --- | --- | --- | --- | --- |
+| Access the Priorities table | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Access the Priority matrix | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Use filters | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Manage saved views | ✅ | ✅ | ✅ | ✅ | ❌ |
+| Prioritize work items (edit metrics) | ✅ | ✅ | ✅ | ✅ | ❌ |
+| Create Priority Planning Poker games | ✅ | ✅ | ✅ | ✅ | ❌ |
+| Delete poker games | ✅ | ✅ | ✅ | ❌ (✅ can delete if it’s the game owner) | ❌ |
+| Access the Configurescreen | ✅ | ✅ | ✅ | ❌ | ❌ |
+| Select (change) templates for a given box | ✅ | ✅ | ✅ | ❌ | ❌ |
+| Edit metrics in existing templates | ✅ | ✅ | ❌ | ❌ | ❌ |
+| Create new templates | ✅ | ✅ | ❌ | ❌ | ❌ |
+| Edit template formulas | ✅ | ✅ | ❌ | ❌ | ❌ |
+| Delete templates | ✅ | ✅ | ❌ | ❌ | ❌ |
