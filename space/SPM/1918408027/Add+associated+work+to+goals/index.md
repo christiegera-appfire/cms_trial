@@ -10,7 +10,7 @@ Click to expand the guide
 
 You can attach existing tasks to your goals. Tasks are visible under the respective goals but can be collapsed.
 
-To use associated work, ensure it has been [enabled for a relevant box type](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918701325).
+To use associated work, ensure it has been [enabled for a relevant box type](/cms_trial/space/SPM/1918701325/Objectives+-+Business+value+and+associated+work/).
 
 ![Team Objectives, existing tasks](/cms_trial/assets/1c07ebe9-b9bb-49f2-8442-eacaac1d1a5a.png)
 
@@ -90,7 +90,7 @@ Click to expand the guide
 
 You can attach existing tasks to your goals. Tasks are visible under the respective goals, but can be collapsed.
 
-To use associated work, ensure it is [enabled for the relevant box type](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918701325).
+To use associated work, ensure it is [enabled for the relevant box type](/cms_trial/space/SPM/1918701325/Objectives+-+Business+value+and+associated+work/).
 
 Only tasks that are in a box can be added as associated work.
 

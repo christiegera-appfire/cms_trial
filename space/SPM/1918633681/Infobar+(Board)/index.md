@@ -50,7 +50,7 @@ The **Dependencies** tab contains all information on task dependencies:
 
 ![image-20240925-074702.png](/cms_trial/assets/4dd3fb94-754a-4149-bb43-57361d0f76c8.png)
 
-## [Warnings](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918636230)
+## [Warnings](/cms_trial/space/SPM/1918636230/Task+warnings+(Board+module)/)
 
 Go to the **Warnings** tab to see a list of all task warnings. Click on a selected warning to check its details and resolve a problem.
 

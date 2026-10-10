@@ -10,7 +10,7 @@ Dependency type determines the direction of the dependency and also which of t
 
 There are two basic types of dependencies:
 
-- [**Strong dependencies**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918701700) → have a scheduling impact.
+- [**Strong dependencies**](/cms_trial/space/SPM/1918701700/Strong+dependencies/) → have a scheduling impact.
 - [**Soft dependencies**](/cms_trial/space/SPM/1918506080/Soft+dependencies/) → serve a purely informational purpose and don't have any scheduling impact.
 - External links → External links show dependencies between tasks within the scope of different boxes. Such a dependency might constrain, so the task period mode is set to "locked".
 
@@ -27,7 +27,7 @@ The following can be defined for a dependency:
 |  | **Strong** | **Soft** |
 | --- | --- | --- |
 | Target task | YES | YES |
-| Dependency type | YES  [Four types available](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918701700) | YES  Soft dependencies don't have different types |
+| Dependency type | YES  [Four types available](/cms_trial/space/SPM/1918701700/Strong+dependencies/) | YES  Soft dependencies don't have different types |
 | [Lag time](/cms_trial/space/SPM/1918406747/Lag+time/) | YES | NO |
 | [ASAP mode](/cms_trial/space/SPM/1918764948/ASAP+mode/) | YES | NO |
 | Description | YES | YES |
@@ -41,4 +41,4 @@ Displaying of dependencies varies based on a module:
 
 ## Dependency loops and cross-box relationship
 
-See the [Dependency loops and cross-box relationship](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918700470) article to learn more.
+See the [Dependency loops and cross-box relationship](/cms_trial/space/SPM/1918700470/Dependency+loops+and+cross-box+relationship/) article to learn more.

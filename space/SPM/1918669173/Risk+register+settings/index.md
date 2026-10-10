@@ -29,7 +29,7 @@ For each risk register, you can configure the following settings:
 
 See the next pages:
 
-| - [Risk register frameworks](/cms_trial/space/SPM/1918865091/Risk+register+frameworks/)   - [Create new risk calculation](/cms_trial/space/SPM/1918670159/Create+new+risk+calculation/)   - [Edit risk calculation](/cms_trial/space/SPM/1918865630/Edit+risk+calculation/)   - [Delete risk calculation](/cms_trial/space/SPM/1918702869/Delete+risk+calculation/) |
+| - [Risk register frameworks](/cms_trial/space/SPM/1918865091/Risk+register+frameworks/)   - [Create new risk calculation](/cms_trial/space/SPM/1918670159/Create+new+risk+calculation/)   - [Edit risk calculation](/cms_trial/space/SPM/1918865630/Edit+risk+calculation/)   - [Delete risk calculation](/cms_trial/space/SPM/1918702869/Delete+risk+calculation/) - [Risk register general settings](/cms_trial/space/SPM/1918669991/Risk+register+general+settings/) |
 | --- |
 
 ## Risk register settings (new navigation)
@@ -61,5 +61,5 @@ For each risk register, you can configure the following settings:
 
 See the next pages:
 
-| - [Risk register frameworks](/cms_trial/space/SPM/1918865091/Risk+register+frameworks/)   - [Create new risk calculation](/cms_trial/space/SPM/1918670159/Create+new+risk+calculation/)   - [Edit risk calculation](/cms_trial/space/SPM/1918865630/Edit+risk+calculation/)   - [Delete risk calculation](/cms_trial/space/SPM/1918702869/Delete+risk+calculation/) |
+| - [Risk register frameworks](/cms_trial/space/SPM/1918865091/Risk+register+frameworks/)   - [Create new risk calculation](/cms_trial/space/SPM/1918670159/Create+new+risk+calculation/)   - [Edit risk calculation](/cms_trial/space/SPM/1918865630/Edit+risk+calculation/)   - [Delete risk calculation](/cms_trial/space/SPM/1918702869/Delete+risk+calculation/) - [Risk register general settings](/cms_trial/space/SPM/1918669991/Risk+register+general+settings/) |
 | --- |

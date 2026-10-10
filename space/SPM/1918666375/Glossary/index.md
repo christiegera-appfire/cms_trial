@@ -251,7 +251,7 @@ The risks module consists of two main elements:
 
 You can configure a risk heat-map. The heat-map can be used to show the level of risk resulting from the risk assessment by considering the category of probability or likelihood against the category of consequences or severity.
 
-In the [app's configuration](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918698881), you can define a name for the Risks axis and set the corresponding custom.
+In the [app's configuration](/cms_trial/space/SPM/1918698881/App+configuration/), you can define a name for the Risks axis and set the corresponding custom.
 
 ### Scenario mode
 
@@ -654,7 +654,7 @@ The risks module consists of two main elements:
 
 You can configure a risk heat-map. The heat-map can be used to show the level of risk resulting from the risk assessment by considering the category of probability or likelihood against the category of consequences or severity.
 
-In the [app's configuration](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918698881), you can define a name for the Risks axis and set the corresponding custom.
+In the [app's configuration](/cms_trial/space/SPM/1918698881/App+configuration/), you can define a name for the Risks axis and set the corresponding custom.
 
 ### Scenario mode
 

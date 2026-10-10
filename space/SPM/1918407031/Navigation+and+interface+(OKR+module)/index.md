@@ -87,7 +87,7 @@ The [Overview settings](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918
 
 ![Hierarchy page.](/cms_trial/assets/cccafed5-fbd3-47de-a53f-e947398d1b5d.png)
 
-The [Hierarchy](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918669889) visualizes goals like a family tree.
+The [Hierarchy](/cms_trial/space/SPM/1918669889/OKR+Hierarchy/) visualizes goals like a family tree.
 
 It shows how big, ambitious goals (like the company vision) are broken down into smaller, actionable steps for different teams. This view helps everyone understand how their work fits into the bigger picture.
 
@@ -182,7 +182,7 @@ The [*Tree view*](/cms_trial/space/SPM/1918801711/Tree+view/)page displays an im
 
 ![Hierarchy page.](/cms_trial/assets/b4e300c4-4dda-40a0-8c9c-69fd42334b07.png)
 
-The [*Hierarchy*](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918669889) page visualizes goals like a family tree.
+The [*Hierarchy*](/cms_trial/space/SPM/1918669889/OKR+Hierarchy/) page visualizes goals like a family tree.
 
 It shows how big, ambitious goals (like the company vision) are broken down into smaller, actionable steps for different teams. This view helps everyone understand how their work fits into the bigger picture.
 

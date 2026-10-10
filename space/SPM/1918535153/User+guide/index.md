@@ -43,6 +43,7 @@ If you want to learn more about configuring BigPicture, see the [Admin guide](/c
   - [Resources panel in Gantt module](/cms_trial/space/SPM/1918798033/Resources+panel+in+Gantt+module/)
   - [Find the perfect match](/cms_trial/space/SPM/1918405181/Find+the+perfect+match/)
   - [Teams (Resource management)](/cms_trial/space/SPM/1918798278/Teams+(Resource+management)/)
+  - [Time period and aggregation](/cms_trial/space/SPM/1918702075/Time+period+and+aggregation/)
 - [Risk management](/cms_trial/space/SPM/1918502862/Risk+management/)
   - [Migrate risks to Risk Management module](/cms_trial/space/SPM/3558736271/Migrate+risks+to+Risk+Management+module/)
   - [Risks module (old module)](/cms_trial/space/SPM/1918699830/Risks+module+(old+module)/)

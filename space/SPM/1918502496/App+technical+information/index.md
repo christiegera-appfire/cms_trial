@@ -12,5 +12,6 @@ In this section, you can read about the technical aspects of an app to better un
 - [Backup, restore, and migrate](/cms_trial/space/SPM/3488285408/Backup%2C+restore%2C+and+migrate/)
   - [Staging (migration between instances of the same type)](/cms_trial/space/SPM/1918862176/Staging+(migration+between+instances+of+the+same+type)/)
   - [Backup and restore BigPicture using database dump](/cms_trial/space/SPM/1918502531/Backup+and+restore+BigPicture+using+database+dump/)
+  - [Backup and restore BigPicture using CSV file](/cms_trial/space/SPM/1918698918/Backup+and+restore+BigPicture+using+CSV+file/)
   - [Upgrade (migration from BigGantt to BigPicture)](/cms_trial/space/SPM/3488121777/Upgrade+(migration+from+BigGantt+to+BigPicture)/)
   - [Restore (on the same instance)](/cms_trial/space/SPM/3487925169/Restore+(on+the+same+instance)/)

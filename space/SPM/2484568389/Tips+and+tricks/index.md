@@ -36,7 +36,7 @@ For example, in the auto bottom-up mode, the children determine the duration of 
 
 ![A context menu listing all available task scheduling modes.](/cms_trial/assets/41104719-7604-404e-bae7-ad1ee65cef61.png)
 
-Task period mode, especially when coupled with [strong dependencies](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918701700), impacts how your tasks behave. Therefore, knowing what scheduling modes you apply to your respective tasks is important.
+Task period mode, especially when coupled with [strong dependencies](/cms_trial/space/SPM/1918701700/Strong+dependencies/), impacts how your tasks behave. Therefore, knowing what scheduling modes you apply to your respective tasks is important.
 
 ### Enable timeboxes on the Gantt chart
 
@@ -142,7 +142,7 @@ The app matches individual resources or teams (depending on the view) with tasks
 
 ### Quickly look up the detailed resource workload and capacity
 
-The [color-coded capacity bars](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918636529) indicate, by default, when someone has too much (red), just about enough (orange), or too little work (green) on their plate. The numbers on those bars indicate a person’s workload in a given period. But you might need more than those quick-glance details.
+The [color-coded capacity bars](/cms_trial/space/SPM/1918636529/Workload%2C+capacity%2C+and+utilization+-+tile+coloring/) indicate, by default, when someone has too much (red), just about enough (orange), or too little work (green) on their plate. The numbers on those bars indicate a person’s workload in a given period. But you might need more than those quick-glance details.
 
 First, switch to the more granular timeline aggregation, for example, weekly or daily.Next, click the capacity or workload bar in the resource’s swimlane to open the [Workload details modal](/cms_trial/space/SPM/1918864229/Workload+details/). It will provide a detailed breakdown of the person’s or team’s workload for a selected period.
 

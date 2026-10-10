@@ -31,7 +31,7 @@ It offers flexible features like drag-and-drop scheduling, resource capacity ove
 
 - Customizable [task hierarchy](/cms_trial/space/SPM/1918667217/Manage+task+structure/)
 - Customizable [filters](/cms_trial/space/SPM/1918503449/Filters+and+search/) and [column views](/cms_trial/space/SPM/1918404907/Column+views/)
-- Various [data aggregations](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918636993) on column views
+- Various [data aggregations](/cms_trial/space/SPM/1918636993/Column+data+aggregation+methods/) on column views
 - [Gantt timeline](/cms_trial/space/SPM/1918701893/Timeline+(Gantt+chart)/) with markers, [milestones](/cms_trial/space/SPM/1918537479/Milestones/), and [critical path](/cms_trial/space/SPM/1918405060/Critical+path/)
 - Project and cross-project [dependencies](/cms_trial/space/SPM/1918538718/Display+dependencies/)
 - [Infobar](/cms_trial/space/SPM/1918799264/Infobar+(Gantt)/) with comprehensive tasks and box details
@@ -46,7 +46,7 @@ The Scope module helps you define and manage the boundaries of your projects, in
 
 - Customizable [task hierarchy](/cms_trial/space/SPM/1918667217/Manage+task+structure/)
 - Customizable [filters](/cms_trial/space/SPM/1918503449/Filters+and+search/) and [column views](/cms_trial/space/SPM/1918404907/Column+views/)
-- Various [data aggregations](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918636993) on column views
+- Various [data aggregations](/cms_trial/space/SPM/1918636993/Column+data+aggregation+methods/) on column views
 - [Detail view](/cms_trial/space/SPM/1918503360/Detail+view+panel/) for quick access to Jira work item details
 
 See the video
@@ -94,7 +94,7 @@ This module allows for streamlined resource planning, tracking, and optimization
 - [Two-level grouping](/cms_trial/space/SPM/1918701793/Swimlanes+and+grouping/) by individuals, projects, teams, and skills
 - Different [effort modes](/cms_trial/space/SPM/1918764313/Effort+modes/) (Original Estimate, Remaining Estimate, and story points)
 - Different effort expression units (hours, man-days, percent, story points)
-- [Yearly timeline view](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918702075) for long-term planning
+- [Yearly timeline view](/cms_trial/space/SPM/1918702075/Time+period+and+aggregation/) for long-term planning
 - Customizable [filters](/cms_trial/space/SPM/1918503449/Filters+and+search/) and rich visibility options
 
 See the video

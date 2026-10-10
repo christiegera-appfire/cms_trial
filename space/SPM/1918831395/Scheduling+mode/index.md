@@ -219,7 +219,7 @@ A sprint task cannot have a scheduling mode set to auto bottom-up.
 
 ### Scheduling mode vs strong dependencies
 
-Go to [the Strong dependencies page](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918701700/Strong+dependencies#Scheduling-mode-vs-strong-dependencies) to find out more.
+Go to [the Strong dependencies page](/cms_trial/space/SPM/1918701700/Strong+dependencies/) to find out more.
 
 ## Scheduling mode (new navigation)
 
@@ -440,4 +440,4 @@ A sprint task cannot have a scheduling mode set to auto bottom-up.
 
 ### Scheduling mode vs strong dependencies
 
-Go to [the Strong dependencies page](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918701700) to find out more.
+Go to [the Strong dependencies page](/cms_trial/space/SPM/1918701700/Strong+dependencies/) to find out more.

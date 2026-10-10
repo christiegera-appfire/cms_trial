@@ -60,13 +60,13 @@ Remember that the Overview module offers three views:
 
 - [Hierarchy](/cms_trial/space/SPM/1918799130/Hierarchy+mode/) view shows the box hierarchy in a column view, where columns can be customized and aggregated.
 - [Timeline](/cms_trial/space/SPM/1918538282/Timeline+mode/) view can provide the same data for the individual child boxes and portfolio as the Hierarchy view. In this view, you can additionally see boxes visualized as bars and arranged by their dates on the timeline.
-- [Kanban board](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918700991) view shows only child boxes, making it a convenient way to manage box statuses. In this view, you can move boxes from one board column to another like tasks on a Jira board.
+- [Kanban board](/cms_trial/space/SPM/1918700991/Kanban+board+mode/) view shows only child boxes, making it a convenient way to manage box statuses. In this view, you can move boxes from one board column to another like tasks on a Jira board.
 
 ### Visualize and track portfolio projects and tasks
 
 You cannot see project tasks in the Overview module. That’s where the Gantt module comes in.
 
-In the Gantt module, you can see every project and the tasks in its scope in the column view and timeline. Since it gives you a complete view into the entire scope of the portfolio box, you can not only [aggregate data](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918636993) in columns, but also:
+In the Gantt module, you can see every project and the tasks in its scope in the column view and timeline. Since it gives you a complete view into the entire scope of the portfolio box, you can not only [aggregate data](/cms_trial/space/SPM/1918636993/Column+data+aggregation+methods/) in columns, but also:
 
 - [group tasks](/cms_trial/space/SPM/1918830289/Group+tasks/) by the columns (including the **Milestone** column)
 - group portfolio items by child boxes

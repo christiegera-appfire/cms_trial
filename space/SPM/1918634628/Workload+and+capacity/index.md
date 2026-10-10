@@ -12,7 +12,7 @@ Learn how to use the Board module for team capacity planning, especially for spr
 
 Learn how to access and interpret detailed information about allocated workload and remaining capacity for various entities.
 
-## [Workload, capacity, and utilization - tile coloring](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918636529)
+## [Workload, capacity, and utilization - tile coloring](/cms_trial/space/SPM/1918636529/Workload%2C+capacity%2C+and+utilization+-+tile+coloring/)
 
 Understand how color-coding in the Resources module indicates resource utilization levels based on workload and capacity (team-based and total). This helps identify over or under-allocated resources.
 

@@ -42,7 +42,7 @@ Only [permitted users](/cms_trial/space/SPM/1918765815/OKR+module+permissions/) 
 
 If you check the **Enable the inheritance of colors from OKR types by Objective icons** option, the Objective icon will inherit the color of the OKR type it is assigned to. This option does not affect the color of the KR icons.
 
-The colored Objectives are visualized on the [*Overview*](/cms_trial/space/SPM/1918834317/OKR+Overview/) and [*Hierarchy*](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918669889) pages.
+The colored Objectives are visualized on the [*Overview*](/cms_trial/space/SPM/1918834317/OKR+Overview/) and [*Hierarchy*](/cms_trial/space/SPM/1918669889/OKR+Hierarchy/) pages.
 
 | **Preview of the inherited colors on the Settings > OKR types page** | **Inherited colors on the OKR Overview page** |
 | --- | --- |

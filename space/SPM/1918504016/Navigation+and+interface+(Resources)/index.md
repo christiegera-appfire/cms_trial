@@ -16,7 +16,7 @@ The following options are available:
   - [Workload](/cms_trial/space/SPM/1918864229/Workload+details/) (adds the workload row to every swimlane)
   - Remaining capacity (adds the remaining capacity row to every swimlane)
   - [Capacity](/cms_trial/space/SPM/1918765081/Capacity+calculation/) (adds the capacity row to every swimlane)
-  - Values on heatmap (displays values on the [colored bars](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918636529) in every enabled row)
+  - Values on heatmap (displays values on the [colored bars](/cms_trial/space/SPM/1918636529/Workload%2C+capacity%2C+and+utilization+-+tile+coloring/) in every enabled row)
   - Tasks (displays tasks in respective swimlanes)
   - Overall assignment (shows all the tasks assigned to a resource across all the boxes the resource is assigned to)
   - [Timeboxes](/cms_trial/space/SPM/1918766987/Timeboxes/) (if configured, displays timeboxes)
@@ -77,7 +77,7 @@ There is also the possibility to right-click on a timebox and choose "go to earl
 
 ## Time period and aggregation
 
-To learn more, see the [Time period and aggregation](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918702075) page.
+To learn more, see the [Time period and aggregation](/cms_trial/space/SPM/1918702075/Time+period+and+aggregation/) page.
 
 ## Search and snipe to task
 
@@ -132,7 +132,7 @@ The following options are available:
   - [Workload](/cms_trial/space/SPM/1918864229/Workload+details/) (adds the workload row to every swimlane)
   - Remaining capacity (adds the remaining capacity row to every swimlane)
   - [Capacity](/cms_trial/space/SPM/1918765081/Capacity+calculation/) (adds the capacity row to every swimlane)
-  - Values on heatmap (displays values on the [colored bars](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918636529) in every enabled row)
+  - Values on heatmap (displays values on the [colored bars](/cms_trial/space/SPM/1918636529/Workload%2C+capacity%2C+and+utilization+-+tile+coloring/) in every enabled row)
   - Tasks (displays tasks in respective swimlanes)
   - Overall assignment (shows all the tasks assigned to a resource across all the boxes the resource is assigned to)
   - [Timeboxes](/cms_trial/space/SPM/1918766987/Timeboxes/) (if configured, displays timeboxes)
@@ -193,7 +193,7 @@ There is also the possibility to right-click on a timebox and choose "go to earl
 
 ## Time period and aggregation
 
-To learn more, see the [Time period and aggregation](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918702075) page.
+To learn more, see the [Time period and aggregation](/cms_trial/space/SPM/1918702075/Time+period+and+aggregation/) page.
 
 ## Search and snipe to task
 

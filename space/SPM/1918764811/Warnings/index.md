@@ -22,7 +22,7 @@ Overdue tasks are all those that have been due in the past but whose progress st
 
 Period warnings appear when a parent task can not be recalculated due to a constraint, such as a blocking task resulting from the scheduling mode.
 
-### [Dependency loops](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918700470)
+### [Dependency loops](/cms_trial/space/SPM/1918700470/Dependency+loops+and+cross-box+relationship/)
 
 If you add predecessor relationships between tasks, you might encounter a dependency loop. This happens when two or more tasks depend on each other. BigPicture prevents you from creating these loops to keep your task flow working properly.
 
@@ -46,7 +46,7 @@ Task warnings help you spot common issues and errors when working with tasks in 
 
 ![View options in the board module where you can enable warnings.](/cms_trial/assets/32784da7-74db-4535-9ba6-de22a6fc41f1.png)
 
-### [Task warnings](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918636230)
+### [Task warnings](/cms_trial/space/SPM/1918636230/Task+warnings+(Board+module)/)
 
 Task warnings help you spot common issues and errors when working with tasks in the Board module.
 
@@ -72,7 +72,7 @@ Overdue tasks are all those that have been due in the past but whose progress st
 
 Parent task conflicts appear when a parent task cannot be recalculated due to a constraint, such as a blocking task resulting from the scheduling mode.
 
-### [Dependency loops](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918700470)
+### [Dependency loops](/cms_trial/space/SPM/1918700470/Dependency+loops+and+cross-box+relationship/)
 
 If you add predecessor relationships between tasks, you might encounter a dependency loop. This happens when two or more tasks depend on each other. BigPicture prevents you from creating these loops to keep your task flow working properly.
 
@@ -96,6 +96,6 @@ Task warnings help you spot common issues and errors when working with tasks in 
 
 ![Screenshot of task warnings enabled in the Board module.](/cms_trial/assets/a4777a07-d483-48d7-9fa9-b80a517ba131.png)
 
-### [Task warnings](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918636230)
+### [Task warnings](/cms_trial/space/SPM/1918636230/Task+warnings+(Board+module)/)
 
 Task warnings help you spot common issues and errors when working with tasks in the Board module.
