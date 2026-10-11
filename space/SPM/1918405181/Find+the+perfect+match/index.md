@@ -21,20 +21,24 @@ To use the **Find the perfect match** feature:
 2. Click the task that you want to assign.
 3. A dialog with task details appears. When you enable the skill panel, the **Required skill** section appears in the dialog.
 
-   ![find-perfect-match.png](/cms_trial/assets/6684fd1b-aed8-4ba4-998e-e0b75642a5b8.png)
+   Image — asset pipeline pending  
+   find-perfect-match.png
 4. Click the icon▢next to the Individual. BigPicture will propose the perfect match.
 
-   ![find-perfect-match-2.png](/cms_trial/assets/906ee5f7-a1c1-4b9d-bac3-3e30fae27c0d.png)
+   Image — asset pipeline pending  
+   find-perfect-match-2.png
 
 Tasks assigned to both individuals and teams that the individual is not a part of are marked in yellow, and you can see a warning informing you about the steps to be performed.
 
-![find-perfect-match-3.png](/cms_trial/assets/4656ef8d-b6f3-409e-a9aa-4c7084ab4ce9.png)
+Image — asset pipeline pending  
+find-perfect-match-3.png
 
 Inactive users **are NOT** visible in the find perfect match results. They are excluded by default.
 
 You can also find the perfect match by using the [skill widget](/cms_trial/space/SPM/1918701583/Skill+widget/), which you can find on the issue details page just below the **People** section.
 
-![Screenshot of the Jira issue page with the BigPicture - Skills section.](/cms_trial/assets/9be49866-0720-4078-b1c5-68b6f85c7655.png)
+Image — asset pipeline pending  
+Screenshot of the Jira issue page with the BigPicture - Skills section.
 
 ## How the mechanism works
 
@@ -73,20 +77,24 @@ To use the **Find the perfect match** feature:
 2. Click the task that you want to assign.
 3. A dialog with task details appears. When you enable the skill panel, the **Required skill** section appears in the dialog.
 
-   ![find-perfect-match.png](/cms_trial/assets/6684fd1b-aed8-4ba4-998e-e0b75642a5b8.png)
+   Image — asset pipeline pending  
+   find-perfect-match.png
 4. Click the icon▢next to the Individual. BigPicture will propose the perfect match.
 
-   ![find-perfect-match-2.png](/cms_trial/assets/906ee5f7-a1c1-4b9d-bac3-3e30fae27c0d.png)
+   Image — asset pipeline pending  
+   find-perfect-match-2.png
 
 Tasks assigned to both individuals and teams that the individual is not a part of are marked in yellow, and you can see a warning informing you about the steps to be performed.
 
-![find-perfect-match-3.png](/cms_trial/assets/4656ef8d-b6f3-409e-a9aa-4c7084ab4ce9.png)
+Image — asset pipeline pending  
+find-perfect-match-3.png
 
 Inactive users **are NOT** visible in the find perfect match results. They are excluded by default.
 
 You can also find the perfect match by using the [skill widget](/cms_trial/space/SPM/1918701583/Skill+widget/), which you can find on the issue details page just below the **People** section.
 
-![Screenshot of the Jira issue page with the BigPicture - Skills section.](/cms_trial/assets/9be49866-0720-4078-b1c5-68b6f85c7655.png)
+Image — asset pipeline pending  
+Screenshot of the Jira issue page with the BigPicture - Skills section.
 
 ## How the mechanism works
 

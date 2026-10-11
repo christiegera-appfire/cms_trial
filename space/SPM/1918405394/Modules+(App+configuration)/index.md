@@ -11,4 +11,5 @@ Only Jira administrators can access this page.
 
 1. Click the wrench icon at the top right and select **Modules** from the drop-down list.
 
-   ![image-20250325-113029.png](/cms_trial/assets/38577aa2-cf41-4ded-a852-393be7dd035a.png)
+   Image — asset pipeline pending  
+   image-20250325-113029.png
