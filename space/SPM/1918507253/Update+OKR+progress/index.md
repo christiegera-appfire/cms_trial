@@ -16,7 +16,7 @@ Enter the new values in the dedicated progress fields on the OKR update screen.
 
 | **(manual) Strategic theme/Objective** | **(manual) Key Result** |
 | --- | --- |
-| Image — asset pipeline pending update-current-progress-field.png | Image — asset pipeline pending update-current-value-field.png |
+| update-current-progress-field.png | update-current-value-field.png |
 | **Update current progress**   - For auto OKRs: The field is grayed out since the progress is calculated automatically based on the associated OKRs. - For manual OKRs: You can edit the value.   The progress field for Strategic themes and Objectives is always expressed as a percentage (%). | **Update current value**   - For auto-KRs: The field is grayed out since the progress is calculated automatically based on the linked boxes and work items. - For manual OKRs: You can edit the value.   The KR value field can be expressed as numeric (no sign), percent (%), or currency (for example, $), depending on the selected unit in the **Measure as** field. |
 
 The following video demonstrates how to update the auto-KR and manual KR in the OKR module.

@@ -29,23 +29,20 @@ You can add, change, and remove work items you have already linked to a Key Resu
       1. Go to the **Linked work** tab.
       2. In the **Jira work items** section, click the **Link work item** (**+**) button or **+Add** if the KR has no items linked yet.
 
-         Image — asset pipeline pending  
-         The Linked work tab on the Strategic theme details page.
+         ![The Linked work tab on the Strategic theme details page.](/cms_trial/assets/2b144a2d-496d-435e-ad3b-1cd0aa289e10.png)
    2. *Overview* page > OKR Details side panel:
 
       1. Click **More actions** (…).
       2. Select **Edit linked work items** from the dropdown.
 
-         Image — asset pipeline pending  
-         A dropdown on the OKR Details side panel.
+         ![A dropdown on the OKR Details side panel.](/cms_trial/assets/24a14f24-c3df-4533-8959-6d02bc52c169.png)
 
 1. 1. *Overview* page > context menu:
 
       1. Click **More actions** (…) next to the KR you want to add or edit work items for.
       2. From the context menu, select **Edit linked work items**.
 
-         Image — asset pipeline pending  
-         Edit linked work items on the Overview page.
+         ![Edit linked work items on the Overview page.](/cms_trial/assets/3e08e635-9003-44f2-93cb-0b15be9129c5.png)
 2. The **Edit linked work items** modal displays. Select a work item you want to link to a KR in the following ways:
 
    1. **Select manually** from the filtered list:
@@ -54,8 +51,7 @@ You can add, change, and remove work items you have already linked to a Key Resu
       2. From the list, check/uncheck the items you want to link/unlink.
       3. Click **Save**.
 
-         Image — asset pipeline pending  
-         Edit linked work items window.
+         ![Edit linked work items window.](/cms_trial/assets/6d32c2e4-63ff-4b9d-99ca-9e5aa40e1958.png)
    2. **Select manually** from the list returned by JQL:
 
       1. Switch to **JQL** mode and type your JQL clause to pinpoint a specific item or items.
@@ -63,20 +59,17 @@ You can add, change, and remove work items you have already linked to a Key Resu
       3. From the list, check/uncheck the items you want to link/unlink.
       4. Click **Save**.
 
-         Image — asset pipeline pending  
-         Select manually in the JQL mode.
+         ![Select manually in the JQL mode.](/cms_trial/assets/7f3e9460-3f87-4482-9062-665c86b0662c.png)
    3. **Automated linking** of items from the filtered list:
 
       1. Set up automation rules to link related work items to OKRs automatically when specific conditions are met. For example, you can link a specific work item type (e.g., an Epic) from a specific space or spaces. Any new Epics added to that space/spaces will also be automatically linked to the KR.
 
-         Image — asset pipeline pending  
-         auto-link-list.png
+         ![auto-link-list.png](/cms_trial/assets/134d23f3-9995-4b9b-83e0-981b6d6d7bea.png)
    4. **Automated linking** of items based on JQL:
 
       1. Switch to **JQL** mode and type your JQL clause to pinpoint a specific item or items. When a new work item meets the JQL criteria, the app automatically adds it to the KR.
 
-         Image — asset pipeline pending  
-         Automated linking in JQL mode.
+         ![Automated linking in JQL mode.](/cms_trial/assets/b05e7d5f-3a61-406b-befc-ed36b547bb7b.png)
 3. Click **Save** to finish.
 
 For the same Key Result, you can use manual and automated work item linking. This applies to Key Results with either automatic or manual progress tracking.
@@ -89,8 +82,7 @@ Check if you have the **View** > **Connected boxes** option enabled.
 
 On the **Edit linked work items** screen, you can additionally create new Jira work items using the **Create work item** button. When you create an item, it becomes automatically linked to the KR you are currently viewing.
 
-Image — asset pipeline pending  
-The Create work item button in the Edit linked work items window.
+![The Create work item button in the Edit linked work items window.](/cms_trial/assets/3825c556-ecdf-4510-85b9-0bf26f262172.png)
 
 ## Limitations
 
