@@ -19,10 +19,12 @@ There are multiple ways to add dates to tasks without dates. You can add both da
 
 - No start date:
 
-  ![Screenshot of a task with no start date.](/cms_trial/assets/24c9fffa-ae14-404c-90d3-48406d452cff.png)
+  Image — asset pipeline pending  
+  Screenshot of a task with no start date.
 - No end date:
 
-  ![Screenshot of a task with no end date.](/cms_trial/assets/964e4776-856d-407e-ad41-fafab2d739fc.png)
+  Image — asset pipeline pending  
+  Screenshot of a task with no end date.
 
 ### Gantt module
 
@@ -31,10 +33,12 @@ To add dates to a task in the [Gantt module](/cms_trial/space/SPM/1918797129/Gan
 1. Hover the mouse cursor over a task on the timeline.
 2. Click the **+** icon.
 
-   ![Screenshot of the Gantt timeline with a task without dates.](/cms_trial/assets/39d5059c-ec42-4e53-9b88-0c0facac8917.png)
+   Image — asset pipeline pending  
+   Screenshot of the Gantt timeline with a task without dates.
 3. Edit the **Start Date** and **End Date** fields (make sure that these columns are added to the current [column view](/cms_trial/space/SPM/1918404907/Column+views/)).
 
-   ![Screenshot of the Gantt timeline when adding dates to a task.](/cms_trial/assets/22742176-04bf-4958-867b-af5aa083e59f.png)
+   Image — asset pipeline pending  
+   Screenshot of the Gantt timeline when adding dates to a task.
 
 ### Scope module
 
@@ -43,7 +47,8 @@ To add dates to a task in the [Scope module](/cms_trial/space/SPM/1918666763/Sco
 1. Find a task.
 2. Edit the **Start Date** and **End Date** fields (make sure that these columns are added to the current [column view](/cms_trial/space/SPM/1918404907/Column+views/)).
 
-![Screenshot of Scope module when adding dates to a task.](/cms_trial/assets/56a4887e-b26f-461b-a446-631b1a786e23.png)
+Image — asset pipeline pending  
+Screenshot of Scope module when adding dates to a task.
 
 ### Board module
 
@@ -55,7 +60,8 @@ To add dates to a task in the [Board module](/cms_trial/space/SPM/1918796888/Boa
 
    1. Move a task to such an iteration (dates to a task are added automatically based on dates for an iteration).
 
-      ![Screenshot of Board module when editing a task.](/cms_trial/assets/ff8c2622-19e4-431f-8043-9543a4516b90.png)
+      Image — asset pipeline pending  
+      Screenshot of Board module when editing a task.
 
 ### Resources module
 
@@ -66,7 +72,8 @@ To add dates to a task in the [Resources module](/cms_trial/space/SPM/1918535629
 1. Expand the **Unscheduled tasks** panel.
 2. Drag tasks onto the grid, or double-click to edit the dates.
 
-![Screenshot of Resources module when editing a task in the Unscheduled tasks panel.](/cms_trial/assets/f3d2cf52-5872-4635-ae49-ba202af831a6.png)
+Image — asset pipeline pending  
+Screenshot of Resources module when editing a task in the Unscheduled tasks panel.
 
 ### Risks module
 
@@ -75,7 +82,8 @@ To add dates to a task in the [Risks module](/cms_trial/space/SPM/1918666681/Ris
 1. Right-click on a task and select **Edit**.
 2. Complete the dates.
 
-   ![Screenshot of Risks module when editing a task.](/cms_trial/assets/def09843-8e5f-4fda-9bba-1f78efae7bb4.png)
+   Image — asset pipeline pending  
+   Screenshot of Risks module when editing a task.
 
 ## Delete task dates in BigPicture
 
@@ -166,11 +174,13 @@ When many tasks are linked by dependencies on the critical path, and one of the 
 
 When many tasks are linked by dependencies, and one of the tasks loses both dates (start and end dates), **dependencies are saved**. The arrow between tasks will temporarily disappear, but you can still check the dependency by switching to the **Collapsed** display and clicking on a number in a dot next to the task.
 
-![Screenshot of an example for a collapsed dependency on the Gantt chart.](/cms_trial/assets/2401e0a8-8a95-4869-a5cc-1d2278b384f2.png)
+Image — asset pipeline pending  
+Screenshot of an example for a collapsed dependency on the Gantt chart.
 
 The arrow between tasks will appear once you assign at least one date to the task.
 
-![Screenshot of an example for a collapsed dependency with no end date on the Gantt chart.](/cms_trial/assets/5e5b0a93-bc3f-42ef-984a-52a14671ba75.png)
+Image — asset pipeline pending  
+Screenshot of an example for a collapsed dependency with no end date on the Gantt chart.
 
 ### Period warnings
 
@@ -199,10 +209,12 @@ There are multiple ways to add dates to tasks without dates. You can add either 
 
 - No start date:
 
-  ![Screenshot of a task with no start date.](/cms_trial/assets/24c9fffa-ae14-404c-90d3-48406d452cff.png)
+  Image — asset pipeline pending  
+  Screenshot of a task with no start date.
 - No end date:
 
-  ![Screenshot of a task with no end date.](/cms_trial/assets/964e4776-856d-407e-ad41-fafab2d739fc.png)
+  Image — asset pipeline pending  
+  Screenshot of a task with no end date.
 
 ### Gantt module
 
@@ -211,10 +223,12 @@ To add dates to a task in the [Gantt module](/cms_trial/space/SPM/1918797129/Gan
 1. Hover the mouse cursor over a task on the timeline.
 2. Click the **+** icon.
 
-   ![Screenshot of clicking the plus icon on the Gantt timeline to add task dates.](/cms_trial/assets/90361a45-b049-4b74-8e9d-73511e3230d8.png)
+   Image — asset pipeline pending  
+   Screenshot of clicking the plus icon on the Gantt timeline to add task dates.
 3. Edit the **Start Date** and **End Date** fields (make sure that these columns are added to the current [column view](/cms_trial/space/SPM/1918404907/Column+views/)).
 
-   ![Screenshot of changing the start date for a task in the Gantt module.](/cms_trial/assets/740c856e-7fd0-41e6-847c-20410d2b5671.png)
+   Image — asset pipeline pending  
+   Screenshot of changing the start date for a task in the Gantt module.
 
 ### Scope module
 
@@ -234,7 +248,8 @@ For iterations with precise alignment:
 
 1. Move a task to such an iteration (dates to a task are added automatically based on dates for an iteration).
 
-   ![Screenshot of Board module when editing a task.](/cms_trial/assets/ff8c2622-19e4-431f-8043-9543a4516b90.png)
+   Image — asset pipeline pending  
+   Screenshot of Board module when editing a task.
 
 ### Resources module
 
@@ -333,11 +348,13 @@ When many tasks are linked by dependencies on the critical path, and one of the 
 
 When many tasks are linked by dependencies, and one of the tasks loses both dates (start and end dates), **dependencies are saved**. The arrow between tasks will temporarily disappear, but you can still check the dependency by switching to the **Collapsed** display and clicking on a number in a dot next to the task.
 
-![Screenshot of an example for a collapsed dependency on the Gantt chart.](/cms_trial/assets/2401e0a8-8a95-4869-a5cc-1d2278b384f2.png)
+Image — asset pipeline pending  
+Screenshot of an example for a collapsed dependency on the Gantt chart.
 
 The arrow between tasks will appear once you assign at least one date to the task.
 
-![Screenshot of an example for a collapsed dependency with no end date on the Gantt chart.](/cms_trial/assets/5e5b0a93-bc3f-42ef-984a-52a14671ba75.png)
+Image — asset pipeline pending  
+Screenshot of an example for a collapsed dependency with no end date on the Gantt chart.
 
 ### Parent task conflicts
 
