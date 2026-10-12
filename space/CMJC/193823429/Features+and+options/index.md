@@ -21,6 +21,7 @@ In this section, you'll find guides on deploying project configuration between J
   - [Manage custom fields contexts](/cms_trial/space/CMJC/193692433/Manage+custom+fields+contexts/)
   - [Transformations](/cms_trial/space/CMJC/759595150/Transformations/)
 - [Compare snapshots](/cms_trial/space/CMJC/3417473252/Compare+snapshots/)
+- [Notifications](/cms_trial/space/CMJC/3749347329/Notifications/)
 - [Manage snapshot deployments](/cms_trial/space/CMJC/193659992/Manage+snapshot+deployments/)
 - [Migrate Service Management projects to the Cloud](/cms_trial/space/CMJC/1160020327/Migrate+Service+Management+projects+to+the+Cloud/)
 - [Supported configuration elements](/cms_trial/space/CMJC/193855959/Supported+configuration+elements/)
