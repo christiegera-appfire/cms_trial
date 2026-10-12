@@ -75,7 +75,7 @@ For details on how the Data Center and Cloud versions compare, refer to the tabl
 | Product preferences | ✅ | ✅ |  |
 | Features in Project Settings | Customer Portal SLAs | ✅ | ✅ |  |
 | Features in Workflow | Post function (Reset SLA) | ✅ | ✅ |  |
-| Features in Dashboards | Gadgets | ✅ | ⚠️ | Currently, only `TTS - Periodic Met vs Exceeded SLA` is available in the cloud. However, a new gadget called `TTS - SLA/Assignee Performance Gadget` is now on the cloud. |
+| Features in Dashboards | Gadgets | ✅ | ⚠️ | Currently, only `TTS - Periodic Met vs Exceeded SLA` is available in the cloud. There is also a new gadget called `TTS - SLA/Assignee Performance Gadget` on the cloud. |
 | Features in Issue Search | JQL Functions | ✅ | ❌ |  |
 | Features in Issue View | Issue Actions | ✅ | ✅ | In the cloud, you can [trigger Jira automation rules via notifiers](https://appfire.atlassian.net/wiki/x/kgVEVw). |
 | SLA History | ✅ | ✅ |  |

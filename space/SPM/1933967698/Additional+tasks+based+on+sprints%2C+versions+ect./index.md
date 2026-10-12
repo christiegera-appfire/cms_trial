@@ -8,4 +8,5 @@ The following elements can be displayed as tasks. You can add them to the scope 
 - Objective & Key Results
 - Versions (start date and release date can be synchronized)
 
-![Screenshot of the Advanced configuration tab in on the Scope definition page.](/cms_trial/assets/5b18c11b-39c0-427d-aa69-43ea173f8f30.png)
+Image — asset pipeline pending  
+Screenshot of the Advanced configuration tab in on the Scope definition page.

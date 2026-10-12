@@ -8,7 +8,8 @@ BigPicture **CAN’T** duplicate tasks. When you enable conflicting structure bu
 
 **Exception**: The only case where a task can be displayed more than once is when tasks are grouped. For more information, see the [Use case: Organize tasks by assignees or teams using grouping](/cms_trial/space/SPM/2399241449/Use+case%3A+Organize+tasks+by+assignees+or+teams+using+grouping/) page.
 
-![Screenshot of the Task structure page showing the Advanced Configuration section. The Structure Preview and the Version and Component structures are shown.](/cms_trial/assets/ff0e0cf9-5b30-4bfb-ba18-b78cd8c7951d.png)
+Image — asset pipeline pending  
+Screenshot of the Task structure page showing the Advanced Configuration section. The Structure Preview and the Version and Component structures are shown.
 
 ## Solution
 

@@ -1,14 +1,55 @@
 # SLA panel
 
-The SLA panel presents SLA information and visualizes SLA status using colors and icons. If your work item meets the conditions for an SLA, the SLA panel will appear on the work item view:
+The SLA panel displays SLA progress and status directly in Jira work items. You can use it to track remaining time, view SLA deadlines, identify breaches, and review the goals and calendars associated with each SLA.
+
+Each applicable SLA appears as a separate card in the panel. If multiple SLAs apply to a work item, you can view their information together.
 
 ![An SLA panel created by Time to SLA for Jira Cloud on the Jira work item view.](/cms_trial/assets/fb6c36c8-0917-4263-a9b7-1d7be587dde0.png)
 
-If there are multiple SLAs within a work item, you will see a different panel for each SLA.
+The panel uses colors, icons, and a progress bar to show SLA status. You can also customize which information appears and how SLAs are ordered.
 
-## Time to SLA’s SLA panel details
+## Open the SLA panel
 
-The SLA panel consolidates all SLA metrics into one customizable interface. It includes a live countdown and provides a clear, real-time view of SLA progress and status. Below are the key components of the SLA panel:
+In the Forge-based version of Time to SLA for Jira Cloud, the SLA panel doesn't always appear automatically in work item views.
+
+You can open it for an individual work item, or a Jira administrator can configure it to appear automatically for everyone.
+
+### Open the SLA panel for a work item
+
+1. Open a Jira work item.
+2. Select the **Time to SLA** icon in the top menu.
+
+   ![A screenshot showing where the Time to SLA icon is in the top menu.](/cms_trial/assets/97dc9e7a-bb1a-4088-beb8-29db5e966f65.png)
+   - If you don't see it, open the Jira **More (⋯)** menu and look for **Time to SLA**.
+
+The SLA panel appears in the work item view.
+
+This opens the panel for the current work item only. Repeat these steps to open it on other work items.
+
+### Make the SLA panel visible for everyone
+
+If you're a Jira administrator, you can configure the SLA panel to appear automatically on work items.
+
+1. Open any Jira work item.
+2. Select the **Time to SLA** icon in the top menu.
+
+   - If you don't see it, open the Jira **More (⋯)** menu and select **Time to SLA**.
+3. When the SLA panel appears, select **More (⋯)** next to the panel.
+
+   ![image-20251118-142501.png](/cms_trial/assets/f17a4b2d-14e5-4545-8d32-5d2ec89a3738.png)
+4. Select **Show for all work items**.
+
+The SLA panel now appears automatically for users on work items in the project.
+
+For additional context about this change, see [Changes after the Forge migration](/cms_trial/space/TTSC/2513797296/Changes+after+the+Forge+migration/).
+
+## Understand the SLA panel
+
+Each SLA card provides information about an SLA's progress, status, and target.
+
+The information displayed depends on your SLA configuration and the panel's display settings.
+
+The following elements can appear on an SLA card.
 
 ![Three SLA panels in different statuses - In progress, met, and breached.](/cms_trial/assets/d564b01b-242e-4253-98af-3c64ac8d1eef.png)
 
@@ -34,8 +75,8 @@ The SLA panel dynamically changes as the SLA progresses. Here’s what the diffe
 
 | **Color/Icon** | **What it means** |
 | --- | --- |
-| SLA panel status (blue) that shows 'SLA in progress'. | The SLA is in progress and on track. |
-| SLA panel status (orange) that shows 'SLA is in critical zone'. | The SLA is in progress but in the **critical zone**, which means the deadline is approaching. You can change when the SLA will be in the critical zone in [SLA configuration](/cms_trial/space/TTSC/35651691/Define+SLAs/). |
+| SLA panel status (blue) that shows 'SLA in progress'. | The SLA is in progress and on tract. |
+| SLA panel status (orange) that shows 'SLA is in critical zone'. | The SLA is in progress but in the **critical zone**, which means the deadline is approaching. You can change when the SLA will be in the critical zone in the [SLA configuration](/cms_trial/space/TTSC/35651691/Define+SLAs/). |
 | SLA panel status (green) that shows 'SLA has been met'. | The SLA goal has been met successfully. |
 | SLA panel status (red) that shows 'SLA is breached'. | The SLA is exceeded/breached/violated. |
 | SLA panel status (grey) that shows 'no target'. | The SLA doesn’t have a target. There can be three reasons:   1. `No target` is chosen as the goal. 2. `Negotiation date` is chosen as the goal, but it hasn't been set on the work item yet. 3. The JQL works, but the start condition hasn't been met yet. The SLA will start counting when the condition is met. |
@@ -43,13 +84,13 @@ The SLA panel dynamically changes as the SLA progresses. Here’s what the diffe
 
 ## How to customize the SLA panel
 
-On the **Settings** > **SLA Panel** page, you can customize your SLA panel, such as where the panel appears and what’s shown on it. The settings include the following:
+On the **Administration** > **SLA Panel** page, you can customize your SLA panel, such as where the panel appears and what’s shown on it. The settings include the following:
 
 ![Different configuration options available on the Time to SLA for Jira Cloud SLA Panel screen.](/cms_trial/assets/11c54eed-dae0-4c5e-8d15-5a91a8abf3f7.png)
 
 1. **Display Options –** The SLA Panel can be displayed on the right, the left, or both.
 
-   1. **Display “Where is my SLA” helper panel on issues missing an SLA –** This is enabled by default, but you can remove the helper panel if you’d rather not have it displayed.
+   - **Display “Where is my SLA” helper panel on issues missing an SLA –** This is enabled by default, but you can remove the helper panel if you’d rather not have it displayed.
 2. **Shown in SLA panel –** Select which parts you want to display on the SLA panel.
 3. **Duration Format –** Choose which units should be included in the duration format.
 4. **SLA Context –** The SLA panel will display SLAs based on this selection.
