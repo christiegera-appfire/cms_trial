@@ -8,6 +8,14 @@ Each applicable SLA appears as a separate card in the panel. If multiple SLAs ap
 
 The panel uses colors, icons, and a progress bar to show SLA status. You can also customize which information appears and how SLAs are ordered.
 
+## Who can view the SLA panel
+
+By default, anyone with access to a Jira work item can view its SLA panel, provided an SLA applies to that work item and the panel is visible.
+
+Administrators can restrict SLA panel access to specific users or groups through Time to SLA's permission settings.
+
+Access to detailed SLA configuration information is controlled separately.
+
 ## Open the SLA panel
 
 In the Forge-based version of Time to SLA for Jira Cloud, the SLA panel doesn't always appear automatically in work item views.

@@ -12,8 +12,7 @@ Our team is thrilled to announce the latest release of Time to SLA for Jira Clou
 
 We introduced a new custom field that stores the calculated duration of selected SLA metrics, showing how long each SLA has been running (or ran), giving you more flexibility in reporting and analysis.
 
-Image — asset pipeline pending  
-Time to SLA release notes March 2026 showing SLA configuration update
+![Time to SLA release notes March 2026 showing SLA configuration update](/cms_trial/assets/203222e3-e830-4e58-a298-1be9703be579.png)
 
 For more information, refer to the [documentation](/cms_trial/space/TTSC/2969239557/SLA+Duration+field/).
 

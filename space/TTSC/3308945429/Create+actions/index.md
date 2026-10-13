@@ -111,7 +111,7 @@ Configure the following fields:
 |  |  |
 | --- | --- |
 | **Field** | **Description** |
-| **Automation webhook URL** | Enter the webhook URL from your Jira automation rule. For more information, refer to the [documentation](https://appfire.atlassian.net/wiki/spaces/TTSC/pages/1464075666). |
+| **Automation webhook URL** | Enter the webhook URL from your Jira automation rule. For more information, refer to the [documentation](/cms_trial/space/TTSC/1464075666/Use+SLA+actions+with+Jira+automation/). |
 | **Automation webhook secret** | Enter the webhook secret, if your automation rule requires one. |
 
 ### Change assignee

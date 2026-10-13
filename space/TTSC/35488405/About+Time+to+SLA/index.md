@@ -15,7 +15,7 @@ Time to SLA combines simplicity with enterprise-grade flexibility, without the l
 - [**Built-in templates**](/cms_trial/space/TTSC/35456108/Get+started+with+Time+to+SLA+for+Cloud/): Get started instantly with ready-made SLA configurations like *Time to resolution*, *Time to first response*, and *Time in progress*.
 - **No artificial limits**: Define as many SLAs and SLA goals as you need.
 - **Cross-project coverage**: Manage SLAs across multiple projects effortlessly.
-- [**Automation-ready**](https://appfire.atlassian.net/wiki/spaces/TTSC/pages/1464075666): Trigger Jira automations directly from SLA events for escalations or workflow actions.
+- [**Automation-ready**](/cms_trial/space/TTSC/1464075666/Use+SLA+actions+with+Jira+automation/): Trigger Jira automations directly from SLA events for escalations or workflow actions.
 - [**Smart notifications**](/cms_trial/space/TTSC/35881090/Actions/): Notify assignees or managers before an SLA breach.
 - [**REST API access**](/cms_trial/space/TTSC/36209134/REST+APIs/): Retrieve and manage SLA data programmatically.
 - [**Powerful reporting**](/cms_trial/space/TTSC/36012079/Reports/): Track performance with visual reports and dashboard gadgets.

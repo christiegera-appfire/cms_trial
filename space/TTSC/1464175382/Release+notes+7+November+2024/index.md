@@ -14,7 +14,7 @@ Introducing the Trigger a Jira Automation Rule feature, now available in Time to
 
 #### Key highlights
 
-- **Easy setup:** Follow our [step-by-step guide](https://appfire.atlassian.net/wiki/spaces/TTSC/pages/1464075666) to integrate SLA notifications with Jira automation, using an incoming webhook to trigger rules effortlessly.
+- **Easy setup:** Follow our [step-by-step guide](/cms_trial/space/TTSC/1464075666/Use+SLA+actions+with+Jira+automation/) to integrate SLA notifications with Jira automation, using an incoming webhook to trigger rules effortlessly.
 
 **Step 1: Create a Jira automation rule**
 

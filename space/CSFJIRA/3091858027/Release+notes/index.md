@@ -4,6 +4,7 @@ We have a short release lifecycle so that we can always try to improve our produ
 
 | **Title** | **Highlights** | **Platform** | **Release date** |
 | --- | --- | --- | --- |
+| [Release notes 13 October 2026](/cms_trial/space/CSFJIRA/3740369724/Release+notes+13+October+2026/) | - Bug fixes | Jira Cloud | October 13, 2026 |
 | [Release notes 12 October 2026](/cms_trial/space/CSFJIRA/3740369458/Release+notes+12+October+2026/) | - Bug fixes | Jira Cloud | October 12, 2026 |
 | [Release notes 8 October 2026](/cms_trial/space/CSFJIRA/3740729353/Release+notes+8+October+2026/) | - Security and memory optimization enhancements | Jira Cloud | October 8, 2026 |
 | [Release notes 1 October 2026](/cms_trial/space/CSFJIRA/3714908169/Release+notes+1+October+2026/) | - Automatically push updates to Jira work items from Salesforce Flows - Bug fixes | Jira Cloud  SALESFORCE | October 1, 2026 |

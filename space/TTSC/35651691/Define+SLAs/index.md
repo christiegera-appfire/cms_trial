@@ -1,10 +1,22 @@
 # Define SLAs
 
-Time to SLA lets you define and track an unlimited number of SLAs. On the **SLAs** page, you can define new SLAs, manage your existing SLAs, and manage notifiers.
+Create service level agreements (SLAs) in Time to SLA to track how long your team takes to respond to or resolve Jira work items.
+
+Each SLA defines which work items to track, the time targets they need to meet, and the conditions that control when time starts, pauses, and stops.
+
+This guide explains how to create an SLA in Time to SLA for Jira Cloud.
+
+## Prerequisites
+
+Before creating an SLA:
+
+- Identify the Jira projects you want to track.
+- Decide what you want to measure, such as first response time or resolution time.
+- Determine the time target for each type of work item.
+- Identify when the SLA timer should start, pause, and stop.
+- Make sure an appropriate working calendar is available. See [Create calendars](/cms_trial/space/TTSC/35750012/Create+calendars/).
 
 ## How to define an SLA
-
-This documentation provides step-by-step instructions on creating an SLA using the Time to SLA app for Jira Cloud.
 
 Watch this 2-minute video to get an overview:
 
@@ -125,30 +137,10 @@ With this configuration, the expectation is that you should be able to see the S
 
 Don’t forget to click **Save**.
 
-## SLA management
-
-![The SLAs screen, with different actions you can take on the screen highlighted.](/cms_trial/assets/222e101e-b6c3-49b5-aeba-f375e9bd6dac.png)
-
-1. **SLAs –** Click to access all of your SLAs.
-2. **Search bar –** Choose a filter from the dropdown, like `Priorities`, and then use the search box to find specific elements within that category. For example, search for `Blocker` to target SLAs with that priority.
-
-   ![A screenshot showing how to use the search bar on SLAs screen.](/cms_trial/assets/8f6bdb7b-393c-43f2-901f-113874be99d6.png)
-
-   The limits in the search bar are based on the values added in the SLA context.
-3. **Hide disabled SLAs –** Check this box to hide disabled SLAs from view. To disable an SLA, click the three-dot icon next to it and select **Disable**.
-4. **List of SLAs –** All of the SLAs in your instance are listed here. Clicking on the name of any SLA will take you to its configurations, allowing you to edit it. By clicking on the arrow next to them, you can reveal the details about the SLA, and then use *Columns* on the right-hand side to filter which details you want to see in this view (Conditions, Goals, etc.).
-5. **Columns –** Add or remove columns that display information about the selected SLA on the SLAs page. You can change their order by dragging and dropping them on the table.
-6. **SLA Options Menu –** After expanding the details of an SLA by clicking the arrow next to it, you can click the three-dot icon on the right-hand side to reveal the options menu for the SLA.
-
-   ![A screenshot showing the SLA options menu.](/cms_trial/assets/c33eadad-2ca2-49a4-90e0-2998ae322cc8.png)
-   - **Edit –** Click here to modify the SLA by updating any field. Alternatively, click on the SLA name to open the editing screen.After editing, you must recalculate the SLA data for the work items; otherwise, you may run into miscalculations. Click here to find out [how to recalculate SLA data](/cms_trial/space/TTSC/35456416/Recalculation/).
-   - **Manage notifiers –** This option lets you set up and manage notifications for your SLA.
-   - **Clone –** Clicking this optionduplicates that SLA.
-   - **Enable/Disable –** Click to enable or disable the SLA. When an SLA is disabled, all SLA actions are stopped. The SLA won’t appear in fields, reports, and other configurations. You can use this feature to hide SLAs that are irrelevant to your workflow but might be needed in the future. Disabling such SLAs preserves configurations for potential future use.
-   - **Delete –** This action is irreversible and will permanently remove the SLA.
-
-SLAs created using the old interface (created before June 20, 2024) cannot be cloned. You must create new ones using the new system.
-
 ## Next steps
 
-[**SLA notifications**](/cms_trial/space/TTSC/35881090/Actions/)
+After creating your SLA, you can:
+
+- [Configure SLA actions](/cms_trial/space/TTSC/3308945429/Create+actions/) to respond to SLA events.
+- Review the [SLA panel](https://appfire.atlassian.net/wiki/spaces/TTSC) documentation to understand how SLA progress appears in Jira.
+- Explore [SLA goals](/cms_trial/space/TTSC/35390901/SLA+goals/) and [SLA conditions](/cms_trial/space/TTSC/35456221/SLA+conditions/) for more configuration options.
