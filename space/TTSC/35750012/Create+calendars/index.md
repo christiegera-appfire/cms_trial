@@ -1,81 +1,104 @@
 # Create calendars
 
-Time to SLA offers advanced calendar customization, allowing you to create an unlimited number of calendars and time intervals.
+Calendars define when Time to SLA counts working time. You can configure working hours, holidays, and exceptions to match your team's schedule and ensure accurate SLA calculations.
 
 With Time to SLA, you can:
 
-- Define multiple business-hour intervals within a single workday
-- Create separate calendars for teams working in different time zones
-- Add holidays (recurring or one-time)
-- Define exceptions for work outside standard business hours
-- Share holidays and exceptions across calendars
+- Define multiple working intervals within a single day.
+- Create calendars for teams in different time zones.
+- Add one-time or recurring holidays.
+- Configure additional working hours outside regular business hours.
+- Share holidays and exceptions across calendars.
+- Control how exceptions affect SLA calculations on holidays.
 
 ## Calendar management
 
-The *Calendars* page shows all calendars configured in your instance and lets you manage them.
+The *Calendars* page displays the calendars configured in your Jira instance. From this page, you can create, view, edit, and delete calendars.
 
-![Calendars page showing configured calendars, time zones, calendar details, and action icons to view, edit, or delete.](/cms_trial/assets/baa16d36-cf87-414b-b4e1-019cfdd1b97c.png)
+The calendar list contains the following information:
 
-This section explains the key elements of the **Calendars** page:
-
-1. **Name –** Displays the name of your calendar.
-2. **Time Zone –** Displays the time zone selected for the calendar. Time to SLA uses Daylight Saving Time (DST) for calculations.
-3. **Calendar Detail –** Provides a summary of the calendar’s settings.
+- **Name:** Displays the calendar name.
+- **Time Zone:** Displays the time zone configured for the calendar. Time to SLA accounts for daylight saving time when calculating working hours.
+- **Calendar Detail:** Displays the calendar's working days and hours.
+- **Holidays:** Lists the holidays configured for the calendar.
+- **Exceptions:** Lists the exceptions associated with the calendar, including shared exceptions.
 
 Available actions:
 
-1. **Add New Calendar –** Click to add a new calendar.
-2. **Eye** **icon –** See the details of a calendar.
-3. **Pencil icon –** Click to edit an existing calendar.
-4. **Trash can icon –** Delete a calendar (irreversible). Calendars assigned to SLAs can’t be deleted.
+- **Add New Calendar:** Create a calendar.
+- **View:** Open a calendar to review its configuration.
+- **Edit:** Modify an existing calendar.
+- **Delete:** Permanently delete a calendar. You can't delete calendars that are assigned to SLAs.
 
 ## How to create a calendar
 
 1. In Jira, open **Apps** > **Time to SLA**.
 2. Go to **Calendars** > **Add New Calendar**.
-3. Configure your calendar:
-
-   - Name your calendar.
-   - Select a **Time Zone**.
-   - Define business hours, holidays, and exceptions.
+3. Select a **Time Zone**. Time to SLA uses this time zone to calculate working hours, holidays, and exceptions.
+4. Configure the calendar using the **Business Hours**, **Holidays**, and **Exceptions** tabs.
+5. Click **Save**.
 
 ### Business hours
 
-In this tab, you can define your standard working time:
+Use the *Business Hours* tab to define the days and hours during which SLAs count working time.
 
 ![Calendar configuration screen with Business hours tab, working days grid, working hours dropdown, and Break time option.](/cms_trial/assets/52f753df-e712-4d79-b60a-e70f6bf00a33.png)
 
-1. **Set working days**
+**Set working days**
 
-   - Use **Select working days** dropdown to choose which days are working days.
-   - In the weekly grid, confirm the correct days are selected (checked).
-2. **Set working hours**
+1. Open the *Business Hours* tab.
+2. Use **Select working days** to choose a working-day preset.
+3. Review the weekly grid and adjust the selected days as needed.
 
-   - Use **Select working hours** dropdown to select from pre-defined working hours.
-   - The working-hour blocks appear in the grid under each day.
-3. **Add break times (optional)**
+**Set working hours**
 
-   - Click **+ Break Time** to add the break period to the selected days.
+1. Use **Select working hours** dropdown to select from pre-defined working hours.
+2. The working-hour blocks appear in the grid under each day.
+
+You can configure multiple working intervals within the same day.
+
+**Add break times (optional)**
+
+Break times define periods when SLA time doesn't count during an otherwise active working day.
+
+1. Click **+ Break Time** to add the break period to the selected days.
+
    - You can add multiple break times (each break appears as a separate block in the grid).
+
+For example, if your team works from 9:00 AM to 5:00 PM and takes a lunch break from 12:00 PM to 1:00 PM, you can exclude that hour from SLA calculations.
 
 ### Holidays
 
-In the **Holidays** tab, you can add holidays to the calendar:
+Use the *Holidays* tab to define dates or periods when regular working hours don't apply.
 
-1. Open the **Holidays** tab. You can add holidays as full-day events or specify custom hours. On the specified holidays, SLAs will stop counting.
+You can configure holidays as whole-day or partial-day events and set them to recur monthly or yearly.
+
+1. Open the *Holidays* tab.
+2. Enter a name for the holiday.
+3. Select the holiday date or date range.
 
    ![Add holiday dialog with date picker, custom hours option, and time range fields for defining holiday duration.](/cms_trial/assets/e556870e-cd31-41ef-980a-767b869ac930.png)
-   - Tick the **Shared holiday** box to apply the holiday to all calendars. Changes will reflect across all shared calendars (for example, use it for New Year’s Day but not for region-specific holidays like Bastille Day).
-   - Tick the **Recurring** box if you want the holiday to repeat within a certain timeframe (monthly or yearly).
-2. Click **Add holiday.** After adding the holidays, the holidays that apply to the calendar will be displayed on the calendar as follows:
+4. Choose the holiday type:
 
-   ![Holidays tab listing shared and recurring holidays with start date, end date, and action options.](/cms_trial/assets/8de93c23-b404-4e97-8989-bfe342db4fd6.png)
+   - **Whole day:** Excludes the entire day from working time.
+   - **Half day:** Excludes the specified hours from working time.
+5. Configure the following options as needed:
 
-   You can also use this section to delete holidays and change whether they are Shared and/or Recurring.
+   - **Shared holiday:** Makes the holiday available across all calendars. For example, use shared holidays for company-wide closures and calendar-specific holidays for regional events.
+   - **Recurring:** Repeats the holiday monthly or yearly.
+6. Click **Add holiday**.
+
+The holiday appears in the calendar's holiday list. You can review and manage existing holidays from this list. Shared holidays apply across calendars, so changes to shared holiday configurations can affect SLA calculations in multiple calendars.
+
+![Holidays tab listing shared and recurring holidays with start date, end date, and action options.](/cms_trial/assets/8de93c23-b404-4e97-8989-bfe342db4fd6.png)
 
 ### Exceptions
 
-Use the **Exceptions** tab to define additional working hours outside your regular business hours, such as planned overtime or special support coverage. Exceptions can be one-time or recurring and shared across calendars.
+Exceptions let you define additional working hours outside your calendar's regular business hours.
+
+For example, if your support team normally works Monday through Friday, you can add an exception for planned Saturday coverage.
+
+Exceptions can be one-time or recurring, and you can share them across calendars.
 
 <https://app.arcade.software/share/CGivQ7jtrGKLGg9281IV>
 
@@ -83,29 +106,18 @@ Use the **Exceptions** tab to define additional working hours outside your regul
 
    ![Exceptions tab with fields to define exception name, date, working hours, break times, and sharing options.](/cms_trial/assets/67bc8a3e-89b9-4a85-a829-3e933a34f0ee.png)
 2. Enter an **Exception name**.
-3. Select an **Exception date**, and define the working time for that day:
+3. Define the exception's working hours:
 
-   - **From** – start time
-   - **To** – end time
-4. (Optional) Click **Break time** to add one or more non-working periods within the exception.
+   - **From:** The start of the exception interval.
+   - **To:** The end of the exception interval.
+4. (Optional) Click **Break time** to add periods when SLA time shouldn't count within the exception. You can add multiple breaks.
+5. (Optional) Configure the following settings:
 
-   - SLA calculation pauses during break times, even if the exception is active. You can add multiple break times.
-5. (Optional) Configure sharing and recurrence:
-
-   - **Apply exceptions to all calendars**  
-     Shares the exception across all calendars.
-   - **Repeat exceptions**  
-     Repeats the exception monthly or yearly. When it’s enabled:
-
-     - **Monthly exceptions**
-
-       - If an exception is set on a date that doesn’t exist in a shorter month (for example, the 31st), it moves to the last day of that month.
-     - **Yearly exceptions**
-
-       - Repeats every 365 days.
+   - **Apply exceptions to all calendars:** Share the exception across all calendars.
+   - **Repeat exceptions:** Repeat the exception monthly or yearly.
 6. Click **Add exception**.
 
-This adds the exception to the **Exceptions within this calendar** list, where you can review and manage it.
+The exception appears in the **Exceptions within this calendar** list, where you can review and manage it.
 
 Additionally, you can use the **SLA calculation behavior on exceptions** setting to control what happens when an exception and a holiday occur on the same date. This behavior is configured per calendar. To learn more about this feature and see example use cases, please refer to [this page](/cms_trial/space/TTSC/2824765517/I+want+to+track+SLAs+during+planned+work+outside+business+hours/).
 
@@ -145,9 +157,9 @@ Exceptions on the same day:
 
 In this case, the exception hours are merged first, and then the break time is removed from the combined interval. This ensures SLA calculations remain consistent, even when multiple exceptions overlap.
 
-### Advanced
+### Configure advanced calendar settings
 
-Under this tab, you can define the **Length of Business Day**. Keep in mind that this is an advanced feature. If you’re unsure about your use case, use the default format.
+Expand the **Advanced** section to customize how Time to SLA interprets the length of a business day.
 
 ![Advanced tab showing Length of Business Day setting with default and custom duration options.](/cms_trial/assets/756dd81f-9bba-423b-a5f8-3317cf5d33a9.png)
 
@@ -157,4 +169,6 @@ Don’t forget to click **Save** to save your configuration.
 
 ## Next steps
 
-[**Define SLAs**](/cms_trial/space/TTSC/35651691/Define+SLAs/)
+After creating your calendar, you can assign it to an SLA to define when the SLA counts working time.
+
+- [Define SLAs](/cms_trial/space/TTSC/35651691/Define+SLAs/)
