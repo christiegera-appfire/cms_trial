@@ -20,7 +20,7 @@ We’ve updated our SLA Notification configuration to support this transition to
 
 ![Time to SLA release notes February 2025 showing updated SLA interface](/cms_trial/assets/cd259663-aa8b-4325-99f1-497f4f698320.png)
 
-For more information, refer to the [documentation](/cms_trial/space/TTSC/1464075666/Use+SLA+actions+with+Jira+automation/).
+For more information, refer to the [documentation](https://appfire.atlassian.net/wiki/spaces/TTSC/pages/1464075666).
 
 ## Bug fixes
 

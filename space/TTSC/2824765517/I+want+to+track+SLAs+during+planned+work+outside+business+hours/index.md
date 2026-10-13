@@ -8,7 +8,8 @@
 
 With [Exceptions](/cms_trial/space/TTSC/35750012/Create+calendars/) in Time to SLA, you can define additional working hours outside your standard business hours, without changing your regular schedule or holidays.
 
-![Time to SLA planned work schedule configuration outside business hours](/cms_trial/assets/a36da8e6-8b4c-4f03-9b3d-196f81823cf6.png)
+Image — asset pipeline pending  
+Time to SLA planned work schedule configuration outside business hours
 
 By adding exceptions to your calendar, you can:
 
@@ -20,7 +21,8 @@ By adding exceptions to your calendar, you can:
 
 When an SLA runs during an exception, an indicator appears in the SLA panel so agents clearly understand why the SLA is progressing outside normal hours.
 
-![Time to SLA planned work calendar selection for SLA tracking](/cms_trial/assets/e0263c49-af0e-4103-8a18-fd30fa6cb029.png)
+Image — asset pipeline pending  
+Time to SLA planned work calendar selection for SLA tracking
 
 You can create an exception for after-hours support (for example, 18:00–22:00) and optionally add break times. SLAs count only during the defined exception hours.
 
