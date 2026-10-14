@@ -16,7 +16,7 @@ The Advanced Table Viewer macro Beta now includes the row styling feature to app
 
 ### Row styling
 
-- The macro setup mode provides the row styling feature. For details, refer to [Setup the Advanced Table Viewer macro [Beta] features](https://appfire.atlassian.net/wiki/spaces/TBL/pages/1765147138).
+- The macro setup mode provides the row styling feature. For details, refer to [Setup the Advanced Table Viewer macro [Beta] features](/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/).
 - Once you enable **Row styling**, the right panel allows you to choose colors for row coloring and highlighting. For more information, refer to [Row styling with Advanced Table Viewer macro [Beta] - cloud](/cms_trial/space/TBL/1864990849/Row+styling+with+Advanced+Table+Viewer+macro/).
 
   - **Row coloring** enables you to define the colors for the table header, odd, and even rows.

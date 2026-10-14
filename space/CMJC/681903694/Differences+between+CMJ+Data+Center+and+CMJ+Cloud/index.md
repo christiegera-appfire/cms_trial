@@ -1,10 +1,10 @@
-# Differences between CMJ Server/Data Center and CMJ Cloud
+# Differences between CMJ Data Center and CMJ Cloud
 
 ## Comparison
 
-If you're a Jira Server/Data Center user transitioning to Jira Cloud and using Configuration Manager, you'll have to migrate to [*Configuration Manager for Jira Cloud*](https://marketplace.atlassian.com/apps/1211611/configuration-manager-for-jira-cmj?tab=overview&hosting=cloud).
+If you're a Jira Data Center user transitioning to Jira Cloud and using Configuration Manager, you'll have to migrate to [*Configuration Manager for Jira Cloud*](https://marketplace.atlassian.com/apps/1211611/configuration-manager-for-jira-cmj?tab=overview&hosting=cloud).
 
-Check out the table below for a breakdown of the features in Configuration Manager for Server/DC versus Configuration Manager for Jira Cloud. It provides insights into the following features:
+Check out the table below for a breakdown of the features in Configuration Manager for DC versus Configuration Manager for Jira Cloud. It provides insights into the following features:
 
 - AVAILABLE - features that have already been *rolled out*,
 - NOt available - features *not planned for the future*,
@@ -15,7 +15,7 @@ Do you need more details on the differences between [Configuration Manager for J
 
 |  |  |  |
 | --- | --- | --- |
-| Feature | Configuration Manager for Server/DC | Configuration Manager for Cloud |
+| Feature | Configuration Manager for Data Center | Configuration Manager for Cloud |
 | Jira application support |
 | Jira Core configuration | available | available |
 | Jira Software configuration | available | available |

@@ -123,7 +123,7 @@ Once you have selected the required columns, proceed to the **Save and publish**
 
   ![Select data source_click Save](/cms_trial/assets/bca3aae6-470a-4b75-9ab2-e3f3a5893ef5.png)
 - The macro opens in setup mode, displaying the table with the selected column names and Jira data.
-- In setup mode, you can configure various available features, such as column filtering, grouping, row styling, search, row numbering, sorting, download, and sum-up. Refer to [Set up the Advanced Table Viewer macro features](https://appfire.atlassian.net/wiki/spaces/TBL/pages/1765147138).
+- In setup mode, you can configure various available features, such as column filtering, grouping, row styling, search, row numbering, sorting, download, and sum-up. Refer to [Set up the Advanced Table Viewer macro features](/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/).
 
   ![Setup mode displays the Jira work items](/cms_trial/assets/41e11149-277d-4615-a74b-addc3e8f689b.png)
 - To apply the configurations, click **Save**.

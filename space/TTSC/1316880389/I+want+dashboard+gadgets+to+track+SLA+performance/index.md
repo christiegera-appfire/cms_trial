@@ -8,7 +8,7 @@
 
 You can make use of Time to SLA for Jira Cloud’s gadgets to help you track trends and make informed decisions.
 
-#### [Periodic Met vs. Exceeded SLA Chart gadget](/cms_trial/space/TTSC/35815718/Periodic+Met+vs.+Breached+SLA+gadget/)
+#### [Periodic Met vs. Exceeded SLA Chart gadget](https://appfire.atlassian.net/wiki/spaces/TTSC/pages/35815718)
 
 ![Time to SLA dashboard gadgets page with SLA performance dashboard](/cms_trial/assets/1910429d-112f-428b-a154-972d32b2b9f6.png)
 

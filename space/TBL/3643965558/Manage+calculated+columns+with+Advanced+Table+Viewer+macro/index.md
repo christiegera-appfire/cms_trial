@@ -11,7 +11,7 @@ The Advanced Table Viewer macro enables you to create custom calculated columns 
 
 You need edit permissions to access the setup mode.
 
-- To add a calculated column, edit the macro to open setup mode. Refer to [Set up the Advanced Table Viewer macro features](https://appfire.atlassian.net/wiki/spaces/TBL/pages/1765147138).
+- To add a calculated column, edit the macro to open setup mode. Refer to [Set up the Advanced Table Viewer macro features](/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/).
 
   ![ATV_Edit macro.png](/cms_trial/assets/1df1b22f-a8da-4e59-a39c-d9abc3391c4b.png)
 - Click **Manage** **columns** (▢). The **Manage columns** feature configuration panel appears on the right side of the screen.

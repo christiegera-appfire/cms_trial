@@ -14,9 +14,9 @@ AC version: 1.2.18-AC
 
 The Beta version of macro includes three new features, row numbering, search, and download.
 
-- **Row numbering**: Display a column with row numbers. For details, refer to [Setup the Advanced Table Viewer macro [Beta] features](https://appfire.atlassian.net/wiki/spaces/TBL/pages/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features#rownumbering).
+- **Row numbering**: Display a column with row numbers. For details, refer to [Setup the Advanced Table Viewer macro [Beta] features](/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/).
 - **Search**: Perform a dynamic search on the table data. For details, refer to [Search with Advanced Table Viewer macro [Beta] - cloud](/cms_trial/space/TBL/1764920560/Search+with+Advanced+Table+Viewer+macro/).
-- **Download**: Download the current table data as a CSV file. For details, refer to [Setup the Advanced Table Viewer macro [Beta] features](https://appfire.atlassian.net/wiki/spaces/TBL/pages/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features#download).
+- **Download**: Download the current table data as a CSV file. For details, refer to [Setup the Advanced Table Viewer macro [Beta] features](/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/).
 
 ![Advanced Table Viewer_Search, row numbering and download](/cms_trial/assets/ec381dcb-f17d-4ed1-b39d-27486c6749a2.jpg)
 
@@ -42,7 +42,7 @@ The Beta version of **Advanced Table Viewer** BETA macro is enhanced to provide:
 - For more information about how to configure the macro features in setup mode, refer to
 
   - [Configure Advanced Table Viewer macro [Beta]- cloud](/cms_trial/space/TBL/1782972884/Configure+CSV+data+source+in+Advanced+Table+Viewer+macro/).
-  - [Setup the Advanced Table Viewer macro [Beta] features](https://appfire.atlassian.net/wiki/spaces/TBL/pages/1765147138).
+  - [Setup the Advanced Table Viewer macro [Beta] features](/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/).
 
 ![Advanced Table macro setup mode](/cms_trial/assets/76407d70-198c-474d-aa4e-60d5d4b28fbe.jpg)
 

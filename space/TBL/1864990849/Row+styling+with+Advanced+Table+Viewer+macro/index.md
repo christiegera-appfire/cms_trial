@@ -13,7 +13,7 @@ You need edit permissions to access the setup mode.
 
 To enable row styling:
 
-- Edit the macro to open the setup mode. Refer to [Set up the Advanced Table Viewer macro features](https://appfire.atlassian.net/wiki/spaces/TBL/pages/1765147138).
+- Edit the macro to open the setup mode. Refer to [Set up the Advanced Table Viewer macro features](/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/).
 - Enable the **Row styling** option.
 - Once you enable the row styling option, the row styling features appear in the right side panel.
 

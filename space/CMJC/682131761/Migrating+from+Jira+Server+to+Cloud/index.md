@@ -10,7 +10,7 @@ For detailed information about using the Configuration Manager for Jira Cloud ap
 
 ## What will be different
 
-We’ve put together a document describing the differences in functionality between Configuration Manager for Jira Server/Data Center and Cloud. Please review the [Differences between CMJ Server/Data Center and CMJ Cloud](/cms_trial/space/CMJC/681903694/Differences+between+CMJ+Server%2FData+Center+and+CMJ+Cloud/) document to learn how the move will impact you in terms of Configuration Manager.
+We’ve put together a document describing the differences in functionality between Configuration Manager for Jira Server/Data Center and Cloud. Please review the [Differences between CMJ Server/Data Center and CMJ Cloud](/cms_trial/space/CMJC/681903694/Differences+between+CMJ+Data+Center+and+CMJ+Cloud/) document to learn how the move will impact you in terms of Configuration Manager.
 
 ## Do I need a new license
 

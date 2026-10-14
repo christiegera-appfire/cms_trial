@@ -34,7 +34,7 @@ Managing Jira configurations manually can lead to inconsistencies, broken workfl
 - [Prerequisites](/cms_trial/space/CMJC/193659801/Prerequisites/)
 - [Installation guide](/cms_trial/space/CMJC/194183182/Installation+guide/)
 - [Licensing](/cms_trial/space/CMJC/194150417/Licensing/)
-- [Differences between CMJ Server/Data Center and CMJ Cloud](/cms_trial/space/CMJC/681903694/Differences+between+CMJ+Server%2FData+Center+and+CMJ+Cloud/)
+- [Differences between CMJ Server/Data Center and CMJ Cloud](/cms_trial/space/CMJC/681903694/Differences+between+CMJ+Data+Center+and+CMJ+Cloud/)
 
 ![contentId-79462407](/cms_trial/assets/707a64ef-4204-4811-85cc-864e5a8e7e68.png)
 

@@ -13,7 +13,7 @@ The Advanced Table Viewer macro enables you to sort the column values on the Con
 
 You need edit permissions to access the setup mode.
 
-- Edit the macro to open the setup mode. Refer to [Setup the Advanced Table Viewer macro features](https://appfire.atlassian.net/wiki/spaces/TBL/pages/1765147138).
+- Edit the macro to open the setup mode. Refer to [Setup the Advanced Table Viewer macro features](/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/).
 - The macro enables the sort feature by default when you insert it for the first time.
 
   ![Sort is enabled by default](/cms_trial/assets/5cc8ae3c-a03c-4538-b5ef-5d5f70b066c3.jpg)

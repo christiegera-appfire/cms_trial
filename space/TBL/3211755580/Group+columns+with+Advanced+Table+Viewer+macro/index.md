@@ -17,7 +17,7 @@ The Advanced Table Viewer macro provides a column grouping feature that lets you
 
 You need edit permissions to access the setup mode.
 
-- To group columns, edit the macro to open the setup mode. Refer to [Set up the Advanced Table Viewer macro features](https://appfire.atlassian.net/wiki/spaces/TBL/pages/1765147138).
+- To group columns, edit the macro to open the setup mode. Refer to [Set up the Advanced Table Viewer macro features](/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/).
 
   ![Advanced Tables edit macro option for column grouping](/cms_trial/assets/6c873fce-5199-4d2d-b0df-4dbe1a990c67.jpg)
 

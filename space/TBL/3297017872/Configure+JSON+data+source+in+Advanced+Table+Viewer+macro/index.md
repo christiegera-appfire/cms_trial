@@ -243,7 +243,7 @@ Once you have selected the required columns, proceed to the **Save and publish**
 
   ![Advanced Tables JSON data source settings with Save button](/cms_trial/assets/52116710-d085-4229-ac88-6c4148083b48.jpg)
 - The macro opens in setup mode, displaying the table with the selected column names and data.
-- In setup mode, you can configure various features, such as column filtering, row styling, column grouping, search, row numbering, sorting, pagination, download, rename heading, and column and group calculations. Refer to [Set up the Advanced Table Viewer macro features](https://appfire.atlassian.net/wiki/spaces/TBL/pages/1765147138).
+- In setup mode, you can configure various features, such as column filtering, row styling, column grouping, search, row numbering, sorting, pagination, download, rename heading, and column and group calculations. Refer to [Set up the Advanced Table Viewer macro features](/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/).
 
   ![Advanced Tables JSON source in setup mode with Save button](/cms_trial/assets/fd3e5e62-d1d3-4b5c-9bff-5ddcf1afe44e.jpg)
 - To apply the configurations, click **Save**.

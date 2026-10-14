@@ -35,10 +35,9 @@ You can import and format the comma-separated values (CSV) using one of the foll
 
 To configure the CSV data source, refer to [Configure CSV data source in Advanced Table Viewer macro](/cms_trial/space/TBL/1782972884/Configure+CSV+data+source+in+Advanced+Table+Viewer+macro/).
 
-Image — asset pipeline pending  
-Advanced Tables CSV data source dialog with Upload file and column selection
+![Advanced Tables CSV data source dialog with Upload file and column selection](/cms_trial/assets/994a0b02-146a-49bc-bb7b-7274fa3004d2.jpg)
 
 ### Format table data
 
 - Once you configure the CSV data source, you can format the table data with the Advanced Table Viewer macro's **Table** and **Column** **Properties**.
-- To format and enhance your table view, refer to [Setup the Advanced Table Viewermacro features](https://appfire.atlassian.net/wiki/spaces/TBL/pages/1765147138).
+- To format and enhance your table view, refer to [Setup the Advanced Table Viewermacro features](/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/).

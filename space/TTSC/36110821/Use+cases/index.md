@@ -3,7 +3,6 @@
 Explore use cases of how Time to SLA can solve the bottlenecks in your work.
 
 - [I want to track the cycle and lead time](/cms_trial/space/TTSC/1315340492/I+want+to+track+the+cycle+and+lead+time/)
-- [I want to receive periodic reports with subcriptions](/cms_trial/space/TTSC/1316683779/I+want+to+receive+periodic+reports+with+subcriptions/)
 - [I want to monitor SLA metrics at a glance](/cms_trial/space/TTSC/1317175298/I+want+to+monitor+SLA+metrics+at+a+glance/)
 - [I need work item-specific SLA actions!](/cms_trial/space/TTSC/37388346/I+need+work+item-specific+SLA+actions%21/)
 - [I want SLA templates](/cms_trial/space/TTSC/37388377/I+want+SLA+templates/)

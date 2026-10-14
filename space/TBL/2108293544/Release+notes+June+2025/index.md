@@ -16,8 +16,7 @@ Version: 2.4.0
 
 The Advanced Table Viewer Column filters now provide the **Date format** option, which enables you to select the required format to specify the date range in the **From** and **To** date fields. For more information, refer to [Filter columns with Advanced Table Viewer [Beta] macro - cloud](/cms_trial/space/TBL/2001437596/Filter+columns+with+Advanced+Table+Viewer+macro/).
 
-Image — asset pipeline pending  
-Advanced Table Viewer\_Date format filter
+![Advanced Table Viewer_Date format filter](/cms_trial/assets/5d3ab2b2-8804-4fef-9c5a-f7a06d4c78eb.jpg)
 
 ---
 

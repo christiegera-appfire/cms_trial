@@ -9,7 +9,7 @@ The Advanced Table Viewer macro search feature enables you to perform a dynamic 
 
 You need edit permissions to access the setup mode.
 
-- Edit the macro to open the setup mode. Refer to [Setup the Advanced Table Viewer macro features](https://appfire.atlassian.net/wiki/spaces/TBL/pages/1765147138).
+- Edit the macro to open the setup mode. Refer to [Setup the Advanced Table Viewer macro features](/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/).
 - The macro enables the search feature by default when you insert it for the first time.
 
   ![Advanced Tables search icon in Advanced Table Viewer](/cms_trial/assets/3397f9d7-83c3-4a2f-9be1-4f91ec8919bc.jpg)

@@ -16,7 +16,7 @@ You need edit permissions to access the setup mode.
 
 **Column filtering** is OFF by default. To enable column filtering:
 
-1. Edit the macro to open the setup mode. Refer to [Set up the Advanced Table Viewer macro features](https://appfire.atlassian.net/wiki/spaces/TBL/pages/1765147138).
+1. Edit the macro to open the setup mode. Refer to [Set up the Advanced Table Viewer macro features](/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/).
 2. Enable the **Column filtering** (▢).
 3. Once you enable the column filtering, the **Column filters** feature panel appears on the right side of the configuration screen.
 

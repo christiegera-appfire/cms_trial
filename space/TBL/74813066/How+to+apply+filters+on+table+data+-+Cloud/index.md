@@ -1,6 +1,6 @@
 # How to apply filters on table data - Cloud
 
-Users can now search for some specific data with regular expressions in the tables generated with the *Advanced Tables for Confluence Cloud* macros. If the *Display data filter* option is toggled on in the macro's settings, a filter panel appears on the top of every table inside this macro. This panel contains a text box to enter the required search criteria and buttons: *Filter* to apply the search against the data rows, and, *Clear* to clear the box to start a new search. Refer to [this article](https://appfire.atlassian.net/wiki/spaces/TBL/pages/74814629) to know more about regular expressions.
+Users can now search for some specific data with regular expressions in the tables generated with the *Advanced Tables for Confluence Cloud* macros. If the *Display data filter* option is toggled on in the macro's settings, a filter panel appears on the top of every table inside this macro. This panel contains a text box to enter the required search criteria and buttons: *Filter* to apply the search against the data rows, and, *Clear* to clear the box to start a new search. Refer to [this article](/cms_trial/space/TBL/74814629/How+to+use+regular+expressions+-+Cloud/) to know more about regular expressions.
 
 This page provides an example of how to use filters. Though you can use this feature with any of the macros, for this example, let's work with a *CSV* macro.
 
