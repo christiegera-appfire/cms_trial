@@ -18,6 +18,8 @@
 - [Release notes 16 August 2024](/cms_trial/space/TTSC/1217200129/Release+notes+16+August+2024/)
 - [Release notes 3 September 2024](/cms_trial/space/TTSC/1253278159/Release+notes+3+September+2024/)
 - [Release notes 23 September 2024](/cms_trial/space/TTSC/1310294336/Release+notes+23+September+2024/)
+- [Release notes 27 September 2024](/cms_trial/space/TTSC/1330184200/Release+notes+27+September+2024/)
+- [Release notes 1 October 2024](/cms_trial/space/TTSC/1338540034/Release+notes+1+October+2024/)
 - [Release notes 9 October 2024](/cms_trial/space/TTSC/1358790876/Release+notes+9+October+2024/)
 - [Release notes 22 October 2024](/cms_trial/space/TTSC/1420656675/Release+notes+22+October+2024/)
 - [Release notes 28 October 2024](/cms_trial/space/TTSC/1420525580/Release+notes+28+October+2024/)

@@ -9,6 +9,8 @@ The *Rich Filter Simple Counter* gadget displays issue counts, field sums, and
 - for the same collection of issues, the gadget can display multiple results at the same time – based on the number of issues (*Issue Count*), the sum of numeric and time-tracking fields (such as *Story Points* or *Original Estimate*), Service Management SLA fields (*Time to first response*), or on custom values;
 - the content of the gadget can be [exported](/cms_trial/space/RFCDOC/783942966/Export+data/) to PDF, Excel (.xlsx), and CSV formats.
 
+Watch the video to see the *Rich Filter Simple Counter* gadget features:
+
 ![custom value dashboard.png](/cms_trial/assets/63592193-ece4-4f1b-8fc1-7d117450f957.png)
 
 ## Configure the Rich Filter Simple Counter gadget

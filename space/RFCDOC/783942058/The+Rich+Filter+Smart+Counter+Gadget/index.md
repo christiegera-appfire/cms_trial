@@ -11,6 +11,8 @@ The *Rich Filter Smart Counter* gadget displays aggregated issue data in a count
 - the results are displayed as counts, labeled and colored according to the [smart filter configuration](/cms_trial/space/RFCDOC/783941713/Configure+smart+filters/);
 - the content of the gadget can be [exported](/cms_trial/space/RFCDOC/783942966/Export+data/) to PDF, Excel (.xlsx), and CSV formats.
 
+Watch the video to see the *Rich Filter Smart Counter* gadget features:
+
 ![Rich Filter Smart Counter gadget display.png](/cms_trial/assets/67057197-102d-4245-8324-f003a7c1fe53.png)
 
 ## Configuring the Rich Filter Smart Counter gadget
@@ -27,4 +29,4 @@ Edit the gadget configuration as described in the following table:
 | **Working Query** | The working query is an additional JQL query, which is permanently applied on top of the base Jira filter and any active quick filters in the controller to further filter the issues the gadget will work with. The working query is optional: if left empty, only the base Jira filter and the quick filters affect the issues used by the gadget. |
 | **Smart Filter** | Select the smart filter on which the issues will be grouped. The drop-down list shows the smart filters defined in the selected rich filter. |
 | **Show none** | If checked, the gadget displays the result corresponding to the issues that don't match any of the clauses of the selected smart filter. |
-| **Value** | Select the value to be computed for each smart filter clause. There are four kinds of possible values:   - **Issue Count:** displays the number of issues in each group. - **Time Tracking:**displays the sum of one of the time-tracking fields (i.e., *Original Estimate, Remaining Estimate, Time Spent*) for the issues in each group. - **Numeric:**displays the sum of a numeric field for the issues in each group. For instance, using Jira Software, the gadget can show each group*’s* sum of *Story Points*. - **Custom values:** displays a [custom value](/cms_trial/space/RFCDOC/783942033/Configure+custom+values/), as configured in the rich filter (aggregation formula, display options, etc.).  contentId-783942058 |
+| **Value** | Select the value to be computed for each smart filter clause. There are four kinds of possible values:   - **Issue Count:** displays the number of issues in each group. - **Time Tracking:**displays the sum of one of the time-tracking fields (i.e., *Original Estimate, Remaining Estimate, Time Spent*) for the issues in each group. - **Numeric:**displays the sum of a numeric field for the issues in each group. For instance, using Jira Software, the gadget can show each group*’s* sum of *Story Points*. - **SLA Fields**: Displays the time - **Custom values:** displays a [custom value](/cms_trial/space/RFCDOC/783942033/Configure+custom+values/), as configured in the rich filter (aggregation formula, display options, etc.).  contentId-783942058 |

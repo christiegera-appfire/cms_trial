@@ -2,6 +2,8 @@
 
 One key aspect of service management is managing support requests as efficiently as possible. This includes tracking support requests as they progress through your support queues from assignment to completion, identifying problems (for example, requests that are unassigned or have been waiting for a support response for a significant amount of time), making sure SLAs are not broken, and efficiently using historical requests as a knowledge base to help answer new ones.
 
+Watch the tutorial:
+
 This article walks you through building a powerful support request management dashboard with [Rich Filters for Jira Dashboards](https://marketplace.atlassian.com/apps/1214789/rich-filters-for-jira-dashboards?hosting=cloud&tab=overview) that meets the above needs, allowing you to keep up with your service requests with maximum productivity. This is a key part of delivering an effective ITSM strategy.
 
 ## Prerequisites

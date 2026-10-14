@@ -2,31 +2,13 @@
 
 If you are involved in a company service management function, you will know that reporting is critical for your team's success. Your leadership will want regular reports to show that you meet company objectives for SLAs and customer satisfaction levels. They will like this information in an easily digestible format, allowing them to break the data down by different teams or service desks and look at trends over time. They want to see where the successes are but quickly find problematic trends that allow preemptive responses to potential failures.
 
+Watch the video tutorial:
+
+<https://youtu.be/N3F7uqB8g7k?si=jfL4RxzI9ThA1Sft>
+
 This article shows you how to create a powerful support request reporting dashboard with [Rich Filters for Jira Dashboards](https://marketplace.atlassian.com/apps/1214789/rich-filters-for-jira-dashboards?hosting=cloud&tab=overview) that fulfills the needs described above. It allows you to report progress against targets and monitor your work for success and problem patterns. This is a key part of delivering an effective ITSM strategy.
 
-**Contents:**
-
-- [Prerequisites](#prerequisites)
-- [Use case](#use-case)
-- [Solution: Use a rich filter-powered dashboard for support request reporting](#solution-use-a-rich-filter-powered-dashboard-for-support-request-reporting)
-- [At-a-glance reporting on overall SLA targets](#at-a-glance-reporting-on-overall-sla-targets)
-- [Break down SLA targets by team and project](#break-down-sla-targets-by-team-and-project)
-- [Generating quick charts](#generating-quick-charts)
-- [Show historical progress against targets.](#show-historical-progress-against-targets)
-- [Rich filter features resources.](#rich-filter-features-resources)
-- [Start building the Support request reporting dashboard](#start-building-the-support-request-reporting-dashboard)
-- [Set up your filters](#set-up-your-filters)
-- [Set up your time series](#set-up-your-time-series)
-- [Set up the Rich Filter Simple Gauges gadget](#set-up-the-rich-filter-simple-gauges-gadget)
-- [Set up the first Rich Filter Statistics gadget](#set-up-the-first-rich-filter-statistics-gadget)
-- [Set up the first Rich Filter Two Dimensional Statistics gadget](#set-up-the-first-rich-filter-two-dimensional-statistics-gadget)
-- [Set up the second Rich Filter Two Dimensional Statistics gadget](#set-up-the-second-rich-filter-two-dimensional-statistics-gadget)
-- [Set up the second Rich Filter Statistics gadget](#set-up-the-second-rich-filter-statistics-gadget)
-- [Set up the Rich Filter Flexi Charts gadget](#set-up-the-rich-filter-flexi-charts-gadget)
-- [Set up the Rich Filter Time Series Chart gadget](#set-up-the-rich-filter-time-series-chart-gadget)
-- [Final result](#final-result)
-
-## Prerequisites
+## Before you start
 
 This article assumes that you are using [Jira Service Management](https://www.atlassian.com/software/jira/service-management).
 

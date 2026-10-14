@@ -13,6 +13,8 @@ The *Rich Filter Smart Gauges* gadget displays proportions from issue counts, nu
 
   ![smart gauges for teams.png](/cms_trial/assets/44460274-ef11-42b5-8f6e-1c7d6c68cf03.png)
 
+Watch the video to see the I*Rich Filter Smart Gauges* gadget features:
+
 ## **Configuring the Rich Filter Smart Gauges gadget**
 
 [Add](https://support.atlassian.com/jira-core-cloud/docs/add-and-customize-a-gadget/) a new or edit an existing *Rich Filter Smart Gauges* gadget in your [Jira dashboard](https://support.atlassian.com/jira-core-cloud/docs/what-is-a-jira-dashboard/). The configuration form of the gadget will be displayed:
