@@ -7,7 +7,7 @@ The Advanced Table Viewer macro provides an intuitive way to reorganize table co
 
 ## Drag-and-drop columns
 
-- Edit the macro to open the setup mode. Refer to [Setup the Advanced Table Viewer macro features](/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/).
+- Edit the macro to open the setup mode. Refer to [Setup the Advanced Table Viewer macro features](https://appfire.atlassian.net/wiki/spaces/TBL/pages/1765147138).
 
 You need edit permissions to access the setup mode.
 

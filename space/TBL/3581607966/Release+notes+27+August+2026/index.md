@@ -50,7 +50,7 @@ The Advanced Table Viewer macro now supports **Jira work items** as a data sourc
 
   ![The Advanced Table Viewer macro configured to import Jira work items using a JQL query and selected Jira fields.](/cms_trial/assets/7807baec-decd-42c5-996f-26016b870004.png)
 
-- In the macro setup mode, configure various available features, such as column filtering, grouping, row styling, search, row numbering, sorting, download, and column and group calculations. Refer to [Set up the Advanced Table Viewer macro features](/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/).
+- In the macro setup mode, configure various available features, such as column filtering, grouping, row styling, search, row numbering, sorting, download, and column and group calculations. Refer to [Set up the Advanced Table Viewer macro features](https://appfire.atlassian.net/wiki/spaces/TBL/pages/1765147138).
 
   ![The Advanced Table Viewer macro setup showing options to configure filtering, grouping, sorting, styling, and calculations.](/cms_trial/assets/da53b73c-6150-4d7d-b2ce-16b6f9892411.png)
 

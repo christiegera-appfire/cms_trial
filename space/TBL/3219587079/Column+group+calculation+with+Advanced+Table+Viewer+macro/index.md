@@ -36,7 +36,7 @@ Follow the steps to configure group calculation for any column.
 
 You need edit permissions to access the macro setup mode.
 
-1. Edit the macro to open setup mode. Refer to [Set up the Advanced Table Viewer macro features](/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/).   
+1. Edit the macro to open setup mode. Refer to [Set up the Advanced Table Viewer macro features](https://appfire.atlassian.net/wiki/spaces/TBL/pages/1765147138).   
    Each column displays an *Edit column* ( ▢ ) option.
 2. To set up the group calculation for any column, navigate to **Edit column** > **Edit group calculation**.
 

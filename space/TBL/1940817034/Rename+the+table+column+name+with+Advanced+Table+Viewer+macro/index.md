@@ -10,7 +10,7 @@ The Advanced Table Viewer macro enables you to rename column names after importi
 ## Rename column heading
 
 - You need edit permissions to access the setup mode.
-- To rename the column, edit the macro to open the setup mode. Refer to [Setup the Advanced Table Viewer macro features](/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/).
+- To rename the column, edit the macro to open the setup mode. Refer to [Setup the Advanced Table Viewer macro features](https://appfire.atlassian.net/wiki/spaces/TBL/pages/1765147138).
 - For each column in the table, you will see the *Edit column (*▢ *)* option.
 - To rename the column heading, click **Edit column** > **Rename heading**.
 

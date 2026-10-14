@@ -5,7 +5,7 @@
 The Advanced Table Viewer macro enables you to import and display CSV, Excel, and JSON data and Jira work items as a structured table, making it easier for your team to view and analyze data directly within Confluence.
 
 - The macro imports the data as a point-in-time snapshot, providing a single version of truth for data analysis.
-- Imported data is converted into a structured table, which you can further enhance using the formatting options and features in the intuitive [setup](/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/) mode.
+- Imported data is converted into a structured table, which you can further enhance using the formatting options and features in the intuitive [setup](https://appfire.atlassian.net/wiki/spaces/TBL/pages/1765147138) mode.
 - The table remains fully functional even if you modify the original file or accidentally delete it.
 - Atlassian Rovo integration enables AI-driven analysis of your Advanced Table Viewer data, right within Confluence.
 
@@ -48,4 +48,4 @@ You can add the macro to a Confluence page using one of the following methods:
 
 - The Advanced Table Viewer macro setup mode lets you configure macro features and make them accessible in Confluence page view and edit mode.
 - This enables you to work with the data and create customizable views.
-- You need edit permissions to configure the macro feature. For more information, refer to [Setup the Advanced Table Viewer macro features](/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/).
+- You need edit permissions to configure the macro feature. For more information, refer to [Setup the Advanced Table Viewer macro features](https://appfire.atlassian.net/wiki/spaces/TBL/pages/1765147138).

@@ -13,7 +13,7 @@ You need edit permissions to access the setup mode.
 
 **Manage columns** is OFF by default. To enable **Manage columns**:
 
-1. Edit the macro to open the setup mode. Refer to [Set up the Advanced Table Viewer macro features](/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/).
+1. Edit the macro to open the setup mode. Refer to [Set up the Advanced Table Viewer macro features](https://appfire.atlassian.net/wiki/spaces/TBL/pages/1765147138).
 
    ![ATV_Manage columns_macro edit mode.png](/cms_trial/assets/15e48bb4-9be7-4c56-897d-466d378ce3d9.png)
 2. Click **Manage** **columns** (▢). The **Manage** **columns** feature configuration panel appears on the right side of the screen.

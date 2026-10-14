@@ -33,7 +33,7 @@ You can perform the following column calculations.
 
 You need edit permissions to access the macro setup mode.
 
-To configure **column calculation**, edit the macro to open the setup mode. Refer to [Set up the Advanced Table Viewer macro features](/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/). Each column in the table has an *Edit column* (▢ ) option.
+To configure **column calculation**, edit the macro to open the setup mode. Refer to [Set up the Advanced Table Viewer macro features](https://appfire.atlassian.net/wiki/spaces/TBL/pages/1765147138). Each column in the table has an *Edit column* (▢ ) option.
 
 ### Apply column calculation to numeric column type
 

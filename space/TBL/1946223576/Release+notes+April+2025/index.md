@@ -16,10 +16,11 @@ The Advanced Table Viewer BETA macro now provides the column property to rename 
 
 ### Rename heading
 
-- The macro setup mode provides the **Rename heading** feature. For details, refer to [Setup the Advanced Table Viewer macro [Beta] features](/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/).
+- The macro setup mode provides the **Rename heading** feature. For details, refer to [Setup the Advanced Table Viewer macro [Beta] features](https://appfire.atlassian.net/wiki/spaces/TBL/pages/1765147138).
 - To change the name of a column, navigate to **Edit column** ( ▢ ) > **Rename heading** and provide the new column heading. For more information, refer to [Rename the table column name with Advanced Table Viewer macro [Beta] - cloud](/cms_trial/space/TBL/1940817034/Rename+the+table+column+name+with+Advanced+Table+Viewer+macro/).
 
-  ![Advanced Table Viewer showing the rename heading feature.](/cms_trial/assets/80b4353c-6085-4df0-9b3d-67a8bc557b24.jpg)
+  Image — asset pipeline pending  
+  Advanced Table Viewer showing the rename heading feature.
 
 ---
 
@@ -31,13 +32,15 @@ The Advanced Table Viewer BETA macro now provides the column property to rename 
 
 The download icon is replaced with a button to clearly indicate the download action.
 
-![Download button for the Table Viewer.](/cms_trial/assets/d4586f85-e161-41bf-85a1-429e83e16acb.jpg)
+Image — asset pipeline pending  
+Download button for the Table Viewer.
 
 ### Contextual messages to improve usability
 
 The Advanced Table Viewer macro displays contextual messages based on the current mode and user actions within the macro. To know more about modes and contextual messages, refer to the [Advanced Table Viewer macro glossary](/cms_trial/space/TBL/1765245023/Advanced+Table+Viewer+macro+glossary/).
 
-![Setup mode](/cms_trial/assets/e37cea9f-0715-4cde-8c9a-a57d6144ed36.jpg)
+Image — asset pipeline pending  
+Setup mode
 
 ---
 

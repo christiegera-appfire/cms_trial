@@ -159,7 +159,7 @@ Once you have selected the required columns, proceed to **Save and publish** sec
 
   ![Advanced Tables data source selection with Save button](/cms_trial/assets/7a1cc538-cdbc-4ae1-9563-5ec983773222.jpg)
 - The macro opens in setup mode, displaying the table with the selected column names and data.
-- In setup mode, you can configure various available features, such as column filtering, row styling, search, row numbering, sorting, download, and sum-up. Refer to [Setup the Advanced Table Viewer macro features](/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/).
+- In setup mode, you can configure various available features, such as column filtering, row styling, search, row numbering, sorting, download, and sum-up. Refer to [Setup the Advanced Table Viewer macro features](https://appfire.atlassian.net/wiki/spaces/TBL/pages/1765147138).
 
   ![Advanced Tables Advanced Table Viewer macro in setup mode](/cms_trial/assets/39c03198-ca15-463c-a0c1-b2381bd0b1c3.jpg)
 - To apply the configurations, click **Save**.

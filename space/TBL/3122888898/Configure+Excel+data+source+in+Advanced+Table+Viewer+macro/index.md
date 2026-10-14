@@ -146,7 +146,7 @@ Once you have selected the required columns, proceed to the **Save and publish**
 
   ![ATV_ExcelURL_Select Columns](/cms_trial/assets/6ae6d5f5-68d1-44e3-8bf7-a1416fad6208.jpg)
 - The macro opens in setup mode, displaying the table with the selected column names and data.
-- In setup mode, you can configure various available features, such as column filtering, row styling, search, row numbering, sorting, download, and sum-up. Refer to [Setup the Advanced Table Viewer macro features](/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/).
+- In setup mode, you can configure various available features, such as column filtering, row styling, search, row numbering, sorting, download, and sum-up. Refer to [Setup the Advanced Table Viewer macro features](https://appfire.atlassian.net/wiki/spaces/TBL/pages/1765147138).
 
   ![ATV_Excel_source_setup mode](/cms_trial/assets/394e9604-6be2-4337-88c2-b717011cf27e.jpg)
 - To apply the configurations, click **Save**.

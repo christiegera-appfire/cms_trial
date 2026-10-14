@@ -64,7 +64,7 @@ This scenario demonstrates how to use the recursive descent operator (`..`) to g
 - Click **Save**. The macro opens in setup mode, displaying the table with the selected column names and data.
 
   ![ATV_JSON Source_Extract group inventory category.jpg](/cms_trial/assets/916e77d4-f1e7-4128-9b2c-ef5e7cacaded.jpg)
-- To configure various features in setup mode, refer to [Set up the Advanced Table Viewer macro features](/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/).
+- To configure various features in setup mode, refer to [Set up the Advanced Table Viewer macro features](https://appfire.atlassian.net/wiki/spaces/TBL/pages/1765147138).
 - To apply the configurations, click **Save,** and the configured table appears on the Confluence page in edit and view mode.
 
 [Unmapped macro: refined-tab — no content to fall back on]
@@ -79,7 +79,7 @@ This scenario demonstrates how to fetch a high-level list of all primary categor
 - Click **Save**. The macro opens in setup mode, displaying the table with the selected column names and data.
 
   ![ATV_JSON Source_primary category names.jpg](/cms_trial/assets/b7ba9963-a14f-4249-abe5-fa44dca49379.jpg)
-- To configure various features in setup mode, refer to [Set up the Advanced Table Viewer macro features](/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/).
+- To configure various features in setup mode, refer to [Set up the Advanced Table Viewer macro features](https://appfire.atlassian.net/wiki/spaces/TBL/pages/1765147138).
 - To apply the configurations, click **Save,** and the configured table appears on the Confluence page in edit and view mode.
 
 [Unmapped macro: refined-tab — no content to fall back on]
@@ -94,7 +94,7 @@ This scenario demonstrates how to use bracket-index notation to extract core har
 - Click **Save**. The macro opens in setup mode, displaying the table with the selected column names and data.
 
   ![ATV_JSON Source_Extract core hardware.jpg](/cms_trial/assets/45e06848-93cf-4c25-a945-2a8cdbc52227.jpg)
-- To configure various features in setup mode, refer to [Set up the Advanced Table Viewer macro features](/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/).
+- To configure various features in setup mode, refer to [Set up the Advanced Table Viewer macro features](https://appfire.atlassian.net/wiki/spaces/TBL/pages/1765147138).
 - To apply the configurations, click **Save**, and the configured table appears on the Confluence page in edit and view mode.
 
 ## More examples

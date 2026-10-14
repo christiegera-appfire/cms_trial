@@ -7,7 +7,6 @@ The Advanced Tables for Confluence app includes powerful and feature rich macros
 - [JSON Table macro - Cloud](/cms_trial/space/TBL/74812316/JSON+Table+macro+-+Cloud/)
 - [Attachment Table macro - Cloud](/cms_trial/space/TBL/74812217/Attachment+Table+macro+-+Cloud/)
 - [Advanced Table Viewer macro](/cms_trial/space/TBL/1531117698/Advanced+Table+Viewer+macro/)
-  - [Set up the Advanced Table Viewer macro features](/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/)
   - [Configure CSV data source in Advanced Table Viewer macro](/cms_trial/space/TBL/1782972884/Configure+CSV+data+source+in+Advanced+Table+Viewer+macro/)
   - [Configure Excel data source in Advanced Table Viewer macro](/cms_trial/space/TBL/3122888898/Configure+Excel+data+source+in+Advanced+Table+Viewer+macro/)
   - [Configure JSON data source in Advanced Table Viewer macro](/cms_trial/space/TBL/3297017872/Configure+JSON+data+source+in+Advanced+Table+Viewer+macro/)

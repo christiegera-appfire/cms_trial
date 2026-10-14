@@ -16,7 +16,7 @@ The Advanced Table Viewer BETA macro now includes **Column filtering** to filter
 
 ### Column filtering
 
-- The macro setup mode provides the **Column filtering** feature. For details, refer to [Setup the Advanced Table Viewer macro [Beta] features](/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/).
+- The macro setup mode provides the **Column filtering** feature. For details, refer to [Setup the Advanced Table Viewer macro [Beta] features](https://appfire.atlassian.net/wiki/spaces/TBL/pages/1765147138).
 - Once you enable the column filters, you can choose the filters for each column as required.
 - The available column filter types are:
 

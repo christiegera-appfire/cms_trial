@@ -2,7 +2,6 @@
 
 This page lists some examples and articles that explain how to take full advantage of the app's capabilities.
 
-- [How to use regular expressions - Cloud](/cms_trial/space/TBL/74814629/How+to+use+regular+expressions+-+Cloud/)
 - [How to make user-defined column styles persist - Cloud](/cms_trial/space/TBL/74812963/How+to+make+user-defined+column+styles+persist+-+Cloud/)
 - [How to make user-defined row styles persist - Cloud](/cms_trial/space/TBL/74813085/How+to+make+user-defined+row+styles+persist+-+Cloud/)
 - [How to apply filters on table data - Cloud](/cms_trial/space/TBL/74813066/How+to+apply+filters+on+table+data+-+Cloud/)

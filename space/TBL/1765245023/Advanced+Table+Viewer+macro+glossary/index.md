@@ -6,7 +6,7 @@ This page provides definitions for key terms used in the Advanced Table Viewer m
 
 - The setup mode enables you to configure macro features for using the Advanced Table Viewer macro.
 - You need Confluence space edit permissions to access the setup mode.
-- Edit the macro to open the setup mode. Refer to the page, [Setup the Advanced Table Viewer macro features](/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/).
+- Edit the macro to open the setup mode. Refer to the page, [Setup the Advanced Table Viewer macro features](https://appfire.atlassian.net/wiki/spaces/TBL/pages/1765147138).
 - The setup mode displays contextual messages based on user interaction.
 
   - No configuration changes: *Setup mode active. You are now editing the table.*
@@ -28,7 +28,7 @@ This page provides definitions for key terms used in the Advanced Table Viewer m
 
 The **Full screen** feature lets you view the macro with the table data and all configured features in a maximized view.
 
-- The Full screen view always displays the table data as configured in the macro setup mode. For details, refer to [Setup the Advanced Table Viewer macro features](/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/).
+- The Full screen view always displays the table data as configured in the macro setup mode. For details, refer to [Setup the Advanced Table Viewer macro features](https://appfire.atlassian.net/wiki/spaces/TBL/pages/1765147138).
 - The Full screen view on the Confluence page view mode opens as a modal.
 - It maximizes data visibility and minimizes distractions, allowing you to focus on data analysis and work more efficiently.
 - You can switch to **Full screen** view from the Confluence page view mode. To view the data in full screen, click **Full screen**.
