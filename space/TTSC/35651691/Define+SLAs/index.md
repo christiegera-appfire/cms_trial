@@ -6,17 +6,7 @@ Each SLA defines which work items to track, the time targets they need to meet, 
 
 This guide explains how to create an SLA in Time to SLA for Jira Cloud.
 
-## Prerequisites
-
-Before creating an SLA:
-
-- Identify the Jira projects you want to track.
-- Decide what you want to measure, such as first response time or resolution time.
-- Determine the time target for each type of work item.
-- Identify when the SLA timer should start, pause, and stop.
-- Make sure an appropriate working calendar is available. See [Create calendars](/cms_trial/space/TTSC/35750012/Create+calendars/).
-
-## How to define an SLA
+## Define an SLA
 
 Watch this 2-minute video to get an overview:
 
@@ -48,48 +38,48 @@ Once the SLA starts, you’ll automatically receive notifications when it reache
 
 Thanks for watching! Now that you know the basics, dive into the app and start creating SLAs that help your team deliver results on time, every time. Happy tracking!
 
-### **Steps**
+To create an SLA, follow these steps:
 
-1. Log in to your Jira Cloud account.
-2. Click **Apps** in the header menu and open the **Time to SLA** app.
-3. Go to **SLAs** in the header menu.
-4. Upon installation, the **SLAs** page appears empty if no SLAs are imported. Click **+ SLA** or **Create your first SLA** to define your first SLA.
+1. In Jira, go to **Apps > Time to SLA**.
+2. Open the *SLAs* page.
+3. Click **+ SLA** to create an SLA from scratch. If you haven't created any SLAs yet, you can select **Create your first SLA**.
 
-   ![A screenshot showing the SLAs screen and the button placement on the Time to SLA app.](/cms_trial/assets/34383697-cba4-41fb-b343-b2840efd9eba.png)
+### Step 1: Set up your SLA definition
 
-#### Step 1: Set up your SLA definition
-
-1. Enter a clear and concise name for your SLA that reflects its purpose.
+1. Enter a **Name** that describes the purpose of your SLA.
 
    ![A screenshot showing the SLA definition, step 1. ](/cms_trial/assets/e75c083d-4d1f-4c23-b4ad-fb515878e3e8.png)
-2. Optionally, add a description.
-3. Select the project(s) to which the SLA will be applied. As you select the projects, the work items under those projects will be listed below. If you want to narrow down the scope of the SLA even more, you can do so in the **SLA Goals** step.
+2. Enter a **Description** to provide additional context.
+3. Select the space(s) to which the SLA will be applied. As you select the spaces, the work items in those space will be listed below. If you want to narrow down the scope of the SLA even more, you can do so in the **SLA Goals** step.
 
-#### Step 2: Select your SLA goals
+### Step 2: Configure SLA goals
 
-Set your SLA goals, which are time limits or deadlines set within your specified context. They are tracked according to your working hours.
+SLA goals define the time targets that work items must meet. For example, you can create a *First response time* SLA with a one-hour target for high-priority requests and a four-hour target for other requests.
 
-Each goal can be a specific timeframe (days, hours, minutes) or a fixed deadline, such as a due date or custom field in Jira work items. If your SLA includes multiple goals, they are prioritized from top to bottom. The remaining work items will be handled under a default goal.
+You can add multiple goals to a single SLA. Each goal has its own target, calendar, and optional work item criteria.
 
-1. Use the **+ Add goal** button to configure goals. *Add* *SLA goal* screen opens.
+1. In the *SLA Goals* step, click **Add goal**.
+2. In the *New goal* dialog, configure the following fields:
 
    ![A screenshot showing the SLA goal creation, step 2.](/cms_trial/assets/a44b8eaa-cea9-4ce7-b802-a0cf76480093.png)
-2. **Goal Name:** Enter the name of the goal.
-3. **Goal Calendar:** Select the goal calendar. You can also use the *Select calendar via Jira issue* feature to ensure teams can dynamically select their calendar based on their geographical location.
-4. **Goal Target Type:** There are five you can choose from. Refer to the [related documentation](/cms_trial/space/TTSC/35390901/SLA+goals/) to learn more about each type.
-5. **Goal Issues:** Select the work items the goal will apply to. If you select *Only specific issues in selected projects*, a dropdown will be revealed, and you’ll need to perform a set of configurations to narrow down the SLA scope. You can directly select the work item types the SLA will be applied to, or click **+ More** to select work items based on:
+   - **Goal Name:** Enter the name of the goal.
+   - **Goal Calendar:** Select the goal calendar. You can also use the *Select calendar via Jira issue* feature to ensure teams can dynamically select their calendar based on their geographical location.
+   - **Goal Target Type:** There are five you can choose from. Refer to the [related documentation](/cms_trial/space/TTSC/35390901/SLA+goals/) to learn more about each type.
+   - **Goal Issues:** Select the work items the goal will apply to. If you select *Only specific issues in selected projects*, a dropdown will be revealed, and you’ll need to perform a set of configurations to narrow down the SLA scope. You can directly select the work item types the SLA will be applied to, or click **+ More** to select work items based on:
 
-   - **Request Type –** Tailor the SLA to the unique needs of that type of request. For instance, you might want different SLAs for bug fixes, feature requests, or support queries.
-   - **Issue Type –** Each project can have different Issue Types (for example, Bug, Task, Story). Choosing an Issue Type ensures that the SLA is applicable to work items falling under that specific category.
-   - **Issue Priority –** Assigning an SLA to a particular Priority ensures that the defined service levels are applied based on the criticality of the work item (for example, Highest, High).
-   - **Issue Filter –** Allows you to apply the SLA to a subset of work items based on a predefined filter, giving you extra flexibility.
-   - **JQL (Jira Query Language) –** Allows you to create sophisticated queries to filter and retrieve specific sets of work items and apply the SLA to matching the criteria defined in the JQL query. This is particularly useful for advanced users who want to create dynamic and customized SLA conditions.
+     - **Request Type –** Tailor the SLA to the unique needs of that type of request. For instance, you might want different SLAs for bug fixes, feature requests, or support queries.
+     - **Issue Type –** Each space can have different Issue Types (for example, Bug, Task, Story). Choosing an Issue Type ensures that the SLA is applicable to work items falling under that specific category.
+     - **Issue Priority –** Assigning an SLA to a particular Priority ensures that the defined service levels are applied based on the criticality of the work item (for example, Highest, High).
+     - **Issue Filter –** Allows you to apply the SLA to a subset of work items based on a predefined filter, giving you extra flexibility.
+     - **JQL (Jira Query Language) –** Allows you to create sophisticated queries to filter and retrieve specific sets of work items and apply the SLA to matching the criteria defined in the JQL query. This is particularly useful for advanced users who want to create dynamic and customized SLA conditions.
+3. Save the goal.
+4. Repeat the process to add more goals as needed.
+5. Click **Next** to continue.
 
-Add other goals as needed to reflect all SLA requirements. Once you’re done, proceed to SLA conditions.
+### Step 3: Configure SLA conditions
 
-#### Step 3: Set your SLA conditions
-
-1. Select your SLA conditions. Time to SLA lists the most widely used conditions inspired by real-world scenarios to save time; however, you can click **+ More Condition Types** to reveal many other options. For example, you might start time when a work item is created, pause time while you wait for the customer to respond, and stop time when the work item is resolved. You can add more than one condition.   
+1. Select your SLA conditions. Time to SLA lists the most widely used conditions inspired by real-world scenarios to save time; however, you can click **+ More Condition Types** to reveal many other options.   
+   For example, you might start time when a work item is created, pause time while you wait for the customer to respond, and stop time when the work item is resolved. You can add more than one condition.   
    Check out the screenshots below to see some examples:
 
 ![A screenshot showing the SLA condition creation, step 3.](/cms_trial/assets/d6658156-c690-46bb-acdc-15585b910730.png)
@@ -106,7 +96,7 @@ For more information about SLA conditions, refer to the [related documentation](
 
 Once you click **Save**, your SLA will be created.
 
-#### (Optional) Step 4: Dive into advanced configurations
+### Step 4: Configure advanced settings (optional)
 
 1. If you want to dive into more advanced configurations, click **Edit**. The advanced configurations are:
 
@@ -119,7 +109,7 @@ Once you click **Save**, your SLA will be created.
 
      ![A screenshot showing the critical zone percentage selection in the Time to SLA app.](/cms_trial/assets/46c0e112-6fb8-4a2b-88a0-59e7454a2f48.png)
 
-     ➡️ *You can create notifications that will alert you and your team when an SLA is in the critical zone. Learn how* [*here*](/cms_trial/space/TTSC/35881090/Actions/)*.*
+     You can create notifications that will alert you and your team when an SLA is in the critical zone. Learn how [here](/cms_trial/space/TTSC/35881090/Actions/).
    - **SLA Custom Field –** Add this custom field to screens where you would like to see SLA target date information. Only date/time custom fields can be selected as the target date, hence why only these custom fields are available within the drop-down menu. Please note that this is an optional custom field that will need to be added to the relevant screens. The installation of Time to SLA does not automatically add it to work items. To learn how, [refer to this documentation](/cms_trial/space/TTSC/35684678/SLA+custom+field/).
 
      ![A screenshot showing the SLA Custom Field ](/cms_trial/assets/30392d32-224d-40c3-85ce-5159db2f114d.png)

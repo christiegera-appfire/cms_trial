@@ -21,7 +21,7 @@ Returns an array of [**JFieldConfigurationScheme**](/cms_trial/space/PSJC/435028
 
 This routine returns only new-model field schemes. Use `admGetAllFieldConfigSchemes` to retrieve legacy field configuration schemes.
 
-## Examples
+## Example
 
 ```sil
 JFieldConfigurationScheme [] schemes = allFieldSchemes();

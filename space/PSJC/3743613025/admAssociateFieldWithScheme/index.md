@@ -2,12 +2,12 @@
 
 ## Description
 
-Associates a field with a new-model field scheme. The field must be specified using its internal Jira name, such as 'summary' or 'customfield\_12345'. When `workTypeIds` is provided, the association is restricted to the specified work types (issue types).
+Associates a field with a new-model field scheme. The field must be specified using its internal Jira name, such as 'summary' or 'customfield\_12345'. When workTypeIds is provided, the association is restricted to the specified work types (issue types).
 
 |  |  |  |  |
 | --- | --- | --- | --- |
-| **Syntax** | admAssociateFieldWithScheme(schemeId, fieldId, workTypeIds) | **Package** | adm |
-| **Alias** |  | **Pkg Usage** | [associateFieldWithScheme(schemeId, fieldId, workTypeIds)] |
+| **Syntax** | admAssociateFieldWithScheme(schemeId, fieldId [, workTypeIds]) | **Package** | adm |
+| **Alias** |  | **Pkg Usage** | [associateFieldWithScheme(schemeId, fieldId [, workTypeIds])] |
 
 ## Parameters
 

@@ -13,8 +13,8 @@ Removes a field association from a new-model field scheme. The field must be spe
 
 | Parameter name | Type | Required | Description |
 | --- | --- | --- | --- |
-| schemeId | int | Yes | Id of the new-model config scheme |
-| fieldId | string | Yes | The internal name of the field, such as ‘summary', 'fixVersion', or 'customfield\_12345’ |
+| schemeId | int | Yes | Id of the new-model field scheme. |
+| fieldId | string | Yes | The internal name of the field, such as 'summary', 'fixVersion', or 'customfield\_12345'. |
 
 ## Return Type
 
