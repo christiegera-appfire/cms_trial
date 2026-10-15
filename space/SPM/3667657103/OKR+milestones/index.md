@@ -8,6 +8,8 @@ OKR Milestones break down long-term goals into time-bound checkpoints between yo
 
 You can create and manage OKR milestones only in the OKR module.
 
+See the video to learn more.
+
 ## Permissions
 
 Adding and managing OKR milestones requires **Edit OKR** permission.
@@ -22,7 +24,7 @@ You can create up to 12 milestones per OKR.
 2. In the **Milestones** section, click **Add milestone** (plus icon).
 3. The **Add milestone** modal displays. On this modal, add:
 
-   ![add-milestone.png](/cms_trial/assets/b3bd0f25-6a77-4192-b3db-1293d575a734.png)
+   ![add-milestone.png](/cms_trial/assets/868a1a2b-9e7d-47d3-a32b-ce690abdad47.png)
    1. **Name**.
    2. **Description** (optional).
    3. **Target value** (Milestones use the same measurement unit as the parent OKR. See: [OKR progress](/cms_trial/space/SPM/2325021322/OKR+progress/)).
@@ -45,13 +47,13 @@ After you create it, you can edit and delete it.
 1. The **Edit milestone** modal displays. Change the milestone name, description, target value, and/or due date as you see fit.
 2. Click **Save changes**.
 
-![The Edit milestone modal.](/cms_trial/assets/05463357-7e55-4c66-9a92-7a74c12c6950.png)
+![The Edit milestone modal.](/cms_trial/assets/75781780-3956-496f-b2be-304d50806e9b.png)
 
 ### Delete
 
 A confirmation modal displays. Click **Delete** to confirm deleting the OKR milestone. This action cannot be undone.
 
-![The Delete milestone modal.](/cms_trial/assets/d867c501-2d2b-4ff8-ab00-ed4d84589b39.png)
+![The Delete milestone modal.](/cms_trial/assets/de5cba07-0152-4690-ba04-980c4fc5e867.png)
 
 ## Filter/Sort OKR milestones
 
@@ -62,7 +64,7 @@ A confirmation modal displays. Click **Delete** to confirm deleting the OKR mile
    2. Sort by: **Due date** **(Earliest first)**, **Due date (latest first)**, **Name**, or **Status**.
    3. **Hide achieved** (to hide achieved milestones from the list).
 
-![Milestones filtering options](/cms_trial/assets/10b4518e-97fa-4213-a2cd-02f5a9f5a23a.png)
+![Milestones filtering options](/cms_trial/assets/4d40f4e0-a5c9-475c-91da-41a4a9b7190b.png)
 
 ## API
 
@@ -92,7 +94,7 @@ OKR milestones are mapped along the timeline in the Progress chart in the OKR mo
 
 Mouse over a milestone to see more details.
 
-![OKR milestones on the progress chart.](/cms_trial/assets/8ce4d67e-6cb9-49a0-be50-67e9a5d51b41.png)
+![OKR milestones on the progress chart.](/cms_trial/assets/acdcf73b-b536-4219-ba34-197b7ea400f5.png)
 
 ### Milestones (section)
 
@@ -104,13 +106,13 @@ Here, you can check milestone progress, due dates, and status, and manage your m
 
 On the [*Overview*](/cms_trial/space/SPM/1918834317/OKR+Overview/) page, you can filter all visible OKRs by the **Has latest milestone missed** status to let you surface OKRs with missed milestones.
 
-![Has latest milestone missed filter in the Status column.](/cms_trial/assets/a32a16af-80f4-4551-9d9c-e1572582789e.png)
+![Has latest milestone missed filter in the Status column.](/cms_trial/assets/a87598c1-adf6-4a84-a246-60933a1fa9d4.png)
 
 ### Progress dashboard (page)
 
 The [*Progress Dashboard*](/cms_trial/space/SPM/1918801225/Progress+Dashboard/) page features an **OKRs with most recent milestone missed** section, letting you to review OKRs with overdue milestones and inspect them individually on their respective *OKR Details* pages.
 
-![OKRs with most recent milestone missed section on the Progress Dashboard page.](/cms_trial/assets/e39e6c03-cd84-4ba4-aa4d-fc7a9bb65596.png)
+![OKRs with most recent milestone missed section on the Progress Dashboard page.](/cms_trial/assets/d067b96d-6362-430f-a8ac-1599760163f6.png)
 
 ## Import/Export OKR milestones
 
