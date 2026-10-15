@@ -7,7 +7,7 @@ Retrieves all new-model field schemes.
 |  |  |  |  |
 | --- | --- | --- | --- |
 | **Syntax** | admGetAllFieldSchemes() | **Package** | adm |
-| **Alias** |  | **Pkg Usage** | [admGetAllFieldSchemes()] |
+| **Alias** |  | **Pkg Usage** | [allFieldSchemes()] |
 
 ## Parameters
 
