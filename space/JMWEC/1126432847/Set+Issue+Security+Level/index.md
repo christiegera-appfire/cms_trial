@@ -1,24 +1,16 @@
 # Set Issue Security Level
 
-A workflow post-function that sets the **Security Level** of the current issue based on the project role to which the current user belongs.
+A workflow post function that sets the **Security Level** of the current issue based on the project role to which the current user belongs.
 
-When you add this post-function to a transition and trigger the transition, the add-on sets the selected issue security level on the current issue, if and only if the current user belongs to the selected project role.
+When you add this post function to a transition and trigger the transition, the add-on sets the selected issue security level on the current issue, if and only if the current user belongs to the selected project role.
 
 This function can be used on the Create transition to set a different issue security level depending on whether the issue is being created by an internal user or by an external user (e.g. a customer).
 
 **Warning**: JMWE cannot take any actions or make any changes to an issue that has a Security Level to which the JMWE Addon user does not have permissions. This includes, but is not limited to, setting the Security Level of an issue. Additionally, if the **Set Issue Security Level** post function is used to change an issue’s Security Level to a level at which JMWE does not have permissions, it creates a scenario where JMWE cannot make any changes.
 
-![JMWE for Jira Cloud set issue security level post function configuration](/cms_trial/assets/87a7792f-dde7-47b0-9446-3e0629877a89.png)
+[Unmapped macro: 47fa61b6-fe1c-40c9-b236-623cdbc35833/4d8fa66b-88bf-4899-a37e-5926131c46ac/static/multiexcerpt-fast-include-block-macro — no content to fall back on]
 
-**To add the 'Set Issue Security Level' post function to a transition:**
-
-1. Click **Edit** for the workflow that has the transition you wish to add the post function to.
-2. Select the transition in the Workflow Designer.
-3. Click **Post Functions** in the properties panel (or select the **Post Functions** tab).
-4. Click**Add post function**.
-5. Select *Set Issue Security Level* from the list of post functions.
-6. Click **Add**. The *Set Issue Security Level post function*screen will open, where you can configure the post function as needed. See below for more information.
-7. Click **Add** to complete the configuration and add the post function to the transition.
+![postFunction-SetIssueSecurityLevel.png](/cms_trial/assets/5178522b-a17f-41ef-b29b-854bc5dbde39.png)
 
 After adding, move the post function to the appropriate position according to [Placing post functions in a transition](https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=mwecs&title=Adding%20post%20functions%20to%20transitions&linkCreation=true&fromPageId=1126793316).
 
@@ -33,7 +25,11 @@ Expand this section to see advanced configurations including which user will run
 
 ## Conditional execution
 
-Check **Run this post-function only if a condition is verified** to execute this post function based on the result of a Nunjucks template; see [Conditional execution](/cms_trial/space/JMWEC/466256678/Conditional+Execution/).
+It is possible to configure the post function to execute (or not execute) only in specific circumstances. The **Conditional execution** option sets this behavior:
+
+- **Run this post-function only if a condition is verified**: Select this option to execute this post-function based on the result of a Nunjucks template. See [Conditional execution](https://appfire.atlassian.net/wiki/display/JMWEC/Conditional+execution) for more information.
+
+  - **Condition**: *This option only displays when* ***Run this post-function only if a condition is verified****, above, is checked.* Enter the Nunjucks template as needed.
 
 ## Delayed execution
 
@@ -41,4 +37,4 @@ Post functions are provided with an option to delay execution for a set number 
 
 Workflows that depend on post functions being executed in a specific order can fail due to the asynchronous nature of Connect post-functions in **Jira Cloud**. One workaround is to delay the execution of a post function, thereby creating a more predictable execution order. For example, on the approval of a Story you want to create sub-tasks and immediately transition them; in this case, you will have to delay the execution of the Transition Linked Issues post function, so that the sub-tasks are created before they are transitioned.
 
-Where possible, it is recommended to use the [Sequence of post-functions](/cms_trial/space/JMWEC/466322933/Sequence+of+Post-functions/) post function or [Shared action](/cms_trial/space/JMWEC/466323396/Shared+Action+post-function/) post function to execute a series of post functions in a specific sequence instead of applying a delay.
+Where possible, it is recommended to use the [Sequence of post-functions](/cms_trial/space/JMWEC/466322933/Sequence+of+post+functions/) post function or [Shared action](/cms_trial/space/JMWEC/466323396/Shared+Action+post+function/) post function to execute a series of post functions in a specific sequence instead of applying a delay.

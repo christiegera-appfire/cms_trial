@@ -26,11 +26,11 @@ Each of the obsolete post functions has been replaced with a current version tha
 | [Assign to role member](/cms_trial/space/JMWEC/466257482/Assign+to+role+member+(Deprecated)/) | [Assign issue(s)](/cms_trial/space/JMWEC/1133772861/Assign+issue(s)/) |
 | [Clear fields of linked issues](/cms_trial/space/JMWEC/466289629/Clear+fields+of+linked+issues+(Deprecated)/) | [Clear fields](/cms_trial/space/JMWEC/466226128/Clear+fields/) |
 | [Comment linked issues](/cms_trial/space/JMWEC/465373854/Comment+linked+issues+(Deprecated)/) | [Comment issue(s)](/cms_trial/space/JMWEC/466322568/Comment+issue(s)/) |
-| [Copy field value from linked issues](/cms_trial/space/JMWEC/466322381/Copy+field+value+from+linked+issues+(Deprecated)/) | [Copy issue fields](/cms_trial/space/JMWEC/466323304/Copy+issue+fields/) |
-| [Copy field value from parent issue](/cms_trial/space/JMWEC/466257573/Copy+field+value+from+parent+issue+(Deprecated)/) | [Copy issue fields](/cms_trial/space/JMWEC/466323304/Copy+issue+fields/) |
-| [Copy field value to linked issues](/cms_trial/space/JMWEC/466257072/Copy+field+value+to+linked+issues+(Deprecated)/) | [Copy issue fields](/cms_trial/space/JMWEC/466323304/Copy+issue+fields/) |
-| [Copy field value to parent issue](/cms_trial/space/JMWEC/466257136/Copy+field+value+to+parent+issue+(Deprecated)/) | [Copy issue fields](/cms_trial/space/JMWEC/466323304/Copy+issue+fields/) |
-| [Copy value from field to field](/cms_trial/space/JMWEC/466225614/Copy+value+from+field+to+field+(Deprecated)/) | [Copy issue fields](/cms_trial/space/JMWEC/466323304/Copy+issue+fields/) |
+| [Copy field value from linked issues](/cms_trial/space/JMWEC/466322381/Copy+field+value+from+linked+issues+(Deprecated)/) | [Copy issue fields](/cms_trial/space/JMWEC/466323304/Copy+fields/) |
+| [Copy field value from parent issue](/cms_trial/space/JMWEC/466257573/Copy+field+value+from+parent+issue+(Deprecated)/) | [Copy issue fields](/cms_trial/space/JMWEC/466323304/Copy+fields/) |
+| [Copy field value to linked issues](/cms_trial/space/JMWEC/466257072/Copy+field+value+to+linked+issues+(Deprecated)/) | [Copy issue fields](/cms_trial/space/JMWEC/466323304/Copy+fields/) |
+| [Copy field value to parent issue](/cms_trial/space/JMWEC/466257136/Copy+field+value+to+parent+issue+(Deprecated)/) | [Copy issue fields](/cms_trial/space/JMWEC/466323304/Copy+fields/) |
+| [Copy value from field to field](/cms_trial/space/JMWEC/466225614/Copy+value+from+field+to+field+(Deprecated)/) | [Copy issue fields](/cms_trial/space/JMWEC/466323304/Copy+fields/) |
 | [Set field value of linked issues](/cms_trial/space/JMWEC/465504997/Set+field+value+of+linked+issues+(Deprecated)/) | [Set issue fields](/cms_trial/space/JMWEC/465504849/Set+issue+fields/) |
 | [Transition linked issues](/cms_trial/space/JMWEC/466257658/Transition+linked+issues+(Deprecated)/) | [Transition issue(s)](/cms_trial/space/JMWEC/465242612/Transition+issue(s)/) |
 | [Transition parent issue](/cms_trial/space/JMWEC/465242394/Transition+parent+issue+(Deprecated)/) | [Transition issue(s)](/cms_trial/space/JMWEC/465242612/Transition+issue(s)/) |

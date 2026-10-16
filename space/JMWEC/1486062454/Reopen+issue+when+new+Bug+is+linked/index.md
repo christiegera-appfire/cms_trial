@@ -3,7 +3,7 @@
 | **Goal** | Automatically reopen a closed issue when a new issue - of a specific type - is linked to it. |
 | --- | --- |
 | **Scenario** | When a new Bug is created for an existing feature, you want to automatically reopen the issue for that feature. The new Bug is linked to the existing issue, and you want JMWE to reopen the issue. Additionally, you want to add a comment indicating why the issue was reopened and copy fields from the original issue to the new Bug. |
-| **Components** | [Transition issue(s)](/cms_trial/space/JMWEC/465242612/Transition+issue(s)/) post function, [Copy issue fields](/cms_trial/space/JMWEC/466323304/Copy+issue+fields/) post function |
+| **Components** | [Transition issue(s)](/cms_trial/space/JMWEC/465242612/Transition+issue(s)/) post function, [Copy issue fields](/cms_trial/space/JMWEC/466323304/Copy+fields/) post function |
 | **Baseline** | - The workflow includes a **Closed** status and a **Reopened** status (or similar values, see below). - Bugs must be linked to the issue that needs to be reopened. - Bugs are initially only linked to the issue for their associated feature. |
 
 **Note**: the steps below require your workflow to have two specific status values:
@@ -80,7 +80,7 @@ Your team may use a different link type to relate Bugs. Select the link type tha
 
 ## 4. Add the *Copy issue fields* post function
 
-Lastly, we need to add the [Copy issue fields](/cms_trial/space/JMWEC/466323304/Copy+issue+fields/) post function to the **Create** transition; this post function can run at any point during the Create transition because there are no dependencies between this post function and the **Transition issue(s)** post function from Step 3. The **Copy issue fields** post function will copy three field values from the feature issue to the Bug:
+Lastly, we need to add the [Copy issue fields](/cms_trial/space/JMWEC/466323304/Copy+fields/) post function to the **Create** transition; this post function can run at any point during the Create transition because there are no dependencies between this post function and the **Transition issue(s)** post function from Step 3. The **Copy issue fields** post function will copy three field values from the feature issue to the Bug:
 
 - **Fix version** from the feature issue will be copied to **Affects versions** on the Bug
 - **Assignee** and **Watchers** from the feature issue will be copied to **Watchers** on the Bug, ensuring that notifications on the new Bug will be sent appropriately

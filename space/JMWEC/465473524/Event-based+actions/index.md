@@ -23,7 +23,7 @@ Nearly any issue event can trigger an Event-based Action; the Event configuratio
 
 1. Create a [Shared Action](/cms_trial/space/JMWEC/466288975/Shared+actions/) for the sequence of post functions that should run after the event.
 2. Create an **Event-based Action** for the first event that should trigger the action.
-3. In the **Post-functions** configuration for the action, use the [Shared Action post function](/cms_trial/space/JMWEC/466323396/Shared+Action+post-function/) to add the sequence of post functions you created in Step 1.
+3. In the **Post-functions** configuration for the action, use the [Shared Action post function](/cms_trial/space/JMWEC/466323396/Shared+Action+post+function/) to add the sequence of post functions you created in Step 1.
 4. Duplicate the **Event-based Action** for each of the events needed.
 
 When you create an Event-based Action in this way it makes some edits or updates easier. If you need to modify the post functions that run during the event (e.g. change the configuration of an existing post function or add a new post function), you can edit the **Shared Action**, and those changes will be applied to all of the actions that utilize that Shared Action.

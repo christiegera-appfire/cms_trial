@@ -2,7 +2,7 @@
 
 ### Abstract
 
-This code snippet creates a table with two columns, then access each attachment of the issue and print each in a row of the table. You need two snippets one for the text version and another for the HTML version of the [Email issue](/cms_trial/space/JMWEC/466322658/Email+issue/) post-function.
+This code snippet creates a table with two columns, then access each attachment of the issue and print each in a row of the table. You need two snippets one for the text version and another for the HTML version of the [Email issue](/cms_trial/space/JMWEC/466322658/Email+issue(s)/) post-function.
 
 ### Snippet for text version
 

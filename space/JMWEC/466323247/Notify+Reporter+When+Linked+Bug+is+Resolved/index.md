@@ -6,7 +6,7 @@ A Support Team member creates an issue based on an incoming request; from that i
 
 ## Resolution
 
-This solution uses the [Email issue(s)](/cms_trial/space/JMWEC/466322658/Email+issue/) post-function with conditional execution to accomplish the needed outcome. When a issue with the type **Bug** is closed, the post-function refers back to any issue with a link type of “blocks” and sends an email notification to the assignee of that issue (or issues).
+This solution uses the [Email issue(s)](/cms_trial/space/JMWEC/466322658/Email+issue(s)/) post-function with conditional execution to accomplish the needed outcome. When a issue with the type **Bug** is closed, the post-function refers back to any issue with a link type of “blocks” and sends an email notification to the assignee of that issue (or issues).
 
 **Note**: the steps below are configured for Bugs that are linked to related issues using the link type **blocks**. Depending on your Jira configuration, it may be necessary to select a different link type.
 
@@ -34,7 +34,7 @@ Set the following configurations (Figure 2, right):
 
    1. Set **Target issue(s)** to *Issues linked to the current issue through the following link type*.
    2. Set **Issue Link** to *blocks*.
-2. **Email content** (**Point 2**, **Figure 2**, right)- Set the email fields as required; you can use Nunjucks templates to generate dynamic values. See the documentation for [Email issue(s)](/cms_trial/space/JMWEC/466322658/Email+issue/) for more information.
+2. **Email content** (**Point 2**, **Figure 2**, right)- Set the email fields as required; you can use Nunjucks templates to generate dynamic values. See the documentation for [Email issue(s)](/cms_trial/space/JMWEC/466322658/Email+issue(s)/) for more information.
 3. **Recipients** (**Point 3**, **Figure 2**, right) - Set **Issue members** to *Assignee*. Set any other recipients as needed.
 4. **Run As** (**Point 4**, **Figure 2**, right) - Set as needed; it is recommended to leave the default *Add-on user* value unless required for specific reasons.
 5. **Conditional execution** (**Point 5**, **Figure 2**, right)

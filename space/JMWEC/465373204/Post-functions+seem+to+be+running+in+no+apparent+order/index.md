@@ -12,9 +12,9 @@ Due to the way non-native post functions (those provided by add-ons) are impleme
 
 ## Workaround
 
-To enforce a predictable execution order of a set of post-functions, you should put them inside a [Sequence of post-functions](/cms_trial/space/JMWEC/466322933/Sequence+of+Post-functions/) post-function or a [Shared Action](/cms_trial/space/JMWEC/466288975/Shared+actions/).
+To enforce a predictable execution order of a set of post-functions, you should put them inside a [Sequence of post-functions](/cms_trial/space/JMWEC/466322933/Sequence+of+post+functions/) post-function or a [Shared Action](/cms_trial/space/JMWEC/466288975/Shared+actions/).
 
-Alternatively, you can use the [Delayed execution](/cms_trial/space/JMWEC/466322009/Delayed+execution/) option provided in the post-function configuration to delay the execution of the post-function by a selected number of seconds, thereby creating a more predictable execution order. But this approach is much less reliable than using a [Sequence of post-functions](/cms_trial/space/JMWEC/466322933/Sequence+of+Post-functions/) post-function.
+Alternatively, you can use the [Delayed execution](/cms_trial/space/JMWEC/466322009/Delayed+execution/) option provided in the post-function configuration to delay the execution of the post-function by a selected number of seconds, thereby creating a more predictable execution order. But this approach is much less reliable than using a [Sequence of post-functions](/cms_trial/space/JMWEC/466322933/Sequence+of+post+functions/) post-function.
 
 ## Related articles
 

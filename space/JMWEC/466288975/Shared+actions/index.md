@@ -1,6 +1,6 @@
 # Shared actions
 
-**Shared actions** are a series of one or more post functions, run in sequence, that can be reused across numerous workflow transitions. A Shared Action can then be updated in one place - the Shared Actions Editor page - and it will update everywhere that it is used. Adding a Shared Action to a transition only requires using the [Shared Action](/cms_trial/space/JMWEC/466323396/Shared+Action+post-function/) post-function.
+**Shared actions** are a series of one or more post functions, run in sequence, that can be reused across numerous workflow transitions. A Shared Action can then be updated in one place - the Shared Actions Editor page - and it will update everywhere that it is used. Adding a Shared Action to a transition only requires using the [Shared Action](/cms_trial/space/JMWEC/466323396/Shared+Action+post+function/) post-function.
 
 To access **Shared actions**:
 
@@ -81,7 +81,7 @@ If a Shared Action is not currently being used, the right panel will display opt
 - Event-based Actions
 - Other Shared Actions
 
-All of the above scenarios involve using the [Shared Action post-function](/cms_trial/space/JMWEC/466323396/Shared+Action+post-function/).
+All of the above scenarios involve using the [Shared Action post-function](/cms_trial/space/JMWEC/466323396/Shared+Action+post+function/).
 
 ## Post-functions
 
@@ -142,7 +142,7 @@ When a Shared Action post-function encounters an error, an error icon will be di
 
 ## Passing variables within a sequence
 
-It is possible to pass data from one post-function to all subsequent post-functions within a Shared Action by using the `{% setContextVar %}` Nunjucks tag. When using a [Build-your-own (scripted) post-function](/cms_trial/space/JMWEC/466289991/Build-your-own+(Nunjucks+scripted)+Post+function/), the variable can be set anywhere within your script; when using other post-functions, the most common place to set a variable is in the **Conditional Execution** configuration.
+It is possible to pass data from one post-function to all subsequent post-functions within a Shared Action by using the `{% setContextVar %}` Nunjucks tag. When using a [Build-your-own (scripted) post-function](/cms_trial/space/JMWEC/466289991/Build-your-own+(Nunjucks+scripted)+post+function/), the variable can be set anywhere within your script; when using other post-functions, the most common place to set a variable is in the **Conditional Execution** configuration.
 
 - **context:** Holds all the *context variables* added in the current post-function. For example, if you create a context variable `myVar` in the first post-function of the sequence:
 

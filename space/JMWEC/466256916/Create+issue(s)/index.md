@@ -6,19 +6,13 @@ A workflow post function that creates one or more new issue(s). The specificatio
 
 - **Sprint** - If you are setting the **Sprint** field (manually or when copying fields), and you try to assign the new issue to a closed sprint, the value will not copy. If you are adding multiple sprints to the **Sprint** field and one of those values is a closed sprint, that value will not be copied (but the other sprint values will be copied).
 
-![JMWE for Jira Cloud create issues post function with comprehensive configuration options](/cms_trial/assets/94861a30-3240-42e9-b20c-b229b2cf7927.png)
-
-**To add the 'Create issue' post function to a transition**:
-
-1. Click **Edit** for the workflow that has the transition to which you wish to add the post function.
-2. In the Workflow Designer, select the transition.
-3. Click **Post Functions** in the properties panel.
-4. Click **Add post function**.
-5. Select **Create issue(s)** from the list of post functions.
-6. Click **Add** to navigate to the *Create issue(s) post-function*screen where you can add configuration details to the post function. See below for configuration details.
-7. Click **Add** to add the post function to the transition.
+[Unmapped macro: 47fa61b6-fe1c-40c9-b236-623cdbc35833/4d8fa66b-88bf-4899-a37e-5926131c46ac/static/multiexcerpt-fast-include-block-macro — no content to fall back on]
 
 After adding the post function, move the post function to the appropriate position according to [Placing post functions in a transition](/cms_trial/space/JMWEC/466289149/Adding+extensions+to+transitions/) document.
+
+JMWE shows an error message on the issue view if any error occurs during the execution of the post function. *This message is displayed only if the current user is a Jira administrator.*
+
+![postFunction-CreateIssues.png](/cms_trial/assets/91e06638-3e5a-4904-87dc-0e8266c56d1c.png)
 
 ## Destination
 
@@ -206,18 +200,34 @@ However, there are caveats about which you need to be aware:
 
 ## Settings
 
-### Run As
+## Run As
 
-Select one of the following to set the creator of the issue:
+This option enables you to configure as which Jira user the post function will run.
 
-### Conditional execution
+- **Current user** - The current user will be the author of the action.
+- **Add-on user** -The add-on user will be the author of the action.
+- **Selected user** -The user in the **Select user** field will be the author of the action.
 
-### Delayed execution
+  - **Select user** - *Only available when* ***Selected user*** *is set.* Select a user from the pull-down menu. Enter a name to search for a specific user account.
+- **User in selected field** - The user value from the **Select field** field.
+
+  - **Select field** - *Only available when* ***User in selected field*** *is set.* Select a User Picker field; if you select a User Picker (multiple users) field, only the first user will be used.
+- **User from script** - The user value returned from a Nunjucks script.
+
+If you select any option other than **Run as add-on user**, so that the assignment appears to be done by the current user or a specific user, the selected user will need to have the **Edit Issues** permission for the issue being updated.
+
+## Conditional execution
+
+It is possible to configure the post function to execute (or not execute) only in specific circumstances. The **Conditional execution** option sets this behavior:
+
+- **Run this post-function only if a condition is verified**: Select this option to execute this post-function based on the result of a Nunjucks template. See [Conditional execution](https://appfire.atlassian.net/wiki/display/JMWEC/Conditional+execution) for more information.
+
+  - **Condition**: *This option only displays when* ***Run this post-function only if a condition is verified****, above, is checked.* Enter the Nunjucks template as needed.
+
+## Delayed execution
 
 Post functions are provided with an option to delay execution for a set number of seconds using the **Delayed execution** option (Figure 1, right). To delay execution, select the number of seconds to wait until the post function is run; any value between 1 second (the default) up to a maximum of 20 seconds can be selected.
 
 Workflows that depend on post functions being executed in a specific order can fail due to the asynchronous nature of Connect post-functions in **Jira Cloud**. One workaround is to delay the execution of a post function, thereby creating a more predictable execution order. For example, on the approval of a Story you want to create sub-tasks and immediately transition them; in this case, you will have to delay the execution of the Transition Linked Issues post function, so that the sub-tasks are created before they are transitioned.
 
-Where possible, it is recommended to use the [Sequence of post-functions](/cms_trial/space/JMWEC/466322933/Sequence+of+Post-functions/) post function or [Shared action](/cms_trial/space/JMWEC/466323396/Shared+Action+post-function/) post function to execute a series of post functions in a specific sequence instead of applying a delay.
-
-JMWE shows an error message on the issue view if any error occurs during the execution of the post function. *This message is displayed only if the current user is a Jira administrator.*
+Where possible, it is recommended to use the [Sequence of post-functions](/cms_trial/space/JMWEC/466322933/Sequence+of+post+functions/) post function or [Shared action](/cms_trial/space/JMWEC/466323396/Shared+Action+post+function/) post function to execute a series of post functions in a specific sequence instead of applying a delay.

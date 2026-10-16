@@ -8,7 +8,7 @@ This post function has been deprecated for some time, and will be completely rem
 
 ## Replacing this post function
 
-This post function has been replaced with the [Copy issue fields](/cms_trial/space/JMWEC/466323304/Copy+issue+fields/) post function. Use the table below to migrate your configuration; settings should be migrated to the new post function exactly as they exist in the obsolete one, except where noted.
+This post function has been replaced with the [Copy issue fields](/cms_trial/space/JMWEC/466323304/Copy+fields/) post function. Use the table below to migrate your configuration; settings should be migrated to the new post function exactly as they exist in the obsolete one, except where noted.
 
 | **Configuration option** | **Migrate to** | **Notes** |
 | --- | --- | --- |

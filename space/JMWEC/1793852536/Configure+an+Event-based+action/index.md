@@ -2,8 +2,6 @@
 
 When you create or edit an Event-based Action, the Event-based Action Editor will open (Figure 1, right). The Event-based Action Editor uses the [JMWE Automation Rule Builder](/cms_trial/space/JMWEC/768573574/JMWE+Automation+Rule+Builder/), consisting of two side-by-side panels; the left panel has buttons for selecting each configuration category (e.g. **When** for the event that triggers the action), and the right panel includes specific configuration options for the selected category.
 
-![JMWE for Jira Cloud eventbased action editor with configuration options and settings](/cms_trial/assets/ba3c4c94-43f7-40a6-925f-40052b223cd4.png)
-
 To configure an Event-based action, set the following configurations:
 
 1. **Action name** (**Point 1**, **Figure 1**, right) - *Required*. Click the name to edit. Enter a meaningful name and hit Enter, or click the check button to save.
@@ -12,16 +10,19 @@ To configure an Event-based action, set the following configurations:
 
    1. **Ignore events caused by JMWE post-functions and actions** - Check this box to prevent the Event-based action from triggering when another JMWE post-function or action runs.
    2. **Ignore events caused by Jira Automation and other apps** - Check this box to prevent the Event-based action from triggering when the event is caused by a native Jira Automation or other app.
-4. **If Scope/Projects** (**Point 3**, **Figure 1**, right) - Click the **If Scope** header or the **Projects** button to configure which projects will trigger the Event-based Action; only events on issues within the selected projects will trigger the action. See **Projects and Issue Types**, below, for more information.   
-   [note icon] If you do not select a specific project(s), **issues from all projects** will trigger the action.
-5. **Issue Types** (**Point 4**, **Figure 1**, right) - Click the **Issue Types** button to configure which issue types will trigger the Event-based Action. See **Projects and Issue Types**, below, for more information.  
-   [note icon] If you do not select specific issue type(s), **all issue types** will trigger the action.
+4. **If Scope/Spaces** (**Point 3**, **Figure 1**, right) - Click the **If Scope** header or the **Spaces** button to configure which spaces will trigger the Event-based Action; only events on issues within the selected spaces will trigger the action. See **Spaces and Work item types**, below, for more information.   
+   [note icon] If you do not select a specific space or spaces, **work items from all spaces** will trigger the action.
+5. **Issue Types** (**Point 4**, **Figure 1**, right) - Click the **Issue Types** button to configure which work item types will trigger the Event-based Action. See **Spaces and Work item types**, below, for more information.  
+   [note icon] If you do not select specific work item type(s), **all work item types** will trigger the action.
 
    1. **Only apply to issues that match a JQL filter** - Check this box to use a JQL query to filter the issues that should trigger the action.
    2. **Only apply to issues that match a Nunjucks condition** - Check this box to use a Nunjucks condition to filter the issues that should trigger the action.
-6. **Then/Post-functions** (**Point 5**, **Figure 1**, right) - Click the **Then** header or the **Post-functions** button. In the right panel, select a post-function from the list to add the first post-function, or click **Add post-function** to add additional post-functions. See **Post functions**, below for more information.
+6. **Who/Run as** (**Point 5**, **Figure 1**, right) - Click the **Who** header or the **Run as** button to configure which user executes the Event-based action.
+7. **Then/Post-functions** (**Point 6**, **Figure 1**, right) - Click the **Then** header or the **Post-functions** button. In the right panel, select a post-function from the list to add the first post-function, or click **Add post-function** to add additional post-functions. See **Post functions**, below for more information.
 
    1. **Skip subsequent post-functions if a post-function encounters an error** - Check this box to stop the execution of the Event-based Action if any of it’s post-functions encounter an error.
+
+![The JMWE Cloud Event-based action editor](/cms_trial/assets/3ae3d300-9770-4399-a541-3f92935cbabd.png)
 
 **Please note**: for the **Ignore events caused by Jira Automation and other apps** setting:
 
@@ -34,23 +35,23 @@ To configure an Event-based action, set the following configurations:
   - **Work Log Updated**
   - **Work log Deleted**
 
-## Projects and Issue Types
+## Spaces and work item types
 
-Configuring which projects and issue types will trigger your Event-based Action, both work the same way. You can use the pull-down menu at the top of their list to browse the list or start typing to search for specific projects and issue types. Check the box next to the project or issue type to add it; click the **X** next to its name in the list to remove it.
+Configuring which spaces and work item types will trigger your Event-based Action works the same way for both. You can use the pull-down menu at the top of the list to browse the list or start typing to search for specific projects and issue types. Check the box next to the project or issue type to add it; click the **X** next to its name in the list to remove it.
 
-Alternately, you can click **Select Projects/Select Issue Types** to open a window listing all of your Jira projects or issue types (Figure 2, right). Select or deselect the projects or issue types and click **Add**.
+Alternately, you can click **Select Spaces/Select Work item types** to open a window listing all of your Jira sapces or work item types (Figure 2, right). Select or deselect the spaces or work item types and click **Add**.
 
-You can further filter the issue types that will trigger your action by using the JQL and Nunjucks filters. When either of these boxes are checked, a newfield will appear - **JQL** or **Nunjucks**. Click these fields to open the **JQL Filter/Nunjucks expression** window, where you can enter the query or template and preview its results. Click **Save** to save the query or template and apply it to the action.
+You can further filter the work item types that will trigger your action by using the JQL and Nunjucks filters. When either of these boxes are checked, a newfield will appear - **JQL** or **Nunjucks**. Click these fields to open the **JQL Filter/Nunjucks expression** window, where you can enter the query or template and preview its results. Click **Save** to save the query or template and apply it to the action.
 
 For more information on using JQL queries, see [Using Jira Expressions](/cms_trial/space/JMWEC/465241623/Using+Jira+Expressions/).
 
 For more information on using Nunjucks, see [Using Nunjucks Templates](/cms_trial/space/JMWEC/465503811/Using+Nunjucks+Templates/).
 
-![JMWE for Jira Cloud eventbased action issue type selection interface](/cms_trial/assets/e4d32afb-d1d3-4694-98ef-eeda4646436b.png)
+![admin-EventBasedActionIssueTypes.png](/cms_trial/assets/c236c62d-7155-4ec0-9ece-106f9ad0b309.png)
 
 ## Post functions
 
-For each issue included in the Event-based Action (see **Projects and Issues**, above), the configured post functions will run *in the order in which they are listed*.
+For each issue included in the Event-based Action (see **Spaces and work item types**, above), the configured post functions will run *in the order in which they are listed*.
 
 When editing an existing Event-based action, the right-hand panel for Post functions includes several buttons for working with the post functions within the action:
 

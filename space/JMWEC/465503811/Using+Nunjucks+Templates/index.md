@@ -22,7 +22,7 @@ Some basic templating features are described in the pages of this section and mo
   - Calculate a parent issue key by selecting **Another issue** for the **Parent issue** field (only available when **Issue type** is set to **Sub-task**)
   - Set specific fields of new issue by selecting **Set field value to** for any field added under **Set specific fields of new issue(s)**
   - Add dynamic values when using the **Add a comment to the current issue** option
-- The [Email issue(s)](/cms_trial/space/JMWEC/466322658/Email+issue/) post function to
+- The [Email issue(s)](/cms_trial/space/JMWEC/466322658/Email+issue(s)/) post function to
 
   - Write the **Subject**, **HTML body**, and/or **Text body** fields
   - Set recipients from the **Users from template** and **Groups from template** fields

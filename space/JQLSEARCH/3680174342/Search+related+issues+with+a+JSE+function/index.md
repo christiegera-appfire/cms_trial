@@ -1,40 +1,28 @@
 # Search related issues with a JSE function
 
-## Search related issues with a JSE function
-
 JQL Search Extensions functions lets you perform searches that use other JQL queries as input. This lets you answer questions about relationships between groups of Jira users.
 
-In this example, you'll use `Issue in parentsOfIssuesInQuery` to find issues linked to issues returned by another JQL query.
+In this example, you'll use `Issue in parentsOfIssuesInQuery` to find work items returned by another JQL query.
 
-## Search issues by their links
-
-Suppose you want to find work items connected to the `Bug` work item type through a specific issue link. Follow the steps below:
-
-Suppose you want to find issues connected to issues in the `Bug` by a particular issue link type.
+Suppose you want to find work items connected to the `Epic` work item type through a specific issue link. Follow the steps below:
 
 1. Open **JQL Search Extensions** > **Extended Search**.
-2. Enter a query using
-
-   `linkedIssueType = Bug`
+2. Enter a query using `linkedIssueType = Epic`
 3. Run the search.
 4. Review the returned issues.
 
-Replace `Bug` with a project key from your Jira instance and, if necessary, replace the link description with an issue link type used by your Jira configuration.
-
-![2026-10-06_19-20-37.png](/cms_trial/assets/b6e79847-3fa9-490f-a153-48640f5962bf.png)![2026-09-23_17-58-48.jpeg](/cms_trial/assets/e4ed48a1-582e-445c-93dd-3bafbea6250d.jpeg)
+![2026-10-06_19-20-37.png](/cms_trial/assets/b6e79847-3fa9-490f-a153-48640f5962bf.png)
 
 ## How the query works
 
-AttachmentExtension is a JSE keyword.  
-JSE keywords extend the issue information that you can reference in a JQL query. In this example:
+There is an important difference between JQL keywords and functions:
 
-- AttachmentExtension specifies the issue information you want to search.
-- = specifies the comparison.
-- png specifies the attachment extension you want to find.
+- **Keywords** let you search additional issue information.
+- **Functions** let you perform more complex searches using parameters or the results of another query.
 
-Together:  
-AttachmentExtension = png  
-means: **Find issues with an attachment that has the PNG file extension.**
+JSE includes functions for searching issue relationships, hierarchies, links, and other criteria that are difficult or impossible to express using standard JQL alone.
+
+See the [**JQL functions and keywords reference**](/cms_trial/space/JQLSEARCH/604209395/JQL+functions+and+keywords+reference/) for the complete set of available functions and examples.
 
 This search contains two parts.
 
@@ -51,15 +39,6 @@ identifies the initial set of issues.
 uses those search results to find issues connected to them by the specified issue link relationship.
 
 ![2026-10-05_15-27-49.jpeg](/cms_trial/assets/02a842bb-960f-4343-a8ab-9b16311d0aca.jpeg)
-
-There is an important difference between JSE keywords and functions:
-
-- **Keywords** let you search additional issue information.
-- **Functions** let you perform more complex searches using parameters or the results of another query.
-
-JSE includes functions for searching issue relationships, hierarchies, links, and other criteria that are difficult or impossible to express using standard JQL alone.
-
-See the [**JQL functions and keywords reference**](/cms_trial/space/JQLSEARCH/604209395/JQL+functions+and+keywords+reference/) for the complete set of available functions and examples.
 
 ## You've extended your Jira search
 

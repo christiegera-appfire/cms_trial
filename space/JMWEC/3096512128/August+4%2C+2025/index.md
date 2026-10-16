@@ -14,7 +14,7 @@ This release of **JMWE for Jira Cloud** introduces JMWE compatibility for the At
 
 ### Renamed the ‘Build-your-own (scripted)’ post function
 
-The [‘Build-your-own (scripted)’](/cms_trial/space/JMWEC/466289991/Build-your-own+(Nunjucks+scripted)+Post+function/) post function has been renamed to ‘Build-your-own (nunjucks script)’ for clarity and consistency.
+The [‘Build-your-own (scripted)’](/cms_trial/space/JMWEC/466289991/Build-your-own+(Nunjucks+scripted)+post+function/) post function has been renamed to ‘Build-your-own (nunjucks script)’ for clarity and consistency.
 
 ## UI
 

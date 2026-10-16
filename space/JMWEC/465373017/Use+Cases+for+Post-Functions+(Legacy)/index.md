@@ -92,7 +92,7 @@ Steps
   {{linkedIssues | filter(["fields.status.name","Done"],true) | length == 0 }}
   ```
 
-## [Build-your-own (scripted) Post-function](/cms_trial/space/JMWEC/466289991/Build-your-own+(Nunjucks+scripted)+Post+function/)
+## [Build-your-own (scripted) Post-function](/cms_trial/space/JMWEC/466289991/Build-your-own+(Nunjucks+scripted)+post+function/)
 
 A post-function that allows you to run an arbitrary Nunjucks template (script). This can be used to create your own post-functions.
 
@@ -599,7 +599,7 @@ The message will be displayed as shown below in the issue view.
 
 ![JMWE for Jira Cloud project analysis interface showing workflow and issue management](/cms_trial/assets/65f552a0-dd5b-4b04-a0e9-c507e1904fdd.png)
 
-## [Email issue](/cms_trial/space/JMWEC/466322658/Email+issue/)
+## [Email issue](/cms_trial/space/JMWEC/466322658/Email+issue(s)/)
 
 A post-function that will send an email to certain recipients of the target issues specified in the post-function configuration.
 
@@ -657,7 +657,7 @@ Steps
 | --- |
 | - Add the *Link issues to current issue*post-function to the transition - Input the following JQL expression  ```text   project = "Service Desk project" and issuetype =  Fault   ``` - Select `50` in Max. issues - Select the `blocks` link type in `Issue link` |
 
-## [Sequence of post-functions](/cms_trial/space/JMWEC/466322933/Sequence+of+Post-functions/)
+## [Sequence of post-functions](/cms_trial/space/JMWEC/466322933/Sequence+of+post+functions/)
 
 A post-function that runs a sequence of JMWE post-functions on the target issues. This is the easiest way of making sure that a series of post-functions run *in a predictable order* during a transition - it is easier and more reliable than using [Delayed execution](/cms_trial/space/JMWEC/466322009/Delayed+execution/) as was previously recommended.
 
@@ -667,7 +667,7 @@ Steps
 
 |  |
 | --- |
-| - Add the Sequence of post-functions post-function    - Add the [Create issue](/cms_trial/space/JMWEC/466256916/Create+issue(s)/) post-function to create a subtask   - Add the [Email issue](/cms_trial/space/JMWEC/466322658/Email+issue/) post-function to send an email. Refer to the issue created by the previous post-function using this:  ```text     {{ issue | issueProperty("jmwe.last.issue.created") }}     ``` - Save the post-function |
+| - Add the Sequence of post-functions post-function    - Add the [Create issue](/cms_trial/space/JMWEC/466256916/Create+issue(s)/) post-function to create a subtask   - Add the [Email issue](/cms_trial/space/JMWEC/466322658/Email+issue(s)/) post-function to send an email. Refer to the issue created by the previous post-function using this:  ```text     {{ issue | issueProperty("jmwe.last.issue.created") }}     ``` - Save the post-function |
 
 #### [light bulb on icon] To clone an issue and its subtasks to another project
 
@@ -945,7 +945,7 @@ Steps
 | --- |
 | - Create a user entity property to store the Country information. - Add the *Set field value from user property value* post-function to the **Create** transition of the issue's workflow. - Select the field to which the Country information is supposed to be copied. - Repeat the above steps for all the other fields. |
 
-## [Set field value of linked issues post-function](/cms_trial/space/JMWEC/466323396/Shared+Action+post-function/) - Deprecated - Use [Set field value](/wiki/spaces/MWECS/pages/78481302/Use+cases+for+post-functions#Set-field-value) instead
+## [Set field value of linked issues post-function](/cms_trial/space/JMWEC/466323396/Shared+Action+post+function/) - Deprecated - Use [Set field value](/wiki/spaces/MWECS/pages/78481302/Use+cases+for+post-functions#Set-field-value) instead
 
 #### [light bulb on icon] Display the Man hours (a custom Numeric field) of an Epic as the sum of Man hours of all the user stories linked to the Epic.
 
@@ -987,7 +987,7 @@ Steps
 | --- |
 | - Add the *Set field value of linked issues* post-function to the transition you wish to. - Select the `Assignee` field. - Write the following content in the `Value` section  ```text   {{ currentUser.accountId}}   ``` - Select the Conditional execution check box `Run this post-function only if a condition is verified`. - Type the following code in `Condition`.  ```text   {{ currentUser | isInRole("Developers",linkedIssue) }}   ``` |
 
-## [Shared Action post-function](/cms_trial/space/JMWEC/466323396/Shared+Action+post-function/)
+## [Shared Action post-function](/cms_trial/space/JMWEC/466323396/Shared+Action+post+function/)
 
 A post-function that runs an Action (a sequence of one or more JMWE post-functions), created in the [Shared Actions](/cms_trial/space/JMWEC/466288975/Shared+actions/) page, on the target issues.
 

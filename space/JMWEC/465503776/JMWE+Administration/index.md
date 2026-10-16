@@ -14,7 +14,7 @@ The following pages are available:
 | --- | --- |
 | Overview | This page provides an introduction to the app, lists the latest releases, and gives you pointers to the JMWE documentation and support. |
 | [JMWE workflow extensions](/cms_trial/space/JMWEC/466321411/JMWE+workflow+extensions/) | Manage all JMWE-created extensions from a single page. |
-| [Shared actions](/cms_trial/space/JMWEC/466288975/Shared+actions/) | Create sequences of one or more workflow post-functions that can then be used in multiple workflow transitions (by using the [Shared Action](/cms_trial/space/JMWEC/466323396/Shared+Action+post-function/) post-function). |
+| [Shared actions](/cms_trial/space/JMWEC/466288975/Shared+actions/) | Create sequences of one or more workflow post-functions that can then be used in multiple workflow transitions (by using the [Shared Action](/cms_trial/space/JMWEC/466323396/Shared+Action+post+function/) post-function). |
 | [Scheduled actions](/cms_trial/space/JMWEC/466321868/Scheduled+actions/) | Create sequences of one or more workflow post-functions that will be run according to a schedule against issues returned by a JQL search. |
 | [Event-based actions](/cms_trial/space/JMWEC/465473524/Event-based+actions/) | Create sequences of one or more workflow post-functions that are run when a change is made to an issue. These changes can include fields being modified, the issue being transitioned, a comment being added, and more. |
 | [Use case templates](/cms_trial/space/JMWEC/2196245303/Use+case+templates/) | More than 30 pre-built configurations for JMWE Event-based actions, Scheduled actions, and workflow post functions that can be installed directly. |

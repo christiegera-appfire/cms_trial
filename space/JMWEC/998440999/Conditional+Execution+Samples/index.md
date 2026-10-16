@@ -23,7 +23,7 @@ Some of the examples below include additional project configurations or custom f
 
 This example is only applicable to Jira Service Management (JSM), unless you have customized your project to include similar fields.
 
-1. Add the [Copy issue fields](/cms_trial/space/JMWEC/466323304/Copy+issue+fields/) post-function to the **Close** transition of the issue’s workflow.
+1. Add the [Copy issue fields](/cms_trial/space/JMWEC/466323304/Copy+fields/) post-function to the **Close** transition of the issue’s workflow.
 2. Under **Fields to copy**, select **Affects versions** for **Source field**.
 3. Also under **Fields to copy**, select **Fix versions** for **Destination field**.
 4. Select the checkbox under **Conditional execution**.

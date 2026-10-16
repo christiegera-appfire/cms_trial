@@ -1,25 +1,14 @@
-# Email issue
+# Email issue(s)
 
-A post-function that sends a notification email about the current issue or issues related to the current issue.
+A post function that sends a notification email about the current issue or issues related to the current issue.
 
-![Email issue(s) post function configuration screen](/cms_trial/assets/e89167db-4eb1-4a53-8779-e13209c3f0fd.png)
+When you add this post function to a transition and trigger the transition, the add-on sends an Email notification about each target issue to the specified recipients.
 
-**To add 'Email issue' post-function to a transition:**
+[Unmapped macro: 47fa61b6-fe1c-40c9-b236-623cdbc35833/4d8fa66b-88bf-4899-a37e-5926131c46ac/static/multiexcerpt-fast-include-block-macro — no content to fall back on]
 
-1. Click **Edit** for the workflow that has the transition you wish to add the post-function on.
-2. In the Workflow Designer, select the transition.
-3. Click on `Post Functions`in the properties panel.
-4. Click on `Add` `post function`.
-5. Select `Email issue` from the list of post-functions.
-6. Click on `Add` to add the post-function on the transition.
-7. Select the “Target issue” (see below)
-8. Input the subject of the Email in `Subject.`
-9. Select the recipients in `Recipients.`
-10. Click on `Add` to add the post-function to the transition.
+![Email issue(s) post function configuration screen](/cms_trial/assets/7e4c1f71-0e96-4901-8419-869403bdb822.png)
 
-JMWE shows an error message on the issue view if any error occurs during the execution of the post-function. This message is only displayed if the current user is a Jira administrator.
-
-When you add this post-function to a transition and trigger the transition, the add-on sends an Email notification about each target issue to the specified recipients.
+JMWE shows an error message on the issue view if any error occurs during the execution of the post function. This message is only displayed if the current user is a Jira administrator.
 
 ## Issue(s) to operate on
 
@@ -105,7 +94,7 @@ A fully-rendered HTML version of fields that are configured to use the Wiki Styl
 | Hi  \_This is a test Email\_  Regards Radhika | `{{ targetIssue.renderedFields.description }}` | <p>Hi</p>  <p><em>This is a test Email</em></p>  <p>Regards<br/> Radhika</p> | Hi  *This is a test Email*  Regards Radhika |
 | Hi,  The issue has been resolved.  Regards  Radhika | `{{ targetIssue.renderedFields.comment.comments | first | field('body') }}` | Hi, <br/>  <br/> The issue has been resolved. <br/>  <br/> Regards <br/> Radhika | Hi,  The issue has been resolved.  Regards  Radhika |
 
-For performance reasons, renderedFields are only available in this post-function and in the [Nunjucks tester](https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=mwecs&title=Nunjucks%20template%20editor%20and%20tester&linkCreation=true&fromPageId=449675818).
+For performance reasons, renderedFields are only available in this post function and in the [Nunjucks tester](https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=mwecs&title=Nunjucks%20template%20editor%20and%20tester&linkCreation=true&fromPageId=449675818).
 
 ## Recipients
 
@@ -153,13 +142,35 @@ To send an email to all members of all Service Desk Organizations associated wit
 
 {{ targetIssue.fields.Textfield }}, where the Text field contains a [String](https://docs.oracle.com/javase/7/docs/api/java/lang/String.html) representing the group *name* or comma separated group *names.*
 
-The user executing the post-function (by default the current user) will not receive any notification unless they select the "Notify me of my changes" option on their User Preferences page
+The user executing the post function (by default the current user) will not receive any notification unless they select the "Notify me of my changes" option on their User Preferences page
 
-Customize this post-function using the additional options provided as part of the post-function. The options are:
+## Advanced options
+
+Expand this section to see advanced configurations including which user will run the post function, conditional execution, and delayed execution.
 
 ## Run As
 
+This option enables you to configure as which Jira user the post function will run.
+
+- **Current user** - The current user will be the author of the action.
+- **Add-on user** -The add-on user will be the author of the action.
+- **Selected user** -The user in the **Select user** field will be the author of the action.
+
+  - **Select user** - *Only available when* ***Selected user*** *is set.* Select a user from the pull-down menu. Enter a name to search for a specific user account.
+- **User in selected field** - The user value from the **Select field** field.
+
+  - **Select field** - *Only available when* ***User in selected field*** *is set.* Select a User Picker field; if you select a User Picker (multiple users) field, only the first user will be used.
+- **User from script** - The user value returned from a Nunjucks script.
+
+If you select any option other than **Run as add-on user**, so that the assignment appears to be done by the current user or a specific user, the selected user will need to have the **Edit Issues** permission for the issue being updated.
+
 ## Conditional execution
+
+It is possible to configure the post function to execute (or not execute) only in specific circumstances. The **Conditional execution** option sets this behavior:
+
+- **Run this post-function only if a condition is verified**: Select this option to execute this post-function based on the result of a Nunjucks template. See [Conditional execution](https://appfire.atlassian.net/wiki/display/JMWEC/Conditional+execution) for more information.
+
+  - **Condition**: *This option only displays when* ***Run this post-function only if a condition is verified****, above, is checked.* Enter the Nunjucks template as needed.
 
 ## Delayed execution
 
@@ -167,4 +178,4 @@ Post functions are provided with an option to delay execution for a set number 
 
 Workflows that depend on post functions being executed in a specific order can fail due to the asynchronous nature of Connect post-functions in **Jira Cloud**. One workaround is to delay the execution of a post function, thereby creating a more predictable execution order. For example, on the approval of a Story you want to create sub-tasks and immediately transition them; in this case, you will have to delay the execution of the Transition Linked Issues post function, so that the sub-tasks are created before they are transitioned.
 
-Where possible, it is recommended to use the [Sequence of post-functions](/cms_trial/space/JMWEC/466322933/Sequence+of+Post-functions/) post function or [Shared action](/cms_trial/space/JMWEC/466323396/Shared+Action+post-function/) post function to execute a series of post functions in a specific sequence instead of applying a delay.
+Where possible, it is recommended to use the [Sequence of post-functions](/cms_trial/space/JMWEC/466322933/Sequence+of+post+functions/) post function or [Shared action](/cms_trial/space/JMWEC/466323396/Shared+Action+post+function/) post function to execute a series of post functions in a specific sequence instead of applying a delay.

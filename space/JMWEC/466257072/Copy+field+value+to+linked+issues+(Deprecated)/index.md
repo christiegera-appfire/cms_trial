@@ -8,7 +8,7 @@ This post function has been deprecated for some time, and will be completely rem
 
 ## Replacing this post function
 
-This post function has been replaced with the [Copy issue fields](/cms_trial/space/JMWEC/466323304/Copy+issue+fields/) post function. Use the table below to migrate your configuration; settings should be migrated to the new post function exactly as they exist in the obsolete one, except where noted.
+This post function has been replaced with the [Copy issue fields](/cms_trial/space/JMWEC/466323304/Copy+fields/) post function. Use the table below to migrate your configuration; settings should be migrated to the new post function exactly as they exist in the obsolete one, except where noted.
 
 **Tip**: The obsolete post function could only be configured to copy a single field value. The current post function can be configured to copy multiple fields within a single post function. If you have several individual **Copy field value from linked issues** post functions in the same project, they can be grouped together into a single **Copy issue fields** post function!
 

@@ -1,6 +1,6 @@
 # Send email to members of groups selected in multi-group picker field
 
-This article provides the code snippet to send email to users in the group(s) selected in a multi-group picker field in [Email issue(s) (JMWE app)](/cms_trial/space/JMWEC/466322658/Email+issue/).
+This article provides the code snippet to send email to users in the group(s) selected in a multi-group picker field in [Email issue(s) (JMWE app)](/cms_trial/space/JMWEC/466322658/Email+issue(s)/).
 
 ## Instructions
 

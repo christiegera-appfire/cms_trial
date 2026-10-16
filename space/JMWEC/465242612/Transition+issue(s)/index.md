@@ -1,25 +1,16 @@
 # Transition issue(s)
 
-A workflow post-function that triggers a transition on the current issue or issue related to the current issue. This can be used to move an issue one step further in the workflow.
+A workflow post function that triggers a transition on the current issue or issue related to the current issue. This can be used to move an issue one step further in the workflow.
 
-![Transition issue(s) post function configuration](/cms_trial/assets/7fdf7a3c-42eb-4844-8507-87b34c71000b.png)
+When you add this post function to a transition and trigger the transition, the add-on will transition the target issues using the specified transition, assuming it is valid for the current status and available to the current or selected user.
 
-**To add the 'Transition current issue' post-function to a transition :**
+[Unmapped macro: 47fa61b6-fe1c-40c9-b236-623cdbc35833/4d8fa66b-88bf-4899-a37e-5926131c46ac/static/multiexcerpt-fast-include-block-macro — no content to fall back on]
 
-1. Click **Edit** for the workflow that has the transition you wish to add the post-function on.
-2. In the Workflow Designer, select the transition.
-3. Click on `Post Functions`in the properties panel.
-4. Click on `Add` `post function`.
-5. Select `Transition current issue` from the list of post-functions.
-6. Click on `Add` to add the post-function on the transition.
-7. Select the “Target issue” (see below)
-8. Specify transition(s) either in the table or as a result of the calculated Nunjucks template. See **Transition(s)**, below, for more information.
-9. Click on `Add` to add the post-function to the transition.
-10. After adding, move the post-function to the appropriate position according to [Placing post-functions in a transition](/cms_trial/space/JMWEC/466289149/Adding+extensions+to+transitions/) document.
+After adding, move the post function to the appropriate position according to [Placing post functions in a transition](/cms_trial/space/JMWEC/466289149/Adding+extensions+to+transitions/) document.
 
-JMWE shows an error message on the issue view if any error occurs during the execution of the post-function. This message is only displayed if the current user is a Jira administrator.
+JMWE shows an error message on the issue view if any error occurs during the execution of the post function. This message is only displayed if the current user is a Jira administrator.
 
-When you add this post-function to a transition and trigger the transition, the add-on will transition the target issues using the specified transition, assuming it is valid for the current status and available to the current or selected user.
+![Transition issue(s) post function configuration](/cms_trial/assets/d0f50ffb-be04-459a-9123-8a3ef61c47f9.png)
 
 ## Issue(s) to operate on
 
@@ -67,7 +58,7 @@ Input the transition `name(s)` or `id(s)` and optionally the workflow name m
 - Select a transition from the list of transitions displayed
 - Finally, click on either
 
-  - `Use Transition Name` - recommended if you want the post-function to search for the transition to trigger by name, which is useful when targeting multiple workflows.
+  - `Use Transition Name` - recommended if you want the post function to search for the transition to trigger by name, which is useful when targeting multiple workflows.
   - `Use Transition ID` - if you want to differentiate between transitions that bear the same name.
 - Click on Add.
 
@@ -97,8 +88,6 @@ Example of a template returning transition name:
 {% endif %}
 ```
 
-## **Run As**
-
 ## **Transition screen**
 
 If the transition uses a transition screen you might want/need to provide a value for fields(*such as Resolution*) present on the screen. Look below to know how to add/set/remove fields.
@@ -114,7 +103,7 @@ If the transition uses a transition screen you might want/need to provide a valu
 
 Likewise, you might also want to provide a *comment* during that transition.**This will only work if the triggered transition is associated with a transition screen.**
 
-**Note**: Currently, some variables are not available in Nunjucks when using the **Transition issue(s)** post-function. Unavailable variables include:
+**Note**: Currently, some variables are not available in Nunjucks when using the **Transition issue(s)** post function. Unavailable variables include:
 
 - **targetIssue**
 - **linkedIssue**
@@ -126,9 +115,37 @@ Likewise, you might also want to provide a *comment* during that transition.**
   - **Restrict to Project Role :** Restricts the visibility of the comment to a selected project role. When you select a project role from the drop-down `Restrict to Project Role` field, the comment will be visible only to the members of the selected project role. For no restriction, leave the field blank.
   - **Restrict to Internal (Jira Service Desk only) :** Restricts the visibility of the comment to the Service Desk Agents and Collaborators only.
 
+## Advanced options
+
+Expand this section to see advanced configurations including which user will run the post function, conditional execution, and delayed execution.
+
+## **Run As**
+
+This option enables you to configure as which Jira user the post function will run.
+
+- **Current user** - The current user will be the author of the action.
+- **Add-on user** -The add-on user will be the author of the action.
+- **Selected user** -The user in the **Select user** field will be the author of the action.
+
+  - **Select user** - *Only available when* ***Selected user*** *is set.* Select a user from the pull-down menu. Enter a name to search for a specific user account.
+- **User in selected field** - The user value from the **Select field** field.
+
+  - **Select field** - *Only available when* ***User in selected field*** *is set.* Select a User Picker field; if you select a User Picker (multiple users) field, only the first user will be used.
+- **User from script** - The user value returned from a Nunjucks script.
+
+If you select any option other than **Run as add-on user**, so that the assignment appears to be done by the current user or a specific user, the selected user will need to have the **Edit Issues** permission for the issue being updated.
+
+The **Run as add-on user** and **Run as this user** options are useful if the current user doesn't have the permission to trigger the specified transition on the current issue.
+
+Also, note that the specified transition can be hidden from users using the `Hide Transition` condition.
+
 ## **Conditional execution**
 
-To execute this post-function based on the result of a Nunjucks template see [Conditional execution](/cms_trial/space/JMWEC/466256678/Conditional+Execution/).
+It is possible to configure the post function to execute (or not execute) only in specific circumstances. The **Conditional execution** option sets this behavior:
+
+- **Run this post-function only if a condition is verified**: Select this option to execute this post-function based on the result of a Nunjucks template. See [Conditional execution](https://appfire.atlassian.net/wiki/display/JMWEC/Conditional+execution) for more information.
+
+  - **Condition**: *This option only displays when* ***Run this post-function only if a condition is verified****, above, is checked.* Enter the Nunjucks template as needed.
 
 ## **Delayed execution**
 
@@ -136,8 +153,4 @@ Post functions are provided with an option to delay execution for a set number 
 
 Workflows that depend on post functions being executed in a specific order can fail due to the asynchronous nature of Connect post-functions in **Jira Cloud**. One workaround is to delay the execution of a post function, thereby creating a more predictable execution order. For example, on the approval of a Story you want to create sub-tasks and immediately transition them; in this case, you will have to delay the execution of the Transition Linked Issues post function, so that the sub-tasks are created before they are transitioned.
 
-Where possible, it is recommended to use the [Sequence of post-functions](/cms_trial/space/JMWEC/466322933/Sequence+of+Post-functions/) post function or [Shared action](/cms_trial/space/JMWEC/466323396/Shared+Action+post-function/) post function to execute a series of post functions in a specific sequence instead of applying a delay.
-
-The **Run as add-on user** and **Run as this user** options are useful if the current user doesn't have the permission to trigger the specified transition on the current issue.
-
-Also, note that the specified transition can be hidden from users using the `Hide Transition` condition.
+Where possible, it is recommended to use the [Sequence of post-functions](/cms_trial/space/JMWEC/466322933/Sequence+of+post+functions/) post function or [Shared action](/cms_trial/space/JMWEC/466323396/Shared+Action+post+function/) post function to execute a series of post functions in a specific sequence instead of applying a delay.

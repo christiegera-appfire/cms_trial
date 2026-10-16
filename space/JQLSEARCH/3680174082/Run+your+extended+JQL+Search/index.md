@@ -1,7 +1,5 @@
 # Run your extended JQL Search
 
-## Run your extended JQL search
-
 Jira's standard JQL lets you search many issue fields, but sometimes the information you need isn't available as a standard JQL field.
 
 JQL Search Extensions adds keywords that let you search additional issue information.
@@ -12,9 +10,7 @@ In this example, you'll find issues that have PNG files attached to them.
 
 1. In Jira, go to **Apps** > **JQL Search Extensions**.
 2. Open **Extended Search**.
-3. Enter the following query:
-
-   `AttachmentExtension = png`
+3. Enter the following query: `attachmentExtension = png`
 4. Run the search.
 
 JSE returns issues that have a PNG file attached.
@@ -25,15 +21,13 @@ If the query doesn’t return any results, try an attachment extension that you 
 
 JSE provides additional keywords for searching issue information beyond what's available through standard Jira JQL.
 
-You don't need to memorize them. Refer to the [JQL functions and keywords reference](/cms_trial/space/JQLSEARCH/604209395/JQL+functions+and+keywords+reference/) when you need to find the appropriate keyword for a particular search.
+You don't need to memorize them. Refer to the [JQL functions and keywords reference](/cms_trial/space/JQLSEARCH/604209395/JQL+functions+and+keywords+reference/) when you need to find the appropriate keyword for a particular search. This is also known as the Cheat Sheet displayed on the right-side panel.
 
-## Try another search
+## Search for issues with PDF attachments
 
 Once your first query works, try changing the file extension:
 
-`AttachmentExtension = pdf`
-
-Compare the results with your first search.
+`attachmentExtension = pdf`
 
 ![2026-09-23_17-06-40.jpeg](/cms_trial/assets/b0b94658-4257-4727-a76d-ab6c4dc3fbea.jpeg)
 

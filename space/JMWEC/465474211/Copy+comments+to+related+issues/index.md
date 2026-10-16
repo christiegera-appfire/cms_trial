@@ -1,20 +1,12 @@
 # Copy comments to related issues
 
-A workflow post-function that copies all comments, or just the latest comment, from the current issue to related issues (such as linked issues, Stories of an Epic, Epic of a Story, sub-tasks of an issue, issues returned by a Nunjucks Template, or a JQL search, etc.)
+A workflow post function that copies all comments, or just the latest comment, from the current issue to related issues (such as linked issues, Stories of an Epic, Epic of a Story, sub-tasks of an issue, issues returned by a Nunjucks Template, or a JQL search, etc.)
 
-When you add this post-function to a transition and that transition is triggered, the add-on copies the comment(s) of the current issue to all the target issues; this process will ignore previously added comments.
+When you add this post function to a transition and that transition is triggered, the add-on copies the comment(s) of the current issue to all the target issues; this process will ignore previously added comments.
 
-![Copy comments post function configuration screen](/cms_trial/assets/d454719d-0e5c-42d7-9847-e97e82a3a865.png)
+[Unmapped macro: 47fa61b6-fe1c-40c9-b236-623cdbc35833/4d8fa66b-88bf-4899-a37e-5926131c46ac/static/multiexcerpt-fast-include-block-macro — no content to fall back on]
 
-**To add 'Copy comments to linked issues' post-function to a transition :**
-
-1. In Jira Administration, go to **Workflows** and click the **Edit** link to open the workflow.
-2. Select the required transition.
-3. Click the **Post Functions** tab and click **Add post function**.
-4. Select **Copy comments to linked issues** from the list of post-functions.
-5. Click on **Add** to add the post-function on the transition.
-6. Set the **Target issue** field to configure which issues should receive the copied comments (see **Issue(s) to operate on**, below, for more information on the possible values).
-7. Select from the options provided to add the required parameters (see below for more details on required parameters).
+![Configuration screen for JMWE Cloud post function 'Copy comments to related issues'](/cms_trial/assets/b950e6b0-edbf-4258-8e00-71a90e07b4a4.png)
 
 ## Issue(s) to operate on
 
@@ -90,7 +82,27 @@ When attachments from comments are copied between issues, JMWE checks for duplic
 
 Select one of the following to set the creator of the issue:
 
+This option enables you to configure as which Jira user the post function will run.
+
+- **Current user** - The current user will be the author of the action.
+- **Add-on user** -The add-on user will be the author of the action.
+- **Selected user** -The user in the **Select user** field will be the author of the action.
+
+  - **Select user** - *Only available when* ***Selected user*** *is set.* Select a user from the pull-down menu. Enter a name to search for a specific user account.
+- **User in selected field** - The user value from the **Select field** field.
+
+  - **Select field** - *Only available when* ***User in selected field*** *is set.* Select a User Picker field; if you select a User Picker (multiple users) field, only the first user will be used.
+- **User from script** - The user value returned from a Nunjucks script.
+
+If you select any option other than **Run as add-on user**, so that the assignment appears to be done by the current user or a specific user, the selected user will need to have the **Edit Issues** permission for the issue being updated.
+
 ### Conditional execution
+
+It is possible to configure the post function to execute (or not execute) only in specific circumstances. The **Conditional execution** option sets this behavior:
+
+- **Run this post-function only if a condition is verified**: Select this option to execute this post-function based on the result of a Nunjucks template. See [Conditional execution](https://appfire.atlassian.net/wiki/display/JMWEC/Conditional+execution) for more information.
+
+  - **Condition**: *This option only displays when* ***Run this post-function only if a condition is verified****, above, is checked.* Enter the Nunjucks template as needed.
 
 ### Delayed execution
 
@@ -98,4 +110,4 @@ Post functions are provided with an option to delay execution for a set number 
 
 Workflows that depend on post functions being executed in a specific order can fail due to the asynchronous nature of Connect post-functions in **Jira Cloud**. One workaround is to delay the execution of a post function, thereby creating a more predictable execution order. For example, on the approval of a Story you want to create sub-tasks and immediately transition them; in this case, you will have to delay the execution of the Transition Linked Issues post function, so that the sub-tasks are created before they are transitioned.
 
-Where possible, it is recommended to use the [Sequence of post-functions](/cms_trial/space/JMWEC/466322933/Sequence+of+Post-functions/) post function or [Shared action](/cms_trial/space/JMWEC/466323396/Shared+Action+post-function/) post function to execute a series of post functions in a specific sequence instead of applying a delay.
+Where possible, it is recommended to use the [Sequence of post-functions](/cms_trial/space/JMWEC/466322933/Sequence+of+post+functions/) post function or [Shared action](/cms_trial/space/JMWEC/466323396/Shared+Action+post+function/) post function to execute a series of post functions in a specific sequence instead of applying a delay.
