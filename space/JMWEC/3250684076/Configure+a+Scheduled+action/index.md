@@ -2,9 +2,9 @@
 
 ## Configure a Scheduled Action
 
-![Scheduled Action Editor configuration screen](/cms_trial/assets/d2c64aef-b352-45a1-82be-35154db68578.png)
+![JMWE Cloud Scheduled Action editor](/cms_trial/assets/8f54696c-bcd6-416c-83fd-07d7938ac0b3.png)
 
-When you create or edit a Scheduled Action, the Scheduled Action Editor will open (Figure 3, right). The Scheduled Action Editor uses the [JMWE Automation Rule Builder](/cms_trial/space/JMWEC/768573574/JMWE+Automation+Rule+Builder/), consisting of two side-by-side panels; the left panel has buttons for selecting each configuration category (e.g. **When** for the Scheduled Action schedule), and the right panel includes specific configuration options for the selected category.
+When you create or edit a Scheduled Action, the Scheduled Action Editor will open (Figure 1, right). The Scheduled Action Editor uses the [JMWE Automation Rule Builder](/cms_trial/space/JMWEC/768573574/JMWE+Automation+Rule+Builder/), consisting of two side-by-side panels; the left panel has buttons for selecting each configuration category (e.g. **When** for the Scheduled Action schedule), and the right panel includes specific configuration options for the selected category.
 
 To configure a Scheduled Action set the following configurations:
 
@@ -12,7 +12,7 @@ To configure a Scheduled Action set the following configurations:
 2. **Description** (**Point 1**, **Figure 3**, right) - Click *Add a description* to edit the Scheduled Action description. Enter a detailed explanation of the action and click the check button to save.
 3. **When/Schedule** (**Point 2**, **Figure 3**, right) - Click the **When** header or the **Schedule** button. In the right panel, click each field to set the schedule for the action. See **Schedule**, below for more information.
 4. **If Scope/Target Issues** (**Point 3**, **Figure 3**, right) - Click the **If Scope** header or the **Target Issues** button to configure the JQL query that will return the issues for the Scheduled Action; set **Max Issues** to limit the number of issues for the action. You can test your query and preview the results by clicking the **Search** button. See **Target Issues**, below, for more information.
-5. **Who** (**Point 4**, **Figure 3**, right) -
+5. **Who** (**Point 4**, **Figure 3**, right) - Click the **Who** header or the **Run as** button to configure which user executes the Scheduled action. The user selected for this option will be used as the **Current user** value in individual post functions within the Action.
 6. **Then/Post-functions** (**Point 5**, **Figure 3**, right) - Click the **Then** header or the **Post-functions** button. In the right panel, select a post function from the list to add the first post function, or click **Add post-function** to add additional post functions. See **Post-functions**, below for more information.
 
    1. **Skip subsequent post-functions if a post-function encounters an error** - Check this box to stop the execution of the Event-based Action if any of it’s post functions encounter an error.
@@ -43,7 +43,7 @@ The available values for the **Schedule** will change based on the increment tha
    1. Hours are set using a 24 hour clock.
    2. Multiple hours or minute values can be selected. For example, to run an action every day at 6 AM and 3 PM every day, set the field as pictured below.
 
-      ![JMWE for Jira Cloud scheduled action time configuration with hour settings](/cms_trial/assets/e0a36c49-39c1-4cb3-9f3a-c4da3ae36f8a.png)
+      ![contentId-3250684076](/cms_trial/assets/09611463-039e-4c43-b8f4-da5c7c57532d.png)
 3. **Day of the Week** - *Available when the increment is set to* ***week****.* Set the day or days of the week (Monday through Sunday) when the action will run.
 4. **Day of the Month** - *Available when the increment is set to* ***month*** *or* ***year****.* Set the date or dates of the month when the action will run.   
    ⚠️ **Please note**, the default value for this field is ‘Every day of the month’. To set this field back to the default value, deselect all of the specific dates.
@@ -52,7 +52,7 @@ The available values for the **Schedule** will change based on the increment tha
 
 ## Target issues
 
-![Scheduled Action Target Issues configuration screen](/cms_trial/assets/0192703c-3b8e-4ec7-81c7-821f5d9c9eff.png)
+![Scheduled Action Target Issues configuration screen](/cms_trial/assets/b2b3e7d7-9aa4-4924-bee8-c9901eaea37c.png)
 
 Target issues for the Scheduled Action are determined by a JQL search that returns the issue or issues on which the action should run. For more information on creating JQL queries, see [Constructing JQL Queries](https://support.atlassian.com/jira-software-cloud/docs/what-is-advanced-searching-in-jira-cloud/#Advancedsearching-ConstructingJQLqueries).
 
@@ -83,9 +83,23 @@ If the scheduled action runs *more than once per hour*, the number of issues is 
 
 Select one of the following to set the creator of the issue:
 
-## Post-functions
+This option enables you to configure as which Jira user the post function will run.
 
-![JMWE for Jira Cloud scheduled action post functions configuration panel](/cms_trial/assets/c77b58bb-76bc-4edb-8cc0-d8c1da4fec50.png)
+- **Current user** - The current user will be the author of the action.
+- **Add-on user** -The add-on user will be the author of the action.
+- **Selected user** -The user in the **Select user** field will be the author of the action.
+
+  - **Select user** - *Only available when* ***Selected user*** *is set.* Select a user from the pull-down menu. Enter a name to search for a specific user account.
+- **User in selected field** - The user value from the **Select field** field.
+
+  - **Select field** - *Only available when* ***User in selected field*** *is set.* Select a User Picker field; if you select a User Picker (multiple users) field, only the first user will be used.
+- **User from script** - The user value returned from a Nunjucks script.
+
+If you select any option other than **Run as add-on user**, so that the assignment appears to be done by the current user or a specific user, the selected user will need to have the **Edit Issues** permission for the issue being updated.
+
+## Post functions
+
+![admin-ScheduledActionPostFunctions.png](/cms_trial/assets/24302b10-d94f-41f4-ad8f-8f602d629be2.png)
 
 For each issue returned by the JQL search (detailed above), the configured post functions will run *in the order in which they are listed*.
 
@@ -147,5 +161,3 @@ Within the Scheduled Action Editor, you can view the details of any errors by ex
 You can mark errors are resolved for each column; individual errors can be marked using the link to the right of the error message and all errors for the column can be marked resolved using the link at the top of the list. When all errors have been marked as resolved <what happens?>
 
 **Note**: If one of the post functions fails with an error, the remaining post functions in the sequence will still run. To stop the execution of subsequent post functions after an error occurs, select the option “Skip subsequent post functions if a post function encounters an error” under **Then** in the left-hand panel.
-
-![JMWE for Jira Cloud eventbased action post functions in simple view mode](/cms_trial/assets/3f8a2404-78fc-4aaa-b0a7-82a4538a82d5.png)![JMWE for Jira Cloud eventbased action post functions in advanced view mode](/cms_trial/assets/ca5ed103-2bd6-46c3-bc50-c9e06abedbef.png)

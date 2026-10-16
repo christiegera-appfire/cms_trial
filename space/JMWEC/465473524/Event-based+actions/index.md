@@ -37,8 +37,7 @@ Issue-related events
 | Issue Created | 🌊 |  |
 | Issue Updated | 🌊 |  |
 | Issue Deleted | 🌊 | Post functions that modify the current issue will fail, as the issue is already deleted by the time the event is received. |
-| Issue Commented | 🌊 |  |
-| Comment Updated | 🌊 |  |
+| Issue Commented | 🌊 | Includes both new and updated comments. |
 | Comment Deleted | 🌊 |  |
 | Issue Transitioned | 🌊 | Can be set to specific transitions, or all transitions. |
 | Issue Field Value Changed | 🌊 | Configured to monitor specific fields. |
@@ -49,8 +48,6 @@ Issue-related events
 | Work Log Created | ⛰️ |  |
 | Work Log Updated | ⛰️ |  |
 | Work Log Deleted | ⛰️ |  |
-| Work Started On Issue | ⛰️ |  |
-| Work Stopped On Issue | ⛰️ |  |
 | Issue Assigned | 🌊 |  |
 | Issue Resolved | 🌊 |  |
 | Issue Closed | 🌊 |  |
@@ -64,6 +61,7 @@ Project-related events
 | Project Created | ⛰️ |  |
 | Project Updated | ⛰️ |  |
 | Project Deleted | ⛰️ |  |
+| Project Soft Deleted | ⛰️ |  |
 | Project Restored (from Delete) | ⛰️ |  |
 | Project Archived | ⛰️ |  |
 | Project Restored (from Archived) | ⛰️ |  |
@@ -102,12 +100,10 @@ User-related events
 
 ## Administration
 
-![Administration page for managing Event-based actions](/cms_trial/assets/24f11012-6a08-4c3e-94bc-b2997d58ecf9.png)
-
 To access **Event-based Actions**:
 
 1. Log into your Jira instance as an administrator.
-2. Click the **Settings** icon ⚙️ in the upper right corner and select **Apps**.
+2. Click **Settings** in the upper right corner and select **Apps**.
 3. Under *JIRA MISC WORKFLOW EXTENSIONS* in the left-hand panel, click **Event-based Actions**.
 
 The Event-based Actions page (Figure 1, above) lists all Event-based Actions that have been created, as well as the following:
@@ -121,9 +117,9 @@ The Event-based Actions page (Figure 1, above) lists all Event-based Actions tha
   - **Event(s)** - The event or events that will trigger the action.
   - **Projects** - The number of projects to which the Event-based Action has been applied.  
     [note icon] **Hold the pointer over the badge to see a list of projects in which the Event-based Action is used.**
-  - **By** - The user who created the action, or the last user to edit or enable/disable the action.
   - **Last modified** - When the action was last modified (edited or enabled/disabled).
-  - **Post-functions** - The number of post functions included in the Event-based Action.   
+  - **By** - The user who created the action, or the last user to edit or enable/disable the action.
+  - **Post functions** - The number of post functions included in the Event-based Action.   
     [note icon] **Hold the pointer over the badge to see a list of the post functions included in the Event-based Action.**
   - **Action menu** - Click to open a menu with specific actions for the Event-based Action:
 
@@ -132,15 +128,9 @@ The Event-based Actions page (Figure 1, above) lists all Event-based Actions tha
     - **ID** - The Jira ID of the Event-based Action. Click the menu option to copy the ID value to your clipboard. This value can be used in the [JMWE Logs](/cms_trial/space/JMWEC/466321741/JMWE+Logs/) page to filter the logs by **Action ID**.
     - **Delete** - Permanently delete the Event-based Action.
 
-![admin-EventBasedActionSummary.png](/cms_trial/assets/28176901-38f2-427e-b6bc-3e8b0c18e263.png)
+![Administration page for managing Event-based actions](/cms_trial/assets/6a80d1cf-8da0-4e86-98bf-e8a58297f653.png)![admin-EventBasedActionSummary.png](/cms_trial/assets/016c09fe-53d0-4046-8254-b071d5a1a7de.png)
 
 In the event that an Event-based Action encounters a serious issue, it may be disabled by Appfire. In these circumstances, the **Enabled** column will show as either **Disabled** or **Blocked** with the message “This event-based action was disabled/blocked by Appfire. Please [contact Appfire support](http://appf.re/support) for details”.
-
-## Show obsolete only
-
-As noted in [Deprecated post functions](/cms_trial/space/JMWEC/542803231/Deprecated+post+functions/), changes to Atlassian’s infrastructure require that deprecated JMWE post functions be **completely removed by the end of September 2025**. Please review the documentation on how this impacts your automations and how to update your workflows and Actions to the current versions of each deprecated post function.
-
-Check this box to filter the display of Event-based actions to only display actions that include deprecated post functions. The checkbox includes a number indicating how many deprecated post functions exist across all Event-based actions.
 
 ## Filter and Sort
 

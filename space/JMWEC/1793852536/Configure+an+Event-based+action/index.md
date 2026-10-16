@@ -17,12 +17,12 @@ To configure an Event-based action, set the following configurations:
 
    1. **Only apply to issues that match a JQL filter** - Check this box to use a JQL query to filter the issues that should trigger the action.
    2. **Only apply to issues that match a Nunjucks condition** - Check this box to use a Nunjucks condition to filter the issues that should trigger the action.
-6. **Who/Run as** (**Point 5**, **Figure 1**, right) - Click the **Who** header or the **Run as** button to configure which user executes the Event-based action.
+6. **Who/Run as** (**Point 5**, **Figure 1**, right) - Click the **Who** header or the **Run as** button to configure which user executes the Event-based action. The user selected for this option will be used as the **Current user** value in individual post functions within the Action.
 7. **Then/Post-functions** (**Point 6**, **Figure 1**, right) - Click the **Then** header or the **Post-functions** button. In the right panel, select a post-function from the list to add the first post-function, or click **Add post-function** to add additional post-functions. See **Post functions**, below for more information.
 
    1. **Skip subsequent post-functions if a post-function encounters an error** - Check this box to stop the execution of the Event-based Action if any of it’s post-functions encounter an error.
 
-![The JMWE Cloud Event-based action editor](/cms_trial/assets/3ae3d300-9770-4399-a541-3f92935cbabd.png)
+![The JMWE Cloud Event-based action editor](/cms_trial/assets/d1ab5469-a1e6-4d8a-b8a7-c9d28c6d3da8.png)
 
 **Please note**: for the **Ignore events caused by Jira Automation and other apps** setting:
 
@@ -47,7 +47,7 @@ For more information on using JQL queries, see [Using Jira Expressions](/cms_tri
 
 For more information on using Nunjucks, see [Using Nunjucks Templates](/cms_trial/space/JMWEC/465503811/Using+Nunjucks+Templates/).
 
-![admin-EventBasedActionIssueTypes.png](/cms_trial/assets/c236c62d-7155-4ec0-9ece-106f9ad0b309.png)
+![admin-EventBasedActionIssueTypes.png](/cms_trial/assets/cc8ae767-19b8-46e0-b189-b370b625903a.png)
 
 ## Post functions
 
