@@ -1,6 +1,6 @@
 # 7.3.0 Release notes
 
-**Release date:** October 16, 2026
+**Release date:** October 15, 2026
 
 This page outlines the updates included in the latest release of Power Scripts for Jira Cloud.
 

@@ -29,11 +29,6 @@ This page outlines the updates included in the latest release of Comala Document
 
 - Conditions now include an operator selector. Choose `equals` or `not-equals`, and enter one or more values to compare. With multiple values, `equals` matches any value, while `not-equals` matches none. Existing workflows continue to work without changes and are updated to the new format only when you edit them.
 
-### Parameters and metadata
-
-- Workflows can now reference Comala Document Management parameters and metadata by name using value references such as `@Parameter['Name']@` and `@Metadata['Name']@`. References resolve to the current value when the workflow runs, so you can reuse parameters and metadata in conditions, triggers, and actions. For example, you can use references to preassign reviewers or populate email content.
-- For parameters, Comala Document Management uses the first available value from the page, workflow, or parameter default, in that order. For metadata, it uses the first available value from the page or space.
-
 ## Bug fixes
 
 The following bugs are fixed in this release:

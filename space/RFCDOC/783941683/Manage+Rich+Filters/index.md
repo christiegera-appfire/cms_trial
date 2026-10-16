@@ -23,7 +23,7 @@ You need to have [Create Rich Filters permission](/cms_trial/space/RFCDOC/783941
 
    ![Create rich filter](/cms_trial/assets/204be430-9ec9-4c26-b227-9a774d622d78.png)
 
-By default, the maximum number of rich filters that can be created on one given Jira Cloud instance is 1,000. If you need to create more rich filters, please get in touch with our support service to request an increase in this limit for your Jira Cloud instance.
+By default, the maximum number of rich filters that can be created on one given Jira Cloud instance is **7,500**. If you need to create more rich filters, please get in touch with our support service to request an increase in this limit for your Jira Cloud instance.
 
 ### 2. **Find an existing rich filter**
 
@@ -101,4 +101,4 @@ After being moved to the trash, a rich filter remains accessible exclusively to 
 
 ![filters trash.png](/cms_trial/assets/781834b2-d3a3-464f-bcea-2758562dc5b7.png)
 
-Trashed rich filters do not count toward the 5,000 rich filters limit per instance, while archived rich filters do count. We recommend to regularly move archived rich filters to the trash using the **Move to trash** bulk operation, to free up space for new rich filters.
+Trashed rich filters do not count toward the rich filters limit per instance, while archived rich filters do count. We recommend to regularly move archived rich filters to the trash using the **Move to trash** bulk operation, to free up space for new rich filters.
