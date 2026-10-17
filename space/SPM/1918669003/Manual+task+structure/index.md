@@ -12,7 +12,7 @@ The Gantt and Scope modules allow you to structure your tasks manually. There ar
 
 - [Drag-and-drop in the Board module](https://appfire.atlassian.net/wiki/spaces/SPMDRAFT/pages/1773568180/Move+tasks#Drag-and-drop)
 - [Right-click in the Board module](https://appfire.atlassian.net/wiki/spaces/SPMDRAFT/pages/1773568180/Move+tasks#Right-click)
-- [Keyboard shortcuts](/cms_trial/space/SPM/1918535300/Keyboard+shortcuts/)
+- [Keyboard shortcuts](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918535300)
 - Arrows on the Scope module's header
 - Arrows on the task vertical dialog
 

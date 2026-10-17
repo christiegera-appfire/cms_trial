@@ -6,8 +6,7 @@ Click to expand the guide
 
 ## Available swimlanes
 
-Image — asset pipeline pending  
-image-20240909-074940.png
+![image-20240909-074940.png](/cms_trial/assets/94a5289c-4dff-4cec-b148-bac8550234d9.png)
 
 The new view lets you organize data into the following swimlanes:
 
@@ -40,8 +39,7 @@ Click to expand the guide
 
 ## Available swimlanes
 
-Image — asset pipeline pending  
-resources-swimlanes-2.png
+![resources-swimlanes-2.png](/cms_trial/assets/50c974f7-354c-44f5-bf76-1f41fafe36f2.png)
 
 The new view lets you organize data into the following swimlanes:
 

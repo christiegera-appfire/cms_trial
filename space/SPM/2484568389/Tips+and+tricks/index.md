@@ -110,7 +110,7 @@ The Resources module offers many interesting ways to help you effectively manage
 
 ### Lay the groundwork for resource management
 
-The pillars of the Resource module are the [Workload plan](/cms_trial/space/SPM/1918506352/Workload+plans/) and [Holiday plan](/cms_trial/space/SPM/1918505164/Holiday+plans/) you define for your team members.
+The pillars of the Resource module are the [Workload plan](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918506352) and [Holiday plan](/cms_trial/space/SPM/1918505164/Holiday+plans/) you define for your team members.
 
 A Holiday plan covers holidays and days off observed in your country and organization. The Workload plan defines which days are considered business days in your organization and how long they typically take. You can also create separate workload plans for, for example, part-time contractors.
 

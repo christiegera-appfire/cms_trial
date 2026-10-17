@@ -26,7 +26,7 @@ This option creates a new box that pulls Jira work items from the Jira space or 
 ![Import Jira ](/cms_trial/assets/ee942bd3-740d-464e-853e-1f5e027f3d28.png)
 
 1. Click the **Import** button.
-2. Your box or boxes are now displayed in the [box hierarchy](/cms_trial/space/SPM/1918535907/Box+hierarchy/) in the Home box in the Overview module. The new boxes inherit their names from the Jira space, but you can rename them by [editing them inline](/cms_trial/space/SPM/1918637324/Inline+edit/). You can also move the boxes to nest them under another box, for example, a [portfolio box](/cms_trial/space/SPM/1918634872/Create+portfolio+box/).
+2. Your box or boxes are now displayed in the [box hierarchy](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918535907) in the Home box in the Overview module. The new boxes inherit their names from the Jira space, but you can rename them by [editing them inline](/cms_trial/space/SPM/1918637324/Inline+edit/). You can also move the boxes to nest them under another box, for example, a [portfolio box](/cms_trial/space/SPM/1918634872/Create+portfolio+box/).
 
 ![The two new boxes created using the import jira spaces option.](/cms_trial/assets/4ca2f7cb-af2b-4c68-9e3d-561a92fc488a.png)
 
@@ -61,6 +61,6 @@ This option creates a new box that pulls Jira work items from the Jira space or 
 ![Import Jira spaces with work items modal.](/cms_trial/assets/4f96bca3-104d-49ff-b41d-8b0c68c17215.png)
 
 1. Click the **Import** button.
-2. Your box or boxes are now displayed in the [box hierarchy](/cms_trial/space/SPM/1918535907/Box+hierarchy/) in the Main box in the Overview module. The new boxes inherit their names from the Jira Space, but you can rename them by [editing them inline](/cms_trial/space/SPM/1918637324/Inline+edit/). You can also move the boxes to nest them under another box, for example, a portfolio box.
+2. Your box or boxes are now displayed in the [box hierarchy](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918535907) in the Main box in the Overview module. The new boxes inherit their names from the Jira Space, but you can rename them by [editing them inline](/cms_trial/space/SPM/1918637324/Inline+edit/). You can also move the boxes to nest them under another box, for example, a portfolio box.
 
 The work items you added to the box are arranged in the same order as in Jira: Spaces > Sprints > Versions > Components > work items that have hierarchy, and then the rest of the items.

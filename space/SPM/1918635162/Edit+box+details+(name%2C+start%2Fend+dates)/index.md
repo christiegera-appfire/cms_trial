@@ -112,7 +112,7 @@ Sequentiality settings affect box types on the same level.
 
 ![Box type configuration page, advanced settings.](/cms_trial/assets/2aee4132-40aa-49c8-b530-de103cc6b4f2.png)
 
-- **Overlapping allowed** - periods set for boxes of the same type can overlap. The rule applies to the same-level boxes in the [box hierarchy](/cms_trial/space/SPM/1918535907/Box+hierarchy/).
+- **Overlapping allowed** - periods set for boxes of the same type can overlap. The rule applies to the same-level boxes in the [box hierarchy](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918535907).
 - **Sequential** - periods set for boxes of the same type cannot overlap. The rule applies to the same-level boxes in the box hierarchy.
 
 - Boxes in the **Auto bottom-up** [scheduling mode](/cms_trial/space/SPM/1918831395/Scheduling+mode/) and **Auto scope-based** modes can never have sequential periods, meaning they can always overlap.
@@ -284,7 +284,7 @@ Changes in the box start/end date(s) trigger a validation check. The box’s dur
 
 ![Box type configuration page, advanced settings.](/cms_trial/assets/6dea6d62-4df0-4851-88f9-d8afaa9dd50f.png)
 
-- **Overlapping allowed** - periods set for boxes of the same type can overlap. The rule applies to boxes at the same level in the [box hierarchy](/cms_trial/space/SPM/1918535907/Box+hierarchy/).
+- **Overlapping allowed** - periods set for boxes of the same type can overlap. The rule applies to boxes at the same level in the [box hierarchy](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918535907).
 - **Sequential** - periods set for boxes of the same type cannot overlap. The rule applies to boxes at the same level in the box hierarchy.
 
 - Boxes in the **Auto bottom-up** [scheduling mode](/cms_trial/space/SPM/1918831395/Scheduling+mode/) and **Auto scope-based** modes can never have sequential periods, meaning they can always overlap.

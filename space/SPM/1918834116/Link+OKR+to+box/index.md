@@ -20,7 +20,7 @@ OKRs are automatically linked to the box when you:
 
 ## Manually link an existing OKR to a box
 
-The OKRs you create in the OKR module are global, which means you can link them to any other box in the [box hierarchy](/cms_trial/space/SPM/1918535907/Box+hierarchy/).
+The OKRs you create in the OKR module are global, which means you can link them to any other box in the [box hierarchy](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918535907).
 
 Note that you cannot link individual KRs to a box, as they exist only with their respective Objectives. Once you select a Key Result you want to link, the parent Objective will also be selected.
 
@@ -108,7 +108,7 @@ OKRs are automatically linked to the box when you:
 
 ## Manually link an existing OKR to a box
 
-The OKRs you create in the OKR module are global, which means you can link them to any other box in the [box hierarchy](/cms_trial/space/SPM/1918535907/Box+hierarchy/).
+The OKRs you create in the OKR module are global, which means you can link them to any other box in the [box hierarchy](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918535907).
 
 You cannot link individual KRs to a box, as they exist only within their respective Objectives. Once you select a Key Result you want to link, the parent Objective will also be selected.
 

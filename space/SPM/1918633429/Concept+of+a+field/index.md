@@ -57,7 +57,7 @@ Depending on the functionality of a given plugin, custom fields based on third-p
 
 ### JMCF duration field
 
-[Jira Misc Custom Fields](https://marketplace.atlassian.com/apps/27136/jira-misc-custom-fields-jmcf?tab=overview&hosting=datacenter) (duration field) is visible in available fields for [column views](/cms_trial/space/SPM/1918404907/Column+views/)/[card views](/cms_trial/space/SPM/1918536034/Card+views/).
+[Jira Misc Custom Fields](https://marketplace.atlassian.com/apps/27136/jira-misc-custom-fields-jmcf?tab=overview&hosting=datacenter) (duration field) is visible in available fields for [column views](/cms_trial/space/SPM/1918404907/Column+views/)/[card views](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918536034).
 
 - The JMCF Duration is displayed in 24h mode
 - The JMCF Duration is blocked for inline editing even though it is mapped to the Estimation Data Type, which allows for inline editing. This is due to the fact that the JMCF Duration field is a scripted field, which means that it displays the results of calculations involving other fields.

@@ -6,7 +6,7 @@ Effort modes in BigPicture determine the source of data used to calculate resour
 
 - [Original estimate mode](/cms_trial/space/SPM/1918407058/Original+estimate+(Effort+mode)/): it shows the planned workload versus the resource capacity.
 - [Remaining Estimate mode](/cms_trial/space/SPM/1918863764/Remaining+estimate+(Effort+mode)/): it shows resource workload history (Spent time) and the remaining workload versus the resource capacity.
-- [Story Points mode](/cms_trial/space/SPM/1918506126/Story+points+(Effort+mode)/): it shows the planned workload versus the resource capacity expressed in story points.
+- [Story Points mode](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918506126): it shows the planned workload versus the resource capacity expressed in story points.
 
 The effort mode can be expressed in the following units:
 

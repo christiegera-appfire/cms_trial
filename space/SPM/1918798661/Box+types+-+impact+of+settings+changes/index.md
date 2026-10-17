@@ -46,7 +46,7 @@ The same changes will affect all existing and future boxes when you change the i
 
 ### Change in the box parent type
 
-To create more advanced [box hierarchies](/cms_trial/space/SPM/1918535907/Box+hierarchy/), you can set which box types can be parents to which boxes (**box type configuration page** > **General** > **Basics** > **Parent types** section). This change affects all the existing and future boxes. However, the change will not disrupt the current box hierarchy.
+To create more advanced [box hierarchies](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918535907), you can set which box types can be parents to which boxes (**box type configuration page** > **General** > **Basics** > **Parent types** section). This change affects all the existing and future boxes. However, the change will not disrupt the current box hierarchy.
 
 For example, let’s say you add the Program box type as a parent to the Classic project box type. As a result, you can nest the existing and create new Classic boxes under Home, Portfolio, and Program boxes.
 
@@ -149,7 +149,7 @@ The same changes will affect all existing and future boxes when you change the i
 
 ### Change in the box parent type
 
-To create more advanced [box hierarchies](/cms_trial/space/SPM/1918535907/Box+hierarchy/), you can set which box types can be parents to which boxes (**box type configuration page** > **General** > **Basics** > **Parent types** section). This change affects all the existing and future boxes. However, the change will not disrupt the current box hierarchy.
+To create more advanced [box hierarchies](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918535907), you can set which box types can be parents to which boxes (**box type configuration page** > **General** > **Basics** > **Parent types** section). This change affects all the existing and future boxes. However, the change will not disrupt the current box hierarchy.
 
 For example, let’s say you add the Program box type as a parent to the Classic project box type. As a result, you can nest the existing and create new Classic boxes under Home, Portfolio, and Program boxes.
 

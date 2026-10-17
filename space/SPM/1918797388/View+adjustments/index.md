@@ -26,5 +26,4 @@ Find out more on the next pages:
   - [Column view (Overview module)](/cms_trial/space/SPM/1918700155/Column+view+(Overview+module)/)
   - [Column view in backlog (Board module)](/cms_trial/space/SPM/1918537147/Column+view+in+backlog+(Board+module)/)
   - [Column view (Gantt and Scope modules)](/cms_trial/space/SPM/1918668270/Column+view+(Gantt+and+Scope+modules)/)
-- [Card views](/cms_trial/space/SPM/1918536034/Card+views/)
 - [Dark mode](/cms_trial/space/SPM/1918862335/Dark+mode/)

@@ -18,7 +18,7 @@ The Board module also incorporates a timeline that shows important events or mil
 
 ## Board hierarchy
 
-The Board module utilizes the concept of the [box hierarchy](/cms_trial/space/SPM/1918535907/Box+hierarchy/), which needs to be configured first in the Overview module. You can zoom in on three levels of boxes, for example:
+The Board module utilizes the concept of the [box hierarchy](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918535907), which needs to be configured first in the Overview module. You can zoom in on three levels of boxes, for example:
 
 - Program
 - Program Increment
@@ -90,7 +90,7 @@ See the video to learn more about the module.
 
 ## Board hierarchy
 
-The Board module utilizes the concept of the [box hierarchy](/cms_trial/space/SPM/1918535907/Box+hierarchy/), which needs to be configured first in the Overview module. You can zoom in on three levels of boxes, for example:
+The Board module utilizes the concept of the [box hierarchy](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918535907), which needs to be configured first in the Overview module. You can zoom in on three levels of boxes, for example:
 
 - Program
 - Program Increment

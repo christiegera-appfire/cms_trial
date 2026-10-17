@@ -6,7 +6,7 @@ Click to expand the guide
 
 ## Introduction
 
-The capacity of the resources is calculated based on [workload plans](/cms_trial/space/SPM/1918506352/Workload+plans/) and non-working days resulting from [holiday plans](/cms_trial/space/SPM/1918505164/Holiday+plans/) and individual [absences](/cms_trial/space/SPM/1918764834/Absences/).
+The capacity of the resources is calculated based on [workload plans](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918506352) and non-working days resulting from [holiday plans](/cms_trial/space/SPM/1918505164/Holiday+plans/) and individual [absences](/cms_trial/space/SPM/1918764834/Absences/).
 
 ![Screenshot of the View menu with Capacity checked.](/cms_trial/assets/48e3f49c-dd41-48ab-b8d1-50ab6e94cceb.png)
 
@@ -180,7 +180,7 @@ Click to expand the guide
 
 ## Introduction
 
-The capacity of the resources is calculated based on [workload plans](/cms_trial/space/SPM/1918506352/Workload+plans/) and non-working days resulting from [holiday plans](/cms_trial/space/SPM/1918505164/Holiday+plans/) and individual [absences](/cms_trial/space/SPM/1918764834/Absences/).
+The capacity of the resources is calculated based on [workload plans](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918506352) and non-working days resulting from [holiday plans](/cms_trial/space/SPM/1918505164/Holiday+plans/) and individual [absences](/cms_trial/space/SPM/1918764834/Absences/).
 
 ![Screenshot of the Capacity option enabled in the Resources module.](/cms_trial/assets/f70f4707-d5eb-487c-aa64-72a94d21eda8.png)
 

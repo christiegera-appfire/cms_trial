@@ -22,7 +22,7 @@ The hierarchy of boxes visualized in the Timeline mode reflects the relationship
 
 You can rearrange the box hierarchy by manually moving (dragging) the boxes from one place to another (section on the left). This can be especially helpful when you want to quickly organize stand-alone projects into programs and portfolios.
 
-[**Read more**](/cms_trial/space/SPM/1918535907/Box+hierarchy/)
+[**Read more**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918535907)
 
 ### Manage box lifecycle (context menu)
 
@@ -155,7 +155,7 @@ The hierarchy of boxes visualized in Timeline mode reflects the relationships be
 
 You can rearrange the box hierarchy by manually moving (dragging) the boxes from one place to another (section on the left). This can be especially helpful when you want to quickly organize stand-alone projects into programs and portfolios.
 
-[**Read more**](/cms_trial/space/SPM/1918535907/Box+hierarchy/)
+[**Read more**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918535907)
 
 ### Manage box lifecycle (context menu)
 

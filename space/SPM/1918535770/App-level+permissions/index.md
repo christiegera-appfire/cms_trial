@@ -65,7 +65,7 @@ The following security roles are available in BigPicture:
 
 #### App Admin
 
-App Admins have full access to the *App Configuration,* *App Administration*, and every box and gadget. They can create new boxes and view and configure every existing box in the [box hierarchy](/cms_trial/space/SPM/1918535907/Box+hierarchy/).
+App Admins have full access to the *App Configuration,* *App Administration*, and every box and gadget. They can create new boxes and view and configure every existing box in the [box hierarchy](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918535907).
 
 - Jira Admins automatically get the App Admin role, but they do not show up in the App **Administration** > **Security** tab by default.
 - Only Jira Admins and App Admins can give the App Admin role to others.

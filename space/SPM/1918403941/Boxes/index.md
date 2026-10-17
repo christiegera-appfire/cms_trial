@@ -55,7 +55,7 @@ There are many different box types, but all of them can be categorized as:
 
 - [Portfolio type](/cms_trial/space/SPM/1918634872/Create+portfolio+box/) (portfolio boxes are designed to hold any amount of project and program boxes, including their children (sub-boxes))
 - Project types (project boxes, such as Agile Project box, Classic Project box, and Hybrid Project box, are designed to help you manage projects using a specific methodology)
-- Sub-boxes/[timeboxes](/cms_trial/space/SPM/1918766987/Timeboxes/) (sub-boxes are child boxes to any other box that holds them in the [box hierarchy](/cms_trial/space/SPM/1918535907/Box+hierarchy/). For a portfolio box, an Agile Project box can be a sub-box; and for an Agile box, a Sprint can be its sub-box. A sub-box that is not a portfolio, program, or project box is typically called a timebox because it has a set duration, such as Program Increment, Iteration, Stage, etc.)
+- Sub-boxes/[timeboxes](/cms_trial/space/SPM/1918766987/Timeboxes/) (sub-boxes are child boxes to any other box that holds them in the [box hierarchy](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918535907). For a portfolio box, an Agile Project box can be a sub-box; and for an Agile box, a Sprint can be its sub-box. A sub-box that is not a portfolio, program, or project box is typically called a timebox because it has a set duration, such as Program Increment, Iteration, Stage, etc.)
 
 In addition, you can create a custom box and configure it to perfectly fit your initiative and project management methodology.
 
@@ -65,7 +65,7 @@ Boxes can be created with different types of scope, and their scope depends on t
 
 The scope of the box is defined on the **box configuration** > **Tasks** > [**Scope definition**](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/) page (new navigation: **box configuration** > **Tasks** > [**Work items from Jira**](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/)**)**.
 
-## [Box hierarchy](/cms_trial/space/SPM/1918535907/Box+hierarchy/)
+## [Box hierarchy](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918535907)
 
 Boxes can contain other boxes (sub-boxes), even if those have their own sub-boxes. The parent-child relationships allow you to build complex box hierarchies, manually [move boxes](/cms_trial/space/SPM/1918406916/Move+box+in+box+hierarchy/) along the hierarchy, and sort them.
 
@@ -103,7 +103,7 @@ In BigPicture, tasks are represented in three different ways:
 
 - as [taskbars](/cms_trial/space/SPM/1918637856/Taskbar/) in the Gantt and Resources modules
 - on the [column view](/cms_trial/space/SPM/1918404907/Column+views/) in every module and gadget that supports column views. (Column views can be customized on the box/box type configuration page and in the module/[gadget](/cms_trial/space/SPM/1918830223/Gadgets/)).
-- as [task cards](/cms_trial/space/SPM/1918536034/Card+views/) in the Board and Risks modules. (Card views can be customized on the box/box type configuration page).
+- as [task cards](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918536034) in the Board and Risks modules. (Card views can be customized on the box/box type configuration page).
 
 ## About the boxes (new navigation)
 
@@ -160,7 +160,7 @@ There are many different box types, but all of them can be categorized as:
 
 - [Portfolio type](/cms_trial/space/SPM/1918634872/Create+portfolio+box/) (portfolio boxes are designed to hold any number of project and program boxes, including their children (sub-boxes))
 - Project types (project boxes, such as Agile Project box, Classic Project box, and Hybrid Project box, are designed to help you manage projects using a specific methodology)
-- Sub-boxes/[timeboxes](/cms_trial/space/SPM/1918766987/Timeboxes/) (sub-boxes are child boxes to any other box in the [box hierarchy](/cms_trial/space/SPM/1918535907/Box+hierarchy/)). For a Portfolio box, an Agile Project box can be a sub-box; and for an Agile box, a Sprint can be its sub-box. A sub-box that is not a portfolio, program, or project box is typically called a timebox because it has a set duration, such as Program Increment, Iteration, Stage, etc.)
+- Sub-boxes/[timeboxes](/cms_trial/space/SPM/1918766987/Timeboxes/) (sub-boxes are child boxes to any other box in the [box hierarchy](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918535907)). For a Portfolio box, an Agile Project box can be a sub-box; and for an Agile box, a Sprint can be its sub-box. A sub-box that is not a portfolio, program, or project box is typically called a timebox because it has a set duration, such as Program Increment, Iteration, Stage, etc.)
 
 In addition, you can create a custom box and configure it to fit your initiative and project management methodology perfectly.
 
@@ -172,7 +172,7 @@ The scope of the box is defined in the **box configuration** > **Tasks** > [**Wo
 
 ## Box hierarchy
 
-Boxes can contain other boxes (sub-boxes), even if those have their own sub-boxes. The parent-child relationships allow you to build complex [box hierarchies](/cms_trial/space/SPM/1918535907/Box+hierarchy/), manually [move boxes](/cms_trial/space/SPM/1918406916/Move+box+in+box+hierarchy/) along the hierarchy, and sort them.
+Boxes can contain other boxes (sub-boxes), even if those have their own sub-boxes. The parent-child relationships allow you to build complex [box hierarchies](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918535907), manually [move boxes](/cms_trial/space/SPM/1918406916/Move+box+in+box+hierarchy/) along the hierarchy, and sort them.
 
 You cannot nest any box type under every other box type—the box relationships depend on the [box type](/cms_trial/space/SPM/1918830000/Box+types/) settings, where you define parent types.
 
@@ -208,4 +208,4 @@ In BigPicture, tasks are represented in three different ways:
 
 - as [taskbars](/cms_trial/space/SPM/1918637856/Taskbar/) in the Gantt and Resources modules
 - on the [column view](/cms_trial/space/SPM/1918404907/Column+views/) in every module and gadget that supports column views. (Column views can be customized on the box/box type configuration page and in the module/[gadget](/cms_trial/space/SPM/1918830223/Gadgets/)).
-- as [task cards](/cms_trial/space/SPM/1918536034/Card+views/) in the Board and Risks modules. Card views can be customized on the box/box type configuration page.
+- as [task cards](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918536034) in the Board and Risks modules. Card views can be customized on the box/box type configuration page.
