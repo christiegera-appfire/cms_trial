@@ -14,7 +14,7 @@ The structure of boxes in the Hierarchy mode is visualized in a [column view](/c
 
 You can carry out the following actions while in the Hierarchy mode in the Overview module:
 
-### Change [box hierarchy](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918535907)
+### Change [box hierarchy](/cms_trial/space/SPM/1918535907/Box+hierarchy/)
 
 The hierarchy of boxes visualized in the Hierarchy mode reflects the relationships between the parent boxes and child boxes (sub-boxes). Those relationships, represented as nestings, are governed by the [parent type](/cms_trial/space/SPM/1918832188/Box+type+attributes/) boxes.
 
@@ -118,7 +118,7 @@ The structure of boxes in the Hierarchy mode is visualized in a [column view](/c
 
 You can carry out the following actions while in the Hierarchy mode in the Overview module:
 
-### Change [box hierarchy](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918535907)
+### Change [box hierarchy](/cms_trial/space/SPM/1918535907/Box+hierarchy/)
 
 The hierarchy of boxes visualized in the Hierarchy mode reflects the relationships between the parent boxes and child boxes (sub-boxes). Those relationships, represented as nestings, are governed by the [parent type](/cms_trial/space/SPM/1918832188/Box+type+attributes/) boxes.
 

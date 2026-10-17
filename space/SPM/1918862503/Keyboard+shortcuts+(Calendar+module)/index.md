@@ -8,7 +8,8 @@ Click to expand the guide
 
 Click the **Get help** ( **i** )button in the upper-right corner menu (or press **Shift + /**) to display the keyboard shortcuts dialog box.
 
-![Menu with options under the get help button.](/cms_trial/assets/6bd296c4-4057-4718-854a-e1762a3c2b7a.png)
+Image — asset pipeline pending  
+Menu with options under the get help button.
 
 ## Calendar module shortcuts
 
@@ -16,7 +17,8 @@ The shortcuts listed in the box will only show the shortcuts applicable to the m
 
 The Calendar module’s keyboard shortcuts are divided into the following categories:
 
-![A list of keyboard shortcuts in the Calendar module.](/cms_trial/assets/e48c8e3d-4b94-4b26-818a-6c8185ef6ab5.png)
+Image — asset pipeline pending  
+A list of keyboard shortcuts in the Calendar module.
 
 ### Task actions
 
@@ -72,7 +74,8 @@ Click to expand the guide
 
 Click the **Get help** button in the upper-right corner menu (or press **Shift + /**) to display the keyboard shortcuts dialog box.
 
-![Screenshot of additional info in the Gantt module.](/cms_trial/assets/6d6f376e-d21b-4522-9387-fdea6a8816f2.png)
+Image — asset pipeline pending  
+Screenshot of additional info in the Gantt module.
 
 ## Calendar module shortcuts
 
@@ -80,7 +83,8 @@ The shortcuts listed in the box will only show the shortcuts applicable to the m
 
 The Calendar module’s keyboard shortcuts are divided into the following categories:
 
-![Screenshot of the keyboard shortcuts in the Calendar module.](/cms_trial/assets/af8bf27d-83c2-4a45-b708-a43e52fdead9.png)
+Image — asset pipeline pending  
+Screenshot of the keyboard shortcuts in the Calendar module.
 
 ### Task actions
 

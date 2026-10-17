@@ -31,7 +31,7 @@ This option creates a new box with Jira data that is stored only in BigPicture. 
 ![Play with sample data box type options.](/cms_trial/assets/bac7506b-4be1-471a-999a-7950cd65842f.png)
 
 1. Click the **Play Now** button.
-2. Your sample box is now displayed in the [box hierarchy](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918535907) in the Home box in the Overview module. You can start playing with it.
+2. Your sample box is now displayed in the [box hierarchy](/cms_trial/space/SPM/1918535907/Box+hierarchy/) in the Home box in the Overview module. You can start playing with it.
 
 ![A sample box displayed in the box hierarchy.](/cms_trial/assets/b488b86b-3be3-4448-9e1d-0247b9a5ebf5.png)
 
@@ -66,6 +66,6 @@ This option creates a new box with Jira data that is stored only in BigPicture. 
 ![Play with sample data box type options.](/cms_trial/assets/bac7506b-4be1-471a-999a-7950cd65842f.png)
 
 1. Click the **Play Now** button.
-2. Your sample box is now displayed in the [box hierarchy](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918535907) in the Main box in the Overview module. You can start playing with it.
+2. Your sample box is now displayed in the [box hierarchy](/cms_trial/space/SPM/1918535907/Box+hierarchy/) in the Main box in the Overview module. You can start playing with it.
 
 ![A sample box displayed in the box hierarchy.](/cms_trial/assets/b488b86b-3be3-4448-9e1d-0247b9a5ebf5.png)

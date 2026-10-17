@@ -6,7 +6,7 @@
 
 When you select this mode, the 'Remaining estimate' and 'Time spent' are evenly distributed over the task's duration, counting the working days only.
 
-You can define the working and non-working days by editing the [Workload plans](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918506352), [Holiday Plans](/cms_trial/space/SPM/1918505164/Holiday+plans/) and [Absence Plans](/cms_trial/space/SPM/1918764834/Absences/).
+You can define the working and non-working days by editing the [Workload plans](/cms_trial/space/SPM/1918506352/Workload+plans/), [Holiday Plans](/cms_trial/space/SPM/1918505164/Holiday+plans/) and [Absence Plans](/cms_trial/space/SPM/1918764834/Absences/).
 
 The Remaining Estimate and Spent Time are  'Time tracking' fields. To add it to your issue screen add the 'Time tracking' field which included the Original Estimate, Remaining Estimate and Spent Time.
 
@@ -74,7 +74,7 @@ Warnings can help you in resolving the most common problems. To enable go to 'Vi
 
 When you select this mode, the 'Remaining estimate' and 'Time spent' are evenly distributed over the task's duration, counting the working days only.
 
-You can define the working and non-working days by editing the [Workload plans](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918506352), [Holiday Plans](/cms_trial/space/SPM/1918505164/Holiday+plans/) and [Absence Plans](/cms_trial/space/SPM/1918764834/Absences/).
+You can define the working and non-working days by editing the [Workload plans](/cms_trial/space/SPM/1918506352/Workload+plans/), [Holiday Plans](/cms_trial/space/SPM/1918505164/Holiday+plans/) and [Absence Plans](/cms_trial/space/SPM/1918764834/Absences/).
 
 The Remaining Estimate and Spent Time are  'Time tracking' fields. To add it to your issue screen add the 'Time tracking' field which included the Original Estimate, Remaining Estimate and Spent Time.
 

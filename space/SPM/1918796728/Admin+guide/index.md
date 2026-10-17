@@ -4,7 +4,7 @@
 
 This guide provides all the essential information to configure BigPicture. Explore the following sections to set up and customize the app to fit your needs.
 
-If you want to learn more about BigPicture features, see the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918535153>.
+If you want to learn more about BigPicture features, see the [User guide](/cms_trial/space/SPM/1918535153/User+guide/).
 
 - [App configuration](/cms_trial/space/SPM/1918698881/App+configuration/)
   - [General (App configuration)](/cms_trial/space/SPM/1918536153/General+(App+configuration)/)

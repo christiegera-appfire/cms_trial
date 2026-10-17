@@ -79,7 +79,7 @@ The capacity row will display a value for a given day.
 
 ![contentId-1918798757](/cms_trial/assets/fb6fd63e-307a-4f8f-bc62-914a3888d8f9.png)
 
-**Please note that overwriting the values does not modify** [**the Workload plans**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918506352)**.**
+**Please note that overwriting the values does not modify** [**the Workload plans**](/cms_trial/space/SPM/1918506352/Workload+plans/)**.**
 
 **Calculations in the Resources module are NOT affected by changes made in this view.**
 
@@ -211,7 +211,7 @@ Go to the **Resources module** and adjust the view as follows:
 
 ### Capaci planning panel
 
-**Please note that overwriting the values does not modify** [**the Workload plans**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918506352)**.**
+**Please note that overwriting the values does not modify** [**the Workload plans**](/cms_trial/space/SPM/1918506352/Workload+plans/)**.**
 
 **Calculations in the Resources module are NOT affected by changes made in this view.**
 

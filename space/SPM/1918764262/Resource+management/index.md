@@ -32,7 +32,7 @@ Effort mode determines the source of data used to calculate resource workload di
 
 - [Original Estimate mode](/cms_trial/space/SPM/1918407058/Original+estimate+(Effort+mode)/): it shows the planned workload versus the resource capacity.
 - [Remaining Estimate mode](/cms_trial/space/SPM/1918863764/Remaining+estimate+(Effort+mode)/): it shows resource workload history (Spent time) and the remaining workload versus the resource capacity.
-- [Story Points mode](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918506126): it shows the planned workload versus the resource capacity expressed in story points.
+- [Story Points mode](/cms_trial/space/SPM/1918506126/Story+points+(Effort+mode)/): it shows the planned workload versus the resource capacity expressed in story points.
 
 The effort mode can be expressed in the following units:
 
@@ -55,7 +55,7 @@ Refer to the [Holiday plan](/cms_trial/space/SPM/1918830364/Holiday+plan/) page 
 
 A workload plan is a calendar that reflects the specific working hours of an individual resource. It is the basis for calculating individual and team capacity in the Resources and Board modules.
 
-Refer to the [Workload plan](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918506352) page for more information.
+Refer to the [Workload plan](/cms_trial/space/SPM/1918506352/Workload+plans/) page for more information.
 
 ## Skills
 

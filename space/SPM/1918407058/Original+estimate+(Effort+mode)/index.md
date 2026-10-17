@@ -4,7 +4,7 @@
 
 This is the default Effort Mode - the 'Original estimate' is evenly distributed between the working days in the task period. The non-working days are ignored in the calculation.
 
-You can define the working and non-working days by editing the [Workload plans](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918506352), [Holiday Plans](/cms_trial/space/SPM/1918505164/Holiday+plans/), or [Absence Plans](/cms_trial/space/SPM/1918764834/Absences/).
+You can define the working and non-working days by editing the [Workload plans](/cms_trial/space/SPM/1918506352/Workload+plans/), [Holiday Plans](/cms_trial/space/SPM/1918505164/Holiday+plans/), or [Absence Plans](/cms_trial/space/SPM/1918764834/Absences/).
 
 Add the ‘Time Tracking’ field to your issue screen to enable Original Estimate, Remaining Estimate and Time Spent/Logged options.
 
@@ -38,7 +38,7 @@ To locate tasks without a time estimate you can create a Quick filter: 'time est
 
 This is the default Effort Mode - the 'Original estimate' is evenly distributed between the working days in the task period. The non-working days are ignored in the calculation.
 
-You can define the working and non-working days by editing the [Workload plans](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918506352), [Holiday Plans](/cms_trial/space/SPM/1918505164/Holiday+plans/), or [Absence Plans](/cms_trial/space/SPM/1918764834/Absences/).
+You can define the working and non-working days by editing the [Workload plans](/cms_trial/space/SPM/1918506352/Workload+plans/), [Holiday Plans](/cms_trial/space/SPM/1918505164/Holiday+plans/), or [Absence Plans](/cms_trial/space/SPM/1918764834/Absences/).
 
 Add the ‘Time Tracking’ field to your issue screen to enable Original Estimate, Remaining Estimate and Time Spent/Logged options.
 

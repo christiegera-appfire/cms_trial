@@ -8,7 +8,7 @@ You can define the non-working days in the Administration section:
 
 - [Absences](/cms_trial/space/SPM/1918764834/Absences/)
 - [Holiday plans](/cms_trial/space/SPM/1918505164/Holiday+plans/)
-- <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918506352>
+- [Workload plans](/cms_trial/space/SPM/1918506352/Workload+plans/)
 
 **Each non-working day reduces the capacity of your Resource.** The capacity is calculated by the App and does not sync with the Host platform (you will not be able to see the capacity of your Resource directly in Jira or Trello).
 

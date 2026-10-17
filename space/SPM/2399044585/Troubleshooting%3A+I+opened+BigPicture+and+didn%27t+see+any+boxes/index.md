@@ -70,6 +70,6 @@ If the product manager should *not* have access to the Alpha box, open that box 
 - [BigPicture security and permissions in Jira](/cms_trial/space/SPM/1918667044/BigPicture+security+and+permissions+in+Jira/)
 - [Box security roles](/cms_trial/space/SPM/1918668158/Box+security+roles/)
 - [Concept of a box](/cms_trial/space/SPM/1918404963/Concept+of+a+box/)
-- <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918535907>
+- [Box hierarchy](/cms_trial/space/SPM/1918535907/Box+hierarchy/)
 - [Navigate between boxes (box switcher)](/cms_trial/space/SPM/1918667414/Navigate+between+boxes+(box+switcher)/)
 - [Inheritance mode](/cms_trial/space/SPM/1918700886/Inheritance+mode/)

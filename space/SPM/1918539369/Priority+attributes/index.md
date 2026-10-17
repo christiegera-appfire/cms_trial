@@ -10,7 +10,7 @@ Click to expand the guide
 
 This page describes the available metric types and score formulas used to:
 
-- [Customize existing prioritization templates](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918506780)
+- [Customize existing prioritization templates](/cms_trial/space/SPM/1918506780/Customize+prioritization+templates/)
 - [Create new prioritization templates](/cms_trial/space/SPM/1918506690/Create+new+prioritization+templates/)
 
 Define metrics that align with your prioritization needs and configure formulas to calculate priority scores effectively.
@@ -75,7 +75,7 @@ Click to expand the guide
 
 This page describes the available metric types and score formulas used to:
 
-- [Customize existing prioritization templates](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918506780)
+- [Customize existing prioritization templates](/cms_trial/space/SPM/1918506780/Customize+prioritization+templates/)
 - [Create new prioritization templates](/cms_trial/space/SPM/1918506690/Create+new+prioritization+templates/)
 
 Define metrics that align with your prioritization needs and configure formulas to calculate priority scores effectively.

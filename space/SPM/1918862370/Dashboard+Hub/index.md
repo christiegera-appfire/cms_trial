@@ -59,7 +59,8 @@ The search also applies to all hidden fields and columns.
 
 ### Selecting the fields for the BigPicture Custom Charts
 
-![bigpicture-custom-charts-main-view.png](/cms_trial/assets/f6157433-659d-4feb-8615-343c9eeb81db.png)
+Image — asset pipeline pending  
+bigpicture-custom-charts-main-view.png
 
 1. Select the BigPicture Custom Charts gadget from the gadget selector in Dashboard Hub or Jira.
 2. Give your gadget a meaningful name so it is clear what it does and how to use it.
@@ -82,7 +83,8 @@ You can view the results of your BigPicture search as a table, where you can sel
 - Group of results
 - Aggregation of results
 
-![Screenshot 2023-11-24 at 13.34.25.png](/cms_trial/assets/46957877-a547-4223-9229-9933c7ae7969.png)
+Image — asset pipeline pending  
+Screenshot 2023-11-24 at 13.34.25.png
 
 #### Group results
 
@@ -96,13 +98,15 @@ If you choose to group the results from the previously selected columns, **the r
 
 If we filter the previous list of work items by the **Status** column, the results show only two rows: one for the status *To Do* and the other for the status *Done*.
 
-![Screenshot 2024-01-25 at 14.05.08.png](/cms_trial/assets/9be4b01a-bc54-4381-9dde-1346e725832c.png)
+Image — asset pipeline pending  
+Screenshot 2024-01-25 at 14.05.08.png
 
 Selecting the columns **Status, Name,** and **ID**, the resulting list displays three rows.
 
 Column grouping is typically combined with aggregations.
 
-![Screenshot 2024-01-25 at 14.16.18.png](/cms_trial/assets/6cb2f92d-435c-467e-a74a-43d2b5334abf.png)
+Image — asset pipeline pending  
+Screenshot 2024-01-25 at 14.16.18.png
 
 #### Aggregations
 
@@ -118,7 +122,8 @@ This gadget supports five functions:
 
 For example, if we want to view the number of Boxes with status, leader, and description:
 
-![Screenshot 2024-01-25 at 15.15.25.png](/cms_trial/assets/90824bd4-e863-4247-bf7d-f2ed50b3595a.png)
+Image — asset pipeline pending  
+Screenshot 2024-01-25 at 15.15.25.png
 
 ---
 
@@ -130,7 +135,8 @@ A line chart represents the results of your BigPicture search as a series of dat
 
 In the example, the line chart plots the work items created and closed date for a given date range.
 
-![Screenshot 2024-01-17 at 11.32.58.png](/cms_trial/assets/8f0c8526-30e4-4e6a-a57a-7d12a5cb5330.png)
+Image — asset pipeline pending  
+Screenshot 2024-01-17 at 11.32.58.png
 
 #### Multi line chart
 
@@ -138,7 +144,8 @@ The multiline chart is helpful when comparing data in a time series or trends.
 
 The example chart shows the work items with an end date and description grouped weekly for a given data range.
 
-![Screenshot 2024-01-17 at 11.38.50.png](/cms_trial/assets/2396321e-f663-456a-bbf0-c49d2349a51f.png)
+Image — asset pipeline pending  
+Screenshot 2024-01-17 at 11.38.50.png
 
 #### Tile chart
 
@@ -148,7 +155,8 @@ For example, you might want to find out the status of your team activities, view
 
 After you apply the filters to your query, the results are displayed in tiles showing both the number and the percentage; in the example, for the items `In Progress, Not Started, and Closed`.
 
-![contentId-1918862370](/cms_trial/assets/7192181d-0bcb-47bc-9347-bcdbea0c58de.png)
+Image — asset pipeline pending  
+contentId-1918862370
 
 #### Bar chart
 
@@ -158,13 +166,15 @@ The Bar chart example shows the created and closed work items for the selected d
 
 Note that you can select the bars to be horizontal or vertical, as in the example.
 
-![Screenshot 2024-01-17 at 11.55.26.png](/cms_trial/assets/91bd9df4-1752-4d89-be3a-fc30118d677a.png)
+Image — asset pipeline pending  
+Screenshot 2024-01-17 at 11.55.26.png
 
 #### Grouped bar chart
 
 We can perform more complex comparisons of the information returned by our query grouping by specific fields.
 
-![Screenshot 2023-11-24 at 13.34.51.png](/cms_trial/assets/7c78d5b2-55c9-4b42-990f-fab345b0abfc.png)
+Image — asset pipeline pending  
+Screenshot 2023-11-24 at 13.34.51.png
 
 #### Stacked bar chart
 
@@ -172,7 +182,8 @@ The grouped bar chart is similar to the bar chart, with the combined results of 
 
 In the illustrative example, the chart displays all the tasks organized by their respective Created Date and with a description. The output shows all Created Dates distributed each week in a month for the selected date range.
 
-![Screenshot 2024-01-17 at 12.26.15.png](/cms_trial/assets/ad4ad1ee-3268-4714-b925-6ea0c9a575ae.png)
+Image — asset pipeline pending  
+Screenshot 2024-01-17 at 12.26.15.png
 
 #### Pie chart
 
@@ -180,7 +191,8 @@ A pie chart is a visualization of your data in a circular graph, where each slic
 
 When the field selected in “Chart by” has a date format, for example, Created, a new selector allows grouping by day, week, month, quarter, or year, making the results easier to understand and communicate.
 
-![Screenshot 2023-11-24 at 13.35.01.png](/cms_trial/assets/3101e640-41e6-441f-9a01-c4823d40e910.png)
+Image — asset pipeline pending  
+Screenshot 2023-11-24 at 13.35.01.png
 
 #### Area chart
 
@@ -188,13 +200,15 @@ The area chart represents the results of your BigPicture search as a series of d
 
 In the example, the chart plots the work items by Created Date and Closed Date, organizing the Created Dates into monthly groupings for enhanced clarity and insight.
 
-![Screenshot 2024-01-17 at 12.42.35.png](/cms_trial/assets/109d0113-5fd8-463c-853d-64a59cb597c6.png)
+Image — asset pipeline pending  
+Screenshot 2024-01-17 at 12.42.35.png
 
 #### Stacked area chart
 
 A stacked area chart is a variation of the area chart where the areas are stacked on top of each other instead of being overlaid. Each stack represents a category or a group, and the height of the stack represents the total value of the group. It's helpful in showing the relative contribution of each group to the total and tracking changes in the total over time. However, stacked area charts may not be suitable for displaying negative values, as they can become difficult to read.
 
-![Screenshot 2023-11-24 at 13.34.36.png](/cms_trial/assets/9acf2c56-509e-4fca-951a-7e2f8b5347df.png)
+Image — asset pipeline pending  
+Screenshot 2023-11-24 at 13.34.36.png
 
 ---
 
@@ -204,7 +218,8 @@ Within our organizations and teams, it’s common to associate concepts with spe
 
 When you use a chart, you can choose the color of each specific segment or value of it:
 
-![contentId-1918862370](/cms_trial/assets/7072c2c4-a065-4dc3-8b41-2db5804e2112.png)
+Image — asset pipeline pending  
+contentId-1918862370
 
 The color picker lets you select a color by hexadecimal code, RGB, or our pre-defined 24-color palette (selected for contrast and tone).
 
@@ -212,7 +227,8 @@ The color picker lets you select a color by hexadecimal code, RGB, or our pre-de
 
 Not all the results are needed when communicating information in a chart, sometimes because one of those values or segments distorts the results or distracts attention. Click the 👁 **Eye** icon to show or hide the corresponding segment in the chart:
 
-![contentId-1918862370](/cms_trial/assets/16e8eab0-be77-4682-b2ee-749f9ff4bddf.png)
+Image — asset pipeline pending  
+contentId-1918862370
 
 #### Reorder segments
 
@@ -220,7 +236,8 @@ In the same way as hiding segments or customizing the colors of our charts, rear
 
 Just drag any segment or value from the six dots on the left side of the segments and move it upwards or downwards to the correct place, and the chart will be updated accordingly.
 
-![contentId-1918862370](/cms_trial/assets/6c2f4c1f-a11f-4d58-9493-e6b0dda8647f.jpg)
+Image — asset pipeline pending  
+contentId-1918862370
 
 ## How to use the BigPicture OKRs gadget
 
@@ -230,7 +247,8 @@ This gadget is supported **only** with [**BigPicture Advanced**](/cms_trial/spac
 
 The BigPicture OKRs gadget lets you display your BigPicture OKR progress directly in Dashboard Hub. Select the Objectives you want to track, filter by period, owner, team, or status, and view the results as a tree of Objectives and Key Results with customizable columns, or use Dashboard Hub’s charts and aggregations to analyze them, such as a pie chart of OKRs per team.
 
-![BigPicture OKRs gadget rendered as a stacked bar chart](/cms_trial/assets/b790d8f6-5535-4093-a9ec-28650f5cadbe.png)
+Image — asset pipeline pending  
+BigPicture OKRs gadget rendered as a stacked bar chart
 
 This gadget integrates with BigPicture. Make sure you have BigPicture installed and access to the **OKR module**.
 

@@ -22,7 +22,7 @@ You can use a Configuration of an existing box, duplicate it, and create a new b
 
 [Inheritance mode](/cms_trial/space/SPM/1918700886/Inheritance+mode/) impacts the exact setup of the newly created box.
 
-If some settings (such as [column views](/cms_trial/space/SPM/1918404907/Column+views/) or [quick filers](/cms_trial/space/SPM/1918635901/Quick+filters/)) were inherited from the upper-level boxes, if you move a new box to a different place in the [box hierarchy](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918535907), inherited settings can be lost. Inherited settings are always based on upper-level boxes and depend on placement within the box hierarchy.
+If some settings (such as [column views](/cms_trial/space/SPM/1918404907/Column+views/) or [quick filers](/cms_trial/space/SPM/1918635901/Quick+filters/)) were inherited from the upper-level boxes, if you move a new box to a different place in the [box hierarchy](/cms_trial/space/SPM/1918535907/Box+hierarchy/), inherited settings can be lost. Inherited settings are always based on upper-level boxes and depend on placement within the box hierarchy.
 
 ## Duplicate a box
 
@@ -178,7 +178,7 @@ You can use the configuration of an existing box, duplicate it, and create a new
 
 [Inheritance mode](/cms_trial/space/SPM/1918700886/Inheritance+mode/) impacts the exact setup of the newly created box.
 
-If some settings (such as [column views](/cms_trial/space/SPM/1918404907/Column+views/) or [quick filers](/cms_trial/space/SPM/1918635901/Quick+filters/)) were inherited from the upper-level boxes, if you move a new box to a different place in the [box hierarchy](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918535907), inherited settings can be lost. Inherited settings are always based on upper-level boxes and depend on placement within the box hierarchy.
+If some settings (such as [column views](/cms_trial/space/SPM/1918404907/Column+views/) or [quick filers](/cms_trial/space/SPM/1918635901/Quick+filters/)) were inherited from the upper-level boxes, if you move a new box to a different place in the [box hierarchy](/cms_trial/space/SPM/1918535907/Box+hierarchy/), inherited settings can be lost. Inherited settings are always based on upper-level boxes and depend on placement within the box hierarchy.
 
 ## Duplicate a box
 
