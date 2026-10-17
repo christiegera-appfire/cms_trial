@@ -17,17 +17,20 @@ When you filter by the date range using the Gantt or the Risks modules, the task
 
 The date range filter affects only the module in which you have applied it.
 
-![image-20250306-132233.png](/cms_trial/assets/7f9ffee1-1693-4800-9cd9-315bd6818b0f.png)
+Image — asset pipeline pending  
+image-20250306-132233.png
 
 ## Filter by dates in the Overview module
 
 Use the calendar picker to set the preferred date range to check all the Boxes assigned. Use the Clear button to clear the chosen date range. The **Today** button opens the current month in the calendar.
 
-![filter-dates.png](/cms_trial/assets/39c0b034-a463-4d6a-8517-726305751cce.png)
+Image — asset pipeline pending  
+filter-dates.png
 
 For example, the image below shows the Overview module date range filter. The date range in that module uses the Box start and end dates which are not synchronized with Jira or connected tools:
 
-![The chosen date range is marked](/cms_trial/assets/804df78a-755d-4e64-8b81-4ec9d8f00c22.png)
+Image — asset pipeline pending  
+The chosen date range is marked
 
 ## Filter by dates in the Gantt and Risks modules
 
@@ -58,13 +61,15 @@ When you filter by the date range using the Gantt or the Risks modules, the star
 
 The date range filter affects only the module in which you have applied it.
 
-![Screenshot of the date range filter in the Gantt module.](/cms_trial/assets/cc30c8c2-2541-4a10-8767-ae0a4fc46a9a.png)
+Image — asset pipeline pending  
+Screenshot of the date range filter in the Gantt module.
 
 ## Filter by dates in the Overview module
 
 Use the calendar picker to set the preferred date range to check all the boxes assigned. Use the **Clear** button to clear the chosen date range. The **Today** button opens the current month in the calendar.
 
-![Screenshot of the date range filter in the Overview module. ](/cms_trial/assets/e30a0c03-bbad-4c0c-aff4-dcf8b2ea9311.png)
+Image — asset pipeline pending  
+Screenshot of the date range filter in the Overview module.
 
 ## Filter by dates in the Gantt and Risks modules
 
