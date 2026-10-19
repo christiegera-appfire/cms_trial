@@ -4,7 +4,7 @@
 
 The timebox schedule (TS) feature helps standardize planning across teams working in recurring cycles, like sprints, program increments, or quarters. It's especially useful for organizations following Agile, SAFe, or similar frameworks, where consistent time-based structures are key. But it can also be utilized by organizations working in classic frameworks like Waterfall to visualize fiscal years or quarters on the timeline.
 
-Instead of manually setting up [timeboxes](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766987) for each planning cycle, Admins can define a reusable timebox hierarchy (e.g., Year → Quarter → PI → Iteration) and apply it across multiple boxes. This reduces repetitive setup work and ensures alignment across teams.
+Instead of manually setting up [timeboxes](/cms_trial/space/SPM/1918766987/Timeboxes/) for each planning cycle, Admins can define a reusable timebox hierarchy (e.g., Year → Quarter → PI → Iteration) and apply it across multiple boxes. This reduces repetitive setup work and ensures alignment across teams.
 
 Key capabilities:
 
@@ -110,7 +110,7 @@ If you happen to add a series of timeboxes whose dates overlap with boxes on ano
 
 Once you have at least two timeboxes on a sub-level, the **Delete** icon becomes active on that level.
 
-### [Timeboxes field mapping](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766987)
+### [Timeboxes field mapping](/cms_trial/space/SPM/1918766987/Timeboxes/)
 
 In the *Timeboxes* [*field mapping*](/cms_trial/space/SPM/1918635376/Fields/) tab, you can map the fields for all the timeboxes in your TS structure. The process is the same as for regular timeboxes.
 

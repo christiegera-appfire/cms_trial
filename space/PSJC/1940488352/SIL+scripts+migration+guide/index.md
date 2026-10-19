@@ -83,7 +83,7 @@ When migrated between Jira DC and Jira Cloud, the following script types require
 
 ### Conditions and validator scripts
 
-Jira Cloud uses [Jira Expressions](https://developer.atlassian.com/cloud/jira/software/jira-expressions/) language for conditions and validators; scripted conditions and validators are not currently supported in Jira Cloud. While many users find Jira Expressions challenging and time-intensive to work with, there are alternative approaches. As with other features in Jira Cloud, rather than directly converting scripts and replicating Data Center solutions, consider rethinking your approach. To learn about ways to continue using SIL scripted conditions and validators in Jira Cloud, see [this article](/cms_trial/space/PSJC/804552898/Scripted+Conditions+and+Validators+in+cloud+-+a+new+paradigm/).
+Jira Cloud uses [Jira Expressions](https://developer.atlassian.com/cloud/jira/software/jira-expressions/) language for conditions and validators; scripted conditions and validators are not currently supported in Jira Cloud. While many users find Jira Expressions challenging and time-intensive to work with, there are alternative approaches. As with other features in Jira Cloud, rather than directly converting scripts and replicating Data Center solutions, consider rethinking your approach. To learn about ways to continue using SIL scripted conditions and validators in Jira Cloud, see [this article](https://appfire.atlassian.net/wiki/spaces/PSJC/pages/804552898).
 
 Jira Expressions example
 

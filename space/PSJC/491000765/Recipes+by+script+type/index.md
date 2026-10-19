@@ -8,5 +8,4 @@
 - [REST API recipes](/cms_trial/space/PSJC/491000899/REST+API+recipes/)
 - [Runner Gadget recipes](/cms_trial/space/PSJC/491000879/Runner+Gadget+recipes/)
 - [Scheduler recipes](/cms_trial/space/PSJC/491000859/Scheduler+recipes/)
-- [Scripted Custom Field recipes](/cms_trial/space/PSJC/854327327/Scripted+Custom+Field+recipes/)
 - [SIL Panel recipes](/cms_trial/space/PSJC/491000919/SIL+Panel+recipes/)

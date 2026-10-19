@@ -15,7 +15,4 @@ This section contains functions that enable users to handle attachments.
 - [downloadAttachmentById](/cms_trial/space/PSJC/815104180/downloadAttachmentById/)
 - [attachmentAuthor](/cms_trial/space/PSJC/815104231/attachmentAuthor/)
 - [attachmentFilename](/cms_trial/space/PSJC/815235330/attachmentFilename/)
-- [attachmentMimeType](/cms_trial/space/PSJC/815038845/attachmentMimeType/)
-- [attachmentSize](/cms_trial/space/PSJC/815137025/attachmentSize/)
-- [attachmentDate](/cms_trial/space/PSJC/815071450/attachmentDate/)
 - [getAttachmentMediaId](/cms_trial/space/PSJC/1554352025/getAttachmentMediaId/)

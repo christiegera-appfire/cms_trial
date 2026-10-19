@@ -9,7 +9,6 @@ This section contains functions that enable users to handle custom field adminis
 - [admCreateCustomField](/cms_trial/space/PSJC/434897123/admCreateCustomField/)
 - [admDeleteCustomField](/cms_trial/space/PSJC/791283227/admDeleteCustomField/)
 - [admDeleteCustomFieldOptions](/cms_trial/space/PSJC/790627240/admDeleteCustomFieldOptions/)
-- [admGetCustomFieldOptions](/cms_trial/space/PSJC/791511311/admGetCustomFieldOptions/)
 - [admReloadCustomFieldAliases](/cms_trial/space/PSJC/2089878964/admReloadCustomFieldAliases/)
 - [admUpdateCustomField](/cms_trial/space/PSJC/792461313/admUpdateCustomField/)
 - [admUpdateCustomFieldOptions](/cms_trial/space/PSJC/790528847/admUpdateCustomFieldOptions/)

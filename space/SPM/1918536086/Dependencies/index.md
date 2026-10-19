@@ -41,4 +41,4 @@ Displaying of dependencies varies based on a module:
 
 ## Dependency loops and cross-box relationship
 
-See the [Dependency loops and cross-box relationship](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918700470) article to learn more.
+See the [Dependency loops and cross-box relationship](/cms_trial/space/SPM/1918700470/Dependency+loops+and+cross-box+relationship/) article to learn more.

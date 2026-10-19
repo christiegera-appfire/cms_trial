@@ -2,14 +2,14 @@
 
 Connector for Salesforce & Jira lets you keep information in sync between Salesforce and Jira. You can connect Jira instances with a Salesforce environment to allow associating Jira work items and Salesforce objects and synchronizing data.
 
-Follow the step-by-step guide for administrators to set up a new Salesforce connection in Jira with Connector for Salesforce & Jira. By the end of this guide, you will have a connection between Salesforce and Jira, configured settings, and created a binding for your Jira space using a template with field mappings. In other words, you can configure which Jira space should connect to Salesforce and what type of Jira work items and Salesforce objects should be mapped together.
+Follow this guide to connect Jira to Salesforce, configure connection settings, and create a binding with field mappings. You'll also learn how to specify which Jira spaces, work item types, and Salesforce objects to associate.
 
 ## Before you start
 
-Make sure you have:
+Before you start, make sure you:
 
-- Administrator rights in Jira - only administrators can set up the integration.
-- [Installed the Connector in Jira Cloud](https://support.appfire.com/space/CSFJIRA/1873412370)
+- Have administrator rights in Jira - only administrators can set up the integration.
+- Have [Installed the Connector in Jira Cloud](https://support.appfire.com/space/CSFJIRA/1873412370).
 
 ## The final result of this tutorial
 
@@ -53,7 +53,7 @@ Before any data can sync between Jira and Salesforce, the two systems need to kn
 
 ## Step 4: Start associating
 
-With connection, binding, and mappings in place, you can now link an individual Jira work item to a specific Salesforce record so the two stay synchronized going forward. You can also create Salesforce records directly from a Jira work item view and create Jira work items from Salesforce records.
+With the connection, binding, and mappings in place, you can now link an individual Jira work item to a specific Salesforce record so the two stay synchronized going forward. You can also create Salesforce records directly from a Jira work item view and create Jira work items from Salesforce records.
 
 1. [Associate a Jira work item with a Salesforce record](/cms_trial/space/CSFJIRA/3663725288/Associate+Jira+work+items+with+Salesforce+records+from+Jira/).
 2. [Work with associations](/cms_trial/space/CSFJIRA/3091760268/Work+with+associations/).

@@ -54,7 +54,7 @@ A parent Key Result is highlighted in blue, and the direct sub-item is highlight
 For examples, see:
 
 - [Auto-KR](/cms_trial/space/SPM/1918670238/Auto-KR/)
-- [Manual KR](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918702967)
+- [Manual KR](/cms_trial/space/SPM/1918702967/Manual+KR/)
 
 ## Auto-OKR
 

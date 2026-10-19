@@ -15,6 +15,26 @@ Suppose you want to find work items connected to the `Epic` work item type throu
 
 ## How the query works
 
+A JQL Search Extensions search combines a JQL query with a JSE function to find work items based on specific criteria and their relationships with other work items. The search consists of two main Components: the Inner Query and the JSE Function.
+
+**The inner Query:**
+
+This defines the initial set of work items you want to search. For example -
+
+`Project = BIG and type=Epic`
+
+This query finds all Epic work items in the BIG project.
+
+**The JSE Function:**
+
+It uses the work items identified by the inner query to find other work items based on their relationships or hierarchy. For example -
+
+`issue in parentsOfIssuesInQuery()`
+
+This function searches for the parent work items of the Epics returned by the inner query. By combining the inner query with a JSE function, you can extend your search beyond standard JQL and more easily discover relationships between work items.
+
+![2026-10-05_15-27-49.jpeg](/cms_trial/assets/02a842bb-960f-4343-a8ab-9b16311d0aca.jpeg)
+
 There is an important difference between JQL keywords and functions:
 
 - **Keywords** let you search additional issue information.
@@ -23,22 +43,6 @@ There is an important difference between JQL keywords and functions:
 JSE includes functions for searching issue relationships, hierarchies, links, and other criteria that are difficult or impossible to express using standard JQL alone.
 
 See the [**JQL functions and keywords reference**](/cms_trial/space/JQLSEARCH/604209395/JQL+functions+and+keywords+reference/) for the complete set of available functions and examples.
-
-This search contains two parts.
-
-**The inner query:**
-
-`Project = BIG and type=Epic`
-
-identifies the initial set of issues.
-
-**The JSE function:**
-
-`issue in parentsOfIssuesInQuery()`
-
-uses those search results to find issues connected to them by the specified issue link relationship.
-
-![2026-10-05_15-27-49.jpeg](/cms_trial/assets/02a842bb-960f-4343-a8ab-9b16311d0aca.jpeg)
 
 ## You've extended your Jira search
 

@@ -12,8 +12,8 @@ For additional details, see [Scripts requiring changes when migrating](https://a
 
 | **DC script type/feature** | **Migrates** | **Feature in Cloud** | **Notes** |
 | --- | --- | --- | --- |
-| [Workflow conditions](https://appfire.atlassian.net/wiki/spaces/PSJ/pages/15487273) | 🟡 | ✅ | Condition scripts use [Jira Expressions](https://developer.atlassian.com/cloud/jira/software/jira-expressions/) in Jira Cloud and not SIL unless [rewritten in a different way](/cms_trial/space/PSJC/804552898/Scripted+Conditions+and+Validators+in+cloud+-+a+new+paradigm/). |
-| [Workflow validators](https://appfire.atlassian.net/wiki/spaces/PSJ/pages/15487273) | 🟡 | ✅ | Validator scripts use [Jira Expressions](https://developer.atlassian.com/cloud/jira/software/jira-expressions/) in Jira Cloud and not SIL unless [rewritten in a different way](/cms_trial/space/PSJC/804552898/Scripted+Conditions+and+Validators+in+cloud+-+a+new+paradigm/). |
+| [Workflow conditions](https://appfire.atlassian.net/wiki/spaces/PSJ/pages/15487273) | 🟡 | ✅ | Condition scripts use [Jira Expressions](https://developer.atlassian.com/cloud/jira/software/jira-expressions/) in Jira Cloud and not SIL unless [rewritten in a different way](https://appfire.atlassian.net/wiki/spaces/PSJC/pages/804552898). |
+| [Workflow validators](https://appfire.atlassian.net/wiki/spaces/PSJ/pages/15487273) | 🟡 | ✅ | Validator scripts use [Jira Expressions](https://developer.atlassian.com/cloud/jira/software/jira-expressions/) in Jira Cloud and not SIL unless [rewritten in a different way](https://appfire.atlassian.net/wiki/spaces/PSJC/pages/804552898). |
 | [Workflow post functions](https://appfire.atlassian.net/wiki/spaces/PSJ/pages/15487273) | ✅ | ✅ |  |
 | [Listeners](https://appfire.atlassian.net/wiki/spaces/PSJ/pages/15480908) | ✅ | ✅ |  |
 | [Scheduler](https://appfire.atlassian.net/wiki/spaces/PSJ/pages/15480692) | ✅ | ✅ |  |

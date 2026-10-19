@@ -362,7 +362,7 @@ The general priority of scheduling rules is as follows:
 
 1. [Scheduling mode](/cms_trial/space/SPM/1918831395/Scheduling+mode/)
 2. [Dependencies](/cms_trial/space/SPM/1918536086/Dependencies/)
-3. [Task period alignment](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918700014)
+3. [Task period alignment](/cms_trial/space/SPM/1918700014/Task+period+alignment+(Automation)/)
 
 In reality, however, when you create a new task, the order is as follows:
 

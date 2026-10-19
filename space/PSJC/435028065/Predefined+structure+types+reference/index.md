@@ -101,11 +101,11 @@ Standard structure types are core structures that handle fundamental Jira operat
 | dataType | string |
 | orderable | boolean |
 | searchable | boolean |
-| JCustomFieldOption | id | string | - [admAddCustomFieldOptions](/cms_trial/space/PSJC/791282009/admAddCustomFieldOptions/) - [admDeleteCustomFieldOptions](/cms_trial/space/PSJC/790627240/admDeleteCustomFieldOptions/) - [admGetCustomFieldOptions](/cms_trial/space/PSJC/791511311/admGetCustomFieldOptions/) - [admUpdateCustomFieldOptions](/cms_trial/space/PSJC/790528847/admUpdateCustomFieldOptions/) |
+| JCustomFieldOption | id | string | - [admAddCustomFieldOptions](/cms_trial/space/PSJC/791282009/admAddCustomFieldOptions/) - [admDeleteCustomFieldOptions](/cms_trial/space/PSJC/790627240/admDeleteCustomFieldOptions/) - [admGetCustomFieldOptions](https://appfire.atlassian.net/wiki/spaces/PSJC/pages/791511311) - [admUpdateCustomFieldOptions](/cms_trial/space/PSJC/790528847/admUpdateCustomFieldOptions/) |
 | optionId | string |
 | value | string |
 | disabled | boolean |
-| JDashboard | id | string | - [admCopyDashboard](/cms_trial/space/PSJC/748162099/admCopyDashboard/) - [admCreateDashboard](/cms_trial/space/PSJC/747965192/admCreateDashboard/) - [admGetAllDashboards](/cms_trial/space/PSJC/748552437/admGetAllDashboards/) - [admGetDashboardById](/cms_trial/space/PSJC/748683420/admGetDashboardById/) - [admGetDashboardsByName](/cms_trial/space/PSJC/748683364/admGetDashboardsByName/) | - [admGetDashboardsByOwner](/cms_trial/space/PSJC/748618158/admGetDashboardsByOwner/) - [admGetDashboardsForUser](/cms_trial/space/PSJC/748618168/admGetDashboardsForUser/) - [admGetFavouriteDashboards](/cms_trial/space/PSJC/747801635/admGetFavouriteDashboards/) - [admUpdateDashboard](/cms_trial/space/PSJC/748718317/admUpdateDashboard/) |
+| JDashboard | id | string | - [admCopyDashboard](/cms_trial/space/PSJC/748162099/admCopyDashboard/) - [admCreateDashboard](/cms_trial/space/PSJC/747965192/admCreateDashboard/) - [admGetAllDashboards](/cms_trial/space/PSJC/748552437/admGetAllDashboards/) - [admGetDashboardById](/cms_trial/space/PSJC/748683420/admGetDashboardById/) - [admGetDashboardsByName](/cms_trial/space/PSJC/748683364/admGetDashboardsByName/) | - [admGetDashboardsByOwner](/cms_trial/space/PSJC/748618158/admGetDashboardsByOwner/) - [admGetDashboardsForUser](/cms_trial/space/PSJC/748618168/admGetDashboardsForUser/) - [admGetFavouriteDashboards](/cms_trial/space/PSJC/747801635/admGetFavouriteDashboards/) - [admUpdateDashboard](https://appfire.atlassian.net/wiki/spaces/PSJC/pages/748718317) |
 | name | string |
 | description | string |
 | viewUrl | string |
@@ -156,7 +156,7 @@ Standard structure types are core structures that handle fundamental Jira operat
 | owner | string |
 | editPermissions | JSharePermission [] |
 | sharePermissions | JSharePermission [] |
-| JGadget | id | integer | - [admAddGadgetToDashboard](/cms_trial/space/PSJC/747801902/admAddGadgetToDashboard/) - [admGetAvailableGadgets](/cms_trial/space/PSJC/748618518/admGetAvailableGadgets/) - [admGetDashboardGadgetById](/cms_trial/space/PSJC/748718574/admGetDashboardGadgetById/) | - [admGetDashboardGadgets](/cms_trial/space/PSJC/748063606/admGetDashboardGadgets/) - [admUpdateGadgetInDashboard](/cms_trial/space/PSJC/748162444/admUpdateGadgetInDashboard/) |
+| JGadget | id | integer | - [admAddGadgetToDashboard](/cms_trial/space/PSJC/747801902/admAddGadgetToDashboard/) - [admGetAvailableGadgets](/cms_trial/space/PSJC/748618518/admGetAvailableGadgets/) - [admGetDashboardGadgetById](https://appfire.atlassian.net/wiki/spaces/PSJC/pages/748718574) | - [admGetDashboardGadgets](/cms_trial/space/PSJC/748063606/admGetDashboardGadgets/) - [admUpdateGadgetInDashboard](/cms_trial/space/PSJC/748162444/admUpdateGadgetInDashboard/) |
 | moduleKey | string |
 | titlen | string |
 | uri | string |
@@ -188,7 +188,7 @@ Standard structure types are core structures that handle fundamental Jira operat
 | JIssueTypeScreenScheme | id | integer | - [admGetAllIssueTypeScreenSchemes](/cms_trial/space/PSJC/518324501/admGetAllIssueTypeScreenSchemes/) - [admGetIssueTypeScreenScheme](/cms_trial/space/PSJC/518291809/admGetIssueTypeScreenScheme/) |
 | name | string |
 | description | string |
-| JIssueTypeScreenMapping | id | integer | - [admGetITSSMappings](/cms_trial/space/PSJC/805961911/admGetITSSMappings/) |
+| JIssueTypeScreenMapping | id | integer | - [admGetITSSMappings](https://appfire.atlassian.net/wiki/spaces/PSJC/pages/805961911) |
 | screenSchemeId | integer |
 | JLastActiveDates | productLastActiveDates | JProductLastActiveDate [] | - [admGetLastActiveDates](/cms_trial/space/PSJC/1159823773/admGetLastActiveDates/) |
 | addedToOrganization | date |
@@ -231,7 +231,7 @@ Standard structure types are core structures that handle fundamental Jira operat
 | unassignedByDefault | boolean |
 | category | string |
 | projecttype | string |
-| JProjectIssueTypes | projectKey | string | - [admAddCustomFieldOptions](/cms_trial/space/PSJC/791282009/admAddCustomFieldOptions/) - [admDeleteCustomFieldOptions](/cms_trial/space/PSJC/790627240/admDeleteCustomFieldOptions/) - [admGetCustomFieldOptions](/cms_trial/space/PSJC/791511311/admGetCustomFieldOptions/) - [admUpdateCustomFieldOptions](/cms_trial/space/PSJC/790528847/admUpdateCustomFieldOptions/) |
+| JProjectIssueTypes | projectKey | string | - [admAddCustomFieldOptions](/cms_trial/space/PSJC/791282009/admAddCustomFieldOptions/) - [admDeleteCustomFieldOptions](/cms_trial/space/PSJC/790627240/admDeleteCustomFieldOptions/) - [admGetCustomFieldOptions](https://appfire.atlassian.net/wiki/spaces/PSJC/pages/791511311) - [admUpdateCustomFieldOptions](/cms_trial/space/PSJC/790528847/admUpdateCustomFieldOptions/) |
 | issueTypesNames | string [] |
 | JRemoteIssueLink | id | integer | - [getWebLink](/cms_trial/space/PSJC/957940055/getWebLink/) - [getWebLinksForIssue](/cms_trial/space/PSJC/958955774/getWebLinksForIssue/) - [updateWebLink](/cms_trial/space/PSJC/958333364/updateWebLink/) |
 | globalId | string |
@@ -258,7 +258,7 @@ Standard structure types are core structures that handle fundamental Jira operat
 | createScreenId | integer |
 | editScreenId | integer |
 | viewScreenId | integer |
-| JSharePermission | id | integer | - [admShareFilter](/cms_trial/space/PSJC/722174268/admShareFilter/) - [admCopyDashboard](/cms_trial/space/PSJC/748162099/admCopyDashboard/) - [admCreateDashboard](/cms_trial/space/PSJC/747965192/admCreateDashboard/) - [admGetAllDashboards](/cms_trial/space/PSJC/748552437/admGetAllDashboards/) - [admGetDashboardById](/cms_trial/space/PSJC/748683420/admGetDashboardById/) | - [admGetDashboardsByName](/cms_trial/space/PSJC/748683364/admGetDashboardsByName/) - [admGetDashboardsByOwner](/cms_trial/space/PSJC/748618158/admGetDashboardsByOwner/) - [admGetDashboardsForUser](/cms_trial/space/PSJC/748618168/admGetDashboardsForUser/) - [admGetFavouriteDashboards](/cms_trial/space/PSJC/747801635/admGetFavouriteDashboards/) - [admUpdateDashboard](/cms_trial/space/PSJC/748718317/admUpdateDashboard/) |
+| JSharePermission | id | integer | - [admShareFilter](/cms_trial/space/PSJC/722174268/admShareFilter/) - [admCopyDashboard](/cms_trial/space/PSJC/748162099/admCopyDashboard/) - [admCreateDashboard](/cms_trial/space/PSJC/747965192/admCreateDashboard/) - [admGetAllDashboards](/cms_trial/space/PSJC/748552437/admGetAllDashboards/) - [admGetDashboardById](/cms_trial/space/PSJC/748683420/admGetDashboardById/) | - [admGetDashboardsByName](/cms_trial/space/PSJC/748683364/admGetDashboardsByName/) - [admGetDashboardsByOwner](/cms_trial/space/PSJC/748618158/admGetDashboardsByOwner/) - [admGetDashboardsForUser](/cms_trial/space/PSJC/748618168/admGetDashboardsForUser/) - [admGetFavouriteDashboards](/cms_trial/space/PSJC/747801635/admGetFavouriteDashboards/) - [admUpdateDashboard](https://appfire.atlassian.net/wiki/spaces/PSJC/pages/748718317) |
 | type | string |
 | object | string |
 | JTeam | id | string |  |

@@ -65,7 +65,7 @@ The **Type** column in the CSV file is not the same as the **OKR Type**. These a
 - **Current value** (Key Result) - The current value of the Key Result.
 - **Target value** (Key Result, milestone) - The target value for the Key Result and milestone.
 
-- The start/current/target values for the KRs are required since KRs are imported as [manual KRs](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918702967). By default, the **Measure** **as** unit for these values is **Numeric**. When the OKRs are imported, you can change the progress settings (values and units) for the imported KRs or convert them to [auto-KRs](/cms_trial/space/SPM/1918670238/Auto-KR/).
+- The start/current/target values for the KRs are required since KRs are imported as [manual KRs](/cms_trial/space/SPM/1918702967/Manual+KR/). By default, the **Measure** **as** unit for these values is **Numeric**. When the OKRs are imported, you can change the progress settings (values and units) for the imported KRs or convert them to [auto-KRs](/cms_trial/space/SPM/1918670238/Auto-KR/).
 
 ### Optional CSV fields
 

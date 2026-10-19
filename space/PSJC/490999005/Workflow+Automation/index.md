@@ -186,4 +186,3 @@ However, if you attach something, the transition will succeed:
 
 - [Writing Actions (Post-Functions)](/cms_trial/space/PSJC/490999217/Writing+Actions+(Post-Functions)/)
 - [Writing Conditions and Validators](/cms_trial/space/PSJC/584581177/Writing+Conditions+and+Validators/)
-- [Scripted Conditions and Validators in cloud - a new paradigm](/cms_trial/space/PSJC/804552898/Scripted+Conditions+and+Validators+in+cloud+-+a+new+paradigm/)
