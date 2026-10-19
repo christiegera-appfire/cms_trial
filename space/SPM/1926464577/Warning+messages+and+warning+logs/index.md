@@ -4,7 +4,7 @@ This section covers warning messages that may appear while using the app and war
 
 ---
 
-### [Warning messages](/cms_trial/space/SPM/1918700083/Warning+messages/)
+### [Warning messages](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918700083)
 
 The most common warning messages in the app.
 

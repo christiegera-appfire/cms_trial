@@ -22,7 +22,7 @@ Overdue tasks are all those that have been due in the past but whose progress st
 
 Period warnings appear when a parent task can not be recalculated due to a constraint, such as a blocking task resulting from the scheduling mode.
 
-### [Dependency loops](/cms_trial/space/SPM/1918700470/Dependency+loops+and+cross-box+relationship/)
+### [Dependency loops](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918700470)
 
 If you add predecessor relationships between tasks, you might encounter a dependency loop. This happens when two or more tasks depend on each other. BigPicture prevents you from creating these loops to keep your task flow working properly.
 
@@ -72,7 +72,7 @@ Overdue tasks are all those that have been due in the past but whose progress st
 
 Parent task conflicts appear when a parent task cannot be recalculated due to a constraint, such as a blocking task resulting from the scheduling mode.
 
-### [Dependency loops](/cms_trial/space/SPM/1918700470/Dependency+loops+and+cross-box+relationship/)
+### [Dependency loops](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918700470)
 
 If you add predecessor relationships between tasks, you might encounter a dependency loop. This happens when two or more tasks depend on each other. BigPicture prevents you from creating these loops to keep your task flow working properly.
 

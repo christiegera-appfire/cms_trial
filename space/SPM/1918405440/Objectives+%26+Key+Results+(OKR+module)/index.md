@@ -20,7 +20,7 @@ Objectives and sub-objectives share the same attributes, such as Name, Owner, an
 
 ### Key Result attributes
 
-The set of Key Result attributes differs slightly between [manual KRs](/cms_trial/space/SPM/1918702967/Manual+KR/) (updated manually) and [auto-KRs](/cms_trial/space/SPM/1918670238/Auto-KR/) (updated automatically). All KRs have the value fields (Start, Current, and Target) that define their progress, but you can update the Current value only for the manual KR; this value for the auto-KR exists but is unavailable since it is automatically updated.
+The set of Key Result attributes differs slightly between [manual KRs](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918702967) (updated manually) and [auto-KRs](/cms_trial/space/SPM/1918670238/Auto-KR/) (updated automatically). All KRs have the value fields (Start, Current, and Target) that define their progress, but you can update the Current value only for the manual KR; this value for the auto-KR exists but is unavailable since it is automatically updated.
 
 ## OKR progress
 
@@ -83,7 +83,7 @@ Like tasks, OKRs also form a structure, with an Objective as the top element. Yo
 
 Note that the field names in the OKR module differ from those in other modules. Despite these naming differences, the fields still synchronize with corresponding fields in the Gantt and other modules.
 
-[**Read more**](/cms_trial/space/SPM/1918765790/OKR+fields+vs+BigPicture+fields/)
+[**Read more**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918765790)
 
 ## Import/Export OKRs
 

@@ -168,7 +168,7 @@ For example, you can re-assign the task and change its dates, estimates, [worklo
 
 ### Aggregate data by timeboxes
 
-If you work in Agile and have already defined [timeboxes](/cms_trial/space/SPM/1918766987/Timeboxes/) for your project (sub-boxes like PIs and iterations), you can display them on the resource grid. Change the timeline aggregation to **By timeboxes** to aggregate data by individual timeboxes instead of periods, such as months or weeks.
+If you work in Agile and have already defined [timeboxes](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766987) for your project (sub-boxes like PIs and iterations), you can display them on the resource grid. Change the timeline aggregation to **By timeboxes** to aggregate data by individual timeboxes instead of periods, such as months or weeks.
 
 Make sure you have **Timeboxes** enabled under the **View** options.
 

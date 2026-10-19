@@ -15,7 +15,7 @@ The warning tells you that you [linked a work item](https://appfire.atlassian.ne
 
 ### Solution #1
 
-If the linked work items support the [manual KR](/cms_trial/space/SPM/1918702967/Manual+KR/) (that is, they don’t impact the KR’s progress) and you keep them under KR only for visibility, consider unlinking the “duplicates.” So that a work item appears only once in the OKR hierarchy.
+If the linked work items support the [manual KR](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918702967) (that is, they don’t impact the KR’s progress) and you keep them under KR only for visibility, consider unlinking the “duplicates.” So that a work item appears only once in the OKR hierarchy.
 
 To do so, you need to [edit linked issues](https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=spm&title=Edit%20issues%20linked%20to%20Key%20Result&linkCreation=true&fromPageId=2335342987) under every relevant KR.
 

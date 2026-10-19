@@ -82,7 +82,7 @@ If there is an OKR in your box that is no longer relevant to your current work, 
 
 - OKRs that were created directly in the box
 - OKRs that were linked manually
-- KRs that are not linked to any work items ([unlink the work items](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918670410) or convert the [auto-KR](/cms_trial/space/SPM/1918670238/Auto-KR/) to a [manual KR](/cms_trial/space/SPM/1918702967/Manual+KR/) to unlink it from the box)
+- KRs that are not linked to any work items ([unlink the work items](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918670410) or convert the [auto-KR](/cms_trial/space/SPM/1918670238/Auto-KR/) to a [manual KR](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918702967) to unlink it from the box)
 
 To unlink an OKR from a box:
 
@@ -170,7 +170,7 @@ If there is an OKR in your box that is no longer relevant to your current work, 
 
 - OKRs that were created directly in the box
 - OKRs that were linked manually
-- KRs that are not linked to any work items ([unlink the work items](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918670410) or convert the [auto-KR](/cms_trial/space/SPM/1918670238/Auto-KR/) to a [manual KR](/cms_trial/space/SPM/1918702967/Manual+KR/) to unlink it from the box)
+- KRs that are not linked to any work items ([unlink the work items](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918670410) or convert the [auto-KR](/cms_trial/space/SPM/1918670238/Auto-KR/) to a [manual KR](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918702967) to unlink it from the box)
 
 To unlink an OKR from a box:
 

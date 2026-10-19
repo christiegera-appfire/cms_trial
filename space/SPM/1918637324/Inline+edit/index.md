@@ -85,7 +85,7 @@ A group of fields, such as the "Team," "Sprint," "Icon," and "URL link," cannot 
 
 1. The inline editing will be disabled when aggregations are selected for a particular column.
 2. Inline editing is possible for fields that can be edited and are not blocked by other settings or factors. As an example, if the "Scheduling Mode" is set to "Locked", you will not be able to edit the "Start Date" and "End Date" fields.
-3. Inline editing is disabled for fields that are not added to the screen scheme in the Jira project. If the option is enabled, the App verifies if the field is on the project scheme before trying to update the field. If the field is not present on the scheme, then the App does not overwrite it. As a result, the warning message appears about '[Respect Jira screen scheme](/cms_trial/space/SPM/1918703088/Respect+Jira+screen+scheme/)' and a user should contact a Jira admin to review the project settings.
+3. Inline editing is disabled for fields that are not added to the screen scheme in the Jira project. If the option is enabled, the App verifies if the field is on the project scheme before trying to update the field. If the field is not present on the scheme, then the App does not overwrite it. As a result, the warning message appears about '[Respect Jira screen scheme](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918703088)' and a user should contact a Jira admin to review the project settings.
 
    ![Screenshot of the Respect Jira screen scheme toggle switch.](/cms_trial/assets/30dc16e8-1a96-4241-a13f-f0d95b9082e3.png)![Screenshot of inline editing the End Date in the Scope module.](/cms_trial/assets/c6e4747c-d7ff-4810-b855-5a85f5ec19fa.png)
 
@@ -162,6 +162,6 @@ A group of fields, such as the "Team," "Sprint," "Icon," and "URL link," cannot 
 
 1. The inline editing will be disabled when aggregations are selected for a particular column.
 2. Inline editing is possible for fields that can be edited and are not blocked by other settings or factors. As an example, if the "Scheduling Mode" is set to "Locked", you will not be able to edit the "Start Date" and "End Date" fields.
-3. Inline editing is disabled for fields that are not added to the screen scheme in the Jira project. If the option is enabled, the App verifies if the field is on the project scheme before trying to update the field. If the field is not present on the scheme, then the App does not overwrite it. As a result, the warning message appears about '[Respect Jira screen scheme](/cms_trial/space/SPM/1918703088/Respect+Jira+screen+scheme/)' and a user should contact a Jira admin to review the project settings.
+3. Inline editing is disabled for fields that are not added to the screen scheme in the Jira project. If the option is enabled, the App verifies if the field is on the project scheme before trying to update the field. If the field is not present on the scheme, then the App does not overwrite it. As a result, the warning message appears about '[Respect Jira screen scheme](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918703088)' and a user should contact a Jira admin to review the project settings.
 
    ![Screenshot of the Respect Jira screen scheme toggle switch.](/cms_trial/assets/30dc16e8-1a96-4241-a13f-f0d95b9082e3.png)
