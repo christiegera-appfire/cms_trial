@@ -20,16 +20,23 @@ Before you begin, see the [Priority attributes](/cms_trial/space/SPM/1918539369/
 
 To create a new template:
 
-1. In the **Priorities module**, click **Configuration** in the top-right corner.
-2. Click the **Select prioritization template** drop-down menu.
-3. Select **+ Create a new template** option.
+1. In the **Priorities module**, click **Configure** from the drop-down menu.
+
+   ![Screenshot of the Configure button in the Priorities module.](/cms_trial/assets/31a75cd1-2864-422e-8cfe-5d35acd5f848.png)
+
+1. Click the **Select prioritization template** drop-down menu.
+2. Select **+ Create a new template** option.
+3. Select the **Template type**:
+
+   1. App-level (global, available in all boxes)
+   2. Box-level (local, available only in the box where it was created)
+
+      ![Selecting template type in the Priorities module.](/cms_trial/assets/db118df1-9558-44b9-b411-36c54e75f8a2.png)
 4. Provide a **Template name**.
 5. Add at least one metric using the **+ Add new metric** option.
 6. Create a scoring formula.
 7. Click **Save changes**.
 8. The template is created and applied to your project.
-
-![priorities-module-create-template.png](/cms_trial/assets/b87ba06d-c591-419b-929f-872b382dbbdc.png)
 
 ## Create new prioritization template using Jira custom fields
 
@@ -53,17 +60,21 @@ To create a new template:
 
 1. In the **Priorities module**, click **Configure** from the drop-down menu.
 
-   ![Screenshot of the Configure button in the Priorities module.](/cms_trial/assets/524c7b94-2ae5-428c-8158-b61540e75de4.png)
+   ![Screenshot of the Configure button in the Priorities module.](/cms_trial/assets/31a75cd1-2864-422e-8cfe-5d35acd5f848.png)
 
 1. Click the **Select prioritization template** drop-down menu.
 2. Select **+ Create a new template** option.
-3. Provide a **Template name**.
-4. Add at least one metric using the **+ Add new metric** option.
-5. Create a scoring formula.
-6. Click **Save changes**.
-7. The template is created and applied to your project.
+3. Select the **Template type**:
 
-   ![Screenshot of creating a new prioritization template.](/cms_trial/assets/ba7537a2-e252-4fc7-bbb7-46a66a96c91d.png)
+   1. App-level (global, available in all boxes)
+   2. Box-level (local, available only in the box where it was created)
+
+      ![Selecting template type in the Priorities module.](/cms_trial/assets/db118df1-9558-44b9-b411-36c54e75f8a2.png)
+4. Provide a **Template name**.
+5. Add at least one metric using the **+ Add new metric** option.
+6. Create a scoring formula.
+7. Click **Save changes**.
+8. The template is created and applied to your project.
 
 ## Create new prioritization template using Jira custom fields
 

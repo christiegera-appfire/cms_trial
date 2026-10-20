@@ -4,8 +4,6 @@ If you are involved in a company service management function, you will know that
 
 Watch the video tutorial:
 
-<https://youtu.be/N3F7uqB8g7k?si=jfL4RxzI9ThA1Sft>
-
 This article shows you how to create a powerful support request reporting dashboard with [Rich Filters for Jira Dashboards](https://marketplace.atlassian.com/apps/1214789/rich-filters-for-jira-dashboards?hosting=cloud&tab=overview) that fulfills the needs described above. It allows you to report progress against targets and monitor your work for success and problem patterns. This is a key part of delivering an effective ITSM strategy.
 
 ## Before you start

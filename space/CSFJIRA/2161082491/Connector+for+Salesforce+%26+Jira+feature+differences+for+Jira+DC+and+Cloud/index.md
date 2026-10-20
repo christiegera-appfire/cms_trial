@@ -1,6 +1,6 @@
 # Connector for Salesforce & Jira feature differences for Jira DC and Cloud
 
-Last updated onDecember 22, 2025.
+Last updated onOctober 20, 2026.
 
 |  |  |  |
 | --- | --- | --- |
@@ -21,6 +21,7 @@ Last updated onDecember 22, 2025.
 | **Connectors configuration in Salesforce** | ✅ | ✅ |  |
 | - Setting connection to Jira | ✅ | ✅ | Based on your Jira environment, you need to add different Remote Sites:  **Jira Data Center:** Add a Remote Site for your Jira instance URL  **Jira Cloud:** Add Remote Sites for:   - <https://sfjc.integration.appfire.app> - <https://eu-sfjc.integration.appfire> |
 | **Synchronization** |
+| Mapping templates | ❌ | ✅ | [Mapping templates reference](/cms_trial/space/CSFJIRA/3710386504/Mapping+templates+reference/) |
 | Entity mapping | ✅ | ✅ |  |
 | Field mapping | ✅ | ✅ |  |
 | Value mapping | ✅ | ✅ |  |
@@ -44,6 +45,7 @@ Last updated onDecember 22, 2025.
 | Push to Salesforce post function | ✅ | ✅ |  |
 | Create Salesforce object post function | ✅ | ✅ |  |
 | **Automate your integration** |
+| Automatic Jira work item creation and push updates with Salesforce Flow Builder | ❌ | ✅ | Triggers for Cloud and Jira DC differ [Automate Jira actions with Salesforce Flow Builder](/cms_trial/space/CSFJIRA/3627581468/Automate+Jira+actions+with+Salesforce+Flow+Builder/) |
 | Automatic Jira work item creation and push updates | ✅ | ✅ | Triggers for Cloud and Jira DC differ [Automatic Jira Issue Creation and Push Updates in the same trigger](https://appfire.atlassian.net/wiki/x/NIWrbw) |
 | Configure automatic pull from Salesforce | ✅ | ✅ | Triggers for Cloud and Jira DC differ [Configure Automatic Pull from Salesforce](/cms_trial/space/CSFJIRA/1873446010/Configure+Automatic+Pull+from+Salesforce/) |
 | Associate Jira work item with Salesforce records and trigger post actions | ✅ | ✅ | Triggers for Cloud and Jira DC differ [Associate Jira work item with Salesforce records and trigger post actions automatically](/cms_trial/space/CSFJIRA/1873413550/Associate+Jira+work+item+with+Salesforce+records+and+trigger+post+actions+automatically/) |
