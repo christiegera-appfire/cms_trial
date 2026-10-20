@@ -18,6 +18,6 @@ Power Scripts enables a comprehensive range of automations, including:
 | External system connections | - Integrate with Salesforce - Sync with internal LDAP systems - Connect to CRM and BI tools - Interface with legacy systems |
 | Access control and tracking | - Create new users programmatically - Track script usage and performance - Implement custom security rules |
 
-Power Scripts for Jira Cloud removes all automation barriers, with [no limits](https://appfire.atlassian.net/wiki/spaces/PSJC/pages/796852580) on the number, size, frequency, or runtime of scripts, enabling your team to build sophisticated automations without constraints.
+Power Scripts for Jira Cloud removes all automation barriers, with [no limits](/cms_trial/space/PSJC/796852580/Automation+limits+(there+are+none)/) on the number, size, frequency, or runtime of scripts, enabling your team to build sophisticated automations without constraints.
 
 For a deep dive on Power Scripts features and capabilities, see the individual [feature guides](/cms_trial/space/PSJC/490996521/Feature+guides/).

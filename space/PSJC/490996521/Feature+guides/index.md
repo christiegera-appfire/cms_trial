@@ -9,6 +9,7 @@ As a dedicated Forge app built to work seamlessly in Jira Cloud, **Live Fields i
 - [Workflow Automation](/cms_trial/space/PSJC/490999005/Workflow+Automation/)
   - [Writing Actions (Post-Functions)](/cms_trial/space/PSJC/490999217/Writing+Actions+(Post-Functions)/)
   - [Writing Conditions and Validators](/cms_trial/space/PSJC/584581177/Writing+Conditions+and+Validators/)
+  - [Scripted Conditions and Validators in cloud - a new paradigm](/cms_trial/space/PSJC/804552898/Scripted+Conditions+and+Validators+in+cloud+-+a+new+paradigm/)
 - [Automation (Script) Templates](/cms_trial/space/PSJC/1165525018/Automation+(Script)+Templates/)
   - [Action (Post-function) Templates](/cms_trial/space/PSJC/1165525314/Action+(Post-function)+Templates/)
   - [Listener Templates](/cms_trial/space/PSJC/1165525361/Listener+Templates/)

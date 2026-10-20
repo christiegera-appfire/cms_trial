@@ -20,5 +20,8 @@ This section contains functions that enable users to handle projects.
 - [projectPM](/cms_trial/space/PSJC/434831859/projectPM/)
 - [projectsForPM](/cms_trial/space/PSJC/434766136/projectsForPM/)
 - [issueTypeIdsForProject](/cms_trial/space/PSJC/804326925/issueTypeIdsForProject/)
+- [issueTypeIdForProject](/cms_trial/space/PSJC/806387730/issueTypeIdForProject/)
+- [getProjectKeyById](/cms_trial/space/PSJC/821067864/getProjectKeyById/)
+- [getProjectIdByKey](/cms_trial/space/PSJC/820609122/getProjectIdByKey/)
 
 Can’t find what you are looking for? There are many more user functions in the [User Administration section](https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=PSJC&title=User%20Administration%20Functions&linkCreation=true&fromPageId=434864450).

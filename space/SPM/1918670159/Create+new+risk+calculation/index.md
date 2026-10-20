@@ -36,8 +36,7 @@ To create a new risk calculation:
 1. From the **Risk Management** module, click the risk register name.
 2. Select **Configuration** from the dropdown menu.
 
-   Image — asset pipeline pending  
-   Screenshot of selecting the Configuration button from the drop-down menu in the Risk Management module.
+   ![Screenshot of selecting the Configuration button from the drop-down menu in the Risk Management module.](/cms_trial/assets/6d49d122-d55a-4bf3-af39-a59134a9c015.png)
 3. Click **+ Create new risk calculation**.
 4. Complete the **Risk framework name**.
 5. Add metric items and values.

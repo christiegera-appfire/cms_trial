@@ -16,7 +16,7 @@ The actual calculation and prioritization are more straightforward than the expl
 
 ## Solution
 
-This script assumes that there are custom fields for User Business Value, Time Criticality, Risk Reduction, and Job Size and that those fields also has [SIL aliases](https://appfire.atlassian.net/wiki/spaces/PSJC/pages/793280566) created for them.
+This script assumes that there are custom fields for User Business Value, Time Criticality, Risk Reduction, and Job Size and that those fields also has [SIL aliases](/cms_trial/space/PSJC/793280566/Custom+fields+support+SIL+script/) created for them.
 
 ```text
 if(isNotNull(userBusinessValue) && isNotNull(timeCriticality) && isNotNull(riskReduction) && isNotNull(jobSize)) {
