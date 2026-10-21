@@ -4,6 +4,8 @@
 
 Appfire's Connector for Salesforce & Jira Cloud has moved to Atlassian Forge, Atlassian’s most advanced cloud development platform. Atlassian is ending support for the Connect framework by December 31, 2026. Please upgrade before then to prevent permanent data loss and and app failure.
 
+The upgrade changes only the app framework. Your Salesforce-Jira connections and configurations are preserved, and you don't need to reconfigure anything. Because Forge treats the upgrade as a new installation, the app can show errors after you upgrade. Jira needs time to propagate its permissions.
+
 ## How to upgrade to Forge
 
 To upgrade the app to the Forge version, you need Jira administrative privileges. Throughout the migration process, all existing data is fully preserved. The migration changes only the app framework.
@@ -13,14 +15,17 @@ To upgrade the app to the Forge version, you need Jira administrative privileges
 3. To upgrade the app, click **Accept & update**.
 4. The *Confirm app update* dialog opens. Click **Update**.
 
+Please update to the latest version by the end of 2026 to keep your app running. If you miss the deadline, the app stops working and data syncing breaks.
+
 ### What happens during upgrade
 
 - All your Salesforce-Jira connections and configurations are preserved.
 - No data loss occurs during the migration.
-- The upgrade happens with minimal interruption.
 - No reconfiguration required.
 
-- Please update to the latest version by the end of 2026 to keep your app running. If you miss the deadline, the app stops working and data syncing breaks.
+### **Known issue**
+
+Right after the upgrade, you may see errors in the app for a few minutes (usually under 10) while Jira finishes applying permissions. It can take longer for bigger instances. We recommend upgrading outside peak working hours.
 
 For more information, see: [Atlassian's official announcement on Connect end of support](https://www.atlassian.com/blog/developer/announcing-connect-end-of-support-timeline-and-next-steps).
 

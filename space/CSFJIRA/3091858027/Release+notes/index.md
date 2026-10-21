@@ -4,6 +4,7 @@ We have a short release lifecycle so that we can always try to improve our produ
 
 | **Title** | **Highlights** | **Platform** | **Release date** |
 | --- | --- | --- | --- |
+| [Release notes 21 October 2026](/cms_trial/space/CSFJIRA/3776807146/Release+notes+21+October+2026/) | - Bug fixes - Forge migration banner | Jira Cloud  SALESFORCE | October 21, 2026 |
 | [Release notes 20 October 2026](/cms_trial/space/CSFJIRA/3775135765/Release+notes+20+October+2026/) | - Entity mapping enhancements - Bug fixes | Jira Cloud  SALESFORCE | October 20, 2026 |
 | [Release notes 19 October 2026](/cms_trial/space/CSFJIRA/3683745997/Release+notes+19+October+2026/) | - Bug fixes | Jira Cloud | October 19, 2026 |
 | [Release notes 13 October 2026](/cms_trial/space/CSFJIRA/3740369724/Release+notes+13+October+2026/) | - Bug fixes | Jira Cloud | October 13, 2026 |

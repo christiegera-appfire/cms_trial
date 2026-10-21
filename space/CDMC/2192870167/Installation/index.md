@@ -2,7 +2,7 @@
 
 The Comala Document Management for Confluence Cloud is managed as a user-installed app. The user-installed app is usually downloaded from [Atlassian Marketplace](http://marketplace.atlassian.com/).
 
-![Confluence Manage apps page.](/cms_trial/assets/954c8986-cf8e-48af-9e57-ab9c36357397.jpg)
+![Confluence Manage apps page.](/cms_trial/assets/8cdb8dcb-f894-490a-b4a0-bf4f895f15f8.jpg)
 
 To install the app:
 
@@ -10,11 +10,11 @@ To install the app:
 2. Go to **Apps** > **Find new apps.**
 3. Search for Comala Document Management and click **Try it free** in the app marketplace, or click [here](https://appfire.atlassian.net/wiki/marketplace/discover/app/com.comalatech.workflow) to go to the app’s download page.
 
-![Comala Document Management page in Atlassian Marketplace.](/cms_trial/assets/8f98e732-6c20-4a44-bb1b-d3111d2fe55c.png)
+![Comala Document Management page in Atlassian Marketplace.](/cms_trial/assets/a7d375c3-896a-4168-8649-5cbfcc61e07e.png)
 
 1. Click **Start Free Trial**. The app installs automatically.
 
-![Comala Document Management download page showing the Start free trial button.](/cms_trial/assets/c733702f-3a97-41ca-91e7-62b6b519ad24.png)
+![Comala Document Management download page showing the Start free trial button.](/cms_trial/assets/57e88493-c1da-48aa-84e5-b6c5863e2ef1.png)
 
 Once installed, you can proceed with configuration to enable workflows and set up document approvals. See [Onboarding](/cms_trial/space/CDMC/2192869918/Onboarding/) for more details.
 
@@ -25,6 +25,6 @@ Check the following setting in your space:
 1. Go to your *Confluence Space* and, next to the space name, select **More (•••) > Space settings > General > Features.**
 2. Under **Sections**, enable **Apps**.
 
-   ![image-20260807-101358.png](/cms_trial/assets/9179afb9-c252-47c1-9d99-38f175c44331.png)
+   ![image-20260807-101358.png](/cms_trial/assets/f9fd0940-537a-44e1-9138-c8d8b06850c8.png)
 
 This is a Confluence space-level setting, so it must be enabled for each space individually. Only space or app administrators can edit a space’s features. Learn more: [Edit features for a space](https://support.atlassian.com/confluence-cloud/docs/edit-features-for-a-space/)

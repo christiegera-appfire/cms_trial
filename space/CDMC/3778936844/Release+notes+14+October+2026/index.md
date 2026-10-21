@@ -17,7 +17,7 @@ You can now export data from the **Global Document Report** to a CSV file.
 - The CSV file includes content title, space name, workflow name, scope, state, reviewers, creator, owner, updated by, and updated date.
 - If you apply column filters, the CSV includes only the matching rows.
 
-  ![CDM_Global Document Report_Export to CSV](/cms_trial/assets/46440b8a-4ace-4f92-8301-b4b03fda0852.png)
+  ![CDM_Global Document Report_Export to CSV](/cms_trial/assets/e59a9bfd-4278-4857-bbc7-b1f29bf8fc7d.png)
 
 ## Workflow builder
 
@@ -37,7 +37,7 @@ You can now export data from the **Global Document Report** to a CSV file.
     - **Equals:** The trigger runs when the page is updated with any of the specified labels.
     - **Not equals:** The trigger runs when the page does not include any of the specified labels.
 
-      ![CDM_Add trigger_On label added.png](/cms_trial/assets/27bd278e-7fd3-4905-9fc3-3fccf5911f12.png)
+      ![CDM_Add trigger_On label added.png](/cms_trial/assets/c12c1220-3eba-4d53-816f-0f4b434c89b1.png)
 
 ### Condition: Has label
 
@@ -50,7 +50,7 @@ The workflow trigger conditions now include a new **Has Label** condition. You c
   - **Equals**: The trigger runs only when the page has at least one of the specified labels.
   - **Not equals**: The trigger runs only when the page has none of the specified labels.
 
-    ![CDM_Triggers_Has label condition](/cms_trial/assets/d964d1a3-b5c5-491c-93ae-43527b409288.png)
+    ![CDM_Triggers_Has label condition](/cms_trial/assets/6fac9702-4ecd-43c2-a305-6cbf8d9927ff.png)
 
 ---
 

@@ -1,6 +1,6 @@
-# Use case videos
+# Rich Filters use case videos
 
-Watch Appfire Rich Filters for Jira Dashboards [use-cases](https://youtube.com/playlist?list=PLDj2AQqAYWi4&si=L5Dq1yKUCtYNyYEN)
+Watch videos presenting Rich Filters for Jira Dashboards [use-cases](https://youtube.com/playlist?list=PLDj2AQqAYWi4&si=L5Dq1yKUCtYNyYEN):
 
 ## Rich Filter queues
 

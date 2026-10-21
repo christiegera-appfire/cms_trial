@@ -1,4 +1,4 @@
-# Onboarding videos
+# Rich Filters onboarding videos
 
 Watch videos to [get onboarded](https://youtube.com/playlist?list=PL1mzGg2zD0arCkZi0hKBnJgZ2_npsQvOW&si=DtlsIX1IlVUd10XE) with Rich Filters for Jira dashboards:
 

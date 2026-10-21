@@ -1,4 +1,4 @@
-# Gadget videos
+# Rich Filters gadget videos
 
 Watch the videos below to learn more about Appfire Rich Filters for Jira Dashboards [gadgets](https://youtube.com/playlist?list=PLcMZMPN9wVww&si=Yi4-2KuP6lFCCEik):
 
