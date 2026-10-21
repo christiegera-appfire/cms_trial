@@ -1,8 +1,8 @@
-# on change state
+# on state changed
 
 ## Overview
 
-Use the **on change state** (`on-change-state`) event in a workflow trigger to detect when a document transitions from one workflow state to another. When this event occurs, the trigger can perform one or more actions.
+Use the **on state changed** (`on-change-state`) event in a workflow trigger to detect when a document transitions from one workflow state to another. When this event occurs, the trigger can perform one or more actions.
 
 You can add a condition to the trigger to limit it to specific transitions—for example, only when the document enters a **named state**, such as the workflow's **initial** or **final** state.
 

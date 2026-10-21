@@ -8,7 +8,7 @@ Comala Document Management provides global workflows, which can be applied to mu
 - These global workflow templates are fully editable. You can customize or delete them to match your process.
 - To access and manage Global Workflows, you must have **Confluence Site Administrator** permissions.
 
-- The **Global Workflows** provide Administrators a centralized location for managing workflows, ensuring consistency and control globally.
+- The **Global Workflows** provide Administrators with a centralized location for managing workflows, ensuring consistency and control globally.
 - Administrators can:
 
   - Create, delete, enable, or disable workflows across multiple spaces.
@@ -79,20 +79,20 @@ That's Global Workflows — one dashboard, full control, applied consistently ac
 ## Manage global workflows
 
 - Log in to your Confluence instance and navigate to **Apps** > **Comala Document Management**.
-- This opens the *Global Settings* page and displays the **Global Workflows** dashboard.
+- Click the **Global Workflows** tab to view the list of available Global workflow templates.
 
-  ![Global Workflows dashboard showing the list of available global workflows and workflow controls.](/cms_trial/assets/62a35213-c92a-4342-af2e-879627870927.png)
+  ![image-20261021-122219.png](/cms_trial/assets/226777e1-cb99-4081-b375-db52140d8032.png)
 
 To navigate to Global Workflows from the *Space Workflows* page, click **Global Workflows** in the workflows list.
 
-![Navigate to the Global Workflows from the Space Workflows](/cms_trial/assets/9c3d3549-73dc-4720-a2fc-d1bc9d9e28a6.png)
+![image-20261021-122645.png](/cms_trial/assets/59e14eae-b1cb-475f-82b6-6187d71403d8.png)
 
 ### Global workflows dashboard
 
 - The **Global Workflows** dashboard displays the list of built-in global workflows and their details.
 - To create a new workflow, refer to the [create and edit workflows](/cms_trial/space/CDMC/2193162391/Create+and+edit+workflows/) page.
 
-  ![Global workflows dashboard](/cms_trial/assets/2a16a76d-f8b2-448a-9d20-b5e49ae90c82.png)
+  ![image-20261021-122733.png](/cms_trial/assets/0995e44b-4298-48f4-99ec-766f43317db6.png)
 - The dashboard displays the following details for each workflow:
 
   - **Visibility**: Toggle to enable or disable the workflow globally. Only the enabled workflows can be applied to a space.
@@ -100,7 +100,7 @@ To navigate to Global Workflows from the *Space Workflows* page, click **Global 
   - **Labels**: Shows the page label, if any, required to trigger the workflow. For example, the *Basic Approval Workflow* is configured to run only with the `SIMPLE` label.
   - **Linked**: Indicates how many Confluence spaces currently have this specific workflow applied. To view the space details, click **space count**. The dialog shows the linked spaces.
 
-    ![Under Linked, click space count to view linked spaces](/cms_trial/assets/faf7d800-98ff-4886-ae24-655576b9fcc6.png)
+    ![Under Linked, click space count to view linked spaces](/cms_trial/assets/cd4297a5-8112-413d-a191-00185c98bf10.png)
   - **Actions** - Under *Actions*, you can view workflow details, duplicate the workflow, edit it using the visual builder or code editor, delete it, and view the version history.
 
     - **Version history**
@@ -111,23 +111,23 @@ To navigate to Global Workflows from the *Space Workflows* page, click **Global 
 
       - In the **Actions** column, click the **three-dot menu** (⋯) and select **View History**.
 
-        ![To view the workflow version history, under Actions, navigate to the More actions](/cms_trial/assets/731c3f59-ac7f-48e1-91b0-a1f0ae4e7fc6.png)
+        ![image-20261021-122850.png](/cms_trial/assets/5a90d655-a99e-4991-9f7a-358515e38c44.png)
       - The version history dialog displays all saved versions.
 
         - Click **View JSON** to view any previous version’s definition.
         - Click **Revert to this version** to restore a previous version.
-      - Reverting creates a new version entry, and no history is lost. The reverted workflow applies globally to all pages and spaces using it.
+      - Reverting creates a new version entry, and it doesn't lose history. The reverted workflow applies globally to all pages and spaces using it.
 
-        ![To revert to any previous version, click Revert to this version](/cms_trial/assets/9c18fdba-97ad-43e8-93e7-c9536c7e6cd7.png)
+        ![To revert to any previous version, click Revert to this version](/cms_trial/assets/e2355cd6-fa4f-448e-978d-227be6035260.png)
       - When the revert completes, a success message is displayed.
 
-        ![Revert version_success message](/cms_trial/assets/f9cb7f27-3668-4a2c-ae3e-f868c7a1131f.png)
+        ![Revert version_success message](/cms_trial/assets/46ac7fb1-d696-4e2b-9370-42b274a3fd61.png)
 
 Deleting a workflow cannot be undone. Before you delete, consider the impact on any spaces using the workflow.
 
 ### Link/Copy Workflow
 
-A global workflow can be linked or copied to a space.
+You can link or copy a global workflow to a space.
 
 To link or copy a global workflow:
 
@@ -135,19 +135,19 @@ To link or copy a global workflow:
 2. This opens the **Comala Document Management** configuration page for your space.
 3. In the **Space Workflows** dashboard, click **Link/Copy Workflow**.
 
-   ![In the Space Workflows dashboard, click Link or Copy Workflow](/cms_trial/assets/9b503efe-ed5c-48f4-ba1c-a6f3c4dc9e76.png)
+   ![In the Space Workflows dashboard, click Link or Copy Workflow](/cms_trial/assets/5a935994-bbf5-41dd-bc5f-346278a81cf7.png)
 4. The *Global workflows* dialog opens and displays a list of available workflows to link or copy.
 
-   ![Global workflows dialog opens and displays a list of available workflows to link or copy](/cms_trial/assets/6c73fa0f-cc77-4388-b027-b5f737771a50.png)
+   ![Global workflows dialog opens and displays a list of available workflows to link or copy](/cms_trial/assets/97c873a1-23cb-49b4-997e-cabda0ec2b7a.png)
    - **Link**: You can link a global workflow in space workflows.
 
      - A linked global workflow cannot be edited at the space level and automatically syncs future updates.
-     - A global workflow can be linked to multiple spaces. Updates made to a global workflow are automatically applied to all linked spaces.
+     - You can link a global workflow to multiple spaces. Updates made to a global workflow are automatically applied to all linked spaces.
 
-       ![Link a global workflow in space workflow](/cms_trial/assets/25d5d5dc-9237-4cf6-bebc-f1e1ce42b780.png)
+       ![Link a global workflow in space workflow](/cms_trial/assets/6a4c65f6-d72a-4b22-a97b-36809fb13ac7.png)
    - **Copy**: Copy creates an independent version of the workflow in your space that you can edit without affecting the original global workflow.
 
-     ![Workflow copied to space workflow ](/cms_trial/assets/f90b7951-98ee-4bd7-9fa3-a25dda726c53.png)
+     ![Workflow copied to space workflow ](/cms_trial/assets/aeb2ede7-eb44-4ba6-8f38-2f930612ed67.png)
 
 **Related topics**
 
