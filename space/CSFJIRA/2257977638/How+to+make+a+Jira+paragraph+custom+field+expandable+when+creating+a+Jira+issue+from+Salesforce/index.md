@@ -14,7 +14,7 @@ Please note that this is a workaround solution for automation. You can use it at
 4. To create a new field, click **New** and select the **Text Area (Rich)** data type.
 5. Click **Next**
 6. Follow the setup wizard and give the field a name of your choice.
-7. Map the new Salesforce Rich Text field with the Jira Paragraph field. For detailed instructions, see [Configure field mappings](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field+and+value+mappings/).
+7. Map the new Salesforce Rich Text field with the Jira Paragraph field. For detailed instructions, see [Configure field mappings](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field%2C+and+value+mappings/).
 
    ![contentId-2257977638](/cms_trial/assets/64729427-5050-4072-9acd-1a88da6acd7f.png)
 8. Confirm in Salesforce that the field is now expandable.

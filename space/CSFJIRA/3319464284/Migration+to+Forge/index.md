@@ -25,7 +25,7 @@ Please update to the latest version by December 31, 2026 to keep your app runnin
 
 ### **Known issue**
 
-Right after the upgrade, you may see errors in the app for a few minutes (usually under 10) while Jira finishes applying permissions. It can take longer for bigger instances. We recommend upgrading outside peak working hours.
+Right after the upgrade, you may see the error “Access to Jira denied!” The app may be unavailable for a few minutes (usually under 10) while Jira finishes applying permissions. It can take longer for bigger instances. We recommend upgrading outside peak working hours.
 
 For more information, see: [Atlassian's official announcement on Connect end of support](https://www.atlassian.com/blog/developer/announcing-connect-end-of-support-timeline-and-next-steps).
 

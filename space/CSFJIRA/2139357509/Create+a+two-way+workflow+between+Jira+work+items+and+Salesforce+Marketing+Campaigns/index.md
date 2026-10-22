@@ -22,7 +22,7 @@ You will need some basic knowledge of:
 - [Jira workflows](https://www.atlassian.com/software/jira/workflows)
 - [Automation for Jira](https://www.atlassian.com/software/jira/guides/expand-jira/automation)
 - [Salesforce custom fields](https://help.salesforce.com/s/articleView?id=platform.fields_creating_picklists.htm&type=5)
-- [Configure entity, field and value mappings](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field+and+value+mappings/)
+- [Configure entity, field and value mappings](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field%2C+and+value+mappings/)
 
 ## Complete scenario
 

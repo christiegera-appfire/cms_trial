@@ -1,6 +1,6 @@
 # Create a Salesforce record from Jira
 
-This page explains how to create a Salesforce record (such as a Case) from a Jira work item. All the Salesforce records created will honor the [field and value mapping settings](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field+and+value+mappings/).
+This page explains how to create a Salesforce record (such as a Case) from a Jira work item. All the Salesforce records created will honor the [field and value mapping settings](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field%2C+and+value+mappings/).
 
 ## Before you start
 
@@ -20,7 +20,7 @@ To create a Salesforce object:
 
    ![Create Salesforce record](/cms_trial/assets/462219da-edba-4961-b4ad-38b04a01b0ea.png)
 3. From the **Object type** dropdown, select the Salesforce Object type.  
-   The available Salesforce Object types depend on how the [mapping configuration has been set up](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field+and+value+mappings/).
+   The available Salesforce Object types depend on how the [mapping configuration has been set up](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field%2C+and+value+mappings/).
 4. Configure your association with the following options:
 
    - **View only** - Manual and automatic synchronization are disabled.

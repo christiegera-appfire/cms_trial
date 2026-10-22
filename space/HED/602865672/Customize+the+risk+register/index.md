@@ -1,6 +1,6 @@
 # Customize the risk register
 
-The Risk Register *General settings* page lets you customize each risk register by editing its name and owner and choosing which projects and issue types it includes.
+The Risk Register *General settings* page lets you customize each risk register by editing its name and owner and choosing which projects, issue types, and JQL query define its scope.
 
 ![Risk register settings](/cms_trial/assets/11eef2e7-5567-4bb9-bf35-a4f8d1b51ddb.png)
 
@@ -22,10 +22,20 @@ The Risk Register *General settings* page lets you customize each risk register 
 
 1. In the **General settings** tab, click the Risk Register attribute or field that you want to update and make your desired changes.
 
-   - You can update Name, Owner, Projects, and Issue Types attributes.
+   - You can update Name, Owner, Projects, Issue Types, and JQL query attributes.
 2. Click **Save Changes**.
 
 Select issue types that are available in your selected projects in Jira. If you select an issue type that is not added to your Jira project, you will not be able to create a risk in this project for this issue type.
+
+## Define the register's scope with JQL
+
+You must select at least one project. Issue types and a Jira Query Language (JQL) query are optional. Use a JQL query to split risks into separate registers by initiative, department, component, team, priority, or any other criteria, without creating extra work item types.
+
+Hedge combines these settings with AND, so a risk appears in the register only if it matches all of them:
+
+```text
+project in (<selected projects>) AND type in (<selected work item types>) AND (<your JQL query>)
+```
 
 ## Map risk metrics to Jira fields
 

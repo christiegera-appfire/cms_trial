@@ -23,7 +23,7 @@ Test configuration using the legacy Jira Issues lightning component:
 4. Fix any errors you fins:
 
    1. Check that the mentioned field is mapped  
-      Follow the guide: [Configure entity, field and value mappings](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field+and+value+mappings/).
+      Follow the guide: [Configure entity, field and value mappings](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field%2C+and+value+mappings/).
    2. Verify the field it is added under the work item type *Create Issue Screen* in Jira.  
       Follow the guide: [Manage work item screens | Atlassian Support](https://support.atlassian.com/jira-cloud-administration/docs/manage-issue-screens/).
 5. Trigger the Apex Trigger again to check if a Jira ticket has been created.
@@ -36,6 +36,6 @@ If the issue persists, capture a HAR file with the steps provided in the article
 
 - [Configure automatic Jira issue creation from Salesforce](/cms_trial/space/CSFJIRA/1873413628/Configure+automatic+Jira+issue+creation+from+Salesforce/)
 - [Configure Lightning Experience components](/cms_trial/space/CSFJIRA/1873969162/Configure+Lightning+Experience+components/)
-- [Configure entity, field and value mappings](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field+and+value+mappings/)
+- [Configure entity, field and value mappings](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field%2C+and+value+mappings/)
 - [Manage work item screens | Atlassian Support](https://support.atlassian.com/jira-cloud-administration/docs/manage-issue-screens/).
 - [Generate HAR files and analyze web requests for Atlassian support | Atlassian Support](https://confluence.atlassian.com/kb/generating-har-files-and-analyzing-web-requests-720420612.html)

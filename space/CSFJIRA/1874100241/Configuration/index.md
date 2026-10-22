@@ -9,7 +9,7 @@ Let’s connect - [schedule a demo with us](https://calendly.com/business-integr
 - [Configure settings in Jira](/cms_trial/space/CSFJIRA/1873380265/Configure+settings+in+Jira/)
   - [Configure connection settings](/cms_trial/space/CSFJIRA/1853653945/Configure+connection+settings/)
   - [Configure search page permission](/cms_trial/space/CSFJIRA/2554200633/Configure+search+page+permission/)
-- [Configure entity, field and value mappings](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field+and+value+mappings/)
+- [Configure entity, field, and value mappings](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field%2C+and+value+mappings/)
   - [Configure field displays and access the Details screen](/cms_trial/space/CSFJIRA/1873511110/Configure+field+displays+and+access+the+Details+screen/)
   - [Import value mappings](/cms_trial/space/CSFJIRA/1873347626/Import+value+mappings/)
   - [Configuring Jira cascading fields to work with Salesforce dependent fields](/cms_trial/space/CSFJIRA/1873413246/Configuring+Jira+cascading+fields+to+work+with+Salesforce+dependent+fields/)

@@ -1,6 +1,6 @@
 # View Salesforce comments in Jira
 
-If Jira Issues are [mapped to Salesforce Cases](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field+and+value+mappings/), Connector for Salesforce & Jira automatically aggregates comments from [a Salesforce Case associated with a Jira Issue](/cms_trial/space/CSFJIRA/3092284964/Associate+a+Salesforce+record+from+Jira/).
+If Jira Issues are [mapped to Salesforce Cases](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field%2C+and+value+mappings/), Connector for Salesforce & Jira automatically aggregates comments from [a Salesforce Case associated with a Jira Issue](/cms_trial/space/CSFJIRA/3092284964/Associate+a+Salesforce+record+from+Jira/).
 
 Though pulled from Salesforce, these Salesforce Comments are not stored in Jira.
 

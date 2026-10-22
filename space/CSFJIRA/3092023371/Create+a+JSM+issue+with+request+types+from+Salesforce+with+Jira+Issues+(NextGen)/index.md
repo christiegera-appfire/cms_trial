@@ -10,7 +10,7 @@ You can learn more about the [Request Types in JSM](https://confluence.atlassian
 
 ## Before you start
 
-- Project binding links your JSM project with Salesforce, allowing data synchronization. Ensure your administrator has completed a [project binding](/cms_trial/space/CSFJIRA/1873379785/Bind+a+space+to+a+connection+(Jira+Cloud)/) as well as [entity and field mappings](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field+and+value+mappings/) for a JSM project.
+- Project binding links your JSM project with Salesforce, allowing data synchronization. Ensure your administrator has completed a [project binding](/cms_trial/space/CSFJIRA/1873379785/Bind+a+space+to+a+connection+(Jira+Cloud)/) as well as [entity and field mappings](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field%2C+and+value+mappings/) for a JSM project.
 - Your administrator has [configured the Jira Issues (NextGen) component](/cms_trial/space/CSFJIRA/1873543771/Use+Jira+Issues+(NextGen)+with+Lightning+Experience/) required for the Object.
 
 Note that **Request type fields** are only supported in Lightning Web Components.

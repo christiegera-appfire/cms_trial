@@ -17,6 +17,8 @@
 - [Help and support](/cms_trial/space/HED/2141291485/Help+and+support/)
   - [Hedge FAQ](/cms_trial/space/HED/792199215/Hedge+FAQ/)
 - [Release notes](/cms_trial/space/HED/3686039557/Release+notes/)
+  - [Release notes 8.5.0](/cms_trial/space/HED/3785228880/Release+notes+8.5.0/)
+  - [Release notes 8.4.0](/cms_trial/space/HED/3784114683/Release+notes+8.4.0/)
   - [Release notes 8.3.0](/cms_trial/space/HED/3759603717/Release+notes+8.3.0/)
   - [Release notes 8.2.0](/cms_trial/space/HED/3685777414/Release+notes+8.2.0/)
   - [Release notes 8.1.0](/cms_trial/space/HED/3669491816/Release+notes+8.1.0/)

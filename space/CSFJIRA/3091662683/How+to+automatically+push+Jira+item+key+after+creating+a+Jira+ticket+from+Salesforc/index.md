@@ -8,7 +8,7 @@ This is because the **Auto-Push** option from Jira to Salesforce only pushes map
 
 Make sure that:
 
-- The Jira issue **Key** field is mapped under the expected Project and Issue Type. To learn more, see [Configure entity, field and value mappings](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field+and+value+mappings/).
+- The Jira issue **Key** field is mapped under the expected Project and Issue Type. To learn more, see [Configure entity, field and value mappings](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field%2C+and+value+mappings/).
 
 ![image-20240913-085519.png](/cms_trial/assets/f60add19-ddad-451a-93b4-ced1ff31cf41.png)
 

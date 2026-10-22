@@ -1,4 +1,4 @@
-# Configure entity, field and value mappings
+# Configure entity, field, and value mappings
 
 Select a template or create your own mappings, then control how Jira work items and Salesforce records synchronize.
 
@@ -15,7 +15,7 @@ Make sure you have:
 - A binding between the Jira project and a Salesforce connection. Learn about [bindings](/cms_trial/space/CSFJIRA/1873379785/Bind+a+space+to+a+connection+(Jira+Cloud)/).
 - Compatible Jira and Salesforce field types. Check [field type compatibility](/cms_trial/space/CSFJIRA/1522369149/Jira+field+type+to+Salesforce+field+type+compatibility/) before adding field mappings.
 
-### **Open the mapping configuration**
+## Open the mapping configuration
 
 To reach the mapping options:
 

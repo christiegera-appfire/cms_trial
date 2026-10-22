@@ -13,3 +13,4 @@ A **trigger** can be configured to respond to a specific `event` in the workflow
 - [on state changed](/cms_trial/space/CDMC/2193787277/on+state+changed/)
 - [on state expired](/cms_trial/space/CDMC/2193623905/on+state+expired/)
 - [on page updated](/cms_trial/space/CDMC/2438234310/on+page+updated/)
+- [on label added](/cms_trial/space/CDMC/3785752579/on+label+added/)

@@ -12,7 +12,7 @@ This integration allows you to automatically apply appropriate SLA policies to c
 
    - Make sure the two Jira fields are [compatible](https://appfire.atlassian.net/wiki/x/fYK9Wg) with the Salesforce field you're mapping
 2. Map your Jira custom field to the corresponding Salesforce field.  
-   Follow the detailed instructions in [Configure entity, field and value mappings](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field+and+value+mappings/)
+   Follow the detailed instructions in [Configure entity, field and value mappings](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field%2C+and+value+mappings/)
 3. Configure SLA Goals Based on Customer Data.
 
    1. In Jira, select **Project** > **View all projects**.

@@ -29,7 +29,7 @@ Make sure you have:
    ![Associate Salesforce record](/cms_trial/assets/fd1fde33-23e2-4942-b287-c1e42a5fe42a.png)
 4. From the **Object type** dropdown, select the Salesforce Object type. For example, a Case.  
    The available Salesforce Object types depend on how the [mapping configuration is set up](/cms_trial/space/CSFJIRA/3664152459/Configure+entity+and+field+mappings+from+templates/).
-5. In the **Salesforce record** field, start typing the name of the Salesforce record you want to associate the Jira work item with.
+5. In the **Salesforce record** field, start typing the name of the Salesforce record you want to associate the Jira work item with, and select it from the results.
 
    ![Salesforce record dropdown](/cms_trial/assets/148da8fc-c53a-46fe-9bf0-a925bc06179f.png)
 6. Configure your association with the following options:

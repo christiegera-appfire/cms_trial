@@ -1,8 +1,8 @@
-# Has label
+# has label
 
 ## Overview
 
-The **Has label** condition checks whether a page has one or more specified labels. You can use it with any trigger event.
+The **has label** condition checks whether a page has one or more specified labels. You can use it with any trigger event.
 
 ### Configure the condition
 

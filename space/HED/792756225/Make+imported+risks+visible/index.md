@@ -1,6 +1,6 @@
 # Make imported risks visible
 
-If you’re unable to see your imported risks in the Risk Register, you may have filters or issue limitations blocking their visibility. To fix this, clear unnecessary filters and make sure the correct issue types are selected.
+If you’re unable to see your imported risks in the Risk Register, you may have filters, issue limitations, or a JQL query blocking their visibility. To fix this, clear unnecessary filters, make sure the correct issue types are selected, and check the register's JQL query.
 
 ## Clear your filters
 
@@ -17,5 +17,13 @@ If you have a different project, issue type, or any other parameters applied in 
 2. Add the issue types you want displayed on the register. Make sure the issue types you want to display are selected.
 
 ![Screenshot of a Risk Register showing the Settings and the Issue Types field.](/cms_trial/assets/7ba365f0-0b93-49cf-9055-65aa55aa745e.png)
+
+## Check the register's JQL query
+
+If the register uses a Jira Query Language (JQL) query, only risks that match the query, the selected projects, and the selected issue types appear in the register.
+
+1. In the Risk Register, click **Settings** > **General settings**.
+2. Review the JQL query. Update it so it matches your imported risks, or clear it to show every risk in the selected projects and issue types.
+3. Click **Save Changes**.
 
 Learn more about how to [customize your Risk Register](/cms_trial/space/HED/602865672/Customize+the+risk+register/).

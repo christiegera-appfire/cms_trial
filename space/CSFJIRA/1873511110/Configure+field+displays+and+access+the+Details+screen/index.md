@@ -42,4 +42,4 @@ It also guides you on how to access the **Details** screen.
 
 ## Next steps
 
-- [Configure entity mappings and field mappings for binding](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field+and+value+mappings/)
+- [Configure entity mappings and field mappings for binding](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field%2C+and+value+mappings/)

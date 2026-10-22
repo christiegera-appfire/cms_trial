@@ -5,7 +5,7 @@
 When connecting Jira Checkbox fields with Salesforce, you have two options:
 
 1. Use text values that match exactly (the field is case-sensitive)
-2. Set up value mapping to translate between systems. To learn more, see [Value mapping](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field+and+value+mappings/).
+2. Set up value mapping to translate between systems. To learn more, see [Value mapping](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field%2C+and+value+mappings/).
 
 ## Compatibility
 
@@ -42,7 +42,7 @@ One easy way to understand how the field behaves is to push the field to Salesfo
 
 ### Using value mapping
 
-You can translate values between Jira and Salesforce using the value mapping feature. To learn more, see [Value mapping](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field+and+value+mappings/).
+You can translate values between Jira and Salesforce using the value mapping feature. To learn more, see [Value mapping](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field%2C+and+value+mappings/).
 
 #### Example
 

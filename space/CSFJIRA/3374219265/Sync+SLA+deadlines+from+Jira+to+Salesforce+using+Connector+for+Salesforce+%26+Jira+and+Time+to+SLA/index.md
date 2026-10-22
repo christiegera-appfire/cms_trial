@@ -360,5 +360,5 @@ If you need to associate multiple Jira work items with a single Salesforce case,
 
 ## Related resources
 
-- [Configure mappings with Connector for Salesforce and Jira Documentation](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field+and+value+mappings/)
+- [Configure mappings with Connector for Salesforce and Jira Documentation](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field%2C+and+value+mappings/)
 - [Time to SLA Cloud user guide](https://appfire.atlassian.net/wiki/spaces/TTSC/pages/1678575285)

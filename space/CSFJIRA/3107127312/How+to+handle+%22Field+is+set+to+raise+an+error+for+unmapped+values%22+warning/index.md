@@ -22,7 +22,7 @@ To address this warning, follow these steps:
 4. Under *Configure values*, enter the values for Jira and Salesforce accordingly.
 5. Click **Add** and **Save**.
 
-For detailed instructions, see [Configure value mappings](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field+and+value+mappings/).
+For detailed instructions, see [Configure value mappings](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field%2C+and+value+mappings/).
 
 ### Set default value (Optional)
 
@@ -34,7 +34,7 @@ To prevent the configuration from affecting synchronization, you can change the 
 4. Under *Default Value*, select a **Jira** **default** and **Salesforce default** value.
 5. Click **Save.**
 
-For detailed instructions, see [Set default value](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field+and+value+mappings/).
+For detailed instructions, see [Set default value](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field%2C+and+value+mappings/).
 
 ## Outcome
 
@@ -43,5 +43,5 @@ After updating, the error is cleared. You can continue to create the Jira issue 
 ## Related content
 
 - [Create a Jira Issue from Salesforce with Jira Issues (NextGen)](https://appfire.atlassian.net/wiki/spaces/470745117/pages/1464041856/Create+a+Jira+Issue+from+Salesforce+with+Jira+Issues+NextGen?atlOrigin=eyJpIjoiMGQ5NzU0MDBkMGQ3NDUyYWFlNDVhM2Y1YmI2YjM5ZGQiLCJwIjoiYyJ9)
-- [Configure value mappings](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field+and+value+mappings/)
-- [Set default value](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field+and+value+mappings/)
+- [Configure value mappings](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field%2C+and+value+mappings/)
+- [Set default value](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field%2C+and+value+mappings/)

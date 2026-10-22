@@ -9,11 +9,11 @@ Only Jira and App Admins can access global security settings.
 1. Click the **App settings** button.
 2. Select **Administration** > **Security** from the dropdown.
 
-![Screenshot of the Security tab under Administration.](/cms_trial/assets/fa3cee50-fe36-45fa-be5d-ed44db26df75.png)
+![Screenshot of the Security tab under Administration.](/cms_trial/assets/867cea6c-9b97-4b96-9e4c-114cbfafbaba.png)
 
 You are now on the **Administration** > **Security** page.
 
-![Screenshot of the Security page in the BigPicture Administration.](/cms_trial/assets/4aaf2cf4-f3d3-46c9-9070-991a590ab9d2.png)
+![Screenshot of the Security page in the BigPicture Administration.](/cms_trial/assets/03d76532-0f1f-46cc-8811-f4fe50e593ba.png)
 
 ## App Security (page)
 
@@ -21,7 +21,7 @@ You are now on the **Administration** > **Security** page.
 
 This toggle switch changes permissions in BigPicture only. It doesn't affect user permissions in Jira.
 
-![Screenshot of the Every user is the App Admin toggle switch.](/cms_trial/assets/2d301175-ff8e-4d57-9cab-b65b86249d2a.png)
+![Screenshot of the Every user is the App Admin toggle switch.](/cms_trial/assets/756af147-9929-46b5-966b-96a4f086d404.png)
 
 #### Toggle switched ON
 
@@ -59,10 +59,19 @@ The following security roles are available in BigPicture:
 | App Financial Viewer | Provides read-only access to financial data. Allows visibility into budgets and financial metrics without the ability to modify them in the boxes they have access to.  The App Financial Viewer and App Financial Admin are [Financials module-specific roles](/cms_trial/space/SPM/1918765525/Financials+module+permissions/). |
 | App OKR Admin | Manages strategic objectives and key results. Allows creation, editing, and maintenance of OKRs across the organization. |
 | App OKR User | Can view and edit Objectives and Key Results based on the permission settings of the OKR module. |
-| ⚠️ **OKR permissions after the October 21, 2026 release**  All existing users retain their OKR permissions. However, group-based permissions are not migrated. Users who previously had access through groups now have individual permissions.  An App Admin needs to manually:   - Reassign permissions to groups so new group members automatically receive OKR access. - Remove individual permissions when users should no longer have access. Removing a user from a group no longer automatically revokes their OKR access. |
 | App Priorities Admin | Manages prioritization frameworks and data. Allows configuration and maintenance of priorities used for planning and decision-making. |
 | App Resource Admin | Manages organizational resources. Allows configuration of resources used across planning and execution. |
 | App User | Has basic access to the App, which is dependent on the individual permissions given at box levels. |
+
+**OKR permissions migration for older installations**
+
+For installations created before November 25, 2025, OKR access was managed through [Jira Global Permissions](/cms_trial/space/SPM/1918765815/OKR+module+permissions/), which are no longer used for this purpose.
+
+As of October 21, 2026, **existing users retain their OKR access, but group permissions must be reassigned manually** to the new BigPicture app-level roles.
+
+An App Admin must reassign groups to ensure new members receive access and manually revoke individual permissions when users leave those groups.
+
+This change doesn't affect groups or teams configured within the OKR module.
 
 #### App Admin
 
@@ -100,7 +109,7 @@ A Jira user was not assigned the App User role. As a result, they:
 
 - Can't see BigPicture under Jira’s **Apps**
 
-![A spalsh screen informing about insufficient permission to access BigPicture.](/cms_trial/assets/2163e415-4afd-4eb5-98f1-4a58d3e945d1.png)
+![A spalsh screen informing about insufficient permission to access BigPicture.](/cms_trial/assets/59cd34f8-4f83-49a4-ad73-a26e1e9091ac.png)
 
 A Jira user was assigned the App User role, but not a box-level security role to any of the boxes. As a result, they:
 
@@ -108,7 +117,7 @@ A Jira user was assigned the App User role, but not a box-level security role to
 - Can open BigPicture
 - Can't access any box data in BigPicture
 
-![A spalsh screen informing about insufficient permission to see box data BigPicture.](/cms_trial/assets/deb8b7fd-e0da-4e1b-a9d1-8b8a6658c1d0.png)
+![A spalsh screen informing about insufficient permission to see box data BigPicture.](/cms_trial/assets/392431e6-136a-4530-abd7-ab7b3289157d.png)
 
 #### App Resource Admin
 
@@ -128,10 +137,10 @@ Jira and App Admins can grant global roles in BigPicture in the following ways:
 1. On the *Security* page, find the security role you want to assign.
 2. Click **Manage assignments** next to the role.
 
-   ![Screenshot of the Manage assignments button.](/cms_trial/assets/7ae3bfc7-b146-45bb-89ac-b043a23920fe.png)
+   ![Screenshot of the Manage assignments button.](/cms_trial/assets/a8b06b4f-5637-49c4-b804-d5570dd02ff9.png)
 3. From the dropdown, under **Users**, select a Jira user or multiple users in one go; if you want to add a Jira group or groups to a specific role, select them from the list under **Groups**.
 
-   ![Screenshot of the Manage assignments window.](/cms_trial/assets/35a29c86-aad0-4e5a-97c6-ba94a5f5d85e.png)
+   ![Screenshot of the Manage assignments window.](/cms_trial/assets/1a66de67-e950-49bc-8aa3-9e2ddab808cf.png)
 
 The roles are assigned, and you don't need to confirm them with any additional buttons.
 
@@ -140,7 +149,7 @@ Alternatively:
 1. Click the **+Assign role** button.
 2. A dialog appears. Select whether you want to assign a user or a group.
 
-   ![Screenshot of the Assign security role window.](/cms_trial/assets/7b48e453-1abd-4605-b831-fc8ef53ef660.png)
+   ![Screenshot of the Assign security role window.](/cms_trial/assets/3a71edde-2b6a-400a-ae57-472a2c92c8d9.png)
 
 1. Next, select the global role from the list.
 

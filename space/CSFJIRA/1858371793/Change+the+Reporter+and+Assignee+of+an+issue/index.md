@@ -26,7 +26,7 @@ The **Task → Case Field mappings** window opens on the right.
 
    ![Configure option](/cms_trial/assets/0f1cba88-7ea7-4b7d-9825-d34dec4c4066.png)
 4. Select a **Jira** **default** and **Salesforce default** value for unmapped reporters and assignees.   
-   For detailed instructions, see [Set default value](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field+and+value+mappings/).
+   For detailed instructions, see [Set default value](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field%2C+and+value+mappings/).
 5. Under the **Reporter** field, add the *username* of the account you want to add.
 
    ![image-20260915-103116.png](/cms_trial/assets/44b9d38f-1c4f-4071-aeda-7d3070ee70fd.png)

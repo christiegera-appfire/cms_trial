@@ -17,7 +17,7 @@ Make sure you:
 
 - Have a working connection to your Jira instance (set up by your Salesforce administrator).
 - Have an account with permission to create work items in the target Jira space.
-- Map the entities for the Salesforce object type and Jira work item type you want to create. See [Configure entity, field and value mappings](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field+and+value+mappings/).
+- Map the entities for the Salesforce object type and Jira work item type you want to create. See [Configure entity, field and value mappings](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field%2C+and+value+mappings/).
 - Have enabled **Automatic Pull** in the general configuration of the connection you'll select in the flow.
 - The specific association between the Salesforce record and the Jira work item has **Auto-Pull** turned on. Associations set to View-only are not updated by this action.
 - Understand the Flows in Salesforce. See [Build Record-Triggered Flows Guide](https://trailhead.salesforce.com/content/learn/modules/record-triggered-flows/build-a-record-triggered-flow).
@@ -64,7 +64,7 @@ Make sure you:
        
      If you selected **Create Jira work item**, also configure:
    - **Jira space** -The Jira space the new work item should be created in.
-   - **Work item type** - The type of work item you want to create automatically (for example, bug, task, or story). Make sure that you have mapped the entities for the selected work item type in Jira. In this example, you need a mapping for the Bug Jira work item type and a Case object type. To learn more, see [Configure entity, field and value mappings](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field+and+value+mappings/).
+   - **Work item type** - The type of work item you want to create automatically (for example, bug, task, or story). Make sure that you have mapped the entities for the selected work item type in Jira. In this example, you need a mapping for the Bug Jira work item type and a Case object type. To learn more, see [Configure entity, field and value mappings](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field%2C+and+value+mappings/).
 
      ![Configure Create Jira work item section showing the required action fields.](/cms_trial/assets/1eebf68b-a2fa-44b7-a4f2-2a3f9a26f9f2.png)
 

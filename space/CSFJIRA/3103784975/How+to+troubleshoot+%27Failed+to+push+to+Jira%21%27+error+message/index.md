@@ -77,6 +77,6 @@ This might be due to the mapped field being incompatible. Check [Jira Field Typ
 There are two solutions to this issue:
 
 1. Make sure that the values of the Jira and Salesforce fields are identical.
-2. Configuring value mappings to non-identical value. Please refer to [Configuring Entity Mappings and Field Mappings](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field+and+value+mappings/), *Part 3: Configuring Value Mappings.*
+2. Configuring value mappings to non-identical value. Please refer to [Configuring Entity Mappings and Field Mappings](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field%2C+and+value+mappings/), *Part 3: Configuring Value Mappings.*
 
 The error message is not listed here? Please [contact Technical Support](https://appfire.atlassian.net/servicedesk/customer/portals) for further assistance.

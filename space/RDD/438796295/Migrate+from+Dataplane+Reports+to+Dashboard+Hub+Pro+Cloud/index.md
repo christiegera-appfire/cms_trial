@@ -91,9 +91,7 @@ If you skip this step or run it out of order, users will end up with two pending
 
 1. ON JIRA DC Create a second JCMA Migration plan using **Choose what to migrate** for migrating projects, boards, and filters, and run this Migration plan to migrate the bulk of Jira data to Cloud.
 2. Click **Choose what to migrate** again.
-3. Select the projects that you are interested in.
-
-   Make sure that all the projects are selected at the bottom of the view.
+3. Select the projects that you want to migrate and ensure they are selected at the bottom of the page.
 
    ![Dashboard Hub migration project selection step](/cms_trial/assets/68e8c5eb-81b2-4308-83e7-a2c6d1d981ae.png)
 4. Migrate Advanced Roadmaps plans.
@@ -244,7 +242,7 @@ The types of messages that are provided are:
 
 ### Skipped messages
 
-Skipped messages appear when one or more reports or records could not be imported — for example, when a Dataplane report type is not yet supported on Cloud. For each skipped record, we write one skippedMessage.
+Skipped messages appear when one or more reports or records could not be imported, for example, when a Dataplane report type is not yet supported on Cloud. For each skipped record, we write one skippedMessage.
 
 ### Warning messages
 

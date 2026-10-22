@@ -12,7 +12,7 @@ For example, when a Salesforce agent needs to escalate a case to the development
 
 ## Before you start
 
-- Your administrator has completed a [project binding](/cms_trial/space/CSFJIRA/1873379785/Bind+a+space+to+a+connection+(Jira+Cloud)/) and [entity and field mappings](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field+and+value+mappings/) in Jira.
+- Your administrator has completed a [project binding](/cms_trial/space/CSFJIRA/1873379785/Bind+a+space+to+a+connection+(Jira+Cloud)/) and [entity and field mappings](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field%2C+and+value+mappings/) in Jira.
 - Your administrator has configured [the Visualforce pages](/cms_trial/space/CSFJIRA/1873445794/Configure+Visualforce+components/) required for the Salesforce object.
 
 ## Create a Jira issue
@@ -59,7 +59,7 @@ The **Review & Create** dialog box will:
 
 - Render fields that appear in the original *Create Issue* dialog in Jira, respective to the project and issue type selected.
 - Show fields regardless mapped or not.
-- Automatically populate the field value if it's part of the [value mapping](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field+and+value+mappings/) set by your administrator.
+- Automatically populate the field value if it's part of the [value mapping](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field%2C+and+value+mappings/) set by your administrator.
 - Render fields of these types:
 
   - Text fields like Summary and Description
