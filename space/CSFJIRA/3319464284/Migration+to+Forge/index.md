@@ -2,20 +2,20 @@
 
 ## Overview
 
-Appfire's Connector for Salesforce & Jira Cloud has moved to Atlassian Forge, Atlassian’s most advanced cloud development platform. Atlassian is ending support for the Connect framework by December 31, 2026. Please upgrade before then to prevent permanent data loss and and app failure.
+Appfire's Connector for Salesforce & Jira Cloud has moved to Atlassian Forge, Atlassian’s most advanced cloud development platform. Atlassian is ending support for the Connect framework by December 31, 2026. Please upgrade before then to prevent permanent data loss and app failure.
 
 The upgrade changes only the app framework. Your Salesforce-Jira connections and configurations are preserved, and you don't need to reconfigure anything. Because Forge treats the upgrade as a new installation, the app can show errors after you upgrade. Jira needs time to propagate its permissions.
 
 ## How to upgrade to Forge
 
-To upgrade the app to the Forge version, you need Jira administrative privileges. Throughout the migration process, all existing data is fully preserved. The migration changes only the app framework.
+To upgrade the app to the Forge version (version 25), you need Jira administrative privileges. Throughout the migration process, all existing data is fully preserved. The migration changes only the app framework.
 
 1. Navigate to **Apps** > **Manage apps**.
 2. Under *Connected apps,* the Connector for Salesforce & Jira app displays an **Update** label. Click **View app details**.
 3. To upgrade the app, click **Accept & update**.
 4. The *Confirm app update* dialog opens. Click **Update**.
 
-Please update to the latest version by the end of 2026 to keep your app running. If you miss the deadline, the app stops working and data syncing breaks.
+Please update to the latest version by December 31, 2026 to keep your app running. If you miss the deadline, the app stops working and data syncing breaks.
 
 ### What happens during upgrade
 

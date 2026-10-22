@@ -154,6 +154,16 @@ Use **Set Jira field** to update a Jira work item field.
 
 This feature excludes custom fields supplied by third-party vendors. Don't see a custom field you need? [Let us know](https://appfire.atlassian.net/servicedesk/customer/portals) what's missing so we can prioritize it in a future update.
 
+If you can't find a Jira field in the **Set Jira field** dropdown, check the field's configuration in Jira.
+
+1. Go to **Jira settings** > **Issues** > **Custom fields** and find the field.
+2. Check that the field's **context** includes the space and work item type where the SLA is used.
+3. Make sure the field is associated with the relevant **screens** and **field configurations**.
+4. Confirm that you have **Browse Projects** permission for at least one space where the field is used.
+5. Return to **Time to SLA** > **Actions**, reload the page, and check the dropdown again.
+
+If the field still doesn't appear, contact [Appfire Support](https://appfire.com/support) for assistance.
+
 Select the field you want to update from the **Jira work item field** dropdown. The options you see depend on the field you select.
 
 For example, if you select a date field, a date picker appears so you can choose the date to set. If you select a multi-value field, you can choose how the selected value should be applied:
