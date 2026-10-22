@@ -11,13 +11,13 @@ Make sure you have:
 
 ## Follow the steps
 
-1. Under *Connector for Salesforce and Jira*, click the **Bindings** tab on the left menu.
+1. Under *Connector for Salesforce and Jira*, click the *Bindings* tab on the left menu.
 
-   ![image-20260904-125304.png](/cms_trial/assets/8995ede0-f562-473d-89c3-57d6110d2084.png)
+   ![Connector for Salesforce and Jira navigation menu showing the Bindings tab.](/cms_trial/assets/8995ede0-f562-473d-89c3-57d6110d2084.png)
 2. Click **+ Binding**.
-3. From the dropdown, select a **Jira space** you want to bind.
+3. From the *Jira space* dropdown, select the spaceyou want to bind.
 
-   ![Binding step](/cms_trial/assets/b59bd6b3-d707-4162-a796-d87ac89e0528.png)
+   ![Binding configuration showing the Jira space selection dropdown.](/cms_trial/assets/b59bd6b3-d707-4162-a796-d87ac89e0528.png)
 
    If you already have space bindings, those spaces are not listed in the dropdown. You can select only spaces with no bindings.
 4. Select the **Connection** you want to bind it to.  

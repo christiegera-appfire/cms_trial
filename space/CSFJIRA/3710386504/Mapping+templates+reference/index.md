@@ -1,6 +1,8 @@
 # Mapping templates reference
 
-Each template comes with ready entity and field mappings. This page lists the mappings included in each of the five templates:
+Each template includes predefined entity and field mappings.
+
+This page lists the mappings included in each of the five templates:
 
 - Bug escalation
 - Feature requests
@@ -8,7 +10,7 @@ Each template comes with ready entity and field mappings. This page lists the ma
 - Deal & feature sync
 - Support requests
 
-For instructions on applying a template, see [Configure entity and field mappings from templates](/cms_trial/space/CSFJIRA/3664152459/Configure+entity+and+field+mappings+from+templates/) :
+For instructions on applying a template, see [Configure entity and field mappings from templates](/cms_trial/space/CSFJIRA/3664152459/Configure+entity+and+field+mappings+from+templates/).
 
 ## Bug escalation
 
@@ -23,13 +25,13 @@ Tracks unresolved bugs and brings cases from Salesforce to your engineering team
 | Summary | ← → Bidirectional | Subject |
 | Status | ← → Bidirectional | Status |
 | Priority | ← → Bidirectional | Priority |
-| Decription | ← → Bidirectional | Description |
+| Description | ← → Bidirectional | Description |
 
-![image-20260929-111215.png](/cms_trial/assets/3a84a2dc-20f9-4ff0-8659-5e3fc15dce48.png)
+![Bug escalation template showing Jira Bug to Salesforce Case field mappings.](/cms_trial/assets/3a84a2dc-20f9-4ff0-8659-5e3fc15dce48.png)
 
-## **Feature requests**
+## Feature requests
 
-Sends customer feature requests from Salesforce into Jira and tracks them as they move through development in both platforms. The template maps Jira Story work item type to Salesforce Case object type.
+Sends customer feature requests from Salesforce into Jira and tracks them as they move through development in both platforms. The template maps the Jira Story work item type to Salesforce Case object type.
 
 | **Jira work item type** | **Salesforce object type** |
 | --- | --- |
@@ -42,9 +44,9 @@ Sends customer feature requests from Salesforce into Jira and tracks them as the
 | Priority | ← → Bidirectional | Priority |
 | Status | ← → Bidirectional | Status |
 
-![image-20260929-111427.png](/cms_trial/assets/be2ec6a5-c717-4812-af95-50db27770c6e.png)
+![Feature requests template showing Jira Story to Salesforce Case field mappings.](/cms_trial/assets/be2ec6a5-c717-4812-af95-50db27770c6e.png)
 
-## **Deal enablement**
+## Deal enablement
 
 Connects Salesforce opportunities to Jira work items. The template maps the Jira Epic work item type to the Salesforce Opportunity object type.
 
@@ -57,11 +59,11 @@ Connects Salesforce opportunities to Jira work items. The template maps the Jira
 | Summary | ← → Bidirectional | Name |
 | Description | ← → Bidirectional | Description |
 
-![image-20260929-111805.png](/cms_trial/assets/7ad43834-fa24-4a7c-8ef5-de83ca36a081.png)
+![Deal enablement template showing Jira Epic to Salesforce Opportunity field mappings.](/cms_trial/assets/7ad43834-fa24-4a7c-8ef5-de83ca36a081.png)
 
-## **Deal & feature sync**
+## Deal & feature sync
 
-Brings sales, product, and engineering into one workflow by sending Salesforce opportunities and customer requests to Jira, so every team stays aligned. The template maps the Jira Epic work item type to the Salesforce Opportunity object type, Jira Story and Bug work item types to the Salesforce Case object type.
+Brings sales, product, and engineering into one workflow by sending Salesforce opportunities and customer requests to Jira, so every team stays aligned. The template maps the Jira Epic work item type to the Salesforce Opportunity object type, and Jira Story and Bug work item types to the Salesforce Case object type.
 
 | **Jira work item type** | **Salesforce object type** |
 | --- | --- |
@@ -87,7 +89,7 @@ Both entity mappings use the same field mappings.
 | Priority | ← → Bidirectional | Priority |
 | Status | ← → Bidirectional | Status |
 
-## **Support requests**
+## Support requests
 
 The support requests template converts customer-reported issues into Jira Service Management (JSM) incidents or change requests. The template maps Jira (System) Incident and (System) Change work item types to Salesforce Case object type. The template works only with JSM Premium spaces.
 

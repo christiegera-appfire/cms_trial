@@ -27,7 +27,7 @@ This query finds all Epic work items in the BIG project.
 
 **The JSE Function:**
 
-It uses the work items identified by the inner query to find other work items based on their relationships or hierarchy. For example -
+Uses the work items identified by the inner query to find other work items based on their relationships or hierarchy. For example -
 
 `issue in parentsOfIssuesInQuery()`
 

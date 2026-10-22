@@ -16,17 +16,17 @@ Make sure you have:
 1. Search work items by *Summary* keywords or the work item key.  
     Results are limited to work items in the bound space with no associations. If multiple items match, the most recently updated ones appear first.
 
-   ![image-20260907-080847.png](/cms_trial/assets/61a09be4-6ff4-4aa5-a737-0f65d08205f0.png)
+   ![Search results showing Jira work items available for association.](/cms_trial/assets/61a09be4-6ff4-4aa5-a737-0f65d08205f0.png)
 2. Click **Associate** next to the selected work item.  
    The *Associate work item to Salesforce record* window opens.
 3. Click **Associate** to associate the work item withan existing Salesforce record.  
    You can also click **Create Salesforce record** to create a new record.
 
-   ![image-20260907-081039.png](/cms_trial/assets/6bb180c5-a3ca-45cd-aecc-1417f396381e.png)
+   ![Dialog showing options to associate a Jira work item with an existing or new Salesforce record.](/cms_trial/assets/6bb180c5-a3ca-45cd-aecc-1417f396381e.png)
 
    The *Associate Salesforce record* window opens.
 
-   ![Associate Salesforce record](/cms_trial/assets/fd1fde33-23e2-4942-b287-c1e42a5fe42a.png)
+   ![Associate Salesforce record](/cms_trial/assets/fd1fde33-23e2-4942-b287-c1e42a5fe42a.png)![Dialog showing options to associate a Jira work item with an existing or new Salesforce record.](/cms_trial/assets/6bb180c5-a3ca-45cd-aecc-1417f396381e.png)
 4. From the **Object type** dropdown, select the Salesforce Object type. For example, a Case.  
    The available Salesforce Object types depend on how the [mapping configuration is set up](/cms_trial/space/CSFJIRA/3664152459/Configure+entity+and+field+mappings+from+templates/).
 5. In the **Salesforce record** field, start typing the name of the Salesforce record you want to associate the Jira work item with, and select it from the results.
@@ -44,16 +44,15 @@ Make sure you have:
    - **Pull from Salesforce**
    - **Push to Salesforce then Pull from Salesforce**
    - **Pull from Salesforce then Push to Salesforce**
-8. Click **Associate**.
-9. The associated Salesforce record appears next to the Jira work item.  
+8. Click **Associate**. The associated Salesforce record appears next to the Jira work item.  
    The *Subject*, *Description,* and *Priority* fields are already synchronized, displaying the same information in Jira and in Salesforce.
-10. You can click the Salesforce link to open the associated Salesforce record.
+9. You can click the Salesforce link to open the associated Salesforce record.
 
-    ![image-20260907-083424.png](/cms_trial/assets/28f426f1-7f1e-47dc-b658-69bdb28fdb0f.png)
+   ![Jira work item displaying its associated Salesforce record.](/cms_trial/assets/28f426f1-7f1e-47dc-b658-69bdb28fdb0f.png)
 
-    The Salesforce case record is updated, and you can see Jira work item details displayed under the **Jira Issues** component.
+   The Salesforce case record is updated, and you can see Jira work item details displayed under the **Jira Issues** component.
 
-    ![image-20260907-084846.png](/cms_trial/assets/166d6efa-7849-4742-bb4f-052e6a651241.png)
+   ![Salesforce record displaying associated Jira work item details in the Jira Issues component.](/cms_trial/assets/166d6efa-7849-4742-bb4f-052e6a651241.png)
 
 ## Next
 

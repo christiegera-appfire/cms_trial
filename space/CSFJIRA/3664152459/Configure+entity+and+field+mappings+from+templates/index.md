@@ -29,24 +29,24 @@ You can select a template with ready entity and field mappings. There are five t
 - **Support requests**: Converts customer-reported issues into Jira Service Management (JSM) incidents or change requests. The template maps Jira (System) Incident and (System) Change work item types to Salesforce Case object type. The template works only with JSM Premium.   
   For more details, see [Mapping templates reference](/cms_trial/space/CSFJIRA/3710386504/Mapping+templates+reference/).
 
-  ![mapping templates](/cms_trial/assets/fa372468-9ce5-45f9-a4b6-5aae462bd1cb.png)
+  ![Available mapping templates for connecting Jira work item types with Salesforce object types.](/cms_trial/assets/fa372468-9ce5-45f9-a4b6-5aae462bd1cb.png)
 
 1. Select **Apps** from the left sidebar in Jira.
 2. Next to *Connector for Salesforce,* click **Menu** (▢) > **App settings**.
 
-   ![App settings](/cms_trial/assets/4e9d160b-7cae-4c49-ad97-3db4f65a1b99.png)
+   ![Connector for Salesforce app menu showing the App settings option.](/cms_trial/assets/4e9d160b-7cae-4c49-ad97-3db4f65a1b99.png)
 
 1. Under *Connector for Salesforce*, click **Bindings**.
 2. Click **Use template** to select the template you want. For example, **Bug escalation**.
 
-   ![Use templaete selectio](/cms_trial/assets/eedcfcc3-5373-48ac-8fba-b5db12aa59d2.png)
+   ![Template selection interface showing the Use template option.](/cms_trial/assets/eedcfcc3-5373-48ac-8fba-b5db12aa59d2.png)
 
    The *Entity mapping* stepopens, and the Jira work item bug type is already mapped to the Salesforce Case object type.
 
-   ![image-20260904-133910.png](/cms_trial/assets/2e904484-977f-473c-b538-6102ac74fef7.png)
+   ![Entity mapping configuration showing the Bug Jira work item type mapped to the Salesforce Case object type.](/cms_trial/assets/2e904484-977f-473c-b538-6102ac74fef7.png)
 3. (Optional) If you want to add more entity mappings, select the Jira work item type and the corresponding Salesforce object type, and click **Add entity mapping.**
 
-   ![image-20260904-133452.png](/cms_trial/assets/427f7b53-6a70-4559-b416-acb4c2fe2a87.png)
+   ![Entity mapping controls for selecting Jira work item and Salesforce object types.](/cms_trial/assets/427f7b53-6a70-4559-b416-acb4c2fe2a87.png)
 4. Select the **Bug -> Case** entity mapping to open its field mapping.   
    The *Field mappings* define how individual fields of items and objects interact. For the Bug -> Case entity mapping, the following fields are mapped:
 
@@ -57,18 +57,18 @@ You can select a template with ready entity and field mappings. There are five t
 | Priority | ← → Bidirectional | Priority |
 | Description | ← → Bidirectional | Description |
 
-![image-20260916-084130.png](/cms_trial/assets/4df34e9a-4010-4808-b2f6-906d6d4ab077.png)
+![Field mappings between Jira and Salesforce, including synchronization directions.](/cms_trial/assets/4df34e9a-4010-4808-b2f6-906d6d4ab077.png)
 
 1. (Optional) If you want to add more field mappings, select the **Jira field** that matches the corresponding **Salesforce field**,andclick **Add field mapping**.  
    Make sure the fields you map are compatible. To learn more, see [Jira Field Type to Salesforce Field Type compatibility](/cms_trial/space/CSFJIRA/1522369149/Jira+field+type+to+Salesforce+field+type+compatibility/).
 2. You can customize the **Sync direction** (inbound or outbound) by clicking the arrow buttons.
 
-   ![image-20260904-143627.png](/cms_trial/assets/dacb458d-5f67-4dec-bfe6-d3cdcfa3294d.png)
+   ![Synchronization direction controls showing inbound and outbound arrows.](/cms_trial/assets/dacb458d-5f67-4dec-bfe6-d3cdcfa3294d.png)
 3. Click the **Menu** (▢) icon next to **Priority -> Priority** field mapping and select **Configure** to open its value mapping.   
    The *Value mappings* define how to handle field values.
 
-   1. Set default value - decide how to handle field values not covered by the mapping. To learn more, see the [Set default value](/cms_trial/space/CSFJIRA/3664152584/Configure+entity+and+field+mappings+from+scratch/) section.
-   2. (Optional) Configure value mappings - you can also define specific value mappings to match Jira and Salesforce field values. To learn more, see the [Configure value mappings](/cms_trial/space/CSFJIRA/3664152584/Configure+entity+and+field+mappings+from+scratch/) section.
+   - Set default value - decide how to handle field values not covered by the mapping. To learn more, see the [Set default value](/cms_trial/space/CSFJIRA/3664152584/Configure+entity+and+field+mappings+from+scratch/) section.
+   - (Optional) Configure value mappings - you can also define specific value mappings to match Jira and Salesforce field values. To learn more, see the [Configure value mappings](/cms_trial/space/CSFJIRA/3664152584/Configure+entity+and+field+mappings+from+scratch/) section.
 4. Click **Next**.
 
 Using the Bug escalation template, the Jira work item type *Bug* maps to the Salesforce *case* object type. Within this mapping, four fields sync bidirectionally between the two systems: summary to subject, status to status, priority to priority, and description to description. The priority field mapping is further configured with value mappings, so priority values stay aligned between Jira and Salesforce. With this in place, teams can track and update bugs reported as Salesforce cases in Jira, keeping both teams in sync.

@@ -27,21 +27,21 @@ Make sure you have:
 
 ### 2. Configure field mappings
 
-1. Click the entity mapping you have created, for example, ***Technical debt*** **-> Case** mapping.
+1. Click the entity mapping you have created, for example, **Technical debt****-> Case** mapping.
 
    ![field mappings](/cms_trial/assets/951bfddf-5c80-478a-8539-682592a8b53e.png)
 2. Select the **Jira fields** that match the corresponding **Salesforce fields**.   
    The example below matches:
 
-   - the *Summary* **Jira field** to the *Subject* **Salesforce field**
-   - *Description* to *Description*
-   - *Priority* to *Priority*
+   - the **Summary** *Jira field* to the **Subject** *Salesforce field*
+   - **Description** to **Description**
+   - **Priority** to **Priority**
 
-     ![image-20260907-060401.png](/cms_trial/assets/b6657d7f-297f-424a-b030-3afa91cd410f.png)
+     ![Jira and Salesforce field mappings for Summary, Description, and Priority.](/cms_trial/assets/b6657d7f-297f-424a-b030-3afa91cd410f.png)
 3. Click **Add field mapping**.
 4. Customize the **Sync direction** by clicking the arrow buttons if needed.  
-   For example, configure the sync direction for *Priority* to synchronize fields only from Salesforce to Jira because the Salesforce support team decides the task priority. For the *Description* and *Summary* fields, keep the default bidirectional synchronization.   
-   For details, check [Create inbound-only or outbound-only mappings](https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/edit-v2/3664152584#5.-Create-inbound-only-or-outbound-only-mappings).
+   For example, configure the sync direction for *Priority* to synchronize fields only from Salesforce to Jira because the Salesforce support team decides the task priority. For the **Description** and **Summary** fields, keep the default bidirectional synchronization.   
+   For details, check [Create inbound-only or outbound-only mappings](/cms_trial/space/CSFJIRA/3664152584/Configure+entity+and+field+mappings+from+scratch/).
 
    ![Sync direction](/cms_trial/assets/638b9022-db0b-44c8-a8dd-98dea667e5dd.png)
 
@@ -50,21 +50,21 @@ Make sure you have:
 Before synchronizing data between Jira and Salesforce, decide how to handle field values not covered by the mapping. Setting default values and actions lets you choose whether you want to copy the original value, force a custom value, leave it empty (if allowed), or raise an error to ensure all field values are synchronized according to your needs. Choose one of the following options:
 
 - **Copy value**:Connector copies and uses the original field value from the source to the destination system. (This is the default option.)   
-  For example, if you want Jira work item status to match their equivalents in Salesforce, this option ensures that a Jira work item with the *In Progress* status is set to *In Progress* in Salesforce.
+  For example, to match Jira work item statuses with their Salesforce equivalents, this option sets a Jira work item’s *In Progress* status to *In Progress* in Salesforce.
 - **Set value**: Connector assigns a predefined value of your choice for the field.   
   For example, if you want all Jira work items to have *UI* as their component in Salesforce, regardless of their original component, you can set *UI* as a default component in Salesforce. This ensures consistent categorization of Jira work items in Salesforce.
 - **Set empty**: Connector sets the field value to empty. This option is not available for required fields that need to have their value set.
 - **Raise error**: Connector raises an error, and synchronization fails.
 
-When creating a Jira work item from Salesforce, field values are filled based on the mapping or default values you’ve set. However, there’s one exception, which is the Priority.
+When creating a Jira work item from Salesforce, field values are filled based on the mapping or default values you’ve set. However, the Priority field is an exception.
 
-Jira doesn’t allow the Priority field to be empty, so it always has a default value set. If the Priority field is empty in Salesforce, the value is populated with the Jira default priority instead of the one set in the Connector for Salesforce & Jira. The correct Priority value, as configured in the Connector, will only synchronize after pushing from Salesforce.
+Jira doesn’t allow the **Priority** field to be empty, so it always has a default value set. If the **Priority** field is empty in Salesforce, the value is populated with the Jira default priority instead of the one set in the Connector for Salesforce & Jira. The correct Priority value, as configured in the Connector, will only synchronize after pushing from Salesforce.
 
 To define default values:
 
 1. Click the **Menu** (▢) icon next to the selected Jira and Salesforce field mapping and select **Configure**.
 
-   ![image-20260907-062107.png](/cms_trial/assets/c23489b5-1610-48ab-831f-7f3353e09295.png)
+   ![Field mapping menu showing the Configure option.](/cms_trial/assets/c23489b5-1610-48ab-831f-7f3353e09295.png)
 2. Select a **Jira** **default** and **Salesforce default** value:
 
    - **Copy value**
@@ -72,7 +72,7 @@ To define default values:
    - **Set empty**
    - **Raise error**
 
-     ![image-20260907-073654.png](/cms_trial/assets/e6e29166-5449-41f9-93e8-b332917f80e1.png)
+     ![Configuration options for Jira and Salesforce default field values.](/cms_trial/assets/e6e29166-5449-41f9-93e8-b332917f80e1.png)
 3. Click **Configure**.
 
 ### 4. Configure value mappings
@@ -88,7 +88,7 @@ To map field values:
 
 1. Click the **Menu** (▢) icon next to the selected Jira and Salesforce Field mapping and select **Configure**.
 
-   ![image-20260804-103636.png](/cms_trial/assets/a63f854b-5ae1-4686-bd1d-1f143b2d0c02.png)
+   ![Field mapping menu with the Configure option.](/cms_trial/assets/a63f854b-5ae1-4686-bd1d-1f143b2d0c02.png)
 2. Enter Jira and Salesforce values accordingly.  
    For example:
 
@@ -97,10 +97,10 @@ To map field values:
    - *Medium* to *Medium*
    - *Low* to *Low*
 
-     ![image-20260907-065018.png](/cms_trial/assets/686f844a-acfe-478d-b3a4-f9a8ca7e0191.png)
+     ![Value mappings between Jira and Salesforce priority values.](/cms_trial/assets/686f844a-acfe-478d-b3a4-f9a8ca7e0191.png)
 3. If the Jira field value is of user type, select available Jira users from the dropdown list.
 
-   ![image-20260907-072123.png](/cms_trial/assets/c573dd58-35b6-4042-86d1-9e5d1c891686.png)
+   ![Jira user selection for a user-type field mapping.](/cms_trial/assets/c573dd58-35b6-4042-86d1-9e5d1c891686.png)
 4. Click **Add**.
 5. Click **Configure**.
 
@@ -112,13 +112,13 @@ For example:
 
 1. Map the **Components** Jira field to the **Case Reason** Salesforce field separately for each direction (inbound or outbound).
 
-   ![image-20260804-104002.png](/cms_trial/assets/27f65909-fc91-413a-b81e-87e2f2dec89b.png)
+   ![Separate inbound and outbound mappings for Components and Case Reason.](/cms_trial/assets/27f65909-fc91-413a-b81e-87e2f2dec89b.png)
 2. For inbound-only mapping, map, for example, **UI** Jira task value with the **User Interface** Case Reason Salesforce value.
 
-   ![contentId-3664152584](/cms_trial/assets/57485172-9edb-480c-8f5d-63f3a6d9741e.png)
+   ![Inbound mapping between the Jira UI component and Salesforce User Interface case reason.](/cms_trial/assets/57485172-9edb-480c-8f5d-63f3a6d9741e.png)![contentId-3664152584](/cms_trial/assets/27f65909-fc91-413a-b81e-87e2f2dec89b.png)
 3. For outbound-only mapping, map, for example, **Installation** Jira task value with the **Packaging** Case Reason Salesforce value.
 
-   ![contentId-3664152584](/cms_trial/assets/365e8261-152e-4e00-b083-5a6e33f5b89b.png)
+   ![Outbound mapping between the Jira Installation component and Salesforce Packaging case reason.](/cms_trial/assets/365e8261-152e-4e00-b083-5a6e33f5b89b.png)![contentId-3664152584](/cms_trial/assets/27f65909-fc91-413a-b81e-87e2f2dec89b.png)
 
 ## Next steps
 
