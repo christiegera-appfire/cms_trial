@@ -90,8 +90,8 @@
       "title": "Customize the risk register",
       "parent_id": "602865785",
       "position": 371425696,
-      "version": 27,
-      "last_updated": "2026-08-26T18:17:51.092Z",
+      "version": 28,
+      "last_updated": "2026-10-22T11:58:25.531Z",
       "adf": {
         "type": "doc",
         "content": [
@@ -162,7 +162,7 @@
                         ]
                       },
                       {
-                        "text": " page lets you customize each risk register by editing its name and owner and choosing which projects and issue types it includes. ",
+                        "text": " page lets you customize each risk register by editing its name and owner and choosing which projects, issue types, and JQL query define its scope. ",
                         "type": "text"
                       }
                     ]
@@ -243,10 +243,10 @@
                                 "type": "text",
                                 "marks": [
                                   {
-                                    "type": "em"
+                                    "type": "strong"
                                   },
                                   {
-                                    "type": "strong"
+                                    "type": "em"
                                   }
                                 ]
                               },
@@ -259,10 +259,10 @@
                                 "type": "text",
                                 "marks": [
                                   {
-                                    "type": "em"
+                                    "type": "strong"
                                   },
                                   {
-                                    "type": "strong"
+                                    "type": "em"
                                   }
                                 ]
                               },
@@ -557,7 +557,7 @@
                                     "type": "paragraph",
                                     "content": [
                                       {
-                                        "text": "You can update Name, Owner, Projects, and Issue Types attributes.",
+                                        "text": "You can update Name, Owner, Projects, Issue Types, and JQL query attributes.",
                                         "type": "text"
                                       }
                                     ]
@@ -615,6 +615,45 @@
                     ]
                   }
                 ]
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Define the register's scope with JQL",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "You must select at least one project. Issue types and a Jira Query Language (JQL) query are optional. Use a JQL query to split risks into separate registers by initiative, department, component, team, priority, or any other criteria, without creating extra work item types.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Hedge combines these settings with AND, so a risk appears in the register only if it matches all of them:",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "codeBlock",
+            "content": [
+              {
+                "text": "project in (<selected projects>) AND type in (<selected work item types>) AND (<your JQL query>)",
+                "type": "text"
               }
             ]
           },
@@ -3746,8 +3785,8 @@
       "title": "Make imported risks visible",
       "parent_id": "602865819",
       "position": 90,
-      "version": 13,
-      "last_updated": "2026-08-26T18:27:45.195Z",
+      "version": 14,
+      "last_updated": "2026-10-22T11:57:50.210Z",
       "adf": {
         "type": "doc",
         "content": [
@@ -3805,7 +3844,7 @@
                     "type": "paragraph",
                     "content": [
                       {
-                        "text": "If you\u2019re unable to see your imported risks in the Risk Register, you may have filters or issue limitations blocking their visibility. To fix this, clear unnecessary filters and make sure the correct issue types are selected.",
+                        "text": "If you\u2019re unable to see your imported risks in the Risk Register, you may have filters, issue limitations, or a JQL query blocking their visibility. To fix this, clear unnecessary filters, make sure the correct issue types are selected, and check the register's JQL query.",
                         "type": "text"
                       }
                     ]
@@ -4049,6 +4088,116 @@
                   "width": 100.0
                 },
                 "content": [
+                  {
+                    "type": "heading",
+                    "attrs": {
+                      "level": 2
+                    },
+                    "content": [
+                      {
+                        "text": "Check the register's JQL query",
+                        "type": "text"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "If the register uses a Jira Query Language (JQL) query, only risks that match the query, the selected projects, and the selected issue types appear in the register.",
+                        "type": "text"
+                      }
+                    ]
+                  },
+                  {
+                    "type": "orderedList",
+                    "attrs": {
+                      "order": 1
+                    },
+                    "content": [
+                      {
+                        "type": "listItem",
+                        "content": [
+                          {
+                            "type": "paragraph",
+                            "content": [
+                              {
+                                "text": "In the Risk Register, click ",
+                                "type": "text"
+                              },
+                              {
+                                "text": "Settings",
+                                "type": "text",
+                                "marks": [
+                                  {
+                                    "type": "strong"
+                                  }
+                                ]
+                              },
+                              {
+                                "text": " > ",
+                                "type": "text"
+                              },
+                              {
+                                "text": "General settings",
+                                "type": "text",
+                                "marks": [
+                                  {
+                                    "type": "strong"
+                                  }
+                                ]
+                              },
+                              {
+                                "text": ".",
+                                "type": "text"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "listItem",
+                        "content": [
+                          {
+                            "type": "paragraph",
+                            "content": [
+                              {
+                                "text": "Review the JQL query. Update it so it matches your imported risks, or clear it to show every risk in the selected projects and issue types.",
+                                "type": "text"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "listItem",
+                        "content": [
+                          {
+                            "type": "paragraph",
+                            "content": [
+                              {
+                                "text": "Click ",
+                                "type": "text"
+                              },
+                              {
+                                "text": "Save Changes",
+                                "type": "text",
+                                "marks": [
+                                  {
+                                    "type": "strong"
+                                  }
+                                ]
+                              },
+                              {
+                                "text": ".",
+                                "type": "text"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
                   {
                     "type": "panel",
                     "attrs": {
@@ -4735,8 +4884,8 @@
       "title": "Create risk register",
       "parent_id": "2239692808",
       "position": 190,
-      "version": 4,
-      "last_updated": "2026-09-15T09:57:05.860Z",
+      "version": 5,
+      "last_updated": "2026-10-22T11:57:13.189Z",
       "adf": {
         "type": "doc",
         "content": [
@@ -4769,15 +4918,11 @@
                   ],
                   "title": "Aura - HTML (iframe)"
                 }
-              },
-              "localId": "e88aafec4eaf"
+              }
             }
           },
           {
             "type": "paragraph",
-            "attrs": {
-              "localId": "f0d75bc2abde"
-            },
             "content": [
               {
                 "text": "Hedge lets you create multiple risk registers tailored to the specific needs of your teams, projects, or compliance standards. Whether you choose from predefined templates or design custom ones, each register can be configured to align with your unique workflows and requirements.",
@@ -4787,9 +4932,6 @@
           },
           {
             "type": "paragraph",
-            "attrs": {
-              "localId": "2db776891568"
-            },
             "content": [
               {
                 "text": "See how fast and easy it is to create a risk register in Hedge. ",
@@ -4803,10 +4945,138 @@
               "layout": "center",
               "originalHeight": 480.0,
               "width": 100.0,
-              "localId": "a5c927fedce5",
               "url": "https://youtu.be/77YH6tFWw_E?si=60kDSPm_ITvIX-9x",
               "originalWidth": 853.34
             }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2
+            },
+            "content": [
+              {
+                "text": "Define the register's scope",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "When you create a risk register, you choose which risks it includes:",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "bulletList",
+            "content": [
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Projects",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "text": " (required): select one or more projects.",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "Issue Types",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "strong"
+                          }
+                        ]
+                      },
+                      {
+                        "text": " (optional): limit the register to specific work item types.",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "listItem",
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "content": [
+                      {
+                        "text": "JQL query (optional): narrow the scope further with a Jira Query Language (JQL) query. Use it to split risks into separate registers by initiative, department, component, team, priority, or any other criteria.",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "Hedge combines these settings with AND. A risk appears in the register only if it matches all of them:",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "codeBlock",
+            "content": [
+              {
+                "text": "project in (<selected projects>) AND type in (<selected work item types>) AND (<your JQL query>)",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "content": [
+              {
+                "text": "You can change the scope later in the register's settings. To learn more, see ",
+                "type": "text"
+              },
+              {
+                "text": "Customize the risk register",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "link",
+                    "attrs": {
+                      "href": "https://support.appfire.com/space/HED/602865672/Customize+the+risk+register"
+                    }
+                  }
+                ]
+              },
+              {
+                "text": ".",
+                "type": "text"
+              }
+            ]
           }
         ],
         "version": 1
@@ -6292,8 +6562,8 @@
       "title": "Release notes",
       "parent_id": "602865666",
       "position": 904,
-      "version": 4,
-      "last_updated": "2026-10-15T13:17:07.997Z",
+      "version": 5,
+      "last_updated": "2026-10-22T11:55:49.036Z",
       "adf": {
         "type": "doc",
         "content": [
@@ -6379,6 +6649,144 @@
                                 "type": "strong"
                               }
                             ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableRow",
+                "content": [
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "content": [
+                          {
+                            "text": "8.5.0",
+                            "type": "text",
+                            "marks": [
+                              {
+                                "type": "link",
+                                "attrs": {
+                                  "href": "https://appfire.atlassian.net/wiki/spaces/HED/pages/edit-v2/3785228880?draftShareId=4985ad1f-addd-4691-b5ed-4f983d7c5545"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "content": [
+                          {
+                            "type": "date",
+                            "attrs": {
+                              "timestamp": "1792627200000"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "content": [
+                          {
+                            "text": "Define a risk register's scope with a JQL query",
+                            "type": "text"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "tableRow",
+                "content": [
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "content": [
+                          {
+                            "text": "8.4.0",
+                            "type": "text",
+                            "marks": [
+                              {
+                                "type": "link",
+                                "attrs": {
+                                  "href": "https://appfire.atlassian.net/wiki/spaces/HED/pages/edit-v2/3784114683?draftShareId=0eabe922-bdf8-4ee1-98b7-78acd26c8af6"
+                                }
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "content": [
+                          {
+                            "type": "date",
+                            "attrs": {
+                              "timestamp": "1792368000000"
+                            }
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "tableCell",
+                    "attrs": {
+                      "colspan": 1,
+                      "rowspan": 1
+                    },
+                    "content": [
+                      {
+                        "type": "paragraph",
+                        "content": [
+                          {
+                            "text": "Display more than 10 risk registers per page",
+                            "type": "text"
                           }
                         ]
                       }
@@ -7391,16 +7799,674 @@
         ],
         "version": 1
       }
+    },
+    {
+      "id": "3784114683",
+      "title": "Release notes 8.4.0",
+      "parent_id": "3686039557",
+      "position": 202,
+      "version": 1,
+      "last_updated": "2026-10-22T13:57:33.979Z",
+      "adf": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "localId": "33c3874f780e"
+            },
+            "content": [
+              {
+                "text": "Release date",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "strong"
+                  }
+                ]
+              },
+              {
+                "text": ": ",
+                "type": "text"
+              },
+              {
+                "type": "date",
+                "attrs": {
+                  "localId": "bb1d76afcb17",
+                  "timestamp": "1792368000000"
+                }
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "localId": "dbf475bea675"
+            },
+            "content": [
+              {
+                "text": "This page outlines the updates included in Hedge 8.4.0.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "rule",
+            "attrs": {
+              "localId": "db9b5aa0b7be"
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2,
+              "localId": "73fa2d76a9e2"
+            },
+            "content": [
+              {
+                "text": "Enhancements",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "localId": "5316e554cd59"
+            },
+            "content": [
+              {
+                "text": "This release includes the following enhancement.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 3,
+              "localId": "6b085cfe9f0a"
+            },
+            "content": [
+              {
+                "text": "Display more than 10 risk registers per page",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "localId": "1c9925b6df72"
+            },
+            "content": [
+              {
+                "text": "You can now display more than 10 risk registers per page in the risk register list. Choose 10, 20, 35, or 50 risk registers per page, so you can review more registers without paging through the list.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "rule",
+            "attrs": {
+              "localId": "242142742518"
+            }
+          },
+          {
+            "type": "layoutSection",
+            "attrs": {
+              "localId": "daf7c89af0d4"
+            },
+            "marks": [
+              {
+                "type": "breakout",
+                "attrs": {
+                  "mode": "wide",
+                  "width": 760
+                }
+              }
+            ],
+            "content": [
+              {
+                "type": "layoutColumn",
+                "attrs": {
+                  "width": 50.0,
+                  "localId": "9cc8a59d77b1"
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "localId": "6e7e4d712e9f"
+                    },
+                    "content": [
+                      {
+                        "text": "Questions and feedback",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "strong"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "bulletList",
+                    "attrs": {
+                      "localId": "5d97cdac2c6c"
+                    },
+                    "content": [
+                      {
+                        "type": "listItem",
+                        "attrs": {
+                          "localId": "eeb53fbf000f"
+                        },
+                        "content": [
+                          {
+                            "type": "paragraph",
+                            "attrs": {
+                              "localId": "9562896d7915"
+                            },
+                            "content": [
+                              {
+                                "text": "Explore features, pricing updates, reviews, and more on the ",
+                                "type": "text"
+                              },
+                              {
+                                "text": "Atlassian Marketplace listing",
+                                "type": "text",
+                                "marks": [
+                                  {
+                                    "type": "link",
+                                    "attrs": {
+                                      "href": "https://marketplace.atlassian.com/apps/1227408/hedge-risk-management-risk-register-risk-matrix-for-jira?hosting=cloud&tab=overview"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "text": ".",
+                                "type": "text"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "listItem",
+                        "attrs": {
+                          "localId": "691b25d113a7"
+                        },
+                        "content": [
+                          {
+                            "type": "paragraph",
+                            "attrs": {
+                              "localId": "2be8135a89f4"
+                            },
+                            "content": [
+                              {
+                                "text": "Need help? Raise a ticket through our ",
+                                "type": "text"
+                              },
+                              {
+                                "text": "support portal",
+                                "type": "text",
+                                "marks": [
+                                  {
+                                    "type": "link",
+                                    "attrs": {
+                                      "href": "https://appf.re/support"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "text": ".",
+                                "type": "text"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "listItem",
+                        "attrs": {
+                          "localId": "6f8f0f44e00f"
+                        },
+                        "content": [
+                          {
+                            "type": "paragraph",
+                            "attrs": {
+                              "localId": "39f4c861a82c"
+                            },
+                            "content": [
+                              {
+                                "text": "Tell us what you think in a ",
+                                "type": "text"
+                              },
+                              {
+                                "text": "Marketplace review",
+                                "type": "text",
+                                "marks": [
+                                  {
+                                    "type": "link",
+                                    "attrs": {
+                                      "href": "https://marketplace.atlassian.com/apps/1227408/hedge-risk-management-risk-register-risk-matrix-for-jira?hosting=cloud&tab=reviews"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "text": ".",
+                                "type": "text"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "layoutColumn",
+                "attrs": {
+                  "width": 50.0,
+                  "localId": "abf458209fed"
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "localId": "552e20da3bb7"
+                    },
+                    "content": [
+                      {
+                        "text": "Credits",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "strong"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "localId": "a94a4a02d2dc"
+                    },
+                    "content": [
+                      {
+                        "text": "Thank you to our customers. Your support and feedback help us improve continuously. We appreciate your trust in Hedge.",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "version": 1
+      }
+    },
+    {
+      "id": "3785228880",
+      "title": "Release notes 8.5.0",
+      "parent_id": "3686039557",
+      "position": 119,
+      "version": 1,
+      "last_updated": "2026-10-22T13:57:43.006Z",
+      "adf": {
+        "type": "doc",
+        "content": [
+          {
+            "type": "paragraph",
+            "attrs": {
+              "localId": "7c71fb168f9f"
+            },
+            "content": [
+              {
+                "text": "Release date",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "strong"
+                  }
+                ]
+              },
+              {
+                "text": ": ",
+                "type": "text"
+              },
+              {
+                "type": "date",
+                "attrs": {
+                  "localId": "58d5415baf54",
+                  "timestamp": "1792627200000"
+                }
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "localId": "7e2799175f9c"
+            },
+            "content": [
+              {
+                "text": "This page outlines the updates included in Hedge 8.5.0.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "rule",
+            "attrs": {
+              "localId": "2fb4f961451f"
+            }
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 2,
+              "localId": "2311625c7dfc"
+            },
+            "content": [
+              {
+                "text": "Enhancements",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "localId": "af603644f4df"
+            },
+            "content": [
+              {
+                "text": "This release includes the following enhancement.",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "heading",
+            "attrs": {
+              "level": 3,
+              "localId": "358baf1231cb"
+            },
+            "content": [
+              {
+                "text": "Define a risk register's scope with a JQL query",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "paragraph",
+            "attrs": {
+              "localId": "292a49741af1"
+            },
+            "content": [
+              {
+                "text": "You can now narrow a risk register's scope with a Jira Query Language (JQL) query, instead of filtering by work item type only. This lets you split risks into separate registers by department, component, team, priority, or any other criteria, without creating extra work item types. When you create a register or edit its settings, you still select one or more projects, and you can optionally choose work item types and add a JQL query. Hedge combines all three with AND to decide which risks appear in the register. For more details, see ",
+                "type": "text"
+              },
+              {
+                "text": "Create risk register",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "link",
+                    "attrs": {
+                      "href": "https://support.appfire.com/space/HED/2292088952/Create+risk+register"
+                    }
+                  }
+                ]
+              },
+              {
+                "text": " and ",
+                "type": "text"
+              },
+              {
+                "text": "Customize the risk register",
+                "type": "text",
+                "marks": [
+                  {
+                    "type": "link",
+                    "attrs": {
+                      "href": "https://support.appfire.com/space/HED/602865672/Customize+the+risk+register"
+                    }
+                  }
+                ]
+              },
+              {
+                "text": ".",
+                "type": "text"
+              }
+            ]
+          },
+          {
+            "type": "rule",
+            "attrs": {
+              "localId": "e61e1c90d443"
+            }
+          },
+          {
+            "type": "layoutSection",
+            "attrs": {
+              "localId": "35c55c6dfc23"
+            },
+            "marks": [
+              {
+                "type": "breakout",
+                "attrs": {
+                  "mode": "wide",
+                  "width": 760
+                }
+              }
+            ],
+            "content": [
+              {
+                "type": "layoutColumn",
+                "attrs": {
+                  "width": 50.0,
+                  "localId": "a5404ec98143"
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "localId": "bfaed99afd3e"
+                    },
+                    "content": [
+                      {
+                        "text": "Questions and feedback",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "strong"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "bulletList",
+                    "attrs": {
+                      "localId": "ed11c9f27a14"
+                    },
+                    "content": [
+                      {
+                        "type": "listItem",
+                        "attrs": {
+                          "localId": "7d71116b8d31"
+                        },
+                        "content": [
+                          {
+                            "type": "paragraph",
+                            "attrs": {
+                              "localId": "291edd8ea391"
+                            },
+                            "content": [
+                              {
+                                "text": "Explore features, pricing updates, reviews, and more on the ",
+                                "type": "text"
+                              },
+                              {
+                                "text": "Atlassian Marketplace listing",
+                                "type": "text",
+                                "marks": [
+                                  {
+                                    "type": "link",
+                                    "attrs": {
+                                      "href": "https://marketplace.atlassian.com/apps/1227408/hedge-risk-management-risk-register-risk-matrix-for-jira?hosting=cloud&tab=overview"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "text": ".",
+                                "type": "text"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "listItem",
+                        "attrs": {
+                          "localId": "acf12d0fccb4"
+                        },
+                        "content": [
+                          {
+                            "type": "paragraph",
+                            "attrs": {
+                              "localId": "68619f953b87"
+                            },
+                            "content": [
+                              {
+                                "text": "Need help? Raise a ticket through our ",
+                                "type": "text"
+                              },
+                              {
+                                "text": "support portal",
+                                "type": "text",
+                                "marks": [
+                                  {
+                                    "type": "link",
+                                    "attrs": {
+                                      "href": "https://appf.re/support"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "text": ".",
+                                "type": "text"
+                              }
+                            ]
+                          }
+                        ]
+                      },
+                      {
+                        "type": "listItem",
+                        "attrs": {
+                          "localId": "99aeaaaf81d5"
+                        },
+                        "content": [
+                          {
+                            "type": "paragraph",
+                            "attrs": {
+                              "localId": "c211ec3a83ec"
+                            },
+                            "content": [
+                              {
+                                "text": "Tell us what you think in a ",
+                                "type": "text"
+                              },
+                              {
+                                "text": "Marketplace review",
+                                "type": "text",
+                                "marks": [
+                                  {
+                                    "type": "link",
+                                    "attrs": {
+                                      "href": "https://marketplace.atlassian.com/apps/1227408/hedge-risk-management-risk-register-risk-matrix-for-jira?hosting=cloud&tab=reviews"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "text": ".",
+                                "type": "text"
+                              }
+                            ]
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                ]
+              },
+              {
+                "type": "layoutColumn",
+                "attrs": {
+                  "width": 50.0,
+                  "localId": "d80b24e37ed8"
+                },
+                "content": [
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "localId": "b8b6d3869ac3"
+                    },
+                    "content": [
+                      {
+                        "text": "Credits",
+                        "type": "text",
+                        "marks": [
+                          {
+                            "type": "strong"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  {
+                    "type": "paragraph",
+                    "attrs": {
+                      "localId": "95052ebf8fca"
+                    },
+                    "content": [
+                      {
+                        "text": "Thank you to our customers. Your support and feedback help us improve continuously. We appreciate your trust in Hedge.",
+                        "type": "text"
+                      }
+                    ]
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "version": 1
+      }
     }
   ],
   "media": {
-    "57376751-71b0-44bf-a982-cb0f55cdd5de": "assets/57376751-71b0-44bf-a982-cb0f55cdd5de.png",
-    "af9d3ebf-2772-43d0-8246-83d4315a16d8": "assets/af9d3ebf-2772-43d0-8246-83d4315a16d8.png",
-    "fa588586-65ea-43fa-80ff-290f84c24952": "assets/fa588586-65ea-43fa-80ff-290f84c24952.png",
     "b935f186-9eda-4016-be78-5552ad7e49ec": "assets/b935f186-9eda-4016-be78-5552ad7e49ec.png",
     "fce8656f-bdd0-401a-946c-9230b2c06581": "assets/fce8656f-bdd0-401a-946c-9230b2c06581.png",
     "8dae0e0d-dd3e-4b43-86a2-0cf0909a5ef0": "assets/8dae0e0d-dd3e-4b43-86a2-0cf0909a5ef0.png",
     "c110b8ae-fad8-48a8-b191-b88bc01ec00d": "assets/c110b8ae-fad8-48a8-b191-b88bc01ec00d.png",
+    "57376751-71b0-44bf-a982-cb0f55cdd5de": "assets/57376751-71b0-44bf-a982-cb0f55cdd5de.png",
+    "af9d3ebf-2772-43d0-8246-83d4315a16d8": "assets/af9d3ebf-2772-43d0-8246-83d4315a16d8.png",
+    "fa588586-65ea-43fa-80ff-290f84c24952": "assets/fa588586-65ea-43fa-80ff-290f84c24952.png",
     "5cd81c57-fe41-4b81-9c5f-525961d92b60": "assets/5cd81c57-fe41-4b81-9c5f-525961d92b60.png",
     "692b043b-14d0-4e4f-8b79-85503e9b326f": "assets/692b043b-14d0-4e4f-8b79-85503e9b326f.png",
     "f7b34b72-1346-4184-a232-8ab909814f52": "assets/f7b34b72-1346-4184-a232-8ab909814f52.png",
@@ -7412,18 +8478,18 @@
     "28b2121e-289f-4e43-a2a7-452f01ffb334": "assets/28b2121e-289f-4e43-a2a7-452f01ffb334.png",
     "ef7350ed-d24c-49ae-8995-9372447262a8": "assets/ef7350ed-d24c-49ae-8995-9372447262a8.png",
     "9b37d86f-5472-4e7d-a1f5-64e523b47567": "assets/9b37d86f-5472-4e7d-a1f5-64e523b47567.png",
-    "eb738e9c-341b-43ee-9745-775237975702": "assets/eb738e9c-341b-43ee-9745-775237975702.png",
-    "d5b4b9ab-d4ef-4e52-868c-b2d400a43977": "assets/d5b4b9ab-d4ef-4e52-868c-b2d400a43977.png",
-    "5212eb3e-15f9-453e-a352-d09a5869a7f7": "assets/5212eb3e-15f9-453e-a352-d09a5869a7f7.png",
-    "65e7bf4a-cbc5-4aa7-9e3f-707841bc3021": "assets/65e7bf4a-cbc5-4aa7-9e3f-707841bc3021.png",
-    "445473f9-5516-49ee-a685-38d46a50116b": "assets/445473f9-5516-49ee-a685-38d46a50116b.png",
-    "1ea5b6c5-5603-47d0-926c-7505ee98e7df": "assets/1ea5b6c5-5603-47d0-926c-7505ee98e7df.png",
     "11eef2e7-5567-4bb9-bf35-a4f8d1b51ddb": "assets/11eef2e7-5567-4bb9-bf35-a4f8d1b51ddb.png",
     "c142487c-cc39-41fe-ab32-5f4eae1141b8": "assets/c142487c-cc39-41fe-ab32-5f4eae1141b8.png",
     "b8a294dc-6199-47b3-9fd0-abb36c03c29f": "assets/b8a294dc-6199-47b3-9fd0-abb36c03c29f.png",
     "08e996bd-69f8-4ea0-859f-b21d93e6a3fc": "assets/08e996bd-69f8-4ea0-859f-b21d93e6a3fc.jpg",
     "75b4a6e1-40a6-44f8-88b1-2f8b5bee01e0": "assets/75b4a6e1-40a6-44f8-88b1-2f8b5bee01e0.png",
     "1275a99e-bdfe-48d0-b627-bba9ecc9c6d0": "assets/1275a99e-bdfe-48d0-b627-bba9ecc9c6d0.png",
+    "eb738e9c-341b-43ee-9745-775237975702": "assets/eb738e9c-341b-43ee-9745-775237975702.png",
+    "d5b4b9ab-d4ef-4e52-868c-b2d400a43977": "assets/d5b4b9ab-d4ef-4e52-868c-b2d400a43977.png",
+    "5212eb3e-15f9-453e-a352-d09a5869a7f7": "assets/5212eb3e-15f9-453e-a352-d09a5869a7f7.png",
+    "65e7bf4a-cbc5-4aa7-9e3f-707841bc3021": "assets/65e7bf4a-cbc5-4aa7-9e3f-707841bc3021.png",
+    "445473f9-5516-49ee-a685-38d46a50116b": "assets/445473f9-5516-49ee-a685-38d46a50116b.png",
+    "1ea5b6c5-5603-47d0-926c-7505ee98e7df": "assets/1ea5b6c5-5603-47d0-926c-7505ee98e7df.png",
     "968c1fc1-13ef-4081-928c-0e84b781e1f9": "assets/968c1fc1-13ef-4081-928c-0e84b781e1f9.png",
     "c66be61b-6cfd-4622-9b1b-e337032c24b9": "assets/c66be61b-6cfd-4622-9b1b-e337032c24b9.png",
     "c6fe7c78-eee9-4f04-b36f-8083c08a5bff": "assets/c6fe7c78-eee9-4f04-b36f-8083c08a5bff.png",
