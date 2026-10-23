@@ -11,7 +11,7 @@ This tab allows you to manage resources, add new ones, and edit all its resource
 | Current [workload plan](/cms_trial/space/SPM/1918506352/Workload+plans/) | A resource can be assigned to multiple workload plans, so the active plan is presented in this section. image-20240702-083747.png |
 | Current [holiday plan](/cms_trial/space/SPM/1918505164/Holiday+plans/) | A resource can be assigned to multiple holiday plans, so the active plan is presented in this section. image-20240702-083837.png |
 | Current [absence with the reason](/cms_trial/space/SPM/1918764834/Absences/) | The current absence period and the reason for the absence. Users can add their absences using their [My settings](/cms_trial/space/SPM/1918633316/Personal/)page**.** image-20240702-084235.png |
-| Current [skills](/cms_trial/space/SPM/1918636059/Skill+management/) | The currently available skills. image-20240702-084631.png |
+| Current [skills](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918636059) | The currently available skills. image-20240702-084631.png |
 | Archived resources / Restore archived resources | To check archived resources:   1. Click the **More actions …** menu next to the **ARCHIVED** column. 2. Select the **ARCHIVED** label.   You can restore an archived resource by clicking the **Restore** button next to the ARCHIVED label. image-20240702-085024.png |
 | Archive resources | To archive a resource:   1. Find a resource you want to archive. 2. Click the **Archive resource** button. 3. To confirm, click **Archive**.   After archiving, the resource's capacity will be zero, and the team’s availability will be set as *Unavailable* from the archive date. You can restore it anytime, but team availability must be manually adjusted. image-20240702-085453.png |
 

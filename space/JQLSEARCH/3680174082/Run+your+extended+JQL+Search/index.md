@@ -4,7 +4,7 @@ Jira's standard JQL lets you search many issue fields, but sometimes the informa
 
 JQL Search Extensions adds keywords that let you search additional issue information.
 
-In this example, you'll find issues that have PNG files attached to them.
+In this example, you'll find work items that have PNG files attached to them.
 
 ## Search for issues with PNG attachments
 

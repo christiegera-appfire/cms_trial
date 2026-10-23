@@ -8,7 +8,7 @@
 
 The master-slave mode should be treated **as the last resort.**
 
-To improve performance, first upgrade BigPicture to version **8.37 or higher** and set the [‘Updates processing control’](/cms_trial/space/SPM/1918537987/Sync+rules/) to **Optimized updates processing** or **Limited updates processing.** You can also [adjust the database parameters](https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=DLP&title=Data%20Center%20-%20directly%20adjust%20database%20parameters) directly.
+To improve performance, first upgrade BigPicture to version **8.37 or higher** and set the [‘Updates processing control’](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918537987) to **Optimized updates processing** or **Limited updates processing.** You can also [adjust the database parameters](https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=DLP&title=Data%20Center%20-%20directly%20adjust%20database%20parameters) directly.
 
 We recommend reaching out to the [Appfire Support Team](https://appfire.atlassian.net/servicedesk/customer/portal/11) for help with the configuration change.
 

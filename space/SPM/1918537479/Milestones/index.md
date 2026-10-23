@@ -59,7 +59,7 @@ When you select a milestone and a task and right-click **"Convert all to.. > Tas
 
 ![contentId-1918537479](/cms_trial/assets/9e701d3a-b4da-4a3b-ac3c-38f07b9fe257.png)
 
-### Convert [a task with one date](/cms_trial/space/SPM/1918538029/Task+dates/) to a milestone
+### Convert [a task with one date](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918538029) to a milestone
 
 When a task **with one date** (“Start Date” or “End Date”) is converted to a milestone, the “Start Date” becomes the same as the “End Date”.
 
@@ -167,7 +167,7 @@ When you select a milestone and a task and right-click **"Convert all to.. > Tas
 
 ![Screenshot of the Convert all to option in the Gantt module.](/cms_trial/assets/e5a29731-a29e-4e33-b92f-f6feea1dcde7.png)
 
-### Convert [a task with one date](/cms_trial/space/SPM/1918538029/Task+dates/) to a milestone
+### Convert [a task with one date](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918538029) to a milestone
 
 When a task **with one date** (“Start Date” or “End Date”) is converted to a milestone, the “Start Date” becomes the same as the “End Date”.
 

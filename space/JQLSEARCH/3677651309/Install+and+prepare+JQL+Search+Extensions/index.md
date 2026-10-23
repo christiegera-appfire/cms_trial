@@ -19,6 +19,8 @@ JQL Search Extensions automatically begins indexing your Jira data.
 
 ## Prioritize projects for indexing
 
+The JQL Search Extensions automatically begins indexing your Jira data.
+
 The time required for initial indexing depends on your Jira instance size.
 
 You can prioritize up to five projects so you can start using JSE with those projects before the entire Jira instance is indexed.

@@ -6,7 +6,7 @@ The current Forge API doesn't support the same Jira team synchronization you exp
 
 ## Initial setup
 
-The setup is described on the following page: [Jira Teams](/cms_trial/space/SPM/1918538178/Teams+based+on+Jira+teams/).
+The setup is described on the following page: [Jira Teams](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918538178).
 
 ## Add Jira teams to a box
 

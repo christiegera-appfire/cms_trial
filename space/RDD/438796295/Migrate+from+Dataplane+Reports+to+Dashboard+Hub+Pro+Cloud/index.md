@@ -85,7 +85,7 @@ If you select *Choose what to migrate*, select as much data as possible. The mor
 
 d. Select the **Users and group** to migrate first.
 
-If you skip this step or run it out of order, users will end up with two pending migrations. If you have previously migrated them, selecting these options will migrate only the difference between your previous migration and the current state.
+If you skip this step or run it out of order, there will be two pending migrations. If you have previously migrated them, selecting these options will migrate only the difference between your previous migration and the current state.
 
 ![Dashboard Hub migration users and groups selection step](/cms_trial/assets/2d700b97-cdf2-4ac0-99d3-adc5550cbc46.png)
 
@@ -110,7 +110,7 @@ If you skip this step or run it out of order, users will end up with two pending
    ![Dashboard Hub migration options step](/cms_trial/assets/3f9b1642-0f13-4075-8f73-4da4f7a409c6.png)
 8. ON JIRA DC Run the pre-migration checks.
 
-Groups can be marked with a warning (usually not a problem), but projects marked as an error must be resolved. Delete those projects from the cloud site and remove them completely, including from the trash, before proceeding.
+Groups can be marked with a warning, but projects marked as an error must be resolved. Delete those projects from the cloud site and remove them completely, including from the trash, before proceeding.
 
 ![Dashboard Hub premigration checks step](/cms_trial/assets/52c09ca7-430b-4ec7-ab16-aa16b0cb5734.png)
 
@@ -164,19 +164,19 @@ You can also exclude or include the attachments by selecting the Exclude all att
 
 - **You choose your migration strategy in Dataplane**
 
-This option allows you to migrate selected data, projects, and users into an existing Cloud site.   
+This option lets you migrate selected data, projects, and users into an existing Cloud site.   
 You can repeat this option as many times as you require until everything is migrated to the Cloud site.
 
 Re-run the app migration within 12 days of when you first started running the original migration.  
 The app re-run feature is unavailable after the 12-day time limit.  
-After 12 days, the option is disabled.
-
-For more information, see  
+After 12 days, the option is disabled. For more information, see  
 <https://support.atlassian.com/migration/docs/use-the-confluence-cloud-migration-assistant-to-migrate/#Re-run-an-app-migration>
 
 ### Re-run migration
 
-If you need to re-run part or all of the migration:
+If you need to re-run part or all of the migration, select **Re-run** in the in the *Actions* column.
+
+![The re-run option shown in the Actions menu](/cms_trial/assets/30da4ff2-e82d-4dc0-b192-54f082d78001.png)
 
 - Don’tdelete Cloud-based native dashboards prior to migration.
 - Dashboard relationships between DC and Cloud systems remain linked.
@@ -213,7 +213,7 @@ Dataplane Reports performs the following app vendor checks:
 
 If there are errors or warnings, you can re-run all checks or select only the ones that show errors, using the Refresh icon next to each set of checks.
 
-- **Permission and datasource verification**  
+- **Permission verification**  
   This validation confirms that user accounts, groups, and roles in your Dataplane Reports configuration will migrate correctly. Address these alerts before migrating:
 
   - User accounts not found in the Cloud environment
@@ -226,7 +226,7 @@ Once the pre-migration checks are complete, you can review the items included in
 
 ![Dashboard Hub Dataplane migration report details](/cms_trial/assets/51d7cb29-6983-4195-9409-0ea6cc0fa9dd.png)![Dashboard Hub Dataplane migration report output preview](/cms_trial/assets/bf3fb2cf-b64b-4e3f-8b67-c664a3749ef9.png)
 
-## Running the migration
+## Run the migration
 
 You can run your migration now or save it and come back later.
 

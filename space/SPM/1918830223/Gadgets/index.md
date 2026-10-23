@@ -23,7 +23,6 @@ With **BigPicture gadgets**, you can add dynamic content to a Confluence page o
 There are five gadgets available:
 
 - [Gantt gadget](/cms_trial/space/SPM/1918863157/Gantt+gadget/)
-- [Overview gadget](/cms_trial/space/SPM/1918537895/Overview+gadget/)
 - [Calendar gadget](/cms_trial/space/SPM/1918504663/Calendar+gadget/)
 - [Risks gadget](/cms_trial/space/SPM/1918669227/Risks+gadget/)
 - [Objectives gadget](/cms_trial/space/SPM/1918863565/Objectives+gadget/)

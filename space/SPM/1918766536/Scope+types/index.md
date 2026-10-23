@@ -51,7 +51,7 @@ When you select the sub-scope in the box type settings, a new section **Sub-scop
 
 The box scope cannot be defined. Currently, you can only use such a box to calculate respective aggregates in the box hierarchy (visible in the Overview module). Use this setting to organize boxes into portfolios, programs, etc. The scope is always a sum of the scopes of the sub-boxes in the box hierarchy. For none-scope boxes, the **Scope definition** page in the box configuration is unavailable.
 
-See the [None (aggregations only)](/cms_trial/space/SPM/1918537743/None+(aggregations+only)/) page to learn more about box configuration.
+See the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918537743> page to learn more about box configuration.
 
 ## Scope types (new navigation)
 
@@ -104,4 +104,4 @@ When you select the sub-scope in the box type settings, a new section **Sub-scop
 
 The box scope cannot be defined. Currently, you can only use such a box to calculate respective aggregates in the box hierarchy (visible in the Overview module). Use this setting to organize boxes into portfolios, programs, etc. The scope is always a sum of the scopes of the sub-boxes in the box hierarchy. For none-scope boxes, the **Work items from Jira** page in the box configuration is unavailable.
 
-See the [None (aggregations only)](/cms_trial/space/SPM/1918537743/None+(aggregations+only)/) page to learn more about box configuration.
+See the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918537743> page to learn more about box configuration.

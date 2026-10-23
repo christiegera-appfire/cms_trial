@@ -75,7 +75,7 @@ Go to **Confluence Global Administration** > **Comala Document Management** > **
 - **Space Workflows Report**: lists global and space workflows across your instance.
 - **Page Workflows Report**: lists page workflows that need consolidation before migration.
 
-![Migration CDM Usage page showing the available migration reports, including Space Workflows and Page Workflows.](/cms_trial/assets/34206bc3-6ea4-4511-960b-c5938be412a5.png)
+![Migration CDM Usage page showing the available migration reports, including Space Workflows and Page Workflows.](/cms_trial/assets/553a1960-80b1-48f0-b887-c236025a8b52.png)
 
 Some workflow features work differently in the cloud. Use the [Workflow Translator for Cloud](https://appfire.atlassian.net/wiki/spaces/CDML/pages/649924970) tool in your Data Center app to preview how each workflow translates to cloud-compatible JSON. This helps you identify any elements that will be adapted or removed during migration.
 
@@ -95,16 +95,16 @@ To generate the page workflows report:
 
 1. Go to **Space tools** at the bottom-left corner of the page and select **Document management.**
 
-   ![Space tools menu showing the Document management option.](/cms_trial/assets/3a401070-525b-4372-83ce-74f771ae66ea.png)
+   ![Space tools menu showing the Document management option.](/cms_trial/assets/4898cf9a-1ffa-4f91-bf0c-4125ccc67983.png)
 2. Navigate to the *Document Management* tabandchoose **Page Workflows** from thedropdown menu.
 
-   ![Document Management tab showing the Page Workflows option selected.](/cms_trial/assets/7240b526-b355-4018-ab81-3864506f4557.png)
+   ![Document Management tab showing the Page Workflows option selected.](/cms_trial/assets/114bad3e-6d20-404d-a97e-db811ec03db5.png)
 3. For each page workflow, select **Consolidate** from the **Actions** menu.
 
-   ![Document Management Dashboard showing the Consolidate action in the Actions menu.](/cms_trial/assets/ac0adc4d-c44e-42f9-b4a0-d48262ceab5a.png)
+   ![Document Management Dashboard showing the Consolidate action in the Actions menu.](/cms_trial/assets/9fee8914-2a55-4bfc-a459-4416787b9270.png)
 4. Enter a label string; this becomes the content label filter.
 
-   ![Consolidate workflow dialog showing the label field with a label string.](/cms_trial/assets/649ab531-efa1-4eec-9aa3-1b8e07d219f5.png)
+   ![Consolidate workflow dialog showing the label field with a label string.](/cms_trial/assets/dbcdc736-4f9d-4dcd-b827-c6044b2c586d.png)
 
 The page workflow is removed from individual pages and added as a space workflow with the label condition.
 
@@ -128,13 +128,13 @@ To assess your apps:
 
 1. Go to **Confluence Global Administration** > **Migration Assistant** in your Data Center instance.
 
-   ![Confluence Global Administration showing the Migration Assistant page.](/cms_trial/assets/20249852-c789-48d3-b4c5-c7e02434e98e.png)
+   ![Confluence Global Administration showing the Migration Assistant page.](/cms_trial/assets/20b5e230-b90f-4e5f-96f5-cf6b557546bd.png)
 2. Click **View app assessment** under *Assess your apps.*
 
-   ![Migration Assistant showing the View app assessment option.](/cms_trial/assets/e1149f60-b239-4cdf-86b5-ba91b7840e44.png)
+   ![Migration Assistant showing the View app assessment option.](/cms_trial/assets/3b99376f-a400-46a5-ada4-157030c52b09.png)
 3. Set Comala Document Management as **Needed in Cloud** using the Decision menu.
 
-   ![App assessment page showing Comala Document Management marked as Needed in Cloud.](/cms_trial/assets/6de7d4b2-31d7-43f3-976c-7cfd2474b05a.png)
+   ![App assessment page showing Comala Document Management marked as Needed in Cloud.](/cms_trial/assets/a9a0e887-aa95-4d25-b231-932d79e26a5e.png)
 
 1. Review other apps for cloud availability.
 2. Click **Done.**
@@ -147,33 +147,33 @@ To prepare your apps,
 
 1. Click **Begin preparing** under *Prepare your apps* in the Migration assistant page.
 
-   ![Migration Assistant showing the Begin preparing option.](/cms_trial/assets/cfee3911-ee78-4dee-a4e9-3c23fb41ce7d.png)
+   ![Migration Assistant showing the Begin preparing option.](/cms_trial/assets/86a6884b-15a0-4b12-b6af-007a4822476d.png)
 2. Connect to your Cloud site and click **Continue**.
 3. **Install** apps marked as Needed in Cloud.
 4. **Agree to app migration** to allow the CCMA to transfer app data. Click **Done**.
 
-   ![App preparation page showing the Agree to app migration step before continuing.](/cms_trial/assets/c1e2c91e-f189-40c3-a6e7-3737dd30ab6e.png)
+   ![App preparation page showing the Agree to app migration step before continuing.](/cms_trial/assets/c610200f-eda3-4e5f-a165-bd6e45669c6d.png)
 
 ### Review users and email domains
 
 1. Click **Review all email domains** in the *Migration Assistant Home.*
 
-   ![Migration Assistant showing the Review all email domains option.](/cms_trial/assets/43e6af1f-f1b2-4ef6-8d5e-23c0b567e127.png)
+   ![Migration Assistant showing the Review all email domains option.](/cms_trial/assets/9cad277b-5a64-4d10-8b12-02fa4b93e450.png)
 2. Confirm all email addresses are valid and unique.
 3. Set email domains as trusted or blocked. Review and click **Done**.
 
-   ![Email domain review page showing trusted and blocked domain settings.](/cms_trial/assets/39bc133b-9acc-4c5f-972a-55fc28e7569a.png)
+   ![Email domain review page showing trusted and blocked domain settings.](/cms_trial/assets/05b13a1b-66a2-427d-8ebf-a5e3ffe9c1f4.png)
 
 ### Create and configure a migration plan
 
 1. Select **Migrate your data** on the *Migration Assistant* homescreen.
 2. Click **Continue with Migration Assistant.**
 
-   ![Migration Assistant showing the Continue with Migration Assistant button.](/cms_trial/assets/78dfa187-e25d-4202-97c9-807c44655b43.png)
+   ![Migration Assistant showing the Continue with Migration Assistant button.](/cms_trial/assets/ca7620c5-0691-4889-b29d-ea1612428e0f.png)
 
 1. Click **Connect to Cloud.**
 
-   ![How it works page showing the migration steps and the Connect to Cloud button.](/cms_trial/assets/9060bab9-2985-4201-9f78-578be5542fdb.png)
+   ![How it works page showing the migration steps and the Connect to Cloud button.](/cms_trial/assets/cceef217-365b-4f8a-b551-9c445e174d9f.png)
 
 1. In the *Connect to your Cloud site* page:
 
@@ -183,11 +183,11 @@ To prepare your apps,
 - **Select spaces** to include in your migration.
 - **Choose what to migrate**: spaces, pages, attachments, users, groups, and vendor apps.
 
-![Connect to your Cloud site page showing migration name, stage, destination site, and space selection.](/cms_trial/assets/72e39bfd-87b0-4705-992a-d62f46fd3d20.png)
+![Connect to your Cloud site page showing migration name, stage, destination site, and space selection.](/cms_trial/assets/2665b326-ec0e-4d6d-87c4-7f387db9a499.png)
 
 1. Review and click **Check for errors**.
 
-![Migration summary page showing the Check for errors option before validation.](/cms_trial/assets/52d9f88a-12ff-452f-9085-a04fdcdc04f4.png)
+![Migration summary page showing the Check for errors option before validation.](/cms_trial/assets/686d6d20-2a70-4241-b272-441723024c69.png)
 
 ### Run pre-migration checks
 
@@ -203,15 +203,15 @@ To run pre-migration checks,
 
 1. Click **Continue** in the *App vendor checks* page.
 
-![App vendor checks page showing the Continue button.](/cms_trial/assets/0873e266-ab54-4a73-8b6b-0276b05818dc.png)
+![App vendor checks page showing the Continue button.](/cms_trial/assets/3e5b5505-002f-401a-8ba5-1ffeb6d38573.png)
 
 1. In the pre-migration checks page, click **Review migration** if there are no blocking errors.
 
-![Pre-migration checks results showing Review migration when no blocking errors are found.](/cms_trial/assets/0633ba19-59e7-4f75-a146-6e8005a8e768.png)
+![Pre-migration checks results showing Review migration when no blocking errors are found.](/cms_trial/assets/1c603ca1-d164-4e1e-aa33-f38f70ef2342.png)
 
 1. With no blocking errors, choose **Run now** to start or **Save** the plan to run later.
 
-![Migration review page showing the Run now and Save options.](/cms_trial/assets/d0ef06e6-54b8-4c8a-b65a-8ff9f1f29da8.png)
+![Migration review page showing the Run now and Save options.](/cms_trial/assets/6c8565b8-a02a-4c54-8367-343fce5ab031.png)
 
 Data is migrated in this order:
 
@@ -231,7 +231,7 @@ You can do the following:
 - See the status of each batch (Succeeded / Failed).
 - **Retry only failed batches**: successfully migrated data is retained.
 
-![Migration Dashboard showing batch progress and migration status for each batch.](/cms_trial/assets/6ad9ce8b-050f-4225-901d-e32661b17073.png)
+![Migration Dashboard showing batch progress and migration status for each batch.](/cms_trial/assets/3e5bdc71-900d-4681-9ecf-dbad8309005c.png)
 
 There is no need to restart the entire migration or clear cloud data if a batch fails.
 
@@ -245,7 +245,7 @@ In the Migration logs dashboard, you can:
 - Review completed migrations with status badges (SUCCESS / FAILED).
 - Search by migration name, transfer name, or status.
 
-![Migration Logs page showing active and completed migrations with searchable status information.](/cms_trial/assets/d3c6e0e1-ed78-48dc-8276-8aaccf88b70e.png)
+![Migration Logs page showing active and completed migrations with searchable status information.](/cms_trial/assets/3f968ddb-a7fb-4b09-83b4-58e7413ef4a7.png)
 
 ---
 
@@ -262,7 +262,7 @@ You can also edit pages to add the [Document metadata macro](https://appfire.atl
 
 Reapply workflows in each space using the app space settings.
 
-![Space Workflows tab showing where to enable or manage workflows after migration.](/cms_trial/assets/dcfe6865-1dfa-4ace-a6ec-f4fdc5464ff7.png)
+![Space Workflows tab showing where to enable or manage workflows after migration.](/cms_trial/assets/bfcdf3b9-0f70-4952-82c2-f8e3446a4218.png)
 
 Refer to [Apply workflows at the space level](/cms_trial/space/CDMC/2193033075/At+space+level/) for more details
 
@@ -283,13 +283,13 @@ If any documents have mismatched workflow states:
 - **Per page**: use the Workflow State Dialog on each document.
 - **In bulk**: Use the space settings to initialize states for all documents with an active workflow.
 
-  ![Space workflow settings showing the option to initialize workflow states.](/cms_trial/assets/7e13cc65-2332-4b4c-90bf-2c51f5b634bc.png)
+  ![Space workflow settings showing the option to initialize workflow states.](/cms_trial/assets/8030c23d-7c0d-416b-b033-64522a4ca555.png)
 
 ### Verify metadata
 
 Metadata is migrated automatically. To display it on a page, add the **Document Metadata Get** macro and specify the metadata name.
 
-![Page showing the Document Metadata Get macro used to display migrated metadata.](/cms_trial/assets/5aeab170-6e4e-42ea-b132-f66c4c8fbc13.png)
+![Page showing the Document Metadata Get macro used to display migrated metadata.](/cms_trial/assets/4834328d-977d-4626-8145-dae516f939ac.png)
 
 The following types are preserved:
 

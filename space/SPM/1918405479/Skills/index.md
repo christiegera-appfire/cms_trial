@@ -6,7 +6,7 @@ By associating skills with your resources, you can effectively match people and 
 
 You can manage and review assigned skills in [the](/cms_trial/space/SPM/1918535629/Resources+module/) [**Resources**](/cms_trial/space/SPM/1918535629/Resources+module/) [module](/cms_trial/space/SPM/1918535629/Resources+module/).
 
-Find out more about skill settings on [the](/cms_trial/space/SPM/1918636059/Skill+management/) [**Skill Management**](/cms_trial/space/SPM/1918636059/Skill+management/) [page](/cms_trial/space/SPM/1918636059/Skill+management/).
+Find out more about skill settings on [the](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918636059) [**Skill Management**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918636059) [page](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918636059).
 
 You can:
 

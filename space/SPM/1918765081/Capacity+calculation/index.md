@@ -32,7 +32,7 @@ If a resource is assigned to a team 100%, their individual capacity is synonymou
 
 ### Individual capacity in portfolio boxes
 
-Individual capacity in [none scope boxes](/cms_trial/space/SPM/1918537743/None+(aggregations+only)/) such as the root (Home) and portfolio boxes presents:
+Individual capacity in [none scope boxes](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918537743) such as the root (Home) and portfolio boxes presents:
 
 - The user’s calendar capacity if the user is not assigned to any team.
 - The user’s calendar capacity if the sum of the user’s team capacities is greater than the user’s calendar capacity.
@@ -206,7 +206,7 @@ If a resource is assigned to a team 100%, their individual capacity is synonymou
 
 ### Individual capacity in portfolio boxes
 
-Individual capacity in [none scope boxes](/cms_trial/space/SPM/1918537743/None+(aggregations+only)/) such as the root (Home) and portfolio boxes presents:
+Individual capacity in [none scope boxes](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918537743) such as the root (Home) and portfolio boxes presents:
 
 - The user’s calendar capacity if the user is not assigned to any team.
 - The user’s calendar capacity if the sum of the user’s team capacities is greater than the user’s calendar capacity.
