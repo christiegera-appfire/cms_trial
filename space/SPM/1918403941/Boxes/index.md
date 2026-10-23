@@ -59,7 +59,7 @@ There are many different box types, but all of them can be categorized as:
 
 In addition, you can create a custom box and configure it to perfectly fit your initiative and project management methodology.
 
-## [Box scope type](/cms_trial/space/SPM/1918766536/Scope+types/)
+## [Box scope type](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766536)
 
 Boxes can be created with different types of scope, and their scope depends on the box type settings. Moreover, each box can have a unique scope of tasks that results from the synchronization of single or multiple Jira projects or manually added Jira and [basic tasks](/cms_trial/space/SPM/1918405930/Basic+tasks+%2F+BigPicture+tasks/).
 
@@ -166,7 +166,7 @@ In addition, you can create a custom box and configure it to fit your initiative
 
 ## Box scope type
 
-Boxes can be created with [different scopes](/cms_trial/space/SPM/1918766536/Scope+types/), and their scope depends on the box type settings. Moreover, each box can have a unique scope of tasks that results from the synchronization of one or more Jira projects, or from manually added Jira and [BigPicture tasks](/cms_trial/space/SPM/1918405930/Basic+tasks+%2F+BigPicture+tasks/).
+Boxes can be created with [different scopes](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766536), and their scope depends on the box type settings. Moreover, each box can have a unique scope of tasks that results from the synchronization of one or more Jira projects, or from manually added Jira and [BigPicture tasks](/cms_trial/space/SPM/1918405930/Basic+tasks+%2F+BigPicture+tasks/).
 
 The scope of the box is defined in the **box configuration** > **Tasks** > [**Work items from Jira**](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/).
 

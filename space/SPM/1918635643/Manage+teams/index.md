@@ -10,7 +10,7 @@ Each created team has a unique team code, which you need to specify when creatin
 
 ### Configuration
 
-Depending on [resources configuration](/cms_trial/space/SPM/1918764262/Resource+management/), a team code is stored as one of the following fields:
+Depending on [resources configuration](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918764262), a team code is stored as one of the following fields:
 
 - Labels type
 - Select list (single choice type)
@@ -74,7 +74,7 @@ Each created team has a unique team code, which you need to specify when creatin
 
 ### Configuration
 
-Depending on [resources configuration](/cms_trial/space/SPM/1918764262/Resource+management/), a team code is stored as one of the following fields:
+Depending on [resources configuration](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918764262), a team code is stored as one of the following fields:
 
 - Labels type
 - Select list (single choice type)

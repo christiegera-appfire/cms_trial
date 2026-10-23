@@ -33,7 +33,7 @@ If your Objectives or sub-objectives have other Objectives as their parent(s), t
 
 ![task-tree-by-okr-structure-builder.png](/cms_trial/assets/742f55f8-f3c4-450a-828a-99322d6fd156.png)
 
-When you activate the **Objectives & Key Results** structure builder, the app will pull the Objectives and Key Results data from the respective fields in the OKR module. See the [OKR fields vs Jira fields page](/cms_trial/space/SPM/1918765790/OKR+fields+vs+BigPicture+fields/) for more information.
+When you activate the **Objectives & Key Results** structure builder, the app will pull the Objectives and Key Results data from the respective fields in the OKR module. See the [OKR fields vs Jira fields page](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918765790) for more information.
 
 ## Limitations
 
@@ -76,7 +76,7 @@ If your Objectives or sub-objectives have other Objectives as their parent(s), t
 
 ![Screenshot of the Objectives and Key Results column view in the Gantt module.](/cms_trial/assets/977ae447-9c4e-4204-986c-b0d9b5c9cca8.png)
 
-When you activate the **Objectives & Key Results** structure builder, the app will pull the Objectives and Key Results data from the respective fields in the OKR module. See the [OKR fields vs Jira fields page](/cms_trial/space/SPM/1918765790/OKR+fields+vs+BigPicture+fields/) for more information.
+When you activate the **Objectives & Key Results** structure builder, the app will pull the Objectives and Key Results data from the respective fields in the OKR module. See the [OKR fields vs Jira fields page](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918765790) for more information.
 
 ## Limitations
 

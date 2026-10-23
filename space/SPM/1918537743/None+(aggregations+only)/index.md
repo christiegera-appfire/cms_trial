@@ -12,7 +12,7 @@ The **Scope definition** tab is hidden (can't be accessed in Box configuration >
 
 ![image-20240213-135243.png](/cms_trial/assets/5440090e-9ad5-492c-9607-fd8a04120b88.png)
 
-Box configuration refers to the settings of a single, individual box. They are dependent on the box type settings. See the [Scope types](/cms_trial/space/SPM/1918766536/Scope+types/) page for more information.
+Box configuration refers to the settings of a single, individual box. They are dependent on the box type settings. See the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766536> page for more information.
 
 [Unmapped block: nestedExpand]
 
@@ -28,6 +28,6 @@ The **Work items from Jira** tab is hidden (can't be accessed in Box configurati
 
 ![image-20240213-135243.png](/cms_trial/assets/5440090e-9ad5-492c-9607-fd8a04120b88.png)
 
-Box configuration refers to the settings of a single, individual box. They are dependent on the box type settings. See the [Scope types](/cms_trial/space/SPM/1918766536/Scope+types/) page for more information.
+Box configuration refers to the settings of a single, individual box. They are dependent on the box type settings. See the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766536> page for more information.
 
 [Unmapped block: nestedExpand]

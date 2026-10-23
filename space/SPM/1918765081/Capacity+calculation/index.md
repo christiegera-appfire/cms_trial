@@ -44,7 +44,7 @@ Workload cell coloring is calculated based on the capacity selected above.
 
 ### Individual capacity in different grouping combinations
 
-The following table presents the capacity calculation for an individual depending on the selected [grouping combination](/cms_trial/space/SPM/1918701793/Swimlanes+and+grouping/) in the Resources module.
+The following table presents the capacity calculation for an individual depending on the selected [grouping combination](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918701793) in the Resources module.
 
 calendar - Capacity calculated based on calendar availability.
 
@@ -218,7 +218,7 @@ Workload cell coloring is calculated based on the capacity selected above.
 
 ### Individual capacity in different grouping combinations
 
-The following table presents the capacity calculation for an individual depending on the selected [grouping combination](/cms_trial/space/SPM/1918701793/Swimlanes+and+grouping/) in the Resources module.
+The following table presents the capacity calculation for an individual depending on the selected [grouping combination](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918701793) in the Resources module.
 
 calendar - Capacity calculated based on calendar availability.
 

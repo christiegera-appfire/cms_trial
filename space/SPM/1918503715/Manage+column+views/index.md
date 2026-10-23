@@ -28,7 +28,7 @@ See more about inheritance mode on the [Inheritance mode](/cms_trial/space/SPM/1
 
 ## Column view creator
 
-To learn more about managing column views, see the [Column view creator](/cms_trial/space/SPM/1918668503/Column+view+creator/) page.
+To learn more about managing column views, see the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918668503> page.
 
 ## Default column views
 

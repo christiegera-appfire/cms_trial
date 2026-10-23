@@ -55,8 +55,8 @@ The following security roles are available in BigPicture:
 | **Role name** | **Description** |
 | --- | --- |
 | App Admin | Owns the entire application configuration and governance. Can access and manage any box. Grants full control over all settings, modules, and boxes, including permissions, structure, and data access. |
-| App Financial Admin | Controls financial planning and management. Provides full access to create, edit, and manage financial data in the boxes they have access to.  The App Financial Viewer and App Financial Admin are [Financials module-specific roles](/cms_trial/space/SPM/1918765525/Financials+module+permissions/). |
-| App Financial Viewer | Provides read-only access to financial data. Allows visibility into budgets and financial metrics without the ability to modify them in the boxes they have access to.  The App Financial Viewer and App Financial Admin are [Financials module-specific roles](/cms_trial/space/SPM/1918765525/Financials+module+permissions/). |
+| App Financial Admin | Controls financial planning and management. Provides full access to create, edit, and manage financial data in the boxes they have access to.  The App Financial Viewer and App Financial Admin are [Financials module-specific roles](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918765525). |
+| App Financial Viewer | Provides read-only access to financial data. Allows visibility into budgets and financial metrics without the ability to modify them in the boxes they have access to.  The App Financial Viewer and App Financial Admin are [Financials module-specific roles](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918765525). |
 | App OKR Admin | Manages strategic objectives and key results. Allows creation, editing, and maintenance of OKRs across the organization. |
 | App OKR User | Can view and edit Objectives and Key Results based on the permission settings of the OKR module. |
 | App Priorities Admin | Manages prioritization frameworks and data. Allows configuration and maintenance of priorities used for planning and decision-making. |

@@ -31,7 +31,7 @@ You need edit permissions to access the setup mode.
 
 ## **Builder**
 
-- The **Builder** tab provides a user-friendly interface to configure simple mathematical operations without writing custom syntax. For more information, refer to **Supported formulas** section on this page.
+- The *Builder* tab provides a user-friendly interface to configure simple mathematical operations without writing custom syntax. For more information, refer to **Supported formulas** section on this page.
 
   - **Operation:** Select the mathematical function from the dropdown, such as Sum, Minus, Multiply, or Divide, to execute across your chosen columns.
   - **Columns to calculate**: The columns dropdown displays only the numeric columns from the table.
@@ -44,7 +44,7 @@ You need edit permissions to access the setup mode.
     - The builder adds another column dropdown selector. Select the required column, for example, *Overhead Cost (USD)*.
 
       ![ATV_Builder_three columns.png](/cms_trial/assets/f52763e9-831e-4306-af2c-27e73a6c9dc2.png)
-  - As you choose the operation and select columns, the builder displays the saved formula and a preview of three table rows with the chosen columns and the new calculated column.
+  - As you choose the operation and select columns, the builder displays the generated formula and a preview of three table rows with the chosen columns and the new calculated column.
   - In the preview, the macro displays the new calculated column with a blue highlight and the prefix *fx.*
   - To add the configured column to the table, click **Save**.
 
@@ -66,11 +66,11 @@ You need edit permissions to access the setup mode.
 
 ## **Formula**
 
-The **Formula** tab lets you write custom formulas using a formula editor. You can write simple or conditional formulas, similar to spreadsheet-like expressions. For more information, refer to the **Supported formulas** section on this page.
+The *Formula* tab lets you write custom formulas using a formula editor. You can write simple or conditional formulas, similar to spreadsheet-like expressions. For more information, refer to the **Supported formulas** section on this page.
 
 ![ATV_Formula tab.png](/cms_trial/assets/e5164fc4-2433-4cc5-8772-23024ff6e6cf.png)
 
-- **Enter formula**: Enter the formula to calculate using values from the table columns. Type '[' and the macro displays the list of column names. You can reference any source column type.
+- **Enter formula**: Enter the formula to calculate using values from the table columns. Type `[` and the macro displays the list of column names. You can reference any source column type.
 
   - Type the formula using operators (such as +, -, \*, /, or conditional functions) and insert columns by typing `[` to select them from the list.
   - The macro displays a preview of three table rows with the chosen columns and the new calculated column.
@@ -119,7 +119,7 @@ The **Calculated columns** section displays the list of created calculated colum
 
 [Unmapped macro: refined-tab — no content to fall back on]
 
-The Builder tab supports simple, single-operation math on numeric columns with no syntax to write. The Formula tab supports full spreadsheet-like expressions — operators, functions, conditionals, and any source column type.
+The *Builder* tab supports simple, single-operation math on numeric columns with no syntax to write. The *Formula* tab supports full spreadsheet-like expressions — operators, functions, conditionals, and any source column type.
 
 ## Operators and functions
 

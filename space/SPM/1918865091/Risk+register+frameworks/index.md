@@ -86,7 +86,7 @@ You can perform the following actions on risk calculation templates:
 
 - [Edit existing risk calculations](/cms_trial/space/SPM/1918865630/Edit+risk+calculation/)
 - [Add new risk calculations](/cms_trial/space/SPM/1918670159/Create+new+risk+calculation/)
-- [Delete existing risk calculations](/cms_trial/space/SPM/1918702869/Delete+risk+calculation/)
+- [Delete existing risk calculations](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918702869)
 
 ## Risk register frameworks (new navigation)
 
@@ -186,4 +186,4 @@ You can perform the following actions on risk calculation templates:
 
 - [Edit existing risk calculations](/cms_trial/space/SPM/1918865630/Edit+risk+calculation/)
 - [Add new risk calculations](/cms_trial/space/SPM/1918670159/Create+new+risk+calculation/)
-- [Delete existing risk calculations](/cms_trial/space/SPM/1918702869/Delete+risk+calculation/)
+- [Delete existing risk calculations](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918702869)

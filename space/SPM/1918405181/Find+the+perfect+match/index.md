@@ -32,7 +32,7 @@ Tasks assigned to both individuals and teams that the individual is not a part o
 
 Inactive users **are NOT** visible in the find perfect match results. They are excluded by default.
 
-You can also find the perfect match by using the [skill widget](/cms_trial/space/SPM/1918701583/Skill+widget/), which you can find on the issue details page just below the **People** section.
+You can also find the perfect match by using the [skill widget](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918701583), which you can find on the issue details page just below the **People** section.
 
 ![Screenshot of the Jira issue page with the BigPicture - Skills section.](/cms_trial/assets/9be49866-0720-4078-b1c5-68b6f85c7655.png)
 
@@ -84,7 +84,7 @@ Tasks assigned to both individuals and teams that the individual is not a part o
 
 Inactive users **are NOT** visible in the find perfect match results. They are excluded by default.
 
-You can also find the perfect match by using the [skill widget](/cms_trial/space/SPM/1918701583/Skill+widget/), which you can find on the issue details page just below the **People** section.
+You can also find the perfect match by using the [skill widget](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918701583), which you can find on the issue details page just below the **People** section.
 
 ![Screenshot of the Jira issue page with the BigPicture - Skills section.](/cms_trial/assets/9be49866-0720-4078-b1c5-68b6f85c7655.png)
 

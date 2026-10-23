@@ -6,7 +6,7 @@ Click to expand the guide
 
 ## Overview
 
-The taskbars on the [Gantt timeline](/cms_trial/space/SPM/1918701893/Timeline+(Gantt+chart)/) (Gantt chart) represent your project work items (for example, epics, Jira issues, and [basic tasks](/cms_trial/space/SPM/1918405930/Basic+tasks+%2F+BigPicture+tasks/)).
+The taskbars on the [Gantt timeline](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918701893) (Gantt chart) represent your project work items (for example, epics, Jira issues, and [basic tasks](/cms_trial/space/SPM/1918405930/Basic+tasks+%2F+BigPicture+tasks/)).
 
 Each taskbar can immediately provide you with the following information:
 
@@ -21,7 +21,7 @@ If the task is scheduled or partially scheduled (it has only a start or end date
 - The end of the taskbar marks the end date.
 - If the start/end date is not defined, the relevant side of the taskbar is faded.
 
-If you cannot see the exact date, [zoom in](/cms_trial/space/SPM/1918701893/Timeline+(Gantt+chart)/) on the timeline or [snipe to its start/end date](/cms_trial/space/SPM/1918701893/Timeline+(Gantt+chart)/).
+If you cannot see the exact date, [zoom in](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918701893/Timeline+Gantt+chart#Zoom-in%2Fout) on the timeline or [snipe to its start/end date](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918701893/Timeline+Gantt+chart#Snipe-to-task-start%2Fend-date).
 
 You can add an additional layer of information to the Gantt timeline by selecting the relevant option from:
 
@@ -96,7 +96,7 @@ The **Show** options add more info on/next to the taskbar.
 - Summary taskbar label
 - Other scope info (adds an indication on the taskbar when a task is in the scope of multiple boxes)
 
-This taskbar indication applies only to boxes of the **Own** [scope type](/cms_trial/space/SPM/1918766536/Scope+types/).
+This taskbar indication applies only to boxes of the **Own** [scope type](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766536).
 
 If a task is in the scope of a sub-box, it belongs to multiple boxes but not multiple Own-scope boxes.
 
@@ -138,7 +138,7 @@ Click to expand the guide
 
 ## Overview
 
-The taskbars on the [Gantt timeline](/cms_trial/space/SPM/1918701893/Timeline+(Gantt+chart)/) (Gantt chart) represent your project work items (for example, epics, Jira work items, and [BigPicture tasks](/cms_trial/space/SPM/1918405930/Basic+tasks+%2F+BigPicture+tasks/)).
+The taskbars on the [Gantt timeline](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918701893) (Gantt chart) represent your project work items (for example, epics, Jira work items, and [BigPicture tasks](/cms_trial/space/SPM/1918405930/Basic+tasks+%2F+BigPicture+tasks/)).
 
 Each taskbar can immediately provide you with the following information:
 
@@ -153,7 +153,7 @@ If the task is scheduled or partially scheduled (it has only a start or end date
 - The end of the taskbar marks the end date.
 - If the start/end date is not defined, the relevant side of the taskbar is faded.
 
-If you cannot see the exact date, [zoom in](/cms_trial/space/SPM/1918701893/Timeline+(Gantt+chart)/) on the timeline or [snipe to its start/end date](/cms_trial/space/SPM/1918701893/Timeline+(Gantt+chart)/).
+If you cannot see the exact date, [zoom in](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918701893/Timeline+Gantt+chart#Zoom-in%2Fout) on the timeline or [snipe to its start/end date](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918701893/Timeline+Gantt+chart#Snipe-to-task-start%2Fend-date).
 
 You can add an additional layer of information to the Gantt timeline by selecting the relevant option from the **View** and **Indicators** menus.
 
@@ -245,7 +245,7 @@ The **Show** options add more info on/next to the taskbar.
 - Summary taskbar label
 - Other scope info (adds an indication on the taskbar when a task is in the scope of multiple boxes)
 
-  - **Note**: This taskbar indication applies only to boxes of the **own** [scope type](/cms_trial/space/SPM/1918766536/Scope+types/). If a task is in the scope of a sub-box, it belongs to multiple boxes but not multiple own-scope boxes.
+  - **Note**: This taskbar indication applies only to boxes of the **own** [scope type](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766536). If a task is in the scope of a sub-box, it belongs to multiple boxes but not multiple own-scope boxes.
 
 - Dates
 - Assignee (adds the assignee avatar/icon)

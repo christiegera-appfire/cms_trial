@@ -8,7 +8,7 @@ Changing a [box type's](/cms_trial/space/SPM/1918830000/Box+types/) settings aff
 
 ### Change of the scope type
 
-When you change the **default** [**scope type**](/cms_trial/space/SPM/1918766536/Scope+types/) of the box type on the [*Scope definition*](/cms_trial/space/SPM/2400714956/Populate+a+box+with+Jira+work+items/) page (**box type configuration** > **Tasks** > **Scope definition**), this change applies only to boxes you create afterward. Existing boxes are not affected.
+When you change the **default** [**scope type**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766536) of the box type on the [*Scope definition*](/cms_trial/space/SPM/2400714956/Populate+a+box+with+Jira+work+items/) page (**box type configuration** > **Tasks** > **Scope definition**), this change applies only to boxes you create afterward. Existing boxes are not affected.
 
 The scope of the current boxes will remain as it was set up during the [box creation process](/cms_trial/space/SPM/1918406376/Create+box/).
 
@@ -111,7 +111,7 @@ Changing a [box type's](/cms_trial/space/SPM/1918830000/Box+types/) settings aff
 
 ### Change of the scope type
 
-When you change the **default** [**scope type**](/cms_trial/space/SPM/1918766536/Scope+types/) of the box type on the [*Work items from Jira*](/cms_trial/space/SPM/2400714956/Populate+a+box+with+Jira+work+items/) page (**box type configuration** > **Tasks** > **Work items from Jira**), this change applies only to boxes you create afterward. Existing boxes are not affected.
+When you change the **default** [**scope type**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766536) of the box type on the [*Work items from Jira*](/cms_trial/space/SPM/2400714956/Populate+a+box+with+Jira+work+items/) page (**box type configuration** > **Tasks** > **Work items from Jira**), this change applies only to boxes you create afterward. Existing boxes are not affected.
 
 The scope of the current boxes will remain as it was set up during the [box creation process](/cms_trial/space/SPM/1918406376/Create+box/).
 

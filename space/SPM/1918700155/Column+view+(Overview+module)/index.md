@@ -180,7 +180,7 @@ The following box information columns are available on the Overview module:
 - [Period mode](/cms_trial/space/SPM/1918834623/Scheduling+mode+field/)
 - Sequentiality
 - Created date
-- [Scope type](/cms_trial/space/SPM/1918766536/Scope+types/)
+- [Scope type](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766536)
 
 ![overview-four-columns.png](/cms_trial/assets/6b22eeaa-3c04-451f-9906-262f50468cd8.png)
 
@@ -385,7 +385,7 @@ The following box information columns are available on the Overview module:
 - [Period mode](/cms_trial/space/SPM/1918834623/Scheduling+mode+field/)
 - Sequentiality
 - Created date
-- [Scope type](/cms_trial/space/SPM/1918766536/Scope+types/)
+- [Scope type](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766536)
 
 The scope type column shows the actual scope type of a box(which is set during box creation and cannot be changed later).
 

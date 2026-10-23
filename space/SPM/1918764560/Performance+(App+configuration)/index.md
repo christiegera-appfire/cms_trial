@@ -2,7 +2,7 @@
 
 On the **Performance** page, you can configure the following:
 
-| - [Sync rules](/cms_trial/space/SPM/1918537987/Sync+rules/) - [Live sync](/cms_trial/space/SPM/1918765626/Live+sync/) |
+| - [Sync rules](/cms_trial/space/SPM/1918537987/Sync+rules/) |
 | --- |
 
 ## Access and security
