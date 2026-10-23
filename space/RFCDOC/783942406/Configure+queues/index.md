@@ -10,7 +10,6 @@ Here are some of the main features of the queues displayed in *Rich Filter Resul
 
 - Queues are displayed as tabs; users can simply switch between them with one click.
 - Each queue has, next to its name, a colored badge with the count of the issues it contains. This informs users about the queues that require attention and action.
-- The queues displayed in the same gadget are independent of the current view, page, and sort order.
 - When you switch from one queue to another, the list of issues displayed is refreshed, as are the issue counts of all the queues in the gadget.
 - Additional options (described below) control the queue's behavior: static and fixed-order.
 
@@ -18,9 +17,9 @@ Here are some of the main features of the queues displayed in *Rich Filter Resul
 
 ## **Queues key attributes**
 
-You can add new and see existing queues and their configuration in the *Queues* section of your rich filter.
+You can add new and see existing queues and their configuration in the *Queues* section of your rich filter under **Lists**.
 
-![Queues tab.png](/cms_trial/assets/44bb7348-748d-4f36-a10b-f584a5b16048.png)
+![image-20261012-094319.png](/cms_trial/assets/05a6ea12-4389-4b05-8c02-799abea630df.png)
 
 The **key attributes** of a queue are:
 
@@ -41,7 +40,7 @@ The *Queues* section of your rich filter lets you perform the following operat
 
 1. Click **Create queue** at the top-right of the page.
 
-   ![create queues.png](/cms_trial/assets/c53f1c45-5bee-41cb-9a3c-ad4ff47f68b6.png)
+   ![image-20261012-094239.png](/cms_trial/assets/5c8ecd0f-1b29-49f7-9d40-724a924d056d.png)
 2. Type a **Name** and a **JQL** query, select a color and the views, and optionally check the queue behavior options, then click **Create**.
 
    ![contentId-783942406](/cms_trial/assets/012339d9-9b0b-47e1-b6a6-e0a76320f747.png)

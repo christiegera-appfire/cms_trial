@@ -46,9 +46,9 @@ Queues are not a concept particular to rich filters — [Jira Service Management
 Let's create two initial queues — one to display top-priority work items and one to provide a view of all issues.
 
 1. Open your rich filter config (described in [Easier configuration with the](/cms_trial/space/RFCDOC/783942532/Customize+issue+views+and+gadget+scope/) [*Rich filter*](/cms_trial/space/RFCDOC/783942532/Customize+issue+views+and+gadget+scope/) [menu](/cms_trial/space/RFCDOC/783942532/Customize+issue+views+and+gadget+scope/)).
-2. Select the *Queues* tab, and click **Create queue**.
+2. Select the **Lists** > **Queues** tab, and click **Create queue**.
 
-   ![Create queue.png](/cms_trial/assets/c6a19b08-efa4-416c-8fef-e9a50402a37c.png)
+   ![image-20261023-142338.png](/cms_trial/assets/5fb9b7ca-d4e0-445a-a518-ed64b4c15b81.png)
 3. Enter the following details in the resulting dialog box and click **Create**.
 
    - **Color**: Red
@@ -70,9 +70,9 @@ Let's create two initial queues — one to display top-priority work items and o
 If you go back to your dashboard and [refresh it](/cms_trial/space/RFCDOC/783942462/Get+started+with+Rich+Filters+for+Jira+Dashboards+for+Cloud/), you should see no difference—by default, Rich Filter Results gadgets display all issues along with any defined views. Let's change the Rich Filter Results gadget to show our queues.
 
 1. Open the configuration form of your **Rich Filter Results** gadget (as described in the [Easier configuration with the](/cms_trial/space/RFCDOC/783942532/Customize+issue+views+and+gadget+scope/) [*Rich filter*](/cms_trial/space/RFCDOC/783942532/Customize+issue+views+and+gadget+scope/) [menu](/cms_trial/space/RFCDOC/783942532/Customize+issue+views+and+gadget+scope/)).
-2. Click the **Queues** radio button in the **Display** section to make the gadget display queues; the *Queues* section is now displayed in the config form instead of the *Views* section. Leave the default **Show all queues** option selected, as shown below. 
+2. Under **Display**, click **Configured lists** to make the gadget display lists; the *Configured lists* section is now displayed in the config form instead of the *Views* section. Leave the default **Show all** option selected, as shown below.
 
-   ![Rich Filter Results gadget config form Display section, showing the Queues and Display all queues radio buttons selected](/cms_trial/assets/c67c29a4-88f7-441a-b072-72aa8cc5f5a4.png)
+   ![image-20261023-145858.png](/cms_trial/assets/543f8814-71b9-45c7-b2ce-451d3bae5a49.png)
 3. Click **Submit** to save your config. Your Rich Filter Results gadget will now display your queues. Note how, in our Top priority queue, only a subset of the data is being shown — the total issues number is smaller as we only look at our filtered top-priority items.
 
    ![Queues Display.png](/cms_trial/assets/bf45c92b-717c-488f-a3cb-d8832ec10ff1.png)
@@ -124,8 +124,8 @@ There are a couple of queue config options we have not yet covered and are impor
 
 The options are as follows:
 
-- **Static queue**: This setting causes the queue always to display the same issues — the quick filters in controller gadgets do not filter the list. This is useful when you've got a queue that shows a very important set of issues, and you don't want to filter out any of them when quick filters in the controller are applied.
-- **Fixed-order queue**: This setting causes the queue always to display its list of issues in a set order (you can't alter the order by clicking on the column headings). This is useful when the order in which you view or action a set of issues is important and should not be altered.
+- **Static queue**: This setting causes the queue to always display the same issues — the quick filters in controller gadgets do not filter the list. This is useful when you've got a queue that shows a very important set of issues, and you don't want to filter out any of them when quick filters in the controller are applied.
+- **Fixed-order queue**: This setting causes the queue to always display its list of issues in a set order (you can't alter the order by clicking on the column headings). This is useful when the order in which you view or action a set of issues is important and should not be altered.
 
 Let's add these options to a couple of appropriate queues
 

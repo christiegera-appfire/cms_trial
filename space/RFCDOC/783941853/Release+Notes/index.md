@@ -4,6 +4,7 @@
 
 | **Title** | **Highlights** | **Release date** |
 | --- | --- | --- |
+| [Release notes October 23rd 2026](/cms_trial/space/RFCDOC/3532655663/Release+notes+October+23rd+2026/) | - Rich Filters now supports issue hierarchies | October 23, 2026 |
 | [Release notes October 19th 2026](/cms_trial/space/RFCDOC/2975072309/Release+notes+October+19th+2026/) | - Support for Jira formula field type | October 19, 2026 |
 | [Release notes August 10th 2026](/cms_trial/space/RFCDOC/3520364546/Release+notes+August+10th+2026/) | - Support for Forge custom number field type | August 10, 2026 |
 | [Release notes July 30th 2026](/cms_trial/space/RFCDOC/3498803215/Release+notes+July+30th+2026/) | - Search Rich Filters by administrator | July 30, 2026 |

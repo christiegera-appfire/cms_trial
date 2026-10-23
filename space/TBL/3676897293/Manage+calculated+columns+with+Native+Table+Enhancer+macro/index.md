@@ -31,7 +31,7 @@ You need edit permissions to access the setup mode.
 
 ## **Builder**
 
-- The **Builder** tab provides a user-friendly interface to configure simple mathematical operations without writing custom syntax. For more information, refer to **Supported formulas** section on this page.
+- The *Builder* tab provides a user-friendly interface to configure simple mathematical operations without writing custom syntax. For more information, refer to **Supported formulas** section on this page.
 
   - **Operation:** Select the mathematical function from the dropdown, such as Sum, Minus, Multiply, or Divide, to execute across your chosen columns.
   - **Columns to calculate**: The columns dropdown displays only the numeric columns from the table.
@@ -50,7 +50,7 @@ You need edit permissions to access the setup mode.
 
     ![Native Table Enhancer_Builder_Sum.png](/cms_trial/assets/5aade846-2f5a-4efb-91eb-46b76cd57d90.png)
 
-- Click the delete (▢ )icon next to a column name to remove it from the calculation.
+- Click the **Delete** (▢ )icon next to a column name to remove it from the calculation.
 - To include additional columns in the operation, click **Add column**. If all columns have been selected for the operation, then you cannot add more columns and the **Add column** button is disabled.
 
   ![ATV_No numeric column left.png](/cms_trial/assets/05ac040d-fece-4c49-88ac-5cfa305696f9.png)
@@ -66,11 +66,11 @@ You need edit permissions to access the setup mode.
 
 ## **Formula**
 
-The **Formula** tab lets you write custom formulas using a formula editor. You can write simple or conditional formulas, similar to spreadsheet-like expressions. For more information, refer to the **Supported formulas** section on this page.
+The *Formula* tab lets you write custom formulas using a formula editor. You can write simple or conditional formulas, similar to spreadsheet-like expressions. For more information, refer to the **Supported formulas** section on this page.
 
 ![Native Table_Add calculated column_Formula.png](/cms_trial/assets/8e1acee7-cad9-4c18-b85c-40ee319a73cc.png)
 
-- **Enter formula**: Enter the formula to calculate using values from the table columns. Type '[' and the macro displays the list of column names. You can reference any source column type.
+- **Enter formula**: Enter the formula to calculate using values from the table columns. Type `[` and the macro displays the list of column names. You can reference any source column type.
 
   - Type the formula using operators (such as +, -, \*, /, or conditional functions) and insert columns by typing `[` to select them from the list.
   - The macro displays a preview of three table rows with the chosen columns and the new calculated column.
@@ -119,7 +119,7 @@ The **Calculated columns** section displays the list of created calculated colum
 
 [Unmapped macro: refined-tab — no content to fall back on]
 
-The Builder tab supports simple, single-operation math on numeric columns with no syntax to write. The Formula tab supports full spreadsheet-like expressions — operators, functions, conditionals, and any source column type.
+The *Builder* tab supports simple, single-operation math on numeric columns with no syntax to write. The Formula tab supports full spreadsheet-like expressions — operators, functions, conditionals, and any source column type.
 
 ## Operators and functions
 

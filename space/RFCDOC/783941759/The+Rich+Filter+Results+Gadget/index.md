@@ -6,8 +6,8 @@ The *Rich Filter Results* gadget displays one or multiple lists of issues. It�
 
 - the content displayed can be further filtered by using *Rich Filter Controller* gadgets;
 - the gadget itself can further refine the results by applying a gadget-specific JQL query called a *working query*;
-- the gadget can display multiple [views](/cms_trial/space/RFCDOC/783941729/Configure+views/) defined in the rich filter (which can include computed columns and color coding);
-- the gadget can display all the issues (the default behavior) or one or multiple [queues](/cms_trial/space/RFCDOC/783942406/Configure+queues/); queues are custom lists of issues configured in the rich filter;
+- the gadget can display one or several [views](/cms_trial/space/RFCDOC/783941729/Configure+views/) defined in the rich filter (which can include computed columns and color coding);
+- the gadget can display all the issues (the default behavior) or one or several specialized lists of issues (such as [queues](/cms_trial/space/RFCDOC/783942406/Configure+queues/) and [hierarchies](/cms_trial/space/RFCDOC/3122593825/Configure+hierarchies/)); these lists are configured in the rich filter;
 - the gadget allows the users to edit the issues directly from the dashboard using the issue dialog;
 - the gadget gives easy access to Jira's bulk operations on the displayed issues;
 - end-users can customize the layout of each view;
@@ -17,19 +17,23 @@ The *Rich Filter Results* gadget displays one or multiple lists of issues. It�
 
 ![Results view dashboard](/cms_trial/assets/60741b99-814f-48d7-9fe5-d90d2124a6c1.png)
 
-**Example 2**: gadget configured to display three support [queues](/cms_trial/space/RFCDOC/783942406/Configure+queues/):
+**Example 2**: gadget configured to display three [queues](/cms_trial/space/RFCDOC/783942406/Configure+queues/):
 
 ![queues dashboard](/cms_trial/assets/f05cad53-7770-4448-981d-9a25ef5b1c95.png)
 
 **Example 3**: the selected view displays a Gantt chart:
 
-![2026-04-09_15-34-48.png](/cms_trial/assets/9414177e-140d-4c24-aa6c-2c74c8ec1654.png)
+![Gantt chart](/cms_trial/assets/e55b5b43-d9bf-4040-89c3-db6e86f1ff93.png)
+
+**Example 4:** gadget configured to display two hierarchies:
+
+![image-20261023-113922.png](/cms_trial/assets/d4675852-26d6-4c1c-8d1b-a778350806f4.png)
 
 ## Configure the Rich Filter Results gadget
 
 [Add](https://support.atlassian.com/jira-core-cloud/docs/add-and-customize-a-gadget/) a new or edit an existing *Rich Filter Results* gadget in your [Jira dashboard](https://support.atlassian.com/jira-core-cloud/docs/what-is-a-jira-dashboard/). The configuration form of the gadget will be displayed:
 
-![contentId-783941759](/cms_trial/assets/8950adcc-dfac-4f7e-9165-10442c264435.png)
+![image-20261013-113534.png](/cms_trial/assets/41acd721-c70a-43d6-a219-90380793ced6.png)
 
 ### **Rich Filter**
 
@@ -52,43 +56,43 @@ Note that the gadget can also display queues of issues (see below). In such a ca
 There are two display options possible:
 
 - **All issues**: The gadget displays the list of issues returned by the rich filter and any additional filtering at the dashboard level. With the "Views" setting (see below), you can then select the views that are used to display the issues.
-- **Queues**:The gadget will display the [queues](/cms_trial/space/RFCDOC/783942406/Configure+queues/) selected in the **Queues** setting (see below). Each queue will use the views configured in the rich filter.
+- **Configured lists**: The gadget displays specialized issue lists defined in the rich filter (such as [queues](/cms_trial/space/RFCDOC/783942406/Configure+queues/) and [hierarchies](/cms_trial/space/RFCDOC/3122593825/Configure+hierarchies/)). Each list can display its own set of views.
 
 ### **Views**
 
-The **View** option is available when you select **All issues** for the **Display**.
+The **Views** setting is available when you select **All issues** for the **Display**.
 
-You can select the views (among the views defined in the Rich Filter) displayed by the gadget. By default, all views are displayed (the option **Show all views** is selected).
+You can select the views you want to be displayed. By default, all the views are displayed (the option **Show all views** is selected).
 
-Select the **Customize views** option to display only selected views. You can add, remove, or reorder the views to be displayed.
+Select the **Customize shown views** option to display only selected views. You can add, remove, or reorder the views to be displayed.
 
 ![2026-06-24_08-48-40.png](/cms_trial/assets/9d012a49-7420-49ad-a2a4-e5bef4bb99e9.png)
 
-### **Queues**
+### **Configured lists**
 
-The **Queues** option is available when you select **Queues** for the **Display**.
+The **Configured lists** setting is available when you select **Configured lists** for the **Display**.
 
-You can select to:
+You can choose between:
 
-- **Show all queues**:to displayall the queues defined in the selected rich filter.
-- **Customize queues:** to display only selected queues.   
-  You can add, remove, or reorder the queues you want to be displayed.
+- **Show all**:to displayall the queues and hierarchies defined in the rich filter.
+- **Customize shown lists**:to display only selected queues and hierarchies.   
+  You can add, remove, or reorder the queues and hierarchies you want to be displayed.
 
-The queues displayed in the same gadget are independent of the current view, page, and sort order.
+The queues and hierarchies displayed in the same gadget are independent with regard to the current view, page, hierarchy exploration state, and sort order.
 
-![Customize queues](/cms_trial/assets/c207887a-e258-430e-94c0-1c8993507dea.png)
+![Configured lists for the Display](/cms_trial/assets/a2858c5f-497e-41c6-80d5-e0662b15c7fc.png)
 
-### **Maximum rows**
+### **Maximum issues**
 
-The **Maximum** **rows** option lets you set the number of issues the gadget displays per page. The default number of issues is 10. You can change it, but it cannot exceed 50.
+The **Maximum issues** setting lets you set the number of issues the gadget displays at a time (per page for flat lists, and per node expansion or *Load more…* for hierarchies). The default number of issues is 10. You can change it, but it cannot exceed 50.
 
-You can view the maximum number of issues by clicking the range pill toggle at the bottom of the gadget.
+You can temporarily switch to 50 issues per page by clicking the range pill at the bottom of the gadget.
 
 ![recult issue count.png](/cms_trial/assets/aaf8a0de-2009-49af-868e-83ce703bfb62.png)
 
 ## Customize view layout
 
-The end users can customize the layout of each view in two ways:
+Users can customize the layout of each view in two ways:
 
 - Adjusting the width of any column,
 - Choosing how the rows are displayed – two options are available:
@@ -100,8 +104,8 @@ To adjust the width of a column, simply drag the edge of the column header to re
 
 The settings dropdown situated in the top-right corner of the issues table lets you customize the layout of the current view further:
 
-- **One-line rows***:* enable you to toggle between rows of variable height (one or multiple lines per row) and rows of the same height (one line per row)
-- **Striped rows**: enable you to toggle between rows in one color and rows in stripes
+- **One-line rows***:* enables you to toggle between rows of variable height (one or multiple lines per row) and rows of the same height (one line per row)
+- **Striped rows**: enables you to toggle between rows in one color and rows in stripes
 - **Reset column**: If the width of at least one column has been customized, the option removes the customizations and reverts to the default column width
 
 The customizations are remembered at the browser level and do not impact other users of the same dashboard.
@@ -143,7 +147,7 @@ Below are the main things to know when using Gantt charts:
 - You can quickly scroll the chart by dragging the background or using the top and bottom scroll bars.
 - When the bar of issues is present in the chart but not currently visible, an arrow at the left edge allows you to scroll the chart to see that bar automatically.
 
-![2026-04-09_15-34-48.png](/cms_trial/assets/9414177e-140d-4c24-aa6c-2c74c8ec1654.png)
+![Gantt chart](/cms_trial/assets/e55b5b43-d9bf-4040-89c3-db6e86f1ff93.png)
 
 The settings icon (▢) situated in the top-right of the issues table gives access to the following Gantt-specific features:
 
@@ -151,4 +155,31 @@ The settings icon (▢) situated in the top-right of the issues table gives acce
 - Hold the pointer over the **GANTT** lozenge to see which date fields the Gantt is based on.
 - You can change the chart zoom level. The available options are **D**, **W**, **M**, and **Q**, which represent days, weeks, months, and quarters, respectively.
 
-![gant options.png](/cms_trial/assets/b054baaf-8007-423f-91df-ab6d4a88ce0a.png)
+![image-20261023-123011.png](/cms_trial/assets/7ee66d2c-c366-4dda-9023-cd5f589dca28.png)
+
+## Use hierarchies in Rich Filter gadgets
+
+Once you've configured a hierarchy in the rich filter configuration, you can display it in a Rich Filter Results gadget by selecting the **Configured lists** option in the **Display** section. For details, see [Configure hierarchies](/cms_trial/space/RFCDOC/3122593825/Configure+hierarchies/).
+
+Hierarchies display issues in a collapsible tree structure that preserves the parent-child relationships across multiple levels:
+
+- The issues in the hierarchy scope appear in a collapsible tree, with each issue placed under its parent. Issues without a parent in the hierarchy scope are grouped under a node named after the level. For example, a story without a parent appears under the *Story* node.
+- You can expand/collapse each node by clicking the corresponding caret. The **Maximum issues** setting in the gadget configuration determines how many issues are loaded at a time. You can load more issues by clicking **Load more…**.
+- Each node displays child counts. These counts correspond to children in the hierarchy scope, regardless of whether they are currently loaded and displayed in the gadget – see details below.
+- Hierarchies respond to the quick filters applied in the controller, but don't show only the matching issues; they also show all issues related to matching issues (ancestors, siblings, etc.), to preserve the hierarchy structure and context. The matching issues are highlighted with a blue vertical line on the left of the row and are placed before non-matching issues.
+- Issues under the same node are ordered using the following precedence:
+
+  - **Hierarchy level:** Higher-level issues appear before lower-level issues. For example, stories appear above subtasks when both exist under an epic.
+  - **Quick-filter matching:** Issues that match the active quick filters appear before issues that do not match.
+  - **Configured sorting:** The selected sorting criteria are applied separately within each node and within each of the groups above (hierarchy level groups, matching and non-matching groups). This ensures the most relevant issues appear first.
+
+#### Understand child counts
+
+When quick filters are active, a node can show two child counts:
+
+- The first count is the number of children matching the active quick filters.
+- The second count is the total number of children available in the hierarchy.
+
+For example, `5/15` means that 5 of 15 available children match. When all available children match, the node displays a single count, such as `15`.
+
+![Understand child counts](/cms_trial/assets/a5998864-850d-41d1-a849-b3fdd5716422.png)

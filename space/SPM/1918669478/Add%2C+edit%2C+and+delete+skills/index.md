@@ -1,6 +1,6 @@
 # Add, edit, and delete skills
 
-To add, edit, and delete skills, go to the **Administration** > **Resources** > **Skills** page. To learn more about skill attributes, go to the [Skill management](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918636059) page.
+To add, edit, and delete skills, go to the **Administration** > **Resources** > **Skills** page. To learn more about skill attributes, go to the [Skill management](/cms_trial/space/SPM/1918636059/Skill+management/) page.
 
 ## Add new skills
 

@@ -9,7 +9,7 @@ The *Resources* tab of BigPicture *Administration* contains four tabs:
 - [Individuals](/cms_trial/space/SPM/1918700744/Individuals/) - view and manage resources; assign absences, workload plans, holiday plans, and skills
 - [Workload plans](/cms_trial/space/SPM/1918506352/Workload+plans/) - manage workload plans
 - [Holiday plans](/cms_trial/space/SPM/1918505164/Holiday+plans/) - manage holiday plans
-- [Skill management](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918636059) - manage skills
+- [Skill management](/cms_trial/space/SPM/1918636059/Skill+management/) - manage skills
 
 ## Who can access the Resources section?
 

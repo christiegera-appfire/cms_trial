@@ -4,7 +4,7 @@ The Advanced Table Viewer macro enables you to perform simple and conditional co
 
 ## Group calculation overview
 
-Group calculation supports the following calculation types: Sum, Average, Minimum, Maximum, Count, and Distinct. For each group, the macro calculates a summarized value from its nested groups and displays it in each grouped row.
+Group calculation supports the following calculation types: Sum, Average, Minimum, Maximum, Count, and Distinct. For Sum and Count**,** the macro also provides conditional calculations. For each group, the macro calculates a summarized value from the rows in that group and displays it in each grouped row.
 
 **Prerequisite**: To apply a group calculation, first group the required columns. Refer to [Group columns with Advanced Table Viewer macro](/cms_trial/space/TBL/3211755580/Group+columns+with+Advanced+Table+Viewer+macro/).
 
@@ -104,10 +104,6 @@ Follow the steps below for Example 1:
 
    ![ATV_SUMIF_Group calculation_View mode.png](/cms_trial/assets/9c098bc7-b3fd-4dbf-809d-65a13aafa778.png)
 
-#### Apply conditional group calculation to string column type
-
-For the **String** and **Date** column types, the *Edit* *column calculation* dialog displays *None*, *Count*, and *Distinct*.
-
 **Example 2** - Under each product category, count products with reorder level less than or equal to 10.
 
 Follow the steps below for Example 2:
@@ -140,6 +136,6 @@ Follow the steps below for Example 2:
     2. Select **None**, and click **Save**.
 
        ![ATV_Select None to disable column group calculation.png](/cms_trial/assets/fa219b52-a813-423a-aea9-10411b62d295.png)
-- To disable group calculation for all columns in the table, edit the macro, click **Disable grouping** (▢ ), and save the changes.
+- When you click **Disable grouping** (▢ ), the macro hides the grouped view and saves the group calculation set for each column. When you enable grouping again and group columns, the macro displays the saved group calculations.
 
   ![ATV_Disable Grouping.png](/cms_trial/assets/38d1c2b1-ff2b-4250-8e9e-7c494948fa6e.png)

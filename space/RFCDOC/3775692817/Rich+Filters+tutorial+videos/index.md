@@ -1,6 +1,6 @@
 # Rich Filters tutorial videos
 
-Appfire Rich Filters for Jira dashboards tutorials <https://youtube.com/playlist?list=PLAYHIf4VOyNo&si=dYB5Ot--VNJzrFdZ>
+Appfire Rich Filters for Jira dashboards tutorials.
 
 ## Rich Filter search
 
