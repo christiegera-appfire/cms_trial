@@ -94,11 +94,11 @@ With this extended timeframe displayed on the resources grid, you can analyze an
 When you set your timeline to a year, you can perform the same actions as with shorter periods, including:
 
 - use the [Scenario mode](https://appfire.atlassian.net/wiki/spaces/DLPDRAFT/pages/297601099),
-- switch between the Individuals, Teams, projects, and Skills [swimlanes](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918701793) and group them,
+- switch between the Individuals, Teams, projects, and Skills [swimlanes](/cms_trial/space/SPM/1918701793/Swimlanes+and+grouping/) and group them,
 - [export](https://appfire.atlassian.net/wiki/spaces/BTc/pages/3536093283) your yearly view to PDF,
 - send a link to your yearly view using the [share view](/cms_trial/space/SPM/1918504353/Share+view/) option.
 
-The **Year** time period is available for all [box scope types](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766536): none-scope, own-scope, and sub-scope boxes.
+The **Year** time period is available for all [box scope types](/cms_trial/space/SPM/1918766536/Scope+types/): none-scope, own-scope, and sub-scope boxes.
 
 ### Yearly timeline aggregation limitations
 
@@ -223,11 +223,11 @@ With this extended timeframe displayed on the resources grid, you can analyze an
 When you set your timeline to a year, you can perform the same actions as with shorter periods, including:
 
 - use the [Scenario mode](https://appfire.atlassian.net/wiki/spaces/DLPDRAFT/pages/297601099),
-- switch between the Individuals, Teams, projects, and Skills [swimlanes](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918701793) and group them,
+- switch between the Individuals, Teams, projects, and Skills [swimlanes](/cms_trial/space/SPM/1918701793/Swimlanes+and+grouping/) and group them,
 - [export](https://appfire.atlassian.net/wiki/spaces/BTc/pages/3536093283) your yearly view to PDF,
 - send a link to your yearly view using the [share view](/cms_trial/space/SPM/1918504353/Share+view/) option.
 
-The **Year** time period is available for all [box scope types](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766536): none-scope, own-scope, and sub-scope boxes.
+The **Year** time period is available for all [box scope types](/cms_trial/space/SPM/1918766536/Scope+types/): none-scope, own-scope, and sub-scope boxes.
 
 ### Yearly timeline aggregation limitations
 

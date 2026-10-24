@@ -9,7 +9,7 @@ Timeboxes define consecutive timeframes used for work planning. In BigPicture, t
 There are two types of timeboxes:
 
 - Automatic (timeboxes synchronized with Jira sprints)
-- Manual (timeboxes added manually. The timeboxes you can add depend on the [box type settings](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766536))
+- Manual (timeboxes added manually. The timeboxes you can add depend on the [box type settings](/cms_trial/space/SPM/1918766536/Scope+types/))
 
 App admins can configure timebox schedules to define a reusable timebox hierarchy (e.g., Year → Quarter → PI → Iteration) and apply it across multiple boxes. See more on the [Timebox schedules](/cms_trial/space/SPM/1989214530/Timebox+schedules/) page.
 
@@ -132,7 +132,7 @@ Timeboxes define consecutive timeframes used for work planning. In BigPicture, t
 There are two types of timeboxes:
 
 - Automatic (timeboxes synchronized with Jira sprints)
-- Manual (timeboxes added manually. The timeboxes you can add depend on the [box type settings](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766536))
+- Manual (timeboxes added manually. The timeboxes you can add depend on the [box type settings](/cms_trial/space/SPM/1918766536/Scope+types/))
 
 App admins can configure timebox schedules to define a reusable timebox hierarchy (e.g., Year → Quarter → PI → Iteration) and apply it across multiple boxes. See more on the [Timebox schedules](/cms_trial/space/SPM/1989214530/Timebox+schedules/) page.
 

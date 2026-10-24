@@ -55,7 +55,7 @@ The table below describes the Board's main features:
 | Back to backlog | Right-click on a task and select **Back to backlog** to move a task to the backlog. back-to-backlog.png |
 | Create a task-based objective | You can create a task-based objective directly in the Board module. Right-click on a task (Jira issue/basic task) and select **Create objective based on this task**. create-objectives.png A new objective is immediately visible in the [Objectives module](/cms_trial/space/SPM/1918535323/Goals+module/). objectives-modules.png |
 | [Aggregate: Totals](/cms_trial/space/SPM/1918666880/Aggregations/) | Totals will help you plan and monitor the execution of your timeboxes (like PIs and Sprints). You can also use past data to analyze your teams' performance in depth. |
-| [Live sync](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918765626) | Jira admins can enable the Live sync feature. When enabled, any change to the tasks and the scope of the box will be updated. |
+| [Live sync](/cms_trial/space/SPM/1918765626/Live+sync/) | Jira admins can enable the Live sync feature. When enabled, any change to the tasks and the scope of the box will be updated. |
 | [Undo](/cms_trial/space/SPM/1918636457/Undo+operation+on+task/) | Undo the last action.  **Important:** Only a single action can be undone.  The Undo button is grayed out by default. It becomes available when the user performs an operation that can be undone. Performing an undo operation OR reloading the page makes the Undo button grayed out again. undo-button.png |
 | [Task multiselect](/cms_trial/space/SPM/1918767649/Multiselect+(Board+module)/) | You can streamline your work by selecting and moving multiple tasks. |
 
@@ -124,7 +124,7 @@ The table below describes the Board's main features:
 | [Infobar](/cms_trial/space/SPM/1918633681/Infobar+(Board)/) | The **Infobar** in the Board module provides information on crucial box content aspects, including:   - Backlog - Dependencies - Warnings - [Reports](/cms_trial/space/SPM/2481848664/Contextual+reports/)  Screenshot of the Infobar panel in the Board module. |
 | Back to backlog | Right-click a task and select **Back to backlog** to move it to the backlog. back-to-backlog.png |
 | Create a task-based objective | You can create a task-based objective directly in the Board module. Right-click on a task (Jira work item/BigPicture task) and select **Create objective based on this task**. create-objectives.png A new objective is immediately visible in the [Objectives module](/cms_trial/space/SPM/1918535323/Goals+module/). objectives-modules.png |
-| [Live sync](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918765626) | Jira admins can enable the Live sync feature. When enabled, any change to the tasks and the scope of the box will be updated. |
+| [Live sync](/cms_trial/space/SPM/1918765626/Live+sync/) | Jira admins can enable the Live sync feature. When enabled, any change to the tasks and the scope of the box will be updated. |
 | [Undo](/cms_trial/space/SPM/1918636457/Undo+operation+on+task/) | Undo the last action.  **Important:** Only a single action can be undone.  The Undo button is grayed out by default. It becomes available when the user performs an operation that can be undone. Performing an undo operation OR reloading the page makes the Undo button grayed out again. |
 | [Task multiselect](/cms_trial/space/SPM/1918767649/Multiselect+(Board+module)/) | You can streamline your work by selecting and moving multiple tasks. |
 

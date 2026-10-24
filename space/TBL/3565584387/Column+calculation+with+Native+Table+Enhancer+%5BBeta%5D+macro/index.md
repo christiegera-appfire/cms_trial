@@ -78,7 +78,7 @@ For **Sum** and **Count** calculation types, you can **add a condition** to summ
   - To add a condition to the **Annual Maintenance** column calculation, enable the **Add condition** toggle.
 
     ![Native Table Enhancer_Enable Add condition](/cms_trial/assets/6ffc3a49-1923-4750-8bcc-38e4d4ceb957.png)
-  - When the Sum-up type is set to Sum, the **Add condition** lets you sum only the values of rows that match a specific condition.
+  - When the Sum-up type is set to **Sum**, the **Add condition** lets you sum only the values of rows that match a specific condition.
 
     - The first dropdown selector lists the table column names.
     - The second dropdown selector lists the conditions available for the column type selected in the first dropdown.
@@ -98,7 +98,7 @@ For **Sum** and **Count** calculation types, you can **add a condition** to summ
 
 For the **String** and **Date** column types, the *Edit* *column calculation* dialog displays *None*, *Count*, and *Distinct*.
 
-**Example 2**- **Count items with low stock**:In the **Stock Status** column, use **Count** with a condition on the ***Stock Qty*** *column* where the value***is less than or equal to 5***. The summarized row shows how many items are low on stock.
+**Example 2 -** **Count items with low stock**:In the **Stock Status** column, use **Count** with a condition on the ***Stock Qty*** *column* where the value***is less than or equal to 5***. The summarized row shows how many items are low on stock.
 
 - For the **Stock** **Status** column, navigate to **Edit column** > **Edit column calculation**.
 

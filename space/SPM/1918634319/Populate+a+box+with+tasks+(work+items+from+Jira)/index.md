@@ -59,7 +59,7 @@ In **Work items from Jira**, you can specify what range of tasks is included in 
 
 Less frequently used settings have been hidden under **Advanced configuration**.
 
-There are three different scope types (those settings are [adjusted for a box type](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766536)):
+There are three different scope types (those settings are [adjusted for a box type](/cms_trial/space/SPM/1918766536/Scope+types/)):
 
 - [Own-scope](/cms_trial/space/SPM/1918765868/Own-scope/)
 - [Sub-scope](/cms_trial/space/SPM/1918799715/Sub-scope/)

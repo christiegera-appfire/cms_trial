@@ -23,7 +23,7 @@ The work items arrange into columns, forming a [column view](/cms_trial/space/SP
 
 ### Gantt chart (Gantt timeline)
 
-A [Gantt chart](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918701893) visualizes the work items (tasks, milestones, epics, etc.) listed on the task structure side as [taskbars](/cms_trial/space/SPM/1918637856/Taskbar/). These taskbars are put on the timeline based on their start and/or end dates. Taskbars are interactive, that is, they can be:
+A [Gantt chart](/cms_trial/space/SPM/1918701893/Timeline+(Gantt+chart)/) visualizes the work items (tasks, milestones, epics, etc.) listed on the task structure side as [taskbars](/cms_trial/space/SPM/1918637856/Taskbar/). These taskbars are put on the timeline based on their start and/or end dates. Taskbars are interactive, that is, they can be:
 
 - Moved (actions will reschedule the item)
 - Stretched (action will change the item’s period)
@@ -97,7 +97,7 @@ The **View** options control the settings dedicated to the task structure and Ga
   - Expand all (expands the entire task structure)
   - Collapse all (collapses the entire task structure)
 
-Alternatively, click **More actions** (**…**) on the **Summary** column (or the column set as the tree root in the [column view configuration](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918668503)) and mouse over the **Expand / collapse all** option.
+Alternatively, click **More actions** (**…**) on the **Summary** column (or the column set as the tree root in the [column view configuration](/cms_trial/space/SPM/1918668503/Column+view+creator/)) and mouse over the **Expand / collapse all** option.
 
 ![Expand collapse all view option in the gantt module.](/cms_trial/assets/53116f4c-22eb-4b30-9a28-2beb96cc49d9.png)
 
@@ -233,7 +233,7 @@ The work items are arranged into columns, forming a [column view](/cms_trial/spa
 
 ### Gantt chart (Gantt timeline)
 
-A [Gantt chart](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918701893) visualizes the work items (tasks, milestones, epics, etc.) listed on the task structure side as [taskbars](/cms_trial/space/SPM/1918637856/Taskbar/). These taskbars are put on the timeline based on their start and/or end dates. Taskbars are interactive, that is, they can be:
+A [Gantt chart](/cms_trial/space/SPM/1918701893/Timeline+(Gantt+chart)/) visualizes the work items (tasks, milestones, epics, etc.) listed on the task structure side as [taskbars](/cms_trial/space/SPM/1918637856/Taskbar/). These taskbars are put on the timeline based on their start and/or end dates. Taskbars are interactive, that is, they can be:
 
 - Moved (actions will reschedule the item)
 - Stretched (action will change the item’s period)
@@ -294,7 +294,7 @@ Under the View menu, you’ll find the following features:
   - Expand all (expands the entire task structure)
   - Collapse all (collapses the entire task structure)
 
-Alternatively, click **More actions** (**…**) on the **Summary** column (or the column set as the tree root in the [column view configuration](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918668503)) and mouse over the **Expand / collapse levels** option.
+Alternatively, click **More actions** (**…**) on the **Summary** column (or the column set as the tree root in the [column view configuration](/cms_trial/space/SPM/1918668503/Column+view+creator/)) and mouse over the **Expand / collapse levels** option.
 
 - Task structure - redirects to the [Task structure](/cms_trial/space/SPM/1918667217/Manage+task+structure/) page in the box configuration
 - [Group tasks](/cms_trial/space/SPM/1918830289/Group+tasks/) (groups tasks by one or multiple columns present in the current [column view](/cms_trial/space/SPM/1918668270/Column+view+(Gantt+and+Scope+modules)/))

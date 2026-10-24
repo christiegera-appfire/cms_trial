@@ -16,4 +16,4 @@ A list of available fields is on the right during column view creation/editing.
 
 ## Column view creator
 
-The column view creator works exactly the same at the box type and box levels. To learn more about managing hierarchy and timeline column views, see the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918668503> page.
+The column view creator works exactly the same at the box type and box levels. To learn more about managing hierarchy and timeline column views, see the [Column view creator](/cms_trial/space/SPM/1918668503/Column+view+creator/) page.

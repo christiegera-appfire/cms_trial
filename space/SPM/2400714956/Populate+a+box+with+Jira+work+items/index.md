@@ -39,7 +39,7 @@ Your box now includes only relevant work items from the project tailored to your
 
 ## Box scope types – behind the scenes
 
-Each box has a [scope type](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766536) (Own scope, Sub-scope, None) that defines how the scope behaves (and which options are available) based on the box type (for example, Program, Iteration, ART).  
+Each box has a [scope type](/cms_trial/space/SPM/1918766536/Scope+types/) (Own scope, Sub-scope, None) that defines how the scope behaves (and which options are available) based on the box type (for example, Program, Iteration, ART).  
 By default, BigPicture sets this for you, so you rarely need to change it - but it helps power features like task synchronization and structure building.
 
 ---
@@ -127,7 +127,7 @@ Your box now includes only relevant work items from the project tailored to your
 
 ## Box scope types – behind the scenes
 
-Each box has a [scope type](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766536) (Own scope, Sub-scope, None) that defines how the scope behaves (and which options are available) based on the box type (for example, Program, Iteration, ART).  
+Each box has a [scope type](/cms_trial/space/SPM/1918766536/Scope+types/) (Own scope, Sub-scope, None) that defines how the scope behaves (and which options are available) based on the box type (for example, Program, Iteration, ART).  
 By default, BigPicture sets this for you, so you rarely need to change it - but it helps power features like task synchronization and structure building.
 
 ---

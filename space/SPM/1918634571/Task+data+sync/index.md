@@ -35,5 +35,5 @@ Configuring field mapping ensures that data from Jira fields in your issues matc
 Moreover, tasks can be added to the scope manually or automatically synchronized with Jira or connected tools such as Trello. To find out more, visit the following documentation pages:
 
 - <https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=spm&title=Select%20tasks%20to%20work%20with%20%28scope%20definition%29&linkCreation=true&fromPageId=1918634571>
-- <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918765626>
+- [Live sync](/cms_trial/space/SPM/1918765626/Live+sync/)
 - [Data synchronization with connected tools](/cms_trial/space/SPM/1918404058/Data+synchronization+with+connected+tools/)

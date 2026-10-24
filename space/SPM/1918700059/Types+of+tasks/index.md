@@ -44,4 +44,4 @@ The following elements can be displayed as tasks, which you can add to the scope
 
 Sync Trello cards as tasks in the app.
 
-[**Read more**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918702041)
+[**Read more**](/cms_trial/space/SPM/1918702041/Trello+tasks/)

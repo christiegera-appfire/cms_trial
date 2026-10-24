@@ -93,7 +93,7 @@ scope = copied items + existing destination items
 
 ### Cloning Option is Unavailable:
 
-[Scope type](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766536) dictates whether the option is available.
+[Scope type](/cms_trial/space/SPM/1918766536/Scope+types/) dictates whether the option is available.
 
 #### In Boxes with "Own" scope
 
@@ -254,7 +254,7 @@ scope = copied items + existing destination items
 
 ### Cloning option is unavailable:
 
-[Scope type](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766536) dictates whether the option is available.
+[Scope type](/cms_trial/space/SPM/1918766536/Scope+types/) dictates whether the option is available.
 
 #### In boxes with "Own" scope
 

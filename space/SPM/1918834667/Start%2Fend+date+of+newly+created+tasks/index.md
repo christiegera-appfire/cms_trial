@@ -335,7 +335,7 @@ Key points about Own scope boxes:
 - Tasks inside an Agile/Classic/Hybrid project box can be divided into sub-boxes (for example, into Program Increments and Iterations).
 - If Program Increments and Iterations are configured to function as Sub-scope boxes, their scope is determined by the main parent box.
 
-Visit the page about [Scope types](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766536) to learn more about Own scope and other box scope types in BigPicture.
+Visit the page about [Scope types](/cms_trial/space/SPM/1918766536/Scope+types/) to learn more about Own scope and other box scope types in BigPicture.
 
 In the example below, the same task can appear in the **OMEGA** Box (Own scope box), **Program Increment 1** (Sub-scope box), and **Iteration 2** (Sub-scope box).
 

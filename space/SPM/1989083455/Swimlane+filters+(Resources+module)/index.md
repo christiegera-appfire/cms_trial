@@ -4,7 +4,7 @@
 
 Click to expand the guide
 
-All the swimlanes in the Resources module, that is, Individuals, Teams, Projects, and Skills, can be [grouped on two levels](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918701793) and filtered.
+All the swimlanes in the Resources module, that is, Individuals, Teams, Projects, and Skills, can be [grouped on two levels](/cms_trial/space/SPM/1918701793/Swimlanes+and+grouping/) and filtered.
 
 Swimlanes filters are available only in the [new view of the Resources module](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918699749).
 
@@ -118,7 +118,7 @@ To disable swimlane filters:
 
 Click to expand the guide
 
-All the swimlanes in the Resources module, that is, Individuals, Teams, Projects, and Skills, can be [grouped on two levels](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918701793) and filtered.
+All the swimlanes in the Resources module, that is, Individuals, Teams, Projects, and Skills, can be [grouped on two levels](/cms_trial/space/SPM/1918701793/Swimlanes+and+grouping/) and filtered.
 
 Swimlanes filters are available only in the [new view of the Resources module](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918699749).
 

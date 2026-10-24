@@ -32,7 +32,7 @@ Your box is now created and listed in the box hierarchy under the Home box in th
 
 ### Add projects to your portfolio
 
-The portfolio box is a [Non-scope](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766536) type of box. It means that, unlike project boxes, you cannot populate them with tasks. Their purpose is to aggregate child boxes (the scope of the portfolio box is the sum of the scopes of the child boxes).
+The portfolio box is a [Non-scope](/cms_trial/space/SPM/1918766536/Scope+types/) type of box. It means that, unlike project boxes, you cannot populate them with tasks. Their purpose is to aggregate child boxes (the scope of the portfolio box is the sum of the scopes of the child boxes).
 
 To make your portfolio box useful, add a new project or program box, or move an existing box under the portfolio to nest it.
 
@@ -89,4 +89,4 @@ With the Resources module, you can effectively manage the workload and capacity 
 
 - [Create portfolio box](/cms_trial/space/SPM/1918634872/Create+portfolio+box/)
 - [Gantt module in portfolio boxes](/cms_trial/space/SPM/1918700619/Gantt+module+in+portfolio+boxes/)
-- <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766197>
+- [Resources module in portfolio boxes](/cms_trial/space/SPM/1918766197/Resources+module+in+portfolio+boxes/)

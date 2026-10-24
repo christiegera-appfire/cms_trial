@@ -8,7 +8,7 @@ Instead of linking multiple Jira work items to a Key Result individually, you ca
 
 Visit the [Auto-KR](/cms_trial/space/SPM/1918670238/Auto-KR/) page to learn how linked work items and linked boxes affect auto-KR’s progress.
 
-- You can link boxes of any [box scope type](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766536).
+- You can link boxes of any [box scope type](/cms_trial/space/SPM/1918766536/Scope+types/).
 - If the task appears in multiple linked boxes, each duplicate task contributes to the Key Result's progress.
 - Linked boxes help you visualize and track the work contributing to your Key Results. However, they can only affect the Key Result's progress when you convert a manual Key Result to an auto-KR.
 - Linking a box to a Key Result is not the same as [linking an OKR to a box](/cms_trial/space/SPM/1918834116/Link+OKR+to+box/).

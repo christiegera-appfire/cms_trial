@@ -25,7 +25,7 @@ The table presents a list of available actions and reports that can be generated
 | [Milestones & Markers](/cms_trial/space/SPM/1918505294/Milestones+%26+Markers+report/) | Provides a quick view of a given project's or portfolio's milestones and markers. |
 | [Velocity](/cms_trial/space/SPM/1918833281/Velocity+report/) | Counts and presents the amount of planned and done story points for subsequent iterations. |
 | [Plan delays](/cms_trial/space/SPM/1918765989/Plan+delay+report/) | Provides a quick view of delayed tasks of a given project or portfolio. |
-| [Capacity per period](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918765199) | Generates a capacity report for a given time period (total, distributed workload, remaining - for a skill, user, team, or total). |
+| [Capacity per period](/cms_trial/space/SPM/1918765199/Capacity+per+period+report/) | Generates a capacity report for a given time period (total, distributed workload, remaining - for a skill, user, team, or total). |
 | Default reports | The standard BigPicture App includes five pre-configured reports. |
 | **Actions** | **Description** |
 | Report configuration | You can add, edit, and delete reports. |
@@ -62,7 +62,7 @@ The table presents a list of available actions and reports that can be generated
 | [Milestones & Markers](/cms_trial/space/SPM/1918505294/Milestones+%26+Markers+report/) | Provides a quick view of a given project's or portfolio's milestones and markers. |
 | [Velocity](/cms_trial/space/SPM/1918833281/Velocity+report/) | Counts and presents the amount of planned and done story points for subsequent iterations. |
 | [Plan delays](/cms_trial/space/SPM/1918765989/Plan+delay+report/) | Provides a quick view of delayed tasks of a given project or portfolio. |
-| [Capacity per period](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918765199) | Generates a capacity report for a given time period (total, distributed workload, remaining - for a skill, user, team, or total). |
+| [Capacity per period](/cms_trial/space/SPM/1918765199/Capacity+per+period+report/) | Generates a capacity report for a given time period (total, distributed workload, remaining - for a skill, user, team, or total). |
 | [Project health](https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=spm&title=Project%20health%20%28Red%2C%20Aamger%2C%20Green%29&linkCreation=true&fromPageId=1918502811) | Visualizes project health using the RAG (Red-Amber-Green) system. |
 | Default reports | The standard BigPicture App includes five pre-configured reports. |
 | **Actions** | **Description** |

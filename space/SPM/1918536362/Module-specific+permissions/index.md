@@ -22,4 +22,4 @@ Permissions in the Priorities module are configured by Jira Admins on the **Jira
 
 The Financial module comes with two unique roles (App Financial Viewer and App Financial Admin) that are assigned on the app **Administration** > **Security** page.
 
-[**Read more**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918765525)
+[**Read more**](/cms_trial/space/SPM/1918765525/Financials+module+permissions/)

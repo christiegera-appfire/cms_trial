@@ -83,7 +83,7 @@ Like tasks, OKRs also form a structure, with an Objective as the top element. Yo
 
 Note that the field names in the OKR module differ from those in other modules. Despite these naming differences, the fields still synchronize with corresponding fields in the Gantt and other modules.
 
-[**Read more**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918765790)
+[**Read more**](/cms_trial/space/SPM/1918765790/OKR+fields+vs+BigPicture+fields/)
 
 ## Import/Export OKRs
 

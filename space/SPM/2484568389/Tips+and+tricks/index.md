@@ -36,7 +36,7 @@ For example, in the auto bottom-up mode, the children determine the duration of 
 
 ![A context menu listing all available task scheduling modes.](/cms_trial/assets/41104719-7604-404e-bae7-ad1ee65cef61.png)
 
-Task period mode, especially when coupled with [strong dependencies](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918701700), impacts how your tasks behave. Therefore, knowing what scheduling modes you apply to your respective tasks is important.
+Task period mode, especially when coupled with [strong dependencies](/cms_trial/space/SPM/1918701700/Strong+dependencies/), impacts how your tasks behave. Therefore, knowing what scheduling modes you apply to your respective tasks is important.
 
 ### Enable timeboxes on the Gantt chart
 

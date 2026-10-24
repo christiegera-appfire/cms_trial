@@ -42,7 +42,7 @@ New aggregation options available in the Resources panel:
 
 ## Capacity calculation
 
-Improved individual capacity calculation when grouping by [*Individuals then Projects*](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918701793) in the Resources module. To learn more about calculating individual capacity in different grouping combinations, see the [Capacity calculation](/cms_trial/space/SPM/1918765081/Capacity+calculation/) page.
+Improved individual capacity calculation when grouping by [*Individuals then Projects*](/cms_trial/space/SPM/1918701793/Swimlanes+and+grouping/) in the Resources module. To learn more about calculating individual capacity in different grouping combinations, see the [Capacity calculation](/cms_trial/space/SPM/1918765081/Capacity+calculation/) page.
 
 ---
 

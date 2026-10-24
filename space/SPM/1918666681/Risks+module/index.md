@@ -44,7 +44,7 @@ The table presents the main features of the Risks module.
 
 ### Risks in none-scope boxes
 
-The Risks module in the [boxes with no scope](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766536) has access to risks collected from its child boxes from:
+The Risks module in the [boxes with no scope](/cms_trial/space/SPM/1918766536/Scope+types/) has access to risks collected from its child boxes from:
 
 - All own-scope boxes one level down (direct children).
 - All sub-scope boxes (all levels down) of the own scope boxes mentioned above.
@@ -93,7 +93,7 @@ The table presents the main features of the Risks module.
 
 ### Risks in none-scope boxes
 
-The Risks module in the [boxes with no scope](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918766536) has access to risks collected from its child boxes from:
+The Risks module in the [boxes with no scope](/cms_trial/space/SPM/1918766536/Scope+types/) has access to risks collected from its child boxes from:
 
 - All own-scope boxes one level down (direct children).
 - All sub-scope boxes (all levels down) of the own scope boxes mentioned above.
