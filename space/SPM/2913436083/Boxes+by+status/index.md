@@ -14,6 +14,6 @@ The Boxes by status report visualizes the number of boxes in each status and the
 
 ![Boxes by status report.](/cms_trial/assets/664e2680-dcf0-47bc-b25d-34f71889ce3b.gif)
 
-This report displays three data points that summarize the available [box statuses](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918829911): *Not started*, *In progress,* and *Closed*.
+This report displays three data points that summarize the available [box statuses](/cms_trial/space/SPM/1918829911/Box+lifecycle/): *Not started*, *In progress,* and *Closed*.
 
 Mouse over each status on the pie chart to see the total number of boxes with a given status inside the chart.

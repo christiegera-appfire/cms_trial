@@ -153,7 +153,7 @@ Effects of the parent box period mode on a child box period are outlined in the 
 
 ## Limitations
 
-### [Closed box](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918829911)
+### [Closed box](/cms_trial/space/SPM/1918829911/Box+lifecycle/)
 
 - Closed boxes cannot be edited. The box configuration page cannot be accessed, either.
 
@@ -327,7 +327,7 @@ The effects of the parent box period mode on the child box period are outlined i
 
 ### Closed box
 
-- [Closed boxes](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918829911) cannot be edited. The box configuration page cannot be accessed, either.
+- [Closed boxes](/cms_trial/space/SPM/1918829911/Box+lifecycle/) cannot be edited. The box configuration page cannot be accessed, either.
 
 ![Closed box. The Configure and Edit options are grayed out.](/cms_trial/assets/a93b32c2-e6b4-406e-b295-2ce3a21b8af0.png)
 

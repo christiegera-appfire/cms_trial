@@ -64,7 +64,7 @@ If no perfect match box has been detected for a project, you are given the possi
 
 ![Screenshot of the box creation window in the BigPicture widget.](/cms_trial/assets/b98e2659-32aa-4022-953c-2561a2b0d994.png)
 
-Select a box type - available options depend on your box type setup (read more about [box types](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830000)).
+Select a box type - available options depend on your box type setup (read more about [box types](/cms_trial/space/SPM/1918830000/Box+types/)).
 
 When you click a box type, you will see the list of modules that will be automatically active (you can change those settings later).
 

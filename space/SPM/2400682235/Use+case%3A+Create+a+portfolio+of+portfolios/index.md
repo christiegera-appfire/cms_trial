@@ -59,4 +59,4 @@ You can create new portfolios and nest the existing ones to build as robust a po
 ## Additional resources
 
 - [Create portfolio box](/cms_trial/space/SPM/1918634872/Create+portfolio+box/)
-- <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830000>
+- [Box types](/cms_trial/space/SPM/1918830000/Box+types/)

@@ -53,7 +53,7 @@ When you add the Objectives, strategic themes, and Key Results columns in the Ga
 
 #### Open the OKR details dialog
 
-Click the OKR name link in the **Objective/Strategic Theme/Key Result** column to open a dialog box with the OKR details. The dialog resembles the [OKR details side panel](/cms_trial/space/SPM/1918865686/OKR+Details+side+panel/) you can find in the OKR module.
+Click the OKR name link in the **Objective/Strategic Theme/Key Result** column to open a dialog box with the OKR details. The dialog resembles the [OKR details side panel](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918865686) you can find in the OKR module.
 
 You cannot edit the OKR details directly in the details dialog box. To edit the selected OKR, click the icon in the upper right corner to open the OKR details page in the OKR module.
 
@@ -165,7 +165,7 @@ When you add the Objectives, strategic themes, and Key Results columns in the Ga
 
 #### Open the OKR details dialog
 
-Click the OKR name link in the **Objective/Strategic Theme/Key Result** column to open a dialog box with the OKR details. The dialog resembles the [OKR details side panel](/cms_trial/space/SPM/1918865686/OKR+Details+side+panel/) you can find in the OKR module.
+Click the OKR name link in the **Objective/Strategic Theme/Key Result** column to open a dialog box with the OKR details. The dialog resembles the [OKR details side panel](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918865686) you can find in the OKR module.
 
 You cannot edit the OKR details directly in the details dialog box. To edit the selected OKR, click the icon in the upper right corner to open the OKR details page in the OKR module.
 

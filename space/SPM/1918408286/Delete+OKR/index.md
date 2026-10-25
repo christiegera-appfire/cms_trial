@@ -20,7 +20,7 @@ You can delete an OKR on the following pages:
 
 - [*Overview*](/cms_trial/space/SPM/1918834317/OKR+Overview/) page
 - [*OKR Details*](/cms_trial/space/SPM/1918536390/OKR+details+page/) page
-- [OKR Details side panel](/cms_trial/space/SPM/1918865686/OKR+Details+side+panel/)
+- [OKR Details side panel](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918865686)
 - [*Tree view*](/cms_trial/space/SPM/1918801711/Tree+view/) page
 
 1. Open the context menu for the OKR you want to delete on one of the following:

@@ -83,4 +83,4 @@ box creation methods
 
 box types
 
-- Understand [box types](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830000) and how they impact the boxes you create.
+- Understand [box types](/cms_trial/space/SPM/1918830000/Box+types/) and how they impact the boxes you create.

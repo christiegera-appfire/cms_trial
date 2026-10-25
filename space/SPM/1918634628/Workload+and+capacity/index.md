@@ -8,7 +8,7 @@ This section explains how to use the app to plan and manage resource capacity an
 
 Learn how to use the Board module for team capacity planning, especially for sprints. Discover how team capacity is calculated and how to set and overwrite capacity values at different levels.
 
-## [Workload details](/cms_trial/space/SPM/1918864229/Workload+details/)
+## [Workload details](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918864229)
 
 Learn how to access and interpret detailed information about allocated workload and remaining capacity for various entities.
 

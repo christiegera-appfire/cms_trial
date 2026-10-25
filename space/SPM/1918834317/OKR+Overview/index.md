@@ -60,7 +60,7 @@ You can save the filters, search query, and column layout you apply to your curr
 
 ### OKR Details side panel
 
-The [Details side panel](/cms_trial/space/SPM/1918865686/OKR+Details+side+panel/) displays details for the Objective or Key Result, depending on which OKR you selected. It also lists comments associated with the selected OKR.
+The [Details side panel](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918865686) displays details for the Objective or Key Result, depending on which OKR you selected. It also lists comments associated with the selected OKR.
 
 You can also use the panel to update the OKR or access additional options.
 

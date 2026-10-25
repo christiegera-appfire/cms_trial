@@ -4,7 +4,7 @@
 
 Click to expand the guide
 
-To learn more about risk calculation attributes, see the [Risk register frameworks](/cms_trial/space/SPM/1918865091/Risk+register+frameworks/) page.
+To learn more about risk calculation attributes, see the [Risk register frameworks](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918865091) page.
 
 To delete an existing risk calculation:
 
@@ -23,7 +23,7 @@ See an interactive demo on how to delete a risk calculation.
 
 Click to expand the guide
 
-To learn more about risk calculation attributes, see the [Risk register frameworks](/cms_trial/space/SPM/1918865091/Risk+register+frameworks/) page.
+To learn more about risk calculation attributes, see the [Risk register frameworks](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918865091) page.
 
 To delete an existing risk calculation:
 

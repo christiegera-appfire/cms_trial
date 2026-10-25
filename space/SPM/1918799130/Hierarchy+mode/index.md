@@ -20,7 +20,7 @@ The hierarchy of boxes visualized in the Hierarchy mode reflects the relationshi
 
 You can rearrange the box hierarchy by manually moving (dragging) the boxes from one place to another. This can be especially helpful when you want to quickly organize stand-alone projects into programs and portfolios.
 
-### Manage [box lifecycle](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918829911) (context menu)
+### Manage [box lifecycle](/cms_trial/space/SPM/1918829911/Box+lifecycle/) (context menu)
 
 Jira/App/Box Admins can change the status of the box and [archive](/cms_trial/space/SPM/1918634657/Archive+box/) it. This can be done by:
 
@@ -124,7 +124,7 @@ The hierarchy of boxes visualized in the Hierarchy mode reflects the relationshi
 
 You can rearrange the box hierarchy by manually moving (dragging) the boxes from one place to another. This can be especially helpful when you want to quickly organize stand-alone projects into programs and portfolios.
 
-### Manage [box lifecycle](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918829911) (context menu)
+### Manage [box lifecycle](/cms_trial/space/SPM/1918829911/Box+lifecycle/) (context menu)
 
 Jira/App/Box Admins can change the status of the box and [archive](/cms_trial/space/SPM/1918634657/Archive+box/) it. This can be done by:
 

@@ -4,7 +4,7 @@
 
 Click to expand the guide
 
-See the [Risk register frameworks](/cms_trial/space/SPM/1918865091/Risk+register+frameworks/) page to learn more about risk calculation attributes.
+See the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918865091> page to learn more about risk calculation attributes.
 
 To create a new risk calculation:
 
@@ -29,7 +29,7 @@ The video presents how to create a new risk calculation.
 
 Click to expand the guide
 
-See the [Risk register frameworks](/cms_trial/space/SPM/1918865091/Risk+register+frameworks/) page to learn more about risk calculation attributes.
+See the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918865091> page to learn more about risk calculation attributes.
 
 To create a new risk calculation:
 

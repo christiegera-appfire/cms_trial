@@ -70,7 +70,7 @@ You can quickly make changes (for example, add dates, change an assignee, or mod
 
 ### Move tasks from the Backlog panel
 
-You can schedule tasks by moving them from the Backlog panel. For more information, see the [Move tasks](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918864819) page.
+You can schedule tasks by moving them from the Backlog panel. For more information, see the [Move tasks](/cms_trial/space/SPM/1918864819/Move+tasks/) page.
 
 ### Edit missing dates inline
 
@@ -158,7 +158,7 @@ You can quickly make changes (for example, add dates, change an assignee, or mod
 
 ### Move tasks from the Backlog panel
 
-You can schedule tasks by moving them from the Backlog panel. For more information, see the [Move tasks](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918864819) page.
+You can schedule tasks by moving them from the Backlog panel. For more information, see the [Move tasks](/cms_trial/space/SPM/1918864819/Move+tasks/) page.
 
 ### Edit missing dates inline
 

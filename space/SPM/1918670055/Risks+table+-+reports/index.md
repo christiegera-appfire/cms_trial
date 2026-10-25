@@ -35,7 +35,7 @@ Use the buttons at the top to switch to another report. Button names represent r
 
 Use filters to narrow down results in reports. See the video below.
 
-Learn more about filtering options on the [Risks table - filters](/cms_trial/space/SPM/1918865276/Risks+table+-+filters/) page.
+Learn more about filtering options on the [Risks table - filters](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918865276) page.
 
 ![2025-03-21_09-59-09.mp4](/cms_trial/assets/8e56a13b-4376-4d76-bb96-133676e45d34.mp4)
 
@@ -100,7 +100,7 @@ Use the buttons at the top to switch to another report. Button names represent r
 
 ## Filters
 
-Use filters to narrow down results in reports. See the video below. Learn more about filtering options on the [Risks table - filters](/cms_trial/space/SPM/1918865276/Risks+table+-+filters/) page.
+Use filters to narrow down results in reports. See the video below. Learn more about filtering options on the [Risks table - filters](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918865276) page.
 
 ![Screenshot of filters in the Reports view in the Risk Management module.](/cms_trial/assets/3d5d621d-c786-4898-b7cd-6f0bacab8549.png)
 

@@ -55,7 +55,7 @@ This error can occur when:
 
 ## Automatic rules check
 
-You can't access [box configuration](/cms_trial/space/SPM/1918666176/Box+configuration/) if a box is in 'Closed' [status](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918829911).
+You can't access [box configuration](/cms_trial/space/SPM/1918666176/Box+configuration/) if a box is in 'Closed' [status](/cms_trial/space/SPM/1918829911/Box+lifecycle/).
 
 Every box has a scope—it contains a collection of tasks from connected tools such as Jira and Trello. The box scope can be found in the box configuration under **Tasks** > **Scope definition**. To fix the problem, go to the box's scope definition and verify the automatic rules. Make sure that no invalid JQL has been used and that all added boards, filters, and projects still exist.
 
@@ -140,7 +140,7 @@ This error can occur when:
 
 ## Automatic rules check
 
-You can't access [box configuration](/cms_trial/space/SPM/1918666176/Box+configuration/) if a box is in 'Closed' [status](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918829911).
+You can't access [box configuration](/cms_trial/space/SPM/1918666176/Box+configuration/) if a box is in 'Closed' [status](/cms_trial/space/SPM/1918829911/Box+lifecycle/).
 
 Every box has a scope—it contains a collection of tasks from connected tools such as Jira and Trello. The box scope can be found in the box configuration under **Tasks** > **Work items from Jira**. To fix the problem, go to the box's scope definition and verify the automatic rules. Make sure that no invalid JQL has been used and that all added boards, filters, and projects still exist.
 

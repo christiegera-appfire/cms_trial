@@ -32,7 +32,7 @@ When enabled, every logged-in Jira user has the same administrative level of ac
 
 When the **Every user is the App Admin** toggle is on, you can't assign global roles to individual users or Jira groups because all users have full access to manage the app and boxes.
 
-Likewise, this toggle disables [box-level security settings](/cms_trial/space/SPM/1918797447/Box-level+permissions/) (security roles for [box types](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830000) are not affected).
+Likewise, this toggle disables [box-level security settings](/cms_trial/space/SPM/1918797447/Box-level+permissions/) (security roles for [box types](/cms_trial/space/SPM/1918830000/Box+types/) are not affected).
 
 | **App** ***Security*** **page** | **Box** ***Security*** **page** |
 | --- | --- |

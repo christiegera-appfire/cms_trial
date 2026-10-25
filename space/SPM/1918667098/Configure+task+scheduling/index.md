@@ -8,7 +8,7 @@ On this page, you will find the information about the **Task scheduling mode**.
 
 To read about **Task period alignment,** go to [Define task period alignment](/cms_trial/space/SPM/1918830096/Define+task+period+alignment/) page.
 
-The scheduling option on the [box type](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830000) configuration page determines how new tasks added to the box will interact with the scheduling mechanism, including factors like task dependencies and parent/child relationships.
+The scheduling option on the [box type](/cms_trial/space/SPM/1918830000/Box+types/) configuration page determines how new tasks added to the box will interact with the scheduling mechanism, including factors like task dependencies and parent/child relationships.
 
 This option sets a default configuration for all newly created boxes of that specific box type.
 
@@ -64,7 +64,7 @@ On this page, you will find the information about the **Task scheduling mode**.
 
 To read about **Task period alignment,** go to [Define task period alignment](/cms_trial/space/SPM/1918830096/Define+task+period+alignment/) page.
 
-The scheduling option on the [box type](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830000) configuration page determines how new tasks added to the box will interact with the scheduling mechanism, including factors like task dependencies and parent/child relationships.
+The scheduling option on the [box type](/cms_trial/space/SPM/1918830000/Box+types/) configuration page determines how new tasks added to the box will interact with the scheduling mechanism, including factors like task dependencies and parent/child relationships.
 
 This option sets a default configuration for all newly created boxes of that specific box type.
 

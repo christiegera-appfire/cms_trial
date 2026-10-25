@@ -46,7 +46,7 @@ Work items can be connected with [dependencies](/cms_trial/space/SPM/1918536086/
 
 You can open the [Resources panel](/cms_trial/space/SPM/1918798033/Resources+panel+in+Gantt+module/) using the **Show/Hide Resources** button.
 
-The panel shows all the resources assigned to the box and displays their total workload. In addition, the [Workload Details](/cms_trial/space/SPM/1918864229/Workload+details/) dialog lists all the tasks the resource is currently assigned to and shows the remaining capacity of that resource.
+The panel shows all the resources assigned to the box and displays their total workload. In addition, the [Workload Details](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918864229) dialog lists all the tasks the resource is currently assigned to and shows the remaining capacity of that resource.
 
 ## View adjustment and actions
 
@@ -256,7 +256,7 @@ Work items can be connected with [dependencies](/cms_trial/space/SPM/1918536086/
 
 You can open the [Resource panel](/cms_trial/space/SPM/1918798033/Resources+panel+in+Gantt+module/) in **View** > **Resource panel**.
 
-The panel shows all the resources assigned to the box and displays their total workload. In addition, the [Workload Details](/cms_trial/space/SPM/1918864229/Workload+details/) dialog lists all the tasks the resource is currently assigned to and shows the remaining capacity of that resource.
+The panel shows all the resources assigned to the box and displays their total workload. In addition, the [Workload Details](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918864229) dialog lists all the tasks the resource is currently assigned to and shows the remaining capacity of that resource.
 
 ![Screenshot of the Resource panel in the Gantt module.](/cms_trial/assets/2cc268c5-5d3a-4cc3-830a-c920446c8ff1.png)
 

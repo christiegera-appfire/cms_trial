@@ -79,13 +79,13 @@ Choose initiatives within the portfolio that will be considered for financial ca
 #### Which hourly rate should we use?
 
 - Flat rate - use a single hourly rate for all tasks, regardless of the team.
-- Team hourly rate - use the team hourly rate if the tasks are assigned to teams and each team needs a different rate. If the team hourly rate is chosen and a team has not been set, the app sets $100 for the calculations. To define hourly rates for teams, see the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830158> page.
+- Team hourly rate - use the team hourly rate if the tasks are assigned to teams and each team needs a different rate. If the team hourly rate is chosen and a team has not been set, the app sets $100 for the calculations. To define hourly rates for teams, see the [Financials (Administration)](/cms_trial/space/SPM/1918830158/Financials+(Administration)/) page.
 
 #### Flat hourly rate ($)
 
 Set an hourly rate.
 
-The currency symbol is set on the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830158> page.
+The currency symbol is set on the [Financials (Administration)](/cms_trial/space/SPM/1918830158/Financials+(Administration)/) page.
 
 ### Finish onboarding
 
@@ -142,7 +142,7 @@ Task and hourly rate that will be base for the cost calculation:
 
 Set an hourly rate.
 
-The currency symbol is based on [the Administration setting](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830158).
+The currency symbol is based on [the Administration setting](/cms_trial/space/SPM/1918830158/Financials+(Administration)/).
 
 ### Finish onboarding
 
@@ -231,13 +231,13 @@ Choose initiatives within the portfolio that will be considered for financial ca
 #### Which hourly rate should we use?
 
 - Flat rate - use a single hourly rate for all tasks, regardless of the team.
-- Team hourly rate - use the team hourly rate if the tasks are assigned to teams and each team needs a different rate. If the team hourly rate is chosen and a team has not been set, the app sets $100 for the calculations. To define hourly rates for teams, see the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830158> page.
+- Team hourly rate - use the team hourly rate if the tasks are assigned to teams and each team needs a different rate. If the team hourly rate is chosen and a team has not been set, the app sets $100 for the calculations. To define hourly rates for teams, see the [Financials (Administration)](/cms_trial/space/SPM/1918830158/Financials+(Administration)/) page.
 
 #### Flat hourly rate ($)
 
 Set an hourly rate.
 
-The currency symbol is set on the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830158> page.
+The currency symbol is set on the [Financials (Administration)](/cms_trial/space/SPM/1918830158/Financials+(Administration)/) page.
 
 ### Finish onboarding
 
@@ -294,7 +294,7 @@ Task and hourly rate that will be base for the cost calculation:
 
 Set an hourly rate.
 
-The currency symbol is based on [the Administration setting](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830158).
+The currency symbol is based on [the Administration setting](/cms_trial/space/SPM/1918830158/Financials+(Administration)/).
 
 ### Finish onboarding
 

@@ -72,7 +72,7 @@ The blue horizontal line represents the budget.
 
 ### Budget milestone line
 
-A red line that represents a budget milestone. Go to [the Budget milestones section](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830158/Financials+Administration#Budget-milestones) for more information.
+A red line that represents a budget milestone. Go to [the Budget milestones section](/cms_trial/space/SPM/1918830158/Financials+(Administration)/) for more information.
 
 ![Box view .jpg](/cms_trial/assets/6053663f-3828-49bd-80b0-68e93d31f238.jpg)
 
@@ -92,7 +92,7 @@ This chart lets you see the Total cost of a specific task as a percentage share 
 
 ## CapEx vs. OpEx
 
-To use the this widget, you have to activate it in [the CapEx vs.OpEx settings](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830158/Financials+Administration#CapEx-and-OpEx).
+To use the this widget, you have to activate it in [the CapEx vs.OpEx settings](/cms_trial/space/SPM/1918830158/Financials+(Administration)/).
 
 ![capex-opex-initiative.png](/cms_trial/assets/211af807-49e7-4577-a38b-cfc2ed2958db.png)
 
@@ -101,7 +101,7 @@ To use the this widget, you have to activate it in [the CapEx vs.OpEx settings](
 - **CapEx** stands for **Capital Expenditure**. It's the money a company spends to buy, improve, or maintain long-term assets that will be used for longer periods
 - **OpEx** stands for **Operational Expenditure**. This is the cost of a company's day-to-day business operations. These are recurring costs that are necessary to keep the business running.
 
-In the Financials module you can track CapEx and OpEx expenses by assigning tasks to one of these groups based either on a custom field or Jira filters. Check [the setting page](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830158/Financials+Administration#CapEx-and-OpEx) for more details.
+In the Financials module you can track CapEx and OpEx expenses by assigning tasks to one of these groups based either on a custom field or Jira filters. Check [the setting page](/cms_trial/space/SPM/1918830158/Financials+(Administration)/) for more details.
 
 ## Work costs breakdown
 

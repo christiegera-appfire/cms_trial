@@ -24,7 +24,7 @@ See the overview video about the Priorities module below.
 
 ## Access the Priorities module
 
-This module is available in all [box types](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830000). The Priorities module requires:
+This module is available in all [box types](/cms_trial/space/SPM/1918830000/Box+types/). The Priorities module requires:
 
 - BigPicture Enterprise for Jira Cloud
 
@@ -72,7 +72,7 @@ See the overview video about the Priorities module below.
 
 ## Access the Priorities module
 
-This module is available in all [box types](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830000).
+This module is available in all [box types](/cms_trial/space/SPM/1918830000/Box+types/).
 
 Click **Priorities** from the module list to access the Priorities module.
 

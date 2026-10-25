@@ -21,7 +21,7 @@ Boxes can create hierarchies. Before you create a new box, make sure the parent-
 
 The following things determine how you can nest boxes:
 
-- In the [box type configuration](/cms_trial/space/SPM/1918829342/App+administration/), you decide the possible parents of each Box type. [Parent box types](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830000) determine how to build the box hierarchy (nest boxes) and prevent users from making mistakes and mixing methodologies
+- In the [box type configuration](/cms_trial/space/SPM/1918829342/App+administration/), you decide the possible parents of each Box type. [Parent box types](/cms_trial/space/SPM/1918830000/Box+types/) determine how to build the box hierarchy (nest boxes) and prevent users from making mistakes and mixing methodologies
 - Each Box type has [scope type](/cms_trial/space/SPM/1918766536/Scope+types/) settings (None, Own scope, Sub-scope)
 - [Sequentiality](/cms_trial/space/SPM/1918669073/Period+mode+and+sequentiality/) (box type settings)
 - [Box period mode](/cms_trial/space/SPM/1918669073/Period+mode+and+sequentiality/)
@@ -92,7 +92,7 @@ Before you create a new box, make sure the parent-child relationships you are tr
 
 The following aspects determine whether you can or cannot nest boxes of one type under another:
 
-- [Parent box types](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830000) - you can nest a child box only under a parent box. Hierarchies cannot be formed without parents. This guards from making mistakes and mixing methodologies.
+- [Parent box types](/cms_trial/space/SPM/1918830000/Box+types/) - you can nest a child box only under a parent box. Hierarchies cannot be formed without parents. This guards from making mistakes and mixing methodologies.
 - [Scope type](/cms_trial/space/SPM/1918766536/Scope+types/) - each box has one specific scope type (None, Own scope, Sub-scope) that allows or prevents nesting under specific scope types.
 - [Sequentiality](/cms_trial/space/SPM/1918669073/Period+mode+and+sequentiality/) controls the logical order in which boxes are organized.
 - [Box period mode](/cms_trial/space/SPM/1918669073/Period+mode+and+sequentiality/) affects box start/end dates, which in turn can affect child boxes.

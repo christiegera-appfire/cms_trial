@@ -30,7 +30,7 @@ The video presents a short overview of the OKR module.
 
 ## Access the OKR module
 
-This module is available in all [box types](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830000). Use the **module switcher** at the top and select the **OKR** from the dropdown to access the OKR module.
+This module is available in all [box types](/cms_trial/space/SPM/1918830000/Box+types/). Use the **module switcher** at the top and select the **OKR** from the dropdown to access the OKR module.
 
 ![An overview of the OKR module in BigPicture. The module switcher is expanded.](/cms_trial/assets/8f17dc92-2e8d-4a34-97e5-f75adbd25da8.png)
 
@@ -41,7 +41,7 @@ The table presents the main features of the OKR module.
 | **Feature** | **Description** |
 | --- | --- |
 | [Overview](/cms_trial/space/SPM/1918834317/OKR+Overview/) | The Overview page visualizes all the OKRs in a selected box in a hierarchical structure. You can also view issues under their respective Key Results. |
-| [OKR Details side panel](/cms_trial/space/SPM/1918865686/OKR+Details+side+panel/) | The OKR Details side panel is part of the OKR Overview page. It displays the selected OKR’s details, progress, auto-generated updates, and comments on those updates.  On this panel, you can:   - View OKR details, progress, and updates. - Add new updates or comments on existing ones. - Add new sub-objectives and KRs for selected Objectives. - Create new or link existing Jira issues to Key Results. |
+| [OKR Details side panel](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918865686) | The OKR Details side panel is part of the OKR Overview page. It displays the selected OKR’s details, progress, auto-generated updates, and comments on those updates.  On this panel, you can:   - View OKR details, progress, and updates. - Add new updates or comments on existing ones. - Add new sub-objectives and KRs for selected Objectives. - Create new or link existing Jira issues to Key Results. |
 | [OKR Details page](/cms_trial/space/SPM/1918536390/OKR+details+page/) | The OKR Details page displays all the details about the OKR, including basic info, progress, updates, and linked issues.  On this page, you can also see OKR copies and add dependencies and contributions between individual OKRs. |
 | [Tree view](/cms_trial/space/SPM/1918801711/Tree+view/) | The Tree view page is the default page that appears after the OKR creation process. It lists all the OKRs created in one session and their details. |
 | [Hierarchy](/cms_trial/space/SPM/1918669889/OKR+Hierarchy/) | The Hierarchy page visualizes OKRs in a family tree-like structure. Each OKR is represented as an OKR card showing basic details. |
@@ -79,7 +79,7 @@ The video presents a short overview of the OKR module.
 
 ## Access the OKR module
 
-This module is available in all [box types](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830000). Use the **module list** on the left to access the OKR module.
+This module is available in all [box types](/cms_trial/space/SPM/1918830000/Box+types/). Use the **module list** on the left to access the OKR module.
 
 ![Screenshot of the OKR module.](/cms_trial/assets/cdeb6b1d-9fa3-49ba-b907-cf5936cac1e6.png)
 
@@ -90,7 +90,7 @@ The table presents the main features of the OKR module.
 | **Feature** | **Description** |
 | --- | --- |
 | [Overview](/cms_trial/space/SPM/1918834317/OKR+Overview/) | The Overview page visualizes all the OKRs in a selected box in a hierarchical structure. You can also view work items under their respective Key Results. |
-| [OKR Details side panel](/cms_trial/space/SPM/1918865686/OKR+Details+side+panel/) | The OKR Details side panel is part of the OKR Overview page. It displays the selected OKR’s details, progress, auto-generated updates, and comments on those updates.  On this panel, you can:   - View OKR details, progress, and updates. - Add new updates or comments on existing ones. - Add new sub-objectives and KRs for selected Objectives. - Create new or link existing Jira work items to Key Results. |
+| [OKR Details side panel](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918865686) | The OKR Details side panel is part of the OKR Overview page. It displays the selected OKR’s details, progress, auto-generated updates, and comments on those updates.  On this panel, you can:   - View OKR details, progress, and updates. - Add new updates or comments on existing ones. - Add new sub-objectives and KRs for selected Objectives. - Create new or link existing Jira work items to Key Results. |
 | [OKR Details page](/cms_trial/space/SPM/1918536390/OKR+details+page/) | The OKR Details page displays all the details about the OKR, including basic info, progress, updates, and linked work items.  On this page, you can also see OKR copies and add dependencies and contributions between individual OKRs. |
 | [Tree view](/cms_trial/space/SPM/1918801711/Tree+view/) | The Tree view page is the default page that appears after the OKR creation process. It lists all the OKRs created in one session and their details. |
 | [Hierarchy](/cms_trial/space/SPM/1918669889/OKR+Hierarchy/) | The Hierarchy page visualizes OKRs in a family tree-like structure. Each OKR is represented as an OKR card showing basic details. |

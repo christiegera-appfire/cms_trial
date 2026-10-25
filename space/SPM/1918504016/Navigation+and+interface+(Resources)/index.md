@@ -13,7 +13,7 @@ The following options are available:
 - Expand/ Collapse all rows (swimlanes)
 - Show:
 
-  - [Workload](/cms_trial/space/SPM/1918864229/Workload+details/) (adds the workload row to every swimlane)
+  - [Workload](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918864229) (adds the workload row to every swimlane)
   - Remaining capacity (adds the remaining capacity row to every swimlane)
   - [Capacity](/cms_trial/space/SPM/1918765081/Capacity+calculation/) (adds the capacity row to every swimlane)
   - Values on heatmap (displays values on the [colored bars](/cms_trial/space/SPM/1918636529/Workload%2C+capacity%2C+and+utilization+-+tile+coloring/) in every enabled row)
@@ -129,7 +129,7 @@ The following options are available:
 - Expand/ Collapse all rows (swimlanes)
 - Show:
 
-  - [Workload](/cms_trial/space/SPM/1918864229/Workload+details/) (adds the workload row to every swimlane)
+  - [Workload](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918864229) (adds the workload row to every swimlane)
   - Remaining capacity (adds the remaining capacity row to every swimlane)
   - [Capacity](/cms_trial/space/SPM/1918765081/Capacity+calculation/) (adds the capacity row to every swimlane)
   - Values on heatmap (displays values on the [colored bars](/cms_trial/space/SPM/1918636529/Workload%2C+capacity%2C+and+utilization+-+tile+coloring/) in every enabled row)

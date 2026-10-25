@@ -10,7 +10,7 @@ However, your recent status and/or progress update may be outdated or incorrect.
 
 ## Delete/Edit OKR update
 
-The **Activity** section on the [*OKR details*](/cms_trial/space/SPM/1918536390/OKR+details+page/) page and [OKR Details side panel](/cms_trial/space/SPM/1918865686/OKR+Details+side+panel/) displays a chronological list of updates and comments made to the currently viewed OKR.
+The **Activity** section on the [*OKR details*](/cms_trial/space/SPM/1918536390/OKR+details+page/) page and [OKR Details side panel](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918865686) displays a chronological list of updates and comments made to the currently viewed OKR.
 
 To delete or edit an update:
 

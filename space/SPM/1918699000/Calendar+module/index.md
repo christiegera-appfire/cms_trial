@@ -19,7 +19,7 @@ See the video below for a short overview of the Calendar module.
 | Upcoming tasks panel | Open the sidebar to see the list of upcoming tasks that are counted for each day starting from today. |
 | [Heatmap mode](/cms_trial/space/SPM/1918633596/Heatmap+(Calendar)/) | When the Calendar heatmap is on, tasks are color-coded like in the Gantt module. When it's off, all tasks appear gray. Screenshot of the Heatmap mode option enabled in the Calendar module. |
 | [Create tasks](/cms_trial/space/SPM/1918800322/Create+tasks/) | You can create new tasks (both Jira issues and basic tasks) directly in the Calendar module. |
-| [Move tasks](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918864819) | You can reschedule your tasks by dragging and dropping them. |
+| [Move tasks](/cms_trial/space/SPM/1918864819/Move+tasks/) | You can reschedule your tasks by dragging and dropping them. |
 | [Edit tasks](/cms_trial/space/SPM/1918669751/Edit+tasks+in+the+Calendar+module/) | You can edit tasks from the **Upcoming tasks** panel.  You can also inline edit the summary, start date, end date, assignee, and status directly on the task details dialog box. |
 | [Delete tasks](/cms_trial/space/SPM/1918406592/Delete+task/) | You can delete a task from the Upcoming tasks panel. |
 | [Quick filters](/cms_trial/space/SPM/1918635901/Quick+filters/) | Quick filters are available in the Calendar module.  Only the tasks that match the filter are displayed (parent tasks of the filtered tasks are hidden if they do not match the filter criteria). Screenshot of quick filters in the Calendar module. |
@@ -48,7 +48,7 @@ See the video below for a short overview of the Calendar module.
 | Upcoming tasks panel | Open the sidebar to see the list of upcoming tasks that are counted for each day starting from today. |
 | [Heatmap mode](/cms_trial/space/SPM/1918633596/Heatmap+(Calendar)/) | When the Calendar heatmap is on, tasks are color-coded like in the Gantt module. When it's off, all tasks appear gray. Screenshot of the Heatmap mode option enabled in the Calendar module. |
 | [Create tasks](/cms_trial/space/SPM/1918800322/Create+tasks/) | You can create new tasks (both Jira issues and basic tasks) directly in the Calendar module. |
-| [Move tasks](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918864819) | You can reschedule your tasks by dragging and dropping them. |
+| [Move tasks](/cms_trial/space/SPM/1918864819/Move+tasks/) | You can reschedule your tasks by dragging and dropping them. |
 | [Edit tasks](/cms_trial/space/SPM/1918669751/Edit+tasks+in+the+Calendar+module/) | You can edit tasks from the **Upcoming tasks** panel.  You can also inline edit the summary, start date, end date, assignee, and status directly on the task details dialog box. |
 | [Delete tasks](/cms_trial/space/SPM/1918406592/Delete+task/) | You can delete a task from the Upcoming tasks panel. |
 | [Quick filters](/cms_trial/space/SPM/1918635901/Quick+filters/) | Quick filters are available in the Calendar module.  Only the tasks that match the filter are displayed (parent tasks of the filtered tasks are hidden if they do not match the filter criteria). Screenshot of quick filters in the Calendar module. |

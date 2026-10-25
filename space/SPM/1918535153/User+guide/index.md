@@ -8,6 +8,7 @@ If you want to learn more about configuring BigPicture, see the [Admin guide](/c
 
 - [Boxes](/cms_trial/space/SPM/1918403941/Boxes/)
   - [Navigate between boxes (box switcher)](/cms_trial/space/SPM/1918667414/Navigate+between+boxes+(box+switcher)/)
+  - [Box lifecycle](/cms_trial/space/SPM/1918829911/Box+lifecycle/)
   - [Box hierarchy](/cms_trial/space/SPM/1918535907/Box+hierarchy/)
   - [Portfolio boxes](/cms_trial/space/SPM/1918504271/Portfolio+boxes/)
   - [Box management](/cms_trial/space/SPM/1918699321/Box+management/)

@@ -27,4 +27,4 @@ When you finish creating an OKR, you automatically land on the Tree view page. Y
 
 ### From the OKR Overview page
 
-You can revisit the Tree view page by clicking the **Edit tree** option for the respective OKR. You can find the **Edit tree** option in the [OKR details side panel](/cms_trial/space/SPM/1918865686/OKR+Details+side+panel/) and the OKR context menu.
+You can revisit the Tree view page by clicking the **Edit tree** option for the respective OKR. You can find the **Edit tree** option in the [OKR details side panel](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918865686) and the OKR context menu.

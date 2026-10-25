@@ -60,7 +60,7 @@ The progress and status of your OKRs can be tracked only in the OKR module on th
 - [*Hierarchy*](/cms_trial/space/SPM/1918669889/OKR+Hierarchy/) page
 - [*Progress Dashboard*](/cms_trial/space/SPM/1918801225/Progress+Dashboard/) page
 - [*OKR Details*](/cms_trial/space/SPM/1918536390/OKR+details+page/) page
-- [OKR Details side panel](/cms_trial/space/SPM/1918865686/OKR+Details+side+panel/)
+- [OKR Details side panel](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918865686)
 
 You can also visualize the [OKRs in the Gantt module](/cms_trial/space/SPM/1918835163/Track+OKRs+across+modules/)’s column view using the **Objective** and **Key** **Results** columns. In addition, you can:
 

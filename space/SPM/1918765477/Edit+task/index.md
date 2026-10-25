@@ -8,7 +8,7 @@ Quickly [edit your tasks inline](/cms_trial/space/SPM/1918637324/Inline+edit/) o
 
 ## Move tasks
 
-Change the task details by [moving the task](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918864819) using the drag-and-drop function.
+Change the task details by [moving the task](/cms_trial/space/SPM/1918864819/Move+tasks/) using the drag-and-drop function.
 
 ## Edit tasks
 

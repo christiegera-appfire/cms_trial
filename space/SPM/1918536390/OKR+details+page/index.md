@@ -8,7 +8,7 @@ The OKR details page displays data for the Strategic theme, Objective, or Key Re
 
 - Carry out all actions throughout the [OKR lifecycle](/cms_trial/space/SPM/1918863610/OKR+lifecycle+and+management/) (such as create, close, delete, link, and more)
 - Launch the [Strategic Area](/cms_trial/space/SPM/2325217590/Strategic+Areas/) (only on the Strategic theme details page)
-- [Restrict OKR](/cms_trial/space/SPM/1918864985/OKR+restrictions+(per+OKR)/)
+- [Restrict OKR](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918864985)
 
 - The scope of your actions on this page depends on your role/granted permissions.
 - Visit the [Edit OKRs](/cms_trial/space/SPM/1918669695/Edit+OKR/) page to learn more about editing details on the *OKR Details* page.
@@ -155,7 +155,7 @@ In this section, you can:
 
 - Review the status and progress of the linked boxes without switching to other BigPicture modules.
 - Click the BigPicture key to open a box in the default module.
-- Filter linked boxes by their [box status](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918829911) (**To do**, **In progress**, and **Done**).
+- Filter linked boxes by their [box status](/cms_trial/space/SPM/1918829911/Box+lifecycle/) (**To do**, **In progress**, and **Done**).
 - Sort linked boxes (A-Z/ Z-A).
 - [Link and unlink boxes](/cms_trial/space/SPM/2229665803/Link+boxes+to+Key+Results/) (only at the KR level).
 - Refresh the list.

@@ -20,7 +20,7 @@ NOTE You cannot add/change the parent and edit OKR details of a [closed OKR](/cm
 
 | **Field name** | **Field type** | **Where can you edit it?** | **Notes** |
 | --- | --- | --- | --- |
-| [*Overview*](/cms_trial/space/SPM/1918834317/OKR+Overview/) page | [*OKR Details*](/cms_trial/space/SPM/1918536390/OKR+details+page/) page | [OKR Details side panel](/cms_trial/space/SPM/1918865686/OKR+Details+side+panel/) |  |
+| [*Overview*](/cms_trial/space/SPM/1918834317/OKR+Overview/) page | [*OKR Details*](/cms_trial/space/SPM/1918536390/OKR+details+page/) page | [OKR Details side panel](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918865686) |  |
 | Name/Summary | Text | ✅ | ✅ | ✅ |  |
 | Description | Text | ✅ | ✅ | ✅ |  |
 | Period | Date | ✅ | ✅ | ✅ |  |

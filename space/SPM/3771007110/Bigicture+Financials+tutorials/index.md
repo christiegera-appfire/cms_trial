@@ -4,7 +4,7 @@ Watch the videos below to learn more about the [Financials module](https://appfi
 
 | **Area/Feature** | **Video** |
 | --- | --- |
-| [Financials module - budget milestones](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830158) |  |
+| [Financials module - budget milestones](/cms_trial/space/SPM/1918830158/Financials+(Administration)/) |  |
 | [Financials module - work cost breakdown](/cms_trial/space/SPM/2265317971/Initiative/) |  |
 | [Financials module - total vs actual cost](/cms_trial/space/SPM/1918633194/Financials+management/) |  |
 | [Financials module - calculations](/cms_trial/space/SPM/1918633194/Financials+management/) |  |

@@ -43,7 +43,7 @@ See the video on how to edit risk details.
 
 ## Filtering options
 
-See the [Risks table - filters](/cms_trial/space/SPM/1918865276/Risks+table+-+filters/) page to learn more about the filtering options in the risks table.
+See the [Risks table - filters](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918865276) page to learn more about the filtering options in the risks table.
 
 ## Add columns to the table view
 
@@ -125,7 +125,7 @@ See the video on how to edit risk details.
 
 ## Filtering options
 
-See the [Risks table - filters](/cms_trial/space/SPM/1918865276/Risks+table+-+filters/) page to learn more about the filtering options in the risks table.
+See the [Risks table - filters](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918865276) page to learn more about the filtering options in the risks table.
 
 ## Add columns to the table view
 

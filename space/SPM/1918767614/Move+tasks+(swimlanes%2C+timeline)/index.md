@@ -17,4 +17,4 @@ Multissignment is possible for:
 
 ## Move tasks
 
-You can move tasks between swimlanes and from the Backlog panel. See the [Move tasks page](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918864819) for more information.
+You can move tasks between swimlanes and from the Backlog panel. See the [Move tasks page](/cms_trial/space/SPM/1918864819/Move+tasks/) for more information.

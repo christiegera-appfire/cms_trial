@@ -15,7 +15,7 @@ In this module, you can quickly access various boxes, modules, and their configu
 **Notable features**:
 
 - Quick access to the [box hierarchy](/cms_trial/space/SPM/1918535907/Box+hierarchy/)
-- Convenient access to [box lifecycle](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918829911) management
+- Convenient access to [box lifecycle](/cms_trial/space/SPM/1918829911/Box+lifecycle/) management
 - Customizable [filters](/cms_trial/space/SPM/1918503449/Filters+and+search/) and [column views](/cms_trial/space/SPM/1918404907/Column+views/)
 - Three distinctive [view modes](/cms_trial/space/SPM/1918831037/Navigation+and+interface+(Overview+module)/): Hierarchy, Timeline, and Kanban board
 
@@ -74,7 +74,7 @@ The Goals module is a high-level board based on agile Program Increments that fo
 
 **Notable features**:
 
-- Convenient access to [timebox lifecycle](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918829911) management
+- Convenient access to [timebox lifecycle](/cms_trial/space/SPM/1918829911/Box+lifecycle/) management
 - Goals reports
 - Goals [heatmap mode](/cms_trial/space/SPM/1918503549/Heatmap+mode+(Goals)/)
 - [Timeline](/cms_trial/space/SPM/1918405583/Timeline+and+markers+(Goals)/) with markers
@@ -120,7 +120,7 @@ The Risk Management module makes it easy to register, assess, and prioritize ris
 
 - Unlimited [risk registers](/cms_trial/space/SPM/1918863826/Risk+registers+list/)
 - Customizable [risk matrix templates](/cms_trial/space/SPM/1918406430/Create+new+risk+register/)
-- Customizable [risk score formulas](/cms_trial/space/SPM/1918865091/Risk+register+frameworks/)
+- Customizable [risk score formulas](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918865091)
 - [Risk reports](/cms_trial/space/SPM/1918670055/Risks+table+-+reports/)
 - Customizable [risk column views](/cms_trial/space/SPM/1918799528/Risks+table+(Risks+Management)/)
 

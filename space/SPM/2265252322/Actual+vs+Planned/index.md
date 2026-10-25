@@ -101,7 +101,7 @@ For more information
 
 ## CapEx vs. OpEx
 
-To use this widget, you have to activate it in [the CapEx vs.OpEx settings](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830158/Financials+Administration#CapEx-and-OpEx).
+To use this widget, you have to activate it in [the CapEx vs.OpEx settings](/cms_trial/space/SPM/1918830158/Financials+(Administration)/).
 
 ![capex-opex-panel.png](/cms_trial/assets/198b5eab-e826-4a8d-b5f1-85ab57d03529.png)
 
