@@ -29,13 +29,13 @@ The following table presents detailed relations between the security role and th
 
 ## Configure global financial settings
 
-You can configure global settings, like currency, baselines and custom expenses, in [the app administration](/cms_trial/space/SPM/1918830158/Financials+(Administration)/).
+You can configure global settings, like currency, baselines and custom expenses, in [the app administration](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830158).
 
 ## Assign hourly rates to boxes/teams
 
 To use Team hourly rates in the calculation, you must have teams configured. Refer to the [Teams module](/cms_trial/space/SPM/1918829775/Teams+module/) page to learn more.
 
-You can set up hourly rates for teams in [the app administration](/cms_trial/space/SPM/1918830158/Financials+(Administration)/).
+You can set up hourly rates for teams in [the app administration](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830158).
 
 You can set up box rates (Flat Rate for a box) in the Financials module → Initiative view.
 

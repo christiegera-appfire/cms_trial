@@ -33,7 +33,7 @@ The table below describes the main features of the Goals module:
 
 | **Feature** | **Description** |
 | --- | --- |
-| [Timebox lifecycle](/cms_trial/space/SPM/1918829911/Box+lifecycle/) | You can change the status of a Timebox in the Overview module or by clicking the "Info" icon in the Timebox header.   - Not started – will be executed in the future, so it is still under planning - In progress – current Timebox - Closed – already completed   All the following transitions between statuses are allowed (edit mode needs to be enabled first). |
+| [Timebox lifecycle](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918829911) | You can change the status of a Timebox in the Overview module or by clicking the "Info" icon in the Timebox header.   - Not started – will be executed in the future, so it is still under planning - In progress – current Timebox - Closed – already completed   All the following transitions between statuses are allowed (edit mode needs to be enabled first). |
 | Full-screen mode | Use this mode to hide Jira's and shared app headers. |
 | [Reports](/cms_trial/space/SPM/1918831135/Goals+module+reports/) | There are two levels of reporting by the status of goals:   - Upper level (for example: Program Increment or Project phase) - Lower level (for example: Iteration) |
 | [Team picker](/cms_trial/space/SPM/1918764762/Team+picker+(Goals)/) | Select the agile teams to be displayed on the goals board. |
@@ -78,7 +78,7 @@ The table below describes the main features of the Goals module:
 
 | **Feature** | **Description** |
 | --- | --- |
-| [Timebox lifecycle](/cms_trial/space/SPM/1918829911/Box+lifecycle/) | You can change the status of a timebox in the Overview module or by clicking the **More actions (…)** icon in the timebox header.   - Not started – will be executed in the future, so it is still under planning - In progress – current Timebox - Closed – already completed   All the following transitions between statuses are allowed (edit mode needs to be enabled first). Screenshot of the More actions button next to a timebox in the Objectives module. |
+| [Timebox lifecycle](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918829911) | You can change the status of a timebox in the Overview module or by clicking the **More actions (…)** icon in the timebox header.   - Not started – will be executed in the future, so it is still under planning - In progress – current Timebox - Closed – already completed   All the following transitions between statuses are allowed (edit mode needs to be enabled first). Screenshot of the More actions button next to a timebox in the Objectives module. |
 | [Reports view](/cms_trial/space/SPM/1918831135/Goals+module+reports/) | There are two levels of reporting by the status of goals:   - Upper level (for example: Program Increment or Project phase) - Lower level (for example: Iteration)  Screenshot of the Reports view in the Objectives module. |
 | [Team picker](/cms_trial/space/SPM/1918764762/Team+picker+(Goals)/) | Select the agile teams to be displayed on the goals board. |
 | [Timeline with markers](/cms_trial/space/SPM/1918405583/Timeline+and+markers+(Goals)/) | Dynamic timeline with "Today" and "Zoom" buttons. Click the timeline arrows to navigate between Iteration and Program Increments or to add a Marker or an important event.  Change the scale to fit up to three Program Increments in the current view. |

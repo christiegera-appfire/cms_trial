@@ -424,7 +424,7 @@ A task can be moved after it was created, but:
 
 For those reasons, creating a task in the correct place in the task hierarchy is crucial.
 
-Visit the [Move task](/cms_trial/space/SPM/1918864819/Move+tasks/) page to learn how to manually move a task within the task hierarchy.
+Visit the [Move task](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918864819) page to learn how to manually move a task within the task hierarchy.
 
 ## Scheduling mechanisms
 

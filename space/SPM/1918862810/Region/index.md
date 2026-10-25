@@ -1,6 +1,6 @@
 # Region
 
-On the **Region** page, you can configure [week numbering](/cms_trial/space/SPM/1918833426/Week+numbering/).
+On the **Region** page, you can configure [week numbering](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918833426).
 
 ## Security and access
 

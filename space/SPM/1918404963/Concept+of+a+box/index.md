@@ -32,7 +32,7 @@ Agile, Waterfall, or Hybrid?
 
 Regardless of the methodology, the App is designed to comply with the organization's chosen framework or any other array of frameworks. Be it a SAFe® program, a LeSS product, a Prince2® project, an ART,  a Program Increment (PI), an iteration, a phase, you name it — each of these frameworks now has a default template available in the App, already preconfigured to be consistent with it.
 
-Thanks to the [box type](/cms_trial/space/SPM/1918830000/Box+types/), you will save a lot of time as you configure a box type only once. When the preconfigured setting of a given box type fails to match  an unusual or more complex business scenario, you can customize it freely or create a new one from scratch.
+Thanks to the [box type](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830000), you will save a lot of time as you configure a box type only once. When the preconfigured setting of a given box type fails to match  an unusual or more complex business scenario, you can customize it freely or create a new one from scratch.
 
 You can use the following predefined box types:
 

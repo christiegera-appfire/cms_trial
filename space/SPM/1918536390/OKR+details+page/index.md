@@ -155,7 +155,7 @@ In this section, you can:
 
 - Review the status and progress of the linked boxes without switching to other BigPicture modules.
 - Click the BigPicture key to open a box in the default module.
-- Filter linked boxes by their [box status](/cms_trial/space/SPM/1918829911/Box+lifecycle/) (**To do**, **In progress**, and **Done**).
+- Filter linked boxes by their [box status](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918829911) (**To do**, **In progress**, and **Done**).
 - Sort linked boxes (A-Z/ Z-A).
 - [Link and unlink boxes](/cms_trial/space/SPM/2229665803/Link+boxes+to+Key+Results/) (only at the KR level).
 - Refresh the list.

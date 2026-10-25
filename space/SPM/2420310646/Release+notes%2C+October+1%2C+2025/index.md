@@ -35,7 +35,7 @@ In the Financials module, you can track CapEx and OpEx expenses by assigning tas
 
 ![Frame 27134.jpg](/cms_trial/assets/81b5b306-3b30-42d3-b9cc-1359efa2196c.jpg)
 
-Read more about the configuration of [custom expenses](/cms_trial/space/SPM/1918830158/Financials+(Administration)/).
+Read more about the configuration of [custom expenses](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830158/Financials+Administration#CapEx-and-OpEx).
 
 Read more about the custom expenses on the [box](/cms_trial/space/SPM/2265317971/Initiative/) and [portfolio](/cms_trial/space/SPM/2265252322/Actual+vs+Planned/) level.
 

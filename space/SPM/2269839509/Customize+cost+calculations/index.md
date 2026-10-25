@@ -28,7 +28,7 @@ The Edit calculation settings option:
 ### Which hourly rate should we use?
 
 - **Flat hourly rate** - use a single hourly rate for all tasks if the tasks are not assigned to teams
-- **Team hourly rate** - use the team hourly rate if the tasks are assigned to teams and each team needs a different rate. If the team’s hourly rate is chosen and a team has not been set, the app sets $100 for the calculations. You can define hourly rates for teams on the [Financials (Administration)](/cms_trial/space/SPM/1918830158/Financials+(Administration)/) page.
+- **Team hourly rate** - use the team hourly rate if the tasks are assigned to teams and each team needs a different rate. If the team’s hourly rate is chosen and a team has not been set, the app sets $100 for the calculations. You can define hourly rates for teams on the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830158> page.
 
 ### Box hourly rate ($)
 
@@ -38,4 +38,4 @@ Set an hourly rate for the current box (initiative).
 
 Custom expenses are one-time or recurring expenses that are not associated with specific work items. They can be beneficial for monitoring flexible or miscellaneous project-related expenditures.
 
-For more information, check [Financials (Administration)](/cms_trial/space/SPM/1918830158/Financials+(Administration)/) .
+For more information, check <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830158/Financials+Administration#Custom-expenses> .

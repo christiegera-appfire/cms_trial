@@ -42,7 +42,7 @@ Note the consequences of moving a box due to the [inheritance mode](/cms_trial/s
 
 ### Create a portfolio of portfolios
 
-By default, the portfolio [box type](/cms_trial/space/SPM/1918830000/Box+types/) can have only the Home box (Main) as its parent. However, it is possible to nest a portfolio box under another portfolio box. For that, you must add a portfolio as the **Parent type** to the portfolio box type’s **General** > **Basics** settings.
+By default, the portfolio [box type](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830000) can have only the Home box (Main) as its parent. However, it is possible to nest a portfolio box under another portfolio box. For that, you must add a portfolio as the **Parent type** to the portfolio box type’s **General** > **Basics** settings.
 
 ![Portfolio's parent types.](/cms_trial/assets/1904a02e-eff3-4d86-b654-d52e2f7bfaf8.png)
 

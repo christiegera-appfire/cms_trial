@@ -85,7 +85,7 @@ The video below shows the sample box creation process from the perspective of th
 
 ## Additional resources
 
-- [Box types](/cms_trial/space/SPM/1918830000/Box+types/)
+- <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830000>
 - [Box configuration](/cms_trial/space/SPM/1918666176/Box+configuration/)
 - [Box-level permissions](/cms_trial/space/SPM/1918797447/Box-level+permissions/)
 - [First steps](/cms_trial/space/SPM/2401108060/First+steps/)

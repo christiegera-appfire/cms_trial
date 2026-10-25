@@ -20,7 +20,7 @@ This option creates a new box that pulls Jira work items from the Jira space or 
 ![Quick action tiles.](/cms_trial/assets/d5bf10f9-81fb-4a3e-9983-da881ff12d17.png)
 
 1. **Jira Spaces to import**: Select one or multiple Jira spaces whose work items you want to include in the box.
-2. **Type**: From the dropdown, select the [box type](/cms_trial/space/SPM/1918830000/Box+types/) you want to create for your work items.
+2. **Type**: From the dropdown, select the [box type](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830000) you want to create for your work items.
 3. **Create a separate <box type> for each Jira Project**: This toggle appears only if you select more than one Jira space to import. Toggle it off to import work items from all spaces into one box. Otherwise, toggle it on; this will create as many boxes of the same type as the number of Jira spaces you added for import.
 
 ![Import Jira ](/cms_trial/assets/ee942bd3-740d-464e-853e-1f5e027f3d28.png)
@@ -55,7 +55,7 @@ This option creates a new box that pulls Jira work items from the Jira space or 
 
 ![Import Jira spaces with work items modal.](/cms_trial/assets/3cde38ff-0179-4a1a-ba00-d7b4b2cc2ca7.png)
 
-1. **Type**: From the dropdown, select the [box type](/cms_trial/space/SPM/1918830000/Box+types/) you want to create for your work items.
+1. **Type**: From the dropdown, select the [box type](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918830000) you want to create for your work items.
 2. **Create a separate <box type> for each Jira Space**: This toggle appears only if you select more than one Jira space to import. Toggle it off to import work items from all spaces into one box. Otherwise, toggle it on; this will create as many boxes of the same type as the number of Jira spaces you added for import.
 
 ![Import Jira spaces with work items modal.](/cms_trial/assets/4f96bca3-104d-49ff-b41d-8b0c68c17215.png)

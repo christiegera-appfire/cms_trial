@@ -33,7 +33,7 @@ Jira/App/Box Admins can change the status of the box and [archive](/cms_trial/sp
 
 <https://app.arcade.software/share/coip3EMuEu0X2Jt44TWm>
 
-[**Read more**](/cms_trial/space/SPM/1918829911/Box+lifecycle/)
+[**Read more**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918829911)
 
 ### Manage boxes (context menu)
 
@@ -164,7 +164,7 @@ Jira/App/Box Admins can change the status of the box and [archive](/cms_trial/sp
 - **Right-clicking** the box swimlane (anywhere but the box name link) (both sections).
 - **Right-clicking** the box bar on the timeline (right section).
 
-[**Read more**](/cms_trial/space/SPM/1918829911/Box+lifecycle/)
+[**Read more**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918829911)
 
 <https://app.arcade.software/share/NKL9xsVWXm7HQy3tVGoR>
 

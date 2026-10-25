@@ -24,7 +24,7 @@ You can carry out the following actions while in the Kanban board mode in the Ov
 
 ### Manage box lifecycle (context menu)
 
-Jira/App/Box Admins can manage the [lifecycle of the boxes](/cms_trial/space/SPM/1918829911/Box+lifecycle/) by changing the status of the box and [archiving](/cms_trial/space/SPM/1918634657/Archive+box/) it. This can be done by:
+Jira/App/Box Admins can manage the [lifecycle of the boxes](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918829911) by changing the status of the box and [archiving](/cms_trial/space/SPM/1918634657/Archive+box/) it. This can be done by:
 
 - prompting the context menu under the **More actions** (**…**) button on the box card
 - **right-clicking** the box card (anywhere but the box name link)
@@ -111,7 +111,7 @@ You can carry out the following actions while in the Kanban board mode in the Ov
 
 ### Manage box lifecycle (context menu)
 
-Jira/App/Box Admins can manage the [lifecycle of the boxes](/cms_trial/space/SPM/1918829911/Box+lifecycle/) by changing the status of the box and [archiving](/cms_trial/space/SPM/1918634657/Archive+box/) it. This can be done by:
+Jira/App/Box Admins can manage the [lifecycle of the boxes](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918829911) by changing the status of the box and [archiving](/cms_trial/space/SPM/1918634657/Archive+box/) it. This can be done by:
 
 - prompting the context menu under the **More actions** (**…**) button on the box card
 - **right-clicking** the box card (anywhere but the box name link)
