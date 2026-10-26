@@ -34,8 +34,6 @@ To use this feature, you need to add the TTS - Dynamic Calendar field to your in
 2. Click **Fields** in the side menu.
 3. Search for `TTS - Dynamic Calendar`. When it appears, click the three-dot icon next to it to reveal the options.
 4. Cick **Add field to screen**.
-
-   ![Time to SLA SLA goals page with target duration options](/cms_trial/assets/d4493333-309b-4619-9e92-2eb033267bc9.png)
 5. Select all the screens you want to see the field on.
 6. Click **Update**. This will add the custom field to the screens you’ve selected.
 
@@ -43,7 +41,7 @@ The field must contain a calendar for Time to SLA to calculate the goal. If the 
 
 ## Goal Target Type
 
-There are five goal target types you can choose from.
+There are six goal target types you can choose from.
 
 ### Duration
 
@@ -99,6 +97,26 @@ For example, suppose:
 
 If you select a date picker field instead of a date-time picker field, an additional offset setting appears. A date picker stores only a date and does not include a specific time. The offset lets you define the time that TTS should use when calculating the SLA deadline.
 
+### Relative to date field
+
+The **Relative to Date Field** goal target type lets you calculate an SLA deadline from a Jira date or date-time field instead of the SLA start time. Set the target a specified number of hours, days, or working days before or after the selected date. The target remains tied to the reference date even if the SLA starts later.
+
+#### Configure a relative date target
+
+1. In **Goal Target Type**, select **Relative to Date Field**.
+2. Choose the Jira date or date-time field containing the reference date.
+3. Select **Before** or **After** to set the direction of the offset.
+4. Enter the offset using the supported time format and units.
+5. Complete the goal configuration and save the SLA.
+
+#### Example
+
+Suppose your team must finish a deployment readiness review seven days before an agreed delivery date. The Jira **Agreed delivery date** field contains November 20, 2026. Select that field, choose **Before**, and set an offset of seven calendar days. The SLA target is November 13, 2026, regardless of when the SLA starts.
+
+#### When to use this goal type
+
+Use **Relative to Date Field** when the SLA deadline must maintain a specific interval before or after a scheduled event, such as a deployment, delivery, or maintenance window. If you need the deadline to be exactly the date stored in the Jira field, use **Negotiation date** instead.
+
 ### Dynamic duration
 
 Dynamic duration is a Jira custom field. When you enter a time string here, Time to SLA will set the SLA duration as the input entered in this field. This allows users to enter different SLA goals for each work item!
@@ -128,7 +146,6 @@ Use this section to define the scope and conditions under which the SLA goal is 
 - **Remaining issues in selected projects –** This applies the SLA goal to all work items within the broader SLA context without any additional filtering.
 - **Only specific issues in selected projects –** Lets you filter the work items the SLA goal will be applied to. Once selected, the **+ More** button will appear, allowing you to refine the goal’s scope further.
 
-  ![Time to SLA SLA goals validation dialog for target duration](/cms_trial/assets/dbb6cf3d-bbd8-47ad-954e-b2b57cf1fb92.png)
   - **Issue Priority –** Categorizes SLA goals according to the priority level assigned to a work item.
   - **Issue Type –** Lists SLA goals according to the work item type assigned to a work item.
   - **Request Type –** Tailors the SLA goal based on the specific request type associated with a work item.

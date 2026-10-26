@@ -25,13 +25,26 @@ This helps you monitor SLA statuses and prioritize work without opening individu
 
 For example, you can create a Jira filter that displays work items with an **In progress** SLA Indicator status. Your team can then use the filter to identify work that needs attention.
 
+## Customize the SLA Indicator appearance
+
+You can customize the appearance of an SLA Indicator field without changing how its SLA state is calculated. In the field's **Appearance** configuration, set colors and labels for the three indicator states: **Breached**, **At Risk**, and **Within Target**.
+
+1. Go to **Apps** > **Time to SLA** > **Administration** > **SLA Fields**.
+2. Create an SLA Indicator field or open an existing field's configuration.
+3. In **Appearance**, select a badge color for each state. The seven available colors are red, orange, amber, purple, blue, green, and gray.
+4. Use **Custom labeling** to enter a label for each state. Turn it off to use the system labels **BREACHED**, **AT RISK**, and **WITHIN TARGET** while keeping your selected colors.
+5. Choose **Rounded** or **Square** for the badge shape. This setting applies to all three states.
+6. Review the live preview, then save the configuration.
+
+The preview updates as you change colors, labels, or shape. Switching off custom labeling does not discard previously entered labels; they are restored when you turn it on again. Existing fields retain their previous appearance until you edit their configuration.
+
+For example, use a red badge labeled **Overdue** for Breached, an amber badge labeled **Attention needed** for At Risk, and a green badge labeled **On track** for Within Target. These are display labels, not new SLA states.
+
 ## Create an SLA Indicator field
 
 1. Go to **Apps** > **Time to SLA** > **Administration** > **SLA Fields**.
 2. Click the **SLA field** button.
 3. Select **TTS -** **SLA Indicator**.
-
-   ![Create an SLA Field dialog with TTS SLA Indicator selected, name and description fields, and SLA sources dropdown.](/cms_trial/assets/9ee70c2a-4262-4d0e-a6aa-8a9b92f210e9.png)
 4. Enter a name for the field.
 5. Optionally, provide a description.
 6. Under **SLA sources**, select the SLAs you want the field to monitor:
@@ -93,11 +106,8 @@ For more information, see [Recalculation](/cms_trial/space/TTSC/35456416/Recalcu
 Once you configure the field in Jira, and open the work item:
 
 - The field displays the current SLA status.
-
-  ![Jira work item view showing the SLA Indicator field with Breached status in the details panel.](/cms_trial/assets/efd78bb8-043f-492e-81e4-075bfb7099da.png)
 - Clicking the information icon shows a detailed SLA breakdown.
 
-  ![Delivery indicator details dialog listing multiple SLAs with expected time, elapsed time, and remaining or breached values.](/cms_trial/assets/67e5248c-6c5e-4d08-9184-474e3666ec85.png)
   - **Expected Time** means the SLA deadline, which is the exact date and time by which the SLA goal must be met.
   - **Elapsed**/**Remaining**/**Breached** values are the same data you see in the SLA panel on the work item view.
 

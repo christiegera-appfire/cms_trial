@@ -38,8 +38,6 @@ This lets you prioritize work items with the closest upcoming SLA deadlines. Sel
 1. Go to **Apps** > **Time to SLA** > **Administration** > **SLA Fields**.
 2. Click the **SLA field** button.
 3. Select **TTS -** **SLA Date**.
-
-   ![Create an SLA field dialog showing SLA field type with TTS - SLA Date selected, Name, Description, SLA sources, Display value, and Selection logic.](/cms_trial/assets/fdbea2d4-9fb7-47e5-b826-c69c85d6656e.png)
 4. Enter a name.
 5. Optionally, provide a description.
 6. **SLA sources** **–** Choose which SLAs this field should monitor. You can select:
@@ -87,6 +85,14 @@ If you use this field in a queue and sort by it, the selection logic directly af
 
 1. Click **Create**.
 
+## Select which SLA determines the date
+
+When multiple SLAs apply to one work item, you can choose the earliest or latest date from completed or incomplete SLAs. The selection modes are **Earliest completed**, **Earliest not completed**, **Latest completed**, and **Latest not completed**.
+
+For example, suppose a work item has two incomplete SLAs with target dates of November 10 and November 15. **Earliest not completed** selects November 10, while **Latest not completed** selects November 15. The completed options select among finished SLAs instead.
+
+Choose an incomplete-SLA option to monitor outstanding commitments or a completed-SLA option to review completed work. The available date depends on which SLAs meet the selected completion status.
+
 ## After creating the field
 
 To make the SLA field visible in work items, ensure that:
@@ -119,8 +125,6 @@ In the work item view, you see:
 
 - The SLA name, and
 - The related date (start, target, or end).
-
-  ![Work item view showing QA target latest and QA target earliest fields shown in the Details section.](/cms_trial/assets/a764ba4f-89c4-4851-a77d-4c6c27e1ffa8.png)
 
 However, in other Jira views, such as work item navigator, queues, or gadgets, you only see the stored date value. The SLA name is not displayed, because the SLA Date field is a standard Jira date field and only stores the selected date value.
 

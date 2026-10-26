@@ -18,6 +18,7 @@
 - [getCustomerRequests](/cms_trial/space/PSJC/621971857/getCustomerRequests/)
 - [getCustomerRequestStatus](/cms_trial/space/PSJC/644678772/getCustomerRequestStatus/)
 - [getFeedbackForRequest](/cms_trial/space/PSJC/740624371/getFeedbackForRequest/)
+- [getRequestParticipants](/cms_trial/space/PSJC/645038399/getRequestParticipants/)
 - [getSubscriptionStatus](/cms_trial/space/PSJC/622494016/getSubscriptionStatus/)
 - [isPublicJSDComment](/cms_trial/space/PSJC/622300539/isPublicJSDComment/)
 - [removeFeedbackFromRequest](/cms_trial/space/PSJC/741540066/removeFeedbackFromRequest/)

@@ -36,6 +36,20 @@ Check out the screenshots below to see some examples:
 
 ![Time to SLA SLA conditions pause condition configuration](/cms_trial/assets/c1845def-db2b-450f-a271-b7f7633a8d53.png)
 
+#### Start an SLA relative to a date field
+
+Use a date-relative start condition to start an SLA a specified number of hours, days, or working days before or after a date stored in a Jira date or date-time field. Unlike a status-change condition, the start time is calculated from the reference date rather than the time Time to SLA processes the work item.
+
+1. In the *SLA Conditions* step, add a **Start Condition**.
+2. Select the date-relative start condition.
+3. Select the Jira date or date-time field to use as the reference.
+4. Choose whether the SLA should start **Before** or **After** that date and specify the offset.
+5. Save the SLA configuration.
+
+For example, to begin a deployment preparation SLA 14 days before the agreed delivery date, select the **Agreed delivery date** field and set the offset to 14 days **Before**. If the reference date is November 20, 2026, the calculated start date is November 6, 2026.
+
+If the selected date field is empty, the SLA remains unstarted. When Time to SLA evaluates a qualifying work item after the calculated start time, it uses that calculated time as the SLA start, not the processing time.
+
 #### **End conditions**
 
 End conditions signify the completion of an SLA. It is mandatory to define at least one End condition for every SLA. The configuration steps mirror those of the Start conditions. Check out the screenshots below to see some examples:
@@ -91,8 +105,6 @@ In Time to SLA, you can configure SLAs to pause based on status, field values, o
 1. **Status is any of the selected status(es) –** Choose from various statuses (e.g., To Do, In Progress, Done, etc.). When the SLA enters one of these specified statuses, the countdown halts, and it resumes only upon exiting that status.
 2. **The field value satisfies a condition –** To pause the SLA based on a specific field value, set the desired field for the statuses where the SLA should be paused. Numerous field options are available for customization.
 3. **Triggered by another SLA –** Use this feature to connect your SLA to another SLA. For example, you can configure the condition to have your SLA pause when the SLA it’s connected to pauses.
-
-   ![Time to SLA SLA conditions condition list with calendar and status options](/cms_trial/assets/9d899951-24cc-40a3-8186-b240fe740970.png)
 
 The SLA countdown **does not pause** if the SLA goal is set as a negotiation date.
 

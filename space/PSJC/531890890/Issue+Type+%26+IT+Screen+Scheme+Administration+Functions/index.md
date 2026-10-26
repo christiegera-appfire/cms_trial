@@ -6,9 +6,7 @@ This section contains functions that enable users to handle issue type administr
 
 - [admAddIssueTypeToScheme](/cms_trial/space/PSJC/986120241/admAddIssueTypeToScheme/)
 - [admAppendITSSMapping](/cms_trial/space/PSJC/806158387/admAppendITSSMapping/)
-- [admAssignITSSToProject](/cms_trial/space/PSJC/805667045/admAssignITSSToProject/)
 - [admCreateIssueTypeScheme](/cms_trial/space/PSJC/986218517/admCreateIssueTypeScheme/)
-- [admCreateIssueTypeScreenScheme](/cms_trial/space/PSJC/805634774/admCreateIssueTypeScreenScheme/)
 - [admDeleteIssueTypeScheme](/cms_trial/space/PSJC/985989163/admDeleteIssueTypeScheme/)
 - [admDeleteIssueTypeScreenScheme](/cms_trial/space/PSJC/805634802/admDeleteIssueTypeScreenScheme/)
 - [admGetAllIssueTypeSchemes](/cms_trial/space/PSJC/514786551/admGetAllIssueTypeSchemes/)

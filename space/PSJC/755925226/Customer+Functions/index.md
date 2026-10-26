@@ -4,6 +4,7 @@ This section contains functions that enable users to handle Jira Service Managem
 
 ## Functions Summary
 
+- [addCustomersToServiceDesk](/cms_trial/space/PSJC/694125114/addCustomersToServiceDesk/)
 - [addCustomerToOrganization](/cms_trial/space/PSJC/572096530/addCustomerToOrganization/)
 - [createCustomer](/cms_trial/space/PSJC/562364417/createCustomer/)
 - [getCustomersObjects](/cms_trial/space/PSJC/843612872/getCustomersObjects/)

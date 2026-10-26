@@ -5,3 +5,5 @@
 ## Functions Summary
 
 - [admAddProjectComponent](/cms_trial/space/PSJC/733905555/admAddProjectComponent/)
+- [admDeleteProjectComponent](/cms_trial/space/PSJC/732990279/admDeleteProjectComponent/)
+- [admUpdateProjectComponent](/cms_trial/space/PSJC/733187152/admUpdateProjectComponent/)

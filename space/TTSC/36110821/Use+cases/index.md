@@ -19,3 +19,4 @@ Explore use cases of how Time to SLA can solve the bottlenecks in your work.
 - [I want to combine multiple SLA actions into one workflow](/cms_trial/space/TTSC/3406823816/I+want+to+combine+multiple+SLA+actions+into+one+workflow/)
 - [I want to trigger Jira automation from SLA events](/cms_trial/space/TTSC/3407446166/I+want+to+trigger+Jira+automation+from+SLA+events/)
 - [I want to review cross-project SLA compliance data without manual spreadsheet exports](/cms_trial/space/TTSC/3426714512/I+want+to+review+cross-project+SLA+compliance+data+without+manual+spreadsheet+exports/)
+- [Track SLA deadlines across Salesforce and Jira](/cms_trial/space/TTSC/3742531595/Track+SLA+deadlines+across+Salesforce+and+Jira/)

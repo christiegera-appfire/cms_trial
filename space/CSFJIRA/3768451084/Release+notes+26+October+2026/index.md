@@ -18,8 +18,6 @@ This page outlines the updates included in the latest release of Connector for S
 
 SLAs set in Time to SLA now appear on your Salesforce record pages, next to the Jira work items linked to each record. Support teams can check whether a work item is on track without switching to Jira.
 
-Time to SLA for Connector for Salesforce & Jira is rolling out today and will be available by the end of the day (October 26, 2026). Check back soon to try it out.
-
 #### What's new
 
 - **Time to SLA for Jira:** Add it to a record page in Lightning App Builder to see the SLAs and how many are breached for the linked work items.

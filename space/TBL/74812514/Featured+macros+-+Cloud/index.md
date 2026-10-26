@@ -12,6 +12,7 @@ The Advanced Tables for Confluence app includes powerful and feature rich macros
   - [Configure Excel data source in Advanced Table Viewer macro](/cms_trial/space/TBL/3122888898/Configure+Excel+data+source+in+Advanced+Table+Viewer+macro/)
   - [Configure JSON data source in Advanced Table Viewer macro](/cms_trial/space/TBL/3297017872/Configure+JSON+data+source+in+Advanced+Table+Viewer+macro/)
   - [Configure Jira work items in Advanced Table Viewer macro](/cms_trial/space/TBL/3510927447/Configure+Jira+work+items+in+Advanced+Table+Viewer+macro/)
+  - [Configure Page properties data source in Advanced Table Viewer macro](/cms_trial/space/TBL/3770810371/Configure+Page+properties+data+source+in+Advanced+Table+Viewer+macro/)
   - [Analyze Advanced Table Viewer data with Atlassian Rovo](/cms_trial/space/TBL/3429499007/Analyze+Advanced+Table+Viewer+data+with+Atlassian+Rovo/)
   - [Filter columns with Advanced Table Viewer macro](/cms_trial/space/TBL/2001437596/Filter+columns+with+Advanced+Table+Viewer+macro/)
   - [Column drag and drop with Advanced Table Viewer macro](/cms_trial/space/TBL/3398172705/Column+drag+and+drop+with+Advanced+Table+Viewer+macro/)
