@@ -159,7 +159,6 @@ Use the following categories to browse functions by feature or use case.
   - [Custom Field Administration Functions](/cms_trial/space/PSJC/434897107/Custom+Field+Administration+Functions/)
   - [Dashboard Functions](/cms_trial/space/PSJC/748683346/Dashboard+Functions/)
   - [Field Configuration Functions](/cms_trial/space/PSJC/860717209/Field+Configuration+Functions/)
-  - [Filter Administration Functions](/cms_trial/space/PSJC/722174068/Filter+Administration+Functions/)
   - [Group Administration Functions](/cms_trial/space/PSJC/515178984/Group+Administration+Functions/)
   - [Issue Administration Functions](/cms_trial/space/PSJC/514818767/Issue+Administration+Functions/)
   - [Issue Type & IT Screen Scheme Administration Functions](/cms_trial/space/PSJC/531890890/Issue+Type+%26+IT+Screen+Scheme+Administration+Functions/)

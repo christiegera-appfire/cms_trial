@@ -21,7 +21,8 @@ To add or update the priority metric value:
 
 The video presents how to add priority values to a work item.
 
-![Video presenting how to add priority values to a work item.](/cms_trial/assets/e8db5a90-c0f3-4368-882e-5f3134f599ce.mp4)
+Image — asset pipeline pending  
+Video presenting how to add priority values to a work item.
 
 ## Delete metric values
 
@@ -30,7 +31,8 @@ To delete a value:
 1. Click the field under the respective metric column.
 2. Click the **X** icon to delete.
 
-![Screenshot of deleting metric values in the Priorities module.](/cms_trial/assets/ff77383b-9ac1-4273-9e37-cd2fda9f29b8.png)
+Image — asset pipeline pending  
+Screenshot of deleting metric values in the Priorities module.
 
 ## Clear all metrics
 
@@ -59,7 +61,8 @@ To add or update the priority metric value:
 
 The video presents how to add priority values to a work item.
 
-![Video presenting how to add priority values to a work item.](/cms_trial/assets/31eb9243-7af4-424d-b2e7-747838a3571d.mp4)
+Image — asset pipeline pending  
+Video presenting how to add priority values to a work item.
 
 ## Delete metric values
 
@@ -68,7 +71,8 @@ To delete a value:
 1. Click the field under the respective metric column.
 2. Click the **X** icon to delete.
 
-   ![Screenshot of removing a value in the Priorities module.](/cms_trial/assets/2c320c6c-2e6d-4283-b83f-27bcd4c97ba2.png)
+   Image — asset pipeline pending  
+   Screenshot of removing a value in the Priorities module.
 
 ## Clear all metrics
 
@@ -78,4 +82,5 @@ To clear all metrics for a selected work item, box, or goal:
 2. Click the **… More actions** menu.
 3. Click **Clear all metrics**.
 
-   ![Screenshot of the Clear all metrics button in the Priorities module.](/cms_trial/assets/2e3cb140-f6c3-4e7d-9fdd-003f6ddd6b6b.png)
+   Image — asset pipeline pending  
+   Screenshot of the Clear all metrics button in the Priorities module.

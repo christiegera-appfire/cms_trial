@@ -181,7 +181,7 @@ You may manipulate the JQL value directly, although it’s not recommended becau
 
 There are two functions you may use in any listener (for instance).
 
-[getCustomKeywordIndexValue](/cms_trial/space/PSJC/734134284/getCustomKeywordIndexValue/)
+<https://appfire.atlassian.net/wiki/spaces/PSJC/pages/734134284>
 
 [setCustomKeywordIndexValue](/cms_trial/space/PSJC/733775542/setCustomKeywordIndexValue/)
 

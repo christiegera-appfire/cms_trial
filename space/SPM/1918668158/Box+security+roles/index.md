@@ -6,7 +6,7 @@ Operations available to a user depend on their security roles.
 
 | **Security role** | **Description** |
 | --- | --- |
-| - Box Admin | Users or groups with this role have all the permissions granted except for accessing the [App Administration](/cms_trial/space/SPM/1918829342/App+administration/) page.  Sub-boxes inherit the Box Admin role.  A Box Admin can:   - administer the Box (access the [box configuration](/cms_trial/space/SPM/1918666176/Box+configuration/) section) - create sub-boxes (child boxes) - create a sub-box using a box type with the **Inherited only** mode - [edit a box](/cms_trial/space/SPM/1918635162/Edit+box+details+(name%2C+start%2Fend+dates)/) (name and start and end date) - [delete a box](/cms_trial/space/SPM/1918635005/Delete+box/) - [archive a box](/cms_trial/space/SPM/1918634657/Archive+box/) - [change a box status](/cms_trial/space/SPM/1918829911/Box+lifecycle/) (not started, in progress, closed) - [duplicate a box](/cms_trial/space/SPM/1918635048/Duplicate+box+and+box+scope/) configuration and use it to create a new box - determine who can create, edit, and delete [baselines](/cms_trial/space/SPM/1918404564/Baselines/) (other users can still view baselines);    - Box Admin and Box Editors (default)   - Box Admins  Baselines security settings on the box configuration page.  - [re-synchronize](/cms_trial/space/SPM/1918404058/Data+synchronization+with+connected+tools/) the box - edit the box content (as described in the Box editor role), and change the box configuration settings. |
+| - Box Admin | Users or groups with this role have all the permissions granted except for accessing the [App Administration](/cms_trial/space/SPM/1918829342/App+administration/) page.  Sub-boxes inherit the Box Admin role.  A Box Admin can:   - administer the Box (access the [box configuration](/cms_trial/space/SPM/1918666176/Box+configuration/) section) - create sub-boxes (child boxes) - create a sub-box using a box type with the **Inherited only** mode - [edit a box](/cms_trial/space/SPM/1918635162/Edit+box+details+(name%2C+start%2Fend+dates)/) (name and start and end date) - [delete a box](/cms_trial/space/SPM/1918635005/Delete+box/) - [archive a box](/cms_trial/space/SPM/1918634657/Archive+box/) - [change a box status](/cms_trial/space/SPM/1918829911/Box+lifecycle/) (not started, in progress, closed) - [duplicate a box](/cms_trial/space/SPM/1918635048/Duplicate+box+and+box+scope/) configuration and use it to create a new box - determine who can create, edit, and delete [baselines](/cms_trial/space/SPM/1918404564/Baselines/) (other users can still view baselines);    - Box Admin and Box Editors (default)   - Box Admins   Image — asset pipeline pending Baselines security settings on the box configuration page.   - [re-synchronize](/cms_trial/space/SPM/1918404058/Data+synchronization+with+connected+tools/) the box - edit the box content (as described in the Box editor role), and change the box configuration settings. |
 | Box Editor | Sub-boxes inherit the Box Editor role.  A Box Editor can:   - [edit the box](/cms_trial/space/SPM/1918635162/Edit+box+details+(name%2C+start%2Fend+dates)/) (name and start and end date) - add, edit, and delete objectives - add, edit, and delete tasks - add, edit, and delete dependencies - switch between the column views - switch between the risk card views - manually change the [task structure](/cms_trial/space/SPM/1918667217/Manage+task+structure/) - [duplicate box](/cms_trial/space/SPM/1918635048/Duplicate+box+and+box+scope/) configuration and use it to create a new box - change the scheduling mode of tasks (including Locked tasks - modify current column view (they can make temporary changes to what they see on the screen, but they cannot save the new setup and make permanent changes to existing column view configurations) |
 | Box Viewer | This role is inherited when you create sub-boxes. Users or groups with this role will not have access to the box configuration. They can view the box content in a read-only way and use the [export](https://appfire.atlassian.net/wiki/spaces/BTc) functionality. |
 | Sub-box Creator | The Sub-box Creator role is not inherited. Sub-Box Creator can create Project boxes as sub-boxes under a Portfolio box.  Sub-box Creators cannot create a sub-box they cannot delete later.  If you grant users a Sub-box Creator role on the Home (root) box level, they will be able to create their own Project boxes but will not be permitted to access or edit other boxes nested under the Home box.  [Unmapped block: nestedExpand] |
@@ -46,7 +46,11 @@ This configuration page will not be visible if the inheritance mode is set to "I
 
 The Inheritance mode depends on the box type. When creating a new Box, you must select a type—security settings, including the Inheritance mode and the role template, are copied.
 
-![Screen showing the Box types in the Overview module in the BigPicture](/cms_trial/assets/31f22b69-3588-45e7-8587-30b3a84d9146.png)![Screenshot showing security permissions available in BigPicture](/cms_trial/assets/1e641ab4-da9c-4a59-baba-2b09cccc0bed.png)
+Image — asset pipeline pending  
+Screen showing the Box types in the Overview module in the BigPicture
+
+Image — asset pipeline pending  
+Screenshot showing security permissions available in BigPicture
 
 ## Inheritance of roles
 
@@ -72,7 +76,8 @@ You can assign default roles in the box type configuration to save time when ass
 
 App and Jira administrators have access to all existing boxes. Users who have no access to a particular box or are not assigned to any security role will not see the box in the Overview module and the [box switcher](/cms_trial/space/SPM/1918667414/Navigate+between+boxes+(box+switcher)/) unless a user has access to a sub-box (but not to the upper-level box). The upper-level box will be displayed as a greyed-out row (without links) to show the box structure properly:
 
-![image2022-10-4_15-8-19.png](/cms_trial/assets/a26b73a6-448d-41f7-97b8-8b112402d169.png)
+Image — asset pipeline pending  
+image2022-10-4\_15-8-19.png
 
 ## Security roles
 
@@ -85,4 +90,11 @@ The "Access Status" column can display two statuses:
 
 "Access Status" is shown for added users, not for groups.
 
-![contentId-1918668158](/cms_trial/assets/1fd56d8c-a245-4d0b-8243-b657187f21d8.png)![contentId-1918668158](/cms_trial/assets/dc3370cf-489d-4a46-9d1f-f289ce4973d4.png)![contentId-1918668158](/cms_trial/assets/96e72447-6d20-4bc2-864c-48907b0d3446.png)
+Image — asset pipeline pending  
+contentId-1918668158
+
+Image — asset pipeline pending  
+contentId-1918668158
+
+Image — asset pipeline pending  
+contentId-1918668158

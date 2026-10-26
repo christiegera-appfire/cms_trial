@@ -1,8 +1,8 @@
 # Run your extended JQL Search
 
-Jira's standard JQL lets you search many issue fields, but sometimes the information you need isn't available as a standard JQL field.
+Jira's standard JQL lets you search many work item fields, but sometimes the information you need isn't available as a standard JQL field.
 
-JQL Search Extensions adds keywords that let you search additional issue information.
+JQL Search Extensions adds keywords that let you search additional work item information.
 
 In this example, you'll find work items that have PNG files attached to them.
 
@@ -31,10 +31,10 @@ Once your first query works, try changing the file extension:
 
 ![2026-09-23_17-06-40.jpeg](/cms_trial/assets/b0b94658-4257-4727-a76d-ab6c4dc3fbea.jpeg)
 
-You've now used an extended JSE keyword to search Jira issue information that isn't available through standard JQL.
+You've now used an extended JSE keyword to search Jira work item information that isn't available through standard JQL.
 
 ## Next step
 
-Keywords are useful when you want to search additional issue information. JSE functions let you go further by performing more complex searches, including searches based on relationships between issues.
+Keywords are useful when you want to search additional work item information. JSE functions let you go further by performing more complex searches, including searches based on relationships between work items.
 
 Continue to [Search related issues with a JSE function.](/cms_trial/space/JQLSEARCH/3680174342/Search+related+issues+with+a+JSE+function/)

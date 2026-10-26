@@ -16,13 +16,15 @@ You can add existing tasks to a Box by adjusting its scope definition. For exam
 
 Go to: **Add task** > **Manage scope definition**to make adjustments. Check [the Scope definitions page](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/) for more information.
 
-![contentId-1918667878](/cms_trial/assets/c6cdf8ae-52e2-4558-89cf-2671fbabeeaa.png)
+Image — asset pipeline pending  
+contentId-1918667878
 
 ## Empty box
 
 When a box doesn't contain tasks you see the following splash screen:
 
-![contentId-1918667878](/cms_trial/assets/0796c942-53a0-472b-9c43-b2178962ab63.png)
+Image — asset pipeline pending  
+contentId-1918667878
 
 ### Add existing tasks from Jira
 
@@ -30,11 +32,13 @@ This option lets you add existing tasks from a Jira project.
 
 Scope definition settings appear in a pop-up:
 
-![image-20250325-104509.png](/cms_trial/assets/720f1514-debc-4439-ac12-a13523458204.png)
+Image — asset pipeline pending  
+image-20250325-104509.png
 
 To access advanced settings, click the **Advanced options** link at the bottom:
 
-![image-20250325-104516.png](/cms_trial/assets/ecd3680c-865c-4ecd-86f2-66cbbd3397fd.png)
+Image — asset pipeline pending  
+image-20250325-104516.png
 
 ## Portfolio boxes (none scope boxes)
 
@@ -48,7 +52,8 @@ To add new tasks:
 2. Add tasks at the sub-box level.
 3. Return to the portfolio box to see the updated view.
 
-![gantt-module-portfolio-add.png](/cms_trial/assets/5df06887-778b-4e23-bf3d-84773b184b3b.png)
+Image — asset pipeline pending  
+gantt-module-portfolio-add.png
 
 ## Add existing tasks to a box (new navigation)
 
@@ -66,13 +71,15 @@ You can add existing tasks to a Box by adjusting its scope definition. For exam
 
 Go to: **Tasks** > **Add work items from Jira**to make adjustments. Check [the Scope definitions page](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/) for more information.
 
-![add-work-items-from-jira.png](/cms_trial/assets/a52d6b75-11cf-4743-bf54-8b45516df24e.png)
+Image — asset pipeline pending  
+add-work-items-from-jira.png
 
 ## Empty box
 
 When a box doesn't contain tasks, you see the following splash screen:
 
-![contentId-1918667878](/cms_trial/assets/0796c942-53a0-472b-9c43-b2178962ab63.png)
+Image — asset pipeline pending  
+contentId-1918667878
 
 ### Add existing tasks from Jira
 
@@ -80,7 +87,8 @@ This option lets you add existing tasks from a Jira project.
 
 Scope definition settings appear in a pop-up:
 
-![work-items-from-jira-form.png](/cms_trial/assets/c5e094d3-9bef-4c4d-aa9a-4996ea8534ef.png)
+Image — asset pipeline pending  
+work-items-from-jira-form.png
 
 To access advanced settings, click the **Advanced options** link at the bottom.
 

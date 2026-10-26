@@ -11,7 +11,6 @@
 - [getAllOrganizationIds](/cms_trial/space/PSJC/524386328/getAllOrganizationIds/)
 - [getOrganizationIdByName](/cms_trial/space/PSJC/570720353/getOrganizationIdByName/)
 - [getOrganizationNameById](/cms_trial/space/PSJC/524419073/getOrganizationNameById/)
-- [getOrganizationPropertyKeys](/cms_trial/space/PSJC/570753411/getOrganizationPropertyKeys/)
 - [getOrganizationPropertyValues](/cms_trial/space/PSJC/570884271/getOrganizationPropertyValues/)
 - [getUserOrganizations](/cms_trial/space/PSJC/755859564/getUserOrganizations/)
 - [getUsersFromOrganizations](/cms_trial/space/PSJC/572096513/getUsersFromOrganizations/)

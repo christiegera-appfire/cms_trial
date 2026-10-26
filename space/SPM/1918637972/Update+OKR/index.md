@@ -22,7 +22,8 @@ You cannot edit or delete those updates.
 
 When updating an OKR, an update screen pops up. You can enter the following data on the OKR update screen:
 
-![Objective update screen.](/cms_trial/assets/ed50e392-ae9e-4440-bbd3-1a3f7755a4c4.png)
+Image — asset pipeline pending  
+Objective update screen.
 
 - **Date of update** - The current date is automatically filled in, but you can edit it.
 - **+Add time** - Add time if your teams make quick progress on the KRs and update them more than once per day.
@@ -68,8 +69,10 @@ Visit the [OKR Details page](/cms_trial/space/SPM/1918536390/OKR+details+page/) 
 
 Automated updates made using the API and OKRobot are marked with the appropriate label.
 
-![The activity section.](/cms_trial/assets/bb14f8e3-77c4-41c7-9d75-920bc345649e.png)
+Image — asset pipeline pending  
+The activity section.
 
 For the latest updates, you can view them in the **Last update** column on the [*Progress Dashboard*](/cms_trial/space/SPM/1918801225/Progress+Dashboard/) page.
 
-![image-20260601-091141.png](/cms_trial/assets/b10bd845-19f4-459c-8d29-fc715dbfc9d6.png)
+Image — asset pipeline pending  
+image-20260601-091141.png

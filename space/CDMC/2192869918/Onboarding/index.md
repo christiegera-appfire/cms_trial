@@ -6,15 +6,15 @@ To get started,
 
 1. Click **Get Started** on the following screen after you [install](/cms_trial/space/CDMC/2192870167/Installation/) the app.
 
-![Comala onboarding welcome screen with setup options](/cms_trial/assets/652a0fde-9607-40c7-a524-90132feaeab6.png)
+![Comala onboarding welcome screen with setup options](/cms_trial/assets/a4ec6a69-7afd-48f9-bb01-faf49de4631d.png)
 
 1. Select a space where you want to configure the app. Click **Next**.
 
-![Comala onboarding popular use cases selection](/cms_trial/assets/23a41d3e-a3c9-4733-84ee-6d4bf5c66ce3.png)
+![Comala onboarding popular use cases selection](/cms_trial/assets/b7e88e97-f64f-40d3-85ad-d342d70b3e54.png)
 
 1. Choose an option in the onboarding screen to explore the app or apply an example workflow. Quickly apply the workflow on this screen, or go to the space settings to select a workflow that suits your needs.
 
-![Comala onboarding workflow setup guide](/cms_trial/assets/0526931e-9677-45bc-8d15-d06210549070.png)
+![Comala onboarding workflow setup guide](/cms_trial/assets/a505afbd-b346-4c26-8f0b-3f49aef7bd13.png)
 
 Learn more about [workflows](https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2192676962) here.
 
@@ -34,10 +34,10 @@ Explore this interactive demo to see the app in action and applied to real-world
 
 Use the links to view some use cases for Comala Document Management and apply an example workflow to illustrate each use case.
 
-![Comala onboarding use case cards](/cms_trial/assets/2eb76ae2-e206-42cc-b1e4-6d35d4bd8a26.png)
+![Comala onboarding use case cards](/cms_trial/assets/ad474c8a-488f-47f6-be8c-f836d501e635.png)
 
 ### Further support or questions
 
 Use the links to our [support team](http://appf.re/support) and product documentation to help answer any questions about Comala Document Management or provide feedback.
 
-![Comala onboarding workflow template selection](/cms_trial/assets/43a7932e-560f-49de-926e-f513b231a639.png)
+![Comala onboarding workflow template selection](/cms_trial/assets/851059e5-9bc6-45c3-a972-3f95902e6e9d.png)

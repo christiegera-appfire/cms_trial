@@ -39,8 +39,6 @@ As a dedicated Forge app built to work seamlessly in Jira Cloud, **Live Fields i
   - [SIL Help panel](/cms_trial/space/PSJC/490997632/SIL+Help+panel/)
   - [SIL Manager settings](/cms_trial/space/PSJC/490997655/SIL+Manager+settings/)
   - [Script Debugger (Beta)](/cms_trial/space/PSJC/516653057/Script+Debugger+(Beta)/)
-- [Script Snippets](/cms_trial/space/PSJC/723320834/Script+Snippets/)
-  - [Script Snippets Code](/cms_trial/space/PSJC/723320880/Script+Snippets+Code/)
 - [SIL Panel](/cms_trial/space/PSJC/490998470/SIL+Panel/)
 - [SIL Runner Gadget](/cms_trial/space/PSJC/490998486/SIL+Runner+Gadget/)
   - [SIL Runner Gadget configuration](/cms_trial/space/PSJC/490996338/SIL+Runner+Gadget+configuration/)

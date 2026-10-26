@@ -14,7 +14,6 @@ This section contains functions that enable users to handle worklogs.
 - [getWorklogAuthor](/cms_trial/space/PSJC/433654597/getWorklogAuthor/)
 - [getWorklogComment](/cms_trial/space/PSJC/434864597/getWorklogComment/)
 - [getWorklogCreatedDate](/cms_trial/space/PSJC/434799340/getWorklogCreatedDate/)
-- [getWorklogFromEvent](/cms_trial/space/PSJC/705003549/getWorklogFromEvent/)
 - [getWorklogIds](/cms_trial/space/PSJC/434374453/getWorklogIds/)
 - [getWorklogIdsForUser](/cms_trial/space/PSJC/434374469/getWorklogIdsForUser/)
 - [getWorklogLoggedHours](/cms_trial/space/PSJC/434635622/getWorklogLoggedHours/)

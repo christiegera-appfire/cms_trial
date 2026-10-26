@@ -47,4 +47,4 @@ You are ready to continue when you have:
 
 ![2026-09-17_19-59-45.png](/cms_trial/assets/e006be54-a693-46db-9017-ee5e14835ba6.png)
 
-Next, click the **Start** **Searching** button to run your first extended JQL search to see how JSE expands what you can find in Jira. [Run your extended JQL search.](/cms_trial/space/JQLSEARCH/3680174082/Run+your+extended+JQL+Search/)
+Next, click the **Start searching** button to run your first extended JQL search to see how JSE expands what you can find in Jira. [Run your extended JQL search.](/cms_trial/space/JQLSEARCH/3680174082/Run+your+extended+JQL+Search/)

@@ -12,4 +12,4 @@ Watch videos presenting Connector for Salesforce & Jira tutorials:
 
 ## Integration with Time to SLA
 
-- [Set up Time to SLA integration](https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3672277145)
+- [Set up Time to SLA integration](/cms_trial/space/CSFJIRA/3672277145/Set+up+Time+to+SLA+integration/)

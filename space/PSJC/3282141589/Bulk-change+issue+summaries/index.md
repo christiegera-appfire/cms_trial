@@ -2,7 +2,7 @@
 
 ## What's it handy for?
 
-Power Scripts is a Swiss Army Knife that can help you customize Jira to your needs by building advanced automations with easy-to-use SIL (Simple Issue Language). This recipe shows you how to make bulk updates to issue summary fields with one short script, using ready-made [Script Snippets](/cms_trial/space/PSJC/723320834/Script+Snippets/) (short snippets of code).
+Power Scripts is a Swiss Army Knife that can help you customize Jira to your needs by building advanced automations with easy-to-use SIL (Simple Issue Language). This recipe shows you how to make bulk updates to issue summary fields with one short script, using ready-made [Script Snippets](https://appfire.atlassian.net/wiki/spaces/PSJC/pages/723320834) (short snippets of code).
 
 - **Save time**: Instead of making manual updates, perform tasks at scale.
 - **Reduce errors**: Bulk changes ensure that no manual errors can slip in.
@@ -11,7 +11,7 @@ Power Scripts is a Swiss Army Knife that can help you customize Jira to your nee
 ## To get started
 
 1. Open the SIL Manager – your central repository where all scripts are stored in a file system.
-2. Start building your script with the "Bulk change issues" [Script Snippet](/cms_trial/space/PSJC/723320834/Script+Snippets/).
+2. Start building your script with the "Bulk change issues" [Script Snippet](https://appfire.atlassian.net/wiki/spaces/PSJC/pages/723320834).
 3. Customize your script with the "[Current Issue] Subtask" Script Snippet.
 4. Once you're done customizing the script, save it and test it.
 
@@ -32,4 +32,4 @@ for(string k in selectIssues(jql, 100)) { // select first 100 issues
 }
 ```
 
-For more information about Script Snippets, see the [Script Snippets](/cms_trial/space/PSJC/723320834/Script+Snippets/) documentation.
+For more information about Script Snippets, see the [Script Snippets](https://appfire.atlassian.net/wiki/spaces/PSJC/pages/723320834) documentation.

@@ -70,7 +70,7 @@ You need edit permissions to access the macro setup mode.
 
 For **Sum** and **Count** calculation types, you can **add a condition** to summarize only the values in rows that match the condition.
 
-#### **Apply conditional group calculation to numeric column type**
+#### **Apply conditional group calculation to SUM calculation type**
 
 **Example 1- Sum the Unit Shipping Cost of products whose reorder level is less than or equal to ten**
 
@@ -104,6 +104,8 @@ Follow the steps below for Example 1:
 
    ![ATV_SUMIF_Group calculation_View mode.png](/cms_trial/assets/9c098bc7-b3fd-4dbf-809d-65a13aafa778.png)
 
+#### **Apply conditional group calculation to COUNT calculation type**
+
 **Example 2** - Under each product category, count products with reorder level less than or equal to 10.
 
 Follow the steps below for Example 2:
@@ -113,7 +115,7 @@ Follow the steps below for Example 2:
    ![ATV_Reorder Level_Edit group calculation.png](/cms_trial/assets/575cf8a6-f805-4da6-8dd2-538ebbf179f6.png)
 2. Select the required Sum-up type; for example, for the **Reorder Level** column, select **Count**. The **Add condition** toggle is off by default, and the macro returns the total number of non-empty cells in the column.
 3. To add a condition to the **Reorder Level** column calculation, enable the **Add condition** toggle.
-4. In the condition dropdowns, select the column, condition, and value in sequence. For example, select *Reorder Level*, *less than or equal to*, and *10*.
+4. In the condition dropdowns, select the column, condition, and value in order. For example, select *Reorder Level*, *less than or equal to*, and *10*.
 
    - The applied condition for the **Reorder Level** column counts non-empty rows where the **Reorder Level** column value is *less than or equal to* 10.
 5. To apply the condition, click **Save**.

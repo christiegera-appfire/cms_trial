@@ -24,8 +24,6 @@ This section contains functions that enable users to handle project administrati
   - [admUpdateProjectCategory](/cms_trial/space/PSJC/514720367/admUpdateProjectCategory/)
 - [Project Component Administration Functions](/cms_trial/space/PSJC/533004289/Project+Component+Administration+Functions/)
   - [admAddProjectComponent](/cms_trial/space/PSJC/733905555/admAddProjectComponent/)
-  - [admDeleteProjectComponent](/cms_trial/space/PSJC/732990279/admDeleteProjectComponent/)
-  - [admUpdateProjectComponent](/cms_trial/space/PSJC/733187152/admUpdateProjectComponent/)
 - [Project Property Administration Functions](/cms_trial/space/PSJC/817004563/Project+Property+Administration+Functions/)
   - [admClearProjectPropertyValue](/cms_trial/space/PSJC/514818689/admClearProjectPropertyValue/)
   - [admDeleteProjectProperty](/cms_trial/space/PSJC/515178715/admDeleteProjectProperty/)

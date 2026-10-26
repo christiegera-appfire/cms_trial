@@ -17,7 +17,7 @@ To apply a workflow at the space level:
 
 The workflow is applied to all pages and blog posts in the space.
 
-![Space Workflows tab showing an enabled workflow toggle.](/cms_trial/assets/34b6154e-a9e6-4d53-8e36-19d90589d9f2.png)
+![Space Workflows tab showing an enabled workflow toggle.](/cms_trial/assets/3b4ba707-c3d9-47e9-ac78-a1a1b0cd6989.png)
 
 Workflows can’t be added to a space homepage. Confluence Cloud restricts the use of certain properties, like the workflow content byline, on the homepage.
 
@@ -39,7 +39,7 @@ For example, if two workflows are active in this order:
 
 A page with the `legal` label gets the Legal Review workflow. A page without any labels gets the General Approval workflow.
 
-![Space Workflows tab showing Content Expiry Workflow.](/cms_trial/assets/6b64b275-dba7-47ec-8032-8d9bbd49c4c6.png)![Drag-and-drop workflow ordering controls in the Space Workflows tab.](/cms_trial/assets/7f59fe47-9b5e-4131-a52f-327b3fd23834.png)
+![Space Workflows tab showing Content Expiry Workflow.](/cms_trial/assets/55b776e1-1f3d-4b68-a469-db75b4f186bf.png)![Drag-and-drop workflow ordering controls in the Space Workflows tab.](/cms_trial/assets/31a68a09-099a-4ac9-8b62-9dad78c0d064.png)
 
 If a document doesn’t meet the conditions for any active workflow, no workflow is applied, and a **No Applicable Workflow** byline is displayed on the page.
 
@@ -55,7 +55,7 @@ To add labels to your workflow,
 2. Add one or more labels to a workflow using the visual editor under the **Labels** option.   
    The added labels are displayed in the *Space Workflows* tab.
 
-![Edit Workflow dialog and Space Workflows screen showing how to apply a workflow with labels.](/cms_trial/assets/bdbe8957-4265-44a7-8b21-1c07c15404e3.png)
+![Edit Workflow dialog and Space Workflows screen showing how to apply a workflow with labels.](/cms_trial/assets/16e5c09c-fba7-4733-9c38-b6d893fb8c7c.png)
 
 When a workflow has labels configured:
 
@@ -76,7 +76,7 @@ To exclude labels,
 1. Open the required custom workflow from space settings and click **Edit Workflow**.
 2. In the *Labels* option, select the **Exclude labels** checkbox. This applies the workflow only to documents that don’t have any of the specified labels. When the **Exclude labels** option is selected, the labels are displayed as **Excluding** in the *Space Workflows* tab.
 
-![Workflow editor with the Exclude labels option enabled.](/cms_trial/assets/60600d83-ba2a-4c4a-9d70-abcb26c400f4.png)
+![Workflow editor with the Exclude labels option enabled.](/cms_trial/assets/b513ff3b-f522-49ef-adf7-b032fb77219e.png)
 
 ### Sticky labels
 
@@ -89,7 +89,7 @@ To add sticky labels:
 1. Open the required custom workflow from space settings and click **Edit Workflow**.
 2. Under *Advanced* options, add the required sticky labels.
 
-![Advanced settings showing sticky label configuration.](/cms_trial/assets/20600af0-4b06-453a-9a32-e7c4c938d028.png)
+![Advanced settings showing sticky label configuration.](/cms_trial/assets/da7e47e5-5d13-4bd6-9eb5-ceca0fae45aa.png)
 
 ## Bulk apply workflows
 

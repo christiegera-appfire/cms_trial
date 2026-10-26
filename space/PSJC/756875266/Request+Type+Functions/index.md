@@ -9,7 +9,6 @@
 - [getRequestsTypes](/cms_trial/space/PSJC/742064202/getRequestsTypes/)
 - [getRequestTypeByIdForServiceDesk](/cms_trial/space/PSJC/694321675/getRequestTypeByIdForServiceDesk/)
 - [getRequestTypeFields](/cms_trial/space/PSJC/694485253/getRequestTypeFields/)
-- [getRequestTypeGroupsForServiceDesk](/cms_trial/space/PSJC/694288787/getRequestTypeGroupsForServiceDesk/)
 - [getRequestTypePropertyKeys](/cms_trial/space/PSJC/741540167/getRequestTypePropertyKeys/)
 - [getRequestTypePropertyValues](/cms_trial/space/PSJC/742424614/getRequestTypePropertyValues/)
 - [getRequestTypesForServiceDesk](/cms_trial/space/PSJC/693994346/getRequestTypesForServiceDesk/)

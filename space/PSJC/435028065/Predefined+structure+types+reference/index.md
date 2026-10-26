@@ -149,7 +149,7 @@ Standard structure types are core structures that handle fundamental Jira operat
 | required | boolean |
 | JFieldValue | fieldName | string | - [createIssue](/cms_trial/space/PSJC/434507110/createIssue/) |
 | values | string [] |
-| JFilter | id | integer | - [admCreateFilter](/cms_trial/space/PSJC/720902428/admCreateFilter/) - [admGetAllFilters](https://appfire.atlassian.net/wiki/spaces/PSJ/pages/15489492) - [admGetAllOwnedFilters](/cms_trial/space/PSJC/722174348/admGetAllOwnedFilters/) - [admGetFavouriteFilters](/cms_trial/space/PSJC/722076017/admGetFavouriteFilters/) - [admGetFilterById](/cms_trial/space/PSJC/720473851/admGetFilterById/) | - [admGetFiltersByName](/cms_trial/space/PSJC/720473817/admGetFiltersByName/) - [admGetFiltersForProject](/cms_trial/space/PSJC/720605278/admGetFiltersForProject/) - [admUpdateFilter](/cms_trial/space/PSJC/722141349/admUpdateFilter/) - [getFilterFromEvent](/cms_trial/space/PSJC/720473609/getFilterFromEvent/) |
+| JFilter | id | integer | - [admCreateFilter](/cms_trial/space/PSJC/720902428/admCreateFilter/) - [admGetAllFilters](https://appfire.atlassian.net/wiki/spaces/PSJ/pages/15489492) - [admGetAllOwnedFilters](https://appfire.atlassian.net/wiki/spaces/PSJC/pages/722174348) - [admGetFavouriteFilters](/cms_trial/space/PSJC/722076017/admGetFavouriteFilters/) - [admGetFilterById](https://appfire.atlassian.net/wiki/spaces/PSJC/pages/720473851) | - [admGetFiltersByName](/cms_trial/space/PSJC/720473817/admGetFiltersByName/) - [admGetFiltersForProject](/cms_trial/space/PSJC/720605278/admGetFiltersForProject/) - [admUpdateFilter](https://appfire.atlassian.net/wiki/spaces/PSJC/pages/722141349) - [getFilterFromEvent](/cms_trial/space/PSJC/720473609/getFilterFromEvent/) |
 | jql | string |
 | name | string |
 | description | string |
@@ -312,7 +312,7 @@ These are structures specific to agile project management features in Jira Softw
 | JBoard | id | integer | - [getAllBoards](/cms_trial/space/PSJC/567574550/getAllBoards/) - [getAllKanbanBoards](/cms_trial/space/PSJC/567148594/getAllKanbanBoards/) - [getAllScrumBoards](/cms_trial/space/PSJC/567476263/getAllScrumBoards/) |
 | name | string |
 | type | string |
-| JEpic | id | integer | - [activeEpics](/cms_trial/space/PSJC/570589652/activeEpics/) - [epics](/cms_trial/space/PSJC/570458590/epics/) - [getEpic](/cms_trial/space/PSJC/570785880/getEpic/) |
+| JEpic | id | integer | - [activeEpics](/cms_trial/space/PSJC/570589652/activeEpics/) - [epics](/cms_trial/space/PSJC/570458590/epics/) - [getEpic](https://appfire.atlassian.net/wiki/spaces/PSJC/pages/570785880) |
 | name | string |
 | summary | string |
 | done | boolean |
