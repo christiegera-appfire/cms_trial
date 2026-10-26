@@ -27,7 +27,7 @@ You can clone an active and a [closed OKR](/cms_trial/space/SPM/1918800058/Close
 You can clone an OKR on the following:
 
 - [*Overview*](/cms_trial/space/SPM/1918834317/OKR+Overview/) page
-- [OKR Details side panel](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918865686)
+- [OKR Details side panel](/cms_trial/space/SPM/1918865686/OKR+Details+side+panel/)
 - [*OKR Details*](/cms_trial/space/SPM/1918536390/OKR+details+page/) page
 - [*Tree view*](/cms_trial/space/SPM/1918801711/Tree+view/) page
 

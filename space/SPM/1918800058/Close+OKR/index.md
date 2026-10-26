@@ -35,7 +35,7 @@ The closed OKR summary is struck through, but the OKR is not removed from the hi
 You can close an OKR on the following:
 
 - [*OKR Details*](/cms_trial/space/SPM/1918536390/OKR+details+page/) page
-- [OKR Details side panel](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918865686)
+- [OKR Details side panel](/cms_trial/space/SPM/1918865686/OKR+Details+side+panel/)
 
 ### OKR Details page
 

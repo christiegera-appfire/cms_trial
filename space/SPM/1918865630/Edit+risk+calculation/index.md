@@ -4,7 +4,7 @@
 
 Click to expand the guide
 
-To learn more about risk calculation attributes, see the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918865091> page.
+To learn more about risk calculation attributes, see the [Risk register frameworks](/cms_trial/space/SPM/1918865091/Risk+register+frameworks/) page.
 
 To edit a risk calculation:
 
@@ -17,7 +17,7 @@ To edit a risk calculation:
 3. Select the template you want to edit.
 
    ![Risk register settings page showing where to select the template you want to edit.](/cms_trial/assets/6aa449ab-4634-489c-9303-5ce95c72726e.png)
-4. Make changes. See the [Risk register frameworks](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918865091) page to see what changes you can make to risk calculation attributes.
+4. Make changes. See the [Risk register frameworks](/cms_trial/space/SPM/1918865091/Risk+register+frameworks/) page to see what changes you can make to risk calculation attributes.
 5. When ready, click **Save changes** at the top.
 
    ![Risk Register settings page showing the Save changes button.](/cms_trial/assets/927d167a-623c-42aa-804f-407ec7513776.png)
@@ -26,7 +26,7 @@ To edit a risk calculation:
 
 Click to expand the guide
 
-To learn more about risk calculation attributes, see the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918865091> page.
+To learn more about risk calculation attributes, see the [Risk register frameworks](/cms_trial/space/SPM/1918865091/Risk+register+frameworks/) page.
 
 To edit a risk calculation:
 
@@ -37,5 +37,5 @@ To edit a risk calculation:
 3. Select the template you want to edit.
 
    ![Risk register frameworks are highlighted on the risk register page.](/cms_trial/assets/71c8547e-e1d0-43e6-a4d6-c0238750915b.png)
-4. Make changes. See the [Risk register frameworks](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918865091) page to see what changes you can make to risk calculation attributes.
+4. Make changes. See the [Risk register frameworks](/cms_trial/space/SPM/1918865091/Risk+register+frameworks/) page to see what changes you can make to risk calculation attributes.
 5. When ready, click **Save changes** at the top.

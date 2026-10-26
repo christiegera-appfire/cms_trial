@@ -8,7 +8,7 @@ The OKR details page displays data for the Strategic theme, Objective, or Key Re
 
 - Carry out all actions throughout the [OKR lifecycle](/cms_trial/space/SPM/1918863610/OKR+lifecycle+and+management/) (such as create, close, delete, link, and more)
 - Launch the [Strategic Area](/cms_trial/space/SPM/2325217590/Strategic+Areas/) (only on the Strategic theme details page)
-- [Restrict OKR](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918864985)
+- [Restrict OKR](/cms_trial/space/SPM/1918864985/OKR+restrictions+(per+OKR)/)
 
 - The scope of your actions on this page depends on your role/granted permissions.
 - Visit the [Edit OKRs](/cms_trial/space/SPM/1918669695/Edit+OKR/) page to learn more about editing details on the *OKR Details* page.

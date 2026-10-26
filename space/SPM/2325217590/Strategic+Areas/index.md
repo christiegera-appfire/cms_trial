@@ -68,7 +68,7 @@ ii. Select **Strategic Area** from a dropdown.
 
 ![Strategic area option on the OKR context menu.](/cms_trial/assets/f0cdce40-200b-4523-be96-06d35b6d297b.png)
 
-d. [OKR details side panel](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918865686):
+d. [OKR details side panel](/cms_trial/space/SPM/1918865686/OKR+Details+side+panel/):
 
 i. Open the OKR details side panel for a Strategic theme, its sub-theme, or any Objective that belongs to that ST.
 
@@ -251,7 +251,7 @@ Strategic Areas are visible only for Strategic themes with at least one child OK
 - [Context menu](/cms_trial/space/SPM/1918407031/Navigation+and+interface+(OKR+module)/) - open a context menu for a Strategic theme, its sub-theme, or any Objective that belongs to that ST:
 
   ![Screenshot of accessing the Strategic Areas from the Strategic theme in the OKR module.](/cms_trial/assets/7aece337-d524-40ea-8e62-618153ac2117.png)
-- [OKR details side panel](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918865686) - open the OKR details side panel for a Strategic theme, its sub-theme, or any Objective that belongs to that ST:
+- [OKR details side panel](/cms_trial/space/SPM/1918865686/OKR+Details+side+panel/) - open the OKR details side panel for a Strategic theme, its sub-theme, or any Objective that belongs to that ST:
 
   ![Screenshot of accessing the Strategic Areas from the objective detail's panel in the OKR module.](/cms_trial/assets/254a1ada-c5f9-4806-a675-516605e7cc02.png)
 - [OKR details page](/cms_trial/space/SPM/1918536390/OKR+details+page/) - open the details page for a Strategic theme, sub-theme, or sub-objective that belongs to that Strategic theme:

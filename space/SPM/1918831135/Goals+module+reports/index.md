@@ -16,7 +16,7 @@ The reports summarize the goals in their statuses and visualize them as pie char
 
 To generate separate reports for each timebox:
 
-1. [Add a goal](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918864284) to a timebox.
+1. [Add a goal](/cms_trial/space/SPM/1918864284/Add+goals/) to a timebox.
 2. Go to the **Reports** view.
 
 ## Interact with report charts

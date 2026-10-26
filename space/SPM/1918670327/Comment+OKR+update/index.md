@@ -16,7 +16,7 @@ In the advanced permission setup, admins can additionally allow or disallow indi
 
 ![The activity section ](/cms_trial/assets/8e83674f-f6b6-4413-8703-531b4d5d0c45.png)
 
-The **Activity** section on the [*OKR details*](/cms_trial/space/SPM/1918536390/OKR+details+page/) page and [OKR Details side panel](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918865686) displays a chronological list of updates and comments made to the currently viewed OKR.
+The **Activity** section on the [*OKR details*](/cms_trial/space/SPM/1918536390/OKR+details+page/) page and [OKR Details side panel](/cms_trial/space/SPM/1918865686/OKR+Details+side+panel/) displays a chronological list of updates and comments made to the currently viewed OKR.
 
 To add a new comment:
 

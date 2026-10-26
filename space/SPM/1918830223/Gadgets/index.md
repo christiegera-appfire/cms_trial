@@ -26,6 +26,7 @@ There are five gadgets available:
 - [Overview gadget](/cms_trial/space/SPM/1918537895/Overview+gadget/)
 - [Calendar gadget](/cms_trial/space/SPM/1918504663/Calendar+gadget/)
 - [Risks gadget](/cms_trial/space/SPM/1918669227/Risks+gadget/)
+- [Objectives gadget](/cms_trial/space/SPM/1918863565/Objectives+gadget/)
 
 ![Screenshot of BigPicture gadgets on Jira dashboard.](/cms_trial/assets/1adc436e-a55f-44aa-832c-53216df420e7.png)
 

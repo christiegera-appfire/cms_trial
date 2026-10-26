@@ -39,7 +39,7 @@ OKR permissions are perfect for companies that want most of the users to have fu
 
 Use the OKR restrictionto hide from view or limit edit access to specific Objectives and Key Results. By restricting individual OKRs, you can conceal them from unprivileged users.
 
-Visit the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918864985> page to learn more.
+Visit the [OKR restrictions (per OKR)](/cms_trial/space/SPM/1918864985/OKR+restrictions+(per+OKR)/) page to learn more.
 
 ## Permissions precedence
 

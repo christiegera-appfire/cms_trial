@@ -64,7 +64,7 @@ You can review the history of automatic and manual progress or status updates on
 - ***OKR Details*** page > **Progress** tab > **Activity** section.
 - **OKR Details side panel** > **Activity** section.
 
-Visit the [OKR Details page](/cms_trial/space/SPM/1918536390/OKR+details+page/) and the [OKR Details side panel](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918865686) for more information.
+Visit the [OKR Details page](/cms_trial/space/SPM/1918536390/OKR+details+page/) and the [OKR Details side panel](/cms_trial/space/SPM/1918865686/OKR+Details+side+panel/) for more information.
 
 Automated updates made using the API and OKRobot are marked with the appropriate label.
 

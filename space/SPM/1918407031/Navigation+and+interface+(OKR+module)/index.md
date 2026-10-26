@@ -45,7 +45,7 @@ In addition, you can manually change the order of the OKRs by [moving them up/do
 
 ![okr-details-side-panel.png](/cms_trial/assets/97489002-92fe-4d36-920a-b99fd87266ce.png)
 
-With the [OKR details side panel](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918865686), you can:
+With the [OKR details side panel](/cms_trial/space/SPM/1918865686/OKR+Details+side+panel/), you can:
 
 - See basic OKR details
 - See OKR progress
@@ -164,7 +164,7 @@ The OKR module includes several pages and a sidebar that lets you track and mana
 The [*Overview*](/cms_trial/space/SPM/1918834317/OKR+Overview/) page is where you can take most [actions on OKRs](/cms_trial/space/SPM/1918863610/OKR+lifecycle+and+management/). It consists of two main elements:
 
 - Customizable column layout that shows all OKRs linked to a box and their details, such as Name, Owner, Progress, Weight, and so on.
-- The [OKR details side panel](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918865686) that displays details for the selected OKR.
+- The [OKR details side panel](/cms_trial/space/SPM/1918865686/OKR+Details+side+panel/) that displays details for the selected OKR.
 
 ### OKR details page
 

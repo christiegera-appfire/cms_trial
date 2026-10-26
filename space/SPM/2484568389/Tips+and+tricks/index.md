@@ -144,7 +144,7 @@ The app matches individual resources or teams (depending on the view) with tasks
 
 The [color-coded capacity bars](/cms_trial/space/SPM/1918636529/Workload%2C+capacity%2C+and+utilization+-+tile+coloring/) indicate, by default, when someone has too much (red), just about enough (orange), or too little work (green) on their plate. The numbers on those bars indicate a person’s workload in a given period. But you might need more than those quick-glance details.
 
-First, switch to the more granular timeline aggregation, for example, weekly or daily.Next, click the capacity or workload bar in the resource’s swimlane to open the [Workload details modal](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918864229). It will provide a detailed breakdown of the person’s or team’s workload for a selected period.
+First, switch to the more granular timeline aggregation, for example, weekly or daily.Next, click the capacity or workload bar in the resource’s swimlane to open the [Workload details modal](/cms_trial/space/SPM/1918864229/Workload+details/). It will provide a detailed breakdown of the person’s or team’s workload for a selected period.
 
 ![Workload details modal.](/cms_trial/assets/1a476f20-7aa0-4f3a-99b1-3880412dc6df.png)
 

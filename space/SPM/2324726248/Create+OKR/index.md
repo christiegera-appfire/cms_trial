@@ -50,7 +50,7 @@ A Key Result (KR) is a measurable outcome that tracks progress toward achieving 
 
 You can create all OKRs only in the OKR module.
 
-During OKR creation, you can restrict your new OKR. Visit the [Restrict OKR](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918864985) page to learn more.
+During OKR creation, you can restrict your new OKR. Visit the [Restrict OKR](/cms_trial/space/SPM/1918864985/OKR+restrictions+(per+OKR)/) page to learn more.
 
 ### Create a Strategic theme and Objective
 

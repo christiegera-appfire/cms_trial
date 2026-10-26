@@ -120,7 +120,7 @@ The Risk Management module makes it easy to register, assess, and prioritize ris
 
 - Unlimited [risk registers](/cms_trial/space/SPM/1918863826/Risk+registers+list/)
 - Customizable [risk matrix templates](/cms_trial/space/SPM/1918406430/Create+new+risk+register/)
-- Customizable [risk score formulas](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918865091)
+- Customizable [risk score formulas](/cms_trial/space/SPM/1918865091/Risk+register+frameworks/)
 - [Risk reports](/cms_trial/space/SPM/1918670055/Risks+table+-+reports/)
 - Customizable [risk column views](/cms_trial/space/SPM/1918799528/Risks+table+(Risks+Management)/)
 

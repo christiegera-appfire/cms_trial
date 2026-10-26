@@ -90,7 +90,7 @@ You can track milestones' health and progress on the progress chart and in the d
 OKR milestones are mapped along the timeline in the Progress chart in the OKR module.
 
 - *OKR Details* page > Progress tab
-- *Overview* page > [OKR Details side panel](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918865686)
+- *Overview* page > [OKR Details side panel](/cms_trial/space/SPM/1918865686/OKR+Details+side+panel/)
 
 Mouse over a milestone to see more details.
 
