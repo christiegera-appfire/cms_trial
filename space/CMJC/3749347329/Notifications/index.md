@@ -13,19 +13,19 @@ Notifications are currently available for:
 
 Before you can use notifications with snapshots or deployments, you need to configure at least one Slack notification.
 
-![Slack-notifications.png](/cms_trial/assets/b404b545-95ae-4dcb-ad9c-838c42554255.png)
+![Example Slack notification showing the outcome of a CMJ Cloud operation.](/cms_trial/assets/8be5ae42-263f-4f23-8b1d-3b75f1af6cf5.png)
 
 ## Set up a Slack notification
 
-Notifications are managed from *Settings > Notifications*.
+Notifications are managed from **Settings** *>* **Notifications**.
 
-The Notifications tab lists notifications you have already configured. From here, you can create new notifications or delete ones you no longer need.
+The *Notifications* tab lists notifications you have already configured. From here, you can create new notifications or delete ones you no longer need.
 
-![Notifications-tab.png](/cms_trial/assets/6c7dc9bf-2760-45fa-8f6e-ddb5dc9c1dff.png)
+![Notifications tab showing configured Slack notifications and available actions.](/cms_trial/assets/90dabf0d-15ee-4c07-a346-d29aa0291e35.png)
 
 To create a notification:
 
-1. Go to *Settings > Notifications*.
+1. Go to **Settings** *>* **Notifications**.
 2. Select **New notification**.
 3. Enter a **Name** for the notification.
 4. In **URL**, enter the Slack webhook URL you want CMJ Cloud to use.
@@ -34,7 +34,7 @@ To create a notification:
    If CMJ Cloud can connect successfully, a **Connection successful** message appears, and a test notification is sent to Slack.
 6. Select **Create**.
 
-![Add-notification.png](/cms_trial/assets/9f537145-23b0-4287-a0e3-1e607a743787.png)
+![Notification configuration form with name, webhook URL, and connection test controls.](/cms_trial/assets/78b6c749-6283-4b99-80be-98e509def6a9.png)
 
 You can now select the notification when creating snapshots or deployments.
 
@@ -48,29 +48,23 @@ You can select a notification each time you create a snapshot.
 
 When taking a snapshot, use the **Notification** field to select one of your configured notifications.
 
-![Notification-field-SC.png](/cms_trial/assets/4dbc2d5c-1138-4267-b36a-f0de8f778b97.png)
+![Snapshot scope screen showing the notification settings.](/cms_trial/assets/0cdadef1-4084-4081-b95c-379e85501dad.png)
 
-The selected notification applies only to that snapshot creation and not to any future snapshot versions within this same scope. You can set up the [scope’s notifications](#Set-a-default-notification-for-a-snapshot-scope) later. When the snapshot creation finishes, CMJ Cloud sends a Slack notification indicating whether it succeeded, failed, or was canceled.
+The selected notification is used for the current snapshot creation and automatically becomes the default notification for the snapshot scope. This means it will also be used for future snapshot versions created from the same scope, [unless you change it](#Change-the-default-notification-for-a-snapshot-scope). When the snapshot creation finishes, CMJ Cloud sends a Slack notification indicating whether it succeeded, failed, or was canceled.
 
 If the notification you need hasn't been configured yet, select **Add** next to the Notification field. Enter a name and Slack webhook URL, test the connection, and create the notification without leaving the snapshot workflow.
 
-![Add-notification-SC.png](/cms_trial/assets/5f8f8161-a315-4287-a721-873631031ae9.png)
+![Form for adding a Slack notification during snapshot creation.](/cms_trial/assets/22f754e2-3f2a-41b8-9f41-dbd0ec41eb2b.png)
 
-### Set a default notification for a snapshot scope
+### Change the default notification for a snapshot scope
 
-If you want notifications for every new snapshot version created from the same scope, you can set a default notification for the snapshot scope.
+To change the default notification for a snapshot scope, open the *Snapshot Scope* summary screen by using the **Notification** (🔔) button between the **Schedule** (🗓️ ) and **Close** (X) buttons.
 
-From the *Snapshot Scope* summary screen, select the **Notification** (🔔) button between the **Schedule** (🗓️ ) and **Close** (X) buttons.
+Select the notification you want to use and click **Save**.
 
-Select the notification you want to use and select **Save**.
+![Snapshot Scope summary screen showing the Notification button used to configure a default notification.](/cms_trial/assets/41d3a868-0991-4d96-81ea-5b9e8c1ae941.png)
 
-![Snapshot-scope.png](/cms_trial/assets/1bc3afb5-9083-44e1-8b1e-ecf1ccd4ddbe.png)
-
-The selected notification becomes the default whenever you create another snapshot version from that scope.
-
-You can still select a different notification from the **Notification** field when creating a new snapshot version. That selection applies only to that snapshot creation and doesn't change the default notification for the scope.
-
-If no notification is set for the scope, you can still select one when creating a new snapshot version.
+The selected notification becomes the default for future snapshot versions created from that scope.
 
 ## Get notified about a snapshot deployment
 
@@ -78,13 +72,13 @@ You can receive notifications throughout a snapshot deployment.
 
 When creating a deployment, select a configured notification from the **Notification** field on the first *New deployment* screen.
 
-![Notification-field-SD.png](/cms_trial/assets/17d7841b-cccd-42fa-b2a0-8388213c79d0.png)
+![New deployment screen showing the Notification field for selecting a Slack notification.](/cms_trial/assets/2b0eeedb-3420-4fce-8d49-0710b25a0e96.png)
 
 If you need to create another notification, select **Add** next to the Notification field and configure it without leaving the deployment workflow.
 
-![Add-notification-SD.png](/cms_trial/assets/ee6fa1cf-775b-48f2-977c-e80c4d7a58ae.png)
+![Form for adding a Slack notification during deployment creation.](/cms_trial/assets/8b7e109c-44dc-4a2d-a152-867c807539d5.png)
 
-Unlike snapshot creation, the notification selected here applies to the entire deployment process. You receive notifications as CMJ Cloud completes:
+The selected notification applies to the entire deployment process. You receive notifications as CMJ Cloud completes:
 
 1. Analysis
 2. Transformations
@@ -98,8 +92,8 @@ Slack notifications identify the CMJ Cloud operation and its outcome.
 
 Depending on the operation and outcome, the notification can include information such as:
 
-- the operation performed;
-- the operation ID;
-- the Jira site;
-- the completion time; and
-- error information when an operation fails.
+- The operation performed
+- The operation ID
+- The Jira site
+- The completion time
+- Error information when an operation fails

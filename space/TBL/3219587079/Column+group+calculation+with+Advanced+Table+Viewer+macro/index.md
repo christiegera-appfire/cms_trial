@@ -4,7 +4,7 @@ The Advanced Table Viewer macro enables you to perform simple and conditional co
 
 ## Group calculation overview
 
-Group calculation supports the following calculation types: Sum, Average, Minimum, Maximum, Count, and Distinct. For Sum and Count**,** the macro also provides conditional calculations. For each group, the macro calculates a summarized value from the rows in that group and displays it in each grouped row.
+Group calculation supports the following calculation types: Sum, Average, Minimum, Maximum, Count, and Distinct. For Sum and Count,the macro also provides conditional calculations. For each group, the macro calculates a summarized value from the rows in that group and displays it in each grouped row.
 
 **Prerequisite**: To apply a group calculation, first group the required columns. Refer to [Group columns with Advanced Table Viewer macro](/cms_trial/space/TBL/3211755580/Group+columns+with+Advanced+Table+Viewer+macro/).
 

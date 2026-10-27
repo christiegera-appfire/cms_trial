@@ -1,6 +1,6 @@
 # Connector for Salesforce & Jira feature differences for Jira DC and Cloud
 
-Last updated onOctober 20, 2026.
+Last updated onOctober 27, 2026.
 
 |  |  |  |
 | --- | --- | --- |
@@ -63,3 +63,5 @@ Last updated onOctober 20, 2026.
 | Visualforce | ✅ | ✅ |  |
 | Lightning UI | ✅ | ✅ |  |
 | NextGen | ✅ | ✅ |  |
+| **Integration** |
+| Time to SLA integration | ❌ | ✅ | [Set up Time to SLA integration](/cms_trial/space/CSFJIRA/3672277145/Set+up+Time+to+SLA+integration/) |

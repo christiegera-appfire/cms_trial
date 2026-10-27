@@ -49,7 +49,7 @@ Archived resources are marked as **Archived** in the following modules:
 
 #### Teams module
 
-Archived users are advised to [close their membership period](/cms_trial/space/SPM/1918539185/End+membership/) in teams.
+Archived users are advised to [close their membership period](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918539185) in teams.
 
 Upon archiving a user, the user's availability in the team is changed to *Unavailable*.
 

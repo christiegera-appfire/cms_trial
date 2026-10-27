@@ -55,7 +55,7 @@ There are several ways to create a box in BigPicture. You can also create one in
 
 Explore all box creation methods:
 
-- [Create box in the Overview module](/cms_trial/space/SPM/1918538558/Create+box+in+the+Overview+module/)
+- <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918538558>
 - [Play with sample data](/cms_trial/space/SPM/2530541787/Play+with+sample+data/)
 - [Create box from Jira space](/cms_trial/space/SPM/1918800104/Create+box+from+Jira+space/)
 - [Create box in the App widget](/cms_trial/space/SPM/2533720090/Create+box+in+the+App+widget/)

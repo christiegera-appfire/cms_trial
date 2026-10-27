@@ -4,6 +4,7 @@ On this page, you’ll find a collection of video tutorials covering the feature
 
 | **Feature/Module** | **Video** |
 | --- | --- |
+| OKR module - [Strategic themes](/cms_trial/space/SPM/2324726248/Create+OKR/) |  |
 | Priorities module - [Priority matrix](/cms_trial/space/SPM/1918801162/Matrix+view/) and [priority poker](/cms_trial/space/SPM/1918407173/Priority+poker/) |  |
 | Priorities module - [List view](/cms_trial/space/SPM/2192869707/What+can+be+prioritized/) and [prioritization templates](/cms_trial/space/SPM/1918766042/Prioritization+templates/) |  |
 | [BigPicture Standard vs. Advanced](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/) |  |

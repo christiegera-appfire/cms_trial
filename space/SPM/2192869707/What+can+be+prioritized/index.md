@@ -56,7 +56,7 @@ To prioritize Objectives and Key Results from all boxes, open the Main box in th
 
 ## Filters
 
-The filtering options differ depending on the tab (Tasks, Boxes, Goals). See the [Filter and search priorities](/cms_trial/space/SPM/1918539227/Filter+and+search+priorities/) page to learn more.
+The filtering options differ depending on the tab (Tasks, Boxes, Goals). See the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918539227> page to learn more.
 
 ## Limitations
 
@@ -116,7 +116,7 @@ To prioritize Objectives and Key Results from all boxes, open the Main box in th
 
 ## Filters
 
-The filtering options differ depending on the tab (Tasks, Boxes, Goals). See the [Filter and search priorities](/cms_trial/space/SPM/1918539227/Filter+and+search+priorities/) page to learn more.
+The filtering options differ depending on the tab (Tasks, Boxes, Goals). See the [Filter and search priorities](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918539227) page to learn more.
 
 ## Limitations
 
