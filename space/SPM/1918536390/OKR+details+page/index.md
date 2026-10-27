@@ -6,11 +6,11 @@ This page describes features that are supported **only** in [**BigPicture Advanc
 
 The OKR details page displays data for the Strategic theme, Objective, or Key Result, depending on which item you are viewing. On the OKR details page, you can:
 
-- Carry out all actions throughout the [OKR lifecycle](/cms_trial/space/SPM/1918863610/OKR+lifecycle+and+management/) (such as create, close, delete, link, and more)
-- Launch the [Strategic Area](/cms_trial/space/SPM/2325217590/Strategic+Areas/) (only on the Strategic theme details page)
+- Carry out all actions throughout the [OKR lifecycle](/cms_trial/space/SPM/1918863610/OKR+lifecycle+and+management/) (such as create, close, delete, link, and more).
+- Launch the [Strategic Area](/cms_trial/space/SPM/2325217590/Strategic+Areas/) (only on the Strategic theme details page).
 - [Restrict OKR](/cms_trial/space/SPM/1918864985/OKR+restrictions+(per+OKR)/)
 
-- The scope of your actions on this page depends on your role/granted permissions.
+- The scope of your actions on this page depends on your role or granted permissions.
 - Visit the [Edit OKRs](/cms_trial/space/SPM/1918669695/Edit+OKR/) page to learn more about editing details on the *OKR Details* page.
 
 Below, you can watch a short video overview.
@@ -24,23 +24,23 @@ You can access the *OKR details* page through the:
 1. On the **OKR details side panel**, click the **More actions** (**…**) button.
 2. Select **Details** from the dropdown.
 
-![OKR details side panel. The additional menu is opened.](/cms_trial/assets/533c4ddb-0c75-46f2-a493-2d26d9899836.png)
+![OKR details side panel. The additional menu is opened.](/cms_trial/assets/5645587a-ba3f-4e90-9708-dd9f2a080187.png)
 
 ### OKR key link
 
 Similar to the Jira work item key link, the OKR key link is unique and opens the details page for the selected OKR.
 
-![OKR key link on the progress dashboard page.](/cms_trial/assets/7a2f8abf-58c2-48a5-a735-0ff82d1f01f6.png)
+![OKR key link on the progress dashboard page.](/cms_trial/assets/f8a671ea-8cb1-4bac-a93c-fd35f3667732.png)
 
 ## OKR details page
 
 Below, you can find a quick guide through the main sections and tabs, helping you understand how to use them to stay on top of your goals.
 
-![OKR Details page (Progress tab).](/cms_trial/assets/b7bdb938-a996-47a5-9c9d-44c7b5db66f6.png)
+![OKR Details page (Progress tab).](/cms_trial/assets/b89ebb36-59fe-49b3-9d4c-2655f709bf88.png)
 
 ### OKR key, status, name, and description
 
-![okr-details-page-full1.png](/cms_trial/assets/e2b84489-1924-434a-976e-8c146e95f38b.png)
+![OKR details page showing the breadcrumb navigation, OKR name, description, and management controls.](/cms_trial/assets/96e6b9d5-6cd4-473c-a1d2-1a981a30b8c3.png)
 
 #### 1. Breadcrumbs
 
@@ -70,13 +70,13 @@ The **Details** section displays all [OKR attributes](/cms_trial/space/SPM/23247
 
 You can edit all fields inline except **Last updated**. If the item you are viewing is a Strategic theme, you cannot edit its **Type**.
 
-![Details section on the OKR details page.](/cms_trial/assets/fe9196ec-46dd-4870-9dec-94f280d7c5e8.png)
+![Details section on the OKR details page.](/cms_trial/assets/27c44169-d364-46e4-9e2b-7d314d76ce51.png)
 
 ### Progress (tab)
 
-The **Progress** tab displays details about the selected OKR and its progress.
+The *Progress* tab displays details about the selected OKR and its progress.
 
-![Progress chart, milestones, and the activity section on the OKR details page.](/cms_trial/assets/a8dcd713-876b-4998-b864-828612cdc1f8.png)
+![Progress chart, milestones, and the activity section on the OKR details page.](/cms_trial/assets/8bd9cc77-6a18-47c4-911f-381f6435f467.png)
 
 #### 1. Progress chart
 
@@ -84,11 +84,11 @@ The progress line chart visualizes the actual OKR progress and calculated expect
 
 #### 2. Child statuses/ KR values
 
-If you are viewing a Strategic theme or Objective, the chart displays status tags you can click to filter and view child items with that specific status (a list opens in the **Child OKRs** tab). If a Strategic theme or Objective is in manual mode, it displays the mode type instead.
+If you are viewing a Strategic theme or Objective, the chart displays status tags you can click to filter and view child items with that specific status (a list opens in the *Child OKRs* tab). If a Strategic theme or Objective is in manual mode, it displays the mode type instead.
 
 If the OKR you are viewing is a Key Result, the chart displays Start, Current, and Target values.
 
-![Key Result values on the progress chart.](/cms_trial/assets/827733c7-02f2-4a86-87df-048f077e498b.png)
+![Key Result values on the progress chart.](/cms_trial/assets/619a4abe-2bcf-46a7-a449-5293c9a9b6eb.png)
 
 #### 3. Milestones
 
@@ -111,15 +111,15 @@ In this section, you can:
 
 - View and add updates.
 - View and leave comments.
-- Filter activities by **All updates** and **Manual updates**. (see: [Update OKR](/cms_trial/space/SPM/1918637972/Update+OKR/))
+- Filter activities by **All updates** and **Manual updates**. See [Update OKR](/cms_trial/space/SPM/1918637972/Update+OKR/)) for more information.
 - Pin activities.
 - Edit and delete activities.
 
 ### Child OKRs (tab)
 
-The **Child OKRs** tab is available only for Strategic themes and Objectives. It displays all direct child items for the selected OKR.
+The *Child OKRs* tab is available only for Strategic themes and Objectives. It displays all direct child items for the selected OKR.
 
-![Child OKRs tab.](/cms_trial/assets/0c168565-46e1-4076-b4bb-636d80865b2d.png)
+![Child OKRs tab.](/cms_trial/assets/25903f1e-2616-41bd-b0ae-74c13d7c4596.png)
 
 In this tab, you can:
 
@@ -130,9 +130,9 @@ In this tab, you can:
 
 ### Linked work (tab)
 
-The **Linked work** tab displays all work items and boxes connected directly to the Key Result (KR). For Strategic Themes or Objectives, the tab aggregates all work items linked to their child KRs.
+The *Linked work* tab displays all work items and boxes connected directly to the Key Result (KR). For Strategic Themes or Objectives, the tab aggregates all work items linked to their child KRs.
 
-![The Linked Work tab.](/cms_trial/assets/5b102c00-58a3-4018-9473-902fe786a576.png)
+![The Linked Work tab.](/cms_trial/assets/546445fb-df4f-4aa4-bb98-06fe952ccf13.png)
 
 #### 1. Jira work items
 
@@ -162,7 +162,7 @@ In this section, you can:
 
 #### 3. External links
 
-The **External links** section lists links to external sources relevant to the current OKR. For example, strategic plans, designs, spreadsheets, etc.
+The **External links** section lists links to external sources relevant to the current OKR, such as strategic plans, designs, and spreadsheets.
 
 In this section, you can:
 
@@ -171,11 +171,11 @@ In this section, you can:
 
 ### Linked OKRs (tab)
 
-The **Linked OKRs** tab lists OKR dependencies, contributions, and copies of the OKR you're currently viewing.
+The *Linked OKRs* tab lists OKR dependencies, contributions, and copies of the OKR you're currently viewing.
 
 Dependency and contribution links do not affect OKR progress.
 
-![details-page-linked-okrs.png](/cms_trial/assets/5afc2ab8-2d28-461f-869c-5d0b0a73e1ac.png)
+![details-page-linked-okrs.png](/cms_trial/assets/d7a6fc13-bcc8-4dcd-b19c-084a1047bd39.png)
 
 #### 1. Dependencies
 
@@ -195,8 +195,7 @@ In this section, you can:
 
 #### 2. Contributions
 
-The **Contributions** section lists all OKRs that contribute to—or receive contributions from—the OKR you are currently viewing.   
-Two types of contribution links exist.
+The **Contributions** section lists all OKRs that contribute to—or receive contributions from—the OKR you are currently viewing.
 
 There are two types of contribution links:
 

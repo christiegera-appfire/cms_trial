@@ -6,6 +6,7 @@ Click to expand the guide
 
 You can create a new box in multiple ways. You can find detailed instructions on the following pages:
 
+- [Create box in the Overview module](/cms_trial/space/SPM/1918538558/Create+box+in+the+Overview+module/)
 - [Create box from Jira space](/cms_trial/space/SPM/1918800104/Create+box+from+Jira+space/)
 - [Play with sample data](/cms_trial/space/SPM/2530541787/Play+with+sample+data/)
 - [Create box in the App widget](/cms_trial/space/SPM/2533720090/Create+box+in+the+App+widget/)
@@ -78,6 +79,7 @@ Click to expand the guide
 
 You can create a new box in multiple ways. Detailed instructions can be found on the following pages:
 
+- [Create box in the Overview module](/cms_trial/space/SPM/1918538558/Create+box+in+the+Overview+module/)
 - [Create box from Jira space](/cms_trial/space/SPM/1918800104/Create+box+from+Jira+space/)
 - [Play with sample data](/cms_trial/space/SPM/2530541787/Play+with+sample+data/)
 - [Create box in the App widget](/cms_trial/space/SPM/2533720090/Create+box+in+the+App+widget/)

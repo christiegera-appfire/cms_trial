@@ -33,7 +33,7 @@ It offers flexible features like drag-and-drop scheduling, resource capacity ove
 - Customizable [filters](/cms_trial/space/SPM/1918503449/Filters+and+search/) and [column views](/cms_trial/space/SPM/1918404907/Column+views/)
 - Various [data aggregations](/cms_trial/space/SPM/1918636993/Column+data+aggregation+methods/) on column views
 - [Gantt timeline](/cms_trial/space/SPM/1918701893/Timeline+(Gantt+chart)/) with markers, [milestones](/cms_trial/space/SPM/1918537479/Milestones/), and [critical path](/cms_trial/space/SPM/1918405060/Critical+path/)
-- Project and cross-project [dependencies](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918538718)
+- Project and cross-project [dependencies](/cms_trial/space/SPM/1918538718/Display+dependencies/)
 - [Infobar](/cms_trial/space/SPM/1918799264/Infobar+(Gantt)/) with comprehensive tasks and box details
 
 See the video
@@ -60,7 +60,7 @@ It's especially useful during planning sessions, like Program Increment (PI) Pla
 **Notable features**:
 
 - Customizable board [filters](/cms_trial/space/SPM/1918503449/Filters+and+search/) and filtering by teams
-- Project and cross-project [dependencies](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918538718)
+- Project and cross-project [dependencies](/cms_trial/space/SPM/1918538718/Display+dependencies/)
 - [Timeline](/cms_trial/space/SPM/1918798575/Timeline+(Board)/) with markers
 - [Backlog panel](/cms_trial/space/SPM/1918405862/Backlog+panel/)
 - Customizable [card views](/cms_trial/space/SPM/1918832263/Card+view+creator/)
@@ -169,7 +169,7 @@ The Priorities module helps you prioritize tasks and initiatives in strategic ma
 **Notable features**:
 
 - Customizable [list view](/cms_trial/space/SPM/1918834181/List+view/)
-- Robust [filters](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918539227) and view adjustment options
+- Robust [filters](/cms_trial/space/SPM/1918539227/Filter+and+search+priorities/) and view adjustment options
 - [Priority poker](/cms_trial/space/SPM/1918407173/Priority+poker/)
 - Popular [priority templates](/cms_trial/space/SPM/1918766042/Prioritization+templates/) with customizable score formulas and metrics
 

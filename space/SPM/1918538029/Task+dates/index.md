@@ -162,7 +162,7 @@ The critical path is drawn for:
 
 When many tasks are linked by dependencies on the critical path, and one of the tasks loses start and end dates, the critical path may be disrupted. Once the task has dates assigned again, the critical path will appear.
 
-### [Dependencies](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918538718)
+### [Dependencies](/cms_trial/space/SPM/1918538718/Display+dependencies/)
 
 When many tasks are linked by dependencies, and one of the tasks loses both dates (start and end dates), **dependencies are saved**. The arrow between tasks will temporarily disappear, but you can still check the dependency by switching to the **Collapsed** display and clicking on a number in a dot next to the task.
 
@@ -329,7 +329,7 @@ The critical path is drawn for:
 
 When many tasks are linked by dependencies on the critical path, and one of the tasks loses its start and end dates, the critical path may be disrupted. Once the task has dates assigned again, the critical path will appear.
 
-### [Dependencies](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918538718)
+### [Dependencies](/cms_trial/space/SPM/1918538718/Display+dependencies/)
 
 When many tasks are linked by dependencies, and one of the tasks loses both dates (start and end dates), **dependencies are saved**. The arrow between tasks will temporarily disappear, but you can still check the dependency by switching to the **Collapsed** display and clicking on a number in a dot next to the task.
 
