@@ -148,7 +148,7 @@ The Reports module helps you visualize and communicate project, program, or port
 
 See the video
 
-### [OKR](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918535397)
+### [OKR](/cms_trial/space/SPM/1918535397/OKR+module/)
 
 The OKR module helps teams set, track, and align their Objectives and Key Results (OKRs). It streamlines the process of defining goals, tracking progress, and ensuring alignment across teams, so everyone stays focused on what matters most. With the OKR module, teams can easily measure success and drive performance while keeping their projects and goals tightly integrated with the initiative.
 
@@ -169,7 +169,7 @@ The Priorities module helps you prioritize tasks and initiatives in strategic ma
 **Notable features**:
 
 - Customizable [list view](/cms_trial/space/SPM/1918834181/List+view/)
-- Robust [filters](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918539227) and view adjustment options
+- Robust [filters](/cms_trial/space/SPM/1918539227/Filter+and+search+priorities/) and view adjustment options
 - [Priority poker](/cms_trial/space/SPM/1918407173/Priority+poker/)
 - Popular [priority templates](/cms_trial/space/SPM/1918766042/Prioritization+templates/) with customizable score formulas and metrics
 

@@ -72,7 +72,7 @@ Add tasks to boxes in the Portfolio. Repeat for all boxes.
 3. Go to Tasks > Scope definition
 
    ![contentId-1918766197](/cms_trial/assets/ec71b5b0-28a9-439c-9061-202a298e771a.png)
-4. [Define the scope](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918634319) - you can use Jira projects, Jira boards and Jira filters.
+4. [Define the scope](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/) - you can use Jira projects, Jira boards and Jira filters.
 
    ![contentId-1918766197](/cms_trial/assets/59d63ccc-3f08-4d41-bebc-3b4aa3eabbee.png)
 5. Optional: Use the "narrow down" field to exclude tasks.
@@ -220,7 +220,7 @@ Add tasks to boxes in the Portfolio. Repeat for all boxes.
 
    ![Screenshot of editing a box in the Overview module.](/cms_trial/assets/3c86153d-356b-43d2-ae53-60c0c80bd30b.png)
 4. Go to **Tasks** > **Work items from Jira**.
-5. [Define the scope](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918634319) - you can use Jira spaces, Jira boards, and Jira filters.
+5. [Define the scope](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/) - you can use Jira spaces, Jira boards, and Jira filters.
 6. Optionally, use the **Additional filters for work items** section to narrow down the scope.
 
    ![Screenshot of the Work items from Jira configuration page.](/cms_trial/assets/6be6684b-c292-4624-9b03-9b79f4b0ecdf.png)

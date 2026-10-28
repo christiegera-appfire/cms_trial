@@ -24,6 +24,7 @@ If you want to learn more about BigPicture features, see the [User guide](/cms_t
 - [Box configuration](/cms_trial/space/SPM/1918666176/Box+configuration/)
   - [Box attributes](/cms_trial/space/SPM/1918404836/Box+attributes/)
   - [Define available modules](/cms_trial/space/SPM/1918503298/Define+available+modules/)
+  - [Populate a box with tasks (work items from Jira)](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/)
   - [Manage task structure](/cms_trial/space/SPM/1918667217/Manage+task+structure/)
   - [Configure task scheduling](/cms_trial/space/SPM/1918667098/Configure+task+scheduling/)
   - [Define task period alignment](/cms_trial/space/SPM/1918830096/Define+task+period+alignment/)

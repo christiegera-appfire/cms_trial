@@ -19,7 +19,7 @@ There are three different scope types:
 Keep in mind:
 
 - A box type contains the default settings applicable to multiple boxes (all boxes of a given type). Those settings are adjusted in the BigPicture Administration.
-- Box configuration refers to the settings of a single, individual box. They are dependent on the box type settings. Go to the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918634319> page to learn more about scope definition settings at the box level.
+- Box configuration refers to the settings of a single, individual box. They are dependent on the box type settings. Go to the [Populate a box with tasks (work items from Jira)](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/) page to learn more about scope definition settings at the box level.
 
 The table presents what you can configure at the box type level.
 
@@ -72,7 +72,7 @@ There are three different scope types:
 Keep in mind:
 
 - A box type contains the default settings applicable to multiple boxes (all boxes of a given type). Those settings are adjusted in the BigPicture Administration.
-- Box configuration refers to the settings of a single, individual box. They are dependent on the box type settings. Go to the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918634319> page to learn more about scope settings at the box level.
+- Box configuration refers to the settings of a single, individual box. They are dependent on the box type settings. Go to the [Populate a box with tasks (work items from Jira)](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/) page to learn more about scope settings at the box level.
 
 The table presents what you can configure at the box type level.
 

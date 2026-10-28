@@ -50,7 +50,7 @@ For Boxes with the **Own** scope, you can choose from four available [scheduling
 You can add a new task to the scope of a box in the following ways:
 
 - use the **+Task** button in the Scope, Gantt, Board, Risks, and Resources modules.
-- change the [scope definition](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918634319) of a box.
+- change the [scope definition](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/) of a box.
 
 Jira sprint, version, component, and project always have the default scheduling mode set to manual, regardless of the scheduling mode you set as default.
 
@@ -107,7 +107,7 @@ You can add a new task to the scope of a box in the following ways:
 
 - Click **Task** > **Create** > **Jira work item/BigPicture task** in the Gantt, Scope, Board, and Resources modules.
 - Click **Risks** > **Create new risk** in the Risks module.
-- Populate the box with [work items from Jira](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918634319).
+- Populate the box with [work items from Jira](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/).
 
 Jira sprint, version, component, and space always have the default scheduling mode set to manual, regardless of the default scheduling mode you set.
 

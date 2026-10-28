@@ -14,7 +14,7 @@ Box scheduling settings and task scheduling modes can automatically overwrite st
 
 You can add existing tasks to a Box by adjusting its scope definition. For example, items that already exist in tools such as Jira and Trello can be included in your box.
 
-Go to: **Add task** > **Manage scope definition**to make adjustments. Check [the Scope definitions page](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918634319) for more information.
+Go to: **Add task** > **Manage scope definition**to make adjustments. Check [the Scope definitions page](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/) for more information.
 
 ![contentId-1918667878](/cms_trial/assets/c6cdf8ae-52e2-4558-89cf-2671fbabeeaa.png)
 
@@ -64,7 +64,7 @@ Box scheduling settings and scheduling mode of tasks can automatically overwrite
 
 You can add existing tasks to a Box by adjusting its scope definition. For example, items that already exist in tools such as Jira and Trello can be included in your box.
 
-Go to: **Tasks** > **Add work items from Jira**to make adjustments. Check [the Scope definitions page](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918634319) for more information.
+Go to: **Tasks** > **Add work items from Jira**to make adjustments. Check [the Scope definitions page](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/) for more information.
 
 ![add-work-items-from-jira.png](/cms_trial/assets/a52d6b75-11cf-4743-bf54-8b45516df24e.png)
 

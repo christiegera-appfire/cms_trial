@@ -33,7 +33,7 @@ You can delete a task in the Scope module in the following ways:
 
 ### Scope definition page (exclude a task from the scope)
 
-You can exclude a task from the scope of the box without deleting it on the [scope definition](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918634319) page (**box configuration** > **Tasks** > **Scope definition**).
+You can exclude a task from the scope of the box without deleting it on the [scope definition](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/) page (**box configuration** > **Tasks** > **Scope definition**).
 
 If the task you want to delete is a parent task:
 
@@ -108,7 +108,7 @@ You can delete a task in the Scope module in the following ways:
 
 ### Work items from Jira page (exclude a task from the scope)
 
-You can exclude a task from the scope of the box without deleting it on the [Work items from Jira](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918634319) page (**box configuration** > **Tasks** > **Work items from Jira**).
+You can exclude a task from the scope of the box without deleting it on the [Work items from Jira](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/) page (**box configuration** > **Tasks** > **Work items from Jira**).
 
 If the task you want to delete is a parent task:
 

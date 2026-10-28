@@ -37,7 +37,7 @@ To refresh the cache information, you can use:
 | Refresh permission cache | ✅ | It clears the following cache:   - Roles in Boxes to which the user is assigned - User roles - Permissions to boxes - User info cache - Groups cache - Cache with cloud permissions info |
 | Refresh Trello cache | ✅ | It clears all of Trello's cache. |
 | Refresh profile cache | ✅ | You can refresh your profile cache to ensure all permissions are up-to-date directly on the [Profile](/cms_trial/space/SPM/1918667643/Profile/) page. contentId-1918635809 |
-| Refresh search list (scope definition) | ✅ | If you cannot find the project, board, or quick filters, click **Refresh search list** directly on the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918634319> page. image-20240126-085445.png |
+| Refresh search list (scope definition) | ✅ | If you cannot find the project, board, or quick filters, click **Refresh search list** directly on the [Populate a box with tasks (work items from Jira)](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/) page. image-20240126-085445.png |
 | Refresh cache (dependencies mapping) | ✅ | If you cannot see a newly created link on the App Configuration > General > Dependencies page, click the **Refresh cache** button. contentId-1918635809 |
 
 ## Plugin cache (new navigation)
@@ -77,5 +77,5 @@ To refresh the cache information, you can use:
 | Refresh permission cache | ✅ | It clears the following cache:   - Roles in Boxes to which the user is assigned - User roles - Permissions to boxes - User info cache - Groups cache - Cache with cloud permissions info |
 | Refresh Trello cache | ✅ | It clears all of Trello's cache. |
 | Refresh profile cache | ✅ | You can refresh your profile cache to ensure all permissions are up-to-date directly on the [Profile](/cms_trial/space/SPM/1918667643/Profile/) page. contentId-1918635809 |
-| Refresh search list (Work items from Jira) | ✅ | If you cannot find the project, board, or quick filters, click **Refresh search list** directly on the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918634319> page. refresh-search-list.png |
+| Refresh search list (Work items from Jira) | ✅ | If you cannot find the project, board, or quick filters, click **Refresh search list** directly on the [Populate a box with tasks (work items from Jira)](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/) page. refresh-search-list.png |
 | Refresh cache (dependencies mapping) | ✅ | If you cannot see a newly created link on the App Configuration > General > Dependencies page, click the **Refresh cache** button. contentId-1918635809 |

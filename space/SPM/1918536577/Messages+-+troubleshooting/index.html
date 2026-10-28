@@ -1,0 +1,463 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
+<meta charset="utf-8">
+<title>Messages - troubleshooting | Appfire Docs</title>
+<meta name="description" content="Soft dependencies don’t have a scheduling impact.">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/cms_trial/tokens.css">
+<link rel="stylesheet" href="/cms_trial/styles.css">
+<meta name="robots" content="noindex, nofollow">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Messages - troubleshooting",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/SPM/1918536577/Messages+-+troubleshooting/",
+  "dateModified": "2026-09-23T09:14:32.598Z"
+}
+</script>
+</head>
+<body>
+<div id="top-nav-mount">
+<header class="top-nav">
+  <div class="top-nav-inner">
+    <a class="top-nav-brand" href="/cms_trial/"><img class="top-nav-logo top-nav-logo-dark" src="/cms_trial/brand-assets/appfire-lockup-white.svg" alt="Appfire" loading="lazy"><img class="top-nav-logo top-nav-logo-light" src="/cms_trial/brand-assets/appfire-lockup-black.svg" alt="Appfire" loading="lazy"><span class="top-nav-divider"></span><span class="top-nav-docs-label">Docs</span></a>
+    <nav class="top-nav-links">
+      <a href="/cms_trial/product-directory/">Product directory</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <div class="lang-picker">
+        <button class="lang-picker-btn" type="button" title="Translate this page" aria-label="Translate this page">🌐</button>
+        <div class="lang-picker-menu"></div>
+      </div>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
+    </nav>
+  </div>
+</header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
+<!-- Language picker — links to Google Translate's real, public proxy for
+     the CURRENT page (computed client-side from window.location), which
+     translates the actual live page on the fly. No API key, no per-
+     character cost, works today. Lower polish than a real native
+     multi-language site (shows Google's own banner, different domain
+     while translated) — a real starting point, not the final answer.
+
+     Languages chosen based on real signal: Atlassian's own cloud docs/
+     support content is only actively translated into Japanese beyond
+     English (confirmed via their own support documentation) — the
+     strongest available signal for what this specific audience actually
+     needs — plus the other major enterprise-software markets. -->
+<script>
+(function () {
+  var btn = document.querySelector(".lang-picker-btn");
+  var menu = document.querySelector(".lang-picker-menu");
+  if (!btn || !menu) return;
+
+  var LANGUAGES = [
+    { code: "ja", label: "日本語 (Japanese)" },
+    { code: "de", label: "Deutsch (German)" },
+    { code: "fr", label: "Français (French)" },
+    { code: "es", label: "Español (Spanish)" },
+    { code: "pt", label: "Português (Portuguese)" },
+    { code: "zh-CN", label: "中文 (Chinese, Simplified)" },
+    { code: "pl", label: "Polski (Polish)" },
+  ];
+
+  menu.innerHTML = LANGUAGES.map(function (lang) {
+    return '<a href="#" data-lang="' + lang.code + '">' + lang.label + "</a>";
+  }).join("");
+
+  btn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    menu.classList.toggle("open");
+  });
+
+  document.addEventListener("click", function () {
+    menu.classList.remove("open");
+  });
+
+  menu.querySelectorAll("a").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      var lang = a.dataset.lang;
+      var currentUrl = window.location.href;
+      var translateUrl = "https://translate.google.com/translate?sl=en&tl=" + lang + "&u=" + encodeURIComponent(currentUrl);
+      window.open(translateUrl, "_blank", "noopener");
+      menu.classList.remove("open");
+    });
+  });
+})();
+</script>
+</div>
+<div class="shell">
+  <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/SPM/2960687492/Refined+tab+macro%3A+Test+page+with+a+title/">BigPicture PPM and Strategic Portfolio Management</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/SPM/1616808611/BigPicture+PPM+and+Strategic+Portfolio+Management/">BigPicture PPM and Strategic Portfolio Management</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/SPM/1918633143/Help+and+support/">Help and support</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/SPM/1918829836/Troubleshooting/">Troubleshooting</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/SPM/1926464577/Warning+messages+and+warning+logs/">Warning messages and warning logs</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/SPM/1918700083/Warning+messages/">Warning messages</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Messages - troubleshooting</span></nav>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918536577" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
+    </div>
+    <h1>Messages - troubleshooting</h1>
+    <div class="page-meta">Updated 1 month ago · 9 min read</div>
+    <h2 id="dependencies">Dependencies</h2><p>Soft dependencies don’t have a scheduling impact.</p><div class="panel panel-note"><p>A strong dependency ensures that the starting point of a dependency is before the target point of a dependency. </p></div><img alt="contentId-1918536577" class="doc-image" loading="lazy" src="/cms_trial/assets/835e49ce-9880-410f-9787-9891d9ee0b6c.png"/><p>Strong dependencies (solid line on a Gantt chart) connect tasks in the following ways:</p><ul><li><p>end to start</p></li><li><p>end to end</p></li><li><p>start to end</p></li><li><p>start to start</p></li></ul><p>There are two types of strong dependencies:</p><ul><li><p>ASAP - one task immediately follows the other</p></li><li><p>non-ASAP - one task follows the other, but doesn’t have to follow immediately</p></li></ul><p>Lag time:</p><ul><li><p>a mandatory gap between tasks</p></li></ul><h3 id="unable-to-change-dates">Unable to change dates</h3><div class="panel panel-note"><p>The dates of this task are determined by the dependency linking it to another task. </p><p>The dates of this task are determined by the dependencies linking it to other tasks. </p></div><p>A strong dependency makes it impossible to change the task dates in a way that would break the rules:</p><ul><li><p>Task can’t be moved on the Gantt module timeline</p></li><li><p>Task can’t be moved in the Resources module</p></li><li><p>Task dates can’t be manually changed (editing a date of a Jira issue, Gantt module column, task details pop-up) </p></li></ul><img alt="contentId-1918536577" class="doc-image" loading="lazy" src="/cms_trial/assets/835e49ce-9880-410f-9787-9891d9ee0b6c.png"/><div class="panel panel-note"><p>To see the dependencies, go to the Gantt module.</p></div><ul><li><p>You can use the search function to locate the task. </p></li><li><p>When you click on a task row, the row is highlighted in blue (the task is selected). When you clear the search, the task is still highlighted in blue. </p></li><li><p>When dependencies are collapsed, you can click on a dependency dot to see the details. </p></li><li><p>When dependencies are expanded, you can see dependencies visualized as arrows connecting tasks. </p></li></ul><img alt="contentId-1918536577" class="doc-image" loading="lazy" src="/cms_trial/assets/973a520b-d3fa-4ed8-93b2-560feb298649.mov"/><p>Solutions:</p><ul><li><p>move the source task before moving the target task.</p></li><li><p>change the task scheduling mode to manual (automatic rules no longer apply - you can manually change the dependency dates). The dependency arrow is orange to indicate the rules are broken, but you are allowed to place the task wherever you want.  </p></li><li><p>change the dependency type to ‘soft’ - soft dependencies don’t have a scheduling impact. They can be used to indicate a connection between tasks.</p></li><li><p>remove the dependency.</p></li></ul><img alt="contentId-1918536577" class="doc-image" loading="lazy" src="/cms_trial/assets/5450f53c-da29-4ff1-a0d6-ea43b3889ef2.mov"/><h3 id="dates-adjusted-by-a-dependency">Dates adjusted by a dependency </h3><p>Dependency rules have repositioned a task. </p><p>In the example below:</p><ul><li><p>strong ASAP dependency connects tasks - an ASAP dependency positions source and target points right after the other. Lag time is added (when specified). </p></li><li><p>Scheduling mode of the target task was manual (dependency didn’t apply). </p></li><li><p>Scheduling mode of a task changed to auto bottom-up - dependency is applied. The task is moved. </p></li></ul><img alt="contentId-1918536577" class="doc-image" loading="lazy" src="/cms_trial/assets/3d4c0c57-1588-4ceb-a34f-03b0df243af4.mov"/><div class="panel panel-note"><p>The dates of this task are determined by the dependency linking it to another task. </p></div><p>When a target task doesn’t have start/end date, it is not on the timeline. Once a task is positioned on the timeline, dependency rules apply. </p><img alt="contentId-1918536577" class="doc-image" loading="lazy" src="/cms_trial/assets/03f8f31c-f83e-49df-9866-b8612768bbd0.mov"/><h2 id="scheduling-mode">Scheduling mode</h2><h3 id="unable-to-change-dates-2">Unable to change dates</h3><div class="panel panel-note"><h4 id="auto-top-down-task"><strong>Auto top-down task</strong></h4><p>The dates of this task depend on the dates of its parent, which is set to auto top-down scheduling mode.</p></div><p>When a task is in the ‘auto top-down’ scheduling mode, it adjusts its period to fit under the parent task. </p><img alt="contentId-1918536577" class="doc-image" loading="lazy" src="/cms_trial/assets/94832d87-a647-42d5-9598-0475b15d738d.png"/><div class="panel panel-note"><p>Parent-child relationships can be viewed in the Gantt module - task tree shows how tasks are nested. </p></div><img alt="contentId-1918536577" class="doc-image" loading="lazy" src="/cms_trial/assets/02d521e5-e015-472f-a744-79a37c718bc4.mov"/><p>Solutions:</p><ul><li><p>Change the position of the parent</p></li><li><p>Change the scheduling mode </p><ul><li><p>of the child to ‘manual’ - automatic rules don’t apply. You can position tasks as you want. </p></li><li><p>of the child to ‘auto bottom-up’ - parent task period is modified by children</p></li><li><p>of a child to ‘auto basic’ - a task responds only to dependencies and non-working days. Period and position of the parent are ignored. </p></li></ul></li><li><p>change how tasks are nested in the tree</p></li></ul><img alt="contentId-1918536577" class="doc-image" loading="lazy" src="/cms_trial/assets/f41399c2-d7a8-452c-a58d-0936a9030b08.mov"/><div class="panel panel-note"><h4 id="locked-parent"><strong>Locked parent </strong></h4><p>The dates of this task depend on the dates of its parent, which is set to Locked scheduling mode. </p></div><p>When a task is in a ‘locked’ scheduling mode, its period cannot be changed (can’t be repositioned on a timeline, dates can’t be manually changed). A child in an ‘auto top-down' scheduling mode adjusts its period to fit under a parent. </p><img alt="contentId-1918536577" class="doc-image" loading="lazy" src="/cms_trial/assets/db7cc56a-2caf-4fc4-8c30-98f3e822d5fe.mov"/><p>Solutions:</p><ul><li><p>Change the scheduling mode of the child task</p></li><li><p>Change the period of the parent task (if parent is ‘locked', the parent scheduling mode must be changed to allow for changes of its period).</p></li><li><p>change how tasks are nested in the tree.</p></li></ul><div class="panel panel-note"><h4 id="locked-task"><strong>Locked task</strong></h4><p>This task is set to Locked scheduling move, so its dates can’t be changed. </p></div><p>A task has a start/end date - start/end cannot be modified (the task can’t be moved on a timeline and dates can’t be manually changed).</p><p>A task doesn’t have a start/end date - start/end date can’t be entered.</p><img alt="contentId-1918536577" class="doc-image" loading="lazy" src="/cms_trial/assets/145461ee-4efd-4a81-8dc5-f62a67db1485.png"/><p>Solution:</p><ul><li><p>change the task scheduling mode. </p></li></ul><div class="panel panel-note"><h4 id="auto-bottom-up-task"><strong>Auto bottom-up task</strong></h4><p>This task is set to auto bottom-up scheduling mode, so its dates depend on the dates of its subtasks. </p></div><p>The period of an auto bottom-up task is based on the periods of its children. </p><p>When children don’t have a start/end date, the parent task doesn’t have dates. </p><img alt="contentId-1918536577" class="doc-image" loading="lazy" src="/cms_trial/assets/2a7e9471-64e9-4c58-9b82-87cf519b6bad.mov"/><p>Solution:</p><ul><li><p>change the parent scheduling mode </p></li><li><p>change the dates of the child tasks. </p></li></ul><h3 id="dates-adjusted-by-parent-task">Dates adjusted by parent task</h3><div class="panel panel-note"><p><strong>Auto top-down </strong></p><p>The dates of this task depend on the dates of its parent, which is set to Auto top-down scheduling mode. </p></div><p>Parent task dates are changed. The child task adjusts its period to fit the parent. </p><img alt="contentId-1918536577" class="doc-image" loading="lazy" src="/cms_trial/assets/ff5393b2-7b25-44d9-bd0c-e9fe4065f163.mov"/><p>The child didn’t have dates. Once the child is placed on a timeline, it adjusts to fit the parent. </p><img alt="contentId-1918536577" class="doc-image" loading="lazy" src="/cms_trial/assets/caf8f8a4-2323-47c7-86f4-4682a7f564ae.mov"/><div class="panel panel-note"><p><strong>Locked parent</strong></p><p>The dates of this task depend on the dates of its parent, which is set to Locked scheduling mode. </p></div><img alt="contentId-1918536577" class="doc-image" loading="lazy" src="/cms_trial/assets/3d7dce3d-c347-4284-8acf-9edf2c23e167.mov"/><h3 id="dates-adjusted-by-subtasks">Dates adjusted by subtasks</h3><div class="panel panel-note"><p><strong>Auto bottom-up task</strong></p><p>This task is set to the auto bottom-up scheduling mode, so its dates depend on the dates of its subtasks. </p></div><img alt="image-20241008-073017.png" class="doc-image" loading="lazy" src="/cms_trial/assets/d17e8817-e774-4cca-a6c8-635f1af3780d.png"/><p>See the video:</p><img alt="2024-10-08_09-21-47.mp4" class="doc-image" loading="lazy" src="/cms_trial/assets/2951d59e-6fb5-47e8-a13d-eda0005a2cac.mp4"/><h2 id="field-mapping">Field mapping</h2><h3 id="date-adjusted-by-time-logged-on-task">Date adjusted by time logged on task</h3><p>Example:</p><p>The task duration is 4 days. The <strong>End Date</strong> field is mapped to the <strong>Remaining Estimate + Time Spent</strong> field. An assigned person logged 3 days on this task. The remaining estimate is 1 day now. A user changed the task duration to 2 days (either by resizing the task on the Gantt chart, changing the End Date field, or editing the Duration Working Days field). </p><p>BigPicture adjusts the task duration to the value of the time logged for the task. </p><p>The following message is displayed: </p><p><em>Due to the mapping of the End Date field, the duration of this task cannot be shorter than the time logged on this task.</em></p><h2 id="app-access">App access</h2><h3 id="app-level">App level</h3><p>BigPicture requires administrative rights to function properly. To start using the BigPicture Trello Power-Up, please ensure the Team’s Administrator has already launched it.</p><p>Solution:</p><ul><li><p>An admin of the organization must start the App (and use it - click something while the App is running).</p></li><li><p>If the administrator who initially started the App lost their Admin rights, another admin must start the App again.</p></li><li><p>This must be done by the admin of the <strong>Trello team </strong>(not the admin of the board!).</p></li></ul><h3 id="jira-project-level-access-denied-missing-app-permissions">Jira project level - access denied (missing App permissions)</h3><p>This splash screen appears when a user tries to enter the App from a Jira Project context, but lacks permission to access it.</p><div class="panel panel-success"><p>Make sure users have access to the App and Boxes as needed. Verify the <a href="https://appfire.atlassian.net/wiki/spaces/DLP/pages/297765911">security settings</a> of the App and Boxes.</p></div><h4 id="no-app-access">No App access</h4><p>Users must be added to BigPicture (<a href="https://appfire.atlassian.net/wiki/spaces/DLP/pages/298287400">Administration &gt; Security</a>) if not granted access to the app. </p><img alt="contentId-1918536577" class="doc-image" loading="lazy" src="/cms_trial/assets/10eea294-fcdb-45f5-89cb-80b41b30e40b.png"/><h4 id="no-box-access">No Box access</h4><p>Even if a matching Box exists, if a user doesn't have access to it (they haven't been added as Box users) they can't access it through a Jira project.</p><p>The app will try to suggest to a user to create a "perfect match" Box:</p><ul><li><p>the user either sees an option to create a new Box</p></li><li><p>or a message informing them that they don't have permissions sufficient to create a Box</p></li></ul><h3 id="no-permissions-to-create-a-matching-box">No permissions to create a Matching Box</h3><img alt="contentId-1918536577" class="doc-image" loading="lazy" src="/cms_trial/assets/2a001827-d1fc-4cb7-a6b4-bbf73810a437.png"/><p>You can't create a Box, because of App security settings.</p><p>In order to create a Box you need to:</p><ul><li><p>have <a href="https://appfire.atlassian.net/wiki/spaces/DLP/pages/298287400">access to the App</a></p></li><li><p>at the <a href="https://appfire.atlassian.net/wiki/spaces/DLP/pages/297669047">Root Box (home Box) level</a>, you must be a <strong>sub-Box creator</strong> or an <strong>Admin.</strong></p></li></ul><h2 id="license-invalid">License invalid</h2><img alt="image (10).png" class="doc-image" loading="lazy" src="/cms_trial/assets/64425900-928f-46c8-b9ef-e9abe297ca9f.png"/><div class="panel panel-note"><p><strong>Standard Atlassian licensing guidelines apply (</strong><a href="https://www.atlassian.com/licensing/purchase-licensing#licensing"><strong>read more</strong></a><strong>).</strong></p><p>We don't sell licenses directly. All purchases must be made through the Atlassian marketplace. </p></div><h2 id="bigpicture-loading-crashed">BigPicture loading crashed</h2><p>If you see the following screen, it means that the plugin failed to load:</p><img alt="contentId-1918536577" class="doc-image" loading="lazy" src="/cms_trial/assets/3a8fd7c2-6a44-4327-8ef3-5b81bfcf1150.png"/><p>It might occur in the following few situations.</p><h3 id="no-locks-available">No locks available</h3><h4 id="cause">Cause</h4><p>No file locks are available on the NFS file system. This problem will occur if your Jira runs on an NFS file system - this applies mainly to Jira Data Center.</p><p>The situation may occur:</p><ul><li><p>after performing a "Create Snapshot" operation,</p></li><li><p> after starting the "Restore" process,</p></li><li><p>after updating the application to a newer version.</p></li></ul><h4 id="diagnosis"><strong>Diagnosis</strong></h4><p>Verify if the following entry appears in the logs:</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">============================================================================================================
+NO LOCKS AVAILABLE, this error is usually caused by the NFS daemons not running or malfunctioning.
+Try to restart and verify functionality of all NFS related daemons on your system, most importantly lockd.</code></pre></div><p>You can also ensure this is the case by manually creating a lock on a file in a directory used by the plugin, e.g. <em>/shared-data/sharedhome/export/softwareplant/bigpicture</em>. As a result of such action, the same error should appear as in our application logs i.e., "No locks available".</p><h4 id="solution"><strong>Solution</strong></h4><p>Restart and verify the functionality of all NFS-related daemons on your system, most importantly <code>lockd</code>. See the following page for further reference: <a href="http://osr507doc.sco.com/en/NetAdminG/nfsC.daemons.html">http://osr507doc.sco.com/en/NetAdminG/nfsC.daemons.html</a> </p><h3 id="directory-access-denied">Directory Access Denied</h3><h4 id="cause-2">Cause</h4><p>You will see this screen when directory access has been denied for Jira - this applies to Jira Server/Data Center.</p><p>The situation may occur:</p><ul><li><p>after performing a "Create Snapshot" operation,</p></li><li><p> after starting the "Restore" process,</p></li><li><p>after updating the application to a newer version.</p></li></ul><h4 id="diagnosis-2"><strong>Diagnosis</strong></h4><p>Verify if the following entry appears in the logs:</p><div class="code-block"><div class="code-block-header"><span class="code-block-lang">text</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-text">============================================================================================================ 
+ACCESS DENIED FOR DIRECTORY UNDER PATH: &lt;directoryPath&gt;.
+The problem occurs because the directory might not be owned by user that Jira is run on the behalf of.
+Check whether that particular user has 'write' access to &lt;directoryPath&gt;.</code></pre></div><h4 id="solution-2"><strong>Solution</strong></h4><p>The given directory is not accessible to Jira. You should grant the Jira user access to this directory.<br/>If this is not enough, then try to grant access to these two directories in addition:</p><ul><li><p><em>/media/atl/&lt;directory-path&gt;/export </em></p></li><li><p><em>/media/atl/&lt;directory-path&gt;</em></p></li></ul><p>For Unix/Unix-like systems, use the command: '<em><strong>chown &lt;user that jira is run on the behalf of&gt; &lt;directoryPath&gt;</strong></em>'<br/>e.g. '<em><strong>chown jira jira-data</strong></em>'</p><div class="panel panel-note"><p>If you are experiencing more complicated issues or having problems following the instructions, please contact our helpful support using the customer <a href="https://softwareplant.com/jira/servicedesk/customer/user/login?destination=portals">portal</a><a href="mailto:support@bigpicture.on">.</a> Our team will be more than happy to assist.</p></div>
+  </main>
+  <aside class="sidebar">
+<div class="brand"><span class="brand-mark">Appfire Docs</span></div>
+<div class="brand-tag">Live docs, fetched from Confluence via API.</div>
+<nav><ul><li><a href="/cms_trial/space/SPM/2960687492/Refined+tab+macro%3A+Test+page+with+a+title/">Refined tab macro: Test page with a title</a></li><li><details open><summary><a href="/cms_trial/space/SPM/1616808611/BigPicture+PPM+and+Strategic+Portfolio+Management/">BigPicture PPM and Strategic Portfolio Management</a></summary><ul><li><details><summary><a href="/cms_trial/space/SPM/1918796796/Get+started/">Get started</a></summary><ul><li><a href="/cms_trial/space/SPM/3689381889/Get+to+know+BigPicture/">Get to know BigPicture</a></li><li><a href="/cms_trial/space/SPM/3460661282/Explore+BigPicture+modules/">Explore BigPicture modules</a></li><li><a href="/cms_trial/space/SPM/2401108060/First+steps/">First steps</a></li><li><a href="/cms_trial/space/SPM/3725230180/BigPicture+video+library/">BigPicture video library</a></li><li><a href="/cms_trial/space/SPM/2401107989/Use+cases/">Use cases</a></li><li><a href="/cms_trial/space/SPM/1918404279/Key+concepts/">Key concepts</a></li><li><a href="/cms_trial/space/SPM/1918666375/Glossary/">Glossary</a></li><li><a href="/cms_trial/space/SPM/1918535300/Keyboard+shortcuts/">Keyboard shortcuts</a></li><li><a href="/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/">BigPicture Standard vs Advanced</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/SPM/1918502496/App+technical+information/">App technical information</a></summary><ul><li><a href="/cms_trial/space/SPM/3683680343/BgPicture+feature+comparison/">BgPicture feature comparison</a></li><li><a href="/cms_trial/space/SPM/1918862093/Data+residency%2C+collection%2C+and+analytics+overview/">Data residency, collection, and analytics overview</a></li><li><a href="/cms_trial/space/SPM/1918404058/Data+synchronization+with+connected+tools/">Data synchronization with connected tools</a></li><li><a href="/cms_trial/space/SPM/1918699108/Initial+guide+for+administrators/">Initial guide for administrators</a></li><li><a href="/cms_trial/space/SPM/1918797213/Installation+and+updates/">Installation and updates</a></li><li><a href="/cms_trial/space/SPM/1918502890/System+authentication/">System authentication</a></li><li><a href="/cms_trial/space/SPM/1918535738/Sizing+guide/">Sizing guide</a></li><li><a href="/cms_trial/space/SPM/3488285408/Backup%2C+restore%2C+and+migrate/">Backup, restore, and migrate</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/SPM/1918796728/Admin+guide/">Admin guide</a></summary><ul><li><a href="/cms_trial/space/SPM/1918698881/App+configuration/">App configuration</a></li><li><a href="/cms_trial/space/SPM/1918829342/App+administration/">App administration</a></li><li><a href="/cms_trial/space/SPM/1918666176/Box+configuration/">Box configuration</a></li><li><a href="/cms_trial/space/SPM/1918829579/Permissions/">Permissions</a></li><li><a href="/cms_trial/space/SPM/1918633316/Personal/">Personal</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/SPM/1918535153/User+guide/">User guide</a></summary><ul><li><a href="/cms_trial/space/SPM/1918403941/Boxes/">Boxes</a></li><li><a href="/cms_trial/space/SPM/1918404512/Tasks%2C+milestones/">Tasks, milestones</a></li><li><a href="/cms_trial/space/SPM/1918797388/View+adjustments/">View adjustments</a></li><li><a href="/cms_trial/space/SPM/1918764262/Resource+management/">Resource management</a></li><li><a href="/cms_trial/space/SPM/1918502862/Risk+management/">Risk management</a></li><li><a href="/cms_trial/space/SPM/1918862135/Planning+and+tracking+work/">Planning and tracking work</a></li><li><a href="/cms_trial/space/SPM/1918797353/Reporting+and+coordinating+work/">Reporting and coordinating work</a></li><li><a href="/cms_trial/space/SPM/1918535176/Automations/">Automations</a></li><li><a href="/cms_trial/space/SPM/1918633230/Integrations/">Integrations</a></li><li><a href="/cms_trial/space/SPM/1918633194/Financials+management/">Financials management</a></li><li><a href="/cms_trial/space/SPM/2325217590/Strategic+Areas/">Strategic Areas</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/SPM/1918633143/Help+and+support/">Help and support</a></summary><ul><li><details open><summary><a href="/cms_trial/space/SPM/1918829836/Troubleshooting/">Troubleshooting</a></summary><ul><li><details open><summary><a href="/cms_trial/space/SPM/1926464577/Warning+messages+and+warning+logs/">Warning messages and warning logs</a></summary><ul><li><details open><summary><a href="/cms_trial/space/SPM/1918700083/Warning+messages/">Warning messages</a></summary><ul><li><a href="/cms_trial/space/SPM/1926628077/Messages/">Messages</a></li><li><a href="/cms_trial/space/SPM/1918536577/Messages+-+troubleshooting/" class="active">Messages - troubleshooting</a></li></ul></details></li><li><a href="/cms_trial/space/SPM/1918536723/Warning+log+(Jira)/">Warning log (Jira)</a></li><li><a href="/cms_trial/space/SPM/1918862905/App+warning+log/">App warning log</a></li></ul></details></li><li><a href="/cms_trial/space/SPM/1918405293/Jira+Cloud/">Jira Cloud</a></li><li><a href="/cms_trial/space/SPM/1918633991/Performance/">Performance</a></li><li><a href="/cms_trial/space/SPM/1926628163/Common+issues+and+solutions/">Common issues and solutions</a></li></ul></details></li><li><a href="/cms_trial/space/SPM/1918666463/Report+problem/">Report problem</a></li><li><a href="/cms_trial/space/SPM/1918796832/BigPicture+cloud+limitations/">BigPicture cloud limitations</a></li><li><a href="/cms_trial/space/SPM/1918699076/EULA+and+Privacy+Policy/">EULA and Privacy Policy</a></li><li><a href="/cms_trial/space/SPM/2326102151/End+of+support+for+BigPicture+Power-Up+for+Trello/">End of support for BigPicture Power-Up for Trello</a></li><li><a href="/cms_trial/space/SPM/2484568389/Tips+and+tricks/">Tips and tricks</a></li><li><a href="/cms_trial/space/SPM/2897150073/New+navigation/">New navigation</a></li><li><a href="/cms_trial/space/SPM/3483959305/BigPicture+Enterprise+migration+to+BigPicture+Advanced/">BigPicture Enterprise migration to BigPicture Advanced</a></li><li><a href="/cms_trial/space/SPM/2383446254/AI+assistant/">AI assistant</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/SPM/1918535028/BigPicture+modules/">BigPicture modules</a></summary><ul><li><a href="/cms_trial/space/SPM/1918502655/Overview+module/">Overview module</a></li><li><a href="/cms_trial/space/SPM/1918797129/Gantt+module/">Gantt module</a></li><li><a href="/cms_trial/space/SPM/1918666763/Scope+module/">Scope module</a></li><li><a href="/cms_trial/space/SPM/1918796888/Board+module/">Board module</a></li><li><a href="/cms_trial/space/SPM/1918535323/Goals+module/">Goals module</a></li><li><a href="/cms_trial/space/SPM/1918535629/Resources+module/">Resources module</a></li><li><a href="/cms_trial/space/SPM/1918829775/Teams+module/">Teams module</a></li><li><a href="/cms_trial/space/SPM/1918666681/Risks+module/">Risks module</a></li><li><a href="/cms_trial/space/SPM/1918699000/Calendar+module/">Calendar module</a></li><li><a href="/cms_trial/space/SPM/1918502811/Reports+module/">Reports module</a></li><li><a href="/cms_trial/space/SPM/1918699171/Risk+management+module+(NEW)/">Risk management module (NEW)</a></li><li><a href="/cms_trial/space/SPM/1918829653/Priorities+module/">Priorities module</a></li><li><a href="/cms_trial/space/SPM/1918535397/OKR+module/">OKR module</a></li><li><a href="/cms_trial/space/SPM/1918404223/Financials+module+(NEW)/">Financials module (NEW)</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/SPM/1918535130/Release+notes/">Release notes</a></summary><ul><li><a href="/cms_trial/space/SPM/3070984195/Upcoming+Changes%3A+Merging+Board+and+Goals+Modules/">Upcoming Changes: Merging Board and Goals Modules</a></li><li><a href="/cms_trial/space/SPM/3707174957/Release+notes+Sep+24%2C+2026/">Release notes Sep 24, 2026</a></li><li><a href="/cms_trial/space/SPM/3482747495/App+Editions+announcement+Jul+24%2C+2026/">App Editions announcement Jul 24, 2026</a></li><li><a href="/cms_trial/space/SPM/3500834822/Release+notes+Jul+30%2C+2026/">Release notes Jul 30, 2026</a></li><li><a href="/cms_trial/space/SPM/3413219617/Release+notes+Jun+29%2C+2026/">Release notes Jun 29, 2026</a></li><li><a href="/cms_trial/space/SPM/3310911527/Release+notes+Jun+1%2C+2026/">Release notes Jun 1, 2026</a></li><li><a href="/cms_trial/space/SPM/3262087294/Release+notes+May+18%2C+2026/">Release notes May 18, 2026</a></li><li><a href="/cms_trial/space/SPM/3098247218/Release+notes%2C+Apr+09%2C+2026/">Release notes, Apr 09, 2026</a></li><li><a href="/cms_trial/space/SPM/2988048429/Release+notes%2C+Mar+16%2C+2026/">Release notes, Mar 16, 2026</a></li><li><a href="/cms_trial/space/SPM/2954821713/Release+notes%2C+Mar+2%2C+2026/">Release notes, Mar 2, 2026</a></li><li><a href="/cms_trial/space/SPM/2891350023/Release+notes%2C+Feb+16%2C+2026/">Release notes, Feb 16, 2026</a></li><li><a href="/cms_trial/space/SPM/2814935048/Release+notes%2C+Jan+29%2C+2026/">Release notes, Jan 29, 2026</a></li><li><a href="/cms_trial/space/SPM/2681274405/Release+notes%2C+Dec+29%2C+2025/">Release notes, Dec 29, 2025</a></li><li><a href="/cms_trial/space/SPM/2606628988/Release+notes%2C+Dec+08%2C+2025/">Release notes, Dec 08, 2025</a></li><li><a href="/cms_trial/space/SPM/2523136511/Release+notes%2C+Nov+17%2C+2025/">Release notes, Nov 17, 2025</a></li><li><a href="/cms_trial/space/SPM/2481881402/Release+notes%2C+Nov+3%2C+2025/">Release notes, Nov 3, 2025</a></li><li><a href="/cms_trial/space/SPM/2463531497/Release+notes%2C+October+20%2C+2025/">Release notes, October 20, 2025</a></li><li><a href="/cms_trial/space/SPM/2420310646/Release+notes%2C+October+1%2C+2025/">Release notes, October 1, 2025</a></li><li><a href="/cms_trial/space/SPM/2372370711/Release+notes%2C+September+16%2C+2025/">Release notes, September 16, 2025</a></li><li><a href="/cms_trial/space/SPM/2325053820/Release+notes%2C+September+1%2C+2025/">Release notes, September 1, 2025</a></li><li><a href="/cms_trial/space/SPM/2264989850/Release+notes+August+12%2C+2025/">Release notes August 12, 2025</a></li><li><a href="/cms_trial/space/SPM/2229960740/Release+notes+July+28%2C+2025/">Release notes July 28, 2025</a></li><li><a href="/cms_trial/space/SPM/2193556458/Release+notes+July+14%2C+2025/">Release notes July 14, 2025</a></li><li><a href="/cms_trial/space/SPM/2158362627/Release+notes+June+30%2C+2025/">Release notes June 30, 2025</a></li><li><a href="/cms_trial/space/SPM/2091548906/Release+notes+June+05+2025/">Release notes June 05 2025</a></li><li><a href="/cms_trial/space/SPM/2045084850/Release+notes+May+20%2C+2025/">Release notes May 20, 2025</a></li><li><a href="/cms_trial/space/SPM/1989116520/Release+notes+Apr+29%2C+2025/">Release notes Apr 29, 2025</a></li><li><a href="/cms_trial/space/SPM/1918404311/Release+notes+Apr+2%2C+2025/">Release notes Apr 2, 2025</a></li></ul></details></li></ul></details></li><li><a href="/cms_trial/space/SPM/1956479563/OKR+for+Jira+vs.+BigPicture%27s+OKR+module/">OKR for Jira vs. BigPicture's OKR module</a></li><li><a href="/cms_trial/space/SPM/1956479622/Foxly+vs.+BigPicture%27s+Priorities+module/">Foxly vs. BigPicture's Priorities module</a></li></ul></nav>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
+  <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#dependencies">Dependencies</a></li><li class="toc-level-3"><a href="#unable-to-change-dates">Unable to change dates</a></li><li class="toc-level-3"><a href="#dates-adjusted-by-a-dependency">Dates adjusted by a dependency </a></li><li class="toc-level-2"><a href="#scheduling-mode">Scheduling mode</a></li><li class="toc-level-3"><a href="#unable-to-change-dates-2">Unable to change dates</a></li><li class="toc-level-4"><a href="#auto-top-down-task">Auto top-down task</a></li><li class="toc-level-4"><a href="#locked-parent">Locked parent </a></li><li class="toc-level-4"><a href="#locked-task">Locked task</a></li><li class="toc-level-4"><a href="#auto-bottom-up-task">Auto bottom-up task</a></li><li class="toc-level-3"><a href="#dates-adjusted-by-parent-task">Dates adjusted by parent task</a></li><li class="toc-level-3"><a href="#dates-adjusted-by-subtasks">Dates adjusted by subtasks</a></li><li class="toc-level-2"><a href="#field-mapping">Field mapping</a></li><li class="toc-level-3"><a href="#date-adjusted-by-time-logged-on-task">Date adjusted by time logged on task</a></li><li class="toc-level-2"><a href="#app-access">App access</a></li><li class="toc-level-3"><a href="#app-level">App level</a></li><li class="toc-level-3"><a href="#jira-project-level-access-denied-missing-app-permissions">Jira project level - access denied (missing App permissions)</a></li><li class="toc-level-4"><a href="#no-app-access">No App access</a></li><li class="toc-level-4"><a href="#no-box-access">No Box access</a></li><li class="toc-level-3"><a href="#no-permissions-to-create-a-matching-box">No permissions to create a Matching Box</a></li><li class="toc-level-2"><a href="#license-invalid">License invalid</a></li><li class="toc-level-2"><a href="#bigpicture-loading-crashed">BigPicture loading crashed</a></li><li class="toc-level-3"><a href="#no-locks-available">No locks available</a></li><li class="toc-level-4"><a href="#cause">Cause</a></li><li class="toc-level-4"><a href="#diagnosis">Diagnosis</a></li><li class="toc-level-4"><a href="#solution">Solution</a></li><li class="toc-level-3"><a href="#directory-access-denied">Directory Access Denied</a></li><li class="toc-level-4"><a href="#cause-2">Cause</a></li><li class="toc-level-4"><a href="#diagnosis-2">Diagnosis</a></li><li class="toc-level-4"><a href="#solution-2">Solution</a></li></ul></div></aside>
+</div>
+<!-- "Get Help" — a plain link to the real, already-working Refined JSM
+     portal, at a different path on the SAME domain. No custom OAuth
+     backend needed for this: Refined's own JSM integration already
+     correctly handles brand-new, first-time visitors in production today,
+     which is exactly the case our earlier OAuth-based attempt structurally
+     couldn't solve (Atlassian's own consent screen blocks anyone with zero
+     prior relationship to the site, before ever reaching JSM). Styled to
+     match the rest of the site and left as a same-tab navigation (not
+     target="_blank") so clicking it feels like moving to another page on
+     one continuous site, not popping open a separate system. -->
+<a class="get-help-btn" href="https://support.appfire.com/page/support">Get Help</a>
+
+<!-- Advanced Tables (Table Plus, etc.) enhancement — reconstructs the parts
+     of the macro's real behavior that aren't stored as static content:
+     click-to-sort columns, computed numeric totals, and hover highlighting.
+     Harmless to include on every page — it does nothing if no
+     .advanced-table elements are present. -->
+<script>
+(function () {
+  document.querySelectorAll(".advanced-table").forEach(function (container) {
+    var table = container.querySelector("table");
+    if (!table) return;
+
+    var enableSorting = container.dataset.enableSorting === "true";
+    var autoTotal = container.dataset.autoTotal === "true";
+    var enableHighlighting = container.dataset.enableHighlighting === "true";
+    var highlightColor = container.dataset.highlightColor || "";
+
+    var headerRow = table.rows[0];
+    var tbody = table.tBodies[0] || table;
+
+    // Highlighting: toggle a background color on row hover, matching the
+    // macro's own configured highlight color rather than a fixed one.
+    if (enableHighlighting && highlightColor && headerRow) {
+      Array.prototype.slice.call(tbody.rows).forEach(function (row) {
+        if (row === headerRow) return;
+        row.addEventListener("mouseenter", function () { row.style.backgroundColor = highlightColor; });
+        row.addEventListener("mouseleave", function () { row.style.backgroundColor = ""; });
+      });
+    }
+
+    // Sorting: click a header cell to sort by that column. Numeric-aware —
+    // compares as numbers when both values parse as one, falls back to
+    // string comparison otherwise. Repeated clicks toggle ascending/descending.
+    if (enableSorting && headerRow) {
+      Array.prototype.forEach.call(headerRow.cells, function (cell, colIndex) {
+        cell.classList.add("sortable-col");
+        cell.title = "Click to sort";
+        var ascending = true;
+        cell.addEventListener("click", function () {
+          var rows = Array.prototype.slice.call(tbody.rows).filter(function (r) { return r !== headerRow; });
+          rows.sort(function (a, b) {
+            var av = (a.cells[colIndex] ? a.cells[colIndex].textContent : "").trim();
+            var bv = (b.cells[colIndex] ? b.cells[colIndex].textContent : "").trim();
+            var an = parseFloat(av), bn = parseFloat(bv);
+            var cmp = (!isNaN(an) && !isNaN(bn)) ? (an - bn) : av.localeCompare(bv);
+            return ascending ? cmp : -cmp;
+          });
+          rows.forEach(function (row) { tbody.appendChild(row); });
+          ascending = !ascending;
+        });
+      });
+    }
+
+    // Computed totals: sum any column where every non-empty cell parses as
+    // a number, appended as a footer row. This approximates the common
+    // case (a numeric sum) — the real macro lets authors choose different
+    // calculation types per column (min, max, average...), which isn't
+    // reconstructed here.
+    if (autoTotal && headerRow) {
+      var dataRows = Array.prototype.slice.call(tbody.rows).filter(function (r) { return r !== headerRow; });
+      var totals = [];
+      for (var c = 0; c < headerRow.cells.length; c++) {
+        (function (colIndex) {
+          var allNumeric = true, sum = 0, sawAny = false;
+          dataRows.forEach(function (row) {
+            var cell = row.cells[colIndex];
+            var text = cell ? cell.textContent.trim() : "";
+            if (text === "") return;
+            var n = parseFloat(text);
+            if (isNaN(n)) { allNumeric = false; return; }
+            sum += n;
+            sawAny = true;
+          });
+          totals.push(allNumeric && sawAny ? sum : null);
+        })(c);
+      }
+      if (totals.some(function (t) { return t !== null; })) {
+        var footRow = document.createElement("tr");
+        footRow.className = "advanced-table-total-row";
+        totals.forEach(function (t) {
+          var td = document.createElement("td");
+          td.textContent = t !== null ? String(t) : "";
+          footRow.appendChild(td);
+        });
+        tbody.appendChild(footRow);
+      }
+    }
+  });
+})();
+</script>
+
+<!-- Aura Tab Group enhancement — click-to-switch tabs. Harmless to include
+     on every page; does nothing if no .aura-tab-group elements exist. -->
+<script>
+(function () {
+  document.querySelectorAll(".aura-tab-group").forEach(function (group) {
+    var buttons = group.querySelectorAll(".aura-tab-btn");
+    buttons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var targetId = btn.dataset.target;
+        group.querySelectorAll(".aura-tab-btn").forEach(function (b) { b.classList.remove("active"); });
+        group.querySelectorAll(".aura-tab-panel").forEach(function (p) { p.classList.remove("active"); });
+        btn.classList.add("active");
+        var panel = document.getElementById(targetId);
+        if (panel) panel.classList.add("active");
+      });
+    });
+  });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Real TOC scroll-spy — highlights the currently-visible heading in the
+     "On this page" panel as the reader scrolls. Harmless no-op if there's
+     no .page-toc on the page (most pages with few/no headings). -->
+<script>
+(function () {
+  var tocLinks = document.querySelectorAll(".page-toc a[href^='#']");
+  if (!tocLinks.length) return;
+
+  var headingMap = {};
+  var headings = [];
+  tocLinks.forEach(function (link) {
+    var id = link.getAttribute("href").slice(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headingMap[id] = link;
+      headings.push(heading);
+    }
+  });
+  if (!headings.length) return;
+
+  var activeLink = null;
+  function setActive(id) {
+    var link = headingMap[id];
+    if (!link || link === activeLink) return;
+    if (activeLink) activeLink.classList.remove("active");
+    link.classList.add("active");
+    activeLink = link;
+  }
+
+  // rootMargin biases toward the upper third of the viewport, so a
+  // heading is marked "current" once it's crossed into the reading area,
+  // not only once it's scrolled to the very top edge.
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) setActive(entry.target.id);
+    });
+  }, { rootMargin: "-15% 0px -75% 0px", threshold: 0 });
+
+  headings.forEach(function (h) { observer.observe(h); });
+
+  // Sets the first heading active immediately on load, rather than
+  // leaving the TOC with nothing highlighted until the reader scrolls.
+  setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
+})();
+</script>
+
+</body>
+</html>

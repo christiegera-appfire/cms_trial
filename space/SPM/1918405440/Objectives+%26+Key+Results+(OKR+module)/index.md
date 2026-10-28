@@ -59,7 +59,7 @@ When you close an OKR, you can assign it a status to better reflect the reason f
 
 ## OKRs across multiple boxes
 
-All OKRs created in the [OKR module](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918535397) are global. This means that once you or another permitted user creates an OKR in their box, you can [link it to your box](/cms_trial/space/SPM/1918834116/Link+OKR+to+box/) or boxes. This is especially useful when specific OKRs are assigned to a higher-level box, such as a project, program, or portfolio, and you want to distribute them to the respective boxes.
+All OKRs created in the [OKR module](/cms_trial/space/SPM/1918535397/OKR+module/) are global. This means that once you or another permitted user creates an OKR in their box, you can [link it to your box](/cms_trial/space/SPM/1918834116/Link+OKR+to+box/) or boxes. This is especially useful when specific OKRs are assigned to a higher-level box, such as a project, program, or portfolio, and you want to distribute them to the respective boxes.
 
 The progress the OKRs achieve in individual boxes is also reflected in their parent box/boxes.
 

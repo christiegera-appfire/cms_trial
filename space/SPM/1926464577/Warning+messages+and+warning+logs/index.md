@@ -10,7 +10,7 @@ The most common warning messages in the app.
 
 ---
 
-### [Warning log (Jira)](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918536723)
+### [Warning log (Jira)](/cms_trial/space/SPM/1918536723/Warning+log+(Jira)/)
 
 Settings related to Jira warning log.
 

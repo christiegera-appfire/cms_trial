@@ -72,7 +72,7 @@ You can add sub-tasks directly under a task that has children. New sub-tasks app
 
 ## Board
 
-The Board's backlog displays tasks that someone has added to the [scope of the Box.](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918634319) You can add tasks using the Board module in different ways.
+The Board's backlog displays tasks that someone has added to the [scope of the Box.](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/) You can add tasks using the Board module in different ways.
 
 You can't add tasks to Boxes in the "Closed" status.
 
@@ -173,7 +173,7 @@ You can add sub-tasks directly under a task that has children. New sub-tasks app
 
 ## Create tasks - Board module
 
-The Board's backlog displays tasks that someone has added to the [scope of the Box.](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918634319) You can add tasks (Jira work items or BigPicture tasks) using the Board module in different ways.
+The Board's backlog displays tasks that someone has added to the [scope of the Box.](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/) You can add tasks (Jira work items or BigPicture tasks) using the Board module in different ways.
 
 - **Click Tasks** > **Create new** > **Jira work item / BigPicture task.**
 

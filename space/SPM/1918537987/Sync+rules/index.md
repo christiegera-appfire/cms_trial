@@ -34,7 +34,7 @@ Jira does not always notify the BigPicture App about changes (for example, no up
 
 Set the maximum number of tasks that a single Box can hold to limit BigPicture's performance impact on your Jira instance. The default value is 100,000 tasks, and there is no maximum limit.
 
-For more information, see our <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918535738>.
+For more information, see our [Sizing guide](/cms_trial/space/SPM/1918535738/Sizing+guide/).
 
 The performance can also be improved by increasing the synchronization time interval.
 

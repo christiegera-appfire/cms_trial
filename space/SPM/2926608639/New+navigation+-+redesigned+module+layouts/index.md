@@ -161,7 +161,7 @@ coming soon New navigation changes coming soon.
 
 ![Screenshot of the new navigation changes in the Financials module.](/cms_trial/assets/347a20f9-8e1c-4b73-b76f-db98b26f6181.png)
 
-[OKR module](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918535397)
+[OKR module](/cms_trial/space/SPM/1918535397/OKR+module/)
 
 coming soon New navigation changes coming soon.
 

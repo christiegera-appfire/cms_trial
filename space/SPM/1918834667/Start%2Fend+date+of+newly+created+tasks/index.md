@@ -331,7 +331,7 @@ The article explains the logic of start/end dates of a new task added to a singl
 
 Key points about Own scope boxes:
 
-- The Own-scope box, for example, a Program box, has its "own" scope. It means you define which Jira work items you want to add to that box directly in the **box configuration** > **Tasks** > [**Work items from Jira**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918634319).
+- The Own-scope box, for example, a Program box, has its "own" scope. It means you define which Jira work items you want to add to that box directly in the **box configuration** > **Tasks** > [**Work items from Jira**](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/).
 - Tasks inside an Agile/Classic/Hybrid project box can be divided into sub-boxes (for example, into Program Increments and Iterations).
 - If Program Increments and Iterations are configured to function as Sub-scope boxes, their scope is determined by the main parent box.
 

@@ -12,7 +12,7 @@ This section covers warning messages that may appear while using the app and war
 
 ---
 
-### 🚀 [Performance Issues](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918633991)
+### 🚀 [Performance Issues](/cms_trial/space/SPM/1918633991/Performance/)
 
 Here, we explain the common causes of performance issues and provide practical steps for resolving them. You'll also find tips on how to optimize the app's performance for smoother day-to-day usage.
 

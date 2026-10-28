@@ -6,14 +6,16 @@ This is a *custom* Nunjucks filter that operates on a string representing the
 
 - **/rest**
 - **/gateway**
+- **/forms**
 
-Both of which are part of the Jira API. Any Jira API endpoint beginning with these is callable and returns the response in JSON.
+All of which are part of the Jira API. Any Jira API endpoint beginning with these is callable and returns the response in JSON.
 
-To make a call to any Jira Cloud REST API of another instance of Jira or any external REST API, user [callRest](/cms_trial/space/JMWEC/465242995/callRest/) filter
+To make a call to any Jira Cloud REST API of another instance of Jira or any external REST API, use the [callRest](/cms_trial/space/JMWEC/465242995/callRest/) filter
 
 For information about the Jira REST API, see:
 
 - Core API: <https://developer.atlassian.com/cloud/jira/platform/rest/v2/>
+- Forms API: <https://developer.atlassian.com/cloud/forms/rest/intro/>
 - Jira Software-specific API: <https://developer.atlassian.com/cloud/jira/software/rest/>
 - Jira Service Desk-specific API: <https://developer.atlassian.com/cloud/jira/service-desk/rest/>
 
