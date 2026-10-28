@@ -6,7 +6,7 @@ Once all the issues have been addressed, clear the log by clicking the "Clear lo
 
 ## Causes of scope misconfiguration
 
-The error appears when the current [scope definition](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/) of a box can't be implemented because:
+The error appears when the current [scope definition](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918634319) of a box can't be implemented because:
 
 - A scope element (Jira project, filter, board) ceased to exist - JQL used to define box scope leads to a deleted item.
 - A project included in the box scope has been archived.
@@ -97,7 +97,7 @@ Once all the issues have been addressed, clear the log by clicking the "Clear lo
 
 ## Causes of scope misconfiguration
 
-The error appears when the current [work items from Jira](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/) of a box can't be implemented because:
+The error appears when the current [work items from Jira](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918634319) of a box can't be implemented because:
 
 - A chosen element (Jira project, filter, board) ceased to exist - JQL used to define box scope leads to a deleted item.
 - A project included in the box scope has been archived.

@@ -60,7 +60,7 @@ See the [Assign individuals to workload plans](/cms_trial/space/SPM/1918408134/A
 
 The App admin must first [add holiday plans](/cms_trial/space/SPM/1918864322/Add%2C+edit%2C+and+delete+holiday+plans/) on the **Administration** > **Resources** > **Holiday plans** page.
 
-See the [Assign individuals to holiday plans](/cms_trial/space/SPM/1918538445/Assign+individuals+to+holiday+plans/) page to learn how to assign holiday plans to individuals.
+See the [Assign individuals to holiday plans](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918538445) page to learn how to assign holiday plans to individuals.
 
 ## Absences
 

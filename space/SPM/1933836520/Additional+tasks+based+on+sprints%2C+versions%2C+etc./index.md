@@ -4,7 +4,7 @@
 
 Click to expand
 
-The following elements can be displayed as tasks. You can add them to the scope of a box on the [Scope definition](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/) page.
+The following elements can be displayed as tasks. You can add them to the scope of a box on the [Scope definition](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918634319) page.
 
 - Projects
 - Sprints
@@ -18,7 +18,7 @@ The following elements can be displayed as tasks. You can add them to the scope 
 
 Click to expand
 
-The following elements can be displayed as tasks. You can add them to the scope of a box on the [Scope definition](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/) page.
+The following elements can be displayed as tasks. You can add them to the scope of a box on the [Scope definition](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918634319) page.
 
 - Projects
 - Sprints

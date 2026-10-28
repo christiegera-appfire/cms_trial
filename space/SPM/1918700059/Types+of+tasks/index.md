@@ -28,7 +28,7 @@ A task without a duration is used to mark significant points on a timeline.
 
 ## Additional tasks based on sprints, versions, etc.
 
-The following elements can be displayed as tasks, which you can add to the scope of a box on the [Add work items from Jira](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/) page:
+The following elements can be displayed as tasks, which you can add to the scope of a box on the [Add work items from Jira](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918634319) page:
 
 - Projects
 - Sprints

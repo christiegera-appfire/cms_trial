@@ -34,7 +34,7 @@ The table below describes the Board's main features:
 
 | **Feature** | **Description** |
 | --- | --- |
-| [+Add task](/cms_trial/space/SPM/1918800322/Create+tasks/) | Use this option to add tasks by:   - Creating new tasks in the host platform (the host platform is the Jira instance you are currently using) - Creating basic tasks   Use this option to access the scope definition page:   - Manage [scope definition](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/)  add-task.png |
+| [+Add task](/cms_trial/space/SPM/1918800322/Create+tasks/) | Use this option to add tasks by:   - Creating new tasks in the host platform (the host platform is the Jira instance you are currently using) - Creating basic tasks   Use this option to access the scope definition page:   - Manage [scope definition](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918634319)  add-task.png |
 | Swimlane picker | Display or hide swimlanes of various types. swimlane-picker.png |
 | Timebox reports | Generate instant reports using charts for each timebox. tiembox-reports.png |
 | View | Adjust the way cards are displayed or quickly collapse all the team swim lanes to get an overview of your teams' progress. View settings include the following features:   - **Layout**    - Compact   - Regular   - Wide - **Totals**    - Type      - None     - Work progress     - Capacity allocation   - Aggregate by      - Story points     - Original Estimates     - Remaining Estimates - [Task warnings](/cms_trial/space/SPM/1918636230/Task+warnings+(Board+module)/) - [Show objectives](/cms_trial/space/SPM/1918408027/Add+associated+work+to+goals/)  Board module view options. |
@@ -106,7 +106,7 @@ The table below describes the Board's main features:
 
 | **Feature** | **Description** |
 | --- | --- |
-| [Tasks](/cms_trial/space/SPM/1918800322/Create+tasks/) | Use this option to add tasks by:   - Creating new Jira work items in the host platform (the host platform is the Jira instance you are currently using). - Creating BigPicture tasks.   Use this option to access the [Add work items from Jira](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/) page: Screenshot of the Tasks menu in the Board module. |
+| [Tasks](/cms_trial/space/SPM/1918800322/Create+tasks/) | Use this option to add tasks by:   - Creating new Jira work items in the host platform (the host platform is the Jira instance you are currently using). - Creating BigPicture tasks.   Use this option to access the [Add work items from Jira](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918634319) page: Screenshot of the Tasks menu in the Board module. |
 | Swimlane picker | Display or hide swimlanes of various types. Screenshot of the swimlane picker in the Board module. |
 | Timebox reports | Generate instant reports using charts for each timebox. Screenshot of the Reports view in the Board module. |
 | View | Adjust the way cards are displayed or quickly collapse all the team swim lanes to get an overview of your teams' progress. View settings include the following features:   - **Dependencies**    - Expand dependencies   - Collapse dependencies - **Sort A-Z/Z-A by**    - Priority, Icon, Key, Summary, Status, Reporter, Assignee - **Layout**    - Compact, Regular, Wide - [**Aggregation**](/cms_trial/space/SPM/1918666880/Aggregations/)    - Type      - None, Work progress, Capacity allocation   - Aggregate by      - Story points, Original Estimates, Remaining Estimates - [**Task warnings**](/cms_trial/space/SPM/1918636230/Task+warnings+(Board+module)/) - [**Objectives**](/cms_trial/space/SPM/1918408027/Add+associated+work+to+goals/)  Screenshot of the View menu in the Board module. |
@@ -131,7 +131,7 @@ The table below describes the Board's main features:
 ## Constraints
 
 **A work item must be in the scope of a box**  
-Jira work items have to be added to the scope of a box. The scope of a box can be changed on the [Work items from Jira](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/) page (box configuration).
+Jira work items have to be added to the scope of a box. The scope of a box can be changed on the [Work items from Jira](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918634319) page (box configuration).
 
 **To be visible as a card on the Board**
 

@@ -109,7 +109,7 @@ Make sure the initiative has tasks (with dates and effort estimations). You can 
 
 ![initiative-onboarding.png](/cms_trial/assets/dc3518dd-7894-4652-84ba-503af56cddb2.png)
 
-Click **Create new** to add a single task. Click **Define scope** and complete the [Scope definition](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/).
+Click **Create new** to add a single task. Click **Define scope** and complete the [Scope definition](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918634319).
 
 ### Financials onboarding
 
@@ -261,7 +261,7 @@ Make sure the initiative has tasks (with dates and effort estimations). You can 
 
 ![Screenshot of the onboarding for an initiative in the Financials module.](/cms_trial/assets/e30bd167-2d2a-4671-9dfe-f496510d40bd.png)
 
-Click **Define scope** and complete the [add work items from Jira](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/).
+Click **Define scope** and complete the [add work items from Jira](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918634319).
 
 ### Financials onboarding
 

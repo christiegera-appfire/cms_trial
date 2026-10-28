@@ -44,7 +44,7 @@ To prioritize all BigPicture boxes, open the Main box in the Priorities module.
 
 ## Prioritize goals (OKRs)
 
-Under the **Goals** tab, you can prioritize Objectives and Key Results from the [OKR module](/cms_trial/space/SPM/1918535397/OKR+module/) linked to the box you’re in.
+Under the **Goals** tab, you can prioritize Objectives and Key Results from the [OKR module](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918535397) linked to the box you’re in.
 
 If you don’t see OKRs, go to the OKR module and make sure they are linked to the box.
 
@@ -56,7 +56,7 @@ To prioritize Objectives and Key Results from all boxes, open the Main box in th
 
 ## Filters
 
-The filtering options differ depending on the tab (Tasks, Boxes, Goals). See the [Filter and search priorities](/cms_trial/space/SPM/1918539227/Filter+and+search+priorities/) page to learn more.
+The filtering options differ depending on the tab (Tasks, Boxes, Goals). See the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918539227> page to learn more.
 
 ## Limitations
 
@@ -104,7 +104,7 @@ To prioritize all BigPicture boxes, open the Main box in the Priorities module.
 
 ## Prioritize goals (OKRs)
 
-Under the **Goals** tab, you can prioritize Objectives and Key Results from the [OKR module](/cms_trial/space/SPM/1918535397/OKR+module/) linked to the box you’re in.
+Under the **Goals** tab, you can prioritize Objectives and Key Results from the [OKR module](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918535397) linked to the box you’re in.
 
 If you don’t see OKRs, go to the OKR module and make sure they are linked to the box.
 
@@ -116,7 +116,7 @@ To prioritize Objectives and Key Results from all boxes, open the Main box in th
 
 ## Filters
 
-The filtering options differ depending on the tab (Tasks, Boxes, Goals). See the [Filter and search priorities](/cms_trial/space/SPM/1918539227/Filter+and+search+priorities/) page to learn more.
+The filtering options differ depending on the tab (Tasks, Boxes, Goals). See the [Filter and search priorities](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918539227) page to learn more.
 
 ## Limitations
 

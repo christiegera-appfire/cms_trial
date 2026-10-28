@@ -11,7 +11,7 @@ The table on the [BigPicture Standard vs Advanced](/cms_trial/space/SPM/34516173
 |  | **Cloud** | **DC** | **Notes** |
 | --- | --- | --- | --- |
 | Modules | [Risk Management](/cms_trial/space/SPM/1918699171/Risk+management+module+(NEW)/) | ✅ | ❌ |  |
-| [OKR](/cms_trial/space/SPM/1918535397/OKR+module/) | ✅ | ❌ |  |
+| [OKR](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918535397) | ✅ | ❌ |  |
 | [Priorities](/cms_trial/space/SPM/1918829653/Priorities+module/) | ✅ | ❌ |  |
 | [Financials](https://appfire.atlassian.net/wiki/spaces/SPM/pages/2269806655) | ✅ | ✅ |  |
 | [Risks](/cms_trial/space/SPM/1918699830/Risks+module+(old+module)/) | ❌ | ✅ | The old Risks module is available only for legacy customers. The Risks module is not available for new installations. |

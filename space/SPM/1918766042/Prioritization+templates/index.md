@@ -21,7 +21,7 @@ In the Priorities module, you can create two types of prioritization templates:
 - **App-level templates** are global templates available in all boxes. Only App Admins and App Priorities Admins can create and edit them.
 - **Box-level templates** are local templates available only in the box where they were created. Box Admins can create and edit box-level templates.
 
-To learn more about the permissions, see the [Priorities module permissions](/cms_trial/space/SPM/1918505859/Priorities+module+permissions/) page.
+To learn more about the permissions, see the [Priorities module permissions](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918505859) page.
 
 ![Screenshot of the App-level and Box-level templates in the Priorities module.](/cms_trial/assets/3ee786b2-21ae-4efc-af9f-c4a6cb857d89.png)
 
@@ -72,7 +72,7 @@ In the Priorities module, you can create two types of prioritization templates:
 - **App-level templates** are global templates available in all boxes. Only App Admins and App Priorities Admins can create and edit them.
 - **Box-level templates** are local templates available only in the box where they were created. Box Admins can create and edit box-level templates.
 
-To learn more about the permissions, see the [Priorities module permissions](/cms_trial/space/SPM/1918505859/Priorities+module+permissions/) page.
+To learn more about the permissions, see the [Priorities module permissions](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918505859) page.
 
 ![Screenshot of the App-level and Box-level templates in the Priorities module.](/cms_trial/assets/3ee786b2-21ae-4efc-af9f-c4a6cb857d89.png)
 

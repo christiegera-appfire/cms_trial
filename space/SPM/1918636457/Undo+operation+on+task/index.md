@@ -40,4 +40,4 @@ In other cases, the confirmation screen shows the issue Key, a summary of the op
 
 The Undo operation appears when you switch to the scenario mode in the Gantt or Resources module.
 
-For more information, visit the [Scenarios](/cms_trial/space/SPM/1918634045/Scenarios/) page.
+For more information, visit the [Scenarios](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918634045) page.

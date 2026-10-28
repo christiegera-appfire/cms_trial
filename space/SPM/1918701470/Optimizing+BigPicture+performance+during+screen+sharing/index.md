@@ -23,7 +23,7 @@ When using BigPicture during screen sharing, you might notice a slowdown in perf
 ## Hardware & System
 
 - **Check if your system meets the requirements.**  
-  Make sure your computer meets BigPicture's system requirements. Refer to the [Sizing guide](/cms_trial/space/SPM/1918535738/Sizing+guide/) page for more information.
+  Make sure your computer meets BigPicture's system requirements. Refer to the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918535738> page for more information.
 - **Close unused applications.**  
   Close any apps you’re not using to free up memory and processing power.
 - **Disconnect external monitors.**  

@@ -56,7 +56,7 @@ You can create and delete baselines in the Gantt module for all the tasks you ad
 
 The scenario mode lets you explore possible outcomes by changing variables or assumptions in your plan or project, such as task dates or scheduling modes. This feature is available in the Gantt and Resources modules.
 
-[**Read more**](/cms_trial/space/SPM/1918634045/Scenarios/)
+[**Read more**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918634045)
 
 ---
 

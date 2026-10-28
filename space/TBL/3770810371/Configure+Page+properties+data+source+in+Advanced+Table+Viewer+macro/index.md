@@ -41,7 +41,7 @@ The Advanced Table Viewer macro can import **Page properties** data from pages t
   - **Search pages**:
 
     - To find pages that have the matching labels and contain the Page properties macro, click **Search pages**. A page can contain one or more matching labels.
-    - Changing labels after you run a search shows the message: *Page labels changed. Search again to update the results.*
+    - If you change labels after you run a search, you will see the message: *Page labels changed. Search again to update the results.*
 
       ![ATV_Page properties_Search pages.png](/cms_trial/assets/9d823ffd-a55c-4901-8985-be3ca9743e8d.png)
 
@@ -52,15 +52,21 @@ The Advanced Table Viewer macro can import **Page properties** data from pages t
 - If the matching pages do not contain any Page properties data or if you do not have the required permissions, the macro displays an error.
 
   ![ATV_Page properties_No page properties data found.png](/cms_trial/assets/65671db6-0e2f-42d0-ba2c-78d43c3686a2.png)
-- If you do not specify any labels and perform a search, the macro displays an error.
+- If you do not have the permissions to view to the configured Page properties data in a Confluence page, the page view mode displays an access-restricted message.
+
+  ![image-20261028-093003.png](/cms_trial/assets/253c1958-db5e-4305-b44e-b6567c556b27.png)
+- If you don't specify any labels and run a search, the macro displays an error.
 
   ![ATV_Page Prop_Add atleast one label.png](/cms_trial/assets/fc96851e-081f-48a4-945b-ac7958e8945e.png)
+- If you change the labels after running a search, a message appears, and the **Save** button is disabled. Run the search again to enable it.
+
+  ![image-20261028-091953.png](/cms_trial/assets/9d6d05c1-82bd-4892-a8aa-654d4d3201bb.png)
 - If a page in the search has no readable properties, the macro excludes it, so the table can show fewer than 200 rows.
-- If the search returns more than 200 page properties, the macro displays a message to narrow the search to view page properties for specific labels.
+- If the search returns properties for more than 200 pages, the macro displays a message to narrow the search to view page properties for specific labels.
 
   ![ATV_Page prop_more than 200.png](/cms_trial/assets/44a7deb2-6f40-4d66-8264-21069ecf14c9.png)
 
-- **Select columns**: This field displays the list of aggregated properties found on the matching pages as table columns sorted by page title. You can select, clear, and reorder column names. For details, see the [**Select and order columns**](#Select-and-order-columns) section.
+- **Select columns**: This field displays the list of aggregated properties found on the matching pages as table columns. It also includes the page title as the first column. You can select, clear, and reorder column names. For details, see the [**Select and order columns**](#Select-and-order-columns) section.
 
   ![ATV_Page Prop_Select column with properties.png](/cms_trial/assets/205ce05e-3bb3-4c66-ac73-feae74a080e5.png)
 
@@ -92,7 +98,8 @@ The order in which you select the column names determines the column order displ
 - In the *Select data source* dialog, click **Save**.
 
   ![ATV_PAge prop_Save.png](/cms_trial/assets/d308b006-e3f9-4277-92a1-99d79346b1ca.png)
-- The macro opens in setup mode and displays the table with the page title, selected column names, and values. The first column is **Page title**, and the title links to the page.
+- The macro opens in setup mode and displays the table with the page title, selected column names, and values.
+- The first column is **Page title**, and the title links to the page. The rows are sorted by page title until the user sets another sort.
 - In setup mode, you can also configure macro features such as column filtering, grouping, column calculations, reordering columns, row styling, search, row numbering, sorting, and download. Refer to [Set up the Advanced Table Viewer macro features](/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/).
 
   ![ATV_page properties_edit macro.png](/cms_trial/assets/5193ba5b-9399-4caa-ad0d-fb08c6a09dbc.png)
@@ -105,6 +112,6 @@ The order in which you select the column names determines the column order displ
   ![ATV_Page properties_page view mode.png](/cms_trial/assets/b0d2b65a-35a7-489a-99c5-019d1b4c1c85.png)
 - Your Page properties data is now ready to view and analyze directly within Confluence.
 
-- The macro refreshes the table on every page load.
-- If you want to do a manual refresh for the latest changes, click **Refresh** ( ▢ ).
-- You can refresh the table in setup mode, Confluence page edit mode, and Confluence page view mode.
+- The macro refreshes the table data on every page load.
+- If you want to do a manual refresh for the latest changes, click **Sync** ( ▢ ).
+- You can sync the table in setup mode, Confluence page edit mode, and Confluence page view mode.

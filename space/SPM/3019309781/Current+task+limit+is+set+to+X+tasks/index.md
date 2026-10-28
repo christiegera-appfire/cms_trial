@@ -4,7 +4,7 @@
 
 ## Problem
 
-- User [defined the scope for the box](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/), but cannot save it due to the following warning message:
+- User [defined the scope for the box](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918634319), but cannot save it due to the following warning message:
 
 ![Task limit warning saying Current task limit is set to 10 tasks.](/cms_trial/assets/e927e57b-0992-40db-a4f4-0657329d29b7.png)
 
@@ -44,7 +44,7 @@ For example, if the task count for a selected Jira Board (or Boards) is 275 and 
 
 ## Problem
 
-- User [populates box with tasks](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/), but cannot save it due to the following warning message:
+- User [populates box with tasks](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918634319), but cannot save it due to the following warning message:
 
 ![Task limit warning saying Current task limit is set to 10 tasks.](/cms_trial/assets/e927e57b-0992-40db-a4f4-0657329d29b7.png)
 

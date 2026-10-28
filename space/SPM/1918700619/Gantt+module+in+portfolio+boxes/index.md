@@ -113,7 +113,7 @@ To manage the default column views, go to **Administration** > **Box type** >sel
 
 When one task is duplicated in multiple boxes within one portfolio box, it will be displayed **only once** in that portfolio box in the Gantt module.
 
-### [Task structure](/cms_trial/space/SPM/1918832018/Task+structure/) / [Scope definition](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/)
+### [Task structure](/cms_trial/space/SPM/1918832018/Task+structure/) / [Scope definition](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918634319)
 
 - You **can't** modify the task structure settings of a portfolio box in the Gantt module because it includes boxes of different box types with individual settings.
 - You **can’t** manually move or reorder tasks.
@@ -264,7 +264,7 @@ When a task is duplicated across multiple boxes within a portfolio box, it is di
 
 - You **can't** modify the [task structure](/cms_trial/space/SPM/1918832018/Task+structure/) settings of a portfolio box in the Gantt module because it includes boxes of different box types with individual settings.
 - You **can’t** manually move or reorder tasks.
-- You **can’t** manage Jira work items in portfolio boxes (none scope boxes). The **Tasks** button and the [*Work items from Jira*](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/) page in the box configuration are unavailable.
+- You **can’t** manage Jira work items in portfolio boxes (none scope boxes). The **Tasks** button and the [*Work items from Jira*](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918634319) page in the box configuration are unavailable.
 
 To move or reorder tasks, go to the sub-box level where a task is located.
 

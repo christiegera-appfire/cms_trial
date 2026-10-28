@@ -54,7 +54,6 @@ If you want to learn more about configuring BigPicture, see the [Admin guide](/c
   - [Critical path](/cms_trial/space/SPM/1918405060/Critical+path/)
   - [Task progress](/cms_trial/space/SPM/1918764665/Task+progress/)
   - [Baselines](/cms_trial/space/SPM/1918404564/Baselines/)
-  - [Scenarios](/cms_trial/space/SPM/1918634045/Scenarios/)
   - [Dependencies](/cms_trial/space/SPM/1918536086/Dependencies/)
   - [Planning in the Board module](/cms_trial/space/SPM/1918831262/Planning+in+the+Board+module/)
   - [Warnings](/cms_trial/space/SPM/1918764811/Warnings/)

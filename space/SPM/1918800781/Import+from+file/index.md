@@ -44,7 +44,7 @@ To import tasks:
    3. BigPicture basic tasks
 5. Select the Jira space where the tasks will be created. For more info, see the *Select Jira space* section below.
 6. Add Jira labels to identify imported tasks.
-7. Enable **Add labels as an additional filter for the box scope** if you want the entered labels to be added as filters on the [Work items from Jira](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/) page.
+7. Enable **Add labels as an additional filter for the box scope** if you want the entered labels to be added as filters on the [Work items from Jira](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918634319) page.
 8. Decide whether the [ASAP mode](/cms_trial/space/SPM/1918865340/Strong+dependencies+(App+configuration)/) for dependencies should be on or off.
 9. When ready, click **Import**.
 
@@ -72,7 +72,7 @@ To import tasks:
    3. BigPicture basic tasks
 5. Select the Jira space where the tasks will be created. For more info, see the *Select Jira space* section below.
 6. Add Jira labels to identify imported tasks.
-7. Enable **Add labels as an additional filter for the box scope** if you want the entered labels to be added as filters on the [Work items from Jira](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/) page.
+7. Enable **Add labels as an additional filter for the box scope** if you want the entered labels to be added as filters on the [Work items from Jira](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918634319) page.
 8. Match the columns from the selected file to the corresponding task fields. You can set the relationships between tasks (**Parent row** and **Link** columns).
 9. When ready, click **Import**.
 
@@ -227,7 +227,7 @@ To import tasks:
    3. BigPicture tasks
 5. Select the Jira space where the work items will be created. For more info, see the *Select Jira space* section below.
 6. Add Jira labels to identify imported tasks.
-7. Enable **Add labels as an additional filter for the box scope** if you want the entered labels to be added as filters on the [Work items from Jira](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/) page.
+7. Enable **Add labels as an additional filter for the box scope** if you want the entered labels to be added as filters on the [Work items from Jira](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918634319) page.
 8. Decide whether the [ASAP mode](/cms_trial/space/SPM/1918865340/Strong+dependencies+(App+configuration)/) for dependencies should be on or off.
 9. When ready, click **Import**.
 
@@ -255,7 +255,7 @@ To import tasks:
    3. BigPicture tasks
 5. Select the Jira space where the work items will be created. For more info, see the *Select Jira space* section below.
 6. Add Jira labels to identify imported tasks.
-7. Enable **Add labels as an additional filter for the box scope** if you want the entered labels to be added as filters on the [Work items from Jira](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/) page.
+7. Enable **Add labels as an additional filter for the box scope** if you want the entered labels to be added as filters on the [Work items from Jira](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918634319) page.
 8. Match the columns from the selected file to the corresponding task fields. You can set the relationships between tasks (**Parent row** and **Link** columns).
 9. When ready, click **Import**.
 

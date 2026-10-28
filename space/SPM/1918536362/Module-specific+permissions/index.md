@@ -14,7 +14,7 @@ In the OKR module, you can set basic and advanced permissions on the **Settings*
 
 Permissions in the Priorities module are configured by Jira Admins on the **Jira settings** > **System** > **Security** > **Global permissions** page. The permissions control access and management of priorities, priority matrix, saved views, and priority poker.
 
-[**Read more**](/cms_trial/space/SPM/1918505859/Priorities+module+permissions/)
+[**Read more**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918505859)
 
 ---
 

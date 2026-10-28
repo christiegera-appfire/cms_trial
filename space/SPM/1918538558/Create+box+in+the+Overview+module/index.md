@@ -57,7 +57,7 @@ If needed, edit the fields:
 | **Start/end date** | Start and end dates are automatically set to today. Click to change start/end dates. Box adding panel. |
 | **Icon** | Select the icon from the dropdown. Choosing an icon during box creation. |
 | **Color** | Select the icon color. Choosing an icon during box creation. |
-| **Projects** | **Optional field**  You can select Jira projects that will be in the scope of the new box.  Advanced [scope definition](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/) options are available after the box has been created. You can base the scope on Jira boards and filters and narrow it down. Choosing a project during box creation. |
+| **Projects** | **Optional field**  You can select Jira projects that will be in the scope of the new box.  Advanced [scope definition](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918634319) options are available after the box has been created. You can base the scope on Jira boards and filters and narrow it down. Choosing a project during box creation. |
 
 If the button is greyed out and you see the message "There are no box types available for this level":
 
@@ -169,7 +169,7 @@ The box creation modal consists of the following fields:
 | **Start/end date** | Start and end dates are automatically set to today. Click to change start/end dates. Box adding panel. |
 | **Icon** | Select the icon from the dropdown. Choosing an icon during box creation. |
 | **Color** | Select the icon background color. Choosing an icon during box creation. |
-| **Jira spaces** | (Optional field and available only for the boxes with the **Own** scope)  You can select a Jira space or spaces to populate your box with the work items from that space/spaces.  Advanced [scope definition](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/) options are available after the box is created. You can narrow down the scope of tasks you want to add using Jira boards and filters (**box configuration** > **Tasks** > **Work items from Jira**). Choosing a Jira space during box creation. |
+| **Jira spaces** | (Optional field and available only for the boxes with the **Own** scope)  You can select a Jira space or spaces to populate your box with the work items from that space/spaces.  Advanced [scope definition](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918634319) options are available after the box is created. You can narrow down the scope of tasks you want to add using Jira boards and filters (**box configuration** > **Tasks** > **Work items from Jira**). Choosing a Jira space during box creation. |
 
 If the **Create new** button is greyed out, it means that:
 
