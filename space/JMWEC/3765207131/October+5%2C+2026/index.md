@@ -23,6 +23,8 @@ The new version will automatically roll out to customers over the next few days 
 
 ### Upgrade to Forge manually
 
+**Please review** the page [JMWE is moving to Atlassian Forge](/cms_trial/space/JMWEC/3708780578/JMWE+is+moving+to+Atlassian+Forge/) before starting a manual upgrade. There are changes to JMWE on Forge and steps you may need to complete before and after the upgrade!
+
 You can also upgrade manually if you want. To upgrade the app to the Forge version, you need Jira administrative privileges.
 
 1. Navigate to **Apps** > **Manage apps**.
