@@ -2,13 +2,13 @@
 
 JQL Search Extensions functions let you perform searches that use other JQL queries as input. This lets you answer questions about relationships between groups of Jira work items.
 
-In this example, we’ll use `issue in` `parentsOfIssueInEpic``(“Type = Epic”)` to find the parents of the work items returned by the nested JQL query.
+In this example, we’ll use the `parentsOfIssuesInQuery``(“Type = Epic and Project = ABC”)` to find the parents of the work items returned by the JQL query.
 
 Suppose you want to find work items connected to the `Epic` work item type through a specific issue link. Follow the steps below:
 
 1. Open **JQL Search Extensions** > **Extended Search**.
-2. Enter the following query:   
-   `issue In parentsOfIssueInEpic (“Type = Epic”)`
+2. Enter the following query:  
+   `issue in linkedIssuesOfQuery (“project = ABC AND is blocked by”)`
 3. Run the search.
 4. Review the returned work items.
 
@@ -28,16 +28,12 @@ The Inner Query defines the initial set of work items you want to search. For ex
 `Project = BIG and type=Epic`   
 This query finds all Epics in the BIG project.
 
-This query finds all Epic work items in the BIG project.
-
 **The JSE Function:**
 
 Uses the work items identified by the inner query to find other work items based on their relationships or hierarchy. For example:
 
 `issue in parentsOfIssuesInQuery()`  
-This function searches for parents of work items returned by the inner query.
-
-This function searches for the parent work items of the Epic returned by the inner query. By combining the inner query with a JSE function, you can extend your search beyond standard JQL and discover relationships between work items.
+This function searches for parents of work items returned by the inner query. By combining the inner query with a JSE function, you can extend your search beyond standard JQL and discover relationships between work items.
 
 ![2026-10-05_15-27-49.jpeg](/cms_trial/assets/02a842bb-960f-4343-a8ab-9b16311d0aca.jpeg)
 

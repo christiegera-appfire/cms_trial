@@ -43,21 +43,23 @@ If a Jira work item type, Salesforce object type, or a field used in a mapping h
 1. Click the **Show only invalid mappings** filter to display entity mappings that contain invalid items.
 
    ![image-20261027-091731.png](/cms_trial/assets/a0a1c6e0-614d-4f6b-8113-3d3fc256f838.png)
-2. Review the entity mappings displayed in the list. Depending on the error, you may need to remove an invalid entity mapping or open an editable mapping to fix its field mappings.
+2. Review the entity mappings displayed in the list. Depending on the error, you may need to remove invalid entity mappings or open an editable mapping to fix its field mappings.
 
-   1. If an entity mapping references a Jira work item type or Salesforce object that is no longer available, the entity mapping is flagged. If you still need the mapping, check whether you can make the missing entity available again in Jira or Salesforce, or map it to a different entity type.   
-      Otherwise, click the **Delete** (▢)icon to remove the mapping.
+   1. If an entity mapping references a Jira work item type or Salesforce object type that is no longer available, the entity mapping is flagged. If you still need the mapping, check whether you can make the missing entity available again in Jira or Salesforce, or map it to a different entity type.   
+      Otherwise, remove the mapping using one of these options:
 
-      ![remove the mapping](/cms_trial/assets/ffb4d273-043d-4a7e-bd42-c56bbc0dce45.png)
+      - To remove a single mapping, click the **Delete** (▢) icon next to it.
+      - To remove all affected mappings at once, click **Delete all invalid**.  
+        The button only removes entity mappings that can no longer work. It keeps valid mappings that contain invalid field mappings, so you can fix those field mappings yourself.![image-20261029-084451.png](/cms_trial/assets/4f66993a-3869-4f03-8a5a-e60f0eb6b902.png)
    2. If an entity mapping is editable, click it to open the *Field mapping* window.  
       Review the flagged field mappings and choose one of the following actions:
 
       1. To remove an invalid field mapping, click **Menu** (▢) > **Delete**.
 
-         ![remove an invalid field mapping](/cms_trial/assets/b3b459c8-f4a0-4c3e-9197-66aba714cfc7.png)
+         ![remove an invalid field mapping](/cms_trial/assets/3d88ce66-6129-4355-ad8b-3a5e97eb799d.png)
       2. To fix an invalid field mapping, select an existing field from the dropdown.
 
-         ![Fix invalid mappings](/cms_trial/assets/3728d9e5-060b-4cbc-a2e3-c0cd0753c04c.png)
+         ![image-20261029-083523.png](/cms_trial/assets/470e7faf-0ed7-4338-bae7-7ceb2b4159fa.png)
 3. After resolving all invalid mappings, click **Save** to apply your changes.
 
 Before deleting a binding or mapping, make sure you no longer need it. Removing bindings or mappings can affect synchronization between Jira and Salesforce.

@@ -1,6 +1,6 @@
 # Column group calculation with Advanced Table Viewer macro
 
-The Advanced Table Viewer macro enables you to perform simple and conditional column calculations and display summarized values at each level of the nested group.
+The Advanced Table Viewer macro enables you to perform simple and conditional column group calculations and display summarized values at each level of the nested group.
 
 ## Group calculation overview
 
@@ -28,12 +28,12 @@ You can perform the following group calculations.
 | --- | --- | --- | --- |
 | None | Disables the sum-up calculation - no value is displayed for the column | Any | Not applicable |
 | Sum | Calculates the total of all values in the column | Numeric | Total of all values: **Sum** |
-|  | Add a condition to sum only the values in rows that match the condition. | Numeric | Total of values with an applied condition: **SUMIF** |
+| Add a condition to sum only the values in rows that match the condition. | Numeric | Total of values with an applied condition: **SUMIF** |
 | Average | Calculates the average of all values in the column | Numeric | **Avg** |
 | Minimum | Returns the lowest numerical value in the column | Numeric | **Min** |
 | Maximum | Returns the highest numerical value in the column | Numeric | **Max** |
 | Count | Counts the total number of non-empty cells in the column | Numeric, String, Date | Count of non-empty cells: **Cnt** |
-|  | Add a condition to count only the rows that match the condition. | Numeric, String, Date | Count of non-empty cells with an applied condition: **COUNTIF** |
+| Add a condition to count only the rows that match the condition. | Numeric, String, Date | Count of non-empty cells with an applied condition: **COUNTIF** |
 | Distinct | Counts unique values only, ignoring duplicates and empty cells | Numeric, String, Date | **Disct** |
 
 ### Configure group calculation
@@ -76,22 +76,28 @@ For **Sum** and **Count** calculation types, you can **add a condition** to summ
 
 Follow the steps below for Example 1:
 
-1. To configure **conditional** **column calculation**, edit the macro to open the setup mode. Refer to [Set up the Advanced Table Viewer macro features](/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/).
-2. Each column in the table has an *Edit column* (▢) option. To set up the column calculation for any numeric column, navigate to **Edit column** > **Edit group calculation**. For example, for the **Est. Unit Shipping Cost** column, click **Edit group calculation**.
+1. To configure **conditional** **group calculation**, edit the macro to open the setup mode. Refer to [Set up the Advanced Table Viewer macro features](/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/).
+2. Each column in the table has an *Edit column* (▢) option. To set up the group calculation for any column, navigate to **Edit column** > **Edit group calculation**. For example, for the **Est. Unit Shipping Cost** column, click **Edit group calculation**.
 
    ![ATV_Edit Group Calculation.png](/cms_trial/assets/94dffc8a-ac11-446e-8213-8b86a9ef7038.png)
-3. The *Edit group calculation* dialog opens. To perform a conditional calculation on the **Est. Unit Shipping Cost** column, select the **Sum-up type** as **Sum**.
+3. The *Edit group calculation* dialog opens. To perform a conditional group calculation on the **Est. Unit Shipping Cost** column, select the **Sum-up type** as **Sum**.
 4. The **Add condition** toggle is off by default, and the macro calculates the total of all values in the column.
 
-   - To add a condition to the **Est. Unit Shipping Cost** column calculation, enable the **Add condition** toggle.
+   - To add a condition to the **Est. Unit Shipping Cost** group calculation, enable the **Add condition** toggle.
 
      ![ATV_Enable Add Condition toggle.png](/cms_trial/assets/3c195d6d-051a-42de-a0e9-64f64f546d3f.png)
    - When the Sum-up type is set to Sum and **Add condition** is enabled**,** you can sum only the values of rows that match a specific condition.
 
      - The first dropdown selector lists the table column names.
-     - The second dropdown selector lists the conditions available for the column type selected in the first dropdown.
-     - The third dropdown selector lists the values for the column selected in the first dropdown. For numeric column types, it displays an input field for numeric column values.
-     - In the condition dropdowns, select the column, condition, and value in sequence.
+     - The second dropdown selector lists the conditional operators available for the column type selected in the first dropdown.
+
+       - For a numeric column type, the dropdown displays the conditional operators *equals*, *more than*, *less than*, *more than or equal to*, and *less than or equal to*.
+       - For string and date columns, the dropdown displays only the *equals* operator.
+     - The third field displays either a dropdown selector list or an input field based on the column type selected in the first dropdown.
+
+       - For numeric column types, it displays an input field for numeric values.
+       - For string and date column types, it displays the dropdown with values to choose from.
+     - To specify a condition, select the column name and conditional operator, and then select or enter a value.
 
        - For example, select *Reorder Level*, *less than or equal to*, and *10*. The condition applied to the **Est. Unit Shipping Cost** column totals the unit shipping cost for products whose reorder level is less than or equal to 10.
      - To apply the condition, click **Save**.
@@ -113,8 +119,8 @@ Follow the steps below for Example 2:
 1. For the **Reorder Level** column, navigate to **Edit column** > **Edit group calculation**.
 
    ![ATV_Reorder Level_Edit group calculation.png](/cms_trial/assets/575cf8a6-f805-4da6-8dd2-538ebbf179f6.png)
-2. Select the required Sum-up type; for example, for the **Reorder Level** column, select **Count**. The **Add condition** toggle is off by default, and the macro returns the total number of non-empty cells in the column.
-3. To add a condition to the **Reorder Level** column calculation, enable the **Add condition** toggle.
+2. Select the required **Sum-up type**; for example, for the **Reorder Level** column, select **Count**. The **Add condition** toggle is off by default, and the macro returns the total number of non-empty cells in the column.
+3. To add a condition to the **Reorder Level** group calculation, enable the **Add condition** toggle.
 4. In the condition dropdowns, select the column, condition, and value in order. For example, select *Reorder Level*, *less than or equal to*, and *10*.
 
    - The applied condition for the **Reorder Level** column counts non-empty rows where the **Reorder Level** column value is *less than or equal to* 10.

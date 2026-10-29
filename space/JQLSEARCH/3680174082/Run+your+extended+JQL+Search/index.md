@@ -23,10 +23,6 @@ JQL Search Extensions (JSE) provides additional keywords for searching issue inf
 
 You don't need to memorize these keywords; you can refer to the [JQL functions and keywords reference](https://support.appfire.com/space/JQLSEARCH/604209395/JQL+functions+and+keywords+reference) or the in-app **Cheat Sheet**, available in the right-side panel, to find the appropriate keyword for your search.
 
-JSE provides additional keywords for searching issue information beyond what's available through standard Jira JQL.
-
-You don't need to memorize them. Refer to the [JQL functions and keywords reference](/cms_trial/space/JQLSEARCH/604209395/JQL+functions+and+keywords+reference/) or the in-app cheat sheet when you need to find the appropriate keyword for a particular search. This is also known as the Cheat Sheet displayed on the right-side panel.
-
 ## Search for issues with PDF attachments
 
 Once your first query works, try changing the file extension:
