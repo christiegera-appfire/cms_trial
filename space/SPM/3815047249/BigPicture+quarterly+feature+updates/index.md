@@ -4,5 +4,6 @@ Stay up to date with the latest BigPicture features and improvements. Watch our 
 
 | **Area/Feature** | **Video** |
 | --- | --- |
+| BigPicture - feature summary Q3 2026 |  |
 | BigPicture - feature summary Q2 2026 |  |
 | BigPicture - feature summary Q1 2026 |  |

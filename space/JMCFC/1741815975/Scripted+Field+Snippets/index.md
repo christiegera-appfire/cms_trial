@@ -41,7 +41,7 @@ There are several ways to determine the field ID of a custom field; the most str
 7. Append this value to “customfield\_” to get the full ID of the field. For example, `customfield_10130` is the field ID of Projected Due Date, shown in the figure immediately right.
 
 Image — asset pipeline pending  
-Jira Misc Custom Fields (JMCF) Cloud custom field ID determination guide
+getField-FieldID.png
 
 ## Determining User IDs
 
@@ -53,7 +53,7 @@ In Jira, there is a distinct difference between a User’s public name and their
 4. Check the URL of the page that opens (figure, immediately right). The User’s ID is the last part of the URL, after ‘/users/’.
 
 Image — asset pipeline pending  
-Jira Misc Custom Fields (JMCF) Cloud user ID determination guide
+JMCFC-determiningUserID.jpg
 
 ## Determining status IDs
 
@@ -66,4 +66,4 @@ Jira Status values - both default and custom statuses - each have a unique ident
 5. Paste the link value into a text document and check the **id** parameter of the URL (figure, immediately right).
 
 Image — asset pipeline pending  
-Jira Misc Custom Fields (JMCF) Cloud status ID determination guide
+JMCFC-determiningStatusID.jpg

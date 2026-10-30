@@ -15,6 +15,14 @@ JQL Search Extensions lets you save an Extended Search query as a filter so you 
 
 ![2026-09-18_22-43-57.png](/cms_trial/assets/67b1d7a5-e55e-445a-93db-960da746cf5d.png)![2026-09-18_22-44-44.png](/cms_trial/assets/a94acfff-7eb4-45e3-86ea-07fc97179ea0.png)
 
+You can also save filters with JQL SE functions/keywords via Jira search.
+
+1. Click the **Show in Jira Search** option to open the Jira Page.
+
+   ![JSE_Issue_Filters.jpeg](/cms_trial/assets/84326278-a240-4a19-a043-8be811f19c9f.jpeg)
+
+![Issue_Filters_in_Jira.jpeg](/cms_trial/assets/7002bcdc-4262-4495-a30b-91e952b454bf.jpeg)
+
 Your Extended Search is now available as a saved filter on the left pane in **Extended Search Filters**.
 
 ## View your Extended Search filters
@@ -26,5 +34,9 @@ To see the filters you've created with JSE:
 3. Find the filter you created.
 
 ![2026-09-18_22-40-04.png](/cms_trial/assets/3d9bcc8c-a4c3-4065-bb10-01d78a3d5755.png)
+
+You can also view the filters in Jira’s filters list.
+
+![Issue_Filters_in_Jira.jpeg](/cms_trial/assets/7002bcdc-4262-4495-a30b-91e952b454bf.jpeg)
 
 From here, you can manage the Extended Searches you've saved for future use.

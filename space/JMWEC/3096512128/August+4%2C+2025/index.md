@@ -4,7 +4,7 @@
 
 **Release date**: August 4, 2025
 
-This release of **JMWE for Jira Cloud** introduces JMWE compatibility for the Atlassian Government Cloud platform. Additionally, this release includes minor updates and bug fixes. See [Atlassian Government Cloud and JMWE](/cms_trial/space/JMWEC/2249131073/Atlassian+Government+Cloud+and+JMWE/) for more information.
+This release of **JMWE for Jira Cloud** includes minor updates and bug fixes.
 
 ---
 

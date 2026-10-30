@@ -1,5 +1,8 @@
 # Time in Status Table
 
+Image — asset pipeline pending  
+JMCF\_Time\_in\_Status\_Table1.mp4
+
 The **Time in Status Table** custom field is a calculated field that displays how long an issue has remained in the configured status values; the field displays all selected statuses and the total time for each status in a table format. It is a read-only field.
 
 When creating the field, you can configure it to monitor any number of status values, and you can include any status values that exist in your instance. You should verify that the status values you have selected for a Time in Status Table field are the same status values in the Workflow for the project and issue types to which you have added the custom field!
@@ -38,7 +41,7 @@ To create a new JMCF custom field through the Jira custom fields page:
 
 **Note**: If you create a **JMCF** custom field using the native Jira custom field process, the new custom field *will not calculate until its* ***Contexts have been updated****;* this limitation applies even when the custom field is configured for the Default context.
 
-## Configure a new ‘Time in Status Table’ field
+## Configure a new Time in Status Table field
 
 If you added a JMCF custom field through the native Jira custom fields screen, see **Edit a custom field** below.
 
@@ -48,17 +51,12 @@ Follow the steps above to add a custom field to your Jira instance, then follow 
 
    1. Use the search field above the list of screens to filter for a specific screen or screens.
    2. Check the box at the top of the column to add the field to all screens.  
-      ⚠️ **Note**: some team management screens in Jira do not currently support custom fields! The message at the bottom of the window indicates how many screens have been removed from the list.
+      ⚠️ **Note**: some team management screens in Jira do not currently support custom fields. The message at the bottom of the window indicates how many screens have been removed from the list.
 2. Click **Next**.
 3. From the pulldown, select the status value or values that should be included in the table of values; select **ALL STATUSES** will configure the field to include every status value that exists in your instance, even those that may not be included in the Workflow for the selected Project and Work Item type.
 4. Click **Save**.
 
-You are viewing the documentation for **Jira Cloud**.
-
-| On This Page |
-| --- |
-
-![Jira Misc Custom Fields (JMCF) Cloud time in status table configuration](/cms_trial/assets/42722c3d-1d3a-449c-8e3b-8f1fe95742a4.png)![Jira Misc Custom Fields (JMCF) Cloud time in status screen association](/cms_trial/assets/098f8a0d-258a-4e1c-bee9-2a6dddb151df.png)
+![Screenshot of the Create Custom Field page with the Time in Status table type highlighted.](/cms_trial/assets/94f7cf8b-a7e6-4c70-af92-aadc2c641901.png)![Screenshot of the Custom Field Associate screen.](/cms_trial/assets/e3492968-0fe9-4e9f-9c0f-322d426df501.png)
 
 ## Edit a custom field
 

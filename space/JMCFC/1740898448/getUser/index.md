@@ -40,4 +40,4 @@ In Jira, there is a distinct difference between a User’s public name and their
 4. Check the URL of the page that opens (figure, immediately right). The User’s ID is the last part of the URL, after ‘/users/’.
 
 Image — asset pipeline pending  
-Jira Misc Custom Fields (JMCF) Cloud user ID determination guide
+JMCFC-determiningUserID.jpg

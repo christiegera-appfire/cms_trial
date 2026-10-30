@@ -95,7 +95,7 @@ Finally, we use a dedicated time series chart to show the historic weekly trends
 
 The following links provide information on the fundamentals of each rich filter feature used in this dashboard in case you need more information:
 
-- [Rich Filter Simple Gauges](https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/783942638) will provide at-a-glance summaries of your SLA targets.
+- [Rich Filter Simple Gauges](/cms_trial/space/RFCDOC/783942638/Use+rich+filter+counters+and+gauges+in+your+dashboards/) will provide at-a-glance summaries of your SLA targets.
 - [Rich Filter Statistics gadgets](/cms_trial/space/RFCDOC/783942568/Display+statistics+and+quick+charts+on+your+dashboard/) to provide one- and two-dimensional breakdowns based on configurable statistic types, including date ranges.
 - [Rich Filter Flexi Charts gadgets](/cms_trial/space/RFCDOC/783942604/Display+custom+charts+and+quick+tables+on+your+dashboard/) to effectively summarize your data and show trends in a visual format.
 - [Rich Filter Time Series](/cms_trial/space/RFCDOC/783942356/Configure+time+series/) allows you to precisely define custom time series (such as SLA averages) based on existing date fields, and a Rich Filter Time Series Chart gadget efficiently displays them.
@@ -189,7 +189,7 @@ Your *Time Series* tab should now look like this:
 
 ## Set up the Rich Filter Simple Gauges gadget
 
-Let's get your dashboard set up! You'll start by adding the Rich Filter Simple Gauges gadget (for more information on gauges, see our [Use rich filter counters and gauges in your dashboards](https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/783942638) article).
+Let's get your dashboard set up! You'll start by adding the Rich Filter Simple Gauges gadget (for more information on gauges, see our [Use rich filter counters and gauges in your dashboards](/cms_trial/space/RFCDOC/783942638/Use+rich+filter+counters+and+gauges+in+your+dashboards/) article).
 
 1. Go to dashboard edit mode and add a Rich Filter Simple Gauges gadget to your dashboard.
 2. Position it below your controller in the left-hand column.

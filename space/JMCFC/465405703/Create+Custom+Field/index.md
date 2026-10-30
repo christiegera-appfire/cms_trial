@@ -1,8 +1,6 @@
 # Create Custom Field
 
-The **Custom Field Creation Wizard** (Figure 1, right) walks you through the process of adding a new custom field. To create a new custom field, follow these steps:
-
-You are viewing the documentation for **Jira Cloud**.
+The **Custom Field Creation Wizard** (Figure 1, right) walks you through the process of adding a new custom field. To create a new custom field you must have Administrator privileges in your Jira instance. Then follow these steps:
 
 1. Log into your Jira instance as an Administrator.
 2. In the upper right corner, click **Settings** ( ⚙️ ) and select **Apps**.
@@ -37,7 +35,4 @@ When working with a Jira instance that includes a large number of screens, selec
 
 **Note**: Using the **Select All/Deselect All** checkbox at the top of the list will only select or deselect *visible screens when a filter is applied.*
 
-![admin-CreateCustomFieldWizard1.png](/cms_trial/assets/454a7e0d-ebc7-4077-9ede-7c4e8d636a33.png)![Create Custom Field Wizard select projects and issue types](/cms_trial/assets/9281a3ef-87a0-4726-83a4-df2b9d1a3092.png)
-
-Image — asset pipeline pending  
-Create Custom Field Wizard screen configuration
+![admin-CreateCustomFieldWizard1.png](/cms_trial/assets/e3c1a9d2-1ac7-4790-b930-06653b59a03e.png)![Create Custom Field Wizard select projects and issue types](/cms_trial/assets/bf3f76b4-3ee8-4a43-875c-e1cbfbee5488.png)![Create Custom Field Wizard screen configuration](/cms_trial/assets/3a8333d6-0456-4624-b3ee-45339d94117c.png)

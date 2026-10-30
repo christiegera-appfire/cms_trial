@@ -115,4 +115,4 @@ In this scenario, we will be using the Case object type.
 
 ### 5. Automation for Jira
 
-In this particular use-case, we didn't use any Automation for Jira. However, if you wish to do so, you can refer to this link;  [How to enable status transition from Salesforce to Jira via Automation for Jira](/cms_trial/space/CSFJIRA/1874002066/How+to+enable+status+transition+from+Salesforce+to+Jira+using+Automation+for+Jira/)  to setup your Automation to best-fit your scenario.
+In this particular use-case, we didn't use any Automation for Jira. However, if you wish to do so, you can refer to this link;  [Automate Jira actions with Salesforce Flow Builder](/cms_trial/space/CSFJIRA/3627581468/Automate+Jira+actions+with+Salesforce+Flow+Builder/) to setup your Automation to best-fit your scenario.

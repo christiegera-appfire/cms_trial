@@ -69,4 +69,4 @@ There are several ways to determine the field ID of a custom field; the most str
 7. Append this value to “customfield\_” to get the full ID of the field. For example, `customfield_10130` is the field ID of Projected Due Date, shown in the figure immediately right.
 
 Image — asset pipeline pending  
-Jira Misc Custom Fields (JMCF) Cloud custom field ID determination guide
+getField-FieldID.png

@@ -1,9 +1,5 @@
 # Migrating from Jira Data Center to Jira Cloud
 
-JSU for Jira Cloud is approved for [Atlassian Government Cloud (AGC)](/cms_trial/space/JSUCLOUD/2165083529/Atlassian+Government+Cloud/). AGC is an Atlassian cloud environment for US government agencies, currently an EAP.
-
-JSU supports migration from Jira Data Center to Jira Cloud using the Jira Cloud Migration Assistant (JCMA), but *migration to AGC using JCMA is not currently supported for any Marketplace app*; this is an Atlassian limitation and cannot be resolved by Appfire. Please see Atlassian ticket [MIG-2403](https://jira.atlassian.com/browse/MIG-2403) for more information.
-
 If you use JSU Data Center and are planning a migration to Jira Cloud, you can use Atlassian’s JCMA or Appfire’s Configuration Manager for Jira (CMJ) Cloud Migration Tool to migrate most of your JSU workflow configurations.
 
 We recommend that you test your migration on a **staging** Cloud instance so you can become familiar with the results before proceeding with a migration of your Data Center app data to your production Cloud instance. You can use a free trial of CMJ on a staging instance to determine which tool works best for your needs.

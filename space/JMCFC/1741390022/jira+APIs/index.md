@@ -13,12 +13,12 @@ The editor also includes three shortcut buttons to the right side of the window:
 - [help icon] **Help** - Links to JMCF for Jira Cloud documentation, scripted field documentation, and the Appfire support portal.
 
 Image — asset pipeline pending  
-Jira Misc Custom Fields (JMCF) Cloud scripted field editor interface
+customFields-ScriptedFieldEditor.png
 
 ## Scripted Field Hints
 
 Image — asset pipeline pending  
-Jira Misc Custom Fields (JMCF) Cloud scripted field code hints display
+customFields-ScriptedFieldCodeHints.png
 
 Similar to many code editors, the scripted field editor includes syntax highlighting, error highlighting, cursor navigation, and code completion. The editor has access to all **JMCF for Jira Cloud** APIs and provides prompts as you type, as well as function references.
 
