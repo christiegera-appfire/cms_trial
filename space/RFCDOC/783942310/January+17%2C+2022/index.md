@@ -33,7 +33,7 @@ This release introduces statistics, metrics and charts based on the *SLA fields*
 
 ## Counters based on SLA fields
 
-[The Rich Filter Simple Counter Gadget](/cms_trial/space/RFCDOC/783941825/The+Rich+Filter+Simple+Counter+Gadget/) and [The Rich Filter Smart Counter Gadget](/cms_trial/space/RFCDOC/783942058/The+Rich+Filter+Smart+Counter+Gadget/) can be configured with new values. For each SLA field, the options *Completed*, *Met*, *Breached* and *Average* are available as values in the configuration form of the gadgets.  
+[The Rich Filter Simple Counter Gadget](/cms_trial/space/RFCDOC/783941825/The+Rich+Filter+Simple+Counter+Gadget/) and [The Rich Filter Smart Counter Gadget](https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/783942058) can be configured with new values. For each SLA field, the options *Completed*, *Met*, *Breached* and *Average* are available as values in the configuration form of the gadgets.  
 
 [Unmapped macro: inline-media-image — no content to fall back on]
 

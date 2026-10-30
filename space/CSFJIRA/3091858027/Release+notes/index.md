@@ -4,6 +4,7 @@ We have a short release lifecycle so that we can always try to improve our produ
 
 | **Title** | **Highlights** | **Platform** | **Release date** |
 | --- | --- | --- | --- |
+| [Release notes 30 October 2026](/cms_trial/space/CSFJIRA/3815079942/Release+notes+30+October+2026/) | - Improved migration from Jira Connect to Forge | Jira Cloud | October 30, 2026 |
 | [Release notes 29 October 2026](/cms_trial/space/CSFJIRA/3811967010/Release+notes+29+October+2026/) | - Delete invalid bindings | Jira Cloud | October 29, 2026 |
 | [Release notes 27 October 2026](/cms_trial/space/CSFJIRA/3798925339/Release+notes+27+October+2026/) | - Filtering invalid bindings - Bug fixes | Jira Cloud | October 27, 2026 |
 | [Release notes 26 October 2026](/cms_trial/space/CSFJIRA/3768451084/Release+notes+26+October+2026/) | - Time to SLA integration - Bug fixes | Jira Cloud  SALESFORCE | October 26, 2026 |

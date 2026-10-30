@@ -44,7 +44,6 @@ The following bugs are fixed in this release:
   - Objects from different object types that share an attribute name (for example, Current status) no longer merge into a single column with blank values. Each object now shows its own attribute values.
   - The Linked work items column now displays its contents.
 - **Jira Custom Charts**: Custom Charts no longer fail to load when grouped by certain custom fields. Grouping a Custom Chart by some multi-value custom fields (like Sentiment) could stop the chart from loading. These charts now display correctly.
-- **Jira work-week settings**: Pie charts now show time totals using your Jira work-week settings. Pie charts calculated logged time using a 24h day / 7-day week instead of your Jira settings, for example, 8h day / 5-day week, so totals didn’t match the table view. They now match.
 
 ---
 

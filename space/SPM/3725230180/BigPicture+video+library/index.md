@@ -12,4 +12,5 @@ On the following pages, you’ll find BigPicture videos organized into playlists
 - [Bigicture Financials tutorials](/cms_trial/space/SPM/3771007110/Bigicture+Financials+tutorials/)
 - [BigPicture OKR tutorials](/cms_trial/space/SPM/3771039923/BigPicture+OKR+tutorials/)
 - [BigPicture advanced reporting tutorials](/cms_trial/space/SPM/3771039979/BigPicture+advanced+reporting+tutorials/)
+- [BigPicture quarterly feature updates](/cms_trial/space/SPM/3815047249/BigPicture+quarterly+feature+updates/)
 - [BigPicture tutorials](/cms_trial/space/SPM/3771138069/BigPicture+tutorials/)

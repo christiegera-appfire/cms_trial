@@ -12,7 +12,7 @@ See the video below.
 
 The Effort progress report visualizes the project's progress in terms of effort according to the following formula: `timeSpent / (remainingEstimate + timeSpent)`*.*
 
-![Effort progress report.](/cms_trial/assets/3fb4d7c3-a644-4481-887b-c4dd861986fb.png)
+![Effort progress report.](/cms_trial/assets/2aba2b0c-2bd7-45b7-8682-3bd01b275aef.png)
 
 This report displays three data points that summarize all tasks within the selected box.
 

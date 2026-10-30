@@ -1,6 +1,6 @@
 # Use custom ratios in your dashboards
 
-[Rich Filters for Jira Dashboards](https://marketplace.atlassian.com/apps/1214789/rich-filters-for-jira-dashboards?hosting=cloud&tab=overview) enables you to define **custom ratios**. These advanced user-defined ratios provide power and flexibility that can be pre-packaged and used in [gauge](/cms_trial/space/RFCDOC/783942638/Use+rich+filter+counters+and+gauges+in+your+dashboards/), [statistics](/cms_trial/space/RFCDOC/783942568/Display+statistics+and+quick+charts+on+your+dashboard/), [flexi charts](/cms_trial/space/RFCDOC/783942604/Display+custom+charts+and+quick+tables+on+your+dashboard/), and [time series](/cms_trial/space/RFCDOC/783942921/Display+date%2Ftime+statistics+and+charts+on+your+dashboard/) gadgets. When defining a custom ratio, you can specify custom base values, including JQL filter queries for the numerator and denominator, and custom display options for the results, including label, color, and format. This article tells you all you need to know about using custom ratios.
+[Rich Filters for Jira Dashboards](https://marketplace.atlassian.com/apps/1214789/rich-filters-for-jira-dashboards?hosting=cloud&tab=overview) enables you to define **custom ratios**. These advanced user-defined ratios provide power and flexibility that can be pre-packaged and used in [gauge](https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/783942638), [statistics](/cms_trial/space/RFCDOC/783942568/Display+statistics+and+quick+charts+on+your+dashboard/), [flexi charts](/cms_trial/space/RFCDOC/783942604/Display+custom+charts+and+quick+tables+on+your+dashboard/), and [time series](/cms_trial/space/RFCDOC/783942921/Display+date%2Ftime+statistics+and+charts+on+your+dashboard/) gadgets. When defining a custom ratio, you can specify custom base values, including JQL filter queries for the numerator and denominator, and custom display options for the results, including label, color, and format. This article tells you all you need to know about using custom ratios.
 
 ## Prerequisites
 
@@ -39,7 +39,7 @@ In this section, you'll set up a basic rich filter and dashboard.
 
 ## Custom ratios versus "on the fly" ratios
 
-We’ve already discussed the ratios in the “[Use rich filter counters and gauges in your dashboards](/cms_trial/space/RFCDOC/783942638/Use+rich+filter+counters+and+gauges+in+your+dashboards/)” page. We define ratios "on the fly" in Rich Filter Simple Gauges and Rich Filter Smart Gauges by selecting a filter for the gauge level and an aggregate value.
+We’ve already discussed the ratios in the “[Use rich filter counters and gauges in your dashboards](https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/783942638)” page. We define ratios "on the fly" in Rich Filter Simple Gauges and Rich Filter Smart Gauges by selecting a filter for the gauge level and an aggregate value.
 
 ![Smart Gaugesresolved issues.png](/cms_trial/assets/70f0a5df-b7c3-4d92-9b75-9f1a6d147fba.png)
 

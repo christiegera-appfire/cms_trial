@@ -8,7 +8,7 @@ Watch the videos below to learn more about Appfire Rich Filters for Jira Dashboa
 
 ## Smart Counters gadget
 
-- [The Rich Filter Smart Counter Gadget](/cms_trial/space/RFCDOC/783942058/The+Rich+Filter+Smart+Counter+Gadget/)
+- [The Rich Filter Smart Counter Gadget](https://appfire.atlassian.net/wiki/spaces/RFCDOC/pages/783942058)
 
 ## Simple Gauges gadget
 

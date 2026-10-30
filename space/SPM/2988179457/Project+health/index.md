@@ -1,4 +1,8 @@
-# Project health (RAG)
+# Project health
+
+**About this page**
+
+This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
 
 Visit the [Contextual reports](/cms_trial/space/SPM/2481848664/Contextual+reports/) page to learn about availability, permissions, and how to add reports to your view.
 
@@ -8,7 +12,7 @@ See the video about the project health report.
 
 The Project health report visualizes project health using the RAG (Red-Amber-Green) system.
 
-![Project health report.](/cms_trial/assets/7662a2ae-c29f-430d-855b-329c8fc626a6.png)
+![Project health report.](/cms_trial/assets/131085a2-85c0-4500-9862-424455278bc4.png)
 
 It displays a clean, visual status overview with three colors: Green (on track), Amber (caution/risks), and Red (critical issues/immediate action needed).
 
@@ -25,7 +29,7 @@ When a team's workload exceeds the capacity thresholds defined in the *Administr
 
 The color-status thresholds for each indicator can be customized by a Jira Admin and [App Admin](/cms_trial/space/SPM/1918535770/App-level+permissions/) in **App settings** > **Administration** > **Reports**.
 
-![context-report-project-health-administration.png](/cms_trial/assets/12cfcd8e-6d5a-46fb-9e8d-81a2d7af00d9.png)
+![context-report-project-health-administration.png](/cms_trial/assets/fcbd9c45-2d89-4a53-b951-5b03e74a32b0.png)
 
 ### Change the report view
 
@@ -33,7 +37,7 @@ The Project health report offers two different views you can switch between by c
 
 - **Pie chart**: Shows health statuses for the parent box (based on all child boxes). If the box has no children, no data is displayed.
 
-![Project health report. Pie chart view.](/cms_trial/assets/d699b25e-d0c3-4b49-a343-2b360fcb696e.png)
+![Project health report. Pie chart view.](/cms_trial/assets/d502cf63-aced-429d-805e-8fb22d86dd88.png)
 
 - **Table**: Shows health statuses for the current box.
 
@@ -43,7 +47,7 @@ The Project health report offers two different views you can switch between by c
 
 To see which sub-boxes fall within the selected RAG category, click the corresponding color on the pie chart or the status in the pie chart view.
 
-![Initiatives that are off track.](/cms_trial/assets/50325dc3-cf92-45d4-ab16-26e9849e3980.png)
+![Initiatives that are off track.](/cms_trial/assets/9e71871a-6ffd-4d60-9d0d-9ef336537976.png)
 
 ### Customize the RAG settings
 
@@ -52,7 +56,7 @@ Box Admins and Box Editors can customize the report:
 1. Click the **cog** button on the report.
 2. Select one option in each category:
 
-![Project health report settings.](/cms_trial/assets/d56fb2a6-77fd-4e5c-b3fc-ac97db19d821.png)
+![Project health report settings.](/cms_trial/assets/873a01ef-00e8-428e-8f71-eccd91fc50f0.png)
 
 - **Project health selection mode**:
 
@@ -91,7 +95,7 @@ To manually assign the health status to your project:
    3. **At risk** (amber)
    4. **On track** (green)
 
-![A dropdown for manual selection of the project health status.](/cms_trial/assets/df876e86-0617-44e3-90c8-110c8ca294a9.png)
+![A dropdown for manual selection of the project health status.](/cms_trial/assets/381dd94d-e3c2-492b-af26-f2acc39e62c1.png)
 
 ## How is the project's risk health calculated?
 

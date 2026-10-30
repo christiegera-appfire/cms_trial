@@ -12,7 +12,7 @@ See the video below.
 
 The Boxes by status report visualizes the number of boxes in each status and the percentage of all boxes in each status.
 
-![Boxes by status report.](/cms_trial/assets/664e2680-dcf0-47bc-b25d-34f71889ce3b.gif)
+![Boxes by status report.](/cms_trial/assets/71fd5c32-d4a7-450d-966b-734fb5ac8c28.gif)
 
 This report displays three data points that summarize the available [box statuses](/cms_trial/space/SPM/1918829911/Box+lifecycle/): *Not started*, *In progress,* and *Closed*.
 

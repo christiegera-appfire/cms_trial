@@ -26,7 +26,7 @@ The following reports are available:
 - [Teams capacity](/cms_trial/space/SPM/2913829054/Teams+capacity/)
 - [Effort progress](/cms_trial/space/SPM/2911535555/Effort+progress/)
 - [OKRs by Status](/cms_trial/space/SPM/2913599687/OKRs+by+Status/)
-- [Project health (RAG)](/cms_trial/space/SPM/2988179457/Project+health+(RAG)/)
+- [Project health](/cms_trial/space/SPM/2988179457/Project+health/)
 
 We plan to add more contextual reports in the coming months. If you haven’t found the report you need, it may be available soon. In the meantime, we encourage you to contact our [Support Team](https://appfire.atlassian.net/servicedesk/customer/portal/11) to drop your suggestion on the report you would like to see in BigPicture.
 
@@ -76,7 +76,7 @@ Visit the following pages to learn more about the individual report:
 - [Teams capacity](/cms_trial/space/SPM/2913829054/Teams+capacity/)
 - [Effort progress](/cms_trial/space/SPM/2911535555/Effort+progress/)
 - [OKRs by Status](/cms_trial/space/SPM/2913599687/OKRs+by+Status/)
-- [Project health (RAG)](/cms_trial/space/SPM/2988179457/Project+health+(RAG)/)
+- [Project health](/cms_trial/space/SPM/2988179457/Project+health/)
 
 ## Contextual reports - new navigation
 
@@ -100,7 +100,7 @@ The following reports are available:
 - [Teams capacity](/cms_trial/space/SPM/2913829054/Teams+capacity/)
 - [Effort progress](/cms_trial/space/SPM/2911535555/Effort+progress/)
 - [OKRs by Status](/cms_trial/space/SPM/2913599687/OKRs+by+Status/)
-- [Project health (RAG)](/cms_trial/space/SPM/2988179457/Project+health+(RAG)/)
+- [Project health](/cms_trial/space/SPM/2988179457/Project+health/)
 
 We plan to add more contextual reports in the coming months. If you haven’t found the report you need, it may be available soon. In the meantime, we encourage you to contact our [Support Team](https://appfire.atlassian.net/servicedesk/customer/portal/11) to drop your suggestion on the report you would like to see in BigPicture.
 
@@ -152,4 +152,4 @@ Visit the following pages to learn more about the individual report:
 - [Teams capacity](/cms_trial/space/SPM/2913829054/Teams+capacity/)
 - [Effort progress](/cms_trial/space/SPM/2911535555/Effort+progress/)
 - [OKRs by Status](/cms_trial/space/SPM/2913599687/OKRs+by+Status/)
-- [Project health (RAG)](/cms_trial/space/SPM/2988179457/Project+health+(RAG)/)
+- [Project health](/cms_trial/space/SPM/2988179457/Project+health/)

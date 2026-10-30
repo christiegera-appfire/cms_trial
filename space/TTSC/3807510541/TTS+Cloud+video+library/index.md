@@ -13,3 +13,4 @@ On this page, you’ll find a collection of video tutorials covering available f
 | [SLA Actions](/cms_trial/space/TTSC/35881090/Actions/) |  |
 | [Executive reports](/cms_trial/space/TTSC/3404431363/Executive+reports/) |  |
 | [Recalculation](/cms_trial/space/TTSC/35456416/Recalculation/) |  |
+| [Connector for Salesforce & Jira integration](/cms_trial/space/TTSC/3742760964/Connector+for+Salesforce+%26+Jira/) | <https://www.youtube.com/watch?v=YOa4n36hVpQ> |

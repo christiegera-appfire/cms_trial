@@ -12,7 +12,7 @@ To learn more, see the video.
 
 The OKR by status report visualizes the number of OKRs in each status and the percentage of all OKRs in each status.
 
-![OKRs by status report.](/cms_trial/assets/b03f8e9c-c279-45f7-87b9-e113c2464681.png)
+![OKRs by status report.](/cms_trial/assets/9e5d34a0-6ab8-4ff6-92b1-2295e8f5010b.png)
 
 This report displays the following data points:
 

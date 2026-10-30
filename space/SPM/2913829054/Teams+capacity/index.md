@@ -12,7 +12,7 @@ See the video below.
 
 The Teams capacity report visualizes the teams' capacity. The allocation is color-coded to help you quickly spot over- and underallocation. The color-coding is based on the [capacity color and threshold setup](/cms_trial/space/SPM/1918799470/Resource+coloring+rules/) in the box type.
 
-![Teams capacity report.](/cms_trial/assets/e10ac165-103d-47fa-9107-19e455c898c5.png)
+![Teams capacity report.](/cms_trial/assets/3cf02e16-b8fa-41aa-9377-b7c9198c131b.png)
 
 This report displays four data points about the teams:
 
