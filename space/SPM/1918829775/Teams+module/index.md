@@ -8,7 +8,7 @@ You can group individual users into teams, which enables effort-based planning.
 
 The team concept is used mainly in the Resources, Objectives, Gantt, Scope, and Board modules. However, since information about the team can be stored as a [label or a custom field](/cms_trial/space/SPM/1918767884/Team+code+field/), it can also be displayed using the Gantt, Scope, or Risks module by adding it to the column view or [card view](/cms_trial/space/SPM/1918536034/Card+views/).
 
-In the Gantt, Resources, and Board modules, you can quickly assign tasks to a respective team by[inline editing](/cms_trial/space/SPM/1918637324/Inline+edit/) in a [column view](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404907).
+In the Gantt, Resources, and Board modules, you can quickly assign tasks to a respective team by[inline editing](/cms_trial/space/SPM/1918637324/Inline+edit/) in a [column view](/cms_trial/space/SPM/1918404907/Column+views/).
 
 ![Screenshot of the Gantt module with the Team column added to the view.](/cms_trial/assets/1b840e85-27f7-4b8f-8dc4-af794891be38.png)
 
@@ -38,7 +38,7 @@ You can group individual users into teams, which enables effort-based planning.
 
 The team concept is used mainly in the Resources, Objectives, Gantt, Scope, and Board modules. However, since information about the team can be stored as a [label or a custom field](/cms_trial/space/SPM/1918767884/Team+code+field/), it can also be displayed using the Gantt, Scope, or Risks module by adding it to the column view or [card view](/cms_trial/space/SPM/1918536034/Card+views/).
 
-In the Gantt, Resources, and Board modules, you can quickly assign tasks to a respective team by[inline editing](/cms_trial/space/SPM/1918637324/Inline+edit/) in a [column view](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404907).
+In the Gantt, Resources, and Board modules, you can quickly assign tasks to a respective team by[inline editing](/cms_trial/space/SPM/1918637324/Inline+edit/) in a [column view](/cms_trial/space/SPM/1918404907/Column+views/).
 
 ![gantt-team.png](/cms_trial/assets/4e9aa076-c7ed-4017-9283-4a2e6d5271a8.png)
 
