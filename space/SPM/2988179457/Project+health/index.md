@@ -103,7 +103,7 @@ The data used to calculate the health status of risks in your project is pulled 
 
 The calculation is based on a matrix algorithm that is independent of user-defined colors or labels. Instead, it analyzes the risk's position (coordinates) within the risk register (matrix).
 
-Visit the [Create new risks register](/cms_trial/space/SPM/1918406430/Create+new+risk+register/) page to learn about the sizes and types of risk registers (risk matrices).
+Visit the [Create new risks register](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406430) page to learn about the sizes and types of risk registers (risk matrices).
 
 The risk calculation process consists of three main steps:
 

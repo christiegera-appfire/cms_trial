@@ -118,4 +118,4 @@ The [*Progress Dashboard*](/cms_trial/space/SPM/1918801225/Progress+Dashboard/) 
 
 ## Import and Export OKR milestones
 
-OKR milestones are included in the [CSV export](/cms_trial/space/SPM/1918668919/Export+OKRs/). You can also add them to your [import file](/cms_trial/space/SPM/1918406659/Import+OKRs/).
+OKR milestones are included in the [CSV export](/cms_trial/space/SPM/1918668919/Export+OKRs/). You can also add them to your [import file](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406659).

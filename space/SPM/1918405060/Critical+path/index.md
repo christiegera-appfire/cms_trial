@@ -34,7 +34,7 @@ Use strong dependenciesto determine the correct order of task**s**.
 - The path is calculated from the end (the last task(s) in the project).
 - The algorithm works backward, looking for strong links connecting tasks.
 - The most direct path (without a time gap between tasks) is highlighted.
-- A gap between tasks is allowed only if an ASAP link has the [lag time](/cms_trial/space/SPM/1918406747/Lag+time/) added.
+- A gap between tasks is allowed only if an ASAP link has the [lag time](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406747) added.
 
 ![critical-path-diagram.png](/cms_trial/assets/e5a15791-2cde-4c9a-90f3-ed54e213183b.png)
 

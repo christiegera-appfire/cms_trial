@@ -19,7 +19,7 @@ The Risk Management module allows you to register, assess, and prioritize risks,
 The module allows you to create as many risk registers and calculations per box as you need. The key features include:
 
 - Unlimited [risk registers](/cms_trial/space/SPM/1918863826/Risk+registers+list/)
-- Customizable [risk matrix templates](/cms_trial/space/SPM/1918406430/Create+new+risk+register/)
+- Customizable [risk matrix templates](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406430/Create+new+risk+register#Available-templates)
 - Customizable [risk score formulas](/cms_trial/space/SPM/1918865091/Risk+register+frameworks/)
 - [Risk reports](/cms_trial/space/SPM/1918670055/Risks+table+-+reports/)
 - Customizable [risk column views](/cms_trial/space/SPM/1918799528/Risks+table+(Risks+Management)/)
@@ -76,7 +76,7 @@ The Risk Management module allows you to register, assess, and prioritize risks,
 The module allows you to create as many risk registers and calculations per box as you need. The key features include:
 
 - Unlimited [risk registers](/cms_trial/space/SPM/1918863826/Risk+registers+list/)
-- Customizable [risk matrix templates](/cms_trial/space/SPM/1918406430/Create+new+risk+register/)
+- Customizable [risk matrix templates](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406430/Create+new+risk+register#Available-templates)
 - Customizable [risk score formulas](/cms_trial/space/SPM/1918865091/Risk+register+frameworks/)
 - [Risk reports](/cms_trial/space/SPM/1918670055/Risks+table+-+reports/)
 - Customizable [risk column views](/cms_trial/space/SPM/1918799528/Risks+table+(Risks+Management)/)

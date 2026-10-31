@@ -6,7 +6,7 @@ Click to expand the guide
 
 ## Overview
 
-The taskbars on the [Gantt timeline](/cms_trial/space/SPM/1918701893/Timeline+(Gantt+chart)/) (Gantt chart) represent your project work items (for example, epics, Jira issues, and [basic tasks](/cms_trial/space/SPM/1918405930/Basic+tasks+%2F+BigPicture+tasks/)).
+The taskbars on the [Gantt timeline](/cms_trial/space/SPM/1918701893/Timeline+(Gantt+chart)/) (Gantt chart) represent your project work items (for example, epics, Jira issues, and [basic tasks](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918405930)).
 
 Each taskbar can immediately provide you with the following information:
 
@@ -42,7 +42,7 @@ You can add an additional layer of information to the Gantt timeline by selectin
 - **Critical path**
 - **Overdue**
 
-### [Baselines](/cms_trial/space/SPM/1918404564/Baselines/)
+### [Baselines](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404564)
 
 If you have baselines created for your tasks, they can be displayed as horizontal lines under the taskbars.
 
@@ -138,7 +138,7 @@ Click to expand the guide
 
 ## Overview
 
-The taskbars on the [Gantt timeline](/cms_trial/space/SPM/1918701893/Timeline+(Gantt+chart)/) (Gantt chart) represent your project work items (for example, epics, Jira work items, and [BigPicture tasks](/cms_trial/space/SPM/1918405930/Basic+tasks+%2F+BigPicture+tasks/)).
+The taskbars on the [Gantt timeline](/cms_trial/space/SPM/1918701893/Timeline+(Gantt+chart)/) (Gantt chart) represent your project work items (for example, epics, Jira work items, and [BigPicture tasks](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918405930)).
 
 Each taskbar can immediately provide you with the following information:
 
@@ -175,7 +175,7 @@ You can add an additional layer of information to the Gantt timeline by selectin
 
 ![Screenshot of the Indicators menu expanded in the Gantt module.](/cms_trial/assets/9ae5812e-02fb-4d0a-81c4-ccfcf39f6b95.png)
 
-### [Baselines](/cms_trial/space/SPM/1918404564/Baselines/)
+### [Baselines](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404564)
 
 If you have baselines created for your tasks, they can be displayed as horizontal lines under the taskbars.
 

@@ -42,7 +42,7 @@ The table below provides you with an overview of how built-in fields function in
 
 ### Basic tasks
 
-A built-in field lets you easily visualize all data related to [basic tasks](/cms_trial/space/SPM/1918405930/Basic+tasks+%2F+BigPicture+tasks/) native to the BigPicture itself. Some values, such as Assignee, are not available (because this attribute doesn’t exist for them), but all existing attributes of basic tasks can be displayed using built-in fields.
+A built-in field lets you easily visualize all data related to [basic tasks](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918405930) native to the BigPicture itself. Some values, such as Assignee, are not available (because this attribute doesn’t exist for them), but all existing attributes of basic tasks can be displayed using built-in fields.
 
 ## Mapping options for built-in fields
 
@@ -90,7 +90,7 @@ The table below provides you with an overview of how built-in fields function in
 
 ### BigPicture tasks
 
-A built-in field lets you easily visualize all data related to [BigPicture tasks](/cms_trial/space/SPM/1918405930/Basic+tasks+%2F+BigPicture+tasks/) native to the BigPicture itself. Some values, such as Assignee, are not available (because this attribute doesn’t exist for them), but all existing attributes of BigPicture tasks can be displayed using built-in fields.
+A built-in field lets you easily visualize all data related to [BigPicture tasks](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918405930) native to the BigPicture itself. Some values, such as Assignee, are not available (because this attribute doesn’t exist for them), but all existing attributes of BigPicture tasks can be displayed using built-in fields.
 
 ## Mapping options for built-in fields
 

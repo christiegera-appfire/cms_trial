@@ -42,7 +42,7 @@ Jira/App/Box Admins can [manage their boxes](/cms_trial/space/SPM/1918699321/Box
 - archive a box
 - delete a box
 
-In addition, they can click the **Add new** (**+**) in the upper menu to [create a new box](/cms_trial/space/SPM/1918406376/Create+box/).
+In addition, they can click the **Add new** (**+**) in the upper menu to [create a new box](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406376).
 
 ### Open a box in a specific module
 
@@ -129,7 +129,7 @@ Jira/App/Box Admins can [manage their boxes](/cms_trial/space/SPM/1918699321/Box
 - archive a box
 - delete a box
 
-In addition, they can click the **Create new** in the upper menu to [create a new box](/cms_trial/space/SPM/1918406376/Create+box/).
+In addition, they can click the **Create new** in the upper menu to [create a new box](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406376).
 
 ### Open a box in a specific module
 

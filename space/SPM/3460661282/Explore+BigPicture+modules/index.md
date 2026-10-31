@@ -16,7 +16,7 @@ In this module, you can quickly access various boxes, modules, and their configu
 
 - Quick access to the [box hierarchy](/cms_trial/space/SPM/1918535907/Box+hierarchy/)
 - Convenient access to [box lifecycle](/cms_trial/space/SPM/1918829911/Box+lifecycle/) management
-- Customizable [filters](/cms_trial/space/SPM/1918503449/Filters+and+search/) and [column views](/cms_trial/space/SPM/1918404907/Column+views/)
+- Customizable [filters](/cms_trial/space/SPM/1918503449/Filters+and+search/) and [column views](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404907)
 - Three distinctive [view modes](/cms_trial/space/SPM/1918831037/Navigation+and+interface+(Overview+module)/): Hierarchy, Timeline, and Kanban board
 
 See the video
@@ -30,7 +30,7 @@ It offers flexible features like drag-and-drop scheduling, resource capacity ove
 **Notable features:**
 
 - Customizable [task hierarchy](/cms_trial/space/SPM/1918667217/Manage+task+structure/)
-- Customizable [filters](/cms_trial/space/SPM/1918503449/Filters+and+search/) and [column views](/cms_trial/space/SPM/1918404907/Column+views/)
+- Customizable [filters](/cms_trial/space/SPM/1918503449/Filters+and+search/) and [column views](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404907)
 - Various [data aggregations](/cms_trial/space/SPM/1918636993/Column+data+aggregation+methods/) on column views
 - [Gantt timeline](/cms_trial/space/SPM/1918701893/Timeline+(Gantt+chart)/) with markers, [milestones](/cms_trial/space/SPM/1918537479/Milestones/), and [critical path](/cms_trial/space/SPM/1918405060/Critical+path/)
 - Project and cross-project [dependencies](/cms_trial/space/SPM/1918538718/Display+dependencies/)
@@ -45,7 +45,7 @@ The Scope module helps you define and manage the boundaries of your projects, in
 **Notable features**:
 
 - Customizable [task hierarchy](/cms_trial/space/SPM/1918667217/Manage+task+structure/)
-- Customizable [filters](/cms_trial/space/SPM/1918503449/Filters+and+search/) and [column views](/cms_trial/space/SPM/1918404907/Column+views/)
+- Customizable [filters](/cms_trial/space/SPM/1918503449/Filters+and+search/) and [column views](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404907)
 - Various [data aggregations](/cms_trial/space/SPM/1918636993/Column+data+aggregation+methods/) on column views
 - [Detail view](/cms_trial/space/SPM/1918503360/Detail+view+panel/) for quick access to Jira work item details
 
@@ -119,7 +119,7 @@ The Risk Management module makes it easy to register, assess, and prioritize ris
 **Notable features**:
 
 - Unlimited [risk registers](/cms_trial/space/SPM/1918863826/Risk+registers+list/)
-- Customizable [risk matrix templates](/cms_trial/space/SPM/1918406430/Create+new+risk+register/)
+- Customizable [risk matrix templates](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406430)
 - Customizable [risk score formulas](/cms_trial/space/SPM/1918865091/Risk+register+frameworks/)
 - [Risk reports](/cms_trial/space/SPM/1918670055/Risks+table+-+reports/)
 - Customizable [risk column views](/cms_trial/space/SPM/1918799528/Risks+table+(Risks+Management)/)
@@ -137,7 +137,7 @@ The Risks module is where you can assess the risk probability and consequence an
 - Display of [work items as risks and risks as work items](/cms_trial/space/SPM/1918701278/Manage+risks/)
 - Customizable risk register [column view](/cms_trial/space/SPM/1918504788/Customize+column+views/)
 
-### [Reports](/cms_trial/space/SPM/1918502811/Reports+module/)
+### [Reports](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918502811)
 
 The Reports module helps you visualize and communicate project, program, or portfolio progress in an organized, detailed way through various reports. The reports you generate in this module pull data only from those boxes you have access to.
 
@@ -170,7 +170,7 @@ The Priorities module helps you prioritize tasks and initiatives in strategic ma
 
 - Customizable [list view](/cms_trial/space/SPM/1918834181/List+view/)
 - Robust [filters](/cms_trial/space/SPM/1918539227/Filter+and+search+priorities/) and view adjustment options
-- [Priority poker](/cms_trial/space/SPM/1918407173/Priority+poker/)
+- [Priority poker](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918407173)
 - Popular [priority templates](/cms_trial/space/SPM/1918766042/Prioritization+templates/) with customizable score formulas and metrics
 
 See the video

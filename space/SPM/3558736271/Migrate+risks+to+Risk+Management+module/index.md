@@ -21,7 +21,7 @@ When you map a metric in the Risk Management module to a Jira field that already
 
 Before you migrate your risks within your box:
 
-1. Go to the Risk Management module. [Create a new Risk Register](/cms_trial/space/SPM/1918406430/Create+new+risk+register/) and configure it. You can create multiple Risk Registers with multiple frameworks in one box. Each framework in the Risk Register would need to be configured and have its metrics mapped individually.
+1. Go to the Risk Management module. [Create a new Risk Register](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406430) and configure it. You can create multiple Risk Registers with multiple frameworks in one box. Each framework in the Risk Register would need to be configured and have its metrics mapped individually.
 
 important When creating a new Risk Register, select all work item type(s) relevant to your risks. The item types you select must match the item types used for your risks in the Risk module of your box.
 

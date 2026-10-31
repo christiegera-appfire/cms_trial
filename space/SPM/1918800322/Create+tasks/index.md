@@ -112,7 +112,7 @@ Next, decide what type of task/subtask you want to add. Complete the details and
 
 ![contentId-1918800322](/cms_trial/assets/ad566abb-3c44-4a9b-97f0-844fc06fcce0.png)
 
-## Create [basic tasks](/cms_trial/space/SPM/1918405930/Basic+tasks+%2F+BigPicture+tasks/)
+## Create [basic tasks](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918405930)
 
 You can create a basic task by:
 
@@ -145,7 +145,7 @@ If the App overwrites the manually specified start/end dates, verify the box s
 
 ### BigPicture tasks
 
-Create a [BigPicture task](/cms_trial/space/SPM/1918405930/Basic+tasks+%2F+BigPicture+tasks/) and add it to the list. Such tasks will not be synchronized with your Jira or connected tools. You will not see a BigPicture task in your Jira space.
+Create a [BigPicture task](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918405930) and add it to the list. Such tasks will not be synchronized with your Jira or connected tools. You will not see a BigPicture task in your Jira space.
 
 ### Task templates
 

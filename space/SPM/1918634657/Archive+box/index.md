@@ -30,7 +30,7 @@ Only the [**Own**](/cms_trial/space/SPM/1918766536/Scope+types/) [and](/cms_tria
 
 When enabled, the app will check if any user has used a given box or any of its sub-boxes within a specified number of days. If the whole cluster of Boxes has not been used, they will all be automatically archived.
 
-**Box auto-archiving** is enabled by default. Rules regarding the automatic archiving of boxes can be defined and changed in **App Configuration**> **Modules** >[**Overview**](/cms_trial/space/SPM/1918407114/Overview+(App+configuration)/).
+**Box auto-archiving** is enabled by default. Rules regarding the automatic archiving of boxes can be defined and changed in **App Configuration**> **Modules** >[**Overview**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918407114).
 
 ![App Configuration](/cms_trial/assets/247ee4c3-daf2-41c1-8461-1ae2a016ca4e.png)
 
@@ -81,7 +81,7 @@ Only the [**Own**](/cms_trial/space/SPM/1918766536/Scope+types/) [and](/cms_tria
 
 When enabled, the app checks whether any user has used a given box or any of its sub-boxes within a specified number of days. If the whole cluster of Boxes has not been used, they will all be automatically archived.
 
-**Box auto-archiving** is enabled by default. Rules for automatic archiving of boxes can be defined and changed in **App Configuration** > **Modules** > [**Overview**](/cms_trial/space/SPM/1918407114/Overview+(App+configuration)/).
+**Box auto-archiving** is enabled by default. Rules for automatic archiving of boxes can be defined and changed in **App Configuration** > **Modules** > [**Overview**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918407114).
 
 ![Box auto-archiving options.](/cms_trial/assets/858d5ebf-689f-4bdc-8d75-853ce7fa9a23.png)
 

@@ -8,7 +8,7 @@ Depending on the box permissions, users can perform various actions in the [Risk
 | View reports | ✅ | ✅ | ✅ |
 | [Create risks](/cms_trial/space/SPM/1918506727/Create+new+risks/) | ✅ | ✅ | ❌ |
 | Assess risks | ✅ | ✅ | ❌ |
-| [Create new risk registers](/cms_trial/space/SPM/1918406430/Create+new+risk+register/) | ✅ | ✅ | ❌ |
+| [Create new risk registers](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406430) | ✅ | ✅ | ❌ |
 | [Edit calculations](/cms_trial/space/SPM/1918865630/Edit+risk+calculation/) and [create new calculations](/cms_trial/space/SPM/1918670159/Create+new+risk+calculation/) | ✅ | ✅ | ❌ |
 | Manage [General settings](/cms_trial/space/SPM/1918669991/Risk+register+general+settings/) | ✅ | ✅ | ❌ |
 | [Archive and unarchive risk registers](/cms_trial/space/SPM/1918863826/Risk+registers+list/) | ✅ | ✅ | ❌ |

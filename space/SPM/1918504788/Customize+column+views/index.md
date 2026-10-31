@@ -105,7 +105,7 @@ Customization options vary depending on the column.
 
 ## **Custom column**
 
-Go to [box columns](/cms_trial/space/SPM/1918406508/Custom+box+columns/) to create custom fields that you can use as columns in the Overview module to see the most critical information and metrics related to your Project, Portfolio, or any other type of box you want to manage.
+Go to [box columns](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406508) to create custom fields that you can use as columns in the Overview module to see the most critical information and metrics related to your Project, Portfolio, or any other type of box you want to manage.
 
 ## Customize column views (new navigation)
 
@@ -197,4 +197,4 @@ Click the **Customize column (…)** next to a column name; an additional drop-d
 
 ## **Custom column**
 
-Go to [box columns](/cms_trial/space/SPM/1918406508/Custom+box+columns/) to create custom fields that you can use as columns in the Overview module to see the most critical information and metrics related to your Project, Portfolio, or any other type of box you want to manage.
+Go to [box columns](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406508) to create custom fields that you can use as columns in the Overview module to see the most critical information and metrics related to your Project, Portfolio, or any other type of box you want to manage.

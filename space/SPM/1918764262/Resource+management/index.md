@@ -63,4 +63,4 @@ For each role your project needs, you can create a skill and add it to your resp
 
 When project skills are added to the app and assigned to your resources, you can match people's and teams' skills with the skills the tasks require for completion.
 
-Refer to the [Skills](/cms_trial/space/SPM/1918405479/Skills/) page for more information.
+Refer to the [Skills](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918405479) page for more information.

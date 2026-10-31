@@ -24,4 +24,4 @@ You can perform the following actions on the Objectives, sub-objectives, and Key
 | [Update](/cms_trial/space/SPM/1918637972/Update+OKR/) | Update the status and progress of an OKR. You can add comments to the OKRs to keep your stakeholders informed. |
 | [Close](/cms_trial/space/SPM/1918800058/Close+OKR/) | Close an OKR and assign one of the five statuses: Success, Incomplete, Failed, Rescheduled, or Canceled. Closing the OKR does not delete it. |
 | [Reopen](/cms_trial/space/SPM/1918506952/Reopen+OKR/) | Reopen a previously closed OKR to continue working on it. |
-| [Delete](/cms_trial/space/SPM/1918408286/Delete+OKR/) | Permanently delete an OKR, including its history and progress. |
+| [Delete](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918408286) | Permanently delete an OKR, including its history and progress. |

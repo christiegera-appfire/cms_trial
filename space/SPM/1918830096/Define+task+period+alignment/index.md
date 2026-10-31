@@ -6,16 +6,11 @@ The scheduling mechanism can align or adjust the start/end dates of tasks assign
 
 Go to **Box Configuration > Tasks > Scheduling**. Use the drop-down to select the desired **Task period alignment**.
 
-Image — asset pipeline pending  
-contentId-1918830096
-
-Image — asset pipeline pending  
-contentId-1918830096
+![contentId-1918830096](/cms_trial/assets/350233f3-522c-4289-b91b-4d6454370cf7.png)![contentId-1918830096](/cms_trial/assets/2b4be9b0-e570-49e3-ae95-eaebec764b22.png)
 
 Alternatively, to enable this feature click the "Info" button found on the Box header in the Board module and select one of the options:
 
-Image — asset pipeline pending  
-contentId-1918830096
+![contentId-1918830096](/cms_trial/assets/948b3158-c1e2-4c09-82c1-897c54524dac.png)
 
 ## Configuration
 
@@ -36,15 +31,13 @@ There are different ways to add tasks that will be treated as new. These include
 - updating the task to fit within the Box scope definition - for example, moving the task to a project added to the box scope.
 - you can also change the task period alignment directly on the box details dialog.
 
-Image — asset pipeline pending  
-A dropdown menu on the box details dialog where you can select the task period alignment.
+![A dropdown menu on the box details dialog where you can select the task period alignment.](/cms_trial/assets/307fe135-e080-43df-88cf-9f9d82e6883f.png)
 
 We recommend using the 'Manual' period mode to ensure that your task will not be automatically rescheduled based on the configuration of structure builders and dependencies. You can always enable automation at any time, but you might not be able to revert changes quickly.
 
 For example, All tasks are in the auto bottom-up period mode, and the manual mode is set for newly added tasks - OA-135:
 
-Image — asset pipeline pending  
-BigPicture-BigPicture-demo.png
+![BigPicture-BigPicture-demo.png](/cms_trial/assets/276ea6ae-0575-4c45-800a-08c2fcad904f.png)
 
 ## Synchronization mechanism
 
@@ -86,8 +79,7 @@ The **precise alignment** option can be enabled only for sequential boxes with s
 
 The initial position of the task is irrelevant as the outcome is always the same. All tasks were assigned to the iteration named "Iteration 2.1":
 
-Image — asset pipeline pending  
-contentId-1918830096
+![contentId-1918830096](/cms_trial/assets/3435cd9f-ba9c-4937-8782-396322b0f62a.png)
 
 ### Smart adjustment
 
@@ -101,8 +93,7 @@ The below image showcases the initial positions of tasks (on the left) and the a
 
 All tasks were assigned to iIteration named "Sprint".
 
-Image — asset pipeline pending  
-contentId-1918830096
+![contentId-1918830096](/cms_trial/assets/a6930410-bfaa-4875-92ca-487303cd78a6.png)
 
 - Purple task - the entire task is already contained within the Iteration →  no changes applied.
 - Navy blue task - the entire task precedes the Iteration period with no overlap (task length doesn’t exceed the Iteration duration) → task is moved - start dates of the task and Iteration are aligned; task length remains unchanged.

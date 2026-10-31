@@ -141,7 +141,7 @@ You can:
 
 - Change the target task
 - Change the dependency type
-- Modify [lag time](/cms_trial/space/SPM/1918406747/Lag+time/)
+- Modify [lag time](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406747)
 - Turn on/off [the ASAP mode](/cms_trial/space/SPM/1918764948/ASAP+mode/)
 - Add a description
 - Delete a dependency

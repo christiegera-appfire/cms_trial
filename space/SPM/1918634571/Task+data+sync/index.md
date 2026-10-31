@@ -36,4 +36,4 @@ Moreover, tasks can be added to the scope manually or automatically synchronized
 
 - <https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=spm&title=Select%20tasks%20to%20work%20with%20%28scope%20definition%29&linkCreation=true&fromPageId=1918634571>
 - [Live sync](/cms_trial/space/SPM/1918765626/Live+sync/)
-- [Data synchronization with connected tools](/cms_trial/space/SPM/1918404058/Data+synchronization+with+connected+tools/)
+- <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404058>

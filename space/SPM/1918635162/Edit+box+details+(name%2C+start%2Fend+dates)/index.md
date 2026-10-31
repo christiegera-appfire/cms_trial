@@ -117,7 +117,7 @@ Sequentiality settings affect box types on the same level.
 
 - Boxes in the **Auto bottom-up** [scheduling mode](/cms_trial/space/SPM/1918831395/Scheduling+mode/) and **Auto scope-based** modes can never have sequential periods, meaning they can always overlap.
 - Boxes in the **Manual** and **auto top-down** modes can have their period sequential or overlapping. If they are set to **Sequential**, the same-level sequential boxes cannot overlap.
-- This validation check is also triggered when you [create a new](/cms_trial/space/SPM/1918406376/Create+box/) box whose start/end dates could conflict with the period of other boxes.
+- This validation check is also triggered when you [create a new](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406376) box whose start/end dates could conflict with the period of other boxes.
 
 ![Overview module, validation error](/cms_trial/assets/396c9991-8396-47f1-9021-33d05ff6ee34.png)
 
@@ -289,7 +289,7 @@ Changes in the box start/end date(s) trigger a validation check. The box’s dur
 
 - Boxes in the **Auto bottom-up** [scheduling mode](/cms_trial/space/SPM/1918831395/Scheduling+mode/) and **Auto scope-based** modes can never have sequential periods, meaning they can always overlap.
 - Boxes in the **Manual** and **auto top-down** modes can have their period sequential or overlapping. If they are set to **Sequential**, the same-level sequential boxes cannot overlap.
-- This validation check is also triggered when you [create a new](/cms_trial/space/SPM/1918406376/Create+box/) box whose start/end dates could conflict with the period of other boxes.
+- This validation check is also triggered when you [create a new](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406376) box whose start/end dates could conflict with the period of other boxes.
 
 ![Overview module, validation error](/cms_trial/assets/396c9991-8396-47f1-9021-33d05ff6ee34.png)
 

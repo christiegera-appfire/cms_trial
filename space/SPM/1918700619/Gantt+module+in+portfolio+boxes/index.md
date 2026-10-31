@@ -51,7 +51,7 @@ The integractive tutorial presents how to group tasks by milestones within the p
 
 <https://demo.arcade.software/tMzzEBSRyLqWwpflqipx>
 
-### [Manage baselines](/cms_trial/space/SPM/1918404564/Baselines/)
+### [Manage baselines](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404564)
 
 Display, edit, and delete baselines for tasks from multiple boxes within one portfolio box.
 
@@ -95,7 +95,7 @@ The following modules are available for portfolio boxes by default:
 
 ![portfolio-box-available-modules.png](/cms_trial/assets/3fd15299-a407-4096-9891-cb4fb801006a.png)
 
-### [Column views](/cms_trial/space/SPM/1918404907/Column+views/)
+### [Column views](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404907)
 
 The following column views are available for portfolio boxes by default:
 
@@ -133,7 +133,7 @@ The Organize tasks feature is not available for portfolio boxes (none scope boxe
 
 ![Screenshot od the Data menu in the Gantt module.](/cms_trial/assets/b6ac35b3-7ba6-48da-8691-8859e3de35cd.png)
 
-### [Resynchronization](/cms_trial/space/SPM/1918404058/Data+synchronization+with+connected+tools/)
+### [Resynchronization](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404058)
 
 The Resynchronize feature is not available for portfolio boxes (none scope boxes).
 
@@ -198,7 +198,7 @@ To group tasks by milestones:
 
 ### Manage baselines
 
-Display, edit, and delete [baselines for tasks](/cms_trial/space/SPM/1918404564/Baselines/) from multiple boxes within a single portfolio box.
+Display, edit, and delete [baselines for tasks](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404564) from multiple boxes within a single portfolio box.
 
 ![Screenshot of baselines in a portfolio box in the Gantt module.](/cms_trial/assets/8eeb9778-444d-41ac-b3a8-276d130871ac.png)
 
@@ -244,7 +244,7 @@ The following [modules](/cms_trial/space/SPM/1918503298/Define+available+modules
 
 ### Column views
 
-The following [column views](/cms_trial/space/SPM/1918404907/Column+views/) are available for portfolio boxes by default:
+The following [column views](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404907) are available for portfolio boxes by default:
 
 - Essentials Portfolio
 - Agile Portfolio
@@ -280,7 +280,7 @@ The [**Default task order**](/cms_trial/space/SPM/1918667546/Organize+tasks%2F+D
 
 ### Resynchronization
 
-The [**Resynchronize**](/cms_trial/space/SPM/1918404058/Data+synchronization+with+connected+tools/) feature is not available for portfolio boxes (none scope boxes).
+The [**Resynchronize**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404058) feature is not available for portfolio boxes (none scope boxes).
 
 ### Tasks (button)
 

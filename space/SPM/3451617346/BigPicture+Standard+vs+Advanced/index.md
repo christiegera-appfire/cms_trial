@@ -30,7 +30,7 @@ The table presents the differences between BigPicture Standard and Advanced plan
 | [Goals module](/cms_trial/space/SPM/1918535323/Goals+module/)  Track sprint, program increment, or iteration goals to drive delivery. Define team goals and monitor completed work and progress across large initiatives in real time against your goals. | ✅ Available | ✅ Available |
 | [Teams module](/cms_trial/space/SPM/1918829775/Teams+module/)  Group users into teams to enable effort-based planning. Set skills and availability of each team member to ensure successful project outcomes. | ✅ Available | ✅ Available |
 | [Calendar module](/cms_trial/space/SPM/1918699000/Calendar+module/)  Visualize your initiatives on a neat, customizable calendar grid. Add, filter, and search tasks right in the Calendar view. Schedule work with a simple drag & drop, and share all the live changes with your teams. | ✅ Available | ✅ Available |
-| [Reports module](/cms_trial/space/SPM/1918502811/Reports+module/)  Turn data into actionable insights. Generate clear, informative project management reports at any granularity. Visualize cross-team dependencies, milestones, risk matrix, velocity, plan delays, and team capacity in one view. | ✅ Available | ✅ Available |
+| [Reports module](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918502811)  Turn data into actionable insights. Generate clear, informative project management reports at any granularity. Visualize cross-team dependencies, milestones, risk matrix, velocity, plan delays, and team capacity in one view. | ✅ Available | ✅ Available |
 
 ## Frequently asked questions
 

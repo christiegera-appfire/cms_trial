@@ -14,7 +14,7 @@ Any type of Jira tasks (for example, Tasks, Epics, Bugs).
 
 Non-Jira tasks that exist only in the app.
 
-[**Read more**](/cms_trial/space/SPM/1918405930/Basic+tasks+%2F+BigPicture+tasks/)
+[**Read more**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918405930)
 
 ---
 

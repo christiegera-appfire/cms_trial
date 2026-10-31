@@ -28,7 +28,7 @@ Expand a dependency to see the following information:
 - Status
 - Dependency type
 - Dependency details
-- [Lag time](/cms_trial/space/SPM/1918406747/Lag+time/) (if applicable)
+- [Lag time](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406747) (if applicable)
 - [ASAP](/cms_trial/space/SPM/1918764948/ASAP+mode/) (if applicable)
 
 ## Actions in the dependencies tab
@@ -98,7 +98,7 @@ Expand a dependency to see the following information:
 - Status
 - Dependency type
 - Dependency details
-- [Lag time](/cms_trial/space/SPM/1918406747/Lag+time/) (if applicable)
+- [Lag time](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406747) (if applicable)
 - [ASAP](/cms_trial/space/SPM/1918764948/ASAP+mode/) (if applicable)
 
 ## Actions in the dependencies tab

@@ -2,7 +2,7 @@
 
 ## Preconditions
 
-If the [Configurable Story Point conversion ratio](/cms_trial/space/SPM/1918407288/Resource-related+settings/) feature is enabled for a box type, you can overwrite the default **Story Point conversion ratio** within a given box.
+If the [Configurable Story Point conversion ratio](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918407288) feature is enabled for a box type, you can overwrite the default **Story Point conversion ratio** within a given box.
 
 Changing the configuration might turn off (hide) settings or features in the box configuration and within different modules.
 

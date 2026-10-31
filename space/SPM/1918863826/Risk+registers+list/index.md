@@ -39,7 +39,7 @@ You can also filter risk registers by the **Active** or **Archived** status.
 
 ## Create risk registers
 
-See the [Create new risk register](/cms_trial/space/SPM/1918406430/Create+new+risk+register/) page to learn more about creating a new risk register.
+See the [Create new risk register](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406430) page to learn more about creating a new risk register.
 
 ## Archive / Unarchive risk registers
 
@@ -115,7 +115,7 @@ Click the **Filters** button to filter risk registers by the **Active** or **Arc
 
 ## Create risk registers
 
-See the [Create new risk register](/cms_trial/space/SPM/1918406430/Create+new+risk+register/) page to learn more about creating a new risk register.
+See the [Create new risk register](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406430) page to learn more about creating a new risk register.
 
 ## Archive / Unarchive risk registers
 

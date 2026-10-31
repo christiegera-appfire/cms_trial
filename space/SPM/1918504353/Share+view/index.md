@@ -39,7 +39,7 @@ The **Share view** feature of the app lets you share selected features across di
 | [Priorities module](https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=spm&title=Priorities%20module%20%28NEW%29&linkCreation=true&fromPageId=1918504353) | unavailable |
 | [Risk management module](/cms_trial/space/SPM/1918798201/Risk+management+module+(new+module)/) | unavailable |
 | [Financials module](/cms_trial/space/SPM/1918633194/Financials+management/) | unavailable coming soon |
-| [OKR module](/cms_trial/space/SPM/1918405440/Objectives+%26+Key+Results+(OKR+module)/) | The OKR module has a separate [share view](/cms_trial/space/SPM/1918408436/Share+view+(OKR+module)/) option. |
+| [OKR module](/cms_trial/space/SPM/1918405440/Objectives+%26+Key+Results+(OKR+module)/) | The OKR module has a separate [share view](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918408436) option. |
 | [Strategic areas](/cms_trial/space/SPM/2325217590/Strategic+Areas/) | The shared view is provided as is. If it is filtered, the user is notified. An infobar sating List is limited by filters. To display all existing initiatives remove filters. |
 
 ## Limitations
@@ -49,7 +49,7 @@ The **Share view** feature of the app lets you share selected features across di
   - **Priorities** module
   - **Risk management** module
   - **Financials** module
-- The **OKR module** has a separate [share view](/cms_trial/space/SPM/1918408436/Share+view+(OKR+module)/) option.
+- The **OKR module** has a separate [share view](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918408436) option.
 - The URL to the **Gantt module** of a given box does not change when you apply a JQL search filter.
 - **Strategic Areas**: Since the link recipient cannot see only some of the boxes in the **Initiative** tab, they need to be granted the [Box Viewer role](/cms_trial/space/SPM/1918829579/Permissions/) on the Home/root-level box. This way, they will have a full view of the shared Strategic Areas.
 
@@ -102,7 +102,7 @@ The **Share view** feature of the app lets you share selected features across di
 | [Priorities module](https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=spm&title=Priorities%20module%20%28NEW%29&linkCreation=true&fromPageId=1918504353) | Unavailable |
 | [Risk management module](/cms_trial/space/SPM/1918798201/Risk+management+module+(new+module)/) | Unavailable |
 | [Financials module](/cms_trial/space/SPM/1918633194/Financials+management/) | Unavailable coming soon |
-| [OKR module](/cms_trial/space/SPM/1918405440/Objectives+%26+Key+Results+(OKR+module)/) | The OKR module has a separate [share view](/cms_trial/space/SPM/1918408436/Share+view+(OKR+module)/) option. |
+| [OKR module](/cms_trial/space/SPM/1918405440/Objectives+%26+Key+Results+(OKR+module)/) | The OKR module has a separate [share view](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918408436) option. |
 | [Strategic areas](/cms_trial/space/SPM/2325217590/Strategic+Areas/) | The shared view is provided as is. If it is filtered, the user is notified. An infobar sating List is limited by filters. To display all existing initiatives remove filters. |
 
 ## Limitations
@@ -112,7 +112,7 @@ The **Share view** feature of the app lets you share selected features across di
   - **Priorities** module
   - **Risk management** module
   - **Financials** module
-- The **OKR module** has a separate [share view](/cms_trial/space/SPM/1918408436/Share+view+(OKR+module)/) option.
+- The **OKR module** has a separate [share view](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918408436) option.
 - The URL to the **Gantt module** of a given box does not change when you apply a JQL search filter.
 - **Strategic Areas**: Since the link recipient cannot see only some of the boxes in the **Initiative** tab, they need to be granted the [Box Viewer role](/cms_trial/space/SPM/1918829579/Permissions/) on the Home/root-level box. This way, they will have a full view of the shared Strategic Areas.
 

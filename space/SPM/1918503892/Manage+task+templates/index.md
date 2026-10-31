@@ -8,7 +8,7 @@ Both names refer to the same functionality. You may see either term depending on
 
 Click to expand the guide
 
-With the task templates, you can predefine templates of [basic tasks](/cms_trial/space/SPM/1918405930/Basic+tasks+%2F+BigPicture+tasks/) (basic tasks can be viewed only in the app). This will arrange a group of tasks in an independent micro-structure, which can be reused as a template in the **Gantt, Scope, and Calendar modules** later on.
+With the task templates, you can predefine templates of [basic tasks](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918405930) (basic tasks can be viewed only in the app). This will arrange a group of tasks in an independent micro-structure, which can be reused as a template in the **Gantt, Scope, and Calendar modules** later on.
 
 You can use basic task templates, create simple schedules to arrange your data into phases and stages or represent external providers' tasks.
 
@@ -91,7 +91,7 @@ To remove a template, click **Delete**. You can’t recover deleted templates.
 
 Click to expand the guide
 
-With the task templates, you can predefine templates of [BigPicture tasks](/cms_trial/space/SPM/1918405930/Basic+tasks+%2F+BigPicture+tasks/) (these tasks can be viewed only in the app). This will arrange a group of tasks into an independent micro-structure, which can be reused as a template in the **Gantt, Scope, and Calendar modules** later on.
+With the task templates, you can predefine templates of [BigPicture tasks](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918405930) (these tasks can be viewed only in the app). This will arrange a group of tasks into an independent micro-structure, which can be reused as a template in the **Gantt, Scope, and Calendar modules** later on.
 
 You can use BigPicture task templates, create simple schedules to arrange your data into phases and stages, or represent external providers' tasks.
 

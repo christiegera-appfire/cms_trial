@@ -64,7 +64,7 @@ The video below recaps the entire process of creating sprint-based timeboxes in 
 
 ## Additional resources
 
-- [Create box](/cms_trial/space/SPM/1918406376/Create+box/)
+- <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406376>
 - [Timeboxes](/cms_trial/space/SPM/1918766987/Timeboxes/)
 - [Scope types](/cms_trial/space/SPM/1918766536/Scope+types/)
 - [Work items from Jira elements and actions](/cms_trial/space/SPM/1918766444/Work+items+from+Jira+elements+and+actions/)
@@ -134,7 +134,7 @@ The video below recaps the entire process of creating sprint-based timeboxes in 
 
 ## Additional resources
 
-- [Create box](/cms_trial/space/SPM/1918406376/Create+box/)
+- <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406376>
 - [Timeboxes](/cms_trial/space/SPM/1918766987/Timeboxes/)
 - [Scope types](/cms_trial/space/SPM/1918766536/Scope+types/)
 - [Work items from Jira elements and actions](/cms_trial/space/SPM/1918766444/Work+items+from+Jira+elements+and+actions/)

@@ -17,7 +17,7 @@ The upper menu lets you do the following:
 ![Overview module upper menu.](/cms_trial/assets/454a3b80-b937-4c20-8357-e281f4a28b04.png)
 
 - Switch between the view modes
-- [Create a new box](/cms_trial/space/SPM/1918406376/Create+box/)
+- [Create a new box](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406376)
 - Sort visible boxes
 - Adjust the view (Hierarchy and Timeline modes) and show [archived boxes](/cms_trial/space/SPM/1918634657/Archive+box/)
 - [Export](https://appfire.atlassian.net/wiki/spaces/BTc/pages/3536224346) the current view
@@ -51,7 +51,7 @@ In the respective view mode
 The upper menu lets you do the following:
 
 - Switch between the view modes
-- [Create a new box](/cms_trial/space/SPM/1918406376/Create+box/)
+- [Create a new box](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406376)
 - Sort visible boxes
 - Adjust the view (Hierarchy and Timeline modes) and show [archived boxes](/cms_trial/space/SPM/1918634657/Archive+box/)
 - [Export](https://appfire.atlassian.net/wiki/spaces/BTc/pages/3536224346) the current view

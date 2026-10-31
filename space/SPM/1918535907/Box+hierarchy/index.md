@@ -20,7 +20,7 @@ With the right PPM tool, you can display the entire portfolio of initiatives alo
 
 ### Organize boxes into programs and portfolios
 
-In BigPicture, the Program and [Portfolio boxes](/cms_trial/space/SPM/1918634872/Create+portfolio+box/) aggregate data from within the child boxes. To organize your boxes into portfolios, use drag and drop in the [Hierarchy mode](/cms_trial/space/SPM/1918799130/Hierarchy+mode/) of the [Overview module](/cms_trial/space/SPM/1918502655/Overview+module/). You can [add new boxes](/cms_trial/space/SPM/1918406376/Create+box/) to the Portfolio or move existing boxes.
+In BigPicture, the Program and [Portfolio boxes](/cms_trial/space/SPM/1918634872/Create+portfolio+box/) aggregate data from within the child boxes. To organize your boxes into portfolios, use drag and drop in the [Hierarchy mode](/cms_trial/space/SPM/1918799130/Hierarchy+mode/) of the [Overview module](/cms_trial/space/SPM/1918502655/Overview+module/). You can [add new boxes](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406376) to the Portfolio or move existing boxes.
 
 ## Agile project
 
@@ -61,11 +61,11 @@ With the right PPM tool, you can display the entire portfolio of initiatives alo
 
 ### Organize boxes into programs and portfolios
 
-In BigPicture, the Program and [Portfolio boxes](/cms_trial/space/SPM/1918634872/Create+portfolio+box/) aggregate data from within the sub-boxes. To organize your boxes into portfolios, use drag and drop in the Hierarchy mode of the [Overview module](/cms_trial/space/SPM/1918502655/Overview+module/). You can [add new boxes](/cms_trial/space/SPM/1918406376/Create+box/) to the Portfolio or move existing boxes.
+In BigPicture, the Program and [Portfolio boxes](/cms_trial/space/SPM/1918634872/Create+portfolio+box/) aggregate data from within the sub-boxes. To organize your boxes into portfolios, use drag and drop in the Hierarchy mode of the [Overview module](/cms_trial/space/SPM/1918502655/Overview+module/). You can [add new boxes](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406376) to the Portfolio or move existing boxes.
 
 ## Example: Agile project
 
-Visit the [Create box](/cms_trial/space/SPM/1918406376/Create+box/) page to explore all methods for creating a BigPicture box.
+Visit the <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406376> page to explore all methods for creating a BigPicture box.
 
 To create an Agile project box, follow the steps below:
 

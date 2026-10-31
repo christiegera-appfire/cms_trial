@@ -79,7 +79,7 @@ Video: How to create a box
 
 box creation methods
 
-- Find out how you can [create a new box](/cms_trial/space/SPM/1918406376/Create+box/) in ways other than those presented in this course.
+- Find out how you can [create a new box](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406376) in ways other than those presented in this course.
 
 box types
 

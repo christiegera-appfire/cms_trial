@@ -59,7 +59,7 @@ You can create task-based goals directly in the Board module.
 
 ## Basic goals
 
-Basic goals (like [basic tasks](/cms_trial/space/SPM/1918405930/Basic+tasks+%2F+BigPicture+tasks/)) are stored by the App and do not sync with connected tools (Jira/Trello).
+Basic goals (like [basic tasks](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918405930)) are stored by the App and do not sync with connected tools (Jira/Trello).
 
 To add a basic goal:
 
@@ -134,7 +134,7 @@ You can create task-based goals directly in the Board module.
 
 ## Basic goals
 
-Basic goals (like [BigPicture tasks](/cms_trial/space/SPM/1918405930/Basic+tasks+%2F+BigPicture+tasks/)) are stored by the App and do not sync with connected tools (Jira/Trello).
+Basic goals (like [BigPicture tasks](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918405930)) are stored by the App and do not sync with connected tools (Jira/Trello).
 
 To add a basic goal:
 

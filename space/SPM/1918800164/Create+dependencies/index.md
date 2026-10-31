@@ -25,7 +25,7 @@ The video presents creating a dependency by dragging and dropping.
 2. The **source task** field is automatically filled in.
 3. Find a target task.
 4. Choose a [dependency type](/cms_trial/space/SPM/1918702538/Dependency+Types/) (hover over a camera icon to see an explanation of each dependency type).
-5. Define a [lag time](/cms_trial/space/SPM/1918406747/Lag+time/).
+5. Define a [lag time](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406747).
 6. If needed, enable the [ASAP mode](/cms_trial/space/SPM/1918764948/ASAP+mode/).
 7. When ready, click **Save**.
 

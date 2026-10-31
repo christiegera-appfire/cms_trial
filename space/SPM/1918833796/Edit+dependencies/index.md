@@ -7,7 +7,7 @@ You can modify a dependency using the dialog box when you click a dependency arr
 - Source task
 - Target task
 - Dependency type
-- [Lag time](/cms_trial/space/SPM/1918406747/Lag+time/)
+- [Lag time](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406747)
 - [ASAP mode](/cms_trial/space/SPM/1918764948/ASAP+mode/) on/off
 - Description
 

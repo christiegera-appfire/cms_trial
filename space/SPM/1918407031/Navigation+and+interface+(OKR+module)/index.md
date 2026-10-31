@@ -63,7 +63,7 @@ With the [OKR details side panel](/cms_trial/space/SPM/1918865686/OKR+Details+si
   - Create a new issue (if the selected OKR is the Key Result)
   - [Clone OKR](/cms_trial/space/SPM/1918864386/Clone+OKR/)
   - Open the [Tree view](/cms_trial/space/SPM/1918801711/Tree+view/) page
-  - [Delete OKR](/cms_trial/space/SPM/1918408286/Delete+OKR/)
+  - [Delete OKR](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918408286)
 
 All of these actions and more can also be executed on the OKR details page.
 

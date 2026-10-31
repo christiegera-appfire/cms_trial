@@ -4,7 +4,7 @@
 
 Click to expand the guide
 
-In the Gantt module, you can convert a Jira work item or [basic task](/cms_trial/space/SPM/1918405930/Basic+tasks+%2F+BigPicture+tasks/) to a milestone. Jira work items and basic tasks can be converted to milestones in bulk.
+In the Gantt module, you can convert a Jira work item or [basic task](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918405930) to a milestone. Jira work items and basic tasks can be converted to milestones in bulk.
 
 Visit the [Multiselect tasks](/cms_trial/space/SPM/1918832779/Multiselect+tasks/) page to learn how to select multiple tasks in the Gantt module.
 
@@ -37,7 +37,7 @@ After the conversion, the task’s end date becomes the milestone’s date.
 
 Click to expand the guide
 
-In the Gantt module, you can convert a Jira work item or [BigPicture task](/cms_trial/space/SPM/1918405930/Basic+tasks+%2F+BigPicture+tasks/) to a milestone. Jira work items and BigPicture tasks can be converted to milestones in bulk.
+In the Gantt module, you can convert a Jira work item or [BigPicture task](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918405930) to a milestone. Jira work items and BigPicture tasks can be converted to milestones in bulk.
 
 Visit the [Multiselect tasks](/cms_trial/space/SPM/1918832779/Multiselect+tasks/) page to learn how to select multiple tasks in the Gantt module.
 

@@ -72,14 +72,14 @@ The **Data** button expands the dropdown with the following actions:
 - [Organize tasks](https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=spm&title=Organize%20tasks&linkCreation=true&fromPageId=1918699591) A-Z/ Z-A (applies a global and irreversible work item sort in your view and in the view of other users)
 - Restore Jira tasks order
 - [Scheduling mode](/cms_trial/space/SPM/1918831395/Scheduling+mode/) (overwrites the scheduling mode for all tasks in a box)
-- [Baselines](/cms_trial/space/SPM/1918404564/Baselines/) (baselines management)
+- [Baselines](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404564) (baselines management)
 
   - New baseline
   - Save to version history
   - Delete
   - Manage baselines
 - [Group tasks](/cms_trial/space/SPM/1918830289/Group+tasks/) (groups tasks by one or multiple columns present in the current [column view](/cms_trial/space/SPM/1918668270/Column+view+(Gantt+and+Scope+modules)/))
-- [Resynchronize](/cms_trial/space/SPM/1918404058/Data+synchronization+with+connected+tools/) (triggers box data resynchronization with Jira/another connected tool)
+- [Resynchronize](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404058) (triggers box data resynchronization with Jira/another connected tool)
 
 ### Sort by
 
@@ -118,7 +118,7 @@ Alternatively, click **More actions** (**…**) on the **Summary** column (or th
     - Vertical
 - Show (adds/overlays additional info to the Gantt timeline)
 
-  - [Baselines](/cms_trial/space/SPM/1918404564/Baselines/)
+  - [Baselines](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404564)
   - [Period warnings](https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=spm&title=Period%20warnings&linkCreation=true&fromPageId=1918699591)
   - Progress
   - [Critical path](/cms_trial/space/SPM/1918405060/Critical+path/)
@@ -280,7 +280,7 @@ The import and export features are available with the BigTemplate App from the 
 
 - [Clone from another box](/cms_trial/space/SPM/1918636677/Clone+tasks+%2F+Clone+from+another+box/) (clones the existing scope from one box to another)
 - [Set scheduling mode for all tasks](/cms_trial/space/SPM/1918831395/Scheduling+mode/) (overwrites the scheduling mode for all tasks in a box)
-- [Resynchronize](/cms_trial/space/SPM/1918404058/Data+synchronization+with+connected+tools/) (triggers box data resynchronization with Jira/another connected tool)
+- [Resynchronize](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404058) (triggers box data resynchronization with Jira/another connected tool)
 
 ![Screenshot of the Gantt module with the Tasks menu expanded.](/cms_trial/assets/b3c39484-7431-46e6-9b88-a3f41316f158.png)
 
@@ -363,7 +363,7 @@ Alternatively, click **More actions** (**…**) on the **Summary** column (or th
 
 Under the Indicators menu, you’ll find the following features:
 
-- [Baselines](/cms_trial/space/SPM/1918404564/Baselines/) (baselines management)
+- [Baselines](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404564) (baselines management)
 
   - New baseline
   - Save to version history

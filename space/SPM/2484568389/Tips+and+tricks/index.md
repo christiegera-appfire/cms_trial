@@ -24,7 +24,7 @@ To further customize your project structure, you can use [basic tasks](https://a
 
 The Gantt and Scope modules feature a hierarchical task list (WBS) alongside columns that display various data on your project components. For example, start/end dates for phases and individual tasks.
 
-Add as many columns as you need and aggregate data on them to help you track your project. Then, save your setup as a [column view](/cms_trial/space/SPM/1918404907/Column+views/). You can create many different column views, star them to keep them at the top of the list, and then switch between them on the fly.
+Add as many columns as you need and aggregate data on them to help you track your project. Then, save your setup as a [column view](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404907). You can create many different column views, star them to keep them at the top of the list, and then switch between them on the fly.
 
 ![Column view dropdown.](/cms_trial/assets/ef92cce1-299c-47ac-af7a-b2f11eb448d9.png)
 

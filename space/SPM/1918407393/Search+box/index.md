@@ -32,7 +32,7 @@ The text search is the default mode. Click the icon next to the search field to 
 
 You can use the text fields and the task key in most modules to locate your tasks. Available text fields depend on your [connected tools](/cms_trial/space/SPM/1918633230/Integrations/) (Trello, Jira, etc.).
 
-Text search also applies to [basic tasks](/cms_trial/space/SPM/1918405930/Basic+tasks+%2F+BigPicture+tasks/).
+Text search also applies to [basic tasks](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918405930).
 
 For example, the search checks the contents of **all text fields** of Jira issues, such as:
 
@@ -163,7 +163,7 @@ The text search is the default mode. Click the icon next to the search field to 
 
 You can use the text fields and the task key in most modules to locate your tasks. Available text fields depend on your [connected tools](/cms_trial/space/SPM/1918633230/Integrations/) (Trello, Jira, etc.).
 
-Text search also applies to [BigPicture tasks](/cms_trial/space/SPM/1918405930/Basic+tasks+%2F+BigPicture+tasks/).
+Text search also applies to [BigPicture tasks](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918405930).
 
 For example, the search checks the contents of **all text fields** of Jira work items, such as:
 

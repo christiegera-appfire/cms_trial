@@ -22,7 +22,7 @@ The [template](/cms_trial/space/SPM/1918766042/Prioritization+templates/) you ch
 
 ## Prioritize tasks
 
-[BigPicture basic tasks](/cms_trial/space/SPM/1918405930/Basic+tasks+%2F+BigPicture+tasks/) aren’t displayed in the Priorities module, and you can’t prioritize them.
+[BigPicture basic tasks](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918405930) aren’t displayed in the Priorities module, and you can’t prioritize them.
 
 Under the **Tasks** tab, you can prioritize individual Jira work items added to the box you’re in.
 
@@ -63,7 +63,7 @@ The filtering options differ depending on the tab (Tasks, Boxes, Goals). See the
 - If a prioritization template is based on Jira fields, it will not be applied to boxes and goals. You’ll see the following message.
 
   ![A warning in the Boxes tab saying tha the selected template does not support prioritizing boxes and OKRs. The linked Jira field is not compatible. To enable prioritization, switch to a different template.](/cms_trial/assets/e73ec422-9e58-4841-8761-f8b07ec3b30d.png)
-- The [priority poker game](/cms_trial/space/SPM/1918407173/Priority+poker/) is not available for boxes and goals.
+- The [priority poker game](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918407173) is not available for boxes and goals.
 - The Priorities module can display up to 1,000 boxes and goals (OKRs). To view and prioritize more, apply filters to narrow down the results.
 
 ## What can be prioritized (new navigation)
@@ -84,7 +84,7 @@ The [template](/cms_trial/space/SPM/1918766042/Prioritization+templates/) you ch
 
 ## Prioritize tasks
 
-[BigPicture tasks](/cms_trial/space/SPM/1918405930/Basic+tasks+%2F+BigPicture+tasks/) aren’t displayed in the Priorities module, and you can’t prioritize them.
+[BigPicture tasks](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918405930) aren’t displayed in the Priorities module, and you can’t prioritize them.
 
 Under the **Tasks** tab, you can prioritize individual Jira work items added to the box you’re in.
 
@@ -123,5 +123,5 @@ The filtering options differ depending on the tab (Tasks, Boxes, Goals). See the
 - If a prioritization template is based on Jira fields, it will not be applied to boxes and goals. You’ll see the following message.
 
   ![Screenshot of the message when the prioritization template can't be applied to boxes.](/cms_trial/assets/a945f5fd-da59-486e-9fd0-751005dd2875.png)
-- The [priority poker game](/cms_trial/space/SPM/1918407173/Priority+poker/) is not available for boxes and goals.
+- The [priority poker game](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918407173) is not available for boxes and goals.
 - The Priorities module can display up to 1,000 boxes and goals (OKRs). To view and prioritize more, apply filters to narrow down the results.

@@ -10,7 +10,7 @@ Changing a [box type's](/cms_trial/space/SPM/1918830000/Box+types/) settings aff
 
 When you change the **default** [**scope type**](/cms_trial/space/SPM/1918766536/Scope+types/) of the box type on the [*Scope definition*](/cms_trial/space/SPM/2400714956/Populate+a+box+with+Jira+work+items/) page (**box type configuration** > **Tasks** > **Scope definition**), this change applies only to boxes you create afterward. Existing boxes are not affected.
 
-The scope of the current boxes will remain as it was set up during the [box creation process](/cms_trial/space/SPM/1918406376/Create+box/).
+The scope of the current boxes will remain as it was set up during the [box creation process](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406376).
 
 ![Scope definition page of the Program box type.](/cms_trial/assets/bd6b0157-0a9d-44f5-a82c-9eb622203034.png)
 
@@ -113,7 +113,7 @@ Changing a [box type's](/cms_trial/space/SPM/1918830000/Box+types/) settings aff
 
 When you change the **default** [**scope type**](/cms_trial/space/SPM/1918766536/Scope+types/) of the box type on the [*Work items from Jira*](/cms_trial/space/SPM/2400714956/Populate+a+box+with+Jira+work+items/) page (**box type configuration** > **Tasks** > **Work items from Jira**), this change applies only to boxes you create afterward. Existing boxes are not affected.
 
-The scope of the current boxes will remain as it was set up during the [box creation process](/cms_trial/space/SPM/1918406376/Create+box/).
+The scope of the current boxes will remain as it was set up during the [box creation process](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406376).
 
 ![box-types-work-items-from-jira.png](/cms_trial/assets/8a0bba33-6284-44b2-a410-3955376c2094.png)
 

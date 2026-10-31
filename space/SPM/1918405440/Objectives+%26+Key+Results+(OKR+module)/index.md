@@ -87,4 +87,4 @@ Note that the field names in the OKR module differ from those in other modules. 
 
 ## Import/Export OKRs
 
-It is possible to [import](/cms_trial/space/SPM/1918406659/Import+OKRs/) and [export OKRs](/cms_trial/space/SPM/1918668919/Export+OKRs/) to and from a box through a .csv file.
+It is possible to [import](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406659) and [export OKRs](/cms_trial/space/SPM/1918668919/Export+OKRs/) to and from a box through a .csv file.

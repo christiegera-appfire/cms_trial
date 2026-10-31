@@ -44,7 +44,7 @@ Jira/App/Box Admins can use the same context menu to:
 - archive a box
 - delete a box
 
-In addition, they can click the **Add new** (**+**) in the upper menu to [create a new box](/cms_trial/space/SPM/1918406376/Create+box/).
+In addition, they can click the **Add new** (**+**) in the upper menu to [create a new box](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406376).
 
 [**Read more**](/cms_trial/space/SPM/1918699321/Box+management/)
 
@@ -177,7 +177,7 @@ Jira/App/Box Admins can use the same context menu to:
 - Archive a box
 - Delete a box
 
-In addition, they can click the **Create new** button to [create a new box](/cms_trial/space/SPM/1918406376/Create+box/).
+In addition, they can click the **Create new** button to [create a new box](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406376).
 
 [**Read more**](/cms_trial/space/SPM/1918699321/Box+management/)
 

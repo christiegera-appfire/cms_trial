@@ -58,7 +58,7 @@ You can track the changes in your tasks in the Gantt module’s Infobar panel. T
 
 ## Organization of tasks
 
-You can irreversibly organize tasks in the Gantt and Scope modules by the columns present in your current [column view](/cms_trial/space/SPM/1918404907/Column+views/).
+You can irreversibly organize tasks in the Gantt and Scope modules by the columns present in your current [column view](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404907).
 
 [**Read more**](/cms_trial/space/SPM/1918667546/Organize+tasks%2F+Default+task+order/)
 

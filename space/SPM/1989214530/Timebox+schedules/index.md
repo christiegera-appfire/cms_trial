@@ -132,7 +132,7 @@ The **Delete** button deletes the entire timebox schedule. Once you confirm, thi
 
 ## Use timebox schedule during box creation
 
-When [creating a new box](/cms_trial/space/SPM/1918406376/Create+box/), you can use one of the existing timebox schedules. If no timebox schedule was previously created yet, the **Use timebox schedule** toggle switch is unavailable (grayed out).
+When [creating a new box](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406376), you can use one of the existing timebox schedules. If no timebox schedule was previously created yet, the **Use timebox schedule** toggle switch is unavailable (grayed out).
 
 ![image-20250415-124833.png](/cms_trial/assets/5471e32d-68cc-4eaf-98cc-2480759288d0.png)
 

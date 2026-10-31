@@ -23,7 +23,7 @@ With the editor slider, you can carry out several different bulk operations on t
 
 - Move it up or down the hierarchy (with arrows).
 - [Indent or outdent it](/cms_trial/space/SPM/1918669003/Manual+task+structure/) (with arrows).
-- Create or delete a [baseline](/cms_trial/space/SPM/1918404564/Baselines/) for it.
+- Create or delete a [baseline](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404564) for it.
 - Change its [scheduling mode](/cms_trial/space/SPM/1918831395/Scheduling+mode/) (regardless of the relationship of selected tasks).
 - Convert
 
@@ -31,7 +31,7 @@ With the editor slider, you can carry out several different bulk operations on t
   - [a milestone to task](/cms_trial/space/SPM/1918863029/Convert+milestone+to+task/).
   - [a basic task to Jira issue](/cms_trial/space/SPM/1918863006/Convert+basic+task+to+Jira+work+item+%2F+Convert+BigPicture+task+to+Jira+work+item/).
 - Manually select the [task color](/cms_trial/space/SPM/1918636160/Task+color/).
-- [Delete](/cms_trial/space/SPM/1918406592/Delete+task/) it.
+- [Delete](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406592) it.
 
 ![Editor slider options for bulk operations on tasks in the Gantt module.](/cms_trial/assets/1858776c-1daf-4b71-a51e-cf80839f263a.png)
 
@@ -39,7 +39,7 @@ If you select a single task that has no tasks nested under it, the editor slider
 
 - Edit.
 - Create dependency.
-- Convert to Jira issue (applies to [basic tasks](/cms_trial/space/SPM/1918405930/Basic+tasks+%2F+BigPicture+tasks/) only).
+- Convert to Jira issue (applies to [basic tasks](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918405930) only).
 
 ![Editor slider options for a single task in the Gantt module.](/cms_trial/assets/829fb95d-2698-4514-b35a-60b19135fbfc.png)
 
@@ -72,7 +72,7 @@ With the editor slider, you can carry out several different bulk operations on t
 
 - Move it up or down the hierarchy (with arrows).
 - [Indent or outdent it](/cms_trial/space/SPM/1918669003/Manual+task+structure/) (with arrows).
-- Create or delete a [baseline](/cms_trial/space/SPM/1918404564/Baselines/) for it.
+- Create or delete a [baseline](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404564) for it.
 - Change its [scheduling mode](/cms_trial/space/SPM/1918831395/Scheduling+mode/) (regardless of the relationship of selected tasks).
 - Convert
 
@@ -80,13 +80,13 @@ With the editor slider, you can carry out several different bulk operations on t
   - [a milestone to task](/cms_trial/space/SPM/1918863029/Convert+milestone+to+task/).
   - [a BigPicture task to Jira work item](/cms_trial/space/SPM/1918863006/Convert+basic+task+to+Jira+work+item+%2F+Convert+BigPicture+task+to+Jira+work+item/).
 - Manually select the [task color](/cms_trial/space/SPM/1918636160/Task+color/).
-- [Delete](/cms_trial/space/SPM/1918406592/Delete+task/) it.
+- [Delete](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406592) it.
 
 If you select a single task that has no tasks nested under it, the editor slider additionally displays:
 
 - Edit
 - Create dependency
-- Convert to Jira work item (applies to [BigPicture tasks](/cms_trial/space/SPM/1918405930/Basic+tasks+%2F+BigPicture+tasks/) only).
+- Convert to Jira work item (applies to [BigPicture tasks](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918405930) only).
 
 For parent tasks, you can additionally:
 

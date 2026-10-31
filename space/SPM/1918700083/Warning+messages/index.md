@@ -3,7 +3,6 @@
 In this section, you can find a list of various warnings you can encounter while working with BigPicture:
 
 - [Messages](/cms_trial/space/SPM/1926628077/Messages/)
-  - [Built-in field hasn't been mapped](/cms_trial/space/SPM/1918406142/Built-in+field+hasn%27t+been+mapped/)
   - [Cloning and importing problems](/cms_trial/space/SPM/1918406270/Cloning+and+importing+problems/)
   - ["ORDER BY" JQL is not supported by the app](/cms_trial/space/SPM/1918667852/%22ORDER+BY%22+JQL+is+not+supported+by+the+app/)
   - [Potential scope misconfiguration](/cms_trial/space/SPM/1918505821/Potential+scope+misconfiguration/)

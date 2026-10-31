@@ -24,9 +24,9 @@ The top-right corner houses the following options:
 ![okr-overview-options.png](/cms_trial/assets/04068cfd-b0da-4cf0-8061-5b9e3db9e21d.png)
 
 - **Filters:** Lets you select and apply global filters to all OKRs in your current view.
-- **Import**: Click to open the [OKR import](/cms_trial/space/SPM/1918406659/Import+OKRs/) screen, where you can upload the .csv file with the OKRs you want to import.
+- **Import**: Click to open the [OKR import](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406659) screen, where you can upload the .csv file with the OKRs you want to import.
 - **Export**: Click to see the [OKR export](/cms_trial/space/SPM/1918668919/Export+OKRs/) options, where you select or deselect the data you want to export.
-- **Share view:** Click to copy a link you can use to [share your current OKR view](/cms_trial/space/SPM/1918408436/Share+view+(OKR+module)/).
+- **Share view:** Click to copy a link you can use to [share your current OKR view](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918408436).
 - **Documentation link:** Click to open product technical documentation.
 
 ### Period filter

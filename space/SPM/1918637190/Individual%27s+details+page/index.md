@@ -54,7 +54,7 @@ See the [Assign skills](/cms_trial/space/SPM/1918702159/Assign+skills/) page to 
 
 The App admin must first [add workload plans](/cms_trial/space/SPM/1918799895/Add%2C+edit%2C+and+delete+workload+plans/) on the **Administration** > **Resources** > **Workload plans** page. When adding a resource to a workload plan, both start and end dates are required, and the App will automatically set the end date when a new plan is added.
 
-See the [Assign individuals to workload plans](/cms_trial/space/SPM/1918408134/Assign+individuals+to+workload+plans/) page to learn how to assign workload plans to individuals.
+See the [Assign individuals to workload plans](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918408134) page to learn how to assign workload plans to individuals.
 
 ## Holiday plans
 

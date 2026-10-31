@@ -12,7 +12,7 @@ Watch videos about BigPicture modules and learn about their key features and cap
 | [Resources](/cms_trial/space/SPM/1918535629/Resources+module/) |  |
 | [Teams](/cms_trial/space/SPM/1918829775/Teams+module/) |  |
 | [Risk Management](/cms_trial/space/SPM/1918699171/Risk+management+module+(NEW)/) |  |
-| [Reports](/cms_trial/space/SPM/1918502811/Reports+module/) |  |
+| [Reports](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918502811) |  |
 | [OKR](/cms_trial/space/SPM/1918535397/OKR+module/) |  |
 | [Priorities](/cms_trial/space/SPM/1918829653/Priorities+module/) |  |
 | [Financials](https://appfire.atlassian.net/wiki/spaces/SPM/pages/2269806655) |  |

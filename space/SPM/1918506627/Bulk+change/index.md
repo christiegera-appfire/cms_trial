@@ -23,7 +23,7 @@ You can carry out the following actions on the group of tasks (including [basic 
 
 You can select and bulk edit up to **50 tasks** in one go. The bulk change options in the Infobar appear only for tasks selected with the checkboxes.
 
-Select individual tasks for editing by checking them in the checkbox column in your [column view](/cms_trial/space/SPM/1918404907/Column+views/). Use the **top checkbox** in the column header to clear your selections.
+Select individual tasks for editing by checking them in the checkbox column in your [column view](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404907). Use the **top checkbox** in the column header to clear your selections.
 
 Once you check at least one task, a **bottom bar** with a counter will appear.
 

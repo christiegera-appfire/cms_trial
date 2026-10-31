@@ -63,7 +63,7 @@ The video presents how to convert a basic task into a Jira work item.
 
 ## Additional resources
 
-- [Basic tasks / BigPicture tasks](/cms_trial/space/SPM/1918405930/Basic+tasks+%2F+BigPicture+tasks/)
+- <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918405930>
 
 ## Build a task structure with BigPicture tasks (new navigation)
 
@@ -124,4 +124,4 @@ The video presents how to convert a BigPicture task into a Jira work item.
 
 ## Additional resources
 
-- [Basic tasks / BigPicture tasks](/cms_trial/space/SPM/1918405930/Basic+tasks+%2F+BigPicture+tasks/)
+- <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918405930>

@@ -48,7 +48,7 @@ Display task progress on a column in the Gantt module’s column view, on the ta
 
 You can create and delete baselines in the Gantt module for all the tasks you added to the box or individually for the selected tasks only.
 
-[**Read more**](/cms_trial/space/SPM/1918404564/Baselines/)
+[**Read more**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404564)
 
 ---
 

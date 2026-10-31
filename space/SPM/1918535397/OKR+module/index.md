@@ -46,9 +46,9 @@ The table presents the main features of the OKR module.
 | [Tree view](/cms_trial/space/SPM/1918801711/Tree+view/) | The Tree view page is the default page that appears after the OKR creation process. It lists all the OKRs created in one session and their details. |
 | [Hierarchy](/cms_trial/space/SPM/1918669889/OKR+Hierarchy/) | The Hierarchy page visualizes OKRs in a family tree-like structure. Each OKR is represented as an OKR card showing basic details. |
 | [Progress Dashboard](/cms_trial/space/SPM/1918801225/Progress+Dashboard/) | The Progress Dashboard displays various statistical data about your OKRs that you can use for reports and tracking. |
-| [Import](/cms_trial/space/SPM/1918406659/Import+OKRs/) | You can import OKRs using a .csv file. |
+| [Import](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406659) | You can import OKRs using a .csv file. |
 | [Export](/cms_trial/space/SPM/1918668919/Export+OKRs/) | You can export OKRs to a .csv file and customize the data you want to export from the OKR module. |
-| [Share view](/cms_trial/space/SPM/1918408436/Share+view+(OKR+module)/) | Generate a URL you can share with other stakeholders so they can see what you see in the OKR Overview. |
+| [Share view](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918408436) | Generate a URL you can share with other stakeholders so they can see what you see in the OKR Overview. |
 | [Search and filters](/cms_trial/space/SPM/1918637654/OKR+Filters%2C+search%2C+and+saved+views/) | Search and filter your views on the Overview, Hierarchy, and Progress Dashboard pages. |
 | [Display OKRs on the Gantt task tree](/cms_trial/space/SPM/1918835163/Track+OKRs+across+modules/) | You can add the **Objectives** and **Key Results** columns in the Gantt module or use the predefined **Objectives and Key Results** column view. |
 | [Set OKRs as structure builders](/cms_trial/space/SPM/1918863661/OKRs+as+task+structure+builders/) | OKRs can serve as the basis for building the structure for the tasks in the scope of a box.  This can help you view, track, and align your project or portfolio tasks with the OKRs they support. |
@@ -95,9 +95,9 @@ The table presents the main features of the OKR module.
 | [Tree view](/cms_trial/space/SPM/1918801711/Tree+view/) | The Tree view page is the default page that appears after the OKR creation process. It lists all the OKRs created in one session and their details. |
 | [Hierarchy](/cms_trial/space/SPM/1918669889/OKR+Hierarchy/) | The Hierarchy page visualizes OKRs in a family tree-like structure. Each OKR is represented as an OKR card showing basic details. |
 | [Progress Dashboard](/cms_trial/space/SPM/1918801225/Progress+Dashboard/) | The Progress Dashboard displays various statistical data about your OKRs that you can use for reports and tracking. |
-| [Import](/cms_trial/space/SPM/1918406659/Import+OKRs/) | You can import OKRs using a .csv file. |
+| [Import](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406659) | You can import OKRs using a .csv file. |
 | [Export](/cms_trial/space/SPM/1918668919/Export+OKRs/) | You can export OKRs to a .csv file and customize the data you want to export from the OKR module. |
-| [Share view](/cms_trial/space/SPM/1918408436/Share+view+(OKR+module)/) | Generate a URL you can share with other stakeholders so they can see what you see in the OKR Overview. |
+| [Share view](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918408436) | Generate a URL you can share with other stakeholders so they can see what you see in the OKR Overview. |
 | [Search and filters](/cms_trial/space/SPM/1918637654/OKR+Filters%2C+search%2C+and+saved+views/) | Search and filter your views on the Overview, Hierarchy, and Progress Dashboard pages. |
 | [Display OKRs on the Gantt task tree](/cms_trial/space/SPM/1918835163/Track+OKRs+across+modules/) | You can add the **Objectives** and **Key Results** columns in the Gantt module or use the predefined **Objectives and Key Results** column view. |
 | [Set OKRs as structure builders](/cms_trial/space/SPM/1918863661/OKRs+as+task+structure+builders/) | OKRs can serve as the basis for building the structure for the tasks in the scope of a box.  This can help you view, track, and align your project or portfolio tasks with the OKRs they support. |

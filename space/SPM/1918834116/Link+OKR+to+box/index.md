@@ -16,7 +16,7 @@ OKRs are automatically linked to the box when you:
 
 - [link a Jira work item](/cms_trial/space/SPM/1918507296/Link+work+items+to+Key+Results/) that is within the scope of the current box. In such a case, the Key Result (KR) that is linked to the work item from the current box will also appear in the OKR module, even if that Key Result belongs to a different box.
 - [create an Objective](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918702275)/[Key Result](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918538655) in the OKR module. The newly created OKRs appear in the current box and are visible on the *Overview*, *Hierarchy*, and *Progress Dashboard* pages.
-- [import OKRs](/cms_trial/space/SPM/1918406659/Import+OKRs/) from another source.
+- [import OKRs](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406659) from another source.
 
 ## Manually link an existing OKR to a box
 
@@ -76,7 +76,7 @@ If someone has already created OKRs or linked work items from that box to some K
 ### In the OKR module
 
 - Unlinking OKRs from a current box does not affect their progress (unless you unlink work items from the auto-KR or convert it to a manual KR).
-- Unlinking an OKR is not the same as [deleting](/cms_trial/space/SPM/1918408286/Delete+OKR/) it. If you unlink an OKR, you can link it again to the current or another box.
+- Unlinking an OKR is not the same as [deleting](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918408286) it. If you unlink an OKR, you can link it again to the current or another box.
 
 If there is an OKR in your box that is no longer relevant to your current work, you can hide it. Note that you can unlink only:
 
@@ -104,7 +104,7 @@ OKRs are automatically linked to the box when you:
 
 - [link a Jira work item](/cms_trial/space/SPM/1918507296/Link+work+items+to+Key+Results/) that is within the scope of the current box. In such a case, the Key Result (KR) that is linked to the work item from the current box will also appear in the OKR module, even if that Key Result belongs to a different box.
 - [create an Objective](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918702275)/[Key Result](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918538655) in the OKR module. The newly created OKRs appear in the current box and are visible on the *Overview*, *Hierarchy*, and *Progress Dashboard* pages.
-- [import OKRs](/cms_trial/space/SPM/1918406659/Import+OKRs/) from another source.
+- [import OKRs](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406659) from another source.
 
 ## Manually link an existing OKR to a box
 
@@ -164,7 +164,7 @@ If someone has already created OKRs or linked work items from that box to some K
 ### OKR module
 
 - Unlinking OKRs from a current box does not affect their progress (unless you unlink work items from the auto-KR or convert it to a manual KR).
-- Unlinking an OKR is not the same as [deleting](/cms_trial/space/SPM/1918408286/Delete+OKR/) it. If you unlink an OKR, you can link it again to the current or another box.
+- Unlinking an OKR is not the same as [deleting](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918408286) it. If you unlink an OKR, you can link it again to the current or another box.
 
 If there is an OKR in your box that is no longer relevant to your current work, you can hide it. Note that you can unlink only:
 

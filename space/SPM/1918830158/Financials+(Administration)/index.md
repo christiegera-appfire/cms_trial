@@ -4,15 +4,13 @@ In the Administration configuration you can manage hourly rates for teams and ca
 
 You can access the settings by clicking the App Settings icon in the upper-right corner of the window:
 
-Image — asset pipeline pending  
-financials-administration.png
+![financials-administration.png](/cms_trial/assets/a3b5d30e-c30b-476f-a392-fe673584dd19.png)
 
 ## Team hourly rate
 
 ### Create
 
-Image — asset pipeline pending  
-financials-team-hourly-rate.png
+![financials-team-hourly-rate.png](/cms_trial/assets/b5d66097-06c3-48cf-b46d-12689e2ac6fa.png)
 
 You can create, edit, or delete an hourly rate assigned to a specific team and then used to calculate the estimated costs of initiatives.
 
@@ -25,8 +23,7 @@ To add a new rate:
 5. Set an hourly rate for at least one team.
 6. Click **Save**.
 
-Image — asset pipeline pending  
-add-hourly-rates.png
+![add-hourly-rates.png](/cms_trial/assets/2244e120-2587-49cf-b59d-80c454af3697.png)
 
 ### Edit/Delete
 
@@ -36,8 +33,7 @@ You can edit or delete a team’s rate by clicking the corresponding icons in th
 
 Here, you can change the currency displayed in the Financials module:
 
-Image — asset pipeline pending  
-financials-currency.png
+![financials-currency.png](/cms_trial/assets/2a743ff1-c590-478b-ab3e-e8cc8374b26d.png)
 
 ## Baselines
 
@@ -45,8 +41,7 @@ To find out more about baselines, go to the [Cost Variance](/cms_trial/space/SPM
 
 Snapshot information and automation settings can be found in **App Administration** > **Financials** tab > **Baselines**.
 
-Image — asset pipeline pending  
-financials-baselines.png
+![financials-baselines.png](/cms_trial/assets/33c110d4-671d-4dc1-b966-d9023697e189.png)
 
 ### Automation settings
 
@@ -60,8 +55,7 @@ You can set up the app to take the snapshots automatically:
 
 Custom expenses are one-time or recurring expenses that are not associated with specific work items. They can be beneficial for monitoring flexible or miscellaneous project-related expenditures.
 
-Image — asset pipeline pending  
-financials-custom-expenses.png
+![financials-custom-expenses.png](/cms_trial/assets/cb449215-710d-46d8-8d40-01798daf8a5a.png)
 
 To add a new expense, click **+ Add new expense.**
 
@@ -71,8 +65,7 @@ The source of the expanse is displayed in the Source field in the Work cost brea
 
 If the chosen field is deleted in Jira, information about it is displayed in the Work cost breakdown:
 
-Image — asset pipeline pending  
-custom-field-removed.png
+![custom-field-removed.png](/cms_trial/assets/d6b88c5c-fcee-426c-a008-4d1fef08fe33.png)
 
 **Name** - set the cost name.
 
@@ -86,18 +79,15 @@ custom-field-removed.png
 
 **CapEx or OpEx** - choose if the cost is CapEx, OpEx or uncategorized - for more information, check the next section.
 
-Image — asset pipeline pending  
-add-new-custom-expense.png
+![add-new-custom-expense.png](/cms_trial/assets/d807c0d3-413d-46fc-97c4-8eb6b9b3dab1.png)
 
 Click **Save** to add the cost. Once you do it, it is available in the Work breakdown table in the related initiative:
 
-Image — asset pipeline pending  
-woek-costs-breakdown-custom-expenses.png
+![woek-costs-breakdown-custom-expenses.png](/cms_trial/assets/cc936c57-b4d7-4bab-82c5-022a0ef1661f.png)
 
 ## CapEx and OpEx
 
-Image — asset pipeline pending  
-financials-capex-opex.png
+![financials-capex-opex.png](/cms_trial/assets/bcf22052-94ee-418c-8cec-14a219f76272.png)
 
 CapEx and OpEx costs can be managed in the CapEx vs OpEx widget on the [portfolio](https://appfire.atlassian.net/wiki/spaces/DLPDRAFT/pages/2264695482/Actual+vs+Planned#CapEx-vs.-OpEx) and [initiative](/cms_trial/space/SPM/2265317971/Initiative/) level.
 
@@ -123,15 +113,12 @@ The ‘CapEx or OpEx’ custom field is added to Jira custom fields upon the app
 
 Budget milestones are checkpoints for your projects. They let you plan ahead by setting key dates and expected costs, giving you better control over your spending.
 
-Image — asset pipeline pending  
-financials-budget-milestones.png
+![financials-budget-milestones.png](/cms_trial/assets/b8784a84-6982-42a6-8f62-68d2599b7bbd.png)
 
 Click **+ Add milestone** to add a new entry to the list. Fill in the fields accordingly:
 
-Image — asset pipeline pending  
-financials-new-budget-milestone.png
+![financials-new-budget-milestone.png](/cms_trial/assets/0dd53dfe-824b-4a41-b3a1-d8dd231a1776.png)
 
 Once the milestone is added, it is visible in the chosen Initiative as a red line:
 
-Image — asset pipeline pending  
-financials-milestone.png
+![financials-milestone.png](/cms_trial/assets/42159af5-ae43-4fa7-a828-493c6fc8e44a.png)

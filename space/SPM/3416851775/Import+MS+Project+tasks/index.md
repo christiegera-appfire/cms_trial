@@ -4,7 +4,7 @@ You can import Microsoft Project tasks into BigPicture and decide how they shoul
 
 - Convert imported tasks to Jira work items (parents will be converted to default work item types).
 - Convert imported tasks to Jira work items (parents will be converted to epics).
-- Convert imported tasks to [BigPicture tasks](/cms_trial/space/SPM/1918405930/Basic+tasks+%2F+BigPicture+tasks/).
+- Convert imported tasks to [BigPicture tasks](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918405930).
 
 BigPicture tasks are stored only in BigPicture and are not synchronized with Jira. This option gives you a safe workspace to review and refine imported tasks, and [convert them to Jira work items](/cms_trial/space/SPM/1918863006/Convert+basic+task+to+Jira+work+item+%2F+Convert+BigPicture+task+to+Jira+work+item/) when you’re ready.
 

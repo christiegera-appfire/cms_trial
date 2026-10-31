@@ -32,7 +32,7 @@ To add dates to a task in the [Gantt module](/cms_trial/space/SPM/1918797129/Gan
 2. Click the **+** icon.
 
    ![Screenshot of the Gantt timeline with a task without dates.](/cms_trial/assets/39d5059c-ec42-4e53-9b88-0c0facac8917.png)
-3. Edit the **Start Date** and **End Date** fields (make sure that these columns are added to the current [column view](/cms_trial/space/SPM/1918404907/Column+views/)).
+3. Edit the **Start Date** and **End Date** fields (make sure that these columns are added to the current [column view](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404907)).
 
    ![Screenshot of the Gantt timeline when adding dates to a task.](/cms_trial/assets/22742176-04bf-4958-867b-af5aa083e59f.png)
 
@@ -41,7 +41,7 @@ To add dates to a task in the [Gantt module](/cms_trial/space/SPM/1918797129/Gan
 To add dates to a task in the [Scope module](/cms_trial/space/SPM/1918666763/Scope+module/):
 
 1. Find a task.
-2. Edit the **Start Date** and **End Date** fields (make sure that these columns are added to the current [column view](/cms_trial/space/SPM/1918404907/Column+views/)).
+2. Edit the **Start Date** and **End Date** fields (make sure that these columns are added to the current [column view](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404907)).
 
 ![Screenshot of Scope module when adding dates to a task.](/cms_trial/assets/56a4887e-b26f-461b-a446-631b1a786e23.png)
 
@@ -176,7 +176,7 @@ The arrow between tasks will appear once you assign at least one date to the tas
 
 See more on the [Period warnings / Parent task conflicts](/cms_trial/space/SPM/1918832897/Period+warnings+%2F+Parent+task+conflicts/) page.
 
-### [Baselines](/cms_trial/space/SPM/1918404564/Baselines/)
+### [Baselines](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404564)
 
 Baselines work for tasks with start and end dates. They can’t be created for tasks with only one date.
 
@@ -212,7 +212,7 @@ To add dates to a task in the [Gantt module](/cms_trial/space/SPM/1918797129/Gan
 2. Click the **+** icon.
 
    ![Screenshot of clicking the plus icon on the Gantt timeline to add task dates.](/cms_trial/assets/90361a45-b049-4b74-8e9d-73511e3230d8.png)
-3. Edit the **Start Date** and **End Date** fields (make sure that these columns are added to the current [column view](/cms_trial/space/SPM/1918404907/Column+views/)).
+3. Edit the **Start Date** and **End Date** fields (make sure that these columns are added to the current [column view](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404907)).
 
    ![Screenshot of changing the start date for a task in the Gantt module.](/cms_trial/assets/740c856e-7fd0-41e6-847c-20410d2b5671.png)
 
@@ -221,14 +221,14 @@ To add dates to a task in the [Gantt module](/cms_trial/space/SPM/1918797129/Gan
 To add dates to a task in the [Scope module](/cms_trial/space/SPM/1918666763/Scope+module/):
 
 1. Find a task.
-2. Edit the **Start Date** and **End Date** fields (make sure that these columns are added to the current [column view](/cms_trial/space/SPM/1918404907/Column+views/)).
+2. Edit the **Start Date** and **End Date** fields (make sure that these columns are added to the current [column view](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404907)).
 
 ### Board module
 
 To add dates to a task in the [Board module](/cms_trial/space/SPM/1918796888/Board+module/):
 
 1. Go to **Infobar** > **Backlog**.
-2. Edit the **Start Date** and **End Date** fields (make sure that these columns are added to the current [column view](/cms_trial/space/SPM/1918404907/Column+views/)).
+2. Edit the **Start Date** and **End Date** fields (make sure that these columns are added to the current [column view](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404907)).
 
 For iterations with precise alignment:
 
@@ -343,6 +343,6 @@ The arrow between tasks will appear once you assign at least one date to the tas
 
 See more on the [Parent task conflicts](/cms_trial/space/SPM/1918832897/Period+warnings+%2F+Parent+task+conflicts/) page.
 
-### [Baselines](/cms_trial/space/SPM/1918404564/Baselines/)
+### [Baselines](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404564)
 
 Baselines work for tasks with start and end dates. They can’t be created for tasks with only one date.

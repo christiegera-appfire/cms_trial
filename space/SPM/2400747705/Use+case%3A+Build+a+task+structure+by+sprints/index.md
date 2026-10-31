@@ -22,7 +22,7 @@ Jira sprints You need to have sprints defined in Jira. You can’t create Jira s
 4. Enable **Jira Sprint** and **Sub-tasks**. This way, you’ll see your Jira sprints and assigned tasks to these sprints.
 5. Click **Save**.
 6. Once saved, sprints are added as task types on the **box configuration** > **Tasks** > **Scope definition** page.
-7. The changes are immediately reflected on the Gantt chart, and Jira sprints are visible as [basic tasks](/cms_trial/space/SPM/1918405930/Basic+tasks+%2F+BigPicture+tasks/).
+7. The changes are immediately reflected on the Gantt chart, and Jira sprints are visible as [basic tasks](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918405930).
 
 **Tip:**
 

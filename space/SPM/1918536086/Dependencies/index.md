@@ -28,7 +28,7 @@ The following can be defined for a dependency:
 | --- | --- | --- |
 | Target task | YES | YES |
 | Dependency type | YES  [Four types available](/cms_trial/space/SPM/1918701700/Strong+dependencies/) | YES  Soft dependencies don't have different types |
-| [Lag time](/cms_trial/space/SPM/1918406747/Lag+time/) | YES | NO |
+| [Lag time](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406747) | YES | NO |
 | [ASAP mode](/cms_trial/space/SPM/1918764948/ASAP+mode/) | YES | NO |
 | Description | YES | YES |
 

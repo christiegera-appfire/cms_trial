@@ -155,4 +155,4 @@ You can add OKR custom fields on the [*Overview*](/cms_trial/space/SPM/191883431
 - You can import and export OKR custom fields to and from BigPicture using API endpoints. Visit [BigPicture Developer Portal](https://developer.bigpicture.one/reference/fetchobjectivesbyids) for details.
 - You can also import and export OKR custom fields and their values using a CSV file. Before you begin your import, make sure the OKR custom fields in your CSV file match the fields configured in the OKR module’s Settings.
 
-Visit [Import OKRs](/cms_trial/space/SPM/1918406659/Import+OKRs/) and [Export OKRs](/cms_trial/space/SPM/1918668919/Export+OKRs/) for more information.
+Visit [Import OKRs](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406659) and [Export OKRs](/cms_trial/space/SPM/1918668919/Export+OKRs/) for more information.

@@ -22,7 +22,7 @@ Task information has to be edited in a module (such as Gantt - the value of the 
 
 Those columns are based on [built-in fields](/cms_trial/space/SPM/1918832240/Built-in+fields/).
 
-Task value fields are available for all tasks (including [basic tasks](/cms_trial/space/SPM/1918405930/Basic+tasks+%2F+BigPicture+tasks/)).
+Task value fields are available for all tasks (including [basic tasks](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918405930)).
 
 ## Inline editing of box attributes
 
@@ -148,7 +148,7 @@ If you want to change the details of already planned tasks (tasks shown as cards
 
 Those columns are based on [built-in fields](/cms_trial/space/SPM/1918832240/Built-in+fields/).
 
-Fields are available for all tasks (including [basic tasks](/cms_trial/space/SPM/1918405930/Basic+tasks+%2F+BigPicture+tasks/)).
+Fields are available for all tasks (including [basic tasks](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918405930)).
 
 **Field mapping**
 
@@ -237,7 +237,7 @@ Task information has to be edited in a module (such as Gantt - the value of the 
 
 ![Screenshot of the Actual Cost column added to the Gantt module.](/cms_trial/assets/b6e2a920-4c31-4532-afcb-f93510114557.png)
 
-Those columns are based on [built-in fields](/cms_trial/space/SPM/1918832240/Built-in+fields/). Task value fields are available for all tasks (including [BigPicture tasks](/cms_trial/space/SPM/1918405930/Basic+tasks+%2F+BigPicture+tasks/)).
+Those columns are based on [built-in fields](/cms_trial/space/SPM/1918832240/Built-in+fields/). Task value fields are available for all tasks (including [BigPicture tasks](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918405930)).
 
 ## Inline editing of box attributes
 
@@ -353,7 +353,7 @@ If you want to change the details of already planned tasks (tasks shown as cards
 
 ![Screenshot of the Backlog panel in the Board module.](/cms_trial/assets/b4f288f4-fad4-48f4-8dd7-689c5d9d1c95.png)
 
-Those columns are based on [built-in fields](/cms_trial/space/SPM/1918832240/Built-in+fields/). Fields are available for all tasks (including [BigPicture tasks](/cms_trial/space/SPM/1918405930/Basic+tasks+%2F+BigPicture+tasks/)).
+Those columns are based on [built-in fields](/cms_trial/space/SPM/1918832240/Built-in+fields/). Fields are available for all tasks (including [BigPicture tasks](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918405930)).
 
 **Field mapping**
 
