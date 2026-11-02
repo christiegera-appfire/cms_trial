@@ -4,6 +4,8 @@ On this page, you’ll find a collection of video tutorials covering the feature
 
 | **Feature/Module** | **Video** |
 | --- | --- |
+| Financials module - financial analysis and additional expenses |  |
+| Financials module - forecasting costs |  |
 | Financials module - track actual costs and roll-ups |  |
 | Financials module - [calculations settings](/cms_trial/space/SPM/2269839509/Customize+cost+calculations/) |  |
 | Financials module - [financials management](/cms_trial/space/SPM/1918633194/Financials+management/) |  |

@@ -343,7 +343,7 @@ Any Jira issue, Trello card, or Basic task (native to the App).
 
 The team module lets you group individual users into teams, enabling effort-based planning.
 
-The concept of teams is used mainly in the Resources, Objectives, and Board modules, but since the information about the team can be stored as a label or a custom field, it can also be displayed using the Gantt, Scope, or Risks module by adding it to the Column View or Card View.
+The concept of teams is used mainly in the Resources, Goals, and Board modules, but since the information about the team can be stored as a label or a custom field, it can also be displayed using the Gantt, Scope, or Risks module by adding it to the Column View or Card View.
 
 You can create global teams and assign them to multiple Boxes. Once created, you can easily give them to individual Boxes (a team is inherited and can't be edited on a Box level) or duplicate them in a personal Box (a team configuration is duplicated and can be further edited).
 
@@ -385,7 +385,7 @@ The Timeline is a common element of the following modules:
 
 - Overview - Timeline mode - you can show and edit Boxes using drag and drop.
 - Gantt - you can show Tasks, Projects, Sprints, Backlog, Components, Versions, Boxes and Markers.
-- Board and Objectives - you can show Markers and Boxes.
+- Board and Goals - you can show Markers and Boxes.
 - Resource - you can show tasks.
 
 ### Widget
@@ -417,7 +417,7 @@ To assess your project's performance over time, you can set Baselines and track
 
 The Baselines can be synchronized with Jira (Tasks require Jira Admin permissions), and the synced fields can be added to Column views or as fields to the Task / Risk Cards.
 
-You can create and delete Baselines for all the tasks in the scope of the Box or for selected tasks only. They are displayed as bold lines, showing the position of the task at the moment of creating the Baseline.
+You can create and delete Baselines for all the tasks in the scope of the Box or for selected tasks only. They appear as bold lines, showing the task's position when you create the Baseline.
 
 ### BigPicture task
 
@@ -431,15 +431,15 @@ The Appuses them to replace non-work-item Jira entities (like Components, Versio
 
 A box is a customizable, structured space (container) where you organize and visualize your project, program, and portfolio elements, such as tasks, deliverables, resources, risks, and even other boxes (sub-boxes).
 
-Boxes are equipped with all the essential tools for efficient management, allowing you to adapt seamlessly to various project management approaches, including Agile, scaled Agile, Hybrid, and Waterfall. You can also customize them to support unique methodologies that do not fall into any of those categories.
+Boxes include all the essential tools for efficient management, allowing you to adapt seamlessly to various project management approaches, including Agile, scaled Agile, Hybrid, and Waterfall. You can also customize them to support unique methodologies that do not fall into any of those categories.
 
-Each box can be customized based on the specific tools (modules) needed for your project, the scope of work, and the security roles required for viewing and managing the box.
+You can customize each box based on the specific tools (modules) needed for your project, the scope of work, and the security roles required to view and manage the box.
 
 ### Box hierarchy
 
 Box hierarchy is a structured system for organizing and managing the various elements of projects, programs, and portfolios.
 
-At the top of the box hierarchy is the Home (root) box, which acts as a container for all the boxes created within your organization. Boxes created under the root can also house additional boxes (sub-boxes).
+At the top of the box hierarchy is the Home (root) box, which contains all the boxes created within your organization. Boxes created under the root can also house additional boxes (sub-boxes).
 
 All those boxes form parent-child hierarchies, allowing you to view and aggregate project, program, or portfolio data at both high and low levels. You can view the entire box hierarchy in the Overview module using the Hierarchy and Timeline modes.
 
@@ -457,37 +457,37 @@ Box template, which defines the most relevant characteristics of a Box (node), 
 - default card layout
 - default Period mode
 
-Box types can be defined by BigPictures administrators.
+Box types can be defined by BigPicture administrators.
 
 ### Box module
-
-The following modules are available in BigGantt:
-
-- Overview
-- Gantt
 
 The following modules are available in BigPicture:
 
 - Overview
 - Gantt
-- Risks
-- Roadmap
+- Scope
 - Board
-- Calendar
+- Goals
 - Resources
 - Teams
+- Risk Management
+- Calendar
+- Reports
+- OKR (Advanced)
+- Priorities (Advanced)
+- Financials (Advanced)
 
-Most of the modules can be preconfigured using Box types.
+You can preconfigure most modules using box types.
 
 ### Box switcher
 
-The box switcher, located in the upper-left corner of the application, displays the name of the current Box you are viewing. When you click it, a drop-down list containing the Box hierarchy tree is displayed. You can then select a specific Box from the hierarchy to switch to.
+The box switcher, in the upper-left corner of the application, displays the name of the box you're currently viewing. When you click it, a drop-down list containing the box hierarchy tree is displayed. You can then select a specific Box from the hierarchy to switch to.
 
 Use the box switcher to switch between different boxes easily. Once opened, the active box is highlighted, so you can easily switch to a sub-box or a different box.
 
-You can browse only the Boxes to which you have permission (you can't see a box that you can't access).
+You can browse only the boxes you have permission to access (you can't see a box you can't access).
 
-The Box switcher is displayed in the Apps header for each module and in the WBS Widget and Skill Widget, which can be added to the work item screen.
+The box switcher appears in the Apps header for each module and in the WBS Widget and Skill Widget, which you can add to the work item screen.
 
 ### Box status
 
@@ -513,11 +513,11 @@ Column Views allow you to add different fields as columns to the task list and c
 
 ### Connected tools
 
-The App can connect different tools to your Jira instance. These include tools like other Jira Cloud instances, Trello, or MS Azure (coming soon). The connection field (status) informs you if your instance was already connected.
+The App can connect different tools to your Jira instance. These include tools like other Jira Cloud instances, Trello, or MS Azure (coming soon). The connection field (status) informs you if your instance is already connected.
 
 ### Context Box
 
-A Box which you are currently viewing. The Box name and its status are displayed in the Box Switcher.
+A box that you are currently viewing. The Box name and its status are displayed in the Box Switcher.
 
 ### Critical path
 
@@ -549,13 +549,15 @@ The Resources and Gantt module show the resource workload vs capacity in three d
 
 ### Gadgets
 
-Thanks to the Gadgets, you can add dynamic content to a Confluence page or the Jira application dashboard to monitor the health of projects, departments, or specific processes. This means that you can have your favorite Gantt charts and Risks all in one place and thanks to the auto-refresh all up to date.
+Thanks to the Gadgets, you can add dynamic content to a Confluence page or the Jira application dashboard to monitor the health of projects, departments, or specific processes. This means you can keep your favorite Gantt charts and Risks in one place, and thanks to auto-refresh, everything stays up to date.
 
-There are three Gadgets available:
+There are five Gadgets available:
 
-- Gantt
-- Risks
-- Boxes
+- Gantt gadget
+- Overview gadget
+- Calendar gadget
+- Risks gadget
+- Objectives/Goals gadget
 
 ### Holiday plans
 
@@ -746,7 +748,7 @@ Any Jira work item, Trello card, or BigPicture task (native to the App).
 
 The team module lets you group individual users into teams, enabling effort-based planning.
 
-The concept of teams is used mainly in the Resources, Objectives, and Board modules, but since the information about the team can be stored as a label or a custom field, it can also be displayed using the Gantt, Scope, or Risks module by adding it to the Column View or Card View.
+The concept of teams is used mainly in the Resources, Goals, and Board modules, but since the information about the team can be stored as a label or a custom field, it can also be displayed using the Gantt, Scope, or Risks module by adding it to the Column View or Card View.
 
 You can create global teams and assign them to multiple Boxes. Once created, you can easily give them to individual Boxes (a team is inherited and can't be edited on a Box level) or duplicate them in a personal Box (a team configuration is duplicated and can be further edited).
 
@@ -788,7 +790,7 @@ The Timeline is a common element of the following modules:
 
 - Overview - Timeline mode - you can show and edit Boxes using drag and drop.
 - Gantt - you can show Tasks, Spaces, Sprints, Backlog, Components, Versions, Boxes and Markers.
-- Board and Objectives - you can show Markers and Boxes.
+- Board and Goals - you can show Markers and Boxes.
 - Resource - you can show tasks.
 
 ### Widget
