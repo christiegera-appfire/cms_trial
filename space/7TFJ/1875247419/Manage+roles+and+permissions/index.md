@@ -1,6 +1,6 @@
 # Manage roles and permissions
 
-![TryItButton (2).png](/cms_trial/assets/9e5c9f0d-576a-4904-b708-ac448f2c0b30.png)
+![TryItButton (2).png](/cms_trial/assets/f87a7b0c-d5fe-4fad-b84e-fc891df548dd.png)
 
 The Role Management settings enable administrators to configure which Jira users have access to 7pace Timetracker tools and what they can do within the tool.
 
@@ -22,11 +22,23 @@ To access the Role Management tool:
 2. Click **Settings** in the left-hand column.
 3. Click **Role Management**. The *Manage Roles* window opens (pictured, below).
 
-   ![Manage Roles dialog with roles displayed.](/cms_trial/assets/40b3a139-7613-440e-92d4-c216cd62b9e9.png)
+   ![Manage Roles dialog with roles displayed.](/cms_trial/assets/1bd8de22-e9b4-431f-8e37-632260e44079.png)
 
 The *Manage Roles* configurations are organized into four tiers each with different permissions within 7pace Timetracker. Hover over the **Help** icon to the right of each role to see the included permissions.
 
 **Note**: Project permissions and visibility are controlled through Jira and still apply within 7pace Timetracker; if a user has no access to a project, they will not be able to log time against issues from that project. Additionally, 7pace Timetracker Admins and Managers will not be able to view or edit other users' worklogs for those projects.
+
+**Approvals use direct and group role assignments only**
+
+Approval features use only the users and Jira groups that you add to a role in **Role Management**. Users who get access only through Jira permissions are not included in approval features. This includes the Team role option *"Include all users with permission to browse projects and edit their own worklogs"*.
+
+These users can still log time, but they:
+
+- are not listed in **Approval Management** when the **Role-based users** filter is on,
+- do not receive approval reminder emails, and
+- cannot be selected as a manager when time is submitted for approval.
+
+To include a user in approvals, add the user, or a Jira group they belong to, to a role.
 
 The roles and their permissions (summarized) are:
 
@@ -53,23 +65,49 @@ To maintain a healthy 7pace environment, follow these guiding principles:
 
 <https://youtu.be/7KGTUogKqN4>
 
-**Warning**: Permissions use AND logic in 7pace Timetracker. If a Jira user is added as an individual AND as a member of a group that has also been added to 7pace, they will have all of the permissions of the most permissive level.
+### Roles in approval workflows
 
-|  |  |  |
-| --- | --- | --- |
-| **User Role** | **Settings pages** | **App functions** |
-| **Approval page** | **Approval settings page** | **7pace settings page** | **Lock time** | **Approve / Reject submitted time** | **Approve / Reject NON submitted time** | **Manager selection** |
-| **Admin** | Yes | Yes | Yes | Yes | Yes | Yes | Yes |
-| **Global Approval Manager** | Yes | Yes | No | Yes | Yes | Yes | Yes |
-| **Manager** | Yes | No | No | No | Yes | No | Yes |
-| **Team (Individual)** | No | No | No | No | No | No | Yes |
+#### Who can be selected as a manager
+
+When users submit their time for approval, the manager list shows only users who have the **Manager** or **Global Approval Manager** role.
+
+- Users who have **only the Admin role** are **not** listed. This includes Jira Site Administrators, who are added to Admin automatically. To let an admin approve submitted time, also add them to the **Manager** or **Global Approval Manager** role.
+- **Recent** shows managers from the last five periods who still have a manager role.
+- If a manager loses their manager role, existing submissions assigned to them stay valid. Users can still resubmit to them, but they see a warning. New submissions cannot be assigned to them.
+
+#### Who receives approval reminders
+
+Reminder emails go to every user who can track time through a **direct user assignment** or a **Jira group assignment** in Role Management.
+
+- A user no longer needs to have opened 7pace Timetracker to receive reminders.
+- 7pace does not check whether the Jira account is active. If a deactivated user is still assigned directly, or is still a member of an assigned group, they can still receive reminders. Remove them from the role or group to stop this.
+- Users whose period is already **Submitted** or **Approved** do not receive reminders.
+- Users who have access only through Jira permissions do not receive reminders.
+
+If 7pace cannot load up-to-date role information, it skips reminders for that run. This prevents emails from going to the wrong people. Approval and rejection summary emails are still sent.
+
+**Warning**: Permissions add up. If a user has more than one role, either directly or through Jira groups, they get all permissions from all of those roles. For example, a user added as **Individual** who is also in a group assigned to **Manager** has Manager permissions.
+
+| **User role** | **Approval page** | **Approval settings page** | **7pace settings page** | **Lock time** | **Approve/reject submitted time** | **Approve/reject non-submitted time** | **Can choose a manager when submitting** | **Can be selected as a manager** |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| **Admin** | Yes | Yes | Yes | Yes | Yes | Yes | Yes | **No**¹ |
+| **Global Approval Manager** | Yes | Yes | No | Yes | Yes | Yes | Yes | Yes |
+| **Manager** | Yes | No | No | No | Yes | No | Yes | Yes |
+| **Team** | No | No | No | No | No | No | Yes | No |
+| **Individual** | No | No | No | No | No | No | Yes | No |
+
+¹ Admins can be selected as a manager only if they also have the Manager or Global Approval Manager role.
+
+*Please confirm the Individual row with product. It is copied from the Team row.*
 
 ### Role-specific settings
 
 There are a few role-specific settings that should be noted.
 
-- Jira Site Administrators are automatically added to the **Admin** group. Site admins will always have full permissions in 7pace Timetracker.
-- The **Team** role has the option to include all users with permission to browse projects and edit their own workloads. Turning this option on will give all Jira users access to the Team role; turning it off requires users to be added manually for them to have access to 7pace Timetracker.
+- Jira Site Administrators are automatically added to the **Admin** group. Site admins will always have full permissions in 7pace Timetracker. Site administrators are not listed as managers when time is submitted, unless they are also added to the **Manager** or **Global Approval Manager** role.
+- The **Team** role has the option to include all users with permission to browse projects and edit their own worklogs. Turning this option on will give all Jira users access to the Team role; turning it off requires users to be added manually for them to have access to 7pace Timetracker.
+
+  Users who get the Team role only through this option are not included in approval features (reminders, Approval Management role filter). Add them directly or through a Jira group if they should take part in approvals.
 
 ### Add or delete a user or group
 
@@ -83,6 +121,6 @@ To add a user or a group to a role:
 
 All changes save automatically.
 
-Typically, it takes 7pace Timetracker approximately one hour to process new users added to a group. To expedite this process, click **Refresh cache to ensure permissions are up to date** in the *Manage Roles* page.
+Changes to direct user assignments apply right away. Changes to Jira group membership can take some time to show up in 7pace Timetracker, including in approval reminders and manager lists. To apply group changes faster, click **Refresh cache to ensure permissions are up to date** on the *Manage Roles* page.
 
-![Manager Roles dialog with Refresh cache option highlighted.](/cms_trial/assets/f234147b-e23f-488a-9787-a85628412096.png)
+![Manager Roles dialog with Refresh cache option highlighted.](/cms_trial/assets/b8dcbfb4-426b-4f8e-a3d2-ac58bc762fb3.png)
