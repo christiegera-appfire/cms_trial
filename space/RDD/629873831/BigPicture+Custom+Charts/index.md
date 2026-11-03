@@ -82,7 +82,7 @@ Choose your columns based on the results you want to display for each group. Gro
 
 **Example**
 
-f you group the previous list of issues by the **Status** column, the results show two rows: one for the status *To Do* and one for the status *Done*.
+If you group the previous list of issues by the **Status** column, the results show two rows: one for the status *To Do* and one for the status *Done*.
 
 ![Dashboard Hub BigPicture custom chart configuration with chart type options](/cms_trial/assets/cda52200-9d3d-4dd8-a39e-d3def96c0b64.png)
 
