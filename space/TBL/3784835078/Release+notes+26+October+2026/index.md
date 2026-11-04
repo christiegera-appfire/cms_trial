@@ -1,4 +1,4 @@
-# Release noes 26 October 2026
+# Release notes 26 October 2026
 
 **Release date**: October 26, 2026
 

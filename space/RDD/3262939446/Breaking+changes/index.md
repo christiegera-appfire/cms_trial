@@ -1,12 +1,22 @@
 # Breaking changes
 
-**Announcement date**: June 3, 2026
+This page outlines breaking changes to the Dashboard Hub family of apps.
 
-This page outlines an upcoming breaking change to the Dashboard Hub family of apps.
+---
+
+## Retirement of External Page gadget
+
+**Announcement date**: November 4, 2026
+
+**Affects version**: 5.8.0
+
+The External Page gadget will be retired in version 5.8.0 and won't display data on your dashboards. To keep your views clean, remove the gadget from any affected dashboards.
 
 ---
 
 ## Upcoming breaking change
+
+**Announcement date**: June 3, 2026
 
 ## Permissions scope change for subscriptions
 

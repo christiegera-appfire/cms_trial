@@ -8,6 +8,7 @@ Check out the upcoming **features** and the **latest release logs** below to see
 
 | **Release** | **App version** | **Release version** | **Highlights** |
 | --- | --- | --- | --- |
+| [Release notes 4th November 2026](/cms_trial/space/CDMC/3826581616/Release+notes+4th+November+2026/) | 52.9.0 | 52.9.0 | **Enhancements**   - Workflow Visual Builder improvements   **Bug fixes** |
 | [Release notes 27th October 2026](/cms_trial/space/CDMC/3805151413/Release+notes+27th+October+2026/) | 52.8.0 | 52.8.0 | **Enhancements**   - Configure label removal conditions in Visual Builder   **Bug fixes** |
 | [Release notes 21st October 2026](/cms_trial/space/CDMC/3782180865/Release+notes+21st+October+2026/) | 52.7.0 | 52.7.0 | **Bug fixes** |
 | [Release notes 20th October 2026](/cms_trial/space/CDMC/3779100715/Release+notes+20th+October+2026/) | 52.4.0 | 52.4.0 | **Bug fixes** |

@@ -17,6 +17,7 @@ JMCF for Jira Cloud now [**Runs on Atlassian**](https://www.atlassian.com/trust/
   - [Uninstalling or Disabling on Jira Cloud](/cms_trial/space/JMCFC/465305705/Uninstalling+or+Disabling+on+Jira+Cloud/)
 - [Create Custom Field](/cms_trial/space/JMCFC/465405703/Create+Custom+Field/)
 - [Using JMCF Custom Fields](/cms_trial/space/JMCFC/465207457/Using+JMCF+Custom+Fields/)
+- [JMCF video library](/cms_trial/space/JMCFC/3781951492/JMCF+video+library/)
 
 ### Common Use Cases
 
