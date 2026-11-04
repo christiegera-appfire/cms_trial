@@ -1,8 +1,8 @@
-# Power Scripts Video Tutorials
+# Power Scripts video library
 
 | **Feature** | **Video** |
 | --- | --- |
-| Install Power Scripts in Jira Cloud |  |
+| [Install Power Scripts in Jira Cloud](/cms_trial/space/PSJC/3651731459/Install+Power+Scripts+for+Jira+Cloud/) |  |
 | Find and fix Power Scripts SIL script errors fast |  |
 | Use Power Scripts documentation and function examples in SIL Manager |  |
 | Understand Simple Issue Language (SIL) in Power Scripts for Jira Cloud |  |

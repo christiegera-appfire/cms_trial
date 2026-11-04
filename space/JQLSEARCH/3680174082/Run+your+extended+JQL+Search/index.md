@@ -37,4 +37,4 @@ You've now used an extended JSE keyword to search Jira work item information tha
 
 Keywords are useful when you want to search additional work item information. JSE functions let you go further by performing more complex searches, including searches based on relationships between work items.
 
-Continue to [Search related issues with a JSE function.](/cms_trial/space/JQLSEARCH/3680174342/Search+related+issues+with+a+JSE+function/)
+Continue to [Search related issues with a JSE function.](/cms_trial/space/JQLSEARCH/3680174342/Find+work+items+linked+to+epics/)

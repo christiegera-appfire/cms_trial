@@ -4,6 +4,12 @@ This page provides a brief overview of the release notes for individual releases
 
 | Title | Release date | Highlights |
 | --- | --- | --- |
+| [Release notes 7 September 2026](/cms_trial/space/JSUCLOUD/3828023354/Release+notes+7+September+2026/) | 2026-09-07 | Improved JCMA migration experience including reliability of migrations and post-migration reporting, and bug fixes. |
+| [Release notes 2 September 2026 (Hotfix)](/cms_trial/space/JSUCLOUD/3829497861/Release+notes+2+September+2026+(Hotfix)/) | 2026-09-02 | Hotfix to resolve an error blocking some app updates |
+| [Release notes 2 September 2026](/cms_trial/space/JSUCLOUD/3828023302/Release+notes+2+September+2026/) | 2026-09-02 | In-app guidance for new and returning users, UI improvements to the Conditions builder, and bug fixes |
+| [Release notes 27 August 2026](/cms_trial/space/JSUCLOUD/3591307275/Release+notes+27+August+2026/) | 2026-08-27 | v9.2.0 - bug fix |
+| [Release notes 11 August 2026](/cms_trial/space/JSUCLOUD/3532854188/Release+notes+11+August+2026/) | 2026-08-11 | v9.0.0 - UI updates and bug fixes |
+| [Release notes 1 July 2026](https://support.appfire.com/space/JSUCLOUD/3402924035/Release+notes+June+30+2026) | 2026-07-01 | JCMA migration, Atlassian platform compatibility, and error logging improvements Create a Linked Issue, calculated field, and assignee handling fixes |
 | [Release notes June 2026](/cms_trial/space/JSUCLOUD/3281617218/Release+notes+June+2026/) | 2026-06-03 | In-progress executions and clearer messages on the execution log Universal Rule Builder, conditions, validators, and post function fixes |
 | [Release notes April 2026](/cms_trial/space/JSUCLOUD/3083763713/Release+notes+April+2026/) | 2026-04-29 | Team-managed spaces support and Forge platform migration (7.0.0) |
 | [Release notes February 2026](/cms_trial/space/JSUCLOUD/2840395900/Release+notes+February+2026/) | 2026-02-05 | Improved related work item relations for conditions and validators |
