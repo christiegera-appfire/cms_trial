@@ -4,7 +4,6 @@ This is a directory of knowledge base articles regarding configuration issues wi
 
 ## Contents
 
-- [Revoke access for expired connection](/cms_trial/space/CSFJIRA/3224731651/Revoke+access+for+expired+connection/)
 - [Change refresh token expiry period](/cms_trial/space/CSFJIRA/3234594895/Change+refresh+token+expiry+period/)
 - [Assign Record Types to manually or automatically created Salesforce objects from Jira](/cms_trial/space/CSFJIRA/1596719355/Assign+Record+Types+to+manually+or+automatically+created+Salesforce+objects+from+Jira/)
 - [How to change the Salesforce integration user](/cms_trial/space/CSFJIRA/2256308548/How+to+change+the+Salesforce+integration+user/)
@@ -54,4 +53,3 @@ This is a directory of knowledge base articles regarding configuration issues wi
 - [How to set the Jira Reporter as the current Salesforce user when creating the Jira work item.](/cms_trial/space/CSFJIRA/2375846398/How+to+set+the+Jira+Reporter+as+the+current+Salesforce+user+when+creating+the+Jira+work+item./)
 - [An "Invalid Query!" Error pops up when configuring connection in Jira](/cms_trial/space/CSFJIRA/3156836381/An+%22Invalid+Query%21%22+Error+pops+up+when+configuring+connection+in+Jira/)
 - [Error when authorising connection due to IP Restriction](/cms_trial/space/CSFJIRA/3263660064/Error+when+authorising+connection+due+to+IP+Restriction/)
-- [Salesforce authorization fails after upgrading Connector for Salesforce & Jira](/cms_trial/space/CSFJIRA/3398041629/Salesforce+authorization+fails+after+upgrading+Connector+for+Salesforce+%26+Jira/)

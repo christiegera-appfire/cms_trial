@@ -44,7 +44,7 @@ Once authorization is complete, the *Importing* step opens. Here, you can import
 2. Click **Save and continue** to finalize the setup.  
    Your new connection now appears in your *Connections* list with the authorized status.
 
-   ![Connections list showing the new connection with Authorized status.](/cms_trial/assets/e41ce26e-4863-4a5e-99ca-981ac2dfa33c.png)
+   ![Authorized Connection](/cms_trial/assets/c138fc66-5cb3-4631-b88e-27a56eeee466.png)
 
 Later, you can always add more Salesforce objects and configure details for your connection (notifications, attachments, comments, query, presets, rich text). For details, see [Configure connection settings](/cms_trial/space/CSFJIRA/1853653945/Configure+connection+settings/).
 

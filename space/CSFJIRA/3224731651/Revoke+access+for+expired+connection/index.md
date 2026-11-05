@@ -8,7 +8,8 @@ This issue is caused by a Salesforce security policy that automatically expires 
 
 ### **Symptoms**
 
-You may encounter the  **Salesforce authorization failed** error when a connection has expired. Automated workflows and data syncs between Salesforce and Jira stop working until the connection is reauthorized.
+You may encounter the  **Salesforce authorization failed** error when a connection has expired. Automated workflows and data syncs between Salesforce and Jira stop working until the connection is reauthorized.   
+When you open **Connections**, the affected connection status is Expired.
 
 ## Before you start
 
@@ -26,9 +27,9 @@ Complete step 2 if you use the Jira connections in Salesforce.
 
 1. In Jira, go to **Apps** from the left sidebar.
 2. Under *Connector for Salesforce*, click **Connections**.
-3. Select the impacted connection, and click **Revoke Access**.
+3. Select the expired connection, and click **Revoke access**.
 
-   ![Connector for Salesforce Connections page with the Revoke Access button selected for an expired connection.](/cms_trial/assets/365f7c80-7cf7-40ad-8551-a03484d0c212.png)
+   ![Revoke access](/cms_trial/assets/2937e28b-f442-4d6e-8d5b-f98872b9fcd5.png)
 4. Click **Revoke** toconfirm.
 5. Click **Authorize**.
 6. Sign in with Salesforce credentials when prompted.

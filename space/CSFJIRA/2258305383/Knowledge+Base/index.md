@@ -5,7 +5,6 @@ You have issues, we have answers.
 Before contacting us for support, consult our knowledge base which compiles frequently asked questions and solutions to more complex problems.
 
 - [Configure](/cms_trial/space/CSFJIRA/1891206842/Configure/)
-  - [Revoke access for expired connection](/cms_trial/space/CSFJIRA/3224731651/Revoke+access+for+expired+connection/)
   - [Change refresh token expiry period](/cms_trial/space/CSFJIRA/3234594895/Change+refresh+token+expiry+period/)
   - [Assign Record Types to manually or automatically created Salesforce objects from Jira](/cms_trial/space/CSFJIRA/1596719355/Assign+Record+Types+to+manually+or+automatically+created+Salesforce+objects+from+Jira/)
   - [How to change the Salesforce integration user](/cms_trial/space/CSFJIRA/2256308548/How+to+change+the+Salesforce+integration+user/)
@@ -43,7 +42,6 @@ Before contacting us for support, consult our knowledge base which compiles fr
   - [How to set the Jira Reporter as the current Salesforce user when creating the Jira work item.](/cms_trial/space/CSFJIRA/2375846398/How+to+set+the+Jira+Reporter+as+the+current+Salesforce+user+when+creating+the+Jira+work+item./)
   - [An "Invalid Query!" Error pops up when configuring connection in Jira](/cms_trial/space/CSFJIRA/3156836381/An+%22Invalid+Query%21%22+Error+pops+up+when+configuring+connection+in+Jira/)
   - [Error when authorising connection due to IP Restriction](/cms_trial/space/CSFJIRA/3263660064/Error+when+authorising+connection+due+to+IP+Restriction/)
-  - [Salesforce authorization fails after upgrading Connector for Salesforce & Jira](/cms_trial/space/CSFJIRA/3398041629/Salesforce+authorization+fails+after+upgrading+Connector+for+Salesforce+%26+Jira/)
 - [Association and synchronization](/cms_trial/space/CSFJIRA/3092186639/Association+and+synchronization/)
   - [Automation for Jira Status field with Salesforce Status Field](/cms_trial/space/CSFJIRA/3104276483/Automation+for+Jira+Status+field+with+Salesforce+Status+Field/)
   - [Changing Reporter/Assignee using Case Owner email](/cms_trial/space/CSFJIRA/3091400759/Changing+Reporter%2FAssignee+using+Case+Owner+email/)

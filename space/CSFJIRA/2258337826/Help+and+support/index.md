@@ -21,6 +21,8 @@ Browse our support pages to get help:
 - [Contact us](/cms_trial/space/CSFJIRA/2258141912/Contact+us/)
 - [Migration to Forge](/cms_trial/space/CSFJIRA/3319464284/Migration+to+Forge/)
 - [Data residency and realm persistence](/cms_trial/space/CSFJIRA/2258305117/Data+residency+and+realm+persistence/)
+- [Revoke access for expired connection](/cms_trial/space/CSFJIRA/3224731651/Revoke+access+for+expired+connection/)
+- [Troubleshoot Salesforce connection authentication failures](/cms_trial/space/CSFJIRA/3830612104/Troubleshoot+Salesforce+connection+authentication+failures/)
 - [Troubleshooting missing associations](/cms_trial/space/CSFJIRA/2376073217/Troubleshooting+missing+associations/)
 - [Transitioning of Connector for Salesforce & Jira to Appfire infrastructure](/cms_trial/space/CSFJIRA/2258305251/Transitioning+of+Connector+for+Salesforce+%26+Jira+to+Appfire+infrastructure/)
 - [Troubleshoot invalid bindings and mappings](/cms_trial/space/CSFJIRA/3784114479/Troubleshoot+invalid+bindings+and+mappings/)
