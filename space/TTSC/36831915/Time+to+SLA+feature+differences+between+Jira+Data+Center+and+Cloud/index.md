@@ -66,7 +66,7 @@ For details on how the Data Center and Cloud versions compare, refer to the tabl
 | SLA fields | ✅ | ✅\* | \*Cloud currently supports the **SLA Date**, **SLA Indicator**, **SLA Duration**, and **Dynamic Calendar** fields.  Since the functionality differs, please refer to the [documentation](/cms_trial/space/TTSC/2875654192/Custom+fields/) for full details. |
 | SLA Panels | ✅ | ✅ |  |
 | Permissions | ✅ | ✅ |  |
-| SLA Reports | ✅ | ✅\* | \*Cloud also supports [Executive reports](/cms_trial/space/TTSC/3404431363/Executive+reports/) and [Workflow Intelligence reports](/cms_trial/space/TTSC/3637936320/Workflow+Intelligence+report/). |
+| SLA Reports | ✅ | ✅\* | \*Cloud also supports [Executive reports](/cms_trial/space/TTSC/3404431363/Executive+reports/) and [Workflow Intelligence reports](https://appfire.atlassian.net/wiki/spaces/TTSC/pages/3637936320). |
 | SLA Recalculation | ✅ | ✅ |  |
 | Integrity Checker | ✅ | ❌ |  |
 | Settings | ✅ | ✅ |  |

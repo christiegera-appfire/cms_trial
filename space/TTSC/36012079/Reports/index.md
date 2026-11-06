@@ -38,7 +38,7 @@ Available report types include:
 
 | **Report type** | **Description** |
 | --- | --- |
-| [**Workflow Intelligence**](/cms_trial/space/TTSC/3637936320/Workflow+Intelligence+report/) | Analyze how work moves through your Jira workflows. Compare time across assignees, statuses, and time periods, identify bottlenecks, and investigate the work item activity behind SLA performance. |
+| [**Workflow Intelligence**](https://appfire.atlassian.net/wiki/spaces/TTSC/pages/3637936320) | Analyze how work moves through your Jira workflows. Compare time across assignees, statuses, and time periods, identify bottlenecks, and investigate the work item activity behind SLA performance. |
 | [**Executive**](/cms_trial/space/TTSC/3404431363/Executive+reports/) | Analyze SLA performance using completed SLA data. Executive reports are useful for high-level trend analysis and stakeholder reporting. Refer to the [use case](/cms_trial/space/TTSC/3426714512/I+want+to+review+cross-project+SLA+compliance+data+without+manual+spreadsheet+exports/) to learn more. |
 | [**Summary**](https://support.appfire.com/space/TTSC/36044860) | View a high-level overview of SLA performance. Summary reports are useful for work item-based reporting. |
 | [**Detail**](https://support.appfire.com/space/TTSC/36143159) | Review granular SLA data for in-depth work item analysis. Detail reports are useful for SLA-based reporting. |
@@ -56,7 +56,7 @@ To generate a report:
 3. Configure the report fields and filters. For detailed instructions, see:
 
    - [**Executive**](/cms_trial/space/TTSC/3404431363/Executive+reports/)
-   - [**Workflow Intelligence**](/cms_trial/space/TTSC/3637936320/Workflow+Intelligence+report/)
+   - [**Workflow Intelligence**](https://appfire.atlassian.net/wiki/spaces/TTSC/pages/3637936320)
    - [**Summary**](https://support.appfire.com/space/TTSC/36044860)
    - [**Detail**](https://support.appfire.com/space/TTSC/36143159)
    - [**Duration**](https://support.appfire.com/space/TTSC/36077648)
