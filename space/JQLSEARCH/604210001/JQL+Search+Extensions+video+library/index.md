@@ -1,4 +1,4 @@
-# Video tutorials
+# JQL Search Extensions video library
 
 Our demo videos for JQL Search Extensions for Jira Cloud show you how to get started, from initial setup and saving queries to understanding the difference between Jira’s advanced search and searching with Extended Search.
 
