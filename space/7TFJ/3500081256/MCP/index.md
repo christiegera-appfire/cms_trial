@@ -13,7 +13,7 @@ Before individual users can connect their AI clients, MCP must be enabled at the
 3. Locate the **MCP Integration** section.
 4. Click **Enable MCP** and acknowledge the administrative agreements and permission requirements.
 
-![enable-mcp.png](/cms_trial/assets/db5d3406-ef3e-4093-91e8-53f41b92fe8f.png)
+![enable-mcp.png](/cms_trial/assets/2fae0b1f-ee97-4980-8819-3f2a77e43105.png)
 
 The following acknowledges and administrative agreements are required to enable the MCP option:
 
@@ -32,7 +32,7 @@ The following acknowledges and administrative agreements are required to enable 
 
 In **7pace Settings** navigate to personal Settings, next **MCP / API Tokens.**
 
-![mcp-tokens.png](/cms_trial/assets/2c7ab778-1217-476c-9645-b68ebca6b1ff.png)
+![mcp-tokens.png](/cms_trial/assets/abe2c841-53c7-4351-9511-3fafa2a6b915.png)
 
 ### Step 1: Generate an API token
 
@@ -40,13 +40,13 @@ Click **Create Token** to generate a new personal token for MCP access. Choose a
 
 Select **Create**.
 
-![create-token-1.png](/cms_trial/assets/eb8b7abe-fff3-4a85-bf07-c775d6e6b0c2.png)
+![create-token-1.png](/cms_trial/assets/178fe672-6991-4532-9f40-7caff20821bc.png)
 
 Now you can copy the token.
 
 Copy and save the token. You **CANNOT** recover the token after this step is finished.
 
-![create-token-2.png](/cms_trial/assets/9873580c-15bd-4b30-b96f-beb72b16d078.png)
+![create-token-2.png](/cms_trial/assets/322fcbf8-5a15-4574-9996-6a0abdcf76c5.png)
 
 ### Step 2: Configure your client
 
@@ -101,6 +101,10 @@ Prompt your AI assistant using natural language commands, such as:
 
 - *"Log time for the work I did today."*
 - *"Log time to DEMO-6."*
+
+Missing activity signals and meeting time may require user input before the agent can provide worklog suggestions.
+
+The suggested worklogs require confirmation before the agent creates them in 7pace Timetracker.
 
 ### How the MCP Agent Works
 

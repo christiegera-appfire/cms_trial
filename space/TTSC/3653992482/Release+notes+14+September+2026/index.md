@@ -36,7 +36,7 @@ You can also open the most impacted work items from an **Executive report** dire
 
 To try it, go to **Reports** > **Workflow Intelligence** and create your first report.
 
-Learn more about [**Workflow Intelligence reports**](https://appfire.atlassian.net/wiki/spaces/TTSC/pages/3637936320).
+Learn more about [**Workflow Intelligence reports**](/cms_trial/space/TTSC/3637936320/Workflow+Intelligence+report/).
 
 ## Bug fixes
 
