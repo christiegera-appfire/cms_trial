@@ -47,23 +47,17 @@ Next:
 - select the Box you want to clone (tasks from that box are copied)
 - select the target project to store the cloned tasks (tasks are copied to a selected Jira space - you can set up a new, empty project for the clone)
 
-Image — asset pipeline pending  
-contentId-1918636677
+![contentId-1918636677](/cms_trial/assets/e6ee3b37-99ec-49e5-9d86-995222ea2d07.png)
 
 Cloned tasks will be added gradually.
 
 The process progress is indicated by the icon:
 
-Image — asset pipeline pending  
-contentId-1918636677
-
-Image — asset pipeline pending  
-contentId-1918636677
+![contentId-1918636677](/cms_trial/assets/7098f835-4337-42f3-8d9c-ed0f2f43d638.png)![contentId-1918636677](/cms_trial/assets/fbd4a784-a8eb-4312-ab65-9f364b79bd3c.png)
 
 **Refresh the page so that you can observe the results.**
 
-Image — asset pipeline pending  
-contentId-1918636677
+![contentId-1918636677](/cms_trial/assets/be492f52-fe88-4974-b1a6-50978eb5e273.png)
 
 ## Automatic linking of the original and cloned tasks
 
@@ -133,72 +127,47 @@ You can't clone a scope from a Box with "None" scope - you can't find such a Box
 
 The most common reason for the cloning process to fail is related to Jira Field Configuration.
 
-Image — asset pipeline pending  
-contentId-1918636677
+![contentId-1918636677](/cms_trial/assets/f15ef425-3cbc-4601-897f-72b96b4695ee.png)
 
 The "Required" fields have to be changed to "Optional" for the time when the App is importing the program.
 
 Keep in mind, that the change of the Field Configuration scheme has to be applied to the target Jira project (the project issues get copied to).
 
-Image — asset pipeline pending  
-contentId-1918636677
+![contentId-1918636677](/cms_trial/assets/a4dd656d-f8e9-43a4-813a-9bd3d47069ec.png)
 
 We recommend creating a temporary scheme instead of changing an existing one. This way, other spaces will not be affected. Then, when needed, you apply a "temporary" configuration to a space instead of changing an existing configuration (that may be in use by multiple different projects) to minimize the impact.
 
 To make things easier you may copy an existing configuration:
 
-Image — asset pipeline pending  
-contentId-1918636677
+![contentId-1918636677](/cms_trial/assets/e6664b67-130d-428b-b019-bc6e757e4b99.png)
 
 Name it to make things clear for other users:
 
-Image — asset pipeline pending  
-contentId-1918636677
+![contentId-1918636677](/cms_trial/assets/eb816b5e-905f-468f-993c-d09e1e617744.png)
 
 Click on the field configuration name and change all items to "optional" within it:
 
-Image — asset pipeline pending  
-contentId-1918636677
-
-Image — asset pipeline pending  
-contentId-1918636677
+![contentId-1918636677](/cms_trial/assets/810c1b40-6a4c-4b81-abc8-b661632a47a9.png)![contentId-1918636677](/cms_trial/assets/a93b5c3e-de21-4db1-b564-dc1237abdd79.png)
 
 Add a new field configuration scheme:
 
-Image — asset pipeline pending  
-contentId-1918636677
-
-Image — asset pipeline pending  
-contentId-1918636677
+![contentId-1918636677](/cms_trial/assets/f72dfd71-b9a2-46d2-8c19-5c803e1d808f.png)![contentId-1918636677](/cms_trial/assets/a2ee70fb-0383-47d5-8617-d14ed2fd307e.png)
 
 Make sure that the correct field configuration is associated with the scheme:
 
-Image — asset pipeline pending  
-contentId-1918636677
-
-Image — asset pipeline pending  
-contentId-1918636677
-
-Image — asset pipeline pending  
-contentId-1918636677
+![contentId-1918636677](/cms_trial/assets/12beddcb-7d99-4b7a-8937-1221409cca8b.png)![contentId-1918636677](/cms_trial/assets/3c78093e-0217-4f08-ae63-c159703525d2.png)![contentId-1918636677](/cms_trial/assets/d6e62446-ff07-4c3b-a602-5be3becb0963.png)
 
 Go to the Jira space that is added to the Box scope (the project Jira issues will be copied to):
 
-Image — asset pipeline pending  
-contentId-1918636677
+![contentId-1918636677](/cms_trial/assets/ac4d85f8-e127-445b-9121-ee95fe1f3e1c.png)
 
 Find the field configuration:
 
-Image — asset pipeline pending  
-contentId-1918636677
+![contentId-1918636677](/cms_trial/assets/981e0aa9-c82c-4b1c-89cc-ada15bb4834c.png)
 
 Change the scheme:
 
-Image — asset pipeline pending  
-contentId-1918636677
-
-Image — asset pipeline pending  
-contentId-1918636677
+![contentId-1918636677](/cms_trial/assets/434721a3-d8c3-4939-b7b7-96c42ea727ed.png)![contentId-1918636677](/cms_trial/assets/4daf5b65-7ace-47e2-94e0-caf6bcf9a3f9.png)
 
 You can proceed with the cloning after changing the Field Configuration.
 
@@ -242,22 +211,16 @@ To clone tasks from another box:
 
 1. Click **Tasks** > **Clone from another box**.
 
-   Image — asset pipeline pending  
-   Screenshot of the Clone from another box option in the Tasks menu in the Gantt module.
+   ![Screenshot of the Clone from another box option in the Tasks menu in the Gantt module.](/cms_trial/assets/12ccf37d-a8ba-48ae-8759-ef2de5c17eb0.png)
 2. Next:
 
    1. Select the box you want to clone (tasks from that box are copied).
    2. Select the target space to store the cloned work items (work items are copied to the selected Jira space; you can set up a new, empty space for the clone).
 
-      Image — asset pipeline pending  
-      Screenshot of the Clone existing scope window.
+      ![Screenshot of the Clone existing scope window.](/cms_trial/assets/aa052866-3d70-4d4e-9cca-56f95eb40ef5.png)
 3. Cloned tasks will be added gradually. The process progress is indicated by the icon:
 
-Image — asset pipeline pending  
-Screenshot with the Importing tasks status.
-
-Image — asset pipeline pending  
-Screenshot with the Imported successfully status.
+![Screenshot with the Importing tasks status.](/cms_trial/assets/7098f835-4337-42f3-8d9c-ed0f2f43d638.png)![Screenshot with the Imported successfully status.](/cms_trial/assets/fbd4a784-a8eb-4312-ab65-9f364b79bd3c.png)
 
 1. Refresh the page so that you can observe the results.
 
@@ -287,8 +250,7 @@ If the destination Jira space already contains work items, they will automatical
 
 scope = copied items + existing destination items
 
-Image — asset pipeline pending  
-Screenshot of the Clone existing scope window.
+![Screenshot of the Clone existing scope window.](/cms_trial/assets/aa052866-3d70-4d4e-9cca-56f95eb40ef5.png)
 
 ### Cloning option is unavailable:
 
@@ -317,15 +279,13 @@ The scope of a box with a "sub-scope" type is based strictly on the upper-level 
 
 The most common reason for the cloning process to fail is related to Jira Field Configuration.
 
-Image — asset pipeline pending  
-contentId-1918636677
+![contentId-1918636677](/cms_trial/assets/f15ef425-3cbc-4601-897f-72b96b4695ee.png)
 
 The "Required" fields have to be changed to "Optional" for the time when the App is importing the program.
 
 Keep in mind that the change of the Field Configuration scheme has to be applied to the target Jira space (the space where work items get copied to).
 
-Image — asset pipeline pending  
-contentId-1918636677
+![contentId-1918636677](/cms_trial/assets/a4dd656d-f8e9-43a4-813a-9bd3d47069ec.png)
 
 We recommend creating a temporary scheme instead of changing an existing one. This way, other spaces will not be affected. Then, when needed, you apply a "temporary" configuration to a space instead of changing an existing configuration (that may be in use by multiple different spaces) to minimize the impact.
 
