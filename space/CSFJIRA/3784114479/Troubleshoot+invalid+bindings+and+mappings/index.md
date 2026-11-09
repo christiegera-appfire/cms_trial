@@ -24,7 +24,7 @@ You can use the filter on the Bindings page to identify bindings that contain in
 2. Under **Connector for Salesforce**, select **Bindings**.
 3. Click the **Show only invalid bindings** filter to display bindings that contain invalid items.
 
-   ![image-20261027-090714.png](/cms_trial/assets/c4b0688c-9188-4808-9273-19a5242aa5c6.png)
+   ![Show only invalid bindings ](/cms_trial/assets/07a3e52c-1df7-4cae-b464-fcc3866eebb2.png)
 4. Review the bindings displayed in the list:
 
    1. If the Jira space no longer exists, the binding is grayed out and cannot be edited.   
@@ -35,6 +35,16 @@ You can use the filter on the Bindings page to identify bindings that contain in
       Click **Menu** (▢) > **Edit** to identify and resolve the invalid mappings.
 
       ![image-20261027-091528.png](/cms_trial/assets/1e5905cb-8f1f-45d8-9cf5-347260754a80.png)
+
+## Search bindings
+
+If you have multiple bindings, use the search field on the **Bindings** page to quickly find the one you need.
+
+![Search](/cms_trial/assets/406e8e24-5fd3-47fb-b6d9-1d4143bc55d7.png)
+
+Enter a Jira space name or Salesforce connection name in the search field. The list updates automatically to show matching bindings. Search is not case-sensitive, and you can enter part of a name.
+
+The page header, search field, and other controls remain visible as you scroll through the bindings list.
 
 ## Resolve invalid mappings
 
