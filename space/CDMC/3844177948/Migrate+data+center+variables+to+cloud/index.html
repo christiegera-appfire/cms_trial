@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en">
+<head>
+<script>
+(function () {
+  try {
+    var saved = localStorage.getItem("theme");
+    if (saved === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+    }
+  } catch (e) {}
+})();
+</script>
+<meta charset="utf-8">
+<title>Migrate data center variables to cloud | Appfire Docs</title>
+<meta name="description" content="When you migrate a Comala Document Management Data Center workflow to Cloud, CDM translates its value references to the equivalent Cloud variables. For…">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="/cms_trial/tokens.css">
+<link rel="stylesheet" href="/cms_trial/styles.css">
+<meta name="robots" content="noindex, nofollow">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "TechArticle",
+  "headline": "Migrate data center variables to cloud",
+  "url": "https://christiegera-appfire.github.io/cms_trial/space/CDMC/3844177948/Migrate+data+center+variables+to+cloud/",
+  "dateModified": "2026-11-10T16:22:01.561Z"
+}
+</script>
+</head>
+<body>
+<div id="top-nav-mount">
+<header class="top-nav">
+  <div class="top-nav-inner">
+    <a class="top-nav-brand" href="/cms_trial/"><img class="top-nav-logo top-nav-logo-dark" src="/cms_trial/brand-assets/appfire-lockup-white.svg" alt="Appfire" loading="lazy"><img class="top-nav-logo top-nav-logo-light" src="/cms_trial/brand-assets/appfire-lockup-black.svg" alt="Appfire" loading="lazy"><span class="top-nav-divider"></span><span class="top-nav-docs-label">Docs</span></a>
+    <nav class="top-nav-links">
+      <a href="/cms_trial/product-directory/">Product directory</a>
+      <a href="/cms_trial/search/">Search <kbd>⌘K</kbd></a>
+      <div class="lang-picker">
+        <button class="lang-picker-btn" type="button" title="Translate this page" aria-label="Translate this page">🌐</button>
+        <div class="lang-picker-menu"></div>
+      </div>
+      <button class="theme-toggle-btn" type="button" title="Switch between light and dark" aria-label="Switch between light and dark">
+        <span class="theme-toggle-icon-dark">☾</span>
+        <span class="theme-toggle-icon-light">☀</span>
+      </button>
+    </nav>
+  </div>
+</header>
+<!-- Theme toggle click handler. The anti-flash script in <head> already
+     handles restoring a saved "light" preference before paint — this
+     just wires up clicking the button to actually change and persist it. -->
+<script>
+(function () {
+  var btn = document.querySelector(".theme-toggle-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var isLight = document.documentElement.getAttribute("data-theme") === "light";
+    if (isLight) {
+      document.documentElement.removeAttribute("data-theme");
+      try { localStorage.setItem("theme", "dark"); } catch (e) {}
+    } else {
+      document.documentElement.setAttribute("data-theme", "light");
+      try { localStorage.setItem("theme", "light"); } catch (e) {}
+    }
+  });
+})();
+</script>
+<!-- Language picker — links to Google Translate's real, public proxy for
+     the CURRENT page (computed client-side from window.location), which
+     translates the actual live page on the fly. No API key, no per-
+     character cost, works today. Lower polish than a real native
+     multi-language site (shows Google's own banner, different domain
+     while translated) — a real starting point, not the final answer.
+
+     Languages chosen based on real signal: Atlassian's own cloud docs/
+     support content is only actively translated into Japanese beyond
+     English (confirmed via their own support documentation) — the
+     strongest available signal for what this specific audience actually
+     needs — plus the other major enterprise-software markets. -->
+<script>
+(function () {
+  var btn = document.querySelector(".lang-picker-btn");
+  var menu = document.querySelector(".lang-picker-menu");
+  if (!btn || !menu) return;
+
+  var LANGUAGES = [
+    { code: "ja", label: "日本語 (Japanese)" },
+    { code: "de", label: "Deutsch (German)" },
+    { code: "fr", label: "Français (French)" },
+    { code: "es", label: "Español (Spanish)" },
+    { code: "pt", label: "Português (Portuguese)" },
+    { code: "zh-CN", label: "中文 (Chinese, Simplified)" },
+    { code: "pl", label: "Polski (Polish)" },
+  ];
+
+  menu.innerHTML = LANGUAGES.map(function (lang) {
+    return '<a href="#" data-lang="' + lang.code + '">' + lang.label + "</a>";
+  }).join("");
+
+  btn.addEventListener("click", function (e) {
+    e.stopPropagation();
+    menu.classList.toggle("open");
+  });
+
+  document.addEventListener("click", function () {
+    menu.classList.remove("open");
+  });
+
+  menu.querySelectorAll("a").forEach(function (a) {
+    a.addEventListener("click", function (e) {
+      e.preventDefault();
+      var lang = a.dataset.lang;
+      var currentUrl = window.location.href;
+      var translateUrl = "https://translate.google.com/translate?sl=en&tl=" + lang + "&u=" + encodeURIComponent(currentUrl);
+      window.open(translateUrl, "_blank", "noopener");
+      menu.classList.remove("open");
+    });
+  });
+})();
+</script>
+</div>
+<div class="shell">
+  <main class="content">
+    <div class="page-actions-row">
+      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193033035/Feature+guide/">Feature guide</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2192903639/Administration/">Administration</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/2193066207/Workflow+elements+and+concepts/">Workflow elements and concepts</a> <span class="breadcrumb-sep">/</span> <a href="/cms_trial/space/CDMC/3842114162/Variables/">Variables</a> <span class="breadcrumb-sep">/</span> <span aria-current="page">Migrate data center variables to cloud</span></nav>
+      <div class="page-actions-buttons">
+        <button class="copy-markdown-btn" type="button">Copy page as Markdown</button>
+        <a class="open-in-confluence" href="https://appfire.atlassian.net/wiki/spaces/CDMC/pages/3844177948" target="_blank" rel="noopener">Open in Confluence</a>
+      </div>
+    </div>
+    <h1>Migrate data center variables to cloud</h1>
+    <div class="page-meta">Updated today · 9 min read</div>
+    <h2 id="overview">Overview</h2><p>When you migrate a Comala Document Management Data Center workflow to Cloud, CDM translates its value references to the equivalent Cloud variables. For example, <code>@creator@</code> becomes <code>@Content.CreatorId@</code>.</p><p>Use this page to find the Cloud equivalents of Data Center value references and identify any references that need attention after migration.</p><p>For information about using variables in Cloud workflows, see <a href="/cms_trial/space/CDMC/3842114162/Variables/">Variables</a>.</p><h2 id="where-variables-are-translated">Where variables are translated</h2><p>During migration, <strong>Comala Document Management</strong> translates Data Center value references in workflow fields, including:</p><ul><li><p>Message text in <code>set-message</code> actions.</p></li><li><p>The subject, title, and body of <code>send-email</code> actions.</p></li><li><p>User fields, such as preassigned reviewers.</p></li><li><p>Workflow, state, approval, and trigger fields that contain value references.</p></li></ul><p>Translated variables also appear in migration warnings, so the warnings reflect the values used in the migrated workflow.</p><p>Data Center value references are not case-sensitive. For example, <code>@Creator@</code>, <code>@CREATOR@</code>, and <code>@creator@</code> are all translated to <code>@Content.CreatorId@</code>.</p><p>Text that resembles a variable, such as an email address (<code>john@example.com</code>), remains unchanged.</p><div class="panel panel-note"><p>During migration, Data Center value references can have one of the following results:</p><ul><li><p><strong>Translated:</strong> The value reference is replaced with its equivalent Cloud variable.</p></li><li><p><strong>Unchanged:</strong> The value reference remains unchanged and is not reported during migration. Cloud typically resolves it as a CDM metadata value at runtime.</p></li><li><p><strong>Not supported:</strong> The value reference remains unchanged and is reported as an unmapped value reference. Review the workflow and replace or remove the unsupported reference.</p></li></ul><p>Some value references depend on the trigger event in which they are used. For example, <code>@comment@</code> is translated in an approval trigger but is not supported in a state message. See the <a href="https://appfire.atlassian.net/wiki/spaces/CDMCCD/pages/3842048384/Migrate+data+center+variables+to+cloud#Event">Event</a> section for details.</p></div><h2 id="differences-in-returned-values">Differences in returned values</h2><p>In Cloud, user-related variables can return Atlassian account IDs, display names, or email addresses.</p><p>During migration, Data Center value references such as <code>@creator@</code> and <code>@approvers@</code> are translated to <code>@Content.CreatorId@</code> and <code>@Approval.ApproversId@</code>, respectively. These variables return account IDs, which can be used in reviewer assignments and other user fields.</p><p>If these variables are used in messages or emails, the account IDs appear instead of display names. To display the appropriate value, use the corresponding suffix:</p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p><strong>Suffix</strong></p></th><th><p><strong>Value returned</strong></p></th><th><p><strong>Use it for</strong></p></th></tr><tr><td><p><code>Id</code></p></td><td><p>Atlassian account ID</p></td><td><p>Reviewer assignments and other user fields</p></td></tr><tr><td><p><code>Name</code></p></td><td><p>Display name</p></td><td><p>Messages</p></td></tr><tr><td><p><code>Email</code></p></td><td><p>Email address</p></td><td><p>Email recipients</p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><p>For example, to display the creator's name in a message, replace <code>@Content.CreatorId@</code> with <code>@Content.CreatorName@</code>.</p><p>The following sections list Data Center value references and their corresponding Cloud variables, organized by category. Use these tables to identify the equivalent variables when reviewing your migrated workflows.</p><h2 id="workflow-parameters">Workflow parameters</h2><p>During migration, Data Center value references that match workflow parameter names are translated to the corresponding Cloud parameter variables. The parameter name is preserved as defined in the workflow.</p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p><strong>Data Center</strong></p></th><th><p><strong>Cloud</strong></p></th></tr><tr><td><p><code>@Parameter Name@</code></p></td><td><p><code>@Parameter['Parameter Name']@</code></p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><p>For example, if a workflow contains a parameter named <strong>Owner</strong>, <code>@owner@</code> is translated to <code>@Parameter['Owner']@</code>.</p><p>Workflow parameters take precedence over other value references. If a parameter has the same name as a built-in value reference, CDM translates it as a parameter. For example, if a workflow contains a parameter named <strong>creator</strong>, <code>@creator@</code> is translated to <code>@Parameter['creator']@</code> instead of <code>@Content.CreatorId@</code>.</p><h2 id="workflow-and-state">Workflow and state</h2><p>The following table lists the Data Center value references for workflow and state information and their Cloud equivalents.</p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p><strong>Data Center</strong></p></th><th><p><strong>Cloud</strong></p></th></tr><tr><td><p><code>@workflow@</code>, <code>@workflowname@</code>, <code>@pageworkflowname@</code></p></td><td><p><code>@Workflow.Name@</code></p></td></tr><tr><td><p><code>@workflowversion@</code></p></td><td><p><code>@Workflow.Version@</code></p></td></tr><tr><td><p><code>@state@</code>, <code>@awpstate@</code></p></td><td><p><code>@State.Name@</code></p></td></tr><tr><td><p><code>@expirydate@</code>, <code>@duedate@</code></p></td><td><p><code>@State.ExpiryDate@</code></p></td></tr><tr><td><p><code>@workflow:state &gt; name@</code></p></td><td><p><code>@State.Name@</code></p></td></tr><tr><td><p><code>@workflow:state &gt; duedate@</code></p></td><td><p><code>@State.ExpiryDate@</code></p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><h2 id="event">Event</h2><p>The following tables list Data Center event value references and their Cloud equivalents. Some value references are translated only when used with specific trigger events.</p><h3 id="current-user">Current user</h3><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p><strong>Data Center</strong></p></th><th><p><strong>Cloud</strong></p></th></tr><tr><td><p><code>@user@</code></p></td><td><p><code>@Event.UserId@</code></p></td></tr><tr><td><p><code>@userfullname@</code></p></td><td><p><code>@Event.UserName@</code></p></td></tr><tr><td><p><code>@useremail@</code></p></td><td><p><code>@Event.UserEmail@</code></p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><h3 id="values-that-depend-on-the-trigger-event">Values that depend on the trigger event</h3><p>The following value references are translated only when used in triggers that provide the corresponding values. In other contexts, these references are not supported because the Cloud variables would resolve to empty values.</p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p><strong>Data Center</strong></p></th><th><p><strong>Cloud</strong></p></th><th><p><strong>Supported Data Center triggers</strong></p></th></tr><tr><td><p><code>@comment@</code></p></td><td><p><code>@Event.Comment@</code></p></td><td><p><code>pageapproved</code>, <code>pagerejected</code>, <code>pageapprovalassigned</code>, <code>approvalunassigned</code>, <code>statechanged</code>, <code>pagecreated</code></p></td></tr><tr><td><p><code>@approvaluser@</code></p></td><td><p><code>@Approval.FinalReviewersId@</code></p></td><td><p><code>pageapproved</code>, <code>pagerejected</code></p></td></tr><tr><td><p><code>@label@</code></p></td><td><p><code>@Event.Label@</code></p></td><td><p><code>labeladded</code>, <code>labelremoved</code></p></td></tr><tr><td><p><code>@addedlabel@</code></p></td><td><p><code>@Event.Label@</code></p></td><td><p><code>labeladded</code></p></td></tr><tr><td><p><code>@removedlabel@</code></p></td><td><p><code>@Event.Label@</code></p></td><td><p><code>labelremoved</code></p></td></tr><tr><td><p><code>@filename@</code>, <code>@name@</code>, <code>@attachment &gt; filename@</code>, <code>@attachment &gt; name@</code></p></td><td><p><code>@Event.FileName@</code></p></td><td><p>Attachment-related triggers, such as <code>attachmentadded</code></p></td></tr><tr><td><p><code>@size@</code>, <code>@attachment &gt; size@</code></p></td><td><p><code>@Event.FileSize@</code></p></td><td><p>Attachment-related triggers, such as <code>attachmentadded</code></p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><p>Outside attachment-related triggers, <code>@filename@</code>, <code>@name@</code>, <code>@size@</code>, and <code>@type@</code> remain unchanged because Data Center treats them as page metadata in those contexts.</p><div class="panel panel-note"><p><strong>Example: Approval comment in a message</strong></p><p>In Data Center, a <code>pageapproved</code> trigger contains the following message:</p><p><code>Approved by @approvaluser@: @comment@</code></p><p>After migration, the message becomes:</p><p><code>Approved by @Approval.FinalReviewersId@: @Event.Comment@</code></p><p>The Cloud variable <code>@Approval.FinalReviewersId@</code> returns the reviewer's Atlassian account ID. To display the reviewer's name instead, replace it with <code>@Approval.FinalReviewersName@</code>.</p></div><h2 id="approval">Approval</h2><h3 id="approvals-in-the-current-state">Approvals in the current state</h3><p>The following Data Center value references are translated to Cloud variables that retrieve information from all approvals in the current workflow state.</p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p><strong>Data Center</strong></p></th><th><p><strong>Cloud</strong></p></th></tr><tr><td><p><code>@approval@</code>, <code>@approvalname@</code></p></td><td><p><code>@Approval.Name@</code></p></td></tr><tr><td><p><code>@approvalcomment@</code></p></td><td><p><code>@Approval.Comment@</code></p></td></tr><tr><td><p><code>@approvalassignees@</code>, <code>@assignees@</code>, <code>@selected@</code>, <code>@selectedapprover@</code>, <code>@selectedapprovers@</code></p></td><td><p><code>@Approval.AssignedReviewersId@</code></p></td></tr><tr><td><p><code>@pendingusers@</code></p></td><td><p><code>@Approval.PendingReviewersId@</code></p></td></tr><tr><td><p><code>@approver@</code>, <code>@approvers@</code></p></td><td><p><code>@Approval.ApproversId@</code></p></td></tr><tr><td><p><code>@rejector@</code>, <code>@rejectors@</code></p></td><td><p><code>@Approval.RejectorsId@</code></p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><h3 id="named-approvals">Named approvals</h3><p>In Data Center, you can use <code>@Approval Name &gt; attribute@</code> to reference a specific approval. During migration, these references are translated to Cloud variables that include the approval name.</p><p>The approval name is preserved as written, and spaces around <code>&gt;</code> are optional.</p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p><strong>Data Center</strong></p></th><th><p><strong>Cloud</strong></p></th></tr><tr><td><p><code>@QA Review &gt; approvalassignees@</code>, <code>@QA Review &gt; assignees@</code>, <code>@QA Review &gt; selected@</code>, <code>@QA Review &gt; selectedapprover@</code>, <code>@QA Review &gt; selectedapprovers@</code></p></td><td><p><code>@Approval['QA Review'].AssignedReviewersId@</code></p></td></tr><tr><td><p><code>@QA Review &gt; pendingusers@</code></p></td><td><p><code>@Approval['QA Review'].PendingReviewersId@</code></p></td></tr><tr><td><p><code>@QA Review &gt; approver@</code>, <code>@QA Review &gt; approvers@</code>, <code>@QA Review &gt; approvaluser@</code>, <code>@QA Review &gt; user@</code></p></td><td><p><code>@Approval['QA Review'].ApproversId@</code></p></td></tr><tr><td><p><code>@QA Review &gt; rejector@</code>, <code>@QA Review &gt; rejectors@</code></p></td><td><p><code>@Approval['QA Review'].RejectorsId@</code></p></td></tr><tr><td><p><code>@QA Review &gt; approvalcomment@</code>, <code>@QA Review &gt; comment@</code></p></td><td><p><code>@Approval['QA Review'].Comment@</code></p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><h3 id="name-modifiers">Name modifiers</h3><p>In Data Center, you can add <code>&gt; wiki-link</code> or <code>&gt; fullname</code> to an approval reference to display a user's name. During migration, these references are translated to Cloud variables with the <code>Name</code> suffix.</p><p>Cloud variables return display names rather than user mentions.</p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p><strong>Data Center</strong></p></th><th><p><strong>Cloud</strong></p></th></tr><tr><td><p><code>@QA Review &gt; approvers &gt; wiki-link@</code></p></td><td><p><code>@Approval['QA Review'].ApproversName@</code></p></td></tr><tr><td><p><code>@QA Review &gt; approver &gt; fullname@</code></p></td><td><p><code>@Approval['QA Review'].ApproversName@</code></p></td></tr><tr><td><p><code>@QA Review &gt; selected &gt; fullname@</code></p></td><td><p><code>@Approval['QA Review'].AssignedReviewersName@</code></p></td></tr><tr><td><p><code>@QA Review &gt; pendingusers &gt; wiki-link@</code></p></td><td><p><code>@Approval['QA Review'].PendingReviewersName@</code></p></td></tr><tr><td><p><code>@QA Review &gt; rejectors &gt; wiki-link@</code></p></td><td><p><code>@Approval['QA Review'].RejectorsName@</code></p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><p>Other modifiers are not supported. This also applies to modifiers used with non-user attributes, such as <code>@QA Review &gt; comment &gt; fullname@</code>.</p><h2 id="metadata">Metadata</h2><p>During migration, Data Center value references that don't match a workflow parameter or a built-in value reference are treated as CDM metadata references.</p><p>These references remain unchanged, and Cloud resolves their values from the page metadata when the workflow runs.</p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p><strong>Data Center</strong></p></th><th><p><strong>Cloud</strong></p></th></tr><tr><td><p><code>@My metadata@</code></p></td><td><p><code>@My metadata@</code> (unchanged)</p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><p>Approval references with attributes that aren't recognized as approval attributes, such as <code>@Section &gt; owner@</code>, also remain unchanged.</p><h3 id="metadata-from-another-page">Metadata from another page</h3><p>The following table shows how Data Center metadata references to another page are translated to Cloud variables.</p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p><strong>Data Center</strong></p></th><th><p><strong>Cloud</strong></p></th></tr><tr><td><p><code>@Page title:key@</code></p></td><td><p><code>@ContentTitle['Page title']:Metadata['key']@</code></p></td></tr><tr><td><p><code>@SPACEKEY:Page title:key@</code></p></td><td><p><code>@SpaceKey['SPACEKEY']:ContentTitle['Page title']:Metadata['key']@</code></p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><p>For example, <code>@DEMO:Target Page:region@</code> is translated to <code>@SpaceKey['DEMO']:ContentTitle['Target Page']:Metadata['region']@</code>.</p><p>References containing more than three parts or an empty part, such as <code>@DEMO::region@</code>, are not supported.</p><p>A two-part reference beginning with <code>workflow</code>, <code>content</code>, <code>space</code>, <code>user</code>, or <code>page</code> is treated as a Reporting supplier chain rather than a page reference. See <a href="https://appfire.atlassian.net/wiki/spaces/CDMCCD/pages/3842048384/Migrate+data+center+variables+to+cloud#Reporting-supplier-chains">Reporting supplier chains</a> for details.</p><h2 id="confluence-page-properties">Confluence Page Properties</h2><p>The following table shows how Data Center Page Properties value references are translated to Cloud variables.</p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p><strong>Data Center</strong></p></th><th><p><strong>Cloud</strong></p></th></tr><tr><td><p><code>@property Name@</code></p></td><td><p><code>@Property['Name']@</code></p></td></tr><tr><td><p><code>@property('Name')@</code></p></td><td><p><code>@Property['Name']@</code></p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><p>For example, <code>@property DocId@</code> is translated to <code>@Property['DocId']@</code>.</p><p>In Cloud, Page Properties variables support text and user mentions in the vertical two-column layout of the Page Properties macro. User mentions return Atlassian account IDs.</p><p>After migration, check that the referenced Page Properties use a supported layout and contain supported values.</p><h2 id="confluence-page-and-space">Confluence page and space</h2><p>The following tables show how Data Center value references for dates, pages, and spaces are translated to Cloud variables.</p><h3 id="date">Date</h3><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p><strong>Data Center</strong></p></th><th><p><strong>Cloud</strong></p></th></tr><tr><td><p><code>@date@</code></p></td><td><p><code>@Date@</code></p></td></tr><tr><td><p><code>@datetime@</code></p></td><td><p><code>@DateTime@</code></p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><h3 id="current-page">Current page</h3><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p><strong>Data Center</strong></p></th><th><p><strong>Cloud</strong></p></th></tr><tr><td><p><code>@pageid@</code>, <code>@id@</code></p></td><td><p><code>@Content.Id@</code></p></td></tr><tr><td><p><code>@pagetitle@</code>, <code>@title@</code></p></td><td><p><code>@Content.Title@</code></p></td></tr><tr><td><p><code>@page@</code>, <code>@url@</code></p></td><td><p><code>@Content.Link@</code></p></td></tr><tr><td><p><code>@version@</code></p></td><td><p><code>@Content.Version@</code></p></td></tr><tr><td><p><code>@labels@</code></p></td><td><p><code>@Content.Labels@</code></p></td></tr><tr><td><p><code>@parent@</code></p></td><td><p><code>@Content.ParentLink@</code></p></td></tr><tr><td><p><code>@creator@</code>, <code>@author@</code>, <code>@poster@</code></p></td><td><p><code>@Content.CreatorId@</code></p></td></tr><tr><td><p><code>@modifier@</code>, <code>@updater@</code>, <code>@updateuser@</code></p></td><td><p><code>@Content.LastEditorId@</code></p></td></tr><tr><td><p><code>@content:modifier &gt; full name@</code></p></td><td><p><code>@Content.LastEditorName@</code></p></td></tr><tr><td><p><code>@watchers@</code></p></td><td><p><code>@Content.WatchersId@</code></p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><h3 id="space-of-the-current-page">Space of the current page</h3><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p><strong>Data Center</strong></p></th><th><p><strong>Cloud</strong></p></th></tr><tr><td><p><code>@space@</code></p></td><td><p><code>@Space.Name@</code></p></td></tr><tr><td><p><code>@spacekey@</code></p></td><td><p><code>@Space.Key@</code></p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><div class="panel panel-note"><p><strong>Example: Page information in an email</strong></p><p>In Data Center, the body of a <code>send-email</code> action contains:</p><p><code>@pagetitle@ (@page@) was created by @creator@ in @space@.</code></p><p>After migration, the email body contains:</p><p><code>@Content.Title@ (@Content.Link@) was created by @Content.CreatorId@ in @Space.Name@.</code></p><p>The <code>@Content.CreatorId@</code> variable returns the creator's Atlassian account ID. To display the creator's name instead, replace it with <code>@Content.CreatorName@</code>.</p></div><h2 id="reporting-supplier-chains">Reporting supplier chains</h2><p>The following Data Center Reporting supplier chains have equivalent Cloud variables.</p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p><strong>Data Center</strong></p></th><th><p><strong>Cloud</strong></p></th></tr><tr><td><p><code>@workflow:state &gt; name@</code></p></td><td><p><code>@State.Name@</code></p></td></tr><tr><td><p><code>@workflow:state &gt; duedate@</code></p></td><td><p><code>@State.ExpiryDate@</code></p></td></tr><tr><td><p><code>@content:modifier &gt; full name@</code></p></td><td><p><code>@Content.LastEditorName@</code></p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><p>Other Reporting supplier chains, such as <code>@content:creator &gt; email@</code>, are not supported in Cloud.</p><h2 id="value-references-that-are-not-supported">Value references that are not supported</h2><p>The following Data Center value references do not have Cloud equivalents. During migration, these references remain unchanged and are reported as unmapped value references.</p><p>Review these references in your migrated workflow and replace or remove them as needed.</p><div class="wide-table-wrapper"><div class="wide-table-scroll"><table><tr><th><p><strong>Data Center</strong></p></th><th><p><strong>Description</strong></p></th></tr><tr><td><p><code>@assignee@</code></p></td><td><p>The user who was just assigned. There is no direct Cloud equivalent. To reference all assigned reviewers, use <code>@Approval.AssignedReviewersId@</code>.</p></td></tr><tr><td><p><code>@approvaldate@</code>, <code>@Approval Name &gt; approvaldate@</code></p></td><td><p>No Cloud equivalent.</p></td></tr><tr><td><p><code>@signature@</code></p></td><td><p>No Cloud equivalent.</p></td></tr><tr><td><p><code>@pagelatest@</code>, <code>@pageactivity@</code>, <code>@modification@</code></p></td><td><p>No Cloud equivalent.</p></td></tr><tr><td><p><code>@attachmenturl@</code></p></td><td><p>No Cloud equivalent.</p></td></tr><tr><td><p><code>@type@</code>, <code>@attachment &gt; type@</code> in attachment triggers</p></td><td><p>No equivalent attachment type variable. <code>@Content.Type@</code> returns the page content type, not the attachment type.</p></td></tr><tr><td><p><code>@task@</code>, <code>@taskname@</code>, <code>@taskassignee@</code>, <code>@taskassigner@</code>, <code>@taskcompleter@</code>, <code>@taskcreator@</code>, <code>@taskcomment@</code></p></td><td><p>No Cloud equivalent.</p></td></tr><tr><td><p><code>@errormessage@</code></p></td><td><p>No Cloud equivalent.</p></td></tr><tr><td><p><code>@comment@</code>, <code>@approvaluser@</code>, <code>@label@</code>, <code>@addedlabel@</code>, <code>@removedlabel@</code> outside the supported trigger contexts</p></td><td><p>These references are supported only in the trigger contexts listed in the <a href="https://appfire.atlassian.net/wiki/spaces/CDMCCD/pages/3842048384/Migrate+data+center+variables+to+cloud#Event">Event</a> section.</p></td></tr><tr><td><p>Approval chains with modifiers other than <code>wiki-link</code> or <code>fullname</code></p></td><td><p>See <a href="https://appfire.atlassian.net/wiki/spaces/CDMCCD/pages/3842048384/Migrate+data+center+variables+to+cloud#Name-modifiers">Name modifiers</a> under Approval.</p></td></tr><tr><td><p>Reporting supplier chains not listed in <a href="https://appfire.atlassian.net/wiki/spaces/CDMCCD/pages/3842048384/Migrate+data+center+variables+to+cloud#Reporting-supplier-chains">Reporting supplier chains</a></p></td><td><p>No Cloud equivalent.</p></td></tr><tr><td><p>Cross-page references containing more than three parts or an empty part</p></td><td><p>See <a href="https://appfire.atlassian.net/wiki/spaces/CDMCCD/pages/3842048384/Migrate+data+center+variables+to+cloud#Metadata-from-another-page">Metadata from another page</a> for supported formats.</p></td></tr></table></div><p class="wide-table-note">This table scrolls sideways →</p></div><h2 id="check-your-workflow-after-migration">Check your workflow after migration</h2><p>After migrating your workflow to Cloud, check that the value references work as expected.</p><ol><li><p>Review the migration report for unmapped value references. Replace or remove any unsupported references.</p></li><li><p>Check messages and emails for variables with the <code>Id</code> suffix, such as <code>@Content.CreatorId@</code>. Replace them with the corresponding <code>Name</code> variables if you want to display names instead of account IDs.</p></li><li><p>Verify that referenced metadata, Page Properties, and pages exist in Cloud with the expected names.</p></li><li><p>Test the workflow on a page and check messages and emails for unresolved variables.</p></li></ol>
+  </main>
+  <aside class="sidebar">
+<div class="brand"><span class="brand-mark">Appfire Docs</span></div>
+<div class="brand-tag">Live docs, fetched from Confluence via API.</div>
+<nav><ul><li><details open><summary><a href="/cms_trial/space/CDMC/618692610/Comala+Document+Management+Cloud/">Comala Document Management Cloud</a></summary><ul><li><details><summary><a href="/cms_trial/space/CDMC/2192838067/Get+started+with+Comala+Document+Management+for+Cloud/">Get started with Comala Document Management for Cloud</a></summary><ul><li><a href="/cms_trial/space/CDMC/2192870167/Installation/">Installation</a></li><li><a href="/cms_trial/space/CDMC/2192869918/Onboarding/">Onboarding</a></li><li><a href="/cms_trial/space/CDMC/2193000940/Feature+tour/">Feature tour</a></li><li><a href="/cms_trial/space/CDMC/3822682309/Comala+Document+Management+video+library/">Comala Document Management video library</a></li></ul></details></li><li><details open><summary><a href="/cms_trial/space/CDMC/2193033035/Feature+guide/">Feature guide</a></summary><ul><li><details open><summary><a href="/cms_trial/space/CDMC/2192903639/Administration/">Administration</a></summary><ul><li><a href="/cms_trial/space/CDMC/2192870224/App+scope+and+permissions/">App scope and permissions</a></li><li><a href="/cms_trial/space/CDMC/2192776249/Space+administration/">Space administration</a></li><li><a href="/cms_trial/space/CDMC/2193129643/Global+administration/">Global administration</a></li><li><a href="/cms_trial/space/CDMC/2193129668/Built-in+workflow+templates/">Built-in workflow templates</a></li><li><a href="/cms_trial/space/CDMC/2193162391/Create+and+edit+workflows/">Create and edit workflows</a></li><li><details open><summary><a href="/cms_trial/space/CDMC/2193066207/Workflow+elements+and+concepts/">Workflow elements and concepts</a></summary><ul><li><a href="/cms_trial/space/CDMC/2193066115/States/">States</a></li><li><a href="/cms_trial/space/CDMC/2192837939/Parameters/">Parameters</a></li><li><a href="/cms_trial/space/CDMC/2192776606/Transitions/">Transitions</a></li><li><a href="/cms_trial/space/CDMC/2193195490/Approvals/">Approvals</a></li><li><a href="/cms_trial/space/CDMC/2192967825/Triggers/">Triggers</a></li><li><details open><summary><a href="/cms_trial/space/CDMC/3842114162/Variables/">Variables</a></summary><ul><li><a href="/cms_trial/space/CDMC/3844177948/Migrate+data+center+variables+to+cloud/" class="active">Migrate data center variables to cloud</a></li></ul></details></li></ul></details></li></ul></details></li><li><a href="/cms_trial/space/CDMC/2193129918/Workflow+state+dialog/">Workflow state dialog</a></li><li><a href="/cms_trial/space/CDMC/2193066247/Searching+and+Reporting/">Searching and Reporting</a></li><li><a href="/cms_trial/space/CDMC/2193001238/Notifications/">Notifications</a></li><li><a href="/cms_trial/space/CDMC/2192870271/Apply+workflows/">Apply workflows</a></li><li><a href="/cms_trial/space/CDMC/2193162930/Page+macros/">Page macros</a></li><li><a href="/cms_trial/space/CDMC/2192838469/Page+macros+for+reporting/">Page macros for reporting</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CDMC/2193196033/Solutions+and+Integrations/">Solutions and Integrations</a></summary><ul><li><a href="/cms_trial/space/CDMC/2192777093/Appfire+Solutions/">Appfire Solutions</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CDMC/2193851167/Use+cases/">Use cases</a></summary><ul><li><a href="/cms_trial/space/CDMC/2193883461/Reinforce+regulatory+compliance+initiatives/">Reinforce regulatory compliance initiatives</a></li><li><a href="/cms_trial/space/CDMC/2193657250/Automate+policy+management+to+keep+information+up-to-date/">Automate policy management to keep information up-to-date</a></li><li><a href="/cms_trial/space/CDMC/2193657354/Implement+a+system+for+tracking+and+sharing+information/">Implement a system for tracking and sharing information</a></li><li><a href="/cms_trial/space/CDMC/3368681682/Use+workflows+to+govern+and+manage+your+Confluence+documents/">Use workflows to govern and manage your Confluence documents</a></li><li><a href="/cms_trial/space/CDMC/3653632269/Build+a+Campaign+Brief+Workflow+with+the+Visual+Builder+Editor/">Build a Campaign Brief Workflow with the Visual Builder Editor</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CDMC/2193032985/Compliance+guide/">Compliance guide</a></summary><ul><li><a href="/cms_trial/space/CDMC/2192776841/Comala+Document+Management+Cloud+FDA+Title+21+CFR+Part+11+Compliance+Statement/">Comala Document Management Cloud FDA Title 21 CFR Part 11 Compliance Statement</a></li><li><a href="/cms_trial/space/CDMC/2192967979/Comala+Document+Management+Cloud+ISO+9001+Section+7.5+(Document+Control)+Compliance+Statement/">Comala Document Management Cloud ISO 9001 Section 7.5 (Document Control) Compliance Statement</a></li><li><a href="/cms_trial/space/CDMC/2192902630/Comala+Document+Management+Cloud+ISO+13485+Sections+4.2.4+%26+4.2.5+(Control+of+Documents%2C+Control+of+Records)+Compliance+Statement/">Comala Document Management Cloud ISO 13485 Sections 4.2.4 &amp; 4.2.5 (Control of Documents, Control of Records) Compliance Statement</a></li><li><a href="/cms_trial/space/CDMC/2193129982/Comala+Document+Management+Cloud+ISO+9001+Section+4+(Quality+Management+System)+Compliance+Statement/">Comala Document Management Cloud ISO 9001 Section 4 (Quality Management System) Compliance Statement</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CDMC/2192967667/Migrate+to+Confluence+Cloud/">Migrate to Confluence Cloud</a></summary><ul><li><a href="/cms_trial/space/CDMC/3446374401/Migrate+from+Data+Center+to+Cloud+(Connect)/">Migrate from Data Center to Cloud (Connect)</a></li><li><a href="/cms_trial/space/CDMC/3446079850/Migrate+from+Data+Center+to+Cloud+(Forge)/">Migrate from Data Center to Cloud (Forge)</a></li><li><a href="/cms_trial/space/CDMC/2192677102/Product+comparison/">Product comparison</a></li><li><a href="/cms_trial/space/CDMC/2200469883/Migration+help+and+support/">Migration help and support</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CDMC/2193196083/Release+Notes/">Release Notes</a></summary><ul><li><a href="/cms_trial/space/CDMC/3841917327/Release+notes+10+November+2026/">Release notes 10 November 2026</a></li><li><a href="/cms_trial/space/CDMC/3826581616/Release+notes+4th+November+2026/">Release notes 4th November 2026</a></li><li><a href="/cms_trial/space/CDMC/3805151413/Release+notes+27th+October+2026/">Release notes 27th October 2026</a></li><li><a href="/cms_trial/space/CDMC/3782180865/Release+notes+21st+October+2026/">Release notes 21st October 2026</a></li><li><a href="/cms_trial/space/CDMC/3779100715/Release+notes+20th+October+2026/">Release notes 20th October 2026</a></li><li><a href="/cms_trial/space/CDMC/3779002505/Release+notes+14th+October+2026/">Release notes 14th October 2026</a></li><li><a href="/cms_trial/space/CDMC/3739254792/Release+notes+7th+October+2026/">Release notes 7th October 2026</a></li><li><a href="/cms_trial/space/CDMC/3735486472/Release+notes+2nd+October+2026/">Release notes 2nd October 2026</a></li><li><a href="/cms_trial/space/CDMC/3778936844/Release+notes+14+October+2026/">Release notes 14 October 2026</a></li><li><a href="/cms_trial/space/CDMC/3710583063/Release+notes+29th+September+2026/">Release notes 29th September 2026</a></li><li><a href="/cms_trial/space/CDMC/3692199999/Release+notes+23rd+September+2026/">Release notes 23rd September 2026</a></li><li><a href="/cms_trial/space/CDMC/3687186656/Release+notes+22nd+September+2026/">Release notes 22nd September 2026</a></li><li><a href="/cms_trial/space/CDMC/3662807441/Release+notes+15th+September+2026/">Release notes 15th September 2026</a></li><li><a href="/cms_trial/space/CDMC/3643998216/Release+notes+8th+September+2026/">Release notes 8th September 2026</a></li><li><a href="/cms_trial/space/CDMC/3627057168/Release+notes+3rd+September+2026/">Release notes 3rd September 2026</a></li><li><a href="/cms_trial/space/CDMC/3609919493/Release+notes+27th+August+2026/">Release notes 27th August 2026</a></li><li><a href="/cms_trial/space/CDMC/3585409494/Release+notes+26th+August+2026/">Release notes 26th August 2026</a></li><li><a href="/cms_trial/space/CDMC/3581444225/Release+notes+25th+August+2026/">Release notes 25th August 2026</a></li><li><a href="/cms_trial/space/CDMC/3568468011/Release+notes+19th+August+2026/">Release notes 19th August 2026</a></li><li><a href="/cms_trial/space/CDMC/3532193996/Release+notes+11th+August+2026/">Release notes 11th August 2026</a></li><li><a href="/cms_trial/space/CDMC/3529998698/Release+notes+10th+August+2026/">Release notes 10th August 2026</a></li><li><a href="/cms_trial/space/CDMC/3512828095/Release+notes+4th+August+2026/">Release notes 4th August 2026</a></li><li><a href="/cms_trial/space/CDMC/3499065594/Release+notes+30+July+2026/">Release notes 30 July 2026</a></li><li><a href="/cms_trial/space/CDMC/3490939070/Release+notes+28+July+2026/">Release notes 28 July 2026</a></li><li><a href="/cms_trial/space/CDMC/3479404596/Release+notes+23+July+2026/">Release notes 23 July 2026</a></li><li><a href="/cms_trial/space/CDMC/3477897347/Release+notes+22+July+2026/">Release notes 22 July 2026</a></li><li><a href="/cms_trial/space/CDMC/3473735769/Release+notes+21+July+2026/">Release notes 21 July 2026</a></li><li><a href="/cms_trial/space/CDMC/3466920104/Release+notes+20+July+2026/">Release notes 20 July 2026</a></li><li><a href="/cms_trial/space/CDMC/3459449008/Release+notes+16th+July+2026/">Release notes 16th July 2026</a></li><li><a href="/cms_trial/space/CDMC/3456008270/Release+notes+15th+July+2026/">Release notes 15th July 2026</a></li><li><a href="/cms_trial/space/CDMC/3451552264/Release+notes+14th+July+2026/">Release notes 14th July 2026</a></li><li><a href="/cms_trial/space/CDMC/3444244517/Release+notes+9th+July+2026/">Release notes 9th July 2026</a></li><li><a href="/cms_trial/space/CDMC/3432350555/Release+notes+7th+July+2026/">Release notes 7th July 2026</a></li><li><a href="/cms_trial/space/CDMC/3435823287/Release+notes+8th+July+2026/">Release notes 8th July 2026</a></li><li><a href="/cms_trial/space/CDMC/3428745623/Release+notes+2nd+July+2026/">Release notes 2nd July 2026</a></li><li><a href="/cms_trial/space/CDMC/3412230474/Release+notes+June+30+2026/">Release notes June 30 2026</a></li><li><a href="/cms_trial/space/CDMC/3276472557/Release+notes+13th+May+2026/">Release notes 13th May 2026</a></li><li><a href="/cms_trial/space/CDMC/3276374228/Release+notes+11th+May+2026/">Release notes 11th May 2026</a></li><li><a href="/cms_trial/space/CDMC/3219980472/Release+notes+6th+May+2026/">Release notes 6th May 2026</a></li><li><a href="/cms_trial/space/CDMC/3220766873/Release+notes+5th+May+2026/">Release notes 5th May 2026</a></li><li><a href="/cms_trial/space/CDMC/3122430036/Release+notes+13th+April+2026/">Release notes 13th April 2026</a></li><li><a href="/cms_trial/space/CDMC/3078094916/Release+notes+30th+March+2026/">Release notes 30th March 2026</a></li><li><a href="/cms_trial/space/CDMC/3024814453/Release+notes+17th+March+2026/">Release notes 17th March 2026</a></li><li><a href="/cms_trial/space/CDMC/3020030401/Release+notes+13th+March+2026/">Release notes 13th March 2026</a></li><li><a href="/cms_trial/space/CDMC/3019342376/Release+notes+23rd+February+2026/">Release notes 23rd February 2026</a></li><li><a href="/cms_trial/space/CDMC/3019309425/Release+notes+5th+February+2026/">Release notes 5th February 2026</a></li><li><a href="/cms_trial/space/CDMC/3019342315/Release+notes+3rd+February+2026/">Release notes 3rd February 2026</a></li><li><a href="/cms_trial/space/CDMC/3019637104/Release+notes+14th+January+2026/">Release notes 14th January 2026</a></li><li><a href="/cms_trial/space/CDMC/3128066689/Release+Notes+2025/">Release Notes 2025</a></li></ul></details></li><li><details><summary><a href="/cms_trial/space/CDMC/2192776724/Help+and+support/">Help and support</a></summary><ul><li><a href="/cms_trial/space/CDMC/2192870409/Allowing+Comala+Document+Management+through+a+corporate+firewall/">Allowing Comala Document Management through a corporate firewall</a></li><li><a href="/cms_trial/space/CDMC/2192870439/Why+the+space+homepage+doesn%E2%80%99t+display+a+workflow+state+byline%3F/">Why the space homepage doesn’t display a workflow state byline?</a></li><li><a href="/cms_trial/space/CDMC/2192870534/Transfer+a+workflow+between+Confluence+cloud+sites/">Transfer a workflow between Confluence cloud sites</a></li><li><a href="/cms_trial/space/CDMC/2192968035/Why+is+my+document+status+shown+as+%E2%80%9CNot+initialized%E2%80%9D+in+the+Document+Report%3F/">Why is my document status shown as “Not initialized” in the Document Report?</a></li><li><a href="/cms_trial/space/CDMC/2193097214/Why+is+my+document+state+name+in+the+workflows+document+report+appended+with+%22...(Obsolete)%22%3F/">Why is my document state name in the workflows document report appended with "...(Obsolete)"?</a></li><li><a href="/cms_trial/space/CDMC/2420670735/Use+the+Comala+Document+Management+App+with+Confluence+Live+Pages/">Use the Comala Document Management App with Confluence Live Pages</a></li><li><a href="/cms_trial/space/CDMC/3412264373/End+of+support+for+the+Connect+framework/">End of support for the Connect framework</a></li></ul></details></li></ul></details></li></ul></nav>
+<div class="sidebar-resize-handle" title="Drag to resize"></div></aside>
+  <aside class="page-toc-rail"><div class="page-toc"><div class="page-toc-title">On this page</div><ul><li class="toc-level-2"><a href="#overview">Overview</a></li><li class="toc-level-2"><a href="#where-variables-are-translated">Where variables are translated</a></li><li class="toc-level-2"><a href="#differences-in-returned-values">Differences in returned values</a></li><li class="toc-level-2"><a href="#workflow-parameters">Workflow parameters</a></li><li class="toc-level-2"><a href="#workflow-and-state">Workflow and state</a></li><li class="toc-level-2"><a href="#event">Event</a></li><li class="toc-level-3"><a href="#current-user">Current user</a></li><li class="toc-level-3"><a href="#values-that-depend-on-the-trigger-event">Values that depend on the trigger event</a></li><li class="toc-level-2"><a href="#approval">Approval</a></li><li class="toc-level-3"><a href="#approvals-in-the-current-state">Approvals in the current state</a></li><li class="toc-level-3"><a href="#named-approvals">Named approvals</a></li><li class="toc-level-3"><a href="#name-modifiers">Name modifiers</a></li><li class="toc-level-2"><a href="#metadata">Metadata</a></li><li class="toc-level-3"><a href="#metadata-from-another-page">Metadata from another page</a></li><li class="toc-level-2"><a href="#confluence-page-properties">Confluence Page Properties</a></li><li class="toc-level-2"><a href="#confluence-page-and-space">Confluence page and space</a></li><li class="toc-level-3"><a href="#date">Date</a></li><li class="toc-level-3"><a href="#current-page">Current page</a></li><li class="toc-level-3"><a href="#space-of-the-current-page">Space of the current page</a></li><li class="toc-level-2"><a href="#reporting-supplier-chains">Reporting supplier chains</a></li><li class="toc-level-2"><a href="#value-references-that-are-not-supported">Value references that are not supported</a></li><li class="toc-level-2"><a href="#check-your-workflow-after-migration">Check your workflow after migration</a></li></ul></div></aside>
+</div>
+<!-- "Get Help" — a plain link to the real, already-working Refined JSM
+     portal, at a different path on the SAME domain. No custom OAuth
+     backend needed for this: Refined's own JSM integration already
+     correctly handles brand-new, first-time visitors in production today,
+     which is exactly the case our earlier OAuth-based attempt structurally
+     couldn't solve (Atlassian's own consent screen blocks anyone with zero
+     prior relationship to the site, before ever reaching JSM). Styled to
+     match the rest of the site and left as a same-tab navigation (not
+     target="_blank") so clicking it feels like moving to another page on
+     one continuous site, not popping open a separate system. -->
+<a class="get-help-btn" href="https://support.appfire.com/page/support">Get Help</a>
+
+<!-- Advanced Tables (Table Plus, etc.) enhancement — reconstructs the parts
+     of the macro's real behavior that aren't stored as static content:
+     click-to-sort columns, computed numeric totals, and hover highlighting.
+     Harmless to include on every page — it does nothing if no
+     .advanced-table elements are present. -->
+<script>
+(function () {
+  document.querySelectorAll(".advanced-table").forEach(function (container) {
+    var table = container.querySelector("table");
+    if (!table) return;
+
+    var enableSorting = container.dataset.enableSorting === "true";
+    var autoTotal = container.dataset.autoTotal === "true";
+    var enableHighlighting = container.dataset.enableHighlighting === "true";
+    var highlightColor = container.dataset.highlightColor || "";
+
+    var headerRow = table.rows[0];
+    var tbody = table.tBodies[0] || table;
+
+    // Highlighting: toggle a background color on row hover, matching the
+    // macro's own configured highlight color rather than a fixed one.
+    if (enableHighlighting && highlightColor && headerRow) {
+      Array.prototype.slice.call(tbody.rows).forEach(function (row) {
+        if (row === headerRow) return;
+        row.addEventListener("mouseenter", function () { row.style.backgroundColor = highlightColor; });
+        row.addEventListener("mouseleave", function () { row.style.backgroundColor = ""; });
+      });
+    }
+
+    // Sorting: click a header cell to sort by that column. Numeric-aware —
+    // compares as numbers when both values parse as one, falls back to
+    // string comparison otherwise. Repeated clicks toggle ascending/descending.
+    if (enableSorting && headerRow) {
+      Array.prototype.forEach.call(headerRow.cells, function (cell, colIndex) {
+        cell.classList.add("sortable-col");
+        cell.title = "Click to sort";
+        var ascending = true;
+        cell.addEventListener("click", function () {
+          var rows = Array.prototype.slice.call(tbody.rows).filter(function (r) { return r !== headerRow; });
+          rows.sort(function (a, b) {
+            var av = (a.cells[colIndex] ? a.cells[colIndex].textContent : "").trim();
+            var bv = (b.cells[colIndex] ? b.cells[colIndex].textContent : "").trim();
+            var an = parseFloat(av), bn = parseFloat(bv);
+            var cmp = (!isNaN(an) && !isNaN(bn)) ? (an - bn) : av.localeCompare(bv);
+            return ascending ? cmp : -cmp;
+          });
+          rows.forEach(function (row) { tbody.appendChild(row); });
+          ascending = !ascending;
+        });
+      });
+    }
+
+    // Computed totals: sum any column where every non-empty cell parses as
+    // a number, appended as a footer row. This approximates the common
+    // case (a numeric sum) — the real macro lets authors choose different
+    // calculation types per column (min, max, average...), which isn't
+    // reconstructed here.
+    if (autoTotal && headerRow) {
+      var dataRows = Array.prototype.slice.call(tbody.rows).filter(function (r) { return r !== headerRow; });
+      var totals = [];
+      for (var c = 0; c < headerRow.cells.length; c++) {
+        (function (colIndex) {
+          var allNumeric = true, sum = 0, sawAny = false;
+          dataRows.forEach(function (row) {
+            var cell = row.cells[colIndex];
+            var text = cell ? cell.textContent.trim() : "";
+            if (text === "") return;
+            var n = parseFloat(text);
+            if (isNaN(n)) { allNumeric = false; return; }
+            sum += n;
+            sawAny = true;
+          });
+          totals.push(allNumeric && sawAny ? sum : null);
+        })(c);
+      }
+      if (totals.some(function (t) { return t !== null; })) {
+        var footRow = document.createElement("tr");
+        footRow.className = "advanced-table-total-row";
+        totals.forEach(function (t) {
+          var td = document.createElement("td");
+          td.textContent = t !== null ? String(t) : "";
+          footRow.appendChild(td);
+        });
+        tbody.appendChild(footRow);
+      }
+    }
+  });
+})();
+</script>
+
+<!-- Aura Tab Group enhancement — click-to-switch tabs. Harmless to include
+     on every page; does nothing if no .aura-tab-group elements exist. -->
+<script>
+(function () {
+  document.querySelectorAll(".aura-tab-group").forEach(function (group) {
+    var buttons = group.querySelectorAll(".aura-tab-btn");
+    buttons.forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var targetId = btn.dataset.target;
+        group.querySelectorAll(".aura-tab-btn").forEach(function (b) { b.classList.remove("active"); });
+        group.querySelectorAll(".aura-tab-panel").forEach(function (p) { p.classList.remove("active"); });
+        btn.classList.add("active");
+        var panel = document.getElementById(targetId);
+        if (panel) panel.classList.add("active");
+      });
+    });
+  });
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "__SEARCH_URL__";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Cmd+K (or Ctrl+K) jumps to the search page; if already there, focuses the
+     search input instead of navigating. "/" does the same, unless focus is
+     already inside a text input/textarea (so typing a literal "/" in a
+     search box or form field doesn't get hijacked). -->
+<script>
+(function () {
+  var SEARCH_URL = "/cms_trial/search/";
+  document.addEventListener("keydown", function (e) {
+    var isCmdK = (e.metaKey || e.ctrlKey) && e.key.toLowerCase() === "k";
+    var isSlash = e.key === "/" && !isTypingInField(e.target);
+    if (!isCmdK && !isSlash) return;
+
+    e.preventDefault();
+    var existingInput = document.getElementById("search-input");
+    if (existingInput) {
+      existingInput.focus();
+    } else {
+      window.location.href = SEARCH_URL;
+    }
+  });
+
+  function isTypingInField(el) {
+    if (!el) return false;
+    var tag = el.tagName.toLowerCase();
+    return tag === "input" || tag === "textarea" || el.isContentEditable;
+  }
+})();
+</script>
+
+<!-- Real TOC scroll-spy — highlights the currently-visible heading in the
+     "On this page" panel as the reader scrolls. Harmless no-op if there's
+     no .page-toc on the page (most pages with few/no headings). -->
+<script>
+(function () {
+  var tocLinks = document.querySelectorAll(".page-toc a[href^='#']");
+  if (!tocLinks.length) return;
+
+  var headingMap = {};
+  var headings = [];
+  tocLinks.forEach(function (link) {
+    var id = link.getAttribute("href").slice(1);
+    var heading = document.getElementById(id);
+    if (heading) {
+      headingMap[id] = link;
+      headings.push(heading);
+    }
+  });
+  if (!headings.length) return;
+
+  var activeLink = null;
+  function setActive(id) {
+    var link = headingMap[id];
+    if (!link || link === activeLink) return;
+    if (activeLink) activeLink.classList.remove("active");
+    link.classList.add("active");
+    activeLink = link;
+  }
+
+  // rootMargin biases toward the upper third of the viewport, so a
+  // heading is marked "current" once it's crossed into the reading area,
+  // not only once it's scrolled to the very top edge.
+  var observer = new IntersectionObserver(function (entries) {
+    entries.forEach(function (entry) {
+      if (entry.isIntersecting) setActive(entry.target.id);
+    });
+  }, { rootMargin: "-15% 0px -75% 0px", threshold: 0 });
+
+  headings.forEach(function (h) { observer.observe(h); });
+
+  // Sets the first heading active immediately on load, rather than
+  // leaving the TOC with nothing highlighted until the reader scrolls.
+  setActive(headings[0].id);
+})();
+</script>
+
+<!-- "Copy page as Markdown" — fetches the real .md file generated
+     alongside this page at build time (index.md, same directory as
+     index.html) and copies its content to clipboard. Computed from the
+     current page's own URL rather than needing a value threaded through
+     from the build, since every page's markdown sits at the same
+     predictable relative path. -->
+<script>
+(function () {
+  var btn = document.querySelector(".copy-markdown-btn");
+  if (!btn) return;
+
+  btn.addEventListener("click", function () {
+    var mdUrl = window.location.pathname.replace(/\/?$/, "/") + "index.md";
+    fetch(mdUrl)
+      .then(function (r) {
+        if (!r.ok) throw new Error("not found");
+        return r.text();
+      })
+      .then(function (text) {
+        return navigator.clipboard.writeText(text);
+      })
+      .then(function () {
+        btn.textContent = "Copied!";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      })
+      .catch(function () {
+        btn.textContent = "Failed to copy";
+        setTimeout(function () { btn.textContent = "Copy page as Markdown"; }, 1500);
+      });
+  });
+})();
+</script>
+
+<!-- Drag-to-resize sidebar. Updates the --sidebar-width custom property
+     that the grid layout reads (clamped 200-480px in CSS regardless of
+     what gets set here, so a stray value can't break the layout), and
+     persists the chosen width in localStorage so it survives page
+     navigation instead of resetting on every load. -->
+<script>
+(function () {
+  var handle = document.querySelector(".sidebar-resize-handle");
+  if (!handle) return;
+
+  var STORAGE_KEY = "sidebarWidth";
+  var saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    document.documentElement.style.setProperty("--sidebar-width", saved + "px");
+  }
+
+  var dragging = false;
+  var startX = 0;
+  var startWidth = 0;
+
+  function currentWidth() {
+    var sidebar = document.querySelector(".sidebar");
+    return sidebar ? sidebar.getBoundingClientRect().width : 288;
+  }
+
+  handle.addEventListener("mousedown", function (e) {
+    dragging = true;
+    startX = e.clientX;
+    startWidth = currentWidth();
+    handle.classList.add("dragging");
+    document.body.style.userSelect = "none";
+    e.preventDefault();
+  });
+
+  document.addEventListener("mousemove", function (e) {
+    if (!dragging) return;
+    var newWidth = startWidth + (e.clientX - startX);
+    document.documentElement.style.setProperty("--sidebar-width", newWidth + "px");
+  });
+
+  document.addEventListener("mouseup", function () {
+    if (!dragging) return;
+    dragging = false;
+    handle.classList.remove("dragging");
+    document.body.style.userSelect = "";
+    // Read back the actual rendered width (post-clamp) rather than the
+    // raw drag value, so a resize past the min/max bound doesn't save an
+    // out-of-range number that would just get re-clamped next load anyway.
+    localStorage.setItem(STORAGE_KEY, Math.round(currentWidth()));
+  });
+})();
+</script>
+
+</body>
+</html>

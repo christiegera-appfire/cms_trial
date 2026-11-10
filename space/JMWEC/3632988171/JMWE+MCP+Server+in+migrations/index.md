@@ -20,9 +20,9 @@ The **JMWE MCP server** is still in beta. You should thoroughly test using this 
 
 Once you’ve added the MCP server, follow these steps:
 
-**Note**: The Export/Import functionality detailed below is currently pre-release; if you would like to access this feature, please reach out to your EAP representative.
+**Note**: The Export/Import functionality detailed below is available to EAP participants by request; if you would like to access this feature, please reach out to your EAP representative.
 
-![The JMWE Cloud Post migration administration page including MCP export and import](/cms_trial/assets/40114809-6c7c-4b9f-9617-0a9a69c79bae.png)
+![The JMWE Cloud Post migration administration page including MCP export and import](/cms_trial/assets/9095315f-9acd-43d7-b9de-61562d43ea23.png)
 
 1. First, export your JMWE configuration. From the *Post migration* page, click **Export configuration** in the upper right corner of the page (Figure 1, right).
 2. Save the JSON file to your machine.

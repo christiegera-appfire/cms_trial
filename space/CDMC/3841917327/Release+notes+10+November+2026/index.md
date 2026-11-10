@@ -8,6 +8,10 @@ This page outlines the updates included in the latest release of Comala Document
 
 ---
 
+**Important: Manual app update required**
+
+This release requires additional app permissions and does not upgrade automatically. A Confluence site administrator must manually approve the update to enable the new features and enhancements. Until the update is approved, your site continues to use the previous version of Comala Document Management.
+
 ## New features and enhancements
 
 ## Native publishing: Copy page trigger improvements
