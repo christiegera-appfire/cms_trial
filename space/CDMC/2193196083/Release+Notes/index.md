@@ -8,6 +8,7 @@ Check out the upcoming **features** and the **latest release logs** below to see
 
 | **Release** | **App version** | **Release version** | **Highlights** |
 | --- | --- | --- | --- |
+| [Release notes 10 November 2026](/cms_trial/space/CDMC/3841917327/Release+notes+10+November+2026/) | 54.0.0 | 54.0.0 | **New features and enhancements**   - Native publishing: Copy page trigger improvements - Workflow variables: Workflow variables are now fully available in Comala Document Management Cloud. - Advanced approvals   Configure eligibility and exclusion rules for individual users, Confluence groups, and teams:   - - Eligible reviewers   - Excluded reviewers   - Eligible assigners   - Excluded assigners - `on-reject-completed` trigger event: lets you run workflow actions when an approval is completely rejected by all its reviewers.   **Bug fixes** |
 | [Release notes 4th November 2026](/cms_trial/space/CDMC/3826581616/Release+notes+4th+November+2026/) | 52.9.0 | 52.9.0 | **Enhancements**   - Workflow Visual Builder improvements   **Bug fixes** |
 | [Release notes 27th October 2026](/cms_trial/space/CDMC/3805151413/Release+notes+27th+October+2026/) | 52.8.0 | 52.8.0 | **Enhancements**   - Configure label removal conditions in Visual Builder   **Bug fixes** |
 | [Release notes 21st October 2026](/cms_trial/space/CDMC/3782180865/Release+notes+21st+October+2026/) | 52.7.0 | 52.7.0 | **Bug fixes** |

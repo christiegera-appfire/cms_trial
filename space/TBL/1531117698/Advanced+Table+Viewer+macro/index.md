@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Advanced Table Viewer macro enables you to import and display CSV, Excel, and JSON data and Jira work items as a structured table, making it easier for your team to view and analyze data directly within Confluence.
+The Advanced Table Viewer macro enables you to import and display CSV, Excel, JSON data, Jira work items, and Page properties data as a structured table, making it easier for your team to view and analyze data directly within Confluence.
 
 - The macro imports the data as a point-in-time snapshot, providing a single version of truth for data analysis.
 - Imported data is converted into a structured table, which you can further enhance using the formatting options and features in the intuitive [setup](/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/) mode.
@@ -36,13 +36,14 @@ You can add the macro to a Confluence page using one of the following methods:
 
 [Unmapped macro: refined-tab — no content to fall back on]
 
-- You can import data from **CSV**, **Excel, and JSON** data sources.
+- You can import data from **CSV**, **Excel, JSON, Jira work items,** and **Page properties** data sources.
 
-  ![ATV_select data source.png](/cms_trial/assets/d3099bea-5f0d-4025-a449-bd107190069c.png)
+  ![ATV_select data connector.png](/cms_trial/assets/d3a02cb7-18d9-4668-b10c-2f3a52b304d1.png)
 - To configure the CSV data source, refer to [Configure CSV data source in Advanced Table Viewer macro](/cms_trial/space/TBL/1782972884/Configure+CSV+data+source+in+Advanced+Table+Viewer+macro/).
 - To configure an Excel data source, refer to [Configure Excel data source in Advanced Table Viewer macro](/cms_trial/space/TBL/3122888898/Configure+Excel+data+source+in+Advanced+Table+Viewer+macro/).
-- To configue JSON data source, refer to [Configure JSON data source in Advanced Table Viewer macro](/cms_trial/space/TBL/3297017872/Configure+JSON+data+source+in+Advanced+Table+Viewer+macro/).
+- To configure a JSON data source, refer to [Configure JSON data source in Advanced Table Viewer macro](/cms_trial/space/TBL/3297017872/Configure+JSON+data+source+in+Advanced+Table+Viewer+macro/).
 - To configure Jira work items, refer to [Configure Jira work items in Advanced Table Viewer macro](/cms_trial/space/TBL/3510927447/Configure+Jira+work+items+in+Advanced+Table+Viewer+macro/).
+- To configure Page properties data source, refer to [Configure Page properties data source in Advanced Table Viewer macro](/cms_trial/space/TBL/3770810371/Configure+Page+properties+data+source+in+Advanced+Table+Viewer+macro/).
 
 [Unmapped macro: refined-tab — no content to fall back on]
 

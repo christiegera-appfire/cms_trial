@@ -19,10 +19,27 @@ Watch the video to see the *Rich Filter Simple Counter* gadget features:
 
 ![contentId-783941825](/cms_trial/assets/dc01813c-92b6-4aff-a559-09c4ec704cd8.png)
 
-Edit the gadget configuration as described in the following table:
+### **Select rich filter**
 
-| **Setting** | **Description** |
-| --- | --- |
-| **Rich Filter** | Select the rich filter the gadget will use.  Click the *Rich Filter* button to display the list of rich filters; you can either scroll through or use the search box to find the desired filter.  The gadgets’ configuration forms only show the rich filters you can view. Check the [Rights and Permissions](/cms_trial/space/RFCDOC/783941839/Rights+and+Permissions/) page for more details. |
-| **Working Query** | The working query is an additional JQL query that is permanently applied on top of the base Jira filter and any active quick filters in the controller to filter further the issues the gadget will work with. The working query is optional: if left empty, only the base Jira filter and the quick filters affect the issues used by the gadget. |
-| **Values** | Select the values to be displayed. You can select up to 10 values at a time.  There are four kinds of possible values:   - **Issue Count:** displays the number of issues. - **Time Tracking:**displays the sum of one of the time-tracking fields (i.e., *Original Estimate, Remaining Estimate, Time Spent*) for the collection of issues. - **Numeric:**displays the sum of a numeric field for collecting issues. For instance, using Jira Software, the gadget can show the sum of *Story Points* for collecting issues. - **Custom values:** displays a [custom value](/cms_trial/space/RFCDOC/783942033/Configure+custom+values/), as configured in the rich filter (aggregation formula, display options, etc.).  contentId-783941825 |
+Select the rich filter the gadget will use.
+
+- Click the *Rich Filter* button to display the list of rich filters. You can either scroll through or use the search box to find the desired filter.
+
+The gadget configuration forms show only the rich filters you can view. Check the [Rights and Permissions](/cms_trial/space/RFCDOC/783941839/Rights+and+Permissions/) page for more details.
+
+### **Working Query**
+
+The working query is an additional JQL query that is permanently applied on top of the base Jira filter and any active quick filters in the controller to further filter the issues the gadget will work with. The working query is optional: if left empty, only the base Jira filter and the quick filters affect the issues used by the gadget.
+
+### **Values**
+
+Select the values to be displayed. You can select up to 10 values at a time.
+
+There are four kinds of possible values:
+
+- **Issue Count:** displays the number of issues.
+- **Time Tracking:**displays the sum of one of the time-tracking fields (i.e., *Original Estimate, Remaining Estimate, Time Spent*) for the collection of issues.
+- **Numeric:**displays the sum of a numeric field for collecting issues. For example, using Jira Software, the gadget can show the sum of *Story Points* for collecting issues.
+- **Custom values:** displays a [custom value](/cms_trial/space/RFCDOC/783942033/Configure+custom+values/), as configured in the rich filter (aggregation formula, display options, etc.).
+
+  ![contentId-783941825](/cms_trial/assets/4534217c-f3b9-49a7-a8cd-3db59cf7d406.png)

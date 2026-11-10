@@ -10,8 +10,6 @@ The importance of data residency is paramount to meet organizational and regulat
 
 The storage is done automatically based on your current location: Global, Australia, Europe or USA (read Atlassian’s [Understand data residency](https://support.atlassian.com/security-and-access-policies/docs/understand-data-residency/) for more information).
 
-**If you already installed Dashboard Hub, you have to uninstall and install again** (for installations done before 23rd June 2022, when this mechanism was released for the first time). No data is going to be lost.
-
 ## How to view where your data is hosted
 
 Regions cannot be chosen, since these are based on your current location. To view where your product data is hosted, you need to have organization admin permissions:

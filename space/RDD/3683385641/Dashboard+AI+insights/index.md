@@ -9,6 +9,8 @@ Instead of interpreting a chart yourself, you get short, plain-language notes on
 - Every insight is generated from the live data in your gadgets, not generic advice.
 - Insights are concise and structured so you can scan them quickly.
 
+This feature requires Dashboard Hub data to be hosted in the US region. See [Data residency](/cms_trial/space/RDD/146309741/Data+Residency+(Cloud)/) to learn more.
+
 ## How to use dashboard insights
 
 Click **Dashboard insights** at the bottom-right of a dashboard to open a resizable panel. It aggregates insights across all compatible gadgets on the dashboard, summarizing the insights and relevant actions you can take. Drag the panel to reposition it or click **Dashboard insights** again to minimize it.

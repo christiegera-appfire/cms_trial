@@ -20,7 +20,7 @@ Advanced Tables for Confluence goes way beyond Confluence native capabilities,
 
 [Watch the quick start macro videos](/cms_trial/space/TBL/74813990/Get+started+with+Advanced+Tables+for+Confluence+for+Cloud/)
 
-- **Advanced Table Viewer macro** - Import, format, and display CSV, Excel, and JSON data and Jira work items as a structured table using an intuitive setup mode. [Learn more](/cms_trial/space/TBL/1531117698/Advanced+Table+Viewer+macro/).
+- **Advanced Table Viewer macro** - Import, format, and display CSV, Excel, JSON data, Jira work items, and Page properties as a structured table using an intuitive setup mode. [Learn more](/cms_trial/space/TBL/1531117698/Advanced+Table+Viewer+macro/).
 - **Native Table Enhancer (Beta) macro** - Enhance native Confluence tables with advanced formatting, calculations, and custom views for data analysis. [Learn more](/cms_trial/space/TBL/3520037211/Native+Table+Enhancer+%5BBeta%5D+macro/).
 - **Table Plus macro** - Display native Confluence tables with enhanced styling and functionality. [Learn more](/cms_trial/space/TBL/74812542/Table+Plus+macro+-+Cloud/).
 - **CSV (Comma Separated Values) macro** - Import, format, and display CSV and other delimited data as a Confluence table. [Learn more](/cms_trial/space/TBL/74812384/CSV+(Comma+Separated+Values)+macro+-+Cloud/).

@@ -4,6 +4,7 @@ Watch the videos below to learn more about BigPicture's features, including the 
 
 | **Area/Feature** | **Video** |
 | --- | --- |
+| BigPicture PPM features - Gantt and Resources (in Korean) |  |
 | BigPicture PPM features - Gantt and Resources |  |
 | [AI assistant](/cms_trial/space/SPM/2383446254/AI+assistant/) |  |
 |  |

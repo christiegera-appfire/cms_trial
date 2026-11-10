@@ -19,6 +19,8 @@ Insights is your guide to Dashboard Hub. It explains your data, suggests improve
 - Get answers to how-to questions based on Dashboard Hub's user documentation.
 - Use it in Dashboard Hub Pro and Dashboard Hub for Confluence.
 
+This feature requires Dashboard Hub data to be hosted in the US region. See [Data residency](/cms_trial/space/RDD/146309741/Data+Residency+(Cloud)/) to learn more.
+
 See [Dashboard AI insights](/cms_trial/space/RDD/3683385641/Dashboard+AI+insights/) to learn more.
 
 ---

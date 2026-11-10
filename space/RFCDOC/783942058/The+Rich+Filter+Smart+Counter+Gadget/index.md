@@ -19,14 +19,35 @@ Watch the video to see the *Rich Filter Smart Counter* gadget features:
 
 [Add](https://support.atlassian.com/jira-core-cloud/docs/add-and-customize-a-gadget/) a new or edit an existing *Rich Filter Smart Counter* gadget in your [Jira dashboard](https://support.atlassian.com/jira-core-cloud/docs/what-is-a-jira-dashboard/). The configuration form of the gadget will be displayed:
 
-![contentId-783942058](/cms_trial/assets/6bfcbf88-5f62-4be3-b9db-0074b11b5713.png)
+![Rich Filter Smart Counter](/cms_trial/assets/231cebbe-e054-474c-bf9b-2fc8cc7290e6.png)
 
-Edit the gadget configuration as described in the following table:
+### **Select Rich filter**
 
-| **Setting** | **Description** |
-| --- | --- |
-| **Rich Filter** | Select the rich filter the gadget will use.  Click the *Rich Filter* button to display the list of rich filters; you can either scroll through or use the search box to find the desired filter.  The gadgets’ configuration forms only show the rich filters you can view. For more details, see the [Rights and Permissions](/cms_trial/space/RFCDOC/783941839/Rights+and+Permissions/) page. |
-| **Working Query** | The working query is an additional JQL query, which is permanently applied on top of the base Jira filter and any active quick filters in the controller to further filter the issues the gadget will work with. The working query is optional: if left empty, only the base Jira filter and the quick filters affect the issues used by the gadget. |
-| **Smart Filter** | Select the smart filter on which the issues will be grouped. The drop-down list shows the smart filters defined in the selected rich filter. |
-| **Show none** | If checked, the gadget displays the result corresponding to the issues that don't match any of the clauses of the selected smart filter. |
-| **Value** | Select the value to be computed for each smart filter clause. There are four kinds of possible values:   - **Issue Count:** displays the number of issues in each group. - **Time Tracking:**displays the sum of one of the time-tracking fields (that is, *Original Estimate, Remaining Estimate, Time Spent*) for the issues in each group. - **Numeric:**displays the sum of a numeric field for the issues in each group. For example, using Jira Software, the gadget can show each group*’s* sum of *Story Points*. - **Custom values:** displays a [custom value](/cms_trial/space/RFCDOC/783942033/Configure+custom+values/), as configured in the rich filter (aggregation formula, display options, etc.).  contentId-783942058 |
+Select the rich filter the gadget will use.
+
+Click the *Rich Filter* button to display the list of rich filters; you can either scroll through or use the search box to find the desired filter.
+
+The gadgets’ configuration forms only show the rich filters you can view. For more details, see the [Rights and Permissions](/cms_trial/space/RFCDOC/783941839/Rights+and+Permissions/) page.
+
+### **Working Query**
+
+The working query is an additional JQL query, which is permanently applied on top of the base Jira filter and any active quick filters in the controller to further filter the issues the gadget will work with. The working query is optional: if left empty, only the base Jira filter and the quick filters affect the issues used by the gadget.
+
+### **Smart Filter**
+
+Select the smart filter that groups the issues. The drop-down list shows the smart filters defined in the selected rich filter.
+
+### **Show none**
+
+If checked, the gadget displays the result corresponding to the issues that don't match any of the clauses of the selected smart filter.
+
+### **Value**
+
+Select the value to be computed for each smart filter clause. There are four kinds of possible values:
+
+- **Issue Count:** displays the number of issues in each group.
+- **Time Tracking:**displays the sum of one of the time-tracking fields (that is, *Original Estimate, Remaining Estimate, Time Spent*) for the issues in each group.
+- **Numeric:**displays the sum of a numeric field for the issues in each group. For example, using Jira Software, the gadget can show each group*’s* sum of *Story Points*.
+- **Custom values:** displays a [custom value](/cms_trial/space/RFCDOC/783942033/Configure+custom+values/), as configured in the rich filter (aggregation formula, display options, etc.).
+
+![Value](/cms_trial/assets/23996f7c-6bcc-4b88-ba2e-39348a3bbdb8.png)

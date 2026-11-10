@@ -18,16 +18,33 @@ Example 2: controller gadget with configured presets for a Green team:
 
 ## Configuring the Rich Filter Controller gadget
 
-[Add](https://support.atlassian.com/jira-core-cloud/docs/add-and-customize-a-gadget/) a new or edit an existing *Rich Filter Controller* gadget in your [Jira dashboard](https://support.atlassian.com/jira-core-cloud/docs/what-is-a-jira-dashboard/). The configuration form of the gadget will be displayed:
+[Add](https://support.atlassian.com/jira-core-cloud/docs/add-and-customize-a-gadget/) a new or edit an existing *Rich Filter Controller* gadget in your [Jira dashboard](https://support.atlassian.com/jira-core-cloud/docs/what-is-a-jira-dashboard/). The configuration form of the gadget is displayed.
 
-![contentId-783941745](/cms_trial/assets/9c3204bc-0b03-4f76-b238-46691671dbaf.png)
+![contentId-783941745](/cms_trial/assets/2c8252ff-c7d9-430a-a606-f710ac89bd1b.png)
 
-Edit the gadget configuration as described in the following table:
+### **Rich Filter**
 
-| **Setting** | **Description** |
-| --- | --- |
-| **Rich Filter** | Select the rich filter the gadget will use.  Click the **Rich Filter** button to display the list of rich filters; you can either scroll through or use the search box to find the desired filter.  The gadgets’ configuration forms only show the rich filters you can view. For details, see the Rights and Permissions documentation page. |
-| **Quick filters & sections** | Once you have selected a rich filter for your gadget, you can customize which quick filters you want to display in your controller. By default, controllers show all available quick filters. You can use the radio buttons to change this and display only JQL filtering, or you can choose to customize in detail which quick filters to show and in what order using the last option.  If you choose the *Customize shown filters* option, the configuration form changes to display the list of quick filters. You can add, remove, or reorder (drag the vertical “grid” icon) the quick filters to be displayed. contentId-783941745 You can also organize your quick filters in named sections and customize filter colors. organize your quick filters In addition to the individual quick filters, the custom list menu includes three grouping options: *All Static*, *All Dynamic,* and *All Smart*. If these options are used, the gadget will display all the quick filters of the specified type in their place *except*those that are explicitly included. For example, you can use this to show the *Labels* dynamic filter first, then all static filters, and then all dynamic filters other than *Labels,* if any. Select quick filters |
+Select the rich filter the gadget will use.
+
+Click the **Rich Filter** button to display the list of rich filters; you can either scroll through or use the search box to find the desired filter.
+
+The gadgets’ configuration forms only show the rich filters you can view. For details, see the Rights and Permissions documentation page.
+
+### **Quick filters and sections**
+
+Once you have selected a rich filter for your gadget, you can customize which quick filters you want to display in your controller. By default, controllers show all available quick filters. You can use the radio buttons to change this and display only JQL filtering, or you can choose to customize in detail which quick filters to show and in what order using the last option.
+
+If you choose the *Customize shown filters* option, the configuration form changes to display the list of quick filters. You can add, remove, or reorder (drag the vertical “grid” icon) the quick filters to be displayed.
+
+![contentId-783941745](/cms_trial/assets/52dd243b-46da-4daa-8b1b-0e8f5b9205f5.png)
+
+You can also organize your quick filters in named sections and customize filter colors.
+
+![organize your quick filters](/cms_trial/assets/4e4c18a4-8579-40fb-8f0f-0224054fb059.png)
+
+In addition to the individual quick filters, the custom list menu includes three grouping options: *All Static*, *All Dynamic,* and *All Smart*. If these options are used, the gadget will display all the quick filters of the specified type in their place *except*those that are explicitly included. For example, you can use this to show the *Labels* dynamic filter first, then all static filters, and then all dynamic filters other than *Labels,* if any.
+
+![Select quick filters](/cms_trial/assets/77ff8339-dc3d-4730-ba6e-ee4dae42b9ff.png)
 
 ## Filtering modes
 

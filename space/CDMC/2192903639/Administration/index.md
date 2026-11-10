@@ -17,3 +17,4 @@
   - [Transitions](/cms_trial/space/CDMC/2192776606/Transitions/)
   - [Approvals](/cms_trial/space/CDMC/2193195490/Approvals/)
   - [Triggers](/cms_trial/space/CDMC/2192967825/Triggers/)
+  - [Variables](/cms_trial/space/CDMC/3842114162/Variables/)
