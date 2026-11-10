@@ -9,3 +9,4 @@
 - [Share a dashboard with a public link](/cms_trial/space/RDD/146310576/Share+a+dashboard+with+a+public+link/)
 - [Adaptive Filters](/cms_trial/space/RDD/146309549/Adaptive+Filters/)
 - [Dashboard subscriptions](/cms_trial/space/RDD/2934407285/Dashboard+subscriptions/)
+- [Dashboard AI insights](/cms_trial/space/RDD/3683385641/Dashboard+AI+insights/)

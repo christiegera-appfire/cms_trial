@@ -1,6 +1,8 @@
-# External Page
+# External Page - retired
 
 ## Overview
+
+The External Page gadget is **retired** and won't display data on your dashboards. To keep your views clean, remove the gadget from any affected dashboards. Retired date: November 9, 2026
 
 This gadget allows users to insert a URL to embed a webpage in a dashboard. It uses an iframe for this purpose. This gadget is useful for integrating external web content directly into dashboards, providing quick access to external websites without leaving the dashboard.
 

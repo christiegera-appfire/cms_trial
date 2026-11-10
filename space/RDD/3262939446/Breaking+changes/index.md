@@ -8,6 +8,8 @@ This page outlines breaking changes to the Dashboard Hub family of apps.
 
 **Announcement date**: November 4, 2026
 
+**Release date:** November 9, 2026
+
 **Affects version**: 5.8.0
 
 The External Page gadget will be retired in version 5.8.0 and won't display data on your dashboards. To keep your views clean, remove the gadget from any affected dashboards.

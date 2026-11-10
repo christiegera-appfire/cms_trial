@@ -152,7 +152,7 @@ Utility gadgets don’t require a datasource and can be used in the context of a
 
 - [Rich Text](/cms_trial/space/RDD/146309606/Rich+Text/)
 - [Weather Forecast](/cms_trial/space/RDD/146309418/Weather+Forecast/)
-- [External Page](/cms_trial/space/RDD/1209073695/External+Page/)
+- [External Page](/cms_trial/space/RDD/1209073695/External+Page+-+retired/)
 
 ### Time to SLA
 

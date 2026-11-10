@@ -1,42 +1,51 @@
 # Save and reuse an extended search
 
-Once you've created an extended JQL search that returns the work items you need, you don't have to rebuild it every time.
+Save a JQL Search Extensions query as a reusable Jira filter, then use it in dashboard gadgets and reports. For example, save a search for work items linked to epics and return to it during dependency reviews instead of rebuilding the query.
 
-JQL Search Extensions lets you save an Extended Search query as a filter so you can return to the search later and use the results in your Jira workflows.
+## Save a search
 
-## Save your search
+Use the following steps to save a query.
 
 1. Go to **Apps** > **JQL Search Extensions**.
 2. Open **Extended Search**.
-3. Run one of the queries you created earlier in this guide, or create another extended JQL query.
-4. Verify that the search returns the expected results.
+3. On the *Classic JQL* tab, enter this query or an extended query of your own:
+
+   ```text
+   issue in linkedIssuesOfQuery("type = Epic")
+   ```
+4. Run the search and verify that it returns the work items you expect. If it returns no results, use an extended query that matches work in your Jira instance.
 5. Select **Save as filter**.
-6. Enter the filter name and click **Save.**
+6. Enter a unique filter name, such as `Work linked to epics`, then select **Save**.
 
-![2026-09-18_22-43-57.png](/cms_trial/assets/67b1d7a5-e55e-445a-93db-960da746cf5d.png)![2026-09-18_22-44-44.png](/cms_trial/assets/a94acfff-7eb4-45e3-86ea-07fc97179ea0.png)
-
-You can also save filters with JQL SE functions/keywords via Jira search.
-
-1. Click the **Show in Jira Search** option to open the Jira Page.
-
-   ![JSE_Issue_Filters.jpeg](/cms_trial/assets/84326278-a240-4a19-a043-8be811f19c9f.jpeg)
-
-![Issue_Filters_in_Jira.jpeg](/cms_trial/assets/7002bcdc-4262-4495-a30b-91e952b454bf.jpeg)
-
-Your Extended Search is now available as a saved filter on the left pane in **Extended Search Filters**.
+Your saved filter is available on the *Extended Search filters* page and in Jira's filters list.
 
 ## View your Extended Search filters
 
-To see the filters you've created with JSE:
+To reopen the filter you saved from Extended Search:
 
 1. Go to **Apps** > **JQL Search Extensions**.
 2. In the sidebar, select **Extended Search filters**.
-3. Find the filter you created.
+3. Find `Work linked to epics`, or the name you used for your filter.
+4. Use the filter's **Actions** menu to open it in Jira search.
+
+The Extended Search filters list provides access to your saved filters and their management actions.
 
 ![2026-09-18_22-40-04.png](/cms_trial/assets/3d9bcc8c-a4c3-4065-bb10-01d78a3d5755.png)
 
-You can also view the filters in Jira’s filters list.
+You can also open **Filters** > **View all filters** in Jira and select your saved filter.
 
 ![Issue_Filters_in_Jira.jpeg](/cms_trial/assets/7002bcdc-4262-4495-a30b-91e952b454bf.jpeg)
 
-From here, you can manage the Extended Searches you've saved for future use.
+### Reference the filter in JQL
+
+In Jira's advanced search, run the following query to reuse the saved Extended Search filter. Replace the filter name if you used a different one.
+
+```text
+filter = "Work linked to epics"
+```
+
+You can now return to the search without re-entering the extended query.
+
+## Try JQL Search Extensions
+
+To evaluate the app, open the [JQL Search Extensions for Jira Cloud Marketplace listing](https://marketplace.atlassian.com/apps/1214791/jql-search-extensions-for-jira?hosting=cloud&tab=overview) and select **Try it free**. Follow [Install and prepare JQL Search Extensions](https://support.appfire.com/space/JQLSEARCH/3677651309/Install+and+prepare+JQL+Search+Extensions) before testing your search.

@@ -1,6 +1,6 @@
 # Display a calendar in a dashboard
 
-Use the [External Page](/cms_trial/space/RDD/1209073695/External+Page/) gadget to display a calendar by inserting a URL to embed a webpage in a dashboard. It uses an iframe for this purpose.
+Use the [External Page](/cms_trial/space/RDD/1209073695/External+Page+-+retired/) gadget to display a calendar by inserting a URL to embed a webpage in a dashboard. It uses an iframe for this purpose.
 
 ![Dashboard Hub calendar gadget added to a dashboard](/cms_trial/assets/020407b7-022b-407f-a11f-a3d5ef9e2de0.png)
 

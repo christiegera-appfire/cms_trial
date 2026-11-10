@@ -53,7 +53,7 @@ At the scheduled time, Dashboard Hub:
 
 1. In Dashboard Hub, open your dashboard and select **Share dashboard** > **Subscribe to dashboard**. The *Create* *subscription* page opens.
 
-   ![Subscription setup page showing schedule, password, recipients, and message configuration options.](/cms_trial/assets/a299b4b5-e7b3-47de-966b-5bce0ff65be9.png)
+   ![The Create subscription form in Dashboard Hub](/cms_trial/assets/861203b2-9f43-475c-a059-8f98568c2150.png)
 2. Create the schedule using one of the following options:
 
 | **Option** | **When to use** | **Additional settings** |
@@ -65,7 +65,8 @@ At the scheduled time, Dashboard Hub:
 1. **Password**: If you want to protect the snapshot with a password, you can add one here. If your administrator has enabled snapshot password protection, this field is required. Enter the password that the recipients must provide before viewing the snapshot.
 2. **Recipients**: Add one or more users or user groups. Start typing a name or group to search, then select from the suggestions. There is a maximum of 100 recipients per subscription.
 3. **Message** (*optional*):Add a message to include in the body of the subscription email. Use it to provide context for the snapshot, for example, a summary of the sprint. If left empty, the email will contain only the report name, timestamp, and link.
-4. Click **Save**. The subscription is active immediately and the first snapshot will be captured at the next scheduled time.
+4. **Include AI insights**: Turn on this option to add an AI summary of the dashboard to the subscription email. Access to this option is set by an administrator in Global Settings.
+5. Click **Save**. The subscription is active immediately and the first snapshot will be captured at the next scheduled time.
 
 **Tips**
 
@@ -91,7 +92,7 @@ Use the Manage subscriptions feature to amend a specific dashboard schedule, upd
 2. Make any required changes to your subscription in the *Manage subscription* page, then click **Save**.
 3. To delete a subscription, click **Delete subscription**.
 
-## new My subscriptions
+## My subscriptions
 
 The *My subscriptions* pagehelps you manage multiple subscriptions from one place. To go to My subscriptions, in the top bar of a dashboard, select **More actions** (**…**) > **My subscriptions**
 
@@ -115,4 +116,4 @@ Administrators can set password requirements for subscriptions in Global Setting
 1. Go to **App settings** > **Global Access Restrictions**.
 2. Click the **Require a password for email subscriptions** toggle to turn it on. The password requirement applies only to new subscriptions.
 
-   ![Global Settings page showing the toggles under Restrict Global Access and Subscriptions enabled.](/cms_trial/assets/2ab369b3-0b14-4652-9882-7069c6421bbe.png)
+   ![Dashboard Hub Global Settings](/cms_trial/assets/646559ff-c957-41b1-adfe-85d126883a14.png)

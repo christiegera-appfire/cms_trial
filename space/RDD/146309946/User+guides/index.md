@@ -12,6 +12,7 @@ Our user guides are organized to help you create dashboards, add gadgets, and co
   - [Share a dashboard with a public link](/cms_trial/space/RDD/146310576/Share+a+dashboard+with+a+public+link/)
   - [Adaptive Filters](/cms_trial/space/RDD/146309549/Adaptive+Filters/)
   - [Dashboard subscriptions](/cms_trial/space/RDD/2934407285/Dashboard+subscriptions/)
+  - [Dashboard AI insights](/cms_trial/space/RDD/3683385641/Dashboard+AI+insights/)
 - [Datasources](/cms_trial/space/RDD/2116682228/Datasources/)
   - [Learn about datasources](/cms_trial/space/RDD/146309943/Learn+about+datasources/)
   - [Add and manage datasources](/cms_trial/space/RDD/146309293/Add+and+manage+datasources/)
