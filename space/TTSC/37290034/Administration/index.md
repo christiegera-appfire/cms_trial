@@ -4,7 +4,7 @@ Time to SLA offers default settings for optimal use and performance. On the **Ad
 
 ![image-20260827-150847.png](/cms_trial/assets/4c66e528-449a-4533-9e1d-566ce277b29a.png)
 
-1. **SLA fields:** Here you can create and manage SLA custom fields. For more information, refer to the related [documentation](/cms_trial/space/TTSC/2875654192/Custom+fields/).
+1. **SLA fields:** Here you can create and manage SLA custom fields. For more information, refer to the related [documentation](/cms_trial/space/TTSC/2875654192/SLA+fields/).
 2. **General:** Configure general Time to SLA settings, including:
 
    - **24/7 calendar time zone:** Select the time zone used for calculations based on the 24/7 calendar.

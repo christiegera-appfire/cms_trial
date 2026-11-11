@@ -63,7 +63,7 @@ For details on how the Data Center and Cloud versions compare, refer to the tabl
 | Built-in notifiers automatically created after SLA creation | ❌ | ✅ |  |
 | Calendar definition | ✅ | ✅ | Unlike the 24-hour shifts in DC, a maximum shift in the cloud runs from 00:00 to 23:59. |
 | Dynamic calendar selection via issue | ❌ | ✅ |  |
-| SLA fields | ✅ | ✅\* | \*Cloud currently supports the **SLA Date**, **SLA Indicator**, **SLA Duration**, and **Dynamic Calendar** fields.  Since the functionality differs, please refer to the [documentation](/cms_trial/space/TTSC/2875654192/Custom+fields/) for full details. |
+| SLA fields | ✅ | ✅\* | \*Cloud currently supports the **SLA Date**, **SLA Indicator**, **SLA Duration**, and **Dynamic Calendar** fields.  Since the functionality differs, please refer to the [documentation](/cms_trial/space/TTSC/2875654192/SLA+fields/) for full details. |
 | SLA Panels | ✅ | ✅ |  |
 | Permissions | ✅ | ✅ |  |
 | SLA Reports | ✅ | ✅\* | \*Cloud also supports [Executive reports](/cms_trial/space/TTSC/3404431363/Executive+reports/) and [Workflow Intelligence reports](/cms_trial/space/TTSC/3637936320/Workflow+Intelligence+report/). |

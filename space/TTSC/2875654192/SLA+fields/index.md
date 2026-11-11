@@ -1,4 +1,4 @@
-# Custom fields
+# SLA fields
 
 Time to SLA lets you create SLA-powered custom fields that display SLA information directly inside Jira work items.
 

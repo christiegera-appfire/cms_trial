@@ -39,7 +39,7 @@ Below is a detailed explanation of the different Time to SLA menus and their res
 | **SLA work item operations - Recalculate SLA** | Access to the [Recalculate SLA operation](/cms_trial/space/TTSC/36799257/TTS+work+item+actions/) in **Time to SLA Issue Actions**. |
 | **SLA work items operations** - **Mute SLA notifications** | Access to the [Mute SLA operation](/cms_trial/space/TTSC/36799257/TTS+work+item+actions/) in **Time to SLA Issue Actions**. |
 | **Contract Extension** | Permission to perform a [SLA contract extension](/cms_trial/space/TTSC/2001470255/SLA+contract+extension/). The user also needs **SLA Panel** access to use the extension control from the panel. |
-| **SLA Fields** | Only Jira admins can create SLA fields or view the configuration page (**Administration** > [**SLA fields**](/cms_trial/space/TTSC/2875654192/Custom+fields/)). This matches Jira's standard permission logic for custom fields. |
+| **SLA Fields** | Only Jira admins can create SLA fields or view the configuration page (**Administration** > [**SLA fields**](/cms_trial/space/TTSC/2875654192/SLA+fields/)). This matches Jira's standard permission logic for custom fields. |
 
 Check out this cheatsheet to learn more about some types of Jira groups and what they mean:
 

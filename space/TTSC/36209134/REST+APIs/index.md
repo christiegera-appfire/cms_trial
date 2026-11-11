@@ -76,8 +76,6 @@ We’re introducing region-specific base URLs for the Time to SLA REST API as pa
 
 Starting **April 16, 2026**, you must use the base URL that matches your region. You can find your correct base URL on the **Settings** > **API Token** page.
 
-![A screenshot showing where the Base URL is on the TTS API Token screen.](/cms_trial/assets/1de2b348-606b-49fa-b164-45ed4d4d5cae.png)
-
 Cross-region requests will continue to work temporarily but will be blocked in a future release. To avoid service disruption, make sure your integrations use the correct regional URL.
 
 ## How to create a token
@@ -86,11 +84,11 @@ To use the REST APIs, you need a JWT token for authentication. Follow these step
 
 1. Navigate to **Settings** > **API Token**.
 
-   ![The TTS API Token screen.](/cms_trial/assets/bebb0b1b-bbe1-4efa-9ec8-1f381c1e0821.png)
-2. Click the **+** **New Token** button. The token creation dialog opens.
+   ![image-20261111-004140.png](/cms_trial/assets/16a5c6ee-9508-4555-b4c1-93c9ccde675c.png)
+2. Click the **+ Token** button. The token creation dialog opens.
 3. Configure your token:
 
-   ![The token creation process on the Time to SLA app.](/cms_trial/assets/9abc570b-e1e0-44e2-929e-8ff6316dac02.png)
+   ![The token creation process on the Time to SLA app.](/cms_trial/assets/982d7037-3046-47d0-b714-81d8f8d94528.png)
    - Name your token.
    - Select when it'll expire, or check the *Never expire* box if you want the token to remain active indefinitely.
    - Determine the level of access that the token will have.
