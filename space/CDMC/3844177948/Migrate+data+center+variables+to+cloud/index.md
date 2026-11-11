@@ -57,7 +57,7 @@ During migration, Data Center value references that match workflow parameter nam
 | --- | --- |
 | `@Parameter Name@` | `@Parameter['Parameter Name']@` |
 
-For example, if a workflow contains a parameter named **Owner**, `@owner@` is translated to `@Parameter['Owner']@`.
+For example, if a workflow contains a parameter named **Owner**, `@Owner@` is translated to `@Parameter['Owner']@`.
 
 Workflow parameters take precedence over other value references. If a parameter has the same name as a built-in value reference, CDM translates it as a parameter. For example, if a workflow contains a parameter named **creator**, `@creator@` is translated to `@Parameter['creator']@` instead of `@Content.CreatorId@`.
 
@@ -85,6 +85,8 @@ The following tables list Data Center event value references and their Cloud equ
 | `@user@` | `@Event.UserId@` |
 | `@userfullname@` | `@Event.UserName@` |
 | `@useremail@` | `@Event.UserEmail@` |
+
+For more information about Event variables in Cloud workflows, see the [Event section in Variables](/cms_trial/space/CDMC/3842114162/Variables/).
 
 ### Values that depend on the trigger event
 
