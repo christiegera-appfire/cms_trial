@@ -21,3 +21,4 @@ Use the links below to learn more about 7pace Timetracker for Jira and how you c
 - [MCP](/cms_trial/space/7TFJ/3500081256/MCP/)
 - [Work preferences](/cms_trial/space/7TFJ/3572597090/Work+preferences/)
 - [Audit log](/cms_trial/space/7TFJ/3672933357/Audit+log/)
+- [Cloud updates and administrator approval for new features](/cms_trial/space/7TFJ/3847880781/Cloud+updates+and+administrator+approval+for+new+features/)

@@ -14,7 +14,7 @@ All the available default statuses are the only statuses you can assign to your 
 
 You can assign one of the following statuses to the OKR during the update process:
 
-![OKR progress statuses.](/cms_trial/assets/d52dca7e-dbb0-4566-a03e-cbf8ba79ed9a.png)
+![OKR progress statuses.](/cms_trial/assets/fb5c48f2-8028-404c-a182-a731a0b9a8e8.png)
 
 - **Not started** - This is the default status automatically assigned to all the new OKRs.
 - **On track** - This status indicates that the OKR is progressing as planned.
@@ -31,7 +31,7 @@ If you update a sub-Strategic Theme’s status and a parent Strategic Theme’s 
 
 If you decide to update a parent’s status, you will see an additional update dialog showing the same status and description you selected for the "Not started" sub-objective. But you can change the status to a different one on the next screen.
 
-![Update a parent OKR message.](/cms_trial/assets/69f7f8e8-68b7-46a0-a5fb-cfde31fa33b3.png)
+![Update a parent OKR message.](/cms_trial/assets/1d9002a5-4e22-4467-b637-f9475939b09a.png)
 
 ### Sub-objective
 
@@ -39,10 +39,10 @@ Likewise, if you update a sub-objective’s status and a parent Strategic theme�
 
 If you decide to update a parent’s status, you will see an additional update dialog showing the same status and description you selected for the "Not started" sub-objective. But you can change the status to a different one on the next screen.
 
-![Update a parent OKR message.](/cms_trial/assets/69f7f8e8-68b7-46a0-a5fb-cfde31fa33b3.png)
+![Update a parent OKR message.](/cms_trial/assets/1d9002a5-4e22-4467-b637-f9475939b09a.png)
 
 ### Key Result
 
 When updating a KR's status from **Not Started**, you will be asked if you want to update the parent Objective(s) as well. This helps quickly start related objectives, especially when updating several KRs at once.
 
-![Update a parent OKR message.](/cms_trial/assets/7a521810-4378-4737-8d84-1a318d17807a.png)
+![Update a parent OKR message.](/cms_trial/assets/e96f6321-48bc-484c-8804-bbb12ccecb13.png)
