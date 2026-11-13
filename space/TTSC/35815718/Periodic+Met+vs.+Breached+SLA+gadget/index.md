@@ -20,7 +20,9 @@ Follow these steps to add the gadget to a custom dashboard:
 4. Click **Add**. The gadget configuration screen appears.
 5. Configure the gadget:
 
-   ![Time to SLA Periodic Met vs Breached SLA gadget configuration](/cms_trial/assets/69f42888-e5c9-4707-a265-fb157e898c8e.png)
+   Image — asset pipeline pending  
+   Time to SLA Periodic Met vs Breached SLA gadget configuration
+
    - **Title:** Enter a title for the gadget.
    - **Filter:** **Filter:** Start typing the name of a saved Jira filter, then select it from the matching results. You can also select an SLA to include specific work items. Leave this field blank to include all SLAs.
 

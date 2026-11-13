@@ -24,23 +24,23 @@ You can access the *OKR details* page through the:
 1. On the **OKR details side panel**, click the **More actions** (**…**) button.
 2. Select **Details** from the dropdown.
 
-![OKR details side panel. The additional menu is opened.](/cms_trial/assets/5645587a-ba3f-4e90-9708-dd9f2a080187.png)
+![OKR details side panel. The additional menu is opened.](/cms_trial/assets/3f1e95c0-f699-4d6a-8703-fd07c7337e72.png)
 
 ### OKR key link
 
 Similar to the Jira work item key link, the OKR key link is unique and opens the details page for the selected OKR.
 
-![OKR key link on the progress dashboard page.](/cms_trial/assets/f8a671ea-8cb1-4bac-a93c-fd35f3667732.png)
+![OKR key link on the progress dashboard page.](/cms_trial/assets/837adf1a-ee18-49ef-aad3-a0bd7efc6f7d.png)
 
 ## OKR details page
 
 Below, you can find a quick guide through the main sections and tabs, helping you understand how to use them to stay on top of your goals.
 
-![OKR Details page (Progress tab).](/cms_trial/assets/b89ebb36-59fe-49b3-9d4c-2655f709bf88.png)
+![OKR Details page (Progress tab).](/cms_trial/assets/432e565c-827b-4fb4-9985-1f719a7b704c.png)
 
 ### OKR key, status, name, and description
 
-![OKR details page showing the breadcrumb navigation, OKR name, description, and management controls.](/cms_trial/assets/96e6b9d5-6cd4-473c-a1d2-1a981a30b8c3.png)
+![OKR details page showing the breadcrumb navigation, OKR name, description, and management controls.](/cms_trial/assets/ae6c0608-357f-4d44-8ae4-a0fc8166047b.png)
 
 #### 1. Breadcrumbs
 
@@ -70,13 +70,13 @@ The **Details** section displays all [OKR attributes](/cms_trial/space/SPM/23247
 
 You can edit all fields inline except **Last updated**. If the item you are viewing is a Strategic theme, you cannot edit its **Type**.
 
-![Details section on the OKR details page.](/cms_trial/assets/27c44169-d364-46e4-9e2b-7d314d76ce51.png)
+![Details section on the OKR details page.](/cms_trial/assets/0b380b47-77aa-4c32-b12b-32cece0c0ed9.png)
 
 ### Progress (tab)
 
 The *Progress* tab displays details about the selected OKR and its progress.
 
-![Progress chart, milestones, and the activity section on the OKR details page.](/cms_trial/assets/8bd9cc77-6a18-47c4-911f-381f6435f467.png)
+![Progress chart, milestones, and the activity section on the OKR details page.](/cms_trial/assets/02238fc3-cc86-46dc-9024-50b6f51e74c5.png)
 
 #### 1. Progress chart
 
@@ -88,7 +88,7 @@ If you are viewing a Strategic theme or Objective, the chart displays status tag
 
 If the OKR you are viewing is a Key Result, the chart displays Start, Current, and Target values.
 
-![Key Result values on the progress chart.](/cms_trial/assets/619a4abe-2bcf-46a7-a449-5293c9a9b6eb.png)
+![Key Result values on the progress chart.](/cms_trial/assets/9dcfe607-78d7-462e-a7f0-eed261de1bb2.png)
 
 #### 3. Milestones
 
@@ -119,7 +119,7 @@ In this section, you can:
 
 The *Child OKRs* tab is available only for Strategic themes and Objectives. It displays all direct child items for the selected OKR.
 
-![Child OKRs tab.](/cms_trial/assets/25903f1e-2616-41bd-b0ae-74c13d7c4596.png)
+![Child OKRs tab.](/cms_trial/assets/53f0323e-74ca-42be-8996-d43930844123.png)
 
 In this tab, you can:
 
@@ -132,7 +132,7 @@ In this tab, you can:
 
 The *Linked work* tab displays all work items and boxes connected directly to the Key Result (KR). For Strategic Themes or Objectives, the tab aggregates all work items linked to their child KRs.
 
-![The Linked Work tab.](/cms_trial/assets/546445fb-df4f-4aa4-bb98-06fe952ccf13.png)
+![The Linked Work tab.](/cms_trial/assets/b0fe6865-b30c-44e0-b61c-cc8f800c3a4c.png)
 
 #### 1. Jira work items
 
@@ -173,9 +173,10 @@ In this section, you can:
 
 The *Linked OKRs* tab lists OKR dependencies, contributions, and copies of the OKR you're currently viewing.
 
-Dependency and contribution links do not affect OKR progress.
+- Dependency and contribution links do not affect OKR progress.
+- Dependencies and contributions created between two OKRs can be viewed and tracked on the [*Dependencies*](/cms_trial/space/SPM/3850666100/OKR+Dependencies/) page.
 
-![details-page-linked-okrs.png](/cms_trial/assets/d7a6fc13-bcc8-4dcd-b19c-084a1047bd39.png)
+![The Linked OKRs tab.](/cms_trial/assets/9131be88-1fc8-4fe8-9e1d-554d23f76aa5.png)
 
 #### 1. Dependencies
 

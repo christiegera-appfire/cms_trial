@@ -12,7 +12,8 @@ Our team is thrilled to announce the latest release of Time to SLA for Jira Clou
 
 A highly requested feature to improve user experience and flexibility is now available. Users can now filter issues displayed in the SLA/Assignee Performance gadget to help avoid timeouts.
 
-![Time to SLA release notes July 2024 showing feature configuration](/cms_trial/assets/b526cec9-9103-4a14-a983-9d667716e9c4.png)
+Image — asset pipeline pending  
+Time to SLA release notes July 2024 showing feature configuration
 
 **How?**
 

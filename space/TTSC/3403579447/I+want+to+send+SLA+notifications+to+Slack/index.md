@@ -8,7 +8,8 @@
 
 Time to SLA’s Actions allows you to send Slack messages when SLA events happen. You can create an SLA action that posts to a Slack channel when an SLA reaches a certain point.
 
-![image-20260629-112154.png](/cms_trial/assets/8c857166-cd62-4652-8506-a4f571d436d8.png)
+Image — asset pipeline pending  
+image-20260629-112154.png
 
 For example, when a critical customer’s resolution SLA reaches 90%, Time to SLA can post a message to the support escalation channel so the whole team can see the risk immediately. A team lead can then assign someone to the work item before the SLA is missed. This helps teams collaborate around SLA risks without waiting for someone to manually check the queue.
 

@@ -8,7 +8,7 @@ The *Progress Dashboard* page provides a clear, visual overview of your OKRs, he
 
 This page focuses on your team’s performance, showing overall progress and recent wins and highlighting any OKRs that are off track or at risk. You can also find a section that lists any OKR milestones you have missed.
 
-![Progress dashboard page.](/cms_trial/assets/3ed2da76-a4dd-41d8-b411-5a850d7b35ab.png)
+![Progress dashboard page.](/cms_trial/assets/f11f11e1-1bc8-42cd-8614-07c49ea919ff.png)
 
 ## Filters
 
@@ -19,7 +19,7 @@ You can [filter the visible OKRs](/cms_trial/space/SPM/1918637654/OKR+Filters%2C
 - **Labels**.
 - **OKR types**.
 
-![okr-dashboard-filters.png](/cms_trial/assets/7087dd61-2b67-47a6-8187-c93d5a45be71.png)
+![okr-dashboard-filters.png](/cms_trial/assets/cc6cde1b-1c26-4a30-8a13-77a5701fab47.png)
 
 ## OKR statistics
 
@@ -27,17 +27,15 @@ You can [filter the visible OKRs](/cms_trial/space/SPM/1918637654/OKR+Filters%2C
 
 The two **Team progress** charts show the total number of OKRs for the selected teams in the chosen period. They give an overview of how Objectives and Key Results are distributed across different statuses.
 
-The progress shown is based on each Key Result, weighted according to its assigned contribution. Strategic themes’ and Objectives’ progress does not duplicate the overall progress, ensuring accuracy. Hi
+The progress shown is based on each Key Result, weighted according to its assigned contribution. Strategic themes’ and Objectives’ progress does not duplicate the overall progress, ensuring accuracy. Higher-weighted Key Results carry more weight in the calculation.
 
-gher-weighted Key Results carry more weight in the calculation.
-
-![Team progress charts in the OKR module.](/cms_trial/assets/9b755abb-f677-4bbc-8543-2ad77e36daaf.png)
+![Team progress charts in the OKR module.](/cms_trial/assets/1822cbd4-8271-4e57-a641-5e37fdcb2e84.png)
 
 ### Successes
 
 The **Successes** section highlights the number of OKRs that are on track or were [updated](/cms_trial/space/SPM/1918637972/Update+OKR/) from at-risk or off-track to on track. These accomplishments are the milestones to celebrate with your team.
 
-![The successes section on the progress dashboard page in the OKR module.](/cms_trial/assets/b7ad5845-e9c6-4dba-80b3-ce676b1605fc.png)
+![The successes section on the progress dashboard page in the OKR module.](/cms_trial/assets/f1b7c31c-c8fb-4013-911d-3a2f35b47621.png)
 
 ### OKRs with missed milestones
 
@@ -53,10 +51,10 @@ These two sections highlight OKRs that are off track and at risk. They display a
 
 Click the **Show details** link to see your off-track or at-risk OKRs on the *Overview* page.
 
-![A list of OKRs that are off track and at risk in the OKR module.](/cms_trial/assets/7c4a4fef-d5c7-46fa-b6eb-198e9ebdc5ce.png)
+![A list of OKRs that are off track and at risk in the OKR module.](/cms_trial/assets/1ae08072-a16c-4195-9772-95dd6852b837.png)
 
 ### Statuses over time
 
 This section provides a separate historical view of Strategic themes and Objectives and of the Key Results, showing their statuses over the past ten weeks. It helps track OKR progress, identify trends, and understand performance changes over time.
 
-![Statuses over time charts in the OKR module.](/cms_trial/assets/f7340d31-c1fd-4936-a6b2-c2def5de9f01.png)
+![Statuses over time charts in the OKR module.](/cms_trial/assets/aefbe137-ca3b-440a-9fdf-e40454989153.png)

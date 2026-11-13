@@ -42,11 +42,13 @@ Select **Create your first SLA** to begin.
 
 You can create the SLA from a template or from scratch.
 
-![The SLA templates on the Time to SLA for Jira Cloud New SLA page.](/cms_trial/assets/1a04e801-31f5-42d8-986f-29aec5fa468e.png)
+Image — asset pipeline pending  
+The SLA templates on the Time to SLA for Jira Cloud New SLA page.
 
 You can pick an SLA template to get started:
 
-![The SLA template options on the Time to SLA for Jira Cloud New SLA page.](/cms_trial/assets/b77d756c-6f65-4c66-b82c-c458af7f8b44.png)
+Image — asset pipeline pending  
+The SLA template options on the Time to SLA for Jira Cloud New SLA page.
 
 - **Time to resolution** – Track how long work items take to resolve.
 - **Time to first response** – Measure response time for new work items.
@@ -90,7 +92,8 @@ After you create an SLA, verify that it applies to the work items you expect.
 
 You can click **Create a test issue** after creating your first SLA, or create a Jira work item in the SLA's configured scope.
 
-![The screen that appears after you've created your first SLA in the Time to SLA for Jira Cloud app.](/cms_trial/assets/038d1376-7d95-4acb-9da6-41939475e6a7.png)
+Image — asset pipeline pending  
+The screen that appears after you've created your first SLA in the Time to SLA for Jira Cloud app.
 
 Open the work item and view the **SLA Panel** to review the SLA's progress.
 
@@ -101,7 +104,8 @@ Previously, the SLA panel appeared automatically when you opened a work item. Af
 
 The SLA panel is your real-time view of how well your team is meeting your service level agreements. Watch as the panel changes color to reflect the status: blue for on track, yellow for at risk, and red for overdue. Learn more about [how the SLA panel works](/cms_trial/space/TTSC/35815658/SLA+panel/) and how you can customize it.
 
-![An SLA panel created by Time to SLA for Jira Cloud on the Jira work item view.](/cms_trial/assets/7eaa5751-e108-460a-80b9-7ae31a3477e2.png)
+Image — asset pipeline pending  
+An SLA panel created by Time to SLA for Jira Cloud on the Jira work item view.
 
 To see the SLA panel on your existing work items, you must [recalculate your SLA data](/cms_trial/space/TTSC/35456416/Recalculation/)**.**
 
@@ -163,12 +167,15 @@ Time to SLA offers multiple tracking options. You can monitor time durations, co
 
 Use **SLA History** on a Jira work item to review the events recorded for an SLA, such as start, pause, resume, reset, breach, extension, and stop events.
 
-![The SLA History tab of Time to SLA for Jira Cloud on the Activity section in Jira work item view.](/cms_trial/assets/388e7a08-1ac1-495f-9202-d11aec89f1e5.png)
+Image — asset pipeline pending  
+The SLA History tab of Time to SLA for Jira Cloud on the Activity section in Jira work item view.
 
 Want to dive deeper? Use the [reports](/cms_trial/space/TTSC/36012079/Reports/) to monitor service performance over time. These insights help you identify trends and make data-driven improvements.
 
-![image-20260707-215831.png](/cms_trial/assets/8cecae1c-f190-45b4-b403-8f44095be94b.png)
+Image — asset pipeline pending  
+image-20260707-215831.png
 
 Want a quick overview of SLA performance? Add the [SLA gadgets](/cms_trial/space/TTSC/181436799/Gadgets/) to your Jira dashboard.
 
-![The TTS - Periodic Met vs Exceeded SLA gadget on the Jira dashboard. ](/cms_trial/assets/a5ed80f9-dc0f-44c4-929f-fc9ddaf68edf.png)
+Image — asset pipeline pending  
+The TTS - Periodic Met vs Exceeded SLA gadget on the Jira dashboard.

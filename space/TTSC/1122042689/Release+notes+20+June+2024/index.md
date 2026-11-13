@@ -12,9 +12,11 @@ Our team is thrilled to announce the latest release of Time to SLA for Jira Clou
 
 We’ve made the SLA issue selection process more intuitive. From now on, when defining an SLA, you only need to select the projects to which the SLA will apply. You can further refine the issues by specifying additional details like issue type, request type, assignee, and JQL in the **SLA Goals** step. Look for the **Goal Issues** section to make your selection.
 
-![Time to SLA release notes June 2024 showing SLA chart update](/cms_trial/assets/a7a5c847-b81b-4b78-b33f-8c81074bea0f.png)
+Image — asset pipeline pending  
+Time to SLA release notes June 2024 showing SLA chart update
 
-![Time to SLA release notes June 2024 showing configuration dialog](/cms_trial/assets/d479e07f-a3b3-4da4-bbca-30eda45dbe10.png)
+Image — asset pipeline pending  
+Time to SLA release notes June 2024 showing configuration dialog
 
 **Please note:**
 
@@ -37,10 +39,12 @@ If you wish to change the frequency of these notifications or edit them, follow 
 2. Select the SLA for which you want to edit notifications.
 3. Click **Notifiers**.
 
-   ![Time to SLA release notes June 2024 showing SLA table update](/cms_trial/assets/6d018807-8fab-4e6a-9a77-81b9431c5d88.png)
+   Image — asset pipeline pending  
+   Time to SLA release notes June 2024 showing SLA table update
 4. Edit the notification by clicking **Edit**. You can also disable it, or create new notifications by clicking the **+** **Add New SLA Notification** button.
 
-   ![Time to SLA release notes June 2024 showing dashboard gadget update](/cms_trial/assets/26ce2e0b-0972-45c5-ab95-a5301c5fc1a7.png)
+   Image — asset pipeline pending  
+   Time to SLA release notes June 2024 showing dashboard gadget update
 
 Refer to the related documentation: [**Set a Notifier for an SLA**](/cms_trial/space/TTSC/35881090/Actions/)
 

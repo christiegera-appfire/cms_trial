@@ -10,7 +10,9 @@ Create a Workflow Intelligence report from scratch or start with a template for 
    - You can also go to **Reports** > **Workflow Intelligence** from the side menu.
 3. On the **New workflow intelligence report** page, choose how you want to start:
 
-   ![Screenshot 2026-09-07 at 17.45.05.png](/cms_trial/assets/ff365fab-3dc1-4b05-ac70-9661e3d6b54e.png)
+   Image — asset pipeline pending  
+   Screenshot 2026-09-07 at 17.45.05.png
+
    - To create a report from scratch, click **Create** under **Blank report**.
    - To start with a predefined configuration, find a template and click **Use template**. You can click **Details** to review the template before using it.
 
@@ -27,7 +29,8 @@ The following templates are available:
 
 ## Configure the report
 
-![Screenshot 2026-09-07 at 17.45.42.png](/cms_trial/assets/e065f2a0-7cfa-4f46-bfc8-0f47784f9178.png)
+Image — asset pipeline pending  
+Screenshot 2026-09-07 at 17.45.42.png
 
 1. Define which work items to include in the report:
 
@@ -43,7 +46,9 @@ For example, select **Assignee** as the main column and **Status** as the sub-co
 
 1. Use **Merge columns** to group several values from the main or sub-column under one name. The report totals their tracked time in a single column, while values you don’t include continue to appear separately. To merge values:
 
-   ![Screenshot 2026-09-07 at 17.56.55.png](/cms_trial/assets/67c08f88-ac81-4a80-ad12-75451da9d25f.png)
+   Image — asset pipeline pending  
+   Screenshot 2026-09-07 at 17.56.55.png
+
    - Click **Merge columns** under the main or sub-column.
    - Click **Add column**.
    - Enter a **Column name**.

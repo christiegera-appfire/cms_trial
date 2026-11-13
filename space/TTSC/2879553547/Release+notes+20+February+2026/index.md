@@ -14,7 +14,8 @@ This release introduces two new field types and a dedicated management area insi
 
 The **Settings** section has been renamed to **Administration**. You’ll now manage app-level settings from:
 
-![Time to SLA home screen with the Administration menu highlighted in the top navigation bar.](/cms_trial/assets/9710911a-244d-4328-b4b4-d83c28aded40.png)
+Image — asset pipeline pending  
+Time to SLA home screen with the Administration menu highlighted in the top navigation bar.
 
 This change is the first step in improving the structure and organization of Time to SLA configuration options.
 
@@ -22,11 +23,13 @@ This change is the first step in improving the structure and organization of Tim
 
 SLA custom fields can now be created and managed from:
 
-![Administration menu expanded in Time to SLA, showing the SLA Fields option selected in the dropdown.](/cms_trial/assets/cb2bb3fe-e5c0-41b0-afb5-c231f9abe2d0.png)
+Image — asset pipeline pending  
+Administration menu expanded in Time to SLA, showing the SLA Fields option selected in the dropdown.
 
 The interface mirrors Jira’s native custom field experience for a familiar and consistent workflow.
 
-![SLA Fields page in Time to SLA with the Create an SLA Field dialog open and SLA Indicator selected as the field type.](/cms_trial/assets/b163bdce-8958-4403-904c-ca61bfe66566.png)
+Image — asset pipeline pending  
+SLA Fields page in Time to SLA with the Create an SLA Field dialog open and SLA Indicator selected as the field type.
 
 #### SLA Indicator field
 

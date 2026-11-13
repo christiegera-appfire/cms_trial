@@ -54,7 +54,8 @@ This lets you prioritize work items with the closest upcoming SLA deadlines. Sel
 
 These dates in the SLA panel will appear in the SLA field:
 
-![SLA panel displaying time to resolution with the start date, target date, and end date indicated..](/cms_trial/assets/1ae50aad-7557-4b78-87e9-8148b73218dc.png)
+Image — asset pipeline pending  
+SLA panel displaying time to resolution with the start date, target date, and end date indicated..
 
 **1 - Start date**
 
@@ -152,7 +153,8 @@ tts-start >= 2026-02-12
 
 The work item navigator shows results like in the screenshot below, where `tts-start` is displayed as a column, and the filter returns all work items with an SLA start after the given date:
 
-![Work item navigator displaying JQL search results for tts-start after date entry and the filtered list of work items.](/cms_trial/assets/f28e28dc-ab3e-4301-b5f3-7e09f2cdb7bf.png)
+Image — asset pipeline pending  
+Work item navigator displaying JQL search results for tts-start after date entry and the filtered list of work items.
 
 ## Troubleshooting
 

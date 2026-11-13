@@ -12,7 +12,8 @@ Now, let’s take a look at the different calculation methods you can choose fro
 
 The First Cycle method calculates only the first cycle between the Open and Resolved statuses.
 
-![Time to SLA Calculation methods first cycle timeline example](/cms_trial/assets/5f0567ba-50a8-425d-ae09-26ad66c736af.png)
+Image — asset pipeline pending  
+Time to SLA Calculation methods first cycle timeline example
 
 This calculation method considers the date/time when your work item met the first start condition and uses it as the SLA start date. The date/time when your work items met the first end condition is used as the SLA end date.
 
@@ -32,7 +33,8 @@ If you want to set up an SLA for **First Response Time**, you could use the Firs
 
 The Last Cycle method calculates only the last cycle between Open and Resolved statuses.
 
-![Time to SLA Calculation methods last cycle timeline example](/cms_trial/assets/d57650e3-42bb-4c6f-8684-df975ca94c0d.png)
+Image — asset pipeline pending  
+Time to SLA Calculation methods last cycle timeline example
 
 This calculation method considers the date/time when your work item met the last start condition and uses it as the SLA start date. The date/time when your work item met the last end condition is used as the SLA end date.
 
@@ -52,7 +54,8 @@ You can choose this method to keep the last comment’s time in the panel. This 
 
 The All Cycles method will add up all cycles between Open and Resolved statuses.
 
-![Time to SLA Calculation methods all cycles timeline example](/cms_trial/assets/700d4554-d619-4e11-a739-da7656a30fd9.png)
+Image — asset pipeline pending  
+Time to SLA Calculation methods all cycles timeline example
 
 This calculation method considers the date/time when your work item met the last start condition and uses it as the SLA start date. The date/time when your work item met the last end condition is used as the SLA end date.
 
@@ -72,7 +75,8 @@ To give you a better idea, selecting All Cycles for your **Time to Resolution** 
 
 The Largest Span method will calculate the elapsed time between the first Open and last Resolved status.
 
-![Time to SLA Calculation methods largest span timeline example](/cms_trial/assets/a4516852-2c6d-4392-971f-1a0868d4322a.png)
+Image — asset pipeline pending  
+Time to SLA Calculation methods largest span timeline example
 
 This calculation method considers the date/time when your work item met the last start condition and uses it as the SLA start date. The date/time when your work item met the last end condition is used as the SLA end date.
 
@@ -94,6 +98,7 @@ In a nutshell, this method takes into account **all** **processes** from the sta
 
 If you have different business hours for each day (as shown below), TTS will consider Monday’s business hours.
 
-![Time to SLA Calculation methods table showing cycle options and examples](/cms_trial/assets/55d2c558-81b3-4f15-8c4a-037538cfd282.png)
+Image — asset pipeline pending  
+Time to SLA Calculation methods table showing cycle options and examples
 
 For example, if you add a goal with a duration of `1d`, TTS will consider this 1 day as 10 hours. This is because your business hours add up to 10 hours on Monday.

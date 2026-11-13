@@ -15,11 +15,13 @@ To solve the problem described above, let’s use the **Reset SLA** action.
 1. Go to the work item you want to reset on Jira Cloud.
 2. Click the three-dots icon on top of the **Details** menu.
 
-   ![Time to SLA work item actions page with SLA actions settings](/cms_trial/assets/9ccffc84-b65b-46ee-8867-66b5b11daed5.png)
+   Image — asset pipeline pending  
+   Time to SLA work item actions page with SLA actions settings
 3. Click **Time to SLA Issue Actions** > **Actions** > **Reset SLA**.
 4. Select the SLA(s) you want to reset.
 
-   ![Time to SLA work item actions dialog for SLA action configuration](/cms_trial/assets/e3dabc7b-f20b-4e77-8cd5-2ef671533ac9.png)
+   Image — asset pipeline pending  
+   Time to SLA work item actions dialog for SLA action configuration
 5. Select a reset date. If you leave this box blank, the SLA(s) will be reset immediately.
 6. Click **Proceed**.
 

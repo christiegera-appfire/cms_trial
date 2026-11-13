@@ -21,7 +21,7 @@ Some OKR fields can be edited in multiple BigPicture modules, but you’ll find 
 
 Some OKR fields are available in other BigPicture modules, but have different names. For example, in the OKR module, you’ll find the **Owner** field.
 
-![okr-fields.png](/cms_trial/assets/f5e50c0d-191d-49f4-aead-f88dc1e12658.png)
+![okr-fields.png](/cms_trial/assets/b3af7e4d-9036-4935-8372-36e706b6454a.png)
 
 In other BigPicture modules, such as Gantt, use the built-in Assignee field to display the same information for your Objectives and Key Results.
 

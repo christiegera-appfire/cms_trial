@@ -8,19 +8,23 @@ The main parameters to consider for comparison are listed below.
 
 ## **On-prem - System Info**
 
-![image-20251104-140923.png](/cms_trial/assets/dce4fadd-c93b-4fd5-b9bd-d8b408e78ac2.png)
+Image — asset pipeline pending  
+image-20251104-140923.png
 
 ## On-prem - Time to SLA installed (v 11.3)
 
-![image-20251104-141307.png](/cms_trial/assets/51b2f5fe-e093-4acd-8990-865a67d37d17.png)
+Image — asset pipeline pending  
+image-20251104-141307.png
 
 ## On-prem - Atlassian Apps Installed
 
-![image-20251104-141119.png](/cms_trial/assets/a0883a0d-da38-4d66-8a15-a44364819ea8.png)
+Image — asset pipeline pending  
+image-20251104-141119.png
 
 ## Cloud - Time to SLA installed (Before Forge remote conversion)
 
-![image-20251106-181851.png](/cms_trial/assets/bf53d28f-6af7-4d46-a765-6f9f180df033.png)
+Image — asset pipeline pending  
+image-20251106-181851.png
 
 The comparison table reflects the customer's view based on menu items. See the parity tables of Time to SLA features below for details.
 

@@ -8,9 +8,11 @@
 
 You can use Time to SLA’s periodic reports feature to create report subscriptions that are issued at regular intervals. They can be presented as project deliverables and help with decision-making.
 
-![Time to SLA periodic report subscription settings](/cms_trial/assets/f282df86-c008-45de-9167-9a625809f211.png)
+Image — asset pipeline pending  
+Time to SLA periodic report subscription settings
 
-![Time to SLA periodic report subscription schedule settings](/cms_trial/assets/9ac6350d-a306-4cc1-bbaa-ce85dbff8589.png)
+Image — asset pipeline pending  
+Time to SLA periodic report subscription schedule settings
 
 For more information, refer to the [documentation](/cms_trial/space/TTSC/36012105/Periodic+reports/).
 

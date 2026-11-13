@@ -8,45 +8,45 @@ In the OKR module, you can customize your current view for greater flexibility a
 
 ## Modify the current view
 
-![okr-header-2.png](/cms_trial/assets/5cb47468-92a0-4321-99da-f600b512f9e5.png)
+![okr-header-2.png](/cms_trial/assets/f33be9cb-ca4d-4d45-a0e4-2d8f25232706.png)
 
 Your current view can be modified in the following ways:
 
 | **View modifier** | **Page/Location** | **Description** |
 | --- | --- | --- |
-| OKR Period | Available:   - OKR Overview - OKR Hierarchy - Progress Dashboard   Modifies:   - OKR Overview - OKR Hierarchy - Progress Dashboard | Use the period selector to display OKRs scheduled for a specific period or periods. |
-| Filters | Available:   - OKR Overview - OKR Hierarchy - Progress Dashboard   Modify:   - OKR Overview - OKR Hierarchy - Progress Dashboard | Filter OKRs by Owner, Teams, Labels, and many more to see only the OKRs you want. |
-| Column filters | Available:   - OKR Overview   Modify:   - OKR Overview - OKR Hierarchy - Progress Dashboard | Filter and sort individual Overview columns. |
-| Column search bar | Available:   - OKR Overview   Modifies:   - OKR Overview - OKR Hierarchy - Progress Dashboard | Search a specific OKR by its name. |
-| Sort a column | Available:   - OKR Overview   Modifies:   - OKR Overview | Sort a column A-Z or Z-A. |
+| OKR Period | Available:   - Overview - Dependencies - Hierarchy - Progress Dashboard   Modifies:   - Overview - Dependencies - Hierarchy - Progress Dashboard | Use the period selector to display OKRs scheduled for a specific period or periods. |
+| Filters | Available:   - Overview - Dependencies - Hierarchy - Progress Dashboard   Modify:   - Overview - Dependencies - Hierarchy - Progress Dashboard | Filter OKRs by Owner, Teams, Labels, and more to see only the OKRs you want. |
+| Column filters | Available:   - Overview - Dependencies   Modify:   - Overview - Dependencies - Hierarchy - Progress Dashboard | Filter and sort individual Overview columns. |
+| Column search bar | Available:   - Overview - Dependencies   Modifies:   - Overview - Dependencies - Hierarchy - Progress Dashboard | Search a specific OKR by its name. |
+| Sort a column | Available:   - Overview - Dependencies   Modifies:   - Overview - Dependencies | Sort a column A-Z or Z-A. |
 
 ### OKR Period
 
-![Period selector. The Q3 Y2025 is selected.](/cms_trial/assets/ee241f0e-5d42-4d9c-9cd5-0e4b2db04367.png)
+![Period selector. The Q3 Y2025 is selected.](/cms_trial/assets/e72ba33f-be47-4f34-a7b3-036f5c5bf017.png)
 
-The period selector lets you select a period from the list to display OKRs planned for that period, for example, Q3 Y2025. The selector heading shows the period you select.
+The period selector lets you select a period from the list to display OKRs planned for that period (for example, Q3 Y2025). The selector heading shows the period you select.
 
-The period you select displays matching OKRs on the Overview, Hierarchy, and Progress Dashboard pages.
+The selected period displays matching OKRs on the *Overview*, *Dependencies*, *Hierarchy*, and *Progress Dashboard* pages.
 
 Use **X** on or next to the selected period to clear it. Alternatively, clear the period on the list.
 
 ### Filters
 
-By default, three filters are displayed. Click **More filters** to show all available filters and use the scroll bar to view them. The filter you select displays matching OKRs on the *Overview*, *Hierarchy*, and *Progress Dashboard* pages.
+By default, three filters are displayed. Click **More filters** to show all available filters and use the scroll bar to view them. The filter you select displays matching OKRs on the *Overview*, *Dependencies*, *Hierarchy*, and *Progress Dashboard* pages.
 
 Use **x** on or next to the selected filter value to clear it. Alternatively, clear or unselect the value from the list.
 
 ### Column filters
 
-You can filter each individual column by its respective value. Click the **filter icon** ▢ on a column and then, depending on the column type, check or enter a value.
+You can filter each individual column by its respective value. Click the **filter icon** on a column and then, depending on the column type, check or enter a value.
 
-![OKR column filter.](/cms_trial/assets/e97e640c-e7f1-4929-b8b1-b549a2ae7702.png)
+![OKR column filter.](/cms_trial/assets/73a82b39-e9b8-4167-843e-a96432086b9a.png)
 
-Column filters are available only on the *Overview* page. Each active filter on a column is counted, and the total number is displayed directly on the column.
+Column filters are available on the *Overview* and *Dependencies* pages. Each active column filter is counted, and the total is displayed directly on the column.
 
 #### Filters vs column filters
 
-The **Filters** button and the **column filters** on the *Overview* page do the exact same thing: they control which OKRs you see across the *Overview*, *Hierarchy*, and *Progress Dashboard* pages.
+The **Filters** button and the **column filters** on the *Overview and Dependencies* pages do the exact same thing: they control which OKRs you see across the *Overview*, *Hierarchy*, and *Progress Dashboard* pages.
 
 Any filter you apply, whether through the **Filters** button or a column, will appear in both places (under the **Filters** button and in the relevant column).
 
@@ -58,9 +58,9 @@ The only exception is the **Period** filter. This one only appears as a column f
 
 ### View
 
-The **View** options control the OKRs and connected items visibility on the Overview page.
+The **View** options control the visibility of OKRs and connected items on the Overview page.
 
-![A dropdown under the View button on the OKR Overview page.](/cms_trial/assets/e11cd8bb-ec5f-4c08-8254-cafb7fffc4a8.png)
+![A dropdown under the View button on the OKR Overview page.](/cms_trial/assets/9dc3d93f-005c-48f6-b59d-c5a0c440ca49.png)
 
 #### Show
 
@@ -89,14 +89,14 @@ The **plus icon** at the end of the column layout opens a separate panel that di
 
 The **OKR Name** column includes a search bar that lets you find a specific OKR by name. You can search a column only on the Overview page.
 
-![search bar on the okr name column.](/cms_trial/assets/076cbc3e-942b-41ae-ace8-987db318509a.png)
+![search bar on the okr name column.](/cms_trial/assets/b18578f2-8f42-47dd-9374-c5139b98cd8a.png)
 
 ### Sort a column
 
 Each column can be sorted A-Z and Z-A.
 
-1. Click the **Sort** icon ▢ to sort it in a descending order.
-2. Click again to sort it in an ascending order.
+1. Click the **Sort** icon to sort it in descending order.
+2. Click again to sort it in ascending order.
 3. Click one more time to remove sorting.
 
 You can sort one column at a time.
@@ -117,7 +117,7 @@ To save your new view:
 2. On the **Create New view** modal,enter your new view name.
 3. Click **Save** to finish the process.
 
-![okr-save-view.png](/cms_trial/assets/62e52151-1fbe-41ff-bc72-26bbff823902.png)
+![Clicking the save button opens a menu with options to overwrite view, save as new view, or discard changes.](/cms_trial/assets/f261f599-94f0-467b-8067-96a1e2b2c067.png)
 
 ### Overwrite the view
 
@@ -132,7 +132,7 @@ Click the arrow next to the **Save as new view** button to save the changes to t
 
 The view switcher lets you navigate between the default and [saved views](https://appfire.atlassian.net/wiki/spaces/SPMDRAFT/pages/1673593469/OKR+Filters+search+and+saved+views#Save-OKR-views) in the OKR module. It also lets you search, star (add to favorites), delete, edit, and share selected views.
 
-![OKR view switcher expanded.](/cms_trial/assets/d2c874ef-90e7-466f-8408-0a47d1bc9ee5.png)
+![OKR view switcher expanded.](/cms_trial/assets/69a8fade-1392-4e62-b9f3-8b75f3245ef8.png)
 
 The view switcher consists of the following elements:
 
@@ -140,10 +140,10 @@ The view switcher consists of the following elements:
 | --- |
 | **Search** | A search bar for saved views. |
 | **All** | A list of all saved views (by default, the five newest views are shown) |
-| **Favorites** | A list of favorite saved views. Click a star icon next to the saved view name to add it to the favorites. |
+| **Favorites** | A list of favorite saved views. Click the star icon next to the saved view name to add it to Favorites. |
 | **More actions** (**…**) | Opens a contextual menu to share, edit, and delete a saved view. |
 
-To add a view to the list of your favorites, click the **star icon** next to the view name.
+To add a view to your favorites, click the **star icon** next to the view name.
 
 ### Manage saved views
 

@@ -29,7 +29,7 @@ The [Overview](/cms_trial/space/SPM/1918834317/OKR+Overview/) is where you can c
 
 #### Column layout
 
-![OKR column layout with options.](/cms_trial/assets/eac71de1-a148-4a75-8c79-78cf0e62361a.png)
+![OKR column layout with options.](/cms_trial/assets/e3330d32-2cfd-41b3-9345-7d33863662e2.png)
 
 OKR [column layout](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918835243) displays OKRs in a structured tabular format. Each column represents one type of data you can search or filter. You can customize the view by:
 
@@ -43,7 +43,7 @@ In addition, you can manually change the order of the OKRs by [moving them up/do
 
 #### OKR details side panel
 
-![okr-details-side-panel.png](/cms_trial/assets/97489002-92fe-4d36-920a-b99fd87266ce.png)
+![okr-details-side-panel.png](/cms_trial/assets/e7c8bdbd-f2b2-413f-853f-d884902aa8b1.png)
 
 With the [OKR details side panel](/cms_trial/space/SPM/1918865686/OKR+Details+side+panel/), you can:
 
@@ -69,13 +69,13 @@ All of these actions and more can also be executed on the OKR details page.
 
 #### Context menu
 
-![A context menu on the overview page in the okr module.](/cms_trial/assets/d5c96205-5be7-4dde-9b09-4f3a1c326bb7.png)
+![A context menu on the overview page in the okr module.](/cms_trial/assets/21b86475-0bf7-49ad-bab5-a2cdf74a716d.png)
 
 Open a context menu by clicking **More actions** (**…**) next to the chosen OKR. The “triple dots” are always visible for the Objectives; they become visible for Key Results only when you mouse over the Key Result.
 
 #### Overview settings
 
-![OKR Overview settings on the OKR Overview page in the OKR module.](/cms_trial/assets/39340491-6990-468b-972b-33587070a22c.png)
+![OKR Overview settings on the OKR Overview page in the OKR module.](/cms_trial/assets/4eecb8a6-860e-46f1-8ea1-b8f8944e2e97.png)
 
 The [Overview settings](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918408551) provide additional options for the Overview page:
 
@@ -85,7 +85,7 @@ The [Overview settings](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918
 
 ### Hierarchy
 
-![Hierarchy page.](/cms_trial/assets/cccafed5-fbd3-47de-a53f-e947398d1b5d.png)
+![Hierarchy page.](/cms_trial/assets/89919c2a-b216-46c7-9bfa-61e21178bd0c.png)
 
 The [Hierarchy](/cms_trial/space/SPM/1918669889/OKR+Hierarchy/) visualizes goals like a family tree.
 
@@ -95,7 +95,7 @@ You can zoom in or out of the view, collapse or expand sub-item cards, and filte
 
 ### Progress Dashboard
 
-![An overview of the Progress Dashboard page in the OKR module.](/cms_trial/assets/3ce6df2c-dfb4-44f6-af42-ab1fed66fd16.png)
+![An overview of the Progress Dashboard page in the OKR module.](/cms_trial/assets/ac24be95-87e0-4a57-9c42-506da8ff9aef.png)
 
 The [Progress Dashboard](/cms_trial/space/SPM/1918801225/Progress+Dashboard/) provides a clear, visual overview of your OKRs. It visualizes team progress, successes, and areas for improvement as pie charts, bar charts, and lists.
 
@@ -107,7 +107,7 @@ On the [Tree view](/cms_trial/space/SPM/1918801711/Tree+view/) page, you can see
 
 When you are done creating your OKRs, you can revisit this page and continue building the structure for the selected OKR.
 
-![Tree view page.](/cms_trial/assets/22d6015a-1268-4752-816a-8c2223254423.png)
+![Tree view page.](/cms_trial/assets/eb902b79-f263-4876-b932-94f2280f2c97.png)
 
 ### OKR details page
 
@@ -127,7 +127,7 @@ The Overview page has additional search bars on selected columns, but the column
 
 ## Saved views (view switcher)
 
-![A list of saved views with options.](/cms_trial/assets/48d5c3de-e63d-4d52-9964-c2f4189e8aaf.png)
+![A list of saved views with options.](/cms_trial/assets/30d674fb-ab37-495c-94d9-8a72c7619684.png)
 
 You can switch between the default and saved views using the view switcher. The view switcher houses a search bar, a list of all saved views, and a list of favorite saved views. Each view can be contextually deleted, edited, shared, and starred (added to favorites).
 
@@ -156,6 +156,7 @@ The OKR module includes several pages and a sidebar that lets you track and mana
 
   - *OKR Details* page
   - *Tree view* page
+- *Dependencies* page
 - *Hierarchy* page
 - *Progress Dashboard* page
 
@@ -163,34 +164,40 @@ The OKR module includes several pages and a sidebar that lets you track and mana
 
 The [*Overview*](/cms_trial/space/SPM/1918834317/OKR+Overview/) page is where you can take most [actions on OKRs](/cms_trial/space/SPM/1918863610/OKR+lifecycle+and+management/). It consists of two main elements:
 
-- Customizable column layout that shows all OKRs linked to a box and their details, such as Name, Owner, Progress, Weight, and so on.
+- A customizable column layout that shows all OKRs linked to a box and their details, such as Name, Owner, Progress, Weight, and more.
 - The [OKR details side panel](/cms_trial/space/SPM/1918865686/OKR+Details+side+panel/) that displays details for the selected OKR.
 
-### OKR details page
+#### OKR details page
 
 The [*OKR details*](/cms_trial/space/SPM/1918536390/OKR+details+page/) page displays data for the Strategic theme, sub-theme, Objective, sub-objective, or Key Result, depending on which item you are viewing.
 
 You can edit most of that data on the respective OKR page.
 
-### Tree view page
+#### Tree view page
 
 The [*Tree view*](/cms_trial/space/SPM/1918801711/Tree+view/)page displays an immediate hierarchy for the selected OKR. It opens automatically after you finish creating a new OKR. Once you leave this page, you can open it again from the OKR details side panel.
 
-![A Tree view page.](/cms_trial/assets/3880507e-35d0-481f-a54f-ecf9d8535b11.png)
+![A Tree view page.](/cms_trial/assets/94688511-0924-41f3-a59d-b4298ca38437.png)
+
+### Dependencies
+
+The [*Dependencies*](/cms_trial/space/SPM/3850666100/OKR+Dependencies/) page provides a centralized view for tracking and visualizing interdependencies and contributions across teams and strategic initiatives. It enables leaders and managers to identify blockers early, validate execution sequencing, and keep cross-functional efforts aligned toward company goals.
+
+![OKR Dependencies page.](/cms_trial/assets/c8d04532-ce46-468a-92bd-15dc98640c55.png)
 
 ### Hierarchy
 
-![Hierarchy page.](/cms_trial/assets/b4e300c4-4dda-40a0-8c9c-69fd42334b07.png)
+![Hierarchy page.](/cms_trial/assets/3c3a9ad3-d5e0-4efc-8072-e036ffed8ce7.png)
 
 The [*Hierarchy*](/cms_trial/space/SPM/1918669889/OKR+Hierarchy/) page visualizes goals like a family tree.
 
 It shows how big, ambitious goals (like the company vision) are broken down into smaller, actionable steps for different teams. This view helps everyone understand how their work fits into the bigger picture.
 
-You can zoom in or out of the view, collapse or expand sub-item cards, and filter the view.
+You can zoom in or out, collapse or expand sub-item cards, and filter the view.
 
 ### Progress Dashboard
 
-![A Progress Dashboard page.](/cms_trial/assets/4b283183-5189-4c5a-80aa-8367b3c8952c.png)
+![A Progress Dashboard page.](/cms_trial/assets/ff58251c-967c-4107-bb9e-b390d71fffb6.png)
 
 The [*Progress Dashboard*](/cms_trial/space/SPM/1918801225/Progress+Dashboard/) page provides a clear, visual overview of your OKRs. It visualizes team progress, successes, and areas for improvement as pie charts, bar charts, and lists.
 

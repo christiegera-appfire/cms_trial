@@ -20,7 +20,8 @@ Report permissions override Jira permissions. Anyone with access to an Executive
 
 The structural components of the Executive report table page operate as follows:
 
-![Executive report table showing grouped rows, time-based columns, performance metrics, and summary totals.](/cms_trial/assets/765eac37-1fa2-4728-b0ce-c319552e95f3.png)
+Image — asset pipeline pending  
+Executive report table showing grouped rows, time-based columns, performance metrics, and summary totals.
 
 ## 1. Top action buttons
 
@@ -28,7 +29,9 @@ The actions available at the top right of the report depend on your access level
 
 - **Display:** Opens the *Display settings* dialog, where you can change the time interval and success rate thresholds used to display the report. This action is available to Editors and the report owner. Viewers can review the report but can't change Display settings.
 
-  ![Display settings dialog with options for time interval and success rate thresholds.](/cms_trial/assets/ddbdd029-82e3-43a4-bb8a-829608136e5e.png)
+  Image — asset pipeline pending  
+  Display settings dialog with options for time interval and success rate thresholds.
+
   - **Time interval**: Allows you to choose how the report data is divided: *Daily*, *Weekly*, *Monthly*, and *Quarterly*.
   - **Success rate threshold**: Define the percentage ranges used to classify SLA performance. Success rate thresholds determine how the report highlights performance:
 
@@ -45,7 +48,8 @@ For *Daily* and *Weekly* time intervals, a **Focus period** dropdown and directi
 
 *Monthly* and *Quarterly* intervals display all available periods at once (up to 12 months or 4 quarters), so the focus layout switcher is hidden.
 
-![Executive report showing the Focus period selector and navigation controls for Daily or Weekly views.](/cms_trial/assets/8b4863d8-57da-4595-9225-6e4f4e98afa0.png)
+Image — asset pipeline pending  
+Executive report showing the Focus period selector and navigation controls for Daily or Weekly views.
 
 ## 3. Space column (Data grouping)
 
@@ -76,11 +80,13 @@ Within every time period and total column, the table populates three core metric
 
 Table headers include tooltips that explain what each value represents, such as issue count, average duration, and success rate.
 
-![Tooltip explaining the meaning of a report table column or metric.](/cms_trial/assets/4f57e4a7-92e3-4706-b78b-d0daf9890507.png)
+Image — asset pipeline pending  
+Tooltip explaining the meaning of a report table column or metric.
 
 Hover over the headers to learn more about each.
 
-![Tooltip explaining the meaning of a report table column or metric.](/cms_trial/assets/3ac33390-37fe-4cf1-b997-f97358a6c691.png)
+Image — asset pipeline pending  
+Tooltip explaining the meaning of a report table column or metric.
 
 ## 6. Aggregate totals (Bottom row)
 
@@ -94,7 +100,8 @@ Most data cells in the summary table are clickable and open the detailed view wi
 
 Empty cells are not clickable.
 
-![Detailed view showing filtered work items and SLA results for a selected report cell.](/cms_trial/assets/f74652fc-b401-41a3-85f8-e8e451c22db6.png)
+Image — asset pipeline pending  
+Detailed view showing filtered work items and SLA results for a selected report cell.
 
 The detailed view includes:
 
@@ -106,22 +113,26 @@ The detailed view includes:
    - Configure your detailed view filters, focus periods, and columns to your liking.
    - Click **Save**. The *Save report* modal appears.
 
-     ![Save report dialog for creating a saved detailed view.](/cms_trial/assets/2bc04ef2-7622-4770-81d1-760325c2dd8a.png)
+     Image — asset pipeline pending  
+     Save report dialog for creating a saved detailed view.
    - Enter a unique, recognizable name for the view.
    - Click **Save** again.
 
    Saved detailed views are nested directly beneath their parent Executive report on the main **Executive reports** page, indented and marked with an arrow icon. Opening a saved detailed view bypasses the primary matrix table and launches you straight into the filtered work item records list.
 
-   ![Executive reports page showing saved detailed reports nested beneath a parent report.](/cms_trial/assets/24df69a0-5a30-45eb-bf5b-bff9fa1a2aa3.png)
+   Image — asset pipeline pending  
+   Executive reports page showing saved detailed reports nested beneath a parent report.
 
    When you open a saved detailed view report, you can freely experiment with its fields to run temporary ad-hoc investigations. If you decide you want to discard your changes, click **Reset**. This instantly wipes your unsaved filter changes and reverts the view back to its previously saved baseline configuration state.   
    When editing a detailed report, you can also save your changes as a new detailed report. Click **Save**, enter a unique, recognizable name, and save the new version.
 
-   ![Detailed view toolbar showing the Reset and Save controls.](/cms_trial/assets/738ed20b-bc0e-4d5d-80bb-3e959e4256df.png)
+   Image — asset pipeline pending  
+   Detailed view toolbar showing the Reset and Save controls.
 
 In the detailed view, you can hover over each cell to learn more about it:
 
-![Tooltip displayed for a value in the detailed view table.](/cms_trial/assets/179c7d48-9cd6-4988-a213-b333dd7b300d.png)
+Image — asset pipeline pending  
+Tooltip displayed for a value in the detailed view table.
 
 ## 8. Report scope summary
 
@@ -135,7 +146,8 @@ If you have Editor access or own the report, click the pencil button (see [Top a
 
 The **Executive reports** landing page acts as your central control dashboard, indexing all pre-generated reports available in the environment.
 
-![Executive reports page listing generated reports with their status, owner, and available actions.](/cms_trial/assets/ee1e4329-80d3-4ec4-a166-fcc7a871a8d2.png)
+Image — asset pipeline pending  
+Executive reports page listing generated reports with their status, owner, and available actions.
 
 | **Column** | **Description** |
 | --- | --- |

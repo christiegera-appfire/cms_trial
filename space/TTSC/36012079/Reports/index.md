@@ -11,7 +11,8 @@ To open the Reports page:
 1. Go to **Apps** > **Product**.
 2. Select **Reports** from the top navigation.
 
-![Reports page showing the navigation sidebar with report categories and the Generate new report page.](/cms_trial/assets/55d4f5c7-98f4-4647-80fe-157178184173.png)
+Image — asset pipeline pending  
+Reports page showing the navigation sidebar with report categories and the Generate new report page.
 
 The **Generate new report** page opens by default. From this page, you can choose the type of report you want to create.
 
@@ -20,7 +21,7 @@ The **Generate new report** page opens by default. From this page, you can choos
 Use the sidebar to generate new reports, access generated reports, and manage report configurations and subscriptions.
 
 - **Generate new report:** Click **Generate new report** to choose and create a new report.
-- **Executive reports:** Shows saved Executive reports. Executive reports provide a high-level overview of SLA performance using completed SLA data, allowing you to spot where SLA performance breaks down and why. For more information, see the [documentation](/cms_trial/space/TTSC/3404431363/Executive+reports/) and the [use case](/cms_trial/space/TTSC/3426714512/I+want+to+review+cross-project+SLA+compliance+data+without+manual+spreadsheet+exports/).
+- **Executive reports:** Shows saved Executive reports. Executive reports provide a high-level overview of SLA performance using completed SLA data, allowing you to spot where SLA performance breaks down and why. For more information, see the [documentation](https://appfire.atlassian.net/wiki/spaces/TTSC/pages/3404431363) and the [use case](/cms_trial/space/TTSC/3426714512/I+want+to+review+cross-project+SLA+compliance+data+without+manual+spreadsheet+exports/).
 - **Periodic reports:** Shows periodic reports that are generated and delivered at regular intervals. Use this page to view and download your periodic reports. For more information, refer to the [documentation](https://support.appfire.com/space/TTSC/36012105).
 - **Background reports:** Shows reports generated asynchronously in the background. Use background reports when your report includes a large number of work items to avoid potential timeout errors. For more information, refer to the [documentation](https://support.appfire.com/space/TTSC/36241436).
 - **Report configurations:** Access saved and default report configurations. Saved configurations can retain the report filters and, for table-based reports, the column order and sorting. The default options are:
@@ -39,7 +40,7 @@ Available report types include:
 | **Report type** | **Description** |
 | --- | --- |
 | [**Workflow Intelligence**](/cms_trial/space/TTSC/3637936320/Workflow+Intelligence+report/) | Analyze how work moves through your Jira workflows. Compare time across assignees, statuses, and time periods, identify bottlenecks, and investigate the work item activity behind SLA performance. |
-| [**Executive**](/cms_trial/space/TTSC/3404431363/Executive+reports/) | Analyze SLA performance using completed SLA data. Executive reports are useful for high-level trend analysis and stakeholder reporting. Refer to the [use case](/cms_trial/space/TTSC/3426714512/I+want+to+review+cross-project+SLA+compliance+data+without+manual+spreadsheet+exports/) to learn more. |
+| [**Executive**](https://appfire.atlassian.net/wiki/spaces/TTSC/pages/3404431363) | Analyze SLA performance using completed SLA data. Executive reports are useful for high-level trend analysis and stakeholder reporting. Refer to the [use case](/cms_trial/space/TTSC/3426714512/I+want+to+review+cross-project+SLA+compliance+data+without+manual+spreadsheet+exports/) to learn more. |
 | [**Summary**](https://support.appfire.com/space/TTSC/36044860) | View a high-level overview of SLA performance. Summary reports are useful for work item-based reporting. |
 | [**Detail**](https://support.appfire.com/space/TTSC/36143159) | Review granular SLA data for in-depth work item analysis. Detail reports are useful for SLA-based reporting. |
 | [**Duration**](https://support.appfire.com/space/TTSC/36077648) | Track SLA duration trends over a selected time period using chart-based reports. |
@@ -55,7 +56,7 @@ To generate a report:
 2. Choose the report type you want to create.
 3. Configure the report fields and filters. For detailed instructions, see:
 
-   - [**Executive**](/cms_trial/space/TTSC/3404431363/Executive+reports/)
+   - [**Executive**](https://appfire.atlassian.net/wiki/spaces/TTSC/pages/3404431363)
    - [**Workflow Intelligence**](/cms_trial/space/TTSC/3637936320/Workflow+Intelligence+report/)
    - [**Summary**](https://support.appfire.com/space/TTSC/36044860)
    - [**Detail**](https://support.appfire.com/space/TTSC/36143159)
@@ -75,10 +76,12 @@ To save a report configuration:
 2. Create the report configuration you want to save for later.
 3. Click **Save filter as**.
 
-   ![Report toolbar showing the Save filter as option.](/cms_trial/assets/8470ebfc-cdbf-474b-960d-089a925c690b.png)
+   Image — asset pipeline pending  
+   Report toolbar showing the Save filter as option.
 4. Give your filter a name.
 
-   ![Save filter dialog for entering a name for a report configuration.](/cms_trial/assets/95129695-da48-40d5-aa64-30575df29652.png)
+   Image — asset pipeline pending  
+   Save filter dialog for entering a name for a report configuration.
 5. Click **Save**.
 
 Saved configurations appear under **Report configurations** in the sidebar.
@@ -95,7 +98,8 @@ Here is a list of things you can do on this screen:
 
 You can star your favorite report configurations to list them at the top of the *Report configurations* section in the sidebar.
 
-![Reports sidebar showing report configurations with the option to mark a configuration as a favorite.](/cms_trial/assets/db8e12bc-9cde-4e05-b01b-53207893e3d0.png)
+Image — asset pipeline pending  
+Reports sidebar showing report configurations with the option to mark a configuration as a favorite.
 
 ### Filter options
 

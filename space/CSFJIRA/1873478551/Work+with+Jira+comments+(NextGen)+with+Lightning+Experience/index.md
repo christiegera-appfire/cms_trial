@@ -4,7 +4,7 @@ This page explains how to use the Jira Comments (NextGen) component to view and 
 
 - Displays comments added to the associated work items.
 
-  - Work item c omments are tagged with `Jira` and are linked to a work item key.
+  - Work item comments are tagged with `Jira` and are linked to a work item key.
 - Displays comments added to Salesforce record.
 
   - Record comments are tagged with `Salesforce`.

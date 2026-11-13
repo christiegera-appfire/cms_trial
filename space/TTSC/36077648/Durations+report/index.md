@@ -7,7 +7,8 @@ The **SLA Durations report** helps you analyze SLA duration data using bar or li
 1. Navigate to **SLA Reports**.
 2. From the *Generate new report*, click **Duration**.
 
-   ![image-20260713-233240.png](/cms_trial/assets/b1cf7b94-b5c7-4556-abe6-a13cfc02fa3e.png)
+   Image — asset pipeline pending  
+   image-20260713-233240.png
 
 ### Report configuration options
 
@@ -26,7 +27,8 @@ The **SLA Durations report** helps you analyze SLA duration data using bar or li
 
 For example, you can choose to display only the SLAs that are in the critical zone, or to show only the SLAs with an end date within a specific date range. You can add as many parameters as you'd like.
 
-![TTS- More filter selection-20260713-232748.gif](/cms_trial/assets/a372461e-d3ea-4268-b488-b7ff80d14f6f.gif)
+Image — asset pipeline pending  
+TTS- More filter selection-20260713-232748.gif
 
 ### Chart configuration options
 
@@ -46,23 +48,28 @@ Scheduled Durations reports contain the report’s summary-table data. The chart
 
 ### Line chart
 
-![Time to SLA Durations report line chart showing SLA elapsed time over monthly periods](/cms_trial/assets/08f29923-39c7-4102-8e5d-b7afef1afbff.png)
+Image — asset pipeline pending  
+Time to SLA Durations report line chart showing SLA elapsed time over monthly periods
 
 ### Bar chart
 
-![image-20260713-233744.png](/cms_trial/assets/148d881a-4a38-47b6-a0e7-2c5236ac0a42.png)
+Image — asset pipeline pending  
+image-20260713-233744.png
 
 ### SLA Deadline visualization
 
-![Time to SLA Durations report chart grouped by SLA Deadline](/cms_trial/assets/c0754d1f-7086-423f-8279-ee0a139e7d90.png)
+Image — asset pipeline pending  
+Time to SLA Durations report chart grouped by SLA Deadline
 
 ### Impact of Y-Axis format on chart visualization
 
 Below are two examples showing how the Y-Axis format impacts the visualization:
 
-![Time to SLA Durations bar chart with Y-Axis formatted in Days](/cms_trial/assets/f2bd8c1e-4c62-4d45-8e41-66ed24067028.png)
+Image — asset pipeline pending  
+Time to SLA Durations bar chart with Y-Axis formatted in Days
 
-![Time to SLA Durations bar chart with Y-Axis formatted in Hours](/cms_trial/assets/7e3937fc-0578-477d-9f51-4689a3a08250.png)
+Image — asset pipeline pending  
+Time to SLA Durations bar chart with Y-Axis formatted in Hours
 
 The only difference between the two screenshots is that the duration format of the Y-Axis was changed from `Days` to `Hours`. Notice how a single change in the SLA value format alters the chart's presentation.
 

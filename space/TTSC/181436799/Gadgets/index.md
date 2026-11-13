@@ -15,10 +15,12 @@ To ensure optimal performance, it's important to manage the number of gadgets on
 
 The Periodic Met vs. Exceeded SLA Chart gadget displays weekly or monthly SLA numbers by status as a bar chart.
 
-![Time to SLA Gadgets page with dashboard gadget list](/cms_trial/assets/c22e2a76-8a33-40e3-9b68-d1383cfbc44b.png)
+Image — asset pipeline pending  
+Time to SLA Gadgets page with dashboard gadget list
 
 ### [SLA/Assignee Performance gadget](/cms_trial/space/TTSC/182780060/SLA%2FAssignee+Performance+gadget/)
 
 The SLA/Assignee Performance gadget displays the number of SLAs that are met, breached, or in the critical zone based on the assignee or specific SLA.
 
-![Time to SLA Gadgets configuration panel for SLA dashboard gadget](/cms_trial/assets/c3be0fa9-e665-4e46-911d-f1be01d2d540.png)
+Image — asset pipeline pending  
+Time to SLA Gadgets configuration panel for SLA dashboard gadget

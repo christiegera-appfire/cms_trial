@@ -6,8 +6,8 @@ Review [**Changes after the Forge migration**](/cms_trial/space/TTSC/2513797296/
 
 |  |  |  |
 | --- | --- | --- |
-| [**Get started**](/cms_trial/space/TTSC/35456108/Get+started+with+Time+to+SLA+for+Cloud/) Time to SLA Get started icon. | [**Use cases**](/cms_trial/space/TTSC/36110821/Use+cases/) Time to SLA Use cases icon. | [**Integrations**](/cms_trial/space/TTSC/36012527/App+integrations/) Time to SLA Integrations icon. |
-| [**Migrations**](/cms_trial/space/TTSC/36209166/DC+to+Cloud+migration+guide/) Time to SLA Migrations icon. | [**Release notes**](/cms_trial/space/TTSC/860717625/Release+notes/) Time to SLA Release notes icon. | [**Help and support**](/cms_trial/space/TTSC/1669595182/Help+and+support/) Time to SLA Help and support icon. |
+| [**Get started**](/cms_trial/space/TTSC/35456108/Get+started+with+Time+to+SLA+for+Cloud/)  Image — asset pipeline pending Time to SLA Get started icon. | [**Use cases**](/cms_trial/space/TTSC/36110821/Use+cases/)  Image — asset pipeline pending Time to SLA Use cases icon. | [**Integrations**](/cms_trial/space/TTSC/36012527/App+integrations/)  Image — asset pipeline pending Time to SLA Integrations icon. |
+| [**Migrations**](/cms_trial/space/TTSC/36209166/DC+to+Cloud+migration+guide/)  Image — asset pipeline pending Time to SLA Migrations icon. | [**Release notes**](/cms_trial/space/TTSC/860717625/Release+notes/)  Image — asset pipeline pending Time to SLA Release notes icon. | [**Help and support**](/cms_trial/space/TTSC/1669595182/Help+and+support/)  Image — asset pipeline pending Time to SLA Help and support icon. |
 
 ---
 
