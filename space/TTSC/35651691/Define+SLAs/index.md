@@ -48,8 +48,7 @@ To create an SLA, follow these steps:
 
 1. Enter a **Name** that describes the purpose of your SLA.
 
-   Image — asset pipeline pending  
-   A screenshot showing the SLA definition, step 1.
+   ![A screenshot showing the SLA definition, step 1. ](/cms_trial/assets/e75c083d-4d1f-4c23-b4ad-fb515878e3e8.png)
 2. Enter a **Description** to provide additional context.
 3. Select the space(s) to which the SLA will be applied. As you select the spaces, the work items in those space will be listed below. If you want to narrow down the scope of the SLA even more, you can do so in the **SLA Goals** step.
 
@@ -62,9 +61,7 @@ You can add multiple goals to a single SLA. Each goal has its own target, calend
 1. In the *SLA Goals* step, click **Add goal**.
 2. In the *New goal* dialog, configure the following fields:
 
-   Image — asset pipeline pending  
-   A screenshot showing the SLA goal creation, step 2.
-
+   ![A screenshot showing the SLA goal creation, step 2.](/cms_trial/assets/a44b8eaa-cea9-4ce7-b802-a0cf76480093.png)
    - **Goal Name:** Enter the name of the goal.
    - **Goal Calendar:** Select the goal calendar. You can also use the *Select calendar via Jira issue* feature to ensure teams can dynamically select their calendar based on their geographical location.
    - **Goal Target Type:** There are five you can choose from. Refer to the [related documentation](/cms_trial/space/TTSC/35390901/SLA+goals/) to learn more about each type.
@@ -85,16 +82,13 @@ You can add multiple goals to a single SLA. Each goal has its own target, calend
    For example, you might start time when a work item is created, pause time while you wait for the customer to respond, and stop time when the work item is resolved. You can add more than one condition.   
    Check out the screenshots below to see some examples:
 
-Image — asset pipeline pending  
-A screenshot showing the SLA condition creation, step 3.
+![A screenshot showing the SLA condition creation, step 3.](/cms_trial/assets/d6658156-c690-46bb-acdc-15585b910730.png)
 
-Image — asset pipeline pending  
-A screenshot showing SLA condition creation, with another example.
+![A screenshot showing SLA condition creation, with another example.](/cms_trial/assets/4eaa34f6-ade4-4009-a362-4ea172f097c7.png)
 
 Conditions can be connected using logical operators, with the default being the OR (“Any of the following conditions”) operator, meaning the SLA starts when any of the conditions are met. Alternatively, you can use the AND (“All of the following conditions”) operator. In this case, the SLA will start only when all conditions within a group are met.
 
-Image — asset pipeline pending  
-A screenshot showing the differences between OR and AND operators.
+![A screenshot showing the differences between OR and AND operators.](/cms_trial/assets/ed522403-b163-4e56-9a6b-a37afcf9d84b.png)
 
 You can also create Grouped Conditions to construct intricate SLA use cases by organizing conditions into logical groups with specific connectors.
 
@@ -108,24 +102,20 @@ Once you click **Save**, your SLA will be created.
 
    - **Calculation Method –** Select the calculation method for the elapsed duration. Your options are **All Cycles**, **First Cycle**, **Largest Span**, and **Last Cycle**.
 
-     Image — asset pipeline pending  
-     A screenshot showing the different calculation methods an SLA can use in the Time to SLA app.
+     ![A screenshot showing the different calculation methods an SLA can use in the Time to SLA app. ](/cms_trial/assets/25fca42c-ef2f-4d0b-9293-046e26116081.png)
 
      By default, All Cycles are selected. For example, if the SLA starts with an Open status and ends with a Resolved status, the All Cycles method will add up all the cycles between Open and Resolved statuses. [Click here](/cms_trial/space/TTSC/35456295/Calculation+methods/) to learn more about calculation methods.
    - **Critical Zone Percentage –** This is a parameter that you can set to signal when an SLA has reached what you would describe as a critical status. When an SLA enters this zone, the SLA panel’s color will change from **blue** to **orange**.
 
-     Image — asset pipeline pending  
-     A screenshot showing the critical zone percentage selection in the Time to SLA app.
+     ![A screenshot showing the critical zone percentage selection in the Time to SLA app.](/cms_trial/assets/46c0e112-6fb8-4a2b-88a0-59e7454a2f48.png)
 
      You can create notifications that will alert you and your team when an SLA is in the critical zone. Learn how [here](/cms_trial/space/TTSC/35881090/Actions/).
    - **SLA Custom Field –** Add this custom field to screens where you would like to see SLA target date information. Only date/time custom fields can be selected as the target date, hence why only these custom fields are available within the drop-down menu. Please note that this is an optional custom field that will need to be added to the relevant screens. The installation of Time to SLA does not automatically add it to work items. To learn how, [refer to this documentation](/cms_trial/space/TTSC/35684678/SLA+custom+field/).
 
-     Image — asset pipeline pending  
-     A screenshot showing the SLA Custom Field
+     ![A screenshot showing the SLA Custom Field ](/cms_trial/assets/30392d32-224d-40c3-85ce-5159db2f114d.png)
    - **Linked Issue SLA –** You can select whether to display this SLA in linked work items and specify which link types it’ll be displayed in. When you link two work items, you’ll be able to see the SLA panel on both of them.
 
-     Image — asset pipeline pending  
-     A screenshot showing the Linked Issue SLA configuration options.
+     ![A screenshot showing the Linked Issue SLA configuration options.](/cms_trial/assets/12caf78c-62f0-4935-b815-71bf0aacacd6.png)
 
 **Example:**
 

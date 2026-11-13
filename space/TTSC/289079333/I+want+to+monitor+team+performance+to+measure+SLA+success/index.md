@@ -10,7 +10,7 @@ Time to SLA provides a range of options to create customized SLA reports. Users 
 
 Time to SLA offers five types of reports to monitor SLAs and measure success in SLA management:
 
-1. [**Executive report**](https://appfire.atlassian.net/wiki/spaces/TTSC/pages/3404431363) **–** provides a high-level overview of SLA performance using completed SLA data. This helps teams review SLA trends, compare performance across groups, and share clear SLA insights with stakeholders.
+1. [**Executive report**](/cms_trial/space/TTSC/3404431363/Executive+reports/) **–** provides a high-level overview of SLA performance using completed SLA data. This helps teams review SLA trends, compare performance across groups, and share clear SLA insights with stakeholders.
 2. [**Summary report**](/cms_trial/space/TTSC/36044860/Summary+report/) **–** lets you see the most important information about your SLAs in the most concise way possible.
 
    ![Time to SLA team performance report with SLA success metrics](/cms_trial/assets/00e701c2-8113-45d3-b2e4-f2e62593c2de.png)

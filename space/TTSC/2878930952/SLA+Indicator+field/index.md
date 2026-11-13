@@ -142,8 +142,7 @@ When used in JQL, the SLA Indicator field supports the following values:
 
 These values appear in the JQL autocomplete dropdown when typing:
 
-Image — asset pipeline pending  
-Jira JQL search with SLA Indicator field showing autocomplete options EMPTY, BREACHED, IN PROGRESS, and MET.
+![Jira JQL search with SLA Indicator field showing autocomplete options EMPTY, BREACHED, IN PROGRESS, and MET.](/cms_trial/assets/a5daf1c5-5b17-45d5-87a0-0da6f41f4c12.png)
 
 ## Troubleshooting
 

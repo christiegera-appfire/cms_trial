@@ -4,8 +4,7 @@ When your report filters return a large number of results, generating the report
 
 If your report involves a high number of work items, we **strongly recommend** using background reports to avoid potential timeout errors.
 
-Image — asset pipeline pending  
-image-20260714-161850.png
+![image-20260714-161850.png](/cms_trial/assets/fc20eb1b-221e-4d44-9b56-740226b523c1.png)
 
 On the **Background Reports** page, you can:
 
@@ -24,12 +23,10 @@ Background reports are not available for **Status** and **Durations** reports.
 1. Configure your report according to its type. For more details, refer to the related documentation: [**Summary**](/cms_trial/space/TTSC/36044860/Summary+report/), [**Detail**](/cms_trial/space/TTSC/36143159/Detail+report/).
 2. Once you’re satisfied with your configuration, click the chevron next to **Generate** to reveal the dropdown menu.
 
-   Image — asset pipeline pending  
-   image-20260714-152933.png
+   ![image-20260714-152933.png](/cms_trial/assets/280057cf-e926-4d2c-af43-f2e504f7a542.png)
 3. Click **Create background report**. The *Create background report* screen appears.
 
-   Image — asset pipeline pending  
-   Time to SLA Background reports status dialog with report actions
+   ![Time to SLA Background reports status dialog with report actions](/cms_trial/assets/caa85bca-567b-4ae1-998b-42768a02904d.png)
 4. Assign a name (for example, `tts-summary-report`) to your report.
 5. Click **Generate**.
 

@@ -48,8 +48,7 @@ Before you begin, review the [Data Center and Cloud feature comparison](/cms_tri
      For example, if your SLA in the Data Center uses custom fields or statuses from Space A, you must also select Space A during migration. Otherwise, the SLA configuration may not transfer correctly.  
      Below is an example of the JCMA selection screen, where you can choose which spaces and apps to include in your migration:
 
-     Image — asset pipeline pending  
-     JCMA selection screen showing Spaces and Apps selected for migration.
+     ![JCMA selection screen showing Spaces and Apps selected for migration.](/cms_trial/assets/53c1c0c9-9bb6-43e2-8ddc-21fb24d98100.png)
 3. **Ensure the JQL you used in the SLA configuration will also be valid in the Cloud:**  
    For example, avoid using IDs in JQL conditions within SLA settings, as IDs may not match in Cloud. Instead, use names (for example, field names, status names) for better compatibility.
 4. **Mind the notification configuration differences:**  

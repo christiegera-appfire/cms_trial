@@ -8,8 +8,7 @@ Integrating Dashboard Hub with Time to SLA can provide valuable insights into ho
 
 At the moment, there is the “Met vs Breached SLA” gadget, which displays the SLA status of support tickets in a clear and easy-to-read chart, allowing teams to quickly identify which tickets are breached, met, or in progress. This gadget is **multi-project**, so you can report across your whole portfolio of projects.
 
-Image — asset pipeline pending  
-Time to SLA Dashboard Hub tile for SLA metrics
+![Time to SLA Dashboard Hub tile for SLA metrics](/cms_trial/assets/19f6909d-dffa-47b0-ab77-19295a79712a.png)
 
 The gadget displays the total number of SLA instances. If a work item has multiple SLAs in it, then each SLA will be counted separately. Let’s explore how you can set it up in your instance.
 
@@ -18,8 +17,7 @@ The gadget displays the total number of SLA instances. If a work item has multip
 - You must have Dashboard Hub installed in your instance to carry out the instructions on this page.
 - You must create a Time to SLA datasource. Refer to the [Dashboard Hub documentation](https://appfire.atlassian.net/wiki/spaces/RDD/pages/146309293) for detailed information. The API token you need from Time to SLA to create a datasource requires the "SLA" and "Issue SLA" generated to use in Dashboard Hub to have the "SLA" and "Issue SLA" access.
 
-  Image — asset pipeline pending  
-  Time to SLA Dashboard Hub dashboard with SLA gadget configuration
+  ![Time to SLA Dashboard Hub dashboard with SLA gadget configuration](/cms_trial/assets/c2dd5bb8-4db1-46f5-99fb-2a41d396c574.png)
 
 ## Configuration
 
@@ -28,8 +26,7 @@ The gadget displays the total number of SLA instances. If a work item has multip
 3. Search `Met vs Breached SLA`.
 4. Click **Add.** The *Met vs Breached SLAs* configuration screen will appear.
 
-   Image — asset pipeline pending  
-   Time to SLA Dashboard Hub dashboard with SLA performance gadgets
+   ![Time to SLA Dashboard Hub dashboard with SLA performance gadgets](/cms_trial/assets/41416f57-dd83-4276-8ede-f1236de38add.png)
 5. Select a Time to SLA datasource. Remember that you have to [create the datasource](https://help.roninpixels.com/RDD/add-and-manage-datasources) first.
 6. The **JQL (Jira Query Language) query or filter** to filter the list of work items (see the [JQL documentation](https://support.atlassian.com/jira-software-cloud/docs/use-advanced-search-with-jira-query-language-jql/)). If you don’t add any and click “Load”, the gadget will request all the content in the source instance, which might cause performance issues.
 

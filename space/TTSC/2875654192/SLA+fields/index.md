@@ -2,8 +2,7 @@
 
 Time to SLA lets you create SLA-powered custom fields that display SLA information directly inside Jira work items.
 
-Image — asset pipeline pending  
-SLA Fields page showing a list of configured SLA custom fields and their details.
+![SLA Fields page showing a list of configured SLA custom fields and their details.](/cms_trial/assets/0866ab47-3a96-4fa1-bfa3-abc48c86b754.png)
 
 **Tip:**
 
@@ -20,8 +19,7 @@ These fields behave like standard Jira custom fields. Once added to a screen, yo
 
 Only Jira administrators can access and create SLA fields. SLA fields are Jira custom fields, and Jira only allows admins to create and manage custom fields.
 
-Image — asset pipeline pending  
-Administration menu in Time to SLA with the SLA Fields option selected from the dropdown.
+![Administration menu in Time to SLA with the SLA Fields option selected from the dropdown.](/cms_trial/assets/1b9e93f2-ffef-4e23-9802-3ce6f7c98dff.png)
 
 If you don’t see the SLA Fields section, check that you have Jira admin permissions.
 
@@ -59,11 +57,9 @@ Displays the current SLA status in the work item view. For example:
 
 When you click the information icon next to the field, you can view detailed SLA data, including all related SLAs and their current states. Use this field when agents need to quickly understand whether an SLA is on track or breached.
 
-Image — asset pipeline pending  
-Jira work item view with the Delivery indicator set to Breached.
+![Jira work item view with the Delivery indicator set to Breached.](/cms_trial/assets/4fee7bbc-9d37-4afd-bf83-2f5d20837740.png)
 
-Image — asset pipeline pending  
-SLA details panel showing multiple SLAs with their current states.
+![SLA details panel showing multiple SLAs with their current states.](/cms_trial/assets/9c3921c8-c17e-4919-91ea-3764c307a344.png)
 
 ### SLA Date
 
@@ -73,22 +69,19 @@ Displays a selected SLA date value in the work item. You can configure the field
 - SLA start date
 - SLA end date
 
-Image — asset pipeline pending  
-Jira work item displaying SLA QA target latest and earliest fields in the details panel.
+![Jira work item displaying SLA QA target latest and earliest fields in the details panel.](/cms_trial/assets/42a3a685-04fc-4e36-9e60-1e2852389edc.png)
 
 ### SLA Duration
 
 Displays how long each selected SLA has been running (or has run), expressed as a duration.
 
-Image — asset pipeline pending  
-Work item view showing SLA duration values for time to resolution and first response.
+![Work item view showing SLA duration values for time to resolution and first response.](/cms_trial/assets/3b7aa29e-3acf-4d22-b70f-06e2cadb46f3.png)
 
 ### Dynamic Calendar
 
 This field lets you select a goal calendar directly from a Jira work item. Instead of assigning a fixed calendar inside the SLA configuration, you can let users dynamically define which calendar should apply to a specific work item.
 
-Image — asset pipeline pending  
-Work item details panel with a dynamic calendar field showing Team A SLA calendar in the Details panel.
+![Work item details panel with a dynamic calendar field showing Team A SLA calendar in the Details panel.](/cms_trial/assets/508276b8-8080-4c48-918b-bf4e442068af.png)
 
 ### Optimize the number of SLA fields
 

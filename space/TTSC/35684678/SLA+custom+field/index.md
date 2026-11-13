@@ -4,8 +4,7 @@ You can view the target date of your SLA on the **SLA panel**, but you might als
 
 This will display the target date in the **Details** > **More Fields** category in the work item view, like this:
 
-Image — asset pipeline pending  
-Time to SLA SLA custom field configuration panel
+![Time to SLA SLA custom field configuration panel](/cms_trial/assets/b91909b5-e02b-4040-b3fc-24046e85d6bb.png)
 
 This page explains how to set a field as the SLA Target Date field.
 
@@ -25,8 +24,7 @@ If you have two different SLAs that will appear on the same work item, you shoul
 2. Click the settings button in the row of the SLA you want to update and select **Edit**.
 3. Scroll down to the *SLA Custom Field* section and tick the **Update date field in issue** checkbox.
 
-   Image — asset pipeline pending  
-   Time to SLA SLA custom field display in Jira issue fields
+   ![Time to SLA SLA custom field display in Jira issue fields](/cms_trial/assets/7c1b065c-b23b-4def-94b5-49c043cd7980.png)
 4. Select the field you want to set as the SLA target date field.
 5. Click **Save**.
 
@@ -63,8 +61,7 @@ To set the target date refresh interval, follow these steps:
 1. Open Time to SLA and click **Settings** > **Advanced**.
 2. Adjust the **Target Date Refresh Interval** **(****In Minutes****)** according to how often you want the information in your field to be updated. (Minimum: **2m**, Maximum: **1,440**m.)
 
-   Image — asset pipeline pending  
-   Time to SLA SLA custom field settings page
+   ![Time to SLA SLA custom field settings page](/cms_trial/assets/393d2fb4-912d-42bf-9d71-9e95d8acb574.png)
 3. Click **Save**.
 
 If your history is flooded with update notifications, you can try setting a higher target date refresh interval number to solve that problem.

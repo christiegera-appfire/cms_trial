@@ -36,8 +36,7 @@ Select a valid calendar in the Dynamic Calendar field. If the SLA doesn't appear
 2. Click the **SLA field** button.
 3. Select **TTS -** **SLA Dynamic Calendar**.
 
-   Image — asset pipeline pending  
-   Time to SLA Dynamic calendar field setup panel
+   ![Time to SLA Dynamic calendar field setup panel](/cms_trial/assets/da931de6-f5d4-41f4-a9c1-74f6ebb89764.png)
 4. Enter a name.
 5. Optionally, provide a description.
 6. Click **Create**.
@@ -71,5 +70,4 @@ This behavior is expected and cannot be disabled.
 
 Once properly configured and opened at least once, the SLA Dynamic calendar field appears as a standard date field in the work item view.
 
-Image — asset pipeline pending  
-Time to SLA Dynamic calendar field configuration with date options
+![Time to SLA Dynamic calendar field configuration with date options](/cms_trial/assets/2260e015-c57d-4bbe-8cba-a9dc20c400ea.png)

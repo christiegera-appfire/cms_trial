@@ -9,8 +9,7 @@ To access the SLA History tab:
 3. Use the dropdown menu to view all SLAs associated with the work item and select one to explore its details.  
    You can check the **Overall Details** box to display time details.
 
-   Image — asset pipeline pending  
-   Time to SLA History tab
+   ![Time to SLA History tab](/cms_trial/assets/661b7af0-a1b5-4a52-a737-9f7bf65d34d7.png)
 
 ### SLA cycles
 

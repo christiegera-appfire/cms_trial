@@ -33,14 +33,11 @@ If you’re a Jira administrator, you can make the SLA panel visible on all work
 1. Open any Jira work item.
 2. Click the **Time to SLA icon** in the top menu.
 
-   Image — asset pipeline pending  
-   A screenshot showing where the Time to SLA icon is in the top menu.
-
+   ![A screenshot showing where the Time to SLA icon is in the top menu.](/cms_trial/assets/f6ac8ed7-2105-4082-80ad-34c0c5af9573.png)
    - If you don’t see it, click the Jira **⋯** menu. The **Time to SLA** option may appear there, depending on the number of apps installed in your instance.
 3. When the SLA panel section appears, click the **⋯** button next to it.
 
-   Image — asset pipeline pending  
-   A screenshot showing where the Show for all work items option is in the work item page..
+   ![A screenshot showing where the Show for all work items option is in the work item page..](/cms_trial/assets/b4d30b36-2537-49a3-b690-fcef2c5721df.png)
 4. Select **Show for all work items**.
 
 Once enabled, the SLA panel will appear automatically on all work items for all users in your project.
@@ -52,9 +49,7 @@ If you’re not an administrator, you can still open the SLA panel for a specifi
 1. Open a Jira work item.
 2. Click the **Time to SLA icon** in the top menu.
 
-   Image — asset pipeline pending  
-   A screenshot showing where the Time to SLA icon is in the top menu.
-
+   ![A screenshot showing where the Time to SLA icon is in the top menu.](/cms_trial/assets/f6ac8ed7-2105-4082-80ad-34c0c5af9573.png)
    - If you don’t see it, click the Jira **⋯** menu. The **Time to SLA** option may appear there, depending on the number of apps installed in your instance.
 
 The SLA panel will appear in the work item view.
@@ -97,8 +92,7 @@ Currently, the Calendar ID is visible only in the calendar’s URL.
 
 **Example:**
 
-Image — asset pipeline pending  
-A screenshot showing how to find your calendar ID in the browser URL.
+![A screenshot showing how to find your calendar ID in the browser URL.](/cms_trial/assets/5c247749-6595-43fa-8054-821a8577fe28.png)
 
 ```text
 dd8714a8-fc1a-4a47-8842-158e3993d042

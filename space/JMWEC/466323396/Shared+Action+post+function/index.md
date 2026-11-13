@@ -72,7 +72,7 @@ Post functions are provided with an option to delay execution for a set number 
 
 Workflows that depend on post functions being executed in a specific order can fail due to the asynchronous nature of Connect post-functions in **Jira Cloud**. One workaround is to delay the execution of a post function, thereby creating a more predictable execution order. For example, on the approval of a Story you want to create sub-tasks and immediately transition them; in this case, you will have to delay the execution of the Transition Linked Issues post function, so that the sub-tasks are created before they are transitioned.
 
-Where possible, it is recommended to use the [Sequence of post-functions](/cms_trial/space/JMWEC/466322933/Sequence+of+post+functions/) post function or [Shared action](/cms_trial/space/JMWEC/466323396/Shared+Action+post+function/) post function to execute a series of post functions in a specific sequence instead of applying a delay.
+Where possible, it is recommended to use the [Sequence of post-functions](https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=jmwec&title=Sequence%20of%20Post-functions&linkCreation=true&fromPageId=536903766) post function or [Shared action](https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=jmwec&title=Shared%20Action%20post-function&linkCreation=true&fromPageId=536903766) post function to execute a series of post functions in a specific sequence instead of applying a delay.
 
 ## Passing variables within a sequence
 

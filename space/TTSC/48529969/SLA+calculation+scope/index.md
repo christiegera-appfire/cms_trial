@@ -9,8 +9,7 @@ Use **SLA calculation scope** to control:
 
 This helps you reduce unnecessary SLA recalculations, keep SLAs focused on the right work items, and prevent high-volume automation or system users from triggering unwanted updates.
 
-Image — asset pipeline pending  
-image-20260602-135729.png
+![image-20260602-135729.png](/cms_trial/assets/aeed6f01-423a-4b17-9217-54719b69a365.png)
 
 ## Filter by work items
 

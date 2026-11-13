@@ -40,8 +40,7 @@ Users with the **SLA Configurations** permission can access the *Actions* page. 
 
 ## Managing actions
 
-Image — asset pipeline pending  
-Actions page showing the list of SLA actions with search, filters, and execution history.
+![Actions page showing the list of SLA actions with search, filters, and execution history.](/cms_trial/assets/d7c6358e-e0f1-4b86-8f05-1906fab70e11.png)
 
 The *Actions* page shows all actions in one place.
 
@@ -53,8 +52,7 @@ Default actions are created by the app once an SLA is created and are marked wit
 2. **Customize columns –** Use **Columns** to choose which table columns are shown on the page.
 3. **Select actions for bulk updates –** Select one or more actions using the checkboxes. After selecting actions, users can perform bulk operations, such as disabling or deleting multiple actions at once.
 
-   Image — asset pipeline pending  
-   Multiple SLA actions selected, showing available bulk actions.
+   ![Multiple SLA actions selected, showing available bulk actions.](/cms_trial/assets/b03bd362-a206-40c2-9b05-e31e174cc305.png)
 
    This helps administrators quickly clean up, reorganize, or temporarily pause or disable SLA automations across projects.
 
@@ -67,15 +65,13 @@ For example, if you select 10 actions and 2 of them are default actions, you won
 3. **Create a new SLA action –** Click **SLA Action** to create a new action. Users can choose an action type, define when it should be triggered, and configure what happens when the SLA event occurs. For more information, refer to the [related page](https://support.appfire.com/space/TTSC/3308945429/Create+actions).
 4. **Edit notification templates –** Open the page-level **More actions** menu to edit notification templates for Slack and email actions and preview them.
 
-   Image — asset pipeline pending  
-   SLA notification templates page with the option to edit Email and Slack templates.
+   ![SLA notification templates page with the option to edit Email and Slack templates.](/cms_trial/assets/ff29c08c-a09c-4478-865e-5ccc2d142b5c.png)
 
 ### Execution history
 
 From this page, you can review each action execution and filter the results. Time to SLA keeps execution history for **up to 90 days**.
 
-Image — asset pipeline pending  
-Execution history page showing action execution results and available filters.
+![Execution history page showing action execution results and available filters.](/cms_trial/assets/992fcf02-36ac-4c63-a2b3-bb107a9b9c66.png)
 
 1. **Filters –** Use the filters to narrow down the execution history.
 

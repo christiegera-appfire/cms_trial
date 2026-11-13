@@ -7,8 +7,7 @@ The Summary report provides a comprehensive view of SLA information on a single 
 1. In the Time to SLA top menu, click **Reports**.
 2. From the *Generate new report*, click **Summary**.
 
-   Image — asset pipeline pending  
-   Screenshot 2026-07-14 at 00.02.07.png
+   ![Screenshot 2026-07-14 at 00.02.07.png](/cms_trial/assets/272abd49-1fb1-4710-9ed2-0a65d7135154.png)
 3. Filter your work items:
 
    - Use **Project**, **JQL**, or **Issue Filters** to refine the work items included in your report. When you select one, a new dropdown appears.
@@ -25,8 +24,7 @@ When filtering your report, you **cannot** use `slaFunctions` in JQL. Instead, u
 
 For example, you can choose to display only the SLAs that are in the critical zone, or to show only the SLAs with an end date within a specific date range. You can add as many parameters as you'd like.
 
-Image — asset pipeline pending  
-TTS- More filter selection-20260713-232748.gif
+![TTS- More filter selection-20260713-232748.gif](/cms_trial/assets/ee51fe34-7c20-45ab-b410-266a51cce617.gif)
 
 1. Choose a time format for the report.
 2. Customize the report by adding extra columns from the **Issue Columns** list.
@@ -42,8 +40,7 @@ Below is an example Summary report. It displays key information such as: **Issue
 
 The content displayed depends on your customization created with **+ More**, **Format**, and **Issue** **Columns**.
 
-Image — asset pipeline pending  
-image-20260713-224820.png
+![image-20260713-224820.png](/cms_trial/assets/d34ff049-5862-4427-80ff-560abd113317.png)
 
 About SLA status and duration, refer to this information:
 

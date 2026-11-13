@@ -12,10 +12,8 @@ This lets you seamlessly manage transitions between teams, ensuring that service
 
 You can easily configure this by selecting **Triggered by another SLA** when setting up your SLA start conditions. This will allow you to chain as many SLAs as needed, ensuring proper escalation and tracking throughout the lifecycle of a work item.
 
-Image — asset pipeline pending  
-Time to SLA trigger by other SLA settings with source SLA selected
+![Time to SLA trigger by other SLA settings with source SLA selected](/cms_trial/assets/a43b9ddb-4df4-40af-ab66-8015ce779199.png)
 
-Image — asset pipeline pending  
-Time to SLA trigger by other SLA conditions with related SLA rule
+![Time to SLA trigger by other SLA conditions with related SLA rule](/cms_trial/assets/401dcf88-a582-48ba-91fd-2c409e2e74cb.png)
 
 ## Problem solved!

@@ -7,8 +7,7 @@ The **SLA Status report** gives you a visual overview of your SLA statuses using
 1. In the Time to SLA top menu, click **Reports**.
 2. From the *Generate new report*, click **Status**.
 
-   Image — asset pipeline pending  
-   image-20260714-134833.png
+   ![image-20260714-134833.png](/cms_trial/assets/4c226ceb-136e-42e6-858f-616b9307bf01.png)
 
 ### Report configuration options
 
@@ -29,8 +28,7 @@ When filtering your report, you **cannot** use `slaFunctions` in JQL. Instead, u
 
 For example, you can choose to display only the SLAs that are in the critical zone, or to show only the SLAs with an end date within a specific date range. You can add as many parameters as you'd like.
 
-Image — asset pipeline pending  
-Screenshot 2026-07-14 at 15.49.17.png
+![Screenshot 2026-07-14 at 15.49.17.png](/cms_trial/assets/e71febf5-6212-4de8-97e4-4fe85883374e.png)
 
 1. Choose a time format for the report.
 2. Use the **SLA Columns** and **Issue Columns** dropdowns to add or remove columns from your report.
@@ -46,8 +44,7 @@ Screenshot 2026-07-14 at 15.49.17.png
 
 This section can be changed after generating the report. Your selected grouping is also used when you save or schedule the report.
 
-Image — asset pipeline pending  
-Time to SLA Status report grouping options with SLA and Goals, Assignee, and Priority
+![Time to SLA Status report grouping options with SLA and Goals, Assignee, and Priority](/cms_trial/assets/eb290df4-cc79-4223-84b4-a059cdd3ccce.gif)
 
 1. Click **Generate** to create your report.
 
@@ -61,8 +58,7 @@ You can click **Save filter as** to save the configuration, which lets you reuse
 
 ## Understanding report results
 
-Image — asset pipeline pending  
-Time to SLA Status report pie chart with Exceeded, Met, In Progress, and Inactive segments
+![Time to SLA Status report pie chart with Exceeded, Met, In Progress, and Inactive segments](/cms_trial/assets/13ddc594-79f3-4e87-be0f-20ef3f307f9b.png)
 
 The Status pie chart provides a clear and intuitive representation of your SLA statuses, with each status color-coded for easy identification:
 
@@ -73,20 +69,17 @@ The Status pie chart provides a clear and intuitive representation of your SLA s
 
 Below the pie chart, a **summary table** displays detailed SLA information. Refer to the following example:
 
-Image — asset pipeline pending  
-image-20260714-135033.png
+![image-20260714-135033.png](/cms_trial/assets/b6767991-7405-447c-9b92-5368d8467b75.png)
 
 ### Interactive features
 
 You can click a pie chart slice to get detailed issue information for that SLA status. Double-click a slice to automatically scroll to the corresponding section in the summary table for more in-depth data. Check out the image below to see how the pie chart changes after you click `MET`:
 
-Image — asset pipeline pending  
-Time to SLA Status report pie chart filtered to show Met SLAs only
+![Time to SLA Status report pie chart filtered to show Met SLAs only](/cms_trial/assets/3b93e9ea-1fd3-434b-a444-4b848a249949.png)
 
 Click any legend label to hide or display specific SLA statuses in the chart. Removing a status dynamically updates the pie chart, as shown here:
 
-Image — asset pipeline pending  
-Time to SLA pie chart with Breached status hidden from legend
+![Time to SLA pie chart with Breached status hidden from legend](/cms_trial/assets/81b074b8-2faa-4683-bd27-38ce7163b5df.gif)
 
 ## Export the report
 

@@ -2,8 +2,7 @@
 
 Time to SLA offers default settings for optimal use and performance. On the **Administration** page, you can modify and adjust some of the default values to suit your needs and system.
 
-Image — asset pipeline pending  
-image-20260827-150847.png
+![image-20260827-150847.png](/cms_trial/assets/4c66e528-449a-4533-9e1d-566ce277b29a.png)
 
 1. **SLA fields:** Here you can create and manage SLA custom fields. For more information, refer to the related [documentation](/cms_trial/space/TTSC/2875654192/SLA+fields/).
 2. **General:** Configure general Time to SLA settings, including:
