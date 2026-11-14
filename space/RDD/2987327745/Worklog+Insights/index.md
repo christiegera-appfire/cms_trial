@@ -6,7 +6,8 @@ A Jira worklog records the time spent on an individual work item. This can help 
 
 The Worklog Insights gadget helps you visualize who worked on what and when. It pulls worklog data from Jira so you can filter time entries for a single sprint, an entire space, a single user, or across multiple teams. Switch between a detailed table, a pie chart showing how time was distributed, or a bar chart tracking effort over time. Click into any chart segment to jump directly to the relevant issues in Jira.
 
-![Worklog Insights gadget displayed in Table view.](/cms_trial/assets/c4e91b43-037b-4ebf-bdd3-1306639a1ae4.png)
+Image — asset pipeline pending  
+Worklog Insights gadget displayed in Table view.
 
 ## Example use cases
 
