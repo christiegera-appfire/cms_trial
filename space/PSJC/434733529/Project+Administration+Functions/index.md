@@ -43,7 +43,6 @@ This section contains functions that enable users to handle project administrati
   - [admGetProjectWorkflowScheme](/cms_trial/space/PSJC/1199113355/admGetProjectWorkflowScheme/)
   - [admGetWorkflowScheme](/cms_trial/space/PSJC/517800504/admGetWorkflowScheme/)
   - [admSetProjectIssueSecurityScheme](/cms_trial/space/PSJC/1199604107/admSetProjectIssueSecurityScheme/)
-  - [admSetProjectNotificationScheme](/cms_trial/space/PSJC/1200881765/admSetProjectNotificationScheme/)
   - [admSetProjectPermissionScheme](/cms_trial/space/PSJC/1200488485/admSetProjectPermissionScheme/)
   - [admSetProjectWorkflowScheme](/cms_trial/space/PSJC/1201111078/admSetProjectWorkflowScheme/)
   - [admGetWorkflowsFromScheme](/cms_trial/space/PSJC/2255552747/admGetWorkflowsFromScheme/)
