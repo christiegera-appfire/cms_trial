@@ -33,5 +33,5 @@ The dropdown will not show if the Salesforce instance has only one Jira connecti
 - [Is there any difference in setting up the integration in Jira for the multi-site feature?](/cms_trial/space/CSFJIRA/3091597518/Is+there+any+difference+in+setting+up+the+integration+in+Jira+for+the+multi-site+feature%3F/)
 - [How do I connect more than one Jira connection in my Salesforce environment?](/cms_trial/space/CSFJIRA/3091827403/How+do+I+connect+more+than+one+Jira+connection+in+my+Salesforce+environment%3F/)
 - [Why can't I switch or view the Jira connection dropdown for the Lightning Aura and Visualforce components?](/cms_trial/space/CSFJIRA/3091335936/Why+can%27t+I+switch+or+view+the+Jira+connection+dropdown+for+the+Lightning+Aura+and+Visualforce+components%3F/)
-- [Are attachments sync configurations configured individually with multiple Jira site integration?](https://appfire.atlassian.net/wiki/spaces/CSFJIRA/pages/3092252732)
+- [Are attachments sync configurations configured individually with multiple Jira site integration?](/cms_trial/space/CSFJIRA/3092252732/Are+attachments+sync+configurations+configured+individually+for+multiple+Jira+site+integration%3F/)
 - [What are the limitations of the multiple Jira site integration?](/cms_trial/space/CSFJIRA/3091925030/What+are+the+limitations+of+the+multiple+Jira+site+integration%3F/)
