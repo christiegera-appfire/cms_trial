@@ -36,7 +36,7 @@ The field mapping can also be configured from the global configuration level on 
 
 If you set the default field mapping rules for the whole BigPicture, all tasks will follow the same rule unless a custom configuration is created for a project.
 
-![contentId-1918539473](/cms_trial/assets/fd74e12f-a8ed-46fb-a215-9f06cc6ecc36.png)
+![contentId-1918539473](/cms_trial/assets/8916b4e4-a7bf-43ae-9a04-3c3ad0f3eb26.png)
 
 ### Field mapping scenarios
 
@@ -58,15 +58,15 @@ When task dates are calculated based on estimates, the “Start Date” field is
 
 - Changing the “Start Date” (11/Apr → 10/Apr) moves a task, and the “Original Estimate” **remains unchanged**:
 
-![contentId-1918539473](/cms_trial/assets/b687a8b1-cb5f-485c-a223-45e289596bde.png)![contentId-1918539473](/cms_trial/assets/e5269046-8cc8-475a-b219-725684bba0c6.png)
+![contentId-1918539473](/cms_trial/assets/84bea431-e742-4dd0-9295-89fddaedeced.png)![contentId-1918539473](/cms_trial/assets/8984066d-246e-4f46-a036-641e75a29d0f.png)
 
 - Changing the “End Date” (13/Apr → 12/Apr) **resizes** a task, and the “Original Estimate” is changed (-1 MD):
 
-![contentId-1918539473](/cms_trial/assets/b687a8b1-cb5f-485c-a223-45e289596bde.png)![contentId-1918539473](/cms_trial/assets/4c4969d8-f3ac-4562-8336-2bdbec37004d.png)
+![contentId-1918539473](/cms_trial/assets/84bea431-e742-4dd0-9295-89fddaedeced.png)![contentId-1918539473](/cms_trial/assets/844346a0-f6a6-440a-9877-d1b5977fa569.png)
 
 - Changing the “Duration Working Days” field (3d → 1d) **results in changing the “End Date”** (-2 days) and the “Original Estimate” (-2 MD):
 
-![contentId-1918539473](/cms_trial/assets/b687a8b1-cb5f-485c-a223-45e289596bde.png)![contentId-1918539473](/cms_trial/assets/e081f355-7065-4e17-bee6-757e7ec02b31.png)
+![contentId-1918539473](/cms_trial/assets/84bea431-e742-4dd0-9295-89fddaedeced.png)![contentId-1918539473](/cms_trial/assets/2b3ff0f9-c1aa-4c09-aa30-6fe1bc072aa7.png)
 
 ## Rules for editing “Original Estimate”
 
@@ -76,13 +76,13 @@ When the “Start Date” or “End Date” is synchronized with the “Original
 
 Changing the “Original Estimate” (3d → 4d) results in changing the “**Start Date”**.
 
-![contentId-1918539473](/cms_trial/assets/b687a8b1-cb5f-485c-a223-45e289596bde.png)![contentId-1918539473](/cms_trial/assets/e3d6e828-3766-4979-bc03-31476babd483.png)
+![contentId-1918539473](/cms_trial/assets/84bea431-e742-4dd0-9295-89fddaedeced.png)![contentId-1918539473](/cms_trial/assets/c9e5e829-e6c1-453b-895f-5f19a5732685.png)
 
 - **The “End Date” is synchronized with the “Original Estimate”:**
 
 Changing the “Original Estimate” (3d → 4d) results in changing the **“End Date”**.
 
-![contentId-1918539473](/cms_trial/assets/b687a8b1-cb5f-485c-a223-45e289596bde.png)![contentId-1918539473](/cms_trial/assets/4cf9ce02-9eba-486a-a768-c064e1b2a2dc.png)
+![contentId-1918539473](/cms_trial/assets/84bea431-e742-4dd0-9295-89fddaedeced.png)![contentId-1918539473](/cms_trial/assets/ad78f598-5e1b-47da-b874-c075cd516bac.png)
 
 When the “Original Estimate” field is set, the “Remaining Estimate” field is overwritten, as long as there is no time logged on a task.
 
@@ -99,19 +99,19 @@ Find out more in the example below.
 - You set the **“Remaining Estimate”** to 3 MD.  
   You can also complete the “Original Estimate” field (the “Original Estimate” will overwrite the “Remaining Estimate” field as long as there is no time logged on a task yet).
 
-![contentId-1918539473](/cms_trial/assets/76b01887-a58a-4361-a025-26b324a794a0.png)
+![contentId-1918539473](/cms_trial/assets/dfeb08f8-c305-4085-a6ec-8c669cab2bc4.png)
 
 - You start working and spend 1 MD on a task. The “Remaining Estimate” changes from 3 MD to 2 MD. The “Original Estimate” and task dates remain unchanged.
 
-![contentId-1918539473](/cms_trial/assets/2d002feb-7ea9-4357-854e-71661037702c.png)
+![contentId-1918539473](/cms_trial/assets/b3303493-d568-4821-9bde-649d4c8fc978.png)
 
 - You spend another 3 MD on a task (the time allocated to a task is exceeded by 1 MD). The “Remaining Estimate” value changes from 2 MD to 0. The “End Date” of a task changes (is 1 MD more). The “Original Estimate” remains unchanged so that you can check the initial estimate of a task.
 
-![contentId-1918539473](/cms_trial/assets/a6febf76-9ae1-4e0a-88d7-e22f2aefada5.png)
+![contentId-1918539473](/cms_trial/assets/7ff73a3e-ace6-4431-842f-9104c6f05df2.png)
 
 - If you need to spend 1 MD more to complete a task, you can modify the “Remaining Estimate” field (e.g., in Jira) by entering 1 MD. Then, the “End Date” is automatically updated.
 
-![contentId-1918539473](/cms_trial/assets/960eef21-64bd-45d2-a29c-7cf0d2f742a1.png)
+![contentId-1918539473](/cms_trial/assets/10ad296d-ff21-4441-b312-0b64e1779e15.png)
 
 ## Milestones
 
@@ -139,7 +139,7 @@ If the mechanism for calculating task dates based on estimated is enabled:
 
 Click to expand the guide
 
-BigPicture provides the possibility to automatically calculate task dates based on estimates or the time spent on tasks.
+BigPicture lets you automatically calculate task dates based on estimates or time spent on tasks.
 
 Key benefits of task dates based on estimates include:
 
@@ -155,13 +155,13 @@ For more information, see the [Field mapping](/cms_trial/space/SPM/1918700586/Fi
 
 ### Box-level field-mapping
 
-If tasks in your box belong to more than one Jira project and the projects have separate custom configurations, tasks in that box may behave differently depending to the rules configured for the project they belong to.
+If tasks in your box belong to more than one Jira space and those spaces have separate custom configurations, tasks in that box may behave differently depending to the rules configured for the project they belong to.
 
 1. Open your box in the Gantt or Scope module.
 2. Click the **plus** button in the column view.
 3. On the modal, click **Field mapping**.
 
-![Accessing box-level Field mapping.](/cms_trial/assets/72c08e5d-2ed8-43ca-8396-2ef8876d3ae2.png)
+![Accessing box-level Field mapping.](/cms_trial/assets/2d4159c6-f94b-4ccf-af72-e32388bb4198.png)
 
 Alternatively:
 
@@ -170,7 +170,7 @@ Alternatively:
 
 A **Field sync configuration** modal displays.
 
-![Field sync configuration modal inside a box.](/cms_trial/assets/4171583c-997e-4660-928e-227b03caaee0.png)
+![Field sync configuration modal inside a box.](/cms_trial/assets/46becaa7-d913-4d55-a123-2f2682bdefdf.png)
 
 On this modal, you can:
 
@@ -187,7 +187,7 @@ You can also configure field mapping at the global configuration level.
 
 Default field-mapping rules apply to all tasks in BigPicture boxes unless a custom project configuration overrides them.
 
-![Field mapping page in App settings.](/cms_trial/assets/5fbd81ce-68fd-44af-9f72-6fdbd53e41ca.png)
+![Field mapping page in App settings.](/cms_trial/assets/306277d7-d6f2-48c9-b850-9dc8b9f5c967.png)
 
 ### Field mapping scenarios
 
@@ -205,19 +205,19 @@ You can also synchronize the Start Date and End Date fields with different field
 
 ## Rules for editing Start Date, End Date, and Duration Working Days
 
-When task dates are calculated from estimates, the Start Date field is updated. When you set a new Start Date, a task is moved. The task duration (Original Estimate) remains the same.
+When task dates are calculated from estimates, the Start Date field is updated. When you set a new Start Date, the task moves. The task duration (Original Estimate) remains the same.
 
 - Changing the Start Date (11/Apr → 10/Apr) moves a task, and the Original Estimate remains unchanged:
 
-![Partial screenshot of the task list and Gantt timeline.](/cms_trial/assets/b687a8b1-cb5f-485c-a223-45e289596bde.png)![Partial screenshot of the task list and Gantt timeline.](/cms_trial/assets/e5269046-8cc8-475a-b219-725684bba0c6.png)
+![Partial screenshot of the task list and Gantt timeline.](/cms_trial/assets/84bea431-e742-4dd0-9295-89fddaedeced.png)![Partial screenshot of the task list and Gantt timeline.](/cms_trial/assets/8984066d-246e-4f46-a036-641e75a29d0f.png)
 
 - Changing the End Date (13/Apr → 12/Apr) resizes a task, and the Original Estimate is changed (-1 MD):
 
-![Partial screenshot of the task list and Gantt timeline.](/cms_trial/assets/b687a8b1-cb5f-485c-a223-45e289596bde.png)![Partial screenshot of the task list and Gantt timeline.](/cms_trial/assets/4c4969d8-f3ac-4562-8336-2bdbec37004d.png)
+![Partial screenshot of the task list and Gantt timeline.](/cms_trial/assets/84bea431-e742-4dd0-9295-89fddaedeced.png)![Partial screenshot of the task list and Gantt timeline.](/cms_trial/assets/844346a0-f6a6-440a-9877-d1b5977fa569.png)
 
 - Changing the Duration Working Days field (3d → 1d) changes the End Date (-2 days) and the Original Estimate (-2 MD):
 
-![Partial screenshot of the task list and Gantt timeline.](/cms_trial/assets/b687a8b1-cb5f-485c-a223-45e289596bde.png)![Partial screenshot of the task list and Gantt timeline.](/cms_trial/assets/e081f355-7065-4e17-bee6-757e7ec02b31.png)
+![Partial screenshot of the task list and Gantt timeline.](/cms_trial/assets/84bea431-e742-4dd0-9295-89fddaedeced.png)![Partial screenshot of the task list and Gantt timeline.](/cms_trial/assets/2b3ff0f9-c1aa-4c09-aa30-6fe1bc072aa7.png)
 
 ## Rules for editing Original Estimate
 
@@ -225,11 +225,11 @@ When the Start Date or End Date is synchronized with the Original Estimate field
 
 - The Start Date is synchronized with the Original Estimate: Changing the Original Estimate (3d → 4d) changes the Start Date.
 
-![Partial screenshot of the task list and Gantt timeline.](/cms_trial/assets/b687a8b1-cb5f-485c-a223-45e289596bde.png)![Partial screenshot of the task list and Gantt timeline.](/cms_trial/assets/e3d6e828-3766-4979-bc03-31476babd483.png)
+![Partial screenshot of the task list and Gantt timeline.](/cms_trial/assets/84bea431-e742-4dd0-9295-89fddaedeced.png)![Partial screenshot of the task list and Gantt timeline.](/cms_trial/assets/c9e5e829-e6c1-453b-895f-5f19a5732685.png)
 
 - The End Date is synchronized with the Original Estimate: Changing the Original Estimate (3d → 4d) changes the End Date.
 
-![Partial screenshot of the task list and Gantt timeline.](/cms_trial/assets/b687a8b1-cb5f-485c-a223-45e289596bde.png)![Partial screenshot of the task list and Gantt timeline.](/cms_trial/assets/4cf9ce02-9eba-486a-a768-c064e1b2a2dc.png)
+![Partial screenshot of the task list and Gantt timeline.](/cms_trial/assets/84bea431-e742-4dd0-9295-89fddaedeced.png)![Partial screenshot of the task list and Gantt timeline.](/cms_trial/assets/ad78f598-5e1b-47da-b874-c075cd516bac.png)
 
 When the Original Estimate field is set, the Remaining Estimate field is overwritten, provided no time has been logged on the task.
 
@@ -245,19 +245,19 @@ Example:
 
 - You set the Remaining Estimate to 3 MD. You can also fill the Original Estimate field (the Original Estimate will overwrite the Remaining Estimate field as long as no time has been logged on the task yet).
 
-![Partial screenshot of the task list and Gantt timeline.](/cms_trial/assets/76b01887-a58a-4361-a025-26b324a794a0.png)
+![Partial screenshot of the task list and Gantt timeline.](/cms_trial/assets/dfeb08f8-c305-4085-a6ec-8c669cab2bc4.png)
 
 - You start working and spend 1 MD on a task. The Remaining Estimate changes from 3 MD to 2 MD. The Original Estimate and task dates remain unchanged.
 
-![Partial screenshot of the task list and Gantt timeline.](/cms_trial/assets/2d002feb-7ea9-4357-854e-71661037702c.png)
+![Partial screenshot of the task list and Gantt timeline.](/cms_trial/assets/b3303493-d568-4821-9bde-649d4c8fc978.png)
 
 - You spend another 3 MD on a task (the time allocated to a task is exceeded by 1 MD). The Remaining Estimate value changes from 2 MD to 0. The task's End Date changes (by 1 MD). The Original Estimate remains unchanged, so you can check the task's initial estimate.
 
-![Partial screenshot of the task list and Gantt timeline.](/cms_trial/assets/a6febf76-9ae1-4e0a-88d7-e22f2aefada5.png)
+![Partial screenshot of the task list and Gantt timeline.](/cms_trial/assets/7ff73a3e-ace6-4431-842f-9104c6f05df2.png)
 
 - If you need to spend 1 MD more to complete a task, you can modify the Remaining Estimate field (for example, in Jira) by entering 1 MD. Then the End Date updates automatically.
 
-![Partial screenshot of the task list and Gantt timeline.](/cms_trial/assets/960eef21-64bd-45d2-a29c-7cf0d2f742a1.png)
+![Partial screenshot of the task list and Gantt timeline.](/cms_trial/assets/10ad296d-ff21-4441-b312-0b64e1779e15.png)
 
 ## Milestones
 
@@ -265,7 +265,7 @@ The Original Estimate and Remaining Estimate fields for a milestone are always 0
 
 ## Tasks without dates
 
-It is not required for tasks to have start and end dates defined.
+Tasks do not need to have start and end dates defined.
 
 ### Rules for deleting and assigning dates
 
@@ -276,7 +276,7 @@ If the mechanism for calculating task dates based on the estimate is enabled:
 
 ### Rules for deleting Original Estimate and Remaining Estimate
 
-- Removing the value from the Original Estimate field will also clear it from the Remaining Estimate field, provided no time has been logged on the task. If there is time logged on a task, the Remaining Estimate field is not cleared.
+- Removing the value from the Original Estimate field will also clear it from the Remaining Estimate field, provided no time has been logged on the task. If time has been logged on a task, the Remaining Estimate field is not cleared.
 - If the Start Date is synchronized with the Original Estimate field, clearing the Original Estimate field deletes the Start Date (otherwise, BigPicture would recalculate the removed estimate based on task dates).
 - If the End Date is synchronized with the Original Estimate field, clearing the Original Estimate field deletes the End Date (otherwise, BigPicture would recalculate the removed estimate based on task dates).
 - If the End Date is synchronized with the Time Spent + Remaining Estimate field, clearing the Remaining Estimate field deletes the End Date (otherwise, BigPicture would recalculate the removed estimate based on task dates). If time is logged on a task, the End Date field is calculated based on that time.

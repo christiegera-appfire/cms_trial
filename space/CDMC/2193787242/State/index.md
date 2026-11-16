@@ -1,4 +1,4 @@
-# state
+# State
 
 ## Overview
 
@@ -6,7 +6,7 @@ One or more **conditions** can be set to trigger a named event in the workflow. 
 
 Adding a **state** condition to a trigger listens for the trigger event when the document is in the specified state. Only one state is set for the condition.
 
-![Comala visual editor trigger with onapprove event and review state condition](/cms_trial/assets/5d266433-3a5e-4ed7-b523-150fb60c8a24.png)
+![image-20261116-123400.png](/cms_trial/assets/eb08df25-6d0c-458b-b158-979d00f9d8ee.png)
 
 The state name used in the condition must be a state in the workflow.
 

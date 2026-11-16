@@ -10,3 +10,4 @@ This section includes information and links related to error messages, troublesh
 - [App analytics](/cms_trial/space/JSUCLOUD/12517886/App+analytics/)
 - [Appfire Trust Center](/cms_trial/space/JSUCLOUD/920813622/Appfire+Trust+Center/)
 - [JSU for Jira Cloud knowledge base](/cms_trial/space/JSUCLOUD/12517871/JSU+for+Jira+Cloud+knowledge+base/)
+- [Escalation and Troubleshooting Guide for JSU cloud app](/cms_trial/space/JSUCLOUD/3421962390/Escalation+and+Troubleshooting+Guide+for+JSU+cloud+app/)

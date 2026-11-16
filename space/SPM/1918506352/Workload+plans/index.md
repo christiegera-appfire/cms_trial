@@ -8,7 +8,7 @@ On the **Workload plans** page, you can see a list of available workload plans.�
 - Code
 - Description
 
-![image-20240703-072010.png](/cms_trial/assets/a315c28b-f433-4222-ae05-4e9b26399083.png)
+![image-20240703-072010.png](/cms_trial/assets/b70f7d0b-b14d-4732-a756-fca9e13a7cc6.png)
 
 ## Security and access
 
@@ -20,7 +20,11 @@ The default workload plan can't be removed.
 
 When a task is added to the scope of a box or when the currently assigned plan is deleted, the task assignee is automatically assigned to the default workload plan.
 
-![image2022-1-26_15-47-53.png](/cms_trial/assets/69206cea-da61-4e2e-ae98-f0c95a8e8d19.png)
+![image2022-1-26_15-47-53.png](/cms_trial/assets/95254f90-f656-4197-95a9-e9a53884c152.png)
+
+### Work items without assignees
+
+When a work item has no assignee, the default workload plan is used to schedule it.
 
 ## Non-working days
 

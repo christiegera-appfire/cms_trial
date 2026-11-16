@@ -41,7 +41,7 @@ You can now choose an In Progress status as the end status. When you set up eith
 
 ## JCMA migrations from Dataplane to Dashboard
 
-Improvements made to enhance the overall experience when using JCMA to migrate Dataplane reports to Dashboard Hub.
+We made improvements to enhance the overall experience when using JCMA to migrate Dataplane reports to Dashboard Hub.
 
 ## Minor UX improvements
 

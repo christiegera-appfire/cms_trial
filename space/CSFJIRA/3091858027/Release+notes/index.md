@@ -4,6 +4,7 @@ We have a short release lifecycle so that we can always try to improve our produ
 
 | **Title** | **Highlights** | **Platform** | **Release date** |
 | --- | --- | --- | --- |
+| [Release notes 16 November 2026](/cms_trial/space/CSFJIRA/3855253538/Release+notes+16+November+2026/) | - Enhanced UI | Jira Cloud | November 16, 2026 |
 | [Release notes 12 November 2026](/cms_trial/space/CSFJIRA/3850993673/Release+notes+12+November+2026/) | - Bug fixes | Jira Cloud | November 12, 2026 |
 | [Release notes 9 November 2026](/cms_trial/space/CSFJIRA/3838312461/Release+notes+9+November+2026/) | - Binding search - Bug fixes | Jira Cloud  SALESFORCE | November 9, 2026 |
 | [Release notes 5 November 2026](/cms_trial/space/CSFJIRA/3826647081/Release+notes+5+November+2026/) | - Improved Salesforce connection health monitoring - Bug fixes | Jira Cloud  SALESFORCE | November 5, 2026 |

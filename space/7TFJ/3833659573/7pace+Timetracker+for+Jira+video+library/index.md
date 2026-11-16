@@ -4,6 +4,7 @@ On this page, you’ll find a collection of video tutorials covering available f
 
 | **Name** | **Video** |
 | --- | --- |
+| [Switch to 7pace Timetracker without losing historical data](/cms_trial/space/7TFJ/3444834318/Import+Worklog+Data+from+Tempo+Timesheets+to+7pace+Timetracker+using+REST+APIs/) |  |
 | 7pace Timetracker & BigPicture Integration |  |
 | 7pace Timetracker for monday.com - Lock Time Periods |  |
 | 7pace Timetracker in Jira |  |

@@ -2,14 +2,14 @@
 
 ## Overview
 
-`first-loop` is a new condition for the `on-change-state` event
+`first-loop` is a new condition for the `on-state-changed` event
 
 When the specified workflow event occurs, the trigger evaluates the condition. If the condition is met, it executes one or more defined actions.
 
 - `first-loop=true` filters the trigger so it runs only once per piece of content that enters the specified state.
 - `first-loop=false` allows the trigger to run whenever the workflow transitions into the state defined by the **state** parameter.
 
-![Comala firstloop condition trigger configuration](/cms_trial/assets/05f65ee5-329b-4084-93be-2747bff283d8.png)
+![image-20261116-121521.png](/cms_trial/assets/1734ed29-42b2-4dd1-aa51-fd8a59c46972.png)
 
 ### **JSON Condition**
 
@@ -20,7 +20,7 @@ The `first-loop` parameter value is a boolean
 - `"first-loop":true`
 - `"first-loop":false`
 
-`first-loop` is used as a parameter within the **trigger** macro.
+`first-loop` *is specified as a condition within the trigger JSON.*
 
 Its primary purpose is to support one-time initialization actions for a given document. For example, during the first review of a document, you may want to send an additional email notification or set specific metadata.
 
@@ -29,19 +29,22 @@ Its primary purpose is to support one-time initialization actions for a given do
 ```text
 "triggers":
 [
-    {"event": "on-change-state",
-    "conditions":
-    [
-        {"first-loop":"True"}
-        {"state":"Draft"}
-    ],
-    "actions":
-    [
-        {"action": "set-metadata"}
-    ]}
+    {
+        "event": "on-change-state",
+        "conditions":
+        [
+            {"first-loop": true},
+            {"state": "Draft"}
+        ],
+        "actions":
+        [
+            {"action": "set-metadata"}
+        ]
+    }
+]
 ```
 
-A trigger action displays a custom screen notification.
+A trigger action that sets metadata on the document.
 
 - `"actions":[{ "action":"set-metadata"}],`
 

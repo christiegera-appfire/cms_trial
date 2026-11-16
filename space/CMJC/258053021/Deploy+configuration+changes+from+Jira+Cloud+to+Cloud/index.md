@@ -2,7 +2,7 @@
 
 ## Deploy project configuration changes from Jira Cloud to Cloud
 
-[**Configuration Manager for Jira (CMJ) Cloud**](/cms_trial/space/CMJC/193725041/Overview/) helps you deploy project configuration changes from one **Jira** **Cloud site to another**. This article will refer to this use case as *"Cloud-to-Cloud"*.
+[**Configuration Manager for Jira (CMJ) Cloud**](/cms_trial/space/CMJC/193725041/Concept/) helps you deploy project configuration changes from one **Jira** **Cloud site to another**. This article will refer to this use case as *"Cloud-to-Cloud"*.
 
 For this use case, you need to create a temporary Jira Cloud site. It can be either a Jira Cloud site or a sandbox provided by Atlassian for testing purposes. The sandbox will act as a test environment where you can make changes safely, and when ready, deploy them to your production environment. [Learn more about setting up Atlassian sandboxes](https://support.atlassian.com/organization-administration/docs/manage-product-sandboxes/).
 

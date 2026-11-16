@@ -1,4 +1,4 @@
-# Overview
+# Concept
 
 Configuration Manager for Jira (CMJ) Cloud helps you manage and deploy Jira configuration changes between Jira Cloud sites. Whether you're promoting tested changes between environments, keeping multiple Jira Cloud sites aligned, or rolling out configuration updates across teams, CMJ Cloud helps you review, validate, and deploy configuration changes with confidence.
 
@@ -35,4 +35,4 @@ To explore the different reasons for deploying configurations and find the workf
 
 To see which Jira Cloud configuration elements CMJ Cloud can deploy, refer to [**Supported configuration elements**](/cms_trial/space/CMJC/193855959/Supported+configuration+elements/).
 
-**Migrating from Jira Server/Data Center?** If you're moving your existing Jira configuration to Jira Cloud, see the [full migration use case](/cms_trial/space/CMJC/258085727/Migrate+projects+and+issues+from+Jira+Server%2FDC+to+Jira+Cloud/) or the [snapshot upload](/cms_trial/space/CMJC/2506391642/Upload+a+snapshot/) feature.
+**Migrating from Jira Server/Data Center?** If you're moving your existing Jira configuration to Jira Cloud, see the [full migration use case](/cms_trial/space/CMJC/258085727/Migrate+projects+and+issues+from+Jira+Server%2FDC+to+Jira+Cloud/).

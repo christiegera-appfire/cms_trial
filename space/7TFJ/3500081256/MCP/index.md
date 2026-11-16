@@ -1,7 +1,5 @@
 # MCP
 
-MCP integration is currently available for **beta testing** with select partner organizations. You can reach out to check availability for testing via [support portal](https://appfire.atlassian.net/servicedesk/customer/portal/11).
-
 The **Model Context Protocol (MCP)** integration in 7pace Timetracker enables AI coding assistants (such as Cursor and Claude Desktop) to interact directly with 7pace Timetracker. Using MCP, your AI assistant can analyze your coding activity, Git commits, active branches, and prompt history to propose and automatically record accurate time logs.
 
 ## Access
@@ -13,7 +11,7 @@ Before individual users can connect their AI clients, MCP must be enabled at the
 3. Locate the **MCP Integration** section.
 4. Click **Enable MCP** and acknowledge the administrative agreements and permission requirements.
 
-![enable-mcp.png](/cms_trial/assets/2fae0b1f-ee97-4980-8819-3f2a77e43105.png)
+![enable-mcp.png](/cms_trial/assets/448781b7-6e02-4722-aac8-137248ead227.png)
 
 The following acknowledges and administrative agreements are required to enable the MCP option:
 
@@ -32,7 +30,7 @@ The following acknowledges and administrative agreements are required to enable 
 
 In **7pace Settings** navigate to personal Settings, next **MCP / API Tokens.**
 
-![mcp-tokens.png](/cms_trial/assets/abe2c841-53c7-4351-9511-3fafa2a6b915.png)
+![mcp-tokens.png](/cms_trial/assets/59424b18-85ef-4660-a584-f51d02b086c7.png)
 
 ### Step 1: Generate an API token
 
@@ -40,13 +38,13 @@ Click **Create Token** to generate a new personal token for MCP access. Choose a
 
 Select **Create**.
 
-![create-token-1.png](/cms_trial/assets/178fe672-6991-4532-9f40-7caff20821bc.png)
+![create-token-1.png](/cms_trial/assets/29207f90-d593-45ca-b01d-8e7c23b0d7f4.png)
 
 Now you can copy the token.
 
 Copy and save the token. You **CANNOT** recover the token after this step is finished.
 
-![create-token-2.png](/cms_trial/assets/322fcbf8-5a15-4574-9996-6a0abdcf76c5.png)
+![create-token-2.png](/cms_trial/assets/597a9539-9d31-4c0b-a878-7e48915ed138.png)
 
 ### Step 2: Configure your client
 

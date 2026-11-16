@@ -52,7 +52,7 @@ To ensure the project's proper functioning at the destination, CMJ Cloud will al
 
 if they refer to project configurations that will be deployed.
 
-[View full documentation](/cms_trial/space/CMJC/193725041/Overview/)
+[View full documentation](/cms_trial/space/CMJC/193725041/Concept/)
 
 **Service Management** projects can't be added to a deployment as they aren’t supported yet.
 

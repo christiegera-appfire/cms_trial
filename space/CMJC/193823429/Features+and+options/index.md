@@ -15,7 +15,6 @@ In this section, you'll find guides on deploying project configuration between J
 
 - [Authorize with API token](/cms_trial/space/CMJC/193594026/Authorize+with+API+token/)
 - [Create and manage snapshots](/cms_trial/space/CMJC/2506522887/Create+and+manage+snapshots/)
-- [Upload a snapshot](/cms_trial/space/CMJC/2506391642/Upload+a+snapshot/)
 - [Deploy a snapshot](/cms_trial/space/CMJC/2507112493/Deploy+a+snapshot/)
   - [Analyze changes](/cms_trial/space/CMJC/193626781/Analyze+changes/)
   - [Manage custom fields contexts](/cms_trial/space/CMJC/193692433/Manage+custom+fields+contexts/)

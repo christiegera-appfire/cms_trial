@@ -26,7 +26,7 @@ We are excited to announce the release of **Configuration Manager for Jira Cloud
 
 ## Migrate your projects and issues from Jira Server or Data Center to Jira Cloud
 
-Combine [CMJ Cloud](/cms_trial/space/CMJC/193725041/Overview/) with the [Configuration Manager Cloud Migration Tool](https://appfire.atlassian.net/wiki/spaces/CMT) to migrate project configuration and issues from Jira Server/DC to Cloud.
+Combine [CMJ Cloud](/cms_trial/space/CMJC/193725041/Concept/) with the [Configuration Manager Cloud Migration Tool](https://appfire.atlassian.net/wiki/spaces/CMT) to migrate project configuration and issues from Jira Server/DC to Cloud.
 
 Install Configuration Manager for Jira Cloud on your Jira Cloud site and the Cloud Migration Tool on your Jira Server/ DC instance. [Learn more about the installation](/cms_trial/space/CMJC/194183182/Installation+guide/)
 

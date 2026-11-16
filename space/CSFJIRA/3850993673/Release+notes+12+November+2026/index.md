@@ -10,7 +10,7 @@ This page outlines the updates included in the latest release of Connector for S
 
 ## JIRA CLOUD Bug fixes
 
-- **More reliable Salesforce and Jira migrations:** Brief connection problems no longer cause your migration to fail. If a temporary error occurs while your migration data is being retrieved, we now retry automatically, up to a set limit, so your migration can keep going without you having to restart it..
+- **More reliable Salesforce and Jira migrations:** Brief connection problems no longer cause your migration to fail. If a temporary error occurs while your migration data is being retrieved, we now retry automatically, up to a set limit, so your migration can keep going without you having to restart it.
 
 ---
 
