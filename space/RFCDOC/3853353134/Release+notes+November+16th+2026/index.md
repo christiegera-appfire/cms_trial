@@ -10,7 +10,7 @@ This page outlines the updates included in the latest release of Rich Filters fo
 
 ### **Elements Connect fields**
 
-Rich Filters now supports Elements Connect fields. These fields are available in the Views columns picker and Dynamic Filters, with values displayed correctly.
+Rich Filters now supports Elements Connect fields. These fields are available in the Views columns picker, Dynamic Filters, and as *Statistic type* in the statistics and flexi charts gadgets;
 
 ---
 

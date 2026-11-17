@@ -1,6 +1,6 @@
 # Install JQL Search Extensions and start indexing
 
-Before you can use JQL Search Extensions (JSE), install the app and allow it to index your Jira data. JSE uses indexed Jira data to support its extended JQL keywords and functions. Initial indexing starts automatically after installation.
+Before using JQL Search Extensions (JSE), install the app and index your Jira data. JSE uses indexed Jira data to support its extended JQL keywords and functions. Initial indexing starts automatically after installation.
 
 To install the JQL Search Extensions, you must be a Jira administrator.
 
