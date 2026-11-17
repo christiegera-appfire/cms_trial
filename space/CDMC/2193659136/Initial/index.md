@@ -1,18 +1,18 @@
-# initial
+# Initial
 
 ## Overview
 
 One or more [conditions](/cms_trial/space/CDMC/2193852785/Trigger+conditions/)can be set for a trigger for a named[event](/cms_trial/space/CDMC/2193950329/Trigger+events/) in the workflow. Adding a condition is optional.
 
-Adding the **Is Initial State** as a **True** condition to a trigger ensures it only listens for events that occur when the current state is the **initial state** of the workflow.
+Adding **Is Initial State** as a **True** condition to a trigger ensures it listens only for events that occur when the current state is the workflow's **initial state**.
 
-![Comala visual editor trigger with initial state condition and clean messages](/cms_trial/assets/57465cc1-0188-480d-9c6d-954dc49d69f1.png)
+![image-20261116-123120.png](/cms_trial/assets/415f4812-fcf6-4ef3-a0ed-e43a4435c157.png)
 
-The condition is a Boolean value—**true** or **false**.
+The condition is a Boolean value - **true** or **false**.
 
 When the specified workflow event occurs, the trigger evaluates the condition. If the condition is met, it executes one or more defined actions.
 
-To limit the initial condition to a specific state in the workflow, combine it with the **"state"** condition. When used together, both conditions are evaluated using an **AND** logic, meaning **both must be true** for the trigger to execute.
+To limit the initial condition to a specific state in the workflow, combine it with the **"state"** condition. When used together, both conditions are evaluated using **AND** logic, meaning **both must be true** for the trigger to execute.
 
 **JSON Condition**
 

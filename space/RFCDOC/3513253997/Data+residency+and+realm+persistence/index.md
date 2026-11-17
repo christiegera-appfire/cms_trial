@@ -1,51 +1,40 @@
 # Data residency and realm persistence
 
-Atlassian data residency lets you choose where the app data is stored geographically. If you have security needs or contractual obligations that require your data to be held in a particular geographic location, you can choose where your data is stored. This feature helps organizations meet compliance requirements by specifying which geographic regions host their data. To learn more, see [Data residency](https://developer.atlassian.com/cloud/jira/platform/data-residency/#realm-persistence) and [Understand data residency](https://support.atlassian.com/security-and-access-policies/docs/understand-data-residency/).
+Atlassian data residency lets you choose where your app data is stored. If security needs or contractual obligations require your data to be stored in a particular location, you can select the region that hosts it. This helps your organization meet compliance requirements.
 
-Currently, Rich Filters doesn’t support migration from one data location to another. If you have your Rich Filters already installed, you can’t change its location for the moment.
+To learn more, see [Data residency](https://developer.atlassian.com/cloud/jira/platform/data-residency/#realm-persistence) and [Understand data residency](https://support.atlassian.com/security-and-access-policies/docs/understand-data-residency/).
 
-## Set your data location
+## How it works for Rich Filters
 
-For new installations of Rich Filters, you can set your Jira instance data residency location in Atlassian Administration.
+Rich Filters uses the same data location as your Jira instance. Rich Filters has no separate location setting.
 
-1. Go to **Atlassian Administration**.
-2. Select your organization if you have more than one.
-3. Select **Data management** > **Data residency.**
-4. Click **Set location**.
-5. Review information about the steps involved. Select **Next**.
-6. Select the location from the menu where you want to move your app. Select **Next**.
-7. Select a move window. Select **Next**.
-8. Install the Rich Filters  
-   It will automatically use the same location as your Jira instance.
+### **New installations**
 
-## Realms and regions
+Set your data location in Atlassian Administration, then install Rich Filters. The app automatically uses the location you selected, provided that the app supports that region.
 
-Each realm represents a geographical area containing specific Amazon Web Services (AWS) regions where your data can be hosted. Currently, the Rich Filters offer the following realms:
+### **Existing installations**
 
-- **Global:** Your in-scope data is hosted within realms determined by Atlassian. Data can be moved between realms (distributed globally) as needed to ensure optimal performance and availability.
-- **US:** In-scope data is hosted within the US East and US West AWS regions.
-- **EU:** Your in-scope data is hosted within the Frankfurt AWS regions.
+Rich Filters supports migrating app data from one data location to another, so you can change the location of an existing installation without reinstalling. For the steps to set or move your location, see Atlassian’s [Understand data residency](https://support.atlassian.com/security-and-access-policies/docs/understand-data-residency/) page.
 
-## Realm persistence
+### Realms and regions
 
-Realm persistence ensures continuity for your app's data location when reinstalling the Rich Filters. This means that if you uninstall and then reinstall the Rich Filters within the **persistence period of 30 days**, the app will be installed in the same realm it was previously, preserving access to your existing data. This prevents data loss or access issues when temporarily uninstalling the app.
+Each realm is a geographical area containing specific Amazon Web Services (AWS) regions where your data can be hosted. Rich Filters currently offers these realms:
 
-If you uninstall and then reinstall the app after the 30-day persistence window, your app might be assigned to a different region than before, and you can lose access to your previous data.
+- **Global:** Your in-scope data is hosted in realms determined by Atlassian. Data can be moved between realms as needed to ensure optimal performance and availability.
+- **US:** In-scope data is hosted in the US East and US West AWS regions.
+- **EU:** In-scope data is hosted in AWS regions within the European Union, currently Frankfurt and Dublin.
 
-## View where your data is hosted
+#### Realm persistence
 
-To view where your Rich Filters data is hosted, you must have organization administrator permissions to do this.
+Realm persistence keeps your app’s data location consistent when you uninstall and reinstall Rich Filters.
 
-1. Go to **Atlassian Administration**.
+- If you uninstall and reinstall Rich Filters **within 30 days**, the app is installed in the same realm as before, so you keep access to your existing data.
+- If you reinstall **after 30 days**, the app might be assigned to a different realm, and you could lose access to your previous data.
 
-   ![Screenshot showing the Atlassian Administration button location.](/cms_trial/assets/4d066836-60ed-47aa-8b66-e08ebe261e32.png)
-2. Select your organization if you have more than one.
-3. Select **Data management** > **Data residency.**
-4. Click **Menu** (▢) > **View app details** for the Jira instance where you have the Rich Filters installed.
+For more detail, see [Realm persistence](https://developer.atlassian.com/cloud/jira/platform/data-residency/#realm-persistence) in Atlassian’s documentation.
 
-   ![2026-01-29_14-59-56.png](/cms_trial/assets/e191c1fb-c019-4b7a-a182-62e7ea7da0a8.png)
-5. You can search for Rich Filters.
+#### View where your Rich Filters data is hosted
 
-   If the location is set, you will see the name of the location.
+You need organization administrator permissions to view your app’s data location. In Atlassian Administration, go to **Data management > Data residency** and open the app details for your Jira instance. If a location is set, you’ll see its name there.
 
-   ![contentId-3513253997](/cms_trial/assets/79670c2c-ce5d-4f93-b190-8f565932a903.png)
+For the full walkthrough, see [Understand data residency](https://support.atlassian.com/security-and-access-policies/docs/understand-data-residency/).

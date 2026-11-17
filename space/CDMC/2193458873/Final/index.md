@@ -6,7 +6,7 @@ You can define one or more **conditions** for a specific workflow event to contr
 
 For example, adding the **Is Final State** as **True** condition ensures the trigger only activates when the event occurs **while the document is in the final state** of the workflow.
 
-![Comala visual editor trigger with final state condition and clean messages](/cms_trial/assets/334ad1d9-1615-4e13-b0c4-3ef2a0a80cbc.png)
+![Comala visual editor trigger with final state condition and clean messages](/cms_trial/assets/f028f61e-c123-44db-8f9a-004842c07e88.png)
 
 The condition is a **Boolean** value—either **true** or **false**.
 

@@ -16,7 +16,7 @@ This release requires additional app permissions and does not upgrade automatica
 
 ## Native publishing: Copy page trigger improvements
 
-The **Copy page** action in the workflow builder now lets you configure the destination, choose what content to copy, and set the title and owner of the copied page . You can configure multiple destinations in one action instead of creating a separate action for each destination.
+The **Copy page** action in the workflow builder now lets you configure the destination, choose what content to copy, and set the title and owner of the copied page. You can configure multiple destinations in one action instead of creating a separate action for each destination.
 
 ## Workflow variables
 

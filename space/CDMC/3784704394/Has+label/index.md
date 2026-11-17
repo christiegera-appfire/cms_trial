@@ -1,4 +1,4 @@
-# has label
+# Has label
 
 ## Overview
 

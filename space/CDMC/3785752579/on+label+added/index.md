@@ -6,7 +6,7 @@ The `on-label-added` trigger event runs when you add a label to a page. Use it t
 
 In the workflow editor, add the `on-label-added` trigger event. Add the workflow actions that should run when you add a label.
 
-![image-20261022-103427.png](/cms_trial/assets/370a4a07-68ad-45a6-aa49-c9a469641c74.png)
+![image-20261022-103427.png](/cms_trial/assets/6abd4319-2cf1-4e28-aabe-a5336c644e58.png)
 
 You can pair this event with the **Added Label** condition so the workflow responds only to that label.
 

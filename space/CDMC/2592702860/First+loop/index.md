@@ -1,4 +1,4 @@
-# first-loop
+# First loop
 
 ## Overview
 
@@ -9,7 +9,7 @@ When the specified workflow event occurs, the trigger evaluates the condition. I
 - `first-loop=true` filters the trigger so it runs only once per piece of content that enters the specified state.
 - `first-loop=false` allows the trigger to run whenever the workflow transitions into the state defined by the **state** parameter.
 
-![image-20261116-121521.png](/cms_trial/assets/1734ed29-42b2-4dd1-aa51-fd8a59c46972.png)
+![image-20261116-121521.png](/cms_trial/assets/c25e51ad-fdbd-4abd-a170-2f806460e5a1.png)
 
 ### **JSON Condition**
 
