@@ -2,7 +2,7 @@
 
 USE CASE
 
-![cdmc_onboarding_popularusecases_cards_reinforceregulatorucompliance_highlighted.png](/cms_trial/assets/1edc46c9-22d1-4ee8-9204-f37956481dfe.png)
+![cdmc_onboarding_popularusecases_cards_reinforceregulatorucompliance_highlighted.png](/cms_trial/assets/01386036-d553-4c77-8f21-61df703ed796.png)
 
 Automated document lifecycle management ensures that authorized users can review and approve documents. Adding an electronic signature layer protects content with encryption and authentication, safeguarding sensitive information. Additionally, Comala Document Management tracks workflow document activities to facilitate compliance with standards.
 
@@ -51,7 +51,7 @@ The **Regulatory compliance-driven workflow** ensures regulatory compliance by m
 
 It offers flexibility in reviewer assignments, reminder periods, and expiration timelines.
 
-![cdmc_onboarding_workflow_usecase_reinforceregulatorycompliance_visual.png](/cms_trial/assets/5f353cc9-2eea-4058-94cc-d489874920ad.png)
+![cdmc_onboarding_workflow_usecase_reinforceregulatorycompliance_visual.png](/cms_trial/assets/61af4724-dbb9-4fef-a427-86d5fdda5656.png)
 
 Documents progress through the following states:
 

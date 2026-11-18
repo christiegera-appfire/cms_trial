@@ -4,6 +4,7 @@ Watch the videos below to learn more about the [Financials module](https://appfi
 
 | **Area/Feature** | **Video** |
 | --- | --- |
+| Financials module views - [Home box](/cms_trial/space/SPM/3862265980/Home+box/) |  |
 | Financials module - financial analysis and additional expenses |  |
 | Financials module - forecasting costs |  |
 | Financials module - track actual costs and roll-ups |  |

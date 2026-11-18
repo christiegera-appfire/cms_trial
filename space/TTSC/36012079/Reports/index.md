@@ -85,6 +85,43 @@ Saved configurations appear under **Report configurations** in the sidebar.
 
 When you open a saved configuration and regenerate the report, Product restores its saved filters and the column order.
 
+## Display reports on Jira dashboards
+
+You can display saved Time to SLA reports on Jira dashboards to monitor SLA performance without opening the Reports page.
+
+Dashboard gadgets and widgets support the following report types:
+
+- **Duration:** Visualize SLA duration trends.
+- **Status:** Monitor SLA results using a pie chart.
+- **Summary:** Review SLA performance across work items.
+- **Detail:** View detailed SLA information for work items.
+
+### Save a report as a gadget
+
+1. Open **Reports** in Time to SLA.
+2. Select a supported report type.
+3. Configure the report using the filters and display options you need.
+4. Save the report configuration.
+5. Select **Save as gadget** to make the configuration available for dashboard use.
+
+You can then select the saved configuration when setting up the corresponding Time to SLA gadget or widget on your dashboard.
+
+### Understanding dashboard views
+
+The information displayed depends on the report type and the space available on the dashboard.
+
+**Compact view**
+
+Compact views focus on the most relevant information so you can monitor performance at a glance.
+
+**Expanded view**
+
+Expanded views provide additional report details where supported, including tables and interactive information.
+
+Dashboard reports use their saved configurations and refresh automatically.
+
+For more information about each report type, see [Summary report](/cms_trial/space/TTSC/36044860/Summary+report/), [Detail report](/cms_trial/space/TTSC/36143159/Detail+report/), [Durations report](/cms_trial/space/TTSC/36077648/Durations+report/), and [Status report](/cms_trial/space/TTSC/44761089/Status+report/).
+
 ## Manage report configurations
 
 You can use the **Manage report configurations** page to review and manage reports, except for the Executive reports, which have their own management page. When you edit a saved report configuration, you can update its filters and, for table-based reports, save a new column order or sorting.

@@ -47,6 +47,18 @@ About SLA status and duration, refer to this information:
 - **SLAs within Target**: For SLAs that are still on track to meet their target date, the report shows the **remaining time** until the target is reached.
 - **Breached SLAs**: For SLAs that have missed their target date, the report displays the **overdue duration**, indicating how long the SLA has been breached.
 
+## Display the Summary report on a dashboard
+
+You can display a saved Summary report as a Jira dashboard gadget or widget.
+
+In compact view, the report displays an overview of SLA performance and up to five work items, including their SLA statuses. Select **Open full report** to access the complete report.
+
+In expanded view, the report displays a detailed table using the saved configuration, including column order and time format. You can use pagination and sorting to explore the results.
+
+Dashboard views are read-only. To modify the report configuration or export the results, open the report in Time to SLA.
+
+For instructions on adding reports to dashboards, see [Reports](/cms_trial/space/TTSC/36012079/Reports/).
+
 ## Export the report
 
 Using the button on the right-hand side, you can download your report as an XLSX file. Once you click the button, the download will start automatically.

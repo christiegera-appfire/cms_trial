@@ -150,5 +150,57 @@ Use this section to define the scope and conditions under which the SLA goal is 
   - **Issue Type –** Lists SLA goals according to the work item type assigned to a work item.
   - **Request Type –** Tailors the SLA goal based on the specific request type associated with a work item.
   - **Assignee –** Tailors the SLA goal based on the assignee of the work item.
-  - **JQL –** Create queries to filter and retrieve specific sets of work items, allowing for precise control over which work items the SLA goals should apply to.
   - **Issue Filter –** You can create work item filters and then use them to filter the goal’s scope.
+  - **JQL –** Create queries to filter and retrieve specific sets of work items, allowing for precise control over which work items the SLA goals should apply to.
+  - **Assets Criteria –** Use this to define which work items an SLA goal applies to based on their linked Atlassian Assets objects.  
+    For more information, refer to the [related section](/cms_trial/space/TTSC/35390901/SLA+goals/).
+  - **Date Comparison –** You can define which work items an SLA goal applies to by comparing two Jira date fields. For more information, refer to the [related section](/cms_trial/space/TTSC/35390901/SLA+goals/).
+
+### Assets Criteria
+
+You can filter work items by Assets schema, object type, specific objects, and attribute values. For example, you can configure an SLA goal that applies only to work items linked to a particular service or application.
+
+1. In the **Goal Issues** section, select **Filtered issues in selected projects**.
+2. Under **Filter by**, select **Asset Criteria**.
+3. Click **Define criteria** to open the *Asset criteria* dialog.
+4. Configure the following options:
+
+   ![Screenshot 2026-11-10 at 23.17.58.png](/cms_trial/assets/a62ad0e6-8062-47a0-9f90-687e1df8eb17.png)
+   - **Schema:** Select the Assets schema containing the objects you want to use.
+   - **Object type:** Select an object type within the chosen schema.
+   - **Objects (optional):** Select specific objects, or leave **All objects** selected to include all objects of the selected type.
+   - **Attribute filter (optional):** Select an attribute and its values to further narrow down the matching objects.
+5. Review the summary at the bottom of the dialog to see which work items the criteria will apply to. Expand **Logic** to inspect the conditions.
+6. Click **Apply**.
+
+The configured criteria appear under **Filter by**, along with a summary of the selected scope.
+
+To modify the criteria, click **Edit**. You can also expand **Logic** to review the conditions without reopening the dialog.
+
+### Date Comparison
+
+Use **Date Comparison** to define which work items an SLA goal applies to by comparing two Jira date fields. You can also check whether a date field is empty or contains a value.
+
+For example, you can create a goal that applies only to work items whose due dates are earlier than their last comment dates.
+
+1. In the **Goal Issues** section, select **Filtered issues in selected projects**.
+2. Under **Filter by**, select **Date Comparison**.
+3. Click **Define comparison** to open the *Date comparison* dialog.
+4. Configure the following options:
+
+   ![Date Comparison, Condition options.](/cms_trial/assets/7cdfb500-0802-4d39-92bf-4d922d74d615.png)
+   - **Date field:** Select the Jira date field you want to evaluate. You can choose from system and custom date fields.
+   - **Time:** If available, specify the time to use with the selected date field.
+   - **Condition:** Select how you want to evaluate the date field:
+
+     - **is empty:** The field has no value.
+     - **is not empty:** The field contains a value.
+     - **is after:** The field's date is later than another date.
+     - **is before:** The field's date is earlier than another date.
+     - **is on the same day as:** The field's date falls on the same day as another date.
+   - **Compared to:** For date comparisons, select the second date field.
+   - **Offset (optional):** Enter a duration, such as `2d 4h 30m`, to adjust the reference date used in the comparison.
+5. Expand **Logic** to review the condition.
+6. Click **Apply** to apply the comparison to the goal.
+
+   ![A Date Comparison filter applied.](/cms_trial/assets/f2ef7909-c6c0-42da-97f5-20abafccd4e7.png)

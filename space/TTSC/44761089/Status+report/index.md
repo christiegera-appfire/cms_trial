@@ -81,6 +81,16 @@ Click any legend label to hide or display specific SLA statuses in the chart. Re
 
 ![Time to SLA pie chart with Breached status hidden from legend](/cms_trial/assets/81b074b8-2faa-4683-bd27-38ce7163b5df.gif)
 
+## Display the Status report on a dashboard
+
+You can display a saved Status report as a Jira dashboard gadget or widget.
+
+In compact view, the report displays a pie chart and legend showing the distribution of SLA statuses.
+
+In expanded view, you can also access the summary table and click chart segments to explore the underlying data. The report uses your saved grouping options, including **SLA and Goals**, **Assignee**, and **Priority**.
+
+For instructions on adding reports to dashboards, see [Reports](/cms_trial/space/TTSC/36012079/Reports/).
+
 ## Export the report
 
 Using the button on the right-hand side, you can download your report as an XLSX or PDF file. Once you click the button, the download will start automatically.

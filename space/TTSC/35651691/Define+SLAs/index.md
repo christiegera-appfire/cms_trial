@@ -72,6 +72,8 @@ You can add multiple goals to a single SLA. Each goal has its own target, calend
      - **Issue Priority –** Assigning an SLA to a particular Priority ensures that the defined service levels are applied based on the criticality of the work item (for example, Highest, High).
      - **Issue Filter –** Allows you to apply the SLA to a subset of work items based on a predefined filter, giving you extra flexibility.
      - **JQL (Jira Query Language) –** Allows you to create sophisticated queries to filter and retrieve specific sets of work items and apply the SLA to matching the criteria defined in the JQL query. This is particularly useful for advanced users who want to create dynamic and customized SLA conditions.
+     - **Asset Criteria –** Apply an SLA goal to work items linked to specific Atlassian Assets objects. You can filter by schema, object type, individual objects, and attribute values. For configuration instructions, see [SLA goals](/cms_trial/space/TTSC/35390901/SLA+goals/).
+     - **Date Comparison –** Apply an SLA goal based on comparisons between Jira date fields, with optional time offsets. You can also filter work items based on whether a date field is empty. For configuration instructions, see [SLA goals](/cms_trial/space/TTSC/35390901/SLA+goals/).
 3. Save the goal.
 4. Repeat the process to add more goals as needed.
 5. Click **Next** to continue.

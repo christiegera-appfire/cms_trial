@@ -120,7 +120,7 @@ For example, `@Approval.PendingReviewersId@` returns account IDs. Use `@Approval
 | Variable | Alias | Description |
 | --- | --- | --- |
 | `@Approval.Comment@` | `@ApprovalComment@` | Latest comment entered in the workflow state dialog by the user who approved or rejected. |
-| `@Approval['Approval Name'].Comment@` | — | Latest comment entered in the workflow state dialog for the named approval by the user who approved or rejected. |
+| `@Approval['Approval Name'].Comment@` | - | Latest comment entered in the workflow state dialog for the named approval by the user who approved or rejected. |
 
 For example, after a document is approved, you can use `@Approval.FinalReviewersName@` in a workflow message to display the names of reviewers whose decisions contributed to the final approval outcome. This variable can also retrieve the final reviewers after the workflow transitions to another state, such as **Published**.
 

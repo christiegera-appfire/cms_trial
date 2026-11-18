@@ -1,6 +1,6 @@
 # JMWE Logs
 
-![admin-JMWELogs.png](/cms_trial/assets/233b5ce1-6ed3-433f-971b-2829b5b00b1f.png)
+![admin-JMWELogs.png](/cms_trial/assets/55e1af8e-4147-4dc1-a437-d79d3fceaea5.png)
 
 **Note**: With the [move to Forge](/cms_trial/space/JMWEC/3765207131/October+5%2C+2026/), log access for all third-party apps has moved to Atlassian Administration. This means a few things for JMWE:
 

@@ -27,7 +27,7 @@ Make sure that the portfolio has initiatives - projects with tasks (that have da
 - Import Jira projects
 - Add existing projects
 
-![fianncials-portfolio-onboarding.png](/cms_trial/assets/45170047-2e60-42e9-a4b0-0c07a22de155.png)
+![fianncials-portfolio-onboarding.png](/cms_trial/assets/31a8bcff-12c3-4394-9118-5dd38d96a980.png)
 
 #### Import Jira projects
 
@@ -40,19 +40,19 @@ Start typing to search for Jira projects. Choose a type of BigPicture project to
 
 You can choose to create one BigPicture project or a project for each of the selected items:
 
-![Import Jira Projects dialog with several different Jira projects selected for import.](/cms_trial/assets/5bcdeb98-90cb-4c9a-922f-70c3d963e9ad.png)
+![Import Jira Projects dialog with several different Jira projects selected for import.](/cms_trial/assets/85be4cca-7054-48db-8150-b5907eeb3513.png)
 
 #### Add existing projects
 
 Choose any required existing projects from a drop-down list:
 
-![Add existing initiatives to this portfolio dialog with example initiatives and projects selected.](/cms_trial/assets/940876ee-815e-4ece-986e-4ece35e8e676.png)
+![Add existing initiatives to this portfolio dialog with example initiatives and projects selected.](/cms_trial/assets/0b7dac4c-489a-483a-9e4b-08e138f47203.png)
 
 ### Financials onboarding
 
 Once the portfolio has initiatives, you can start setting up the Financials module. When you first open the Financials module for a box, you will be prompted to create the Financials module configuration. Click the **Let’s Start** button to start the configuration.
 
-![financials-portfolio.png](/cms_trial/assets/03af02f9-4d87-49df-bdb6-88f4a483d89c.png)
+![financials-portfolio.png](/cms_trial/assets/07584bbf-ee1a-48f1-9f6b-2fdbc6dd8a97.png)
 
 #### Select period
 
@@ -93,7 +93,7 @@ Click **Finish** on the last step of the onboarding. If the charts in the *Plann
 
 If the charts are generated, but some of the initiatives are marked with a warning icon, that means those initiatives do not have tasks or the tasks have not been estimated yet. Hover over the warning icon to get more information.
 
-![financials-onboarding-finished.png](/cms_trial/assets/b1cdfab7-4d04-4162-8bd8-c65d322187aa.png)
+![financials-onboarding-finished.png](/cms_trial/assets/84e8fce2-280a-460e-a9e3-71eeb48d8f5b.png)
 
 ## Initiative
 
@@ -107,7 +107,7 @@ If you’ve already configured financial onboarding for the portfolio, you don�
 
 Make sure the initiative has tasks (with dates and effort estimations). You can define them before or use the options available upon choosing the Financials module for a specific initiative:
 
-![initiative-onboarding.png](/cms_trial/assets/dc3518dd-7894-4652-84ba-503af56cddb2.png)
+![initiative-onboarding.png](/cms_trial/assets/d69bc45c-d3b4-40de-b3d8-6b18ace118e8.png)
 
 Click **Create new** to add a single task. Click **Define scope** and complete the [Scope definition](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/).
 
@@ -148,19 +148,39 @@ The currency symbol is based on [the Administration setting](/cms_trial/space/SP
 
 Click **Finish** on the last step of the onboarding. You can now see the Financials module with data:
 
-![initiative-onboarding-finished.png](/cms_trial/assets/ceb08776-f381-4c68-9528-84a03a36a715.png)
+![initiative-onboarding-finished.png](/cms_trial/assets/b464551e-f92d-4069-baef-a88b70295852.png)
 
 If the charts in the Planned vs Actual costs panel are not generated, there are no tasks in the initiative or the tasks have not been estimated yet.
 
 If the charts are generated, but some of the tasks in the initiative are not present, an error message is displayed:
 
-![financials -onboarding-errors.png](/cms_trial/assets/2f7a2dc2-76e8-4a25-8e3a-f75e7cddea3d.png)
+![financials -onboarding-errors.png](/cms_trial/assets/e532a011-bb9a-4a8d-b6a7-9e6a71da4895.png)
 
 ## Financials module onboarding (new navigation)
 
 Click to expand the guide
 
 The onboarding process is automatically started when you open the Financials module for the first time in a specific portfolio or project box. The process then leads you through the initial Financials module configuration.
+
+## Home box
+
+The onboarding workflow guides you through steps to start using the Financials module in the home box level.
+
+Once you complete the onboarding for the Home box, the settings apply to all the boxes
+
+![home-box-onboarding.png](/cms_trial/assets/90423383-517c-49c9-9eff-0da875e327ff.png)
+
+### Period and boxes
+
+Choose a period for which data will be displayed and boxes:
+
+![home-box-onboarding-2.png](/cms_trial/assets/c299f3ef-6bdc-462e-ac92-64a7ccf12fec.png)
+
+### Default calculations
+
+Choose calculation methods that will apply to boxes without cost calculations assigned.
+
+![home-box-3.png](/cms_trial/assets/1cb7e1cb-9246-4e69-901a-724f1a92c684.png)
 
 ## Portfolio
 
@@ -179,7 +199,7 @@ Make sure that the portfolio has initiatives - projects with tasks (that have da
 - Import Jira spaces
 - Add existing projects
 
-![Screenshot of the splash screen in the Financials module.](/cms_trial/assets/33c837c3-21d8-4274-ba24-867fc29b927e.png)
+![Screenshot of the splash screen in the Financials module.](/cms_trial/assets/b9d6373c-d09f-436c-8e03-609e11159d29.png)
 
 #### Import Jira spaces
 
@@ -192,19 +212,19 @@ Start typing to search for Jira spaces. Choose a type of BigPicture project to b
 
 You can choose to create one BigPicture project or a project for each of the selected items:
 
-![Screenshot of importing Jira spaces to the Financials module.](/cms_trial/assets/5b0e0d2c-f775-4f43-96f0-124cb72eee14.png)
+![Screenshot of importing Jira spaces to the Financials module.](/cms_trial/assets/a152f4f8-059b-4d17-9fc0-c904aac01093.png)
 
 #### Add existing projects
 
 Choose any required existing projects from a drop-down list:
 
-![Screenshot of importing existing projects in the Financials module.](/cms_trial/assets/4eb37140-6353-4c0c-9ba8-4ee89d9e35b5.png)
+![Screenshot of importing existing projects in the Financials module.](/cms_trial/assets/4758a11d-4c91-40a6-81db-98df4c77f277.png)
 
 ### Financials onboarding
 
 Once the portfolio has initiatives, you can start setting up the Financials module. When you first open the Financials module for a box, you will be prompted to create the Financials module configuration. Click the **Let’s Start** button to start the configuration.
 
-![Screenshot of the splash screen in the Financials module.](/cms_trial/assets/78389eb6-5e70-422e-ba70-b0d4d62179b2.png)
+![Screenshot of the splash screen in the Financials module.](/cms_trial/assets/13a2b9b4-e214-4261-84bf-a36019b61090.png)
 
 #### Select period
 
@@ -245,7 +265,7 @@ Click **Finish** on the last step of the onboarding. If the charts in the *Plann
 
 If the charts are generated, but some of the initiatives are marked with a warning icon, that means those initiatives do not have tasks or the tasks have not been estimated yet. Hover over the warning icon to get more information.
 
-![Screenshot of the dashboard in the Financials module.](/cms_trial/assets/f6f4f9f9-798c-4a4f-bab0-bda2ae3d37f7.png)
+![Screenshot of the dashboard in the Financials module.](/cms_trial/assets/046605a7-7e42-4cee-b57f-2058523ed759.png)
 
 ## Initiative
 
@@ -259,7 +279,7 @@ If you’ve already configured financial onboarding for the portfolio, you don�
 
 Make sure the initiative has tasks (with dates and effort estimations). You can define them before or use the options available upon choosing the Financials module for a specific initiative:
 
-![Screenshot of the onboarding for an initiative in the Financials module.](/cms_trial/assets/e30bd167-2d2a-4671-9dfe-f496510d40bd.png)
+![Screenshot of the onboarding for an initiative in the Financials module.](/cms_trial/assets/fc414943-9d69-4b5d-ac47-fdc668932376.png)
 
 Click **Define scope** and complete the [add work items from Jira](/cms_trial/space/SPM/1918634319/Populate+a+box+with+tasks+(work+items+from+Jira)/).
 
@@ -300,10 +320,10 @@ The currency symbol is based on [the Administration setting](/cms_trial/space/SP
 
 Click **Finish** on the last step of the onboarding. You can now see the Financials module with data:
 
-![Screenshot of a dashboard in the Financials module after completing the onboarding.](/cms_trial/assets/efd76d55-d39c-4cd9-86cc-6c721f49f517.png)
+![Screenshot of a dashboard in the Financials module after completing the onboarding.](/cms_trial/assets/9e820a6d-ade6-48c2-9eb6-22f77a64b09b.png)
 
 If the charts in the Planned vs Actual costs panel are not generated, there are no tasks in the initiative or the tasks have not been estimated yet.
 
 If the charts are generated, but some of the tasks in the initiative are not present, an error message is displayed:
 
-![Screenshot of the warning message displayed in the Financials module after completing the onboarding.](/cms_trial/assets/73568f66-4094-4b79-8c70-b230ebfbb68c.png)
+![Screenshot of the warning message displayed in the Financials module after completing the onboarding.](/cms_trial/assets/bfa484bc-7c1d-4917-a81f-1ea039ebc59e.png)

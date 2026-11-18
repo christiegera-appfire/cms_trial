@@ -24,3 +24,5 @@ In this section, you'll find guides on deploying project configuration between J
 - [Manage snapshot deployments](/cms_trial/space/CMJC/193659992/Manage+snapshot+deployments/)
 - [Migrate Service Management projects to the Cloud](/cms_trial/space/CMJC/1160020327/Migrate+Service+Management+projects+to+the+Cloud/)
 - [Supported configuration elements](/cms_trial/space/CMJC/193855959/Supported+configuration+elements/)
+- [Deploy automation flows with CMJ Cloud](/cms_trial/space/CMJC/3862265880/Deploy+automation+flows+with+CMJ+Cloud/)
+  - [Automation flows: Limitations and considerations](/cms_trial/space/CMJC/3862396944/Automation+flows%3A+Limitations+and+considerations/)
