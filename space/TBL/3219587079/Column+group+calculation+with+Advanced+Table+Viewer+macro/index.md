@@ -10,8 +10,8 @@ Group calculation supports the following calculation types: Sum, Average, Minimu
 
 - You can configure only one group calculation type for each ungrouped column.
 - For grouped columns, only column-level calculations apply.
-- You can configure group calculations only in macro setup mode and cannot change it in Confluence page view and edit mode.
-- You can also summarize grouped rows with conditions (**SUMIF** and **COUNTIF**)
+- You can configure group calculations only in macro setup mode. You cannot change them in Confluence page view or edit mode.
+- You can also summarize grouped rows with conditions (**SUMIF** and **COUNTIF**).
 
   - For **Sum** and **Count,** the macro provides **conditional calculations** to summarize only the values in rows that match the specified condition. This works like SUMIF and COUNTIF in spreadsheets. The condition can use any column in the table, not only the column you are calculating.
 - The macro displays the configured values in the Confluence page view and edit mode.
@@ -38,7 +38,7 @@ You can perform the following group calculations.
 
 ### Configure group calculation
 
-Follow the steps to configure group calculation for any column.
+Follow these steps to configure group calculation for any column.
 
 You need edit permissions to access the macro setup mode.
 
@@ -64,7 +64,7 @@ You need edit permissions to access the macro setup mode.
 
 - Group calculations do not affect the configured column-level calculation type. For example, if you set **Maximum** as the column-level calculation for Unit Price and **Minimum** for Stock Qty, these values remain unchanged when you apply or remove group calculation.
 
-  ![ATV_Columnlevel_sum.jpg](/cms_trial/assets/df8ba48f-c8be-41d0-9ec0-683848a4092d.jpg)
+  ![Column-level calculation indicators for Unit Price and Stock Qty](/cms_trial/assets/df8ba48f-c8be-41d0-9ec0-683848a4092d.jpg)
 
 ### Configure conditional group calculation
 
@@ -79,36 +79,36 @@ Follow the steps below for Example 1:
 1. To configure **conditional** **group calculation**, edit the macro to open the setup mode. Refer to [Set up the Advanced Table Viewer macro features](/cms_trial/space/TBL/1765147138/Set+up+the+Advanced+Table+Viewer+macro+features/).
 2. Each column in the table has an *Edit column* (▢) option. To set up the group calculation for any column, navigate to **Edit column** > **Edit group calculation**. For example, for the **Est. Unit Shipping Cost** column, click **Edit group calculation**.
 
-   ![ATV_Edit Group Calculation.png](/cms_trial/assets/94dffc8a-ac11-446e-8213-8b86a9ef7038.png)
+   ![Edit column menu showing the Edit group calculation option](/cms_trial/assets/94dffc8a-ac11-446e-8213-8b86a9ef7038.png)
 3. The *Edit group calculation* dialog opens. To perform a conditional group calculation on the **Est. Unit Shipping Cost** column, select the **Sum-up type** as **Sum**.
 4. The **Add condition** toggle is off by default, and the macro calculates the total of all values in the column.
 
-   - To add a condition to the **Est. Unit Shipping Cost** group calculation, enable the **Add condition** toggle.
+   1. To add a condition to the **Est. Unit Shipping Cost** group calculation, enable the **Add condition** toggle.
 
-     ![ATV_Enable Add Condition toggle.png](/cms_trial/assets/3c195d6d-051a-42de-a0e9-64f64f546d3f.png)
-   - When the Sum-up type is set to Sum and **Add condition** is enabled**,** you can sum only the values of rows that match a specific condition.
+      ![Edit group calculation dialog with Add condition enabled](/cms_trial/assets/3c195d6d-051a-42de-a0e9-64f64f546d3f.png)
+   2. When the Sum-up type is set to Sum and **Add condition** is enabled**,** you can sum only the values of rows that match a specific condition.
 
-     - The first dropdown selector lists the table column names.
-     - The second dropdown selector lists the conditional operators available for the column type selected in the first dropdown.
+      1. The first dropdown selector lists the table column names.
+      2. The second dropdown selector lists the conditional operators available for the column type selected in the first dropdown.
 
-       - For a numeric column type, the dropdown displays the conditional operators *equals*, *more than*, *less than*, *more than or equal to*, and *less than or equal to*.
-       - For string and date columns, the dropdown displays only the *equals* operator.
-     - The third field displays either a dropdown selector list or an input field based on the column type selected in the first dropdown.
+         - For a numeric column type, the dropdown displays the conditional operators *equals*, *more than*, *less than*, *more than or equal to*, and *less than or equal to*.
+         - For string and date columns, the dropdown displays only the *equals* operator.
+      3. The third field displays either a dropdown selector list or an input field based on the column type selected in the first dropdown.
 
-       - For numeric column types, it displays an input field for numeric values.
-       - For string and date column types, it displays the dropdown with values to choose from.
-     - To specify a condition, select the column name and conditional operator, and then select or enter a value.
+         - For numeric column types, it displays an input field for numeric values.
+         - For string and date column types, it displays the dropdown with values to choose from.
+      4. To specify a condition, select the column name and conditional operator, and then select or enter a value.
 
-       - For example, select *Reorder Level*, *less than or equal to*, and *10*. The condition applied to the **Est. Unit Shipping Cost** column totals the unit shipping cost for products whose reorder level is less than or equal to 10.
-     - To apply the condition, click **Save**.
+         - For example, select *Reorder Level*, *less than or equal to*, and *10*. The condition applied to the **Est. Unit Shipping Cost** column totals the unit shipping cost for products whose reorder level is less than or equal to 10.
+      5. To apply the condition, click **Save**.
 
-       ![ATV_apply_numeric group calculation.png](/cms_trial/assets/41b2da30-ab57-4925-889f-5676c3ab0f49.png)
+         ![Conditional Sum calculation configured for reorder levels of 10 or less](/cms_trial/assets/41b2da30-ab57-4925-889f-5676c3ab0f49.png)
 5. The macro setup mode displays the summarized value for the **Est. Unit Shipping Cost** column at each group level. The sum-up indicator (for example, SUMIF) displays the condition type. Hover over the indicator to view the applied condition.
 
-   ![ATV_group calculation_Edit mode_sum up row.png](/cms_trial/assets/c4fc8c79-fa6b-4d37-9090-0f2768714af7.png)
+   ![Grouped table showing SUMIF results for estimated unit shipping cost](/cms_trial/assets/c4fc8c79-fa6b-4d37-9090-0f2768714af7.png)
 6. Click **Save** and then **Publish** the page. You can view the summarized values at group level in the Confluence page view mode.
 
-   ![ATV_SUMIF_Group calculation_View mode.png](/cms_trial/assets/9c098bc7-b3fd-4dbf-809d-65a13aafa778.png)
+   ![Published table showing conditional sum results for each group](/cms_trial/assets/9c098bc7-b3fd-4dbf-809d-65a13aafa778.png)
 
 #### **Apply conditional group calculation to COUNT calculation type**
 
@@ -118,7 +118,7 @@ Follow the steps below for Example 2:
 
 1. For the **Reorder Level** column, navigate to **Edit column** > **Edit group calculation**.
 
-   ![ATV_Reorder Level_Edit group calculation.png](/cms_trial/assets/575cf8a6-f805-4da6-8dd2-538ebbf179f6.png)
+   ![Reorder Level column menu showing Edit group calculation](/cms_trial/assets/575cf8a6-f805-4da6-8dd2-538ebbf179f6.png)
 2. Select the required **Sum-up type**; for example, for the **Reorder Level** column, select **Count**. The **Add condition** toggle is off by default, and the macro returns the total number of non-empty cells in the column.
 3. To add a condition to the **Reorder Level** group calculation, enable the **Add condition** toggle.
 4. In the condition dropdowns, select the column, condition, and value in order. For example, select *Reorder Level*, *less than or equal to*, and *10*.
@@ -126,10 +126,10 @@ Follow the steps below for Example 2:
    - The applied condition for the **Reorder Level** column counts non-empty rows where the **Reorder Level** column value is *less than or equal to* 10.
 5. To apply the condition, click **Save**.
 
-   ![ATV_Reorder level_Count condition.png](/cms_trial/assets/9fc49a4d-5aa2-4bb8-86b5-faebdb0c86b3.png)
+   ![Conditional Count calculation configured for reorder levels of 10 or less](/cms_trial/assets/9fc49a4d-5aa2-4bb8-86b5-faebdb0c86b3.png)
 6. The macro setup mode displays the summarized value for the **Reorder Level** column at each group level. The sum-up indicator (for example, COUNTIF) indicates that a condition is applied. Hover over the indicator to view the applied condition.
 
-   ![ATV_summarized row in edit mode_for count condition.png](/cms_trial/assets/77d3563e-b39a-4100-9f36-380b579816c1.png)
+   ![Grouped table showing COUNTIF results in macro setup mode](/cms_trial/assets/77d3563e-b39a-4100-9f36-380b579816c1.png)
 7. Click **Save** and **Publish** the page. You can view the summarized values in the Confluence page view mode.
 
    ![ATV_page view mode with group calculation applied.png](/cms_trial/assets/5c5774ae-5ad4-4178-8c6e-ce4111162e5d.png)
@@ -143,7 +143,7 @@ Follow the steps below for Example 2:
     1. Click the **Stock Qty** Edit column. The **Edit group calculation** dialog opens.
     2. Select **None**, and click **Save**.
 
-       ![ATV_Select None to disable column group calculation.png](/cms_trial/assets/fa219b52-a813-423a-aea9-10411b62d295.png)
+       ![Edit group calculation dialog with None selected](/cms_trial/assets/fa219b52-a813-423a-aea9-10411b62d295.png)
 - When you click **Disable grouping** (▢ ), the macro hides the grouped view and saves the group calculation set for each column. When you enable grouping again and group columns, the macro displays the saved group calculations.
 
-  ![ATV_Disable Grouping.png](/cms_trial/assets/38d1c2b1-ff2b-4250-8e9e-7c494948fa6e.png)
+  ![Advanced Table Viewer showing the Disable grouping control](/cms_trial/assets/38d1c2b1-ff2b-4250-8e9e-7c494948fa6e.png)

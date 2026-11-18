@@ -13,7 +13,7 @@
 </script>
 <meta charset="utf-8">
 <title>on label added | Appfire Docs</title>
-<meta name="description" content="The on-label-added trigger event runs when you add a label to a page. Use it to start workflow logic when to apply a label.">
+<meta name="description" content="The on-label-added trigger event runs when a label is added to a page. Use this event to execute workflow actions when a page label is added.">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/cms_trial/tokens.css">
 <link rel="stylesheet" href="/cms_trial/styles.css">
@@ -25,7 +25,7 @@
   "@type": "TechArticle",
   "headline": "on label added",
   "url": "https://christiegera-appfire.github.io/cms_trial/space/CDMC/3785752579/on+label+added/",
-  "dateModified": "2026-11-17T10:20:04.660Z"
+  "dateModified": "2026-11-17T16:46:33.126Z"
 }
 </script>
 </head>
@@ -133,31 +133,30 @@
     </div>
     <h1>on label added</h1>
     <div class="page-meta">Updated today · 1 min read</div>
-    <h2 id="overview">Overview</h2><p>The <code>on-label-added </code>trigger event runs when you add a label to a page. Use it to start workflow logic when to apply a label.</p><p>In the workflow editor, add the <code>on-label-added</code> trigger event. Add the workflow actions that should run when you add a label.</p><img alt="image-20261022-103427.png" class="doc-image" loading="lazy" src="/cms_trial/assets/6abd4319-2cf1-4e28-aabe-a5336c644e58.png"/><p>You can pair this event with the <strong>Added Label </strong>condition so the workflow responds only to that label.</p><h2 id="example-on-label-added-event">Example <code>"on-label-added"</code> event</h2><div class="code-block"><div class="code-block-header"><span class="code-block-lang">json</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-json">"triggers":
-[
-    {
-      "event": "on-label-added",
-      "conditions": [
-        {
-          "added-label": {
-            "operator": "equals",
-            "value": [
-              "editor"
-            ]
-          }
-        }
-      ],
-      "actions": [
-        {
-          "action": "add-labels",
-          "labels": [
+    <h2 id="overview">Overview</h2><p>The <code>on-label-added</code> trigger event runs when a label is added to a page. Use this event to execute workflow actions when a page label is added.</p><p>You can add the <strong>Added Label</strong> condition to restrict the trigger to a specific label.</p><h2 id="example-on-label-added-event">Example <code>"on-label-added"</code> event</h2><div class="code-block"><div class="code-block-header"><span class="code-block-lang">json</span><button class="copy-code-btn" type="button">Copy</button></div><pre><code class="language-json">"triggers": [
+  {
+    "event": "on-label-added",
+    "conditions": [
+      {
+        "added-label": {
+          "operator": "equals",
+          "value": [
             "editor"
-          ],
-          "children": false
-            }
-        ]
-    }
-]</code></pre></div><p>The <code>on-label-added</code> event fires when a label is added to a page. The <code>added-label</code> condition limits this trigger to cases where the added label is <code>editor</code>. When the condition matches, the <code>add-labels</code> action adds the <code>editor</code> label to the page.</p>
+          ]
+        }
+      }
+    ],
+    "actions": [
+      {
+        "action": "add-labels",
+        "labels": [
+          "needs-review"
+        ],
+        "children": false
+      }
+    ]
+  }
+]</code></pre></div><p>The <code>on-label-added</code> event fires when a label is added to a page. The <code>added-label</code> condition restricts the trigger to cases where the added label is <code>editor</code>.</p><p>When the condition is met, the <code>add-labels</code> action adds the <code>needs-review</code> label to the current page.</p>
   </main>
   <aside class="sidebar">
 <div class="brand"><span class="brand-mark">Appfire Docs</span></div>

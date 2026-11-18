@@ -2,42 +2,39 @@
 
 ## Overview
 
-The `on-label-added` trigger event runs when you add a label to a page. Use it to start workflow logic when to apply a label.
+The `on-label-added` trigger event runs when a label is added to a page. Use this event to execute workflow actions when a page label is added.
 
-In the workflow editor, add the `on-label-added` trigger event. Add the workflow actions that should run when you add a label.
-
-![image-20261022-103427.png](/cms_trial/assets/6abd4319-2cf1-4e28-aabe-a5336c644e58.png)
-
-You can pair this event with the **Added Label** condition so the workflow responds only to that label.
+You can add the **Added Label** condition to restrict the trigger to a specific label.
 
 ## Example `"on-label-added"` event
 
 ```json
-"triggers":
-[
-    {
-      "event": "on-label-added",
-      "conditions": [
-        {
-          "added-label": {
-            "operator": "equals",
-            "value": [
-              "editor"
-            ]
-          }
-        }
-      ],
-      "actions": [
-        {
-          "action": "add-labels",
-          "labels": [
+"triggers": [
+  {
+    "event": "on-label-added",
+    "conditions": [
+      {
+        "added-label": {
+          "operator": "equals",
+          "value": [
             "editor"
-          ],
-          "children": false
-            }
-        ]
-    }
+          ]
+        }
+      }
+    ],
+    "actions": [
+      {
+        "action": "add-labels",
+        "labels": [
+          "needs-review"
+        ],
+        "children": false
+      }
+    ]
+  }
 ]
 ```
 
-The `on-label-added` event fires when a label is added to a page. The `added-label` condition limits this trigger to cases where the added label is `editor`. When the condition matches, the `add-labels` action adds the `editor` label to the page.
+The `on-label-added` event fires when a label is added to a page. The `added-label` condition restricts the trigger to cases where the added label is `editor`.
+
+When the condition is met, the `add-labels` action adds the `needs-review` label to the current page.
