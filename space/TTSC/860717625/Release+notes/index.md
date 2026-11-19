@@ -4,6 +4,10 @@ This page provides a brief overview of the release notes for individual releases
 
 | **Title** | **Release date** | **Highlights** |
 | --- | --- | --- |
+| [Release notes 11 November 2026](/cms_trial/space/TTSC/3842637883/Release+notes+11+November+2026/) | 11 November 2026 | - Define SLA goals using Atlassian Assets - Compare dates when configuring SLA goals - View Time in Status directly on work items - Display SLAs from linked work items - Improved REST API reference - Improved API token management |
+| [Release notes 26 October 2026](/cms_trial/space/TTSC/3803086934/Release+notes+26+October+2026/) | 26 October 2026 | - View SLA information directly in Salesforce - Customize SLA Indicator fields - Set SLA targets relative to a date field - Start SLAs relative to a date field - Enhancements - Bug fixes |
+| [Release notes 22 October 2026](/cms_trial/space/TTSC/3844178133/Release+notes+22+October+2026/) | 22 October 2026 | - Bug fixes |
+| [Release notes 13 October 2026](/cms_trial/space/TTSC/3750330600/Release+notes+13+October+2026/) | 13 October 2026 | - Live updates for SLA Indicator custom fields - Seven new enhancements - Bug fixes |
 | [Release notes 25 September 2026](/cms_trial/space/TTSC/3708321800/Release+notes+25+September+2026/) | 25 September 2026 | - Faster SLA configuration page loading - Optimized report generation - Bug fixes |
 | [Release notes 23 September 2026](/cms_trial/space/TTSC/3692724227/Release+notes+23+September+2026/) | 23 September 2026 | - Clearer AND/OR options for SLA conditions - Bug fixes |
 | [Release notes 16 September 2026](/cms_trial/space/TTSC/3670704140/Release+notes+16+September+2026/) | 16 September 2026 | - SLA actions now support percentages up to 200%, clearer SLA action trigger wording - Bug fixes |

@@ -1,6 +1,6 @@
 # Time to SLA feature differences between Jira Data Center and Cloud
 
-Last updated: July 8, 2026
+Last updated: November 19, 2026
 
 This page provides a high-level overview of Data Center and Cloud feature differences. If you’d like a more detailed breakdown, refer to the in-depth [feature comparison page](/cms_trial/space/TTSC/2760802311/Detailed+feature+comparison/).
 

@@ -13,7 +13,7 @@ With Time to SLA, you can:
 
 ## Calendar management
 
-The *Calendars* page displays the calendars configured in your Jira instance. From this page, you can create, view, edit, and delete calendars.
+The *Calendars* page displays the calendars configured in your Jira instance. From this page, you can create, view, edit, clone, and delete calendars.
 
 The calendar list contains the following information:
 
@@ -29,6 +29,7 @@ Available actions:
 - **View:** Open a calendar to review its configuration.
 - **Edit:** Modify an existing calendar.
 - **Delete:** Permanently delete a calendar. You can't delete calendars that are assigned to SLAs.
+- **Clone:** Create a new calendar based on an existing calendar's configuration.
 
 ## How to create a calendar
 
@@ -166,6 +167,16 @@ Expand the **Advanced** section to customize how Time to SLA interprets the leng
 By default, Time to SLA calculates the length of a business day from your calendar and uses this information to format SLA durations, such as remaining time and overdue. However, if you want the dedicated work time to differ from your actual working hours, you can define a custom duration. The new duration will be equivalent to 1 day. Refer to [this page](/cms_trial/space/TTSC/35881031/FAQ%3A+Calendars/) for an example.
 
 Don’t forget to click **Save** to save your configuration.
+
+## How to clone a calendar
+
+You can clone an existing calendar to create a new one without configuring its working hours and holidays from scratch. This is useful when you need similar calendars for different teams or schedules.
+
+1. In Jira, open **Apps** > **Time to SLA**.
+2. Go to **Calendars**.
+3. Find the calendar you want to copy and click **Clone**.
+4. Review the copied configuration and make any necessary changes.
+5. Click **Save** to create the new calendar.
 
 ## Next steps
 

@@ -53,7 +53,7 @@ Open Time to SLA and Connector in two browser tabs so you can copy and paste eas
 1. Click **Create an integration**.
 
    ![Create an integration](/cms_trial/assets/167af959-8f30-4e6d-bf8f-1dc824315827.png)
-2. In the *New integration* window, enter the following*:*
+2. In the *New integration* window, enter the following:
 
    - **Integration name**: Enter a unique name.
    - **Connections**: Select the connection between Jira and Salesforce for this integration.
@@ -65,13 +65,13 @@ Open Time to SLA and Connector in two browser tabs so you can copy and paste eas
 3. Click **Save**.   
    The integration appears in your *Integrations* list.
 
-   ![image-20261001-192333.png](/cms_trial/assets/b129ac0a-e3c8-4bf6-a4dd-196a43fb6c8a.png)
+   ![Integrations list after saving a new Time to SLA integration.](/cms_trial/assets/b129ac0a-e3c8-4bf6-a4dd-196a43fb6c8a.png)
 
 ## Add the SLA component to a Salesforce record page
 
 Finish setup in Salesforce so users can see SLAs on their records. Repeat these steps for each object type layout where you want SLAs to appear.
 
-1. In Salesforce, load a record page,for example, a Case.
+1. In Salesforce, load a record page, for example, a Case.
 2. Click **Settings** > **Edit Page**.
 
    ![Edit page](/cms_trial/assets/b23cda5d-7d48-4943-9fb3-5a447abe39a3.png)
@@ -81,6 +81,8 @@ Finish setup in Salesforce so users can see SLAs on their records. Repeat these 
 4. Drag the component onto the selected location for your page layout.
 
    ![Lightning App Builder](/cms_trial/assets/990a1714-e3e8-4b21-9ffd-f252dddd5eb9.png)
+
+   In the sidebar, scroll to the bottom to find the **Time to SLA for Jira** component.
 5. Check whether you have already added the **Jira Issue** component displaying Jira work items in the page layout. If not, add it next to the *Time to SLA for Jira* component.
 
    ![Time to SLA for Jira component](/cms_trial/assets/5e9f13b7-a6b7-4d46-8b86-06f57ee3c533.png)
@@ -88,15 +90,15 @@ Finish setup in Salesforce so users can see SLAs on their records. Repeat these 
 7. Go back to the record page.
 8. In the Jira Issue component, click **Associate/Create**.
 
-   ![image-20260921-122042.png](/cms_trial/assets/c0f52103-5568-4a42-a82f-d432f7e58662.png)
+   ![Associate Create control in the Jira Issue component on a Salesforce record page.](/cms_trial/assets/c0f52103-5568-4a42-a82f-d432f7e58662.png)
 9. If you have more than one connection, select the correct one under **Select a Connection.**
 10. Under **Associate Jira Issue**, select a Jira Issue that already has SLAs set in Jira.
 11. Enable automatic pull to allow SLAs from Jira to synchronize with Salesforce, and click **Associate.**
 
-    ![image-20261001-194312.png](/cms_trial/assets/04918e9a-c6cf-4127-9825-9a7acad1e3f8.png)
+    ![Jira work item association settings, including connection selection and automatic pull.](/cms_trial/assets/04918e9a-c6cf-4127-9825-9a7acad1e3f8.png)
 12. Refresh the page to display the *Time to SLA for Jira* component with SLA details.
 
-    ![image-20261009-083105.png](/cms_trial/assets/1f15df7e-35eb-4978-a03f-be81d42750d8.png)
+    ![Time to SLA for Jira component displaying SLA details on a Salesforce record page.](/cms_trial/assets/1f15df7e-35eb-4978-a03f-be81d42750d8.png)
 
 ## Related pages
 

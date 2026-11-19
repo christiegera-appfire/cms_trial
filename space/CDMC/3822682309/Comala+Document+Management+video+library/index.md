@@ -4,7 +4,8 @@ Welcome to the Comala Document Management Cloud video library. Browse the videos
 
 | **Feature** | **Video** |
 | --- | --- |
-| Meet compliance standards in Confluence with Comala Document Management |  |
+| Automate workflow state changes with the [on label added](/cms_trial/space/CDMC/3785752579/on+label+added/) trigger |  |
+| [Meet compliance standards](/cms_trial/space/CDMC/2193032985/Compliance+guide/) in Confluence with Comala Document Management |  |
 | **Get started with Comala Document Management Cloud**  Introduces the main features and shows how to set up a first workflow. |  |
 | **Build and configure workflows**  Shows how to create and edit workflows in the Visual Builder Editor. |  |
 | **Workflow parameters**  Explains what workflow parameters do and how to configure them. |  |

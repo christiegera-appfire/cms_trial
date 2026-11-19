@@ -4,6 +4,7 @@ On this page, you’ll find a collection of video tutorials covering the feature
 
 | **Feature/Module** | **Video** |
 | --- | --- |
+| [OKR dependencies](/cms_trial/space/SPM/3850666100/OKR+Dependencies/) |  |
 | Financials module views - [Home box](/cms_trial/space/SPM/3862265980/Home+box/) |  |
 | Financials module - financial analysis and additional expenses |  |
 | Financials module - forecasting costs |  |

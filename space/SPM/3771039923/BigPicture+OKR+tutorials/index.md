@@ -4,6 +4,7 @@ Watch the videos below to learn more about OKRs in BigPicture.
 
 | **Area/Feature** | **Video** |
 | --- | --- |
+| [OKR dependencies](/cms_trial/space/SPM/3850666100/OKR+Dependencies/) |  |
 | [OKR milestones](/cms_trial/space/SPM/3667657103/OKR+milestones/) |  |
 | [OKR details page](/cms_trial/space/SPM/1918536390/OKR+details+page/) |  |
 | [OKR custom fields](/cms_trial/space/SPM/3247341685/OKR+custom+fields/) |  |

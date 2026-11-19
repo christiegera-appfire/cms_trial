@@ -4,7 +4,7 @@
 
 This page describes features that are supported **only** in [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). These features are not available in BigPicture Standard.
 
-Visual dependency and contribution mapping provides a transparent view of how OKRs connect across teams and strategic initiatives.
+Visual dependency and contribution mapping provide a transparent view of how OKRs connect across teams and strategic initiatives.
 
 Designed to support both Portfolio Leaders and PMO Managers, this capability makes it easy to track cross-functional relationships centrally, identify blockers early, and ensure work is properly sequenced.
 
@@ -14,9 +14,11 @@ For data to appear on the *Dependency* page, you must first create dependency or
 
 OKR dependency and contribution links do not affect OKR progress.
 
-![Dependencies page in the OKR module.](/cms_trial/assets/913e3dd8-ce89-459b-8856-ef78d5ea6bf0.png)
+![Dependencies page in the OKR module.](/cms_trial/assets/b426a276-5023-42e5-86d1-ee55dea909a4.png)
 
-## Create OKR dependency link
+Watch the video overview of the *Dependencies* page.
+
+## Create an OKR dependency link
 
 To create a dependency between two OKRs:
 
@@ -24,7 +26,7 @@ To create a dependency between two OKRs:
 2. Open the *Linked OKRs* tab > **Dependencies** section.
 3. Click the **Add dependency** button (or **+Add**; this button appears when no dependency link exists for the selected OKR).
 
-![OKR Details page, Linked OKRs tab, Dependencies section.](/cms_trial/assets/cc8f7884-12ed-4bb5-9ab3-249788980b3b.png)
+![OKR Details page, Linked OKRs tab, Dependencies section.](/cms_trial/assets/af514977-279a-4bcd-b3f2-1d48dcb2dbf9.png)
 
 1. Select the relationship type from the dropdown:
 
@@ -32,7 +34,7 @@ To create a dependency between two OKRs:
    2. **is blocked by** - OKR A's progress is blocked by OKR B.
 2. Select the target OKR from the **Search for OKRs** dropdown.
 
-![Dependency selection dropdowns.](/cms_trial/assets/c4048da3-5ff4-4cef-aa9b-553749fe1549.png)
+![Dependency selection dropdowns.](/cms_trial/assets/37de06ef-fe4d-459b-9882-41bf7a34bf09.png)
 
 1. Click **Link** to finish.
 
@@ -44,7 +46,7 @@ The linked OKR is listed in the **Dependencies** section.
 2. Open the *Linked OKRs* tab > **Contribution** section.
 3. Click the **Add contribution** button (or **+Add**; this button appears when no contribution link exists for the selected OKR).
 
-![OKR Details page, Linked OKRs tab, Contributions section.](/cms_trial/assets/40d0366c-7dbf-456d-bdf4-1477a7cf1df2.png)
+![OKR Details page, Linked OKRs tab, Contributions section.](/cms_trial/assets/e5bb7a86-4eea-42e2-84eb-c2454d793c10.png)
 
 1. Select the relationship type from the dropdown:
 
@@ -52,7 +54,7 @@ The linked OKR is listed in the **Dependencies** section.
    2. **is supported by** - OKR B supports OKR A's progress.
 2. Select the target OKR from the **Search for OKRs** dropdown.
 
-![Dependency selection dropdowns.](/cms_trial/assets/f5cbbbc7-1ab2-4a18-b90d-a3a83b4eb4df.png)
+![Dependency selection dropdowns.](/cms_trial/assets/5f336bde-3735-4297-ade6-82094116aea8.png)
 
 1. Click **Link** to finish.
 
@@ -65,7 +67,7 @@ To remove a dependency or contribution link between two OKRs:
 1. Go to the source or target *OKR Details* page > *Linked OKRs* tab.
 2. In the **Dependencies**/**Contributions** section, click **More actions** (**…**) next to the link you want to remove.
 
-![Contextual menu for dependency or contribution links.](/cms_trial/assets/70c95f51-2c16-4746-821a-d9cd634fc1e8.png)
+![Contextual menu for dependency or contribution links.](/cms_trial/assets/a3b5bd1d-587c-4732-a349-aafcae1002f3.png)
 
 1. Select **Unlink** from the contextual menu.
 2. The modal appears. Confirm your action with the **Unlink** button.
@@ -78,7 +80,7 @@ The Parent type of a contribution link is added automatically to every OKR that 
 
 Once you create at least one dependency or contribution link, you can view it on the *Dependency* page.
 
-![access-okr-dependency-page.png](/cms_trial/assets/1a63f10f-e377-4431-afa9-10fee6b6bf4a.png)
+![access-okr-dependency-page.png](/cms_trial/assets/12db1817-7a1b-4034-9cfe-aff4e510f4a9.png)
 
 This page groups all dependency and contribution links by their type. On this page, you can:
 
@@ -97,7 +99,7 @@ In addition, you can use the tile filters to group the links by:
 
 Just like on the [*Overview*](/cms_trial/space/SPM/1918834317/OKR+Overview/) page, you can select which columns to include in your view and reorder them as needed. The column layout on the Dependencies pages comes with four additional columns:
 
-![The four okr link-related columns in the column layout settings.](/cms_trial/assets/b7a92794-00a9-4a95-819e-134ac1110750.png)
+![The four okr link-related columns in the column layout settings.](/cms_trial/assets/8bde74f7-7318-4016-b5ea-b430931a6ff8.png)
 
 - **Blocked by**
 - **Blocks**
@@ -106,4 +108,4 @@ Just like on the [*Overview*](/cms_trial/space/SPM/1918834317/OKR+Overview/) pag
 
 These columns are enabled by default, but you can hide them in the Column layout settings if needed. You can also collapse and expand data in these columns for better visibility.
 
-![An expanded and collapsed column.](/cms_trial/assets/efec3de5-7b18-4dbf-844c-8cbce2def0d9.png)
+![An expanded and collapsed column.](/cms_trial/assets/f6e47e65-d642-4597-ad63-d0cf2edbd6a2.png)
