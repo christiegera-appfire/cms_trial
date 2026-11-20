@@ -1,16 +1,16 @@
 # Planning and tracking work
 
-Effective project management starts with clear planning and consistent tracking. Whether you are assigning tasks or monitoring progress, having the right tools in place ensures your team stays aligned and on schedule.
+Effective project management starts with clear planning and consistent tracking. Whether you are assigning tasks or monitoring progress, the right tools keep your team aligned and on schedule.
 
 This page provides detailed information about the BigPicture features that can help you effectively plan and track your work.
 
-## Objectives
+## Goals and objectives
 
-### Box objectives
+### Goals
 
-In the Objectives module, you can set and manage basic and task-based box objectives.
+In the Goals module, you can set and manage basic and task-based box objectives.
 
-[**Read more**](https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=spm&title=Box%20objectives%20%28Objectives%20module%29&linkCreation=true&fromPageId=1918862135)
+[**Read more**](/cms_trial/space/SPM/1918797418/Box+goals+(Goals+module)/)
 
 ### Objectives and Key Results
 
@@ -38,7 +38,7 @@ Display the critical path for your tasks directly on the Gantt chart in the Gant
 
 ## Task progress
 
-Display task progress on a column in the Gantt module’s column view, on the taskbar, and on the task details.
+Display task progress in the Gantt module’s column view, on the taskbar, and in the task details.
 
 [**Read more**](/cms_trial/space/SPM/1918764665/Task+progress/)
 
@@ -46,7 +46,7 @@ Display task progress on a column in the Gantt module’s column view, on the ta
 
 ## Baselines
 
-You can create and delete baselines in the Gantt module for all the tasks you added to the box or individually for the selected tasks only.
+You can create and delete baselines in the Gantt module for all tasks you added to the box, or individually for selected tasks only.
 
 [**Read more**](/cms_trial/space/SPM/1918404564/Baselines/)
 
@@ -78,7 +78,7 @@ Plan your tasks individually or in bulk using the Kanban board in the Board modu
 
 ## Warnings
 
-In this section, you can find the warning messages that can appear in the app. These messages help you prevent errors, keep you informed, and explain how to respond to issues that require attention.
+In this section, you can find the warning messages that can appear in the app. These messages help you prevent errors, stay informed, and understand how to respond to issues that require attention.
 
 [**Read more**](/cms_trial/space/SPM/1918764811/Warnings/)
 
@@ -86,6 +86,6 @@ In this section, you can find the warning messages that can appear in the app. T
 
 ## Markers
 
-Marker is a cross-module feature that highlights key dates—like events or deadlines—and serves as a reminder for those that require special attention.
+A marker is a cross-module feature that highlights key dates—like events or deadlines—and serves as a reminder for those that require special attention.
 
 [**Read more**](/cms_trial/space/SPM/1918699490/Markers/)

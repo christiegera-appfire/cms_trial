@@ -2,6 +2,7 @@
 
 | Title | Release date | Highlights |
 | --- | --- | --- |
+| [Release notes 5.102](/cms_trial/space/7TFA/3847684133/Release+notes+5.102/) | November 20, 2026 | Aligned Entra authorization with Microsoft recommendations. |
 | <https://appfire.atlassian.net/wiki/x/M4E03Q> | October 1, 2026 | Improved security |
 | [Release notes 5.100](/cms_trial/space/7TFA/3509223505/Release+notes+5.100/) | August 4, 2026 | Reduced "Rate Us" survey frequency |
 | [Release notes 5.99](/cms_trial/space/7TFA/3466657955/Release+notes+5.99/) | July 21, 2026 | Fixed notifications to be sent out from the 7pace SendGrid account. |

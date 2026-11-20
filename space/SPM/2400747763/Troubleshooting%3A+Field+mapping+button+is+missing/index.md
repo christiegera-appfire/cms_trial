@@ -11,7 +11,7 @@
 
 The custom **Field mapping** button for a particular box can be missing because there are no actual Jira work items in the scope of that box.
 
-For example, if you [created a box using the](/cms_trial/space/SPM/2400616769/Use+case%3A+Create+a+box+with+sample+data/) [**Play with sample data**](/cms_trial/space/SPM/2400616769/Use+case%3A+Create+a+box+with+sample+data/) option, then the scope is composed of dummy Jira work items that do not exist in any Jira project.
+For example, if you [created a box using the](https://appfire.atlassian.net/wiki/spaces/SPM/pages/2400616769) [**Play with sample data**](https://appfire.atlassian.net/wiki/spaces/SPM/pages/2400616769) option, then the scope is composed of dummy Jira work items that do not exist in any Jira project.
 
 In such a case, if you intend to use this box for a real project or tasks, you need to add them to the scope of the box.
 

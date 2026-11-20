@@ -2,6 +2,10 @@
 
 Watch videos presenting Connector for Salesforce & Jira tutorials:
 
+## Demo
+
+- [Sync Jira and Salesforce with Connector for Salesforce & Jira](/cms_trial/space/CSFJIRA/3092088339/Create+a+Jira+work+item+from+Salesforce+with+Jira+Issues+(NextGen)/)
+
 ## View records
 
 - [View associated Salesforce records in Jira work item](/cms_trial/space/CSFJIRA/3091826604/View+associated+Salesforce+records+in+Jira+work+item/)
