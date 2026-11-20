@@ -1,6 +1,6 @@
 # Reports
 
-The **Reports** page helps you generate, view, and manage SLA reports in Product for Jira Cloud.
+The **Reports** page helps you generate, view, and manage SLA reports in Time to SLA for Jira Cloud.
 
 You can choose from different report types depending on what you want to analyze, from high-level SLA performance trends to detailed work item data.
 
@@ -8,7 +8,7 @@ You can choose from different report types depending on what you want to analyze
 
 To open the Reports page:
 
-1. Go to **Apps** > **Product**.
+1. Go to **Apps** > **Time to SLA**.
 2. Select **Reports** from the top navigation.
 
 ![Reports page showing the navigation sidebar with report categories and the Generate new report page.](/cms_trial/assets/55d4f5c7-98f4-4647-80fe-157178184173.png)
@@ -83,44 +83,7 @@ To save a report configuration:
 
 Saved configurations appear under **Report configurations** in the sidebar.
 
-When you open a saved configuration and regenerate the report, Product restores its saved filters and the column order.
-
-## Display reports on Jira dashboards
-
-You can display saved Time to SLA reports on Jira dashboards to monitor SLA performance without opening the Reports page.
-
-Dashboard gadgets and widgets support the following report types:
-
-- **Duration:** Visualize SLA duration trends.
-- **Status:** Monitor SLA results using a pie chart.
-- **Summary:** Review SLA performance across work items.
-- **Detail:** View detailed SLA information for work items.
-
-### Save a report as a gadget
-
-1. Open **Reports** in Time to SLA.
-2. Select a supported report type.
-3. Configure the report using the filters and display options you need.
-4. Save the report configuration.
-5. Select **Save as gadget** to make the configuration available for dashboard use.
-
-You can then select the saved configuration when setting up the corresponding Time to SLA gadget or widget on your dashboard.
-
-### Understanding dashboard views
-
-The information displayed depends on the report type and the space available on the dashboard.
-
-**Compact view**
-
-Compact views focus on the most relevant information so you can monitor performance at a glance.
-
-**Expanded view**
-
-Expanded views provide additional report details where supported, including tables and interactive information.
-
-Dashboard reports use their saved configurations and refresh automatically.
-
-For more information about each report type, see [Summary report](/cms_trial/space/TTSC/36044860/Summary+report/), [Detail report](/cms_trial/space/TTSC/36143159/Detail+report/), [Durations report](/cms_trial/space/TTSC/36077648/Durations+report/), and [Status report](/cms_trial/space/TTSC/44761089/Status+report/).
+When you open a saved configuration and regenerate the report, Time to SLA restores its saved filters and the column order.
 
 ## Manage report configurations
 

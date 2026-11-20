@@ -10,7 +10,7 @@ Watch the video on how the priority planning poker works.
 
 The priority poker game is available only for the **Tasks** tab.
 
-![Screenshot of the List view in the Priorities module.](/cms_trial/assets/08449ea6-68c3-459f-8a81-7cd0c5c99c60.png)
+![Screenshot of the List view in the Priorities module.](/cms_trial/assets/88f345e2-0776-4c95-b9fa-a265d6277b6d.png)
 
 Here are some benefits of using priority planning poker:
 
@@ -19,7 +19,7 @@ Here are some benefits of using priority planning poker:
 - Highlight outside opinions to guide the discussion in the right direction.
 - Bring fun and gamify the prioritization meetings.
 
-![Screenshot of the priority poker in the Priorities module.](/cms_trial/assets/644fed48-0738-42f5-bc45-7b4166ded160.png)
+![Screenshot of the priority poker in the Priorities module.](/cms_trial/assets/b0e1b318-e192-447d-99ab-e85db32e1bbc.png)
 
 ## Poker game rules
 
@@ -57,7 +57,7 @@ When creating a poker game, you can choose between:
 - [Real-time poker](/cms_trial/space/SPM/1918801308/Real-time+poker/)
 - [Async (offline) poker](/cms_trial/space/SPM/1918538495/Async+(offline)+priority+poker/)
 
-![Screenshot of creating a priority poker game in the Priorities module.](/cms_trial/assets/9c20f317-2e7a-444d-ba0d-52288db5a324.png)
+![Screenshot of creating a priority poker game in the Priorities module.](/cms_trial/assets/31e061f9-c5bd-462f-b2ea-cc8b4ee21feb.png)
 
 ## Limitations
 
