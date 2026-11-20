@@ -9,7 +9,7 @@ If SLAs do not show on a Salesforce record, check the token, the integration, an
 3. Confirm the base URL region matches your Time to SLA instance.
 4. Confirm the integration is enabled.
 
-   ![image-20261015-090838.png](/cms_trial/assets/969013c1-689e-4115-9d96-d47171548b74.png)
+   ![Connector integration settings showing the token status and integration configuration.](/cms_trial/assets/969013c1-689e-4115-9d96-d47171548b74.png)
 
 ## 2. Integration (Jira / Connector)
 
@@ -34,16 +34,16 @@ Fix:
 
 ## Integration is disabled
 
-If the token is set up but the Status under Connector for Salesforce & Jira Intergations is NOT CONNECTED, the TTS integration is disabled.
+If the token is set up but the Status under Connector for Salesforce & Jira Integrations is NOT CONNECTED, the TTS integration is disabled.
 
-![image-20261015-091048.png](/cms_trial/assets/8e2d0950-28fd-417c-811b-750ddfca63c9.png)
+![Connector integration status showing NOT CONNECTED.](/cms_trial/assets/8e2d0950-28fd-417c-811b-750ddfca63c9.png)
 
 Fix:
 
 1. In Time to SLA, go to **Administration** > **Integrations**.
 2. Enable the integration.
 
-![image-20261015-091600.png](/cms_trial/assets/6dda5416-daf3-4bf8-80c6-a86acfdde214.png)
+![Time to SLA integration settings used to enable the integration.](/cms_trial/assets/6dda5416-daf3-4bf8-80c6-a86acfdde214.png)
 
 Contact support with the integration name, scope, Salesforce URL, Jira work item key, token status, and region.
 
