@@ -4,7 +4,8 @@
 
 Dashboard Hub's **JQL Custom Segments** gadget lets you compare named subsets of Jira data on a single chart. Start with a base JQL query or saved filter that defines your set of work items, then add up to 10 color-coded segments that narrow it down. Each segment is defined by a JQL query or a saved Jira filter. The gadget renders all segments as separate series on one chart, so you can compare them at a glance.
 
-![Example of the JQL Custom Segments gadget rendered as a pie chart in Dashboard Hub.](/cms_trial/assets/cd4c8713-4fa8-4a10-983c-f51f173bb28e.png)
+Image — asset pipeline pending  
+Example of the JQL Custom Segments gadget rendered as a pie chart in Dashboard Hub.
 
 The gadget offers similar functionality and view types to the Jira Custom Charts gadget, with the added flexibility of using JQL for variables instead of selecting a Jira field. With the JQL Custom Segments gadget, you define each group with its own JQL query. If you’ve ever needed multiple gadgets to compare different views of the same data, JQL Custom Segments lets you do it in one.
 
@@ -46,7 +47,8 @@ Check out our documentation and examples to learn more about simplifying your re
 1. Click **Edit** in your dashboard, then click **Add Gadget**.
 2. Use the **Search** bar in the *Add Gadgets* page to find the required gadget.
 
-   ![The JQL Custom Segments gadget shown in the Add Gadgets page.](/cms_trial/assets/ba6972bc-d0ae-4cea-b75d-699e0e01cc4c.png)
+   Image — asset pipeline pending  
+   The JQL Custom Segments gadget shown in the Add Gadgets page.
 3. Click **Add** on the **JQL Custom Segments** gadget. The configuration page displays.
 4. **Name** (*optional*): Edit the gadget name to make it meaningful to your team.
 5. **Datasource**: Select a Jira datasource.
@@ -61,7 +63,8 @@ Each segment requires:
 - **Label**: Provide a name for the segment, for example, `Unresolved bugs`. This appears in the chart legend. Labels must be unique across segments.
 - **JQL query or saved filter**: Enter a query, for example, `type=bug AND resolution=Unresolved`, or click **Filter** to select a saved filter from a list of available filters for your datasource. The query serves as an `AND` clause for the base query.
 
-  ![Define custom segments options in Dashboard Hub.](/cms_trial/assets/e2ac5a8d-10e3-43b7-8ad4-e4a88166dd32.png)
+  Image — asset pipeline pending  
+  Define custom segments options in Dashboard Hub.
 
 See [Customizations](/cms_trial/space/RDD/3362816011/JQL+Custom+Segments/) to learn how to reorder or change the color of a segment.
 
@@ -88,7 +91,8 @@ The gadget offers eight view types to visualize your data. See [Jira Custom Char
 
 Extra settings let you customize the order and colors of the chart segments. To modify the chart’s appearance, click **Charts extra settings** in the gadget configuration page.
 
-![The Charts extra settings options in Dashboard Hub gadgets.](/cms_trial/assets/607da26b-49e8-467a-b5dc-d3d8a09bee60.png)
+Image — asset pipeline pending  
+The Charts extra settings options in Dashboard Hub gadgets.
 
 ### Hide segments
 
