@@ -30,7 +30,6 @@ If you want to learn more about BigPicture features, see the [User guide](/cms_t
   - [Define task period alignment](/cms_trial/space/SPM/1918830096/Define+task+period+alignment/)
   - [Set workload contouring mode](/cms_trial/space/SPM/1918831697/Set+workload+contouring+mode/)
   - [Manage quick filters](/cms_trial/space/SPM/1918830532/Manage+quick+filters/)
-  - [Manage task templates](/cms_trial/space/SPM/1918503892/Manage+task+templates/)
   - [Manage baseline permissions and version history](/cms_trial/space/SPM/1918633902/Manage+baseline+permissions+and+version+history/)
   - [Overwrite story point conversion ratio](/cms_trial/space/SPM/1918831172/Overwrite+story+point+conversion+ratio/)
   - [Manage column views](/cms_trial/space/SPM/1918503715/Manage+column+views/)

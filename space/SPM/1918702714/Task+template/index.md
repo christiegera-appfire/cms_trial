@@ -4,7 +4,7 @@
 
 Click to expand the guide
 
-To add new task templates, go to the [Task templates](/cms_trial/space/SPM/1918503892/Manage+task+templates/) section of the box configuration.
+To add new task templates, go to the [Task templates](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918503892) section of the box configuration.
 
 Once created, users can use this template by selecting it from the **+Add task** drop-down menu in the Gantt module. When a task is selected, its start date becomes the reference point for all tasks in the template.
 
@@ -14,7 +14,7 @@ Once created, users can use this template by selecting it from the **+Add task**
 
 Click to expand the guide
 
-To add new task templates, go to the [Task templates](/cms_trial/space/SPM/1918503892/Manage+task+templates/) section of the box configuration.
+To add new task templates, go to the [Task templates](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918503892) section of the box configuration.
 
 Once created, you can use this template by selecting it from the **Tasks** > **BigPicture task from template** dropdown menu in the Gantt module.
 

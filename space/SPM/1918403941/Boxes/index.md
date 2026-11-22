@@ -40,7 +40,7 @@ The box ID, name, icon, and status are displayed at all times in the [module swi
 On the [box configuration](/cms_trial/space/SPM/1918666176/Box+configuration/) page, you can further define the following:
 
 - Lead (a leader of a project, program, portfolio, iteration, and so on. The type of leader displayed on the **General** > **Basics** page depends on the box type. On the Home/root level, you define the “Main lead”)
-- Description (optional; a summary of the box content to keep other stakeholders informed. The box description is displayed in the [Overview module](/cms_trial/space/SPM/1918502655/Overview+module/) and [columns views](/cms_trial/space/SPM/1918404907/Column+views/))
+- Description (optional; a summary of the box content to keep other stakeholders informed. The box description is displayed in the [Overview module](/cms_trial/space/SPM/1918502655/Overview+module/) and [columns views](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404907))
 
 ![Box configuration page.](/cms_trial/assets/9d1fa2b1-a139-402e-97d8-8e0ab9fd7daa.png)
 
@@ -89,7 +89,7 @@ Task structure in your box can be generated automatically with the [structure bu
 
 The default scheduling option on the [box type](/cms_trial/space/SPM/1918830000/Box+types/) configuration page determines how new tasks added to the box will interact with the scheduling mechanism, including factors like task dependencies and parent/child relationships.
 
-You can manually change task scheduling mode in every module and gadget that supports [column view](/cms_trial/space/SPM/1918404907/Column+views/).
+You can manually change task scheduling mode in every module and gadget that supports [column view](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404907).
 
 ### Team [task auto-assignment](/cms_trial/space/SPM/1918408224/Automatic+assignment/)
 
@@ -102,7 +102,7 @@ The task is automatically assigned to the team based on the task assignee. This 
 In BigPicture, tasks are represented in three different ways:
 
 - as [taskbars](/cms_trial/space/SPM/1918637856/Taskbar/) in the Gantt and Resources modules
-- on the [column view](/cms_trial/space/SPM/1918404907/Column+views/) in every module and gadget that supports column views. (Column views can be customized on the box/box type configuration page and in the module/[gadget](/cms_trial/space/SPM/1918830223/Gadgets/)).
+- on the [column view](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404907) in every module and gadget that supports column views. (Column views can be customized on the box/box type configuration page and in the module/[gadget](/cms_trial/space/SPM/1918830223/Gadgets/)).
 - as [task cards](/cms_trial/space/SPM/1918536034/Card+views/) in the Board and Risks modules. (Card views can be customized on the box/box type configuration page).
 
 ## About the boxes (new navigation)
@@ -145,7 +145,7 @@ The box ID, name, icon, and status are displayed at all times next to the [modul
 On the [box configuration](/cms_trial/space/SPM/1918666176/Box+configuration/) page, you can further define the following:
 
 - **Lead** (a leader of a project, program, portfolio, iteration, and so on. The type of leader displayed on the **General** > **Basics** page depends on the box type. On the Home/root level, you define the “Main lead”)
-- **Description** (optional; a summary of the box content to keep other stakeholders informed. The box description is displayed in the [Overview module](/cms_trial/space/SPM/1918502655/Overview+module/) and [columns views](/cms_trial/space/SPM/1918404907/Column+views/))
+- **Description** (optional; a summary of the box content to keep other stakeholders informed. The box description is displayed in the [Overview module](/cms_trial/space/SPM/1918502655/Overview+module/) and [columns views](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404907))
 
 ![Basic box details in the box configuration.](/cms_trial/assets/c6952cc9-8f17-4204-8161-04061dfbd4f8.png)
 
@@ -194,7 +194,7 @@ You cannot nest any box type under every other box type—the box relationships 
 
 The default [task scheduling](/cms_trial/space/SPM/1918667098/Configure+task+scheduling/) option on the [box type](/cms_trial/space/SPM/1918830000/Box+types/) configuration page determines how new tasks added to the box interact with the scheduling mechanism, including factors such as task dependencies and parent/child relationships.
 
-You can manually change the task scheduling mode in every module and gadget that supports [column view](/cms_trial/space/SPM/1918404907/Column+views/).
+You can manually change the task scheduling mode in every module and gadget that supports [column view](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404907).
 
 ### Team task auto-assignment
 
@@ -207,5 +207,5 @@ The task is [automatically assigned to the team](/cms_trial/space/SPM/1918408224
 In BigPicture, tasks are represented in three different ways:
 
 - as [taskbars](/cms_trial/space/SPM/1918637856/Taskbar/) in the Gantt and Resources modules
-- on the [column view](/cms_trial/space/SPM/1918404907/Column+views/) in every module and gadget that supports column views. (Column views can be customized on the box/box type configuration page and in the module/[gadget](/cms_trial/space/SPM/1918830223/Gadgets/)).
+- on the [column view](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404907) in every module and gadget that supports column views. (Column views can be customized on the box/box type configuration page and in the module/[gadget](/cms_trial/space/SPM/1918830223/Gadgets/)).
 - as [task cards](/cms_trial/space/SPM/1918536034/Card+views/) in the Board and Risks modules. Card views can be customized on the box/box type configuration page.

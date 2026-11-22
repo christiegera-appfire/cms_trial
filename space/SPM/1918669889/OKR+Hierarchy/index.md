@@ -26,4 +26,4 @@ You can [filter visible records](/cms_trial/space/SPM/1918637654/OKR+Filters%2C+
 
 ## **Export/Share the hierarchical view**
 
-Currently, the easiest way to export the view is by taking screenshots of the selected section. You can also [share the current view](/cms_trial/space/SPM/1918408436/Share+view+(OKR+module)/) via the shareable link.
+Currently, the easiest way to export the view is by taking screenshots of the selected section. You can also [share the current view](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918408436) via the shareable link.

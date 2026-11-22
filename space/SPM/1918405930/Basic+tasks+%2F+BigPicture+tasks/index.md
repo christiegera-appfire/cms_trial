@@ -147,7 +147,7 @@ See the video about BigPicture tasks below.
 
 BigPicture tasks follow the same set of rules (including linking, sorting, etc.). However, dependencies (links) between BigPicture tasks will not be synchronized. As BigPicture tasks are not Jira work items, they do not use Jira fields, and no start or end dates are set.
 
-However, it is possible to aggregate the MIN (earliest) or MAX (latest) date across all the children's tasks by editing the column views, converting tasks to milestones, and setting baselines just like with other tasks. You can also manually color-code your BigPicture tasks and multiple tasks using [task templates](/cms_trial/space/SPM/1918503892/Manage+task+templates/).
+However, it is possible to aggregate the MIN (earliest) or MAX (latest) date across all the children's tasks by editing the column views, converting tasks to milestones, and setting baselines just like with other tasks. You can also manually color-code your BigPicture tasks and multiple tasks using [task templates](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918503892).
 
 ## Common use cases
 
@@ -224,7 +224,7 @@ Building the task structure using the BigPicture task can only be done manually 
 
 ## BigPicture tasks templates
 
-BigPicture tasks can be arranged into [templates](/cms_trial/space/SPM/1918503892/Manage+task+templates/). Use this to add multiple tasks that represent repeatable items, such as project phases.
+BigPicture tasks can be arranged into [templates](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918503892). Use this to add multiple tasks that represent repeatable items, such as project phases.
 
 ## Assignee
 

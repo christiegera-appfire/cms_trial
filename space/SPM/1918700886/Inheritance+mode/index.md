@@ -13,7 +13,7 @@ You can set inheritance mode for:
 - [Card views](/cms_trial/space/SPM/1918830445/Manage+card+views/)
 - [Quick filters](/cms_trial/space/SPM/1918830532/Manage+quick+filters/)
 - [Column views](/cms_trial/space/SPM/1918503715/Manage+column+views/)
-- [Task templates](/cms_trial/space/SPM/1918503892/Manage+task+templates/)
+- [Task templates](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918503892)
 - [Security settings](/cms_trial/space/SPM/1918829579/Permissions/) (Security settings as they are always inherited)
 
 These settings can be inherited when a new box is created or moved to an upper-level box of a different type.
@@ -97,7 +97,7 @@ The table presents how inheritance mode settings impact the security settings.
 | Own with inherited | → | Inherited only | = | manually added users lose access |
 | Inherited only | Own with inherited | restores the previously existing users |
 
-### [Task templates](/cms_trial/space/SPM/1918503892/Manage+task+templates/)
+### [Task templates](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918503892)
 
 | **Inheritance mode** | **Description** |
 | --- | --- |

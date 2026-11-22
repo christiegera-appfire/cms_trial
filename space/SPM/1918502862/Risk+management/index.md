@@ -35,7 +35,7 @@ The key features include:
 - Customizable [risk heatmap](/cms_trial/space/SPM/1918767574/Heatmap+mode+(Risks+module)/)
 - Customizable [risk table](/cms_trial/space/SPM/1918407329/Risks+table+(Risks)/) (register)
 - Display of [issues as risks and risks as issues](/cms_trial/space/SPM/1918701278/Manage+risks/)
-- Customizable risk register [column view](/cms_trial/space/SPM/1918504788/Customize+column+views/)
+- Customizable risk register [column view](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918504788)
 
 ![Screenshot of the Risks module.](/cms_trial/assets/9845d45b-0927-4b79-8252-f4c9ce9d0dcf.png)
 
@@ -92,7 +92,7 @@ The key features include:
 - Customizable [risk heatmap](/cms_trial/space/SPM/1918767574/Heatmap+mode+(Risks+module)/)
 - Customizable [risk table](/cms_trial/space/SPM/1918407329/Risks+table+(Risks)/) (register)
 - Display of [issues as risks and risks as issues](/cms_trial/space/SPM/1918701278/Manage+risks/)
-- Customizable risk register [column view](/cms_trial/space/SPM/1918504788/Customize+column+views/)
+- Customizable risk register [column view](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918504788)
 
 ![Screenshot of the Risks module.](/cms_trial/assets/49a3568e-9b14-4d14-8493-82ee4b4d4020.png)
 

@@ -35,7 +35,7 @@ If you have linked Jira work items to Key Results (KRs), you can have these KRs,
 
 To add these columns:
 
-1. Activate the **Objectives and Key Results** [column view](/cms_trial/space/SPM/1918404907/Column+views/).
+1. Activate the **Objectives and Key Results** [column view](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404907).
 
    1. Alternatively, click the **Add or edit columns** (**+**) button and add these columns to your view.
 
@@ -147,7 +147,7 @@ If you have linked Jira work items to Key Results (KRs), you can have these KRs,
 
 To add these columns:
 
-1. Activate the **Objectives and Key Results** [column view](/cms_trial/space/SPM/1918404907/Column+views/).
+1. Activate the **Objectives and Key Results** [column view](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404907).
 
    1. Alternatively, click the **Add or edit columns** (**+**) button and add these columns to your view.
 

@@ -45,5 +45,5 @@ In the video below, you can see how the Original Estimate changes bi-directional
 Map the start/end dates to different fields in Jira (video)
 
 - [Progress field](/cms_trial/space/SPM/1918669957/Progress+field/)
-- [Start/end date fields](/cms_trial/space/SPM/1918507050/Start%2Fend+date+fields/)
+- <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918507050>
 - [Synchronize task start and end dates with Jira](/cms_trial/space/SPM/2400780594/Synchronize+task+start+and+end+dates+with+Jira/)

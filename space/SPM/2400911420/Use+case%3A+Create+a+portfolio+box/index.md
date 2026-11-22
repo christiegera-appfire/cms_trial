@@ -52,7 +52,7 @@ This is useful when you want to organize projects and divide them into thematic 
 
 Portfolio box rolls up data from the child boxes and displays it in its swimlane. In the Overview module, you can track progress, time, the sum of task statuses, or budget for the child boxes and the portfolio.
 
-Customize the [column view](/cms_trial/space/SPM/1918404907/Column+views/) to ensure you see the exact data you want.
+Customize the [column view](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404907) to ensure you see the exact data you want.
 
 ![Portfolio box and child boxes in the Overview module.](/cms_trial/assets/8c4db3d9-3427-48e1-bfc4-5b5f7a8920e1.png)
 
