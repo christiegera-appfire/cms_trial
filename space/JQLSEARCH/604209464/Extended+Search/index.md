@@ -1,40 +1,38 @@
 # Extended Search
 
-**Extended Search** lets you search your Jira instance using JQL with the [additional functions and keywords](/cms_trial/space/JQLSEARCH/604209395/JQL+functions+and+keywords+reference/) included with JQL Search Extensions for Jira. You can then save your query as a filter and use it anywhere you would use a Jira filter, for example, in advanced search, Jira dashboards, or to set the scope for features in third-party apps, including [JSU](https://marketplace.atlassian.com/apps/5048/jsu-automation-suite-for-jira-workflows?hosting=cloud&tab=overview), [JMWE](https://marketplace.atlassian.com/apps/292/jira-misc-workflow-extensions-jmwe?hosting=cloud&tab=overview), [Power Scripts](https://marketplace.atlassian.com/apps/43318/power-scripts-jira-workflow-automation?hosting=cloud&tab=overview), and [BigPicture](https://marketplace.atlassian.com/apps/1212259/bigpicture-project-management-ppm?hosting=cloud&tab=overview) from Appfire. See [App integrations](/cms_trial/space/JQLSEARCH/1120043993/App+integrations/) to learn more.
+Jira's standard JQL lets you search many work item fields, but sometimes the information you need isn't available as a standard JQL field.
 
-new Not sure how to write a JQL query? We now have an AI Search option to help you find issues using natural language prompts. Try telling our AI tool what you are looking for. See [Natural language search - Beta](/cms_trial/space/JQLSEARCH/2225438776/Natural+language+search+-+Beta/) to learn more.
+JQL Search Extensions adds keywords that let you search additional work item information.
 
-## How to use Extended Search
+## Search for issues with PNG attachments
 
-Watch the Get Started video to learn how to use Extended Search, or follow the step-by-step instructions below to use an example function in a query.
+In this example, you'll find work items with .PNG files attached to them.
 
-### Step-by-step instructions
+1. In Jira, go to **Apps** > **JQL Search Extensions**.
+2. Open **Extended Search**.
+3. Enter the following query: `attachmentExtension = png`
+4. Run the search.
 
-1. In the top bar in Jira, select **Apps**>**JQL Search Extensions**. The *Extended Search* page displays.
-2. In the query input field, type a JQL query and click **Search**or press `Enter`on your keypad.  
-   You can use additional functions provided by JQL Search Extensions. For example, to find all issues with a summary starting with “Hello”, type `issue in wildcardMatch("summary", "Hello*")`.
+JSE returns issues that have a PNG file attached.
 
-Want some help with queries or looking for inspiration? Try the in-app cheat sheet. Open the cheat sheet on the right side of the *Extended Search* page to see the full list of keywords and functions with examples.
+![JQL Search Extensions - Result of an extended search for PNG files.](/cms_trial/assets/39ef7a99-01a8-4ed4-aa9b-0b1c0c7533ba.jpeg)
 
-![Extended Search page showing the location of the cheat sheet.](/cms_trial/assets/778e3003-abe3-4b22-9b32-bcbf67823f32.png)
+If the query doesn’t return any results, try an attachment extension you know exists in your Jira instance (PDF, JPG).
 
-### Save the query as a filter
+You don't need to memorize JQL Search Extensions keywords. Instead, refer to the [JQL functions and keywords reference](https://support.appfire.com/space/JQLSEARCH/604209395/JQL+functions+and+keywords+reference) or the in-app **Cheat Sheet** in the right-side panel.
 
-You can save your Extended Search query as a Jira filter. After you perform your search, click**Save as filter***.* See [Extended Search filters](/cms_trial/space/JQLSEARCH/604209567/Extended+Search+filters/) to learn more about using and managing your saved filters.
+## Search for issues with PDF attachments
 
-## Extended Search JQL functions and keywords
+Once your first query works, try changing the file extension and run a second search:
 
-For our full list of functions and keywords, including examples, see [JQL functions and keywords reference](/cms_trial/space/JQLSEARCH/604209395/JQL+functions+and+keywords+reference/).
+`attachmentExtension = pdf`
 
-See our [use cases](/cms_trial/space/JQLSEARCH/604209757/Use+cases/) to discover how other customers use JQL Search Extensions for precise searching and project insights.
+![JQL Search Extensions - Results of an extended search for PDF files.](/cms_trial/assets/600f3e02-2df7-46f8-a299-9f0cdd537fc9.jpeg)
 
-**Not sure which one to try?**
+You've now used an extended JQL Search Extensions keyword to search Jira work item information that isn't available through standard JQL.
 
-Our recommendations:
+## Next step
 
-- Try the **linksCount** keyword by creating the `linksCount>0` query. It returns all issues that have links.
-- Try the **childrenOfEpicsInQuery** function by creating the `issue in childrenOfEpicsInQuery("resolution is not empty")` query. It returns all stories of epics that are done. You can enhance this query to `issue in childrenOfEpicsInQuery("resolution is not empty") AND resolution is empty` and it will return all unfinished stories of epics that are done.
+Keywords are useful when you want to search work items. JQL Search Extensions functions let you go further by performing more complex searches, including searches based on relationships between work items.
 
-## Permissions and feature availability
-
-The *Extended Search* page is available through the Jira global permission that controls the visibility of the Extended Search feature. By default, this permission is granted to all Jira users.
+Continue to [Search related issues with a JSE function.](/cms_trial/space/JQLSEARCH/3680174342/Find+work+items+linked+to+epics/)

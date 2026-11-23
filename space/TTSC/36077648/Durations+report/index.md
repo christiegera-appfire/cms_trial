@@ -42,6 +42,14 @@ Once generated, scheduled reports are available on the Periodic Reports page. Re
 
 Scheduled Durations reports contain the report’s summary-table data. The chart itself is not included.
 
+## Display the Durations report on a dashboard
+
+You can display a saved Durations report as a Jira dashboard gadget or widget to monitor SLA duration trends.
+
+The gadget displays the report using your saved chart configuration, including the selected chart type and time interval.
+
+For setup instructions and important information about dashboard permissions, see [**Display SLA reports on Jira dashboards**](/cms_trial/space/TTSC/3869049192/Display+SLA+reports+on+Jira+dashboards/).
+
 ## Examples
 
 ### Line chart

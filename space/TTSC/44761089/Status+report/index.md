@@ -83,13 +83,9 @@ Click any legend label to hide or display specific SLA statuses in the chart. Re
 
 ## Display the Status report on a dashboard
 
-You can display a saved Status report as a Jira dashboard gadget or widget.
+You can display a saved Status report as a Jira dashboard gadget or widget to monitor SLA status trends.
 
-In compact view, the report displays a pie chart and legend showing the distribution of SLA statuses.
-
-In expanded view, you can also access the summary table and click chart segments to explore the underlying data. The report uses your saved grouping options, including **SLA and Goals**, **Assignee**, and **Priority**.
-
-For instructions on adding reports to dashboards, see [Reports](/cms_trial/space/TTSC/36012079/Reports/).
+For setup instructions and important information about dashboard permissions, see [**Display SLA reports on Jira dashboards**](/cms_trial/space/TTSC/3869049192/Display+SLA+reports+on+Jira+dashboards/).
 
 ## Export the report
 

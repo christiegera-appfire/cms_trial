@@ -1,5 +1,7 @@
 # My Custom Fields
 
+![My Custom Fields page](/cms_trial/assets/2b12fd83-cc64-4072-ab68-223afc69e805.png)
+
 The **My custom fields** page (Figure 1, right) displays a paginated table listing all custom fields created using **JMCF for Jira Cloud**. The page includes, from top to bottom:
 
 - **Page Toolbar** - The upper right corner of the page includes a menu with several commands:
@@ -48,7 +50,7 @@ There are two ways to open a custom field for editing. In addition to the **Edit
 
 ## Edit a custom field
 
-![Edit Custom Field Screen](/cms_trial/assets/0e7406aa-de60-42b5-9b42-569b1abf4255.png)
+![Edit Custom Field Screen](/cms_trial/assets/40dcfa7e-efe9-4c2f-9cdf-70fdd2935fa7.png)
 
 When you select **Edit**, the **Edit custom field** window (Figure 2, right) will open.
 
@@ -71,10 +73,3 @@ A custom field is added to a screen by configuring the field, **not** by configu
 In addition to the details on screens, the table lists the **Contexts** to which the field has been added; the context, or [custom field configuration scheme](https://support.atlassian.com/jira-cloud-administration/docs/configure-custom-field-context/), is a set of general configurations that can be applied to custom fields. A context includes the localization and default value settings as well as the type of issues and specific projects in which the field is available.
 
 If you create an additional context, or add a JMCF custom field to an existing context, it will trigger a backfill calculation for the custom field within the new context.
-
-You are viewing the documentation for **Jira Cloud**.
-
-| On This Page |
-| --- |
-
-![My Custom Fields page](/cms_trial/assets/18160755-9744-42a2-b262-3a0f2591f0d4.png)

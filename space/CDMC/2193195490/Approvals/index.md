@@ -12,11 +12,11 @@ To add an approval for a custom workflow:
 2. Choose **Comala document management** under *Space* *Apps*.
 3. A list of existing workflows is displayed. Click **Create New Workflow** or click the **Edit** icon to edit an existing workflow.
 
-   ![Workflow management page showing the list of existing workflows and the option to create or edit a workflow.](/cms_trial/assets/df9ed293-4c9f-474a-ac83-4d38732f4ff4.png)
+   ![Workflow management page showing the list of existing workflows and the option to create or edit a workflow.](/cms_trial/assets/ae947cfe-92e3-48b9-ac1a-921e2635e6b4.png)
 4. In the visual builder editor of an existing custom workflow, clickany **State** > **Approval** under *States.*
 5. To add a new approval, click + **Add Approval**.
 
-   ![Workflow state configuration showing the Add Approval option for a selected workflow state.](/cms_trial/assets/d3ca3867-2ace-4959-b53b-587330225fd3.png)
+   ![Workflow state configuration showing the Add Approval option for a selected workflow state.](/cms_trial/assets/113d19e1-fedf-4253-8b43-17bbc2049394.png)
 
 The **Add approval** dialog opens. The dialog is organized into four sections:
 
@@ -25,7 +25,7 @@ The **Add approval** dialog opens. The dialog is organized into four sections:
 - [Reviewers](https://appfire.atlassian.net/wiki/spaces/CDMCCD/pages/1685946594/Approvals#Reviewers)
 - [Assigners](https://appfire.atlassian.net/wiki/spaces/CDMCCD/pages/1685946594/Approvals#Assigners)
 
-![Add approval dialog showing the General Settings, Outcome Criteria, Reviewers, and Assigners sections.](/cms_trial/assets/ce81a3d7-5774-46e5-b1bf-8720c750090e.png)
+![Add approval dialog showing the General Settings, Outcome Criteria, Reviewers, and Assigners sections.](/cms_trial/assets/be71c0e2-f710-4a8f-b8d1-a7d179c69871.png)
 
 ### **1. General Settings**
 
@@ -40,7 +40,7 @@ The **Add approval** dialog opens. The dialog is organized into four sections:
 - **Authentication Method:** Optionally require reviewers to authenticate their decision, including via OTP. The default is *Not required*. See [E-signatures (credentials)](/cms_trial/space/CDMC/2192903044/E-signatures+(credentials)/) for details on setting up e-signature authentication.
 - **Require a comment:** Require reviewers to add a comment when they approve or reject. When **Require a comment** is enabled, a reviewer cannot submit an approval or rejection without entering a comment explaining their decision. This is useful for audit trails and reviews that need a documented rationale, such as legal or compliance sign-off. This setting is off by default.
 
-![General Settings section showing approval name, custom action labels, authentication method, and comment settings.](/cms_trial/assets/35f8a204-0be8-4463-b2c3-42d50871a581.png)
+![General Settings section showing approval name, custom action labels, authentication method, and comment settings.](/cms_trial/assets/d68ab952-6753-4763-b1da-127fe20e3dbb.png)
 
 ### **2. Outcome Criteria**
 
@@ -51,7 +51,7 @@ Define how many reviewers must participate and how the final decision is determi
   - **All or default**: If reviewers are assigned, all of them must record a decision. If no reviewers are assigned, at least one reviewer must participate. For example, if 3 reviewers are assigned to an approval, all 3 must record a decision before the outcome is finalized. If no reviewers are assigned, at least 1 reviewer must participate.
   - **Minimum participants**: Set a **Minimum participation** number to specify how many reviewers must participate before a decision is finalized. This is useful when you have a large pool of reviewers but only need a subset to weigh in. For example, if 10 reviewers are assigned and the minimum participation is set to 3, the outcome is finalized once any 3 reviewers have recorded their decisions. The remaining reviewers don’t need to participate.
 
-    ![Required participation settings showing the Minimum participants option and participation threshold field.](/cms_trial/assets/aed13fe6-3c1b-417d-8bfc-44c4e7df3fe0.png)
+    ![Required participation settings showing the Minimum participants option and participation threshold field.](/cms_trial/assets/78a24200-ddbd-4eb4-94c1-aa3377be791b.png)
 - **Decision type:** Choose how reviewer decisions are evaluated to determine the approval outcome.
 
   - **Unanimity**: All participating reviewers must agree (all approve or all reject) for the decision to pass.
@@ -66,7 +66,7 @@ Define how many reviewers must participate and how the final decision is determi
 
 For example, if 4 participants are required, with a minimum of 3 approvals or 1 rejection, and the first 3 reviewers approve while the last rejects, the content is still approved.
 
-![Approval outcome settings showing minimum approval and rejection thresholds used to determine the final decision.](/cms_trial/assets/0c0fec91-0a06-4fad-b51c-991720c8ed65.png)
+![Approval outcome settings showing minimum approval and rejection thresholds used to determine the final decision.](/cms_trial/assets/027e6c42-8387-42f3-81bf-e20bb04f4a7b.png)
 
 ### **3. Reviewers**
 
@@ -78,7 +78,7 @@ Control who can participate in the approval, how reviewers are assigned, and whe
   - **Assigned reviewers and editors:** Assigned reviewers and users with permission to edit the page can approve or reject.
   - **Anyone:** Any user with permission to view the page can approve or reject.
 
-    ![Allowed reviewers settings showing options for who can approve or reject a page.](/cms_trial/assets/918e7c78-48dc-42d0-8f19-b66822af263e.png)
+    ![Allowed reviewers settings showing options for who can approve or reject a page.](/cms_trial/assets/39bdac7e-e750-4807-8fe7-b8cd8cdf5924.png)
 
 - **Manually assign reviewers:** Allow reviewers to be added or removed through the [workflow state dialog](/cms_trial/space/CDMC/2192968161/Assign+reviewers+through+the+workflow+state+dialog/) while an approval is active.
 - **Allow self-assignment:** Allow users to assign or unassign themselves as reviewers through the workflow state dialog. When disabled, users cannot assign or unassign themselves, but they can manage other reviewer assignments if they have the required permissions. This setting applies only when **Manually assign reviewers** is enabled. It is enabled by default.
@@ -98,18 +98,24 @@ Remembered reviewers are restored only if they are not listed under **Excluded r
   - **Pre-assigned groups:** Select Confluence groups whose members should be assigned as reviewers when the workflow enters the approval state.
   - **Pre-assigned teams:** Select Confluence teams whose members are automatically assigned as reviewers when the workflow enters the approval state.
 
-    ![Pre-assigned reviewer settings for individual users, groups, and teams.](/cms_trial/assets/4aa66348-526d-4233-9d71-f98d9285c564.png)
-- **Eligible reviewers:** Specify who can be assigned as a reviewer and who can approve or reject a page. You can add users, Confluence groups, and Confluence teams. Members of a listed group or team are eligible unless an exclusion applies.
+    ![Pre-assigned reviewer settings for individual users, groups, and teams.](/cms_trial/assets/c77be49a-71bc-4ca1-a28f-7de4090c6bc3.png)
+- **Eligible reviewers:** Specify who can approve or reject a page. You can add users, Confluence groups, and Confluence teams. Only the specified users and members of the listed groups or teams can approve or reject, unless an exclusion applies.
 
-  When configured, this list applies to manually assigned, pre-assigned, and remembered reviewers, regardless of whether **Manually assign reviewers** is enabled. Reviewers who do not meet the eligibility requirements cannot approve or reject and are removed from reviewer assignments.
+  Eligible reviewers don’t need to be explicitly assigned unless **Allowed reviewers** is set to **Only assigned reviewers**.
+
+  When **Manually assign reviewers** is enabled, this list applies to manually assigned, pre-assigned, and remembered reviewers. Reviewers who aren’t eligible can’t approve or reject and are removed from reviewer assignments. They aren’t automatically replaced.
 
   If you leave this section empty or omit it, no additional eligibility restrictions apply.
 
-- - **Eligible users:** Select users who may be assigned as reviewers and participate in approve/reject.
-  - **Eligible groups:** Select groups whose members may be assigned as reviewers and participate in approve/reject.
-  - **Eligible teams:** Select teams whose members may be assigned as reviewers and participate in approve/reject.
+  - **Eligible users:** Select users who can approve or reject the page, subject to the **Allowed reviewers** setting.
+  - **Eligible groups:** Select groups whose members can approve or reject the page, subject to the **Allowed reviewers** setting.
+  - **Eligible teams:** Select teams whose members can approve or reject the page, subject to the **Allowed reviewers** setting.
 
-    ![Eligible reviewer settings for users, groups, and teams.](/cms_trial/assets/5f3a8b4f-620a-4935-8926-2c35961e043c.png)
+  When **Manually assign reviewers** is disabled, the **Eligible reviewers** section remains visible but disabled in the workflow builder. A tooltip explains that the settings are unavailable because manual reviewer assignment is disabled. Configured values are removed when you save the workflow.
+
+  If a configured user, group, or team can’t be resolved, the action fails with an error.
+
+  - ![Eligible reviewer settings for users, groups, and teams.](/cms_trial/assets/011c99e4-aa04-48a4-8ab4-e09d8879e8a8.png)
 - **Excluded reviewers:** Specify who cannot be assigned as a reviewer or approve or reject a page. You can exclude users, Confluence groups, and Confluence teams. Exclusions always take precedence over other reviewer settings, regardless of whether **Manually assign reviewers** is enabled. Excluded users cannot approve or reject and are removed from manually assigned, pre-assigned, or remembered reviewer assignments.
 
   If no users, groups, or teams are selected, no reviewers are excluded.
@@ -118,7 +124,15 @@ Remembered reviewers are restored only if they are not listed under **Excluded r
   - **Excluded groups:** Select Confluence groups whose members cannot be assigned as reviewers or approve or reject.
   - **Excluded teams:** Select Confluence teams whose members cannot be assigned as reviewers or approve or reject.
 
-    ![Excluded reviewer settings for users, groups, and teams.](/cms_trial/assets/e912edd2-a174-4c44-91a4-3773ecd5ead8.png)
+    ![Excluded reviewer settings for users, groups, and teams.](/cms_trial/assets/0ae96a74-477b-4987-b576-d608ac081c3f.png)
+
+> When **Manually assign reviewers** is enabled, this list applies to manually assigned, pre-assigned, and remembered reviewers. Reviewers who aren’t eligible can’t approve or reject and are removed from reviewer assignments. They aren’t automatically replaced.
+
+### 
+
+> When **Manually assign reviewers** is enabled, this list applies to manually assigned, pre-assigned, and remembered reviewers. Reviewers who aren’t eligible can’t approve or reject and are removed from reviewer assignments. They aren’t automatically replaced.
+
+### 
 
 **Reviewer restrictions:**
 
@@ -128,7 +142,7 @@ Remembered reviewers are restored only if they are not listed under **Excluded r
 - These restrictions apply regardless of whether **Manually assign reviewers** is enabled.
 - Reviewers who do not meet the eligibility or exclusion rules are removed from reviewer assignments. No replacement reviewer is automatically assigned.
 
-![Reviewer configuration showing assignment and eligibility settings.](/cms_trial/assets/61cb44f8-d61e-444c-a90e-5d98c38733f8.png)
+![Reviewer configuration showing assignment and eligibility settings.](/cms_trial/assets/c128ba9b-4238-4155-b665-15fb999b0908.png)
 
 - When you add a reviewer who is excluded or not included in a configured **Eligible reviewers** list, the workflow state dialog marks that reviewer as ineligible for assignment. You cannot save the changes until you remove the ineligible reviewer. These eligibility and exclusion rules also apply when you approve or reject a page. Users who do not meet these requirements cannot approve or reject.
 - If a configured user, Confluence group, or Confluence team **isn't found, the operation fails,** and an error message is displayed.
@@ -160,13 +174,13 @@ When **Manually assign reviewers** is disabled, the **Eligible assigners** and *
 
 If no users, groups, or teams are selected, no assigners are excluded.
 
-![Assigner configuration showing eligible and excluded assigner settings.](/cms_trial/assets/8765477e-c994-49df-8213-6f1cdb004f57.png)
+![Assigner configuration showing eligible and excluded assigner settings.](/cms_trial/assets/1bd274cf-e92e-4323-a342-a8d32df21896.png)
 
 If you do not have permission to assign or unassign reviewers, the **Assign** button remains visible but is disabled in the workflow state dialog.
 
 Now click **Add** in the *Add approval* dialog. The new approval has now been added to your workflow.
 
-![Add approval dialog showing the configured approval settings.](/cms_trial/assets/1f864dc3-f93b-41d0-8854-c0f10e790b60.png)
+![Add approval dialog showing the configured approval settings.](/cms_trial/assets/8c469fc6-7125-485a-a6ba-4db7c337b141.png)
 
 **Related topics**
 

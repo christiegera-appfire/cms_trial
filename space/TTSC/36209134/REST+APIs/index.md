@@ -4,14 +4,15 @@ Time to SLA provides powerful REST APIs to help you view and manage your SLA con
 
 Here's an overview of what you can do:
 
-**View and manage SLAs**
+**View and manage work item SLAs**
 
-- Get a list of all SLAs
-- Retrieve SLA configuration details by ID
-- Create a new SLA configuration
-- Update an existing SLA
-- Delete an SLA
-- Clone an SLA from an existing SLA
+- Retrieve all SLAs associated with a work item.
+- Get the details of a specific SLA on a work item.
+- Retrieve SLA history for a work item.
+- Retrieve work item SLAs using JQL or work item IDs.
+- Preview an SLA deadline extension.
+- Extend an SLA deadline.
+- Undo an SLA deadline extension.
 
 **View and manage SLA actions**
 
@@ -52,9 +53,9 @@ Before you begin using the REST APIs, ensure you meet the following prerequisite
 
 1. You must have the necessary permissions to access and manage SLAs, calendars, actions, or other configurations.
 2. A valid JWT token is required for authorization. Follow the [steps below](/cms_trial/space/TTSC/36209134/REST+APIs/) to generate one.
-3. Use Postman or another API testing tool to test and integrate the REST APIs.
+3. Use an API testing tool to test and integrate the REST APIs.
 
-For more information, refer to the [REST API documentation](https://documenter.getpostman.com/view/15299464/UVyoXJMy).
+For more information, refer to the [REST API documentation](https://docs.timetosla-appfire.com/).
 
 ## Base URL and data residency
 

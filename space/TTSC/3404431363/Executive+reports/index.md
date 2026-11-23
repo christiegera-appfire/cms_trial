@@ -47,14 +47,19 @@ Filter logic works as follows:
 
 For example, if you filter by **Priority = High or Highest** and **Assignee = Alex**, the report includes work items where the priority is either High or Highest, and the assignee is Alex.
 
-1. Use **Group by** to organize report data into meaningful sections. The available options are issue priority, issue type, assignee, reporter, component, labels, and Jira field.   
+1. Use **Group by** to organize report data into meaningful sections. The available options are issue priority, issue type, assignee, reporter, component, labels, organization, and Jira field.   
    For example, you can group a report by space, add multiple issue priorities, and then add an assignee for a deeper breakdown. You can add up to three groups.  
    To add a group:
 
    - Select a field from the **Group by** dropdown.
    - Select **Group +**.
    - Repeat the steps to add more groups.
-2. Click the **Generate** button.
+
+For example, select **Organization → Space → Assignee** to compare SLA performance across customers, their Jira spaces, and the people handling their requests. The report groups SLA metrics, including work item count, average duration, and success rate, by organization. Expand an organization to view its nested groups.
+
+**Important:** Only JSM work items support the Organizations field. Work items without an organization, including those from other Jira space types, appear under **No organization**.
+
+1. Click the **Generate** button.
 
 Time to SLA starts creating the Executive report. While the report is being generated, you’ll see a message confirming that the report is in progress. You can stay on the page or leave it. Leaving the page does not cancel report generation.
 

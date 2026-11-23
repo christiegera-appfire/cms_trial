@@ -1,8 +1,6 @@
 # Calculations
 
-**Note**: Version 2.0 of JMCF for Jira Cloud includes the release of [Scripted Fields](https://appfire.atlassian.net/wiki/spaces/MCFCS/pages/713588743). *This feature is currently in* ***limited release***.
-
-Full availability of Scripted Fields will occur in a future release.
+![contentId-465633417](/cms_trial/assets/2c61f09b-4107-45ef-b775-8c23da344d50.png)
 
 The **Calculations** page (Figure 1, right) displays the list of JMCF custom fields and their calculation status; unlike the **My custom fields** page where each custom field is listed once, custom fields on the Calculations page are listed for *each context to which the field has been added*. This is because the custom field is calculated separately for each of its' contexts. Additionally, you must manually trigger a recalculation when adding a new context to a custom field; recalculations can be started by clicking the **Edit custom field config** link under the new context and clicking **Save**.
 
@@ -51,7 +49,3 @@ The table of running calculations includes the following fields.
 - **Cancel** - Cancel the calculation and remove it from the list.
 
 **Note**: deleting a calculation does *not* delete the custom field!
-
-You are viewing the documentation for **Jira Cloud**.
-
-![Jira Misc Custom Fields (JMCF) Cloud calculations administration interface](/cms_trial/assets/83407ac0-0961-4f6d-8cbf-305558c194ed.png)

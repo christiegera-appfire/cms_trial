@@ -10,7 +10,7 @@ Our team is pleased to announce the latest release of JQL Search Extensions for 
 
 ## Priority indexing
 
-We have introduced priority indexing for faster onboarding to JQL Search Extensions. When you first install the app, the initial indexing can take a lot of time, depending on the size of your instance. With priority indexing, you have the option to select one or more projects to index first and utilize all app features, or wait until the initial indexing process is complete. See [Installation](/cms_trial/space/JQLSEARCH/1856372983/Installation/) to learn more about the initial indexing options.
+We have introduced priority indexing for faster onboarding to JQL Search Extensions. When you first install the app, the initial indexing can take a lot of time, depending on the size of your instance. With priority indexing, you have the option to select one or more projects to index first and utilize all app features, or wait until the initial indexing process is complete. See [Installation](/cms_trial/space/JQLSEARCH/1856372983/Install+JQL+Search+Extensions+and+start+indexing/) to learn more about the initial indexing options.
 
 ---
 

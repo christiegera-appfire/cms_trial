@@ -12,5 +12,3 @@ This section lists all of the release notes for production versions of **Jira Mi
 - [JMCF for Jira Cloud 2.0](/cms_trial/space/JMCFC/750911574/JMCF+for+Jira+Cloud+2.0/)
 - [JMCF for Jira Cloud 1.1](/cms_trial/space/JMCFC/465471250/JMCF+for+Jira+Cloud+1.1/)
 - [JMCF for Jira Cloud 1.0](/cms_trial/space/JMCFC/465698971/JMCF+for+Jira+Cloud+1.0/)
-
-You are viewing the documentation for **Jira Cloud**.

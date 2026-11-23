@@ -30,11 +30,11 @@ To reopen the filter you saved from Extended Search:
 
 The Extended Search filters list provides access to your saved filters and their management actions.
 
-![2026-09-18_22-40-04.png](/cms_trial/assets/3d9bcc8c-a4c3-4065-bb10-01d78a3d5755.png)
+![JQL Search Extensions - A list of saved filters.](/cms_trial/assets/3d9bcc8c-a4c3-4065-bb10-01d78a3d5755.png)
 
 You can also open **Filters** > **View all filters** in Jira and select your saved filter.
 
-![Issue_Filters_in_Jira.jpeg](/cms_trial/assets/7002bcdc-4262-4495-a30b-91e952b454bf.jpeg)
+![JQL Search Extensions - Saved filters are also visible in Jira under View all filters.](/cms_trial/assets/7002bcdc-4262-4495-a30b-91e952b454bf.jpeg)
 
 ### Reference the filter in JQL
 

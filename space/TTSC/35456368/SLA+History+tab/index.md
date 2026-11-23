@@ -1,6 +1,6 @@
 # SLA History tab
 
-The **SLA History** tab provides detailed insights into the lifecycle of SLAs. It organizes SLA states into cycles, allowing you to track performance, identify trends, and pinpoint areas for improvement.
+The **SLA History** tab provides detailed insights into the lifecycle of SLAs. It organizes SLA states into cycles, allowing you to track performance, identify trends, and pinpoint areas for improvement. When an SLA event involves a custom field, the history displays the field's readable value instead of its internal ID.
 
 To access the SLA History tab:
 

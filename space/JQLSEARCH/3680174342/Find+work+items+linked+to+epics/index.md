@@ -6,18 +6,27 @@ Jira's [built-in linked-issue search](https://support.atlassian.com/jira-work-ma
 
 To find work items linked to epics:
 
-1. In Jira, go to **Apps** > **JQL Search Extensions** > **Extended Search**.
-2. On the *Classic JQL* tab, enter the following query:
+1. From the native Jira search bar, enter the following query:
 
    ```text
    issue in linkedIssuesOfQuery("type = Epic")
    ```
-3. Press Enter to run the search.
-4. Review the returned work items.
+
+Note that JQL Search Extension queries can also be run directly in dashboard gadgets.
+
+1. On the *Classic JQL* tab, enter the following query:
+2. Press Enter to run the search.
+3. Review the returned work items.
 
 The results table lists work items linked to epics. The example image shows the query and its results.
 
 ![JQL Search Extensions Extended Search showing work items linked to epics.](/cms_trial/assets/939b75c5-bd17-4987-8630-fb1e701c8dd5.png)
+
+The sample query above runs across *all* Jira projects. To limit results to a single project, change the query to (replace Project name with the name of your Jira project).
+
+```text
+issue in linkedIssuesOfQuery("type = Epic" and project = 'Project name'")"
+```
 
 ## How the query works
 
@@ -25,15 +34,15 @@ Read the query from the inside out.
 
 ### The inner query identifies the epics
 
-The text inside the quotation marks, `type = Epic`, is the **inner query**. It finds the epics whose links you want to search.
+The text inside the quotation marks, `type = Epic`, is the **inner query**. It finds the epics whose links the function searches.
 
-This condition applies to the starting work items, not to the work items returned in the final results.
+This condition doesn’t limit the final results to epics. Linked tasks, bugs, and other work items can also display in query results.
 
 ### The function finds linked work items
 
-The `linkedIssuesOfQuery()` function uses the epics found by the inner query to identify work items connected to them through issue links.
+The `linkedIssuesOfQuery()` function returns work items connected through lissue links to any of the epics identified by the inner query.
 
-The `issue in` clause selects those linked work items as the search results.
+For example, a bug linked to one of those epics can appear in the results even through the bug’s work item type is not Epic.
 
 ## Understand the search results
 

@@ -155,6 +155,7 @@ Use this section to define the scope and conditions under which the SLA goal is 
   - **Assets Criteria –** Use this to define which work items an SLA goal applies to based on their linked Atlassian Assets objects.  
     For more information, refer to the [related section](/cms_trial/space/TTSC/35390901/SLA+goals/).
   - **Date Comparison –** You can define which work items an SLA goal applies to by comparing two Jira date fields. For more information, refer to the [related section](/cms_trial/space/TTSC/35390901/SLA+goals/).
+  - **Organization –** Use this to apply an SLA goal to work items associated with specific Jira Service Management organizations. This is useful when different customers have different SLA commitments. For more information, refer to the [related section](/cms_trial/space/TTSC/35390901/SLA+goals/).
 
 ### Assets Criteria
 
@@ -204,3 +205,19 @@ For example, you can create a goal that applies only to work items whose due dat
 6. Click **Apply** to apply the comparison to the goal.
 
    ![A Date Comparison filter applied.](/cms_trial/assets/f2ef7909-c6c0-42da-97f5-20abafccd4e7.png)
+
+### Organization
+
+Use the **Organization** filter to apply an SLA goal to work items associated with specific Jira Service Management organizations. This is useful when different customers have different SLA commitments.
+
+Organization filtering supports Jira Service Management work items only. Work items from other Jira space types won't match an SLA goal that uses this filter.
+
+1. In the **Goal Issues** section, select **Filtered issues in selected projects**.
+2. Under **Filter by**, select **Organization**.
+3. Choose an operator:
+
+   - **Contains any of:** The goal applies when the work item belongs to at least one selected organization.
+   - **Contains all of:** The goal applies only when the work item belongs to every selected organization.
+4. Select one or more organizations from the list.  
+   *The available organizations depend on the JSM spaces selected in the SLA configuration.*
+5. Complete the remaining goal configuration and save the SLA.

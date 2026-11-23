@@ -59,6 +59,12 @@ The report provides detailed information in columns to help you analyze your SLA
 
 ![image-20260713-232245.png](/cms_trial/assets/fb5165c2-2a0f-4d55-8187-fb52406414d4.png)
 
+## Display the Detail report on a dashboard
+
+You can display a saved Detail report as a Jira dashboard gadget or widget.
+
+For setup instructions and important information about dashboard permissions, see [**Display SLA reports on Jira dashboards**](/cms_trial/space/TTSC/3869049192/Display+SLA+reports+on+Jira+dashboards/).
+
 ## Export the report
 
 Using the button on the right-hand side, you can download your report as an XLSX file. Once you click the button, the download will start automatically.

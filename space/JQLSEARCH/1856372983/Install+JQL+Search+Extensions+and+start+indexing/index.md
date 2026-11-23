@@ -13,7 +13,7 @@ To install the JQL Search Extensions, you must be a Jira administrator.
 7. After installation, go to **Manage apps** and open JQL Search Extensions.
 8. Select **Get started**.
 
-![The JQL Search Extension Marketplace page](/cms_trial/assets/b9e783cc-6298-4cfc-91f2-bc2eb7531bf5.png)
+![contentId-1856372983](/cms_trial/assets/2a69856a-180c-46b5-90d9-bdb54289ea83.png)
 
 JQL Search Extensions automatically begins indexing your Jira data.
 
@@ -29,7 +29,7 @@ If you use JSE while initial indexing is still in progress, searches include onl
 
 You can monitor indexing progress from the JQL Search Extensions **Get Started** page. Wait until the project you want to use for the following examples has been indexed before continuing.
 
-![JQL Search Extensions indexes projects after installation.](/cms_trial/assets/5314f8cc-83c0-4d93-b372-20706802da6d.png)
+![JQL Search Extensions indexes projects after installation.](/cms_trial/assets/5b3ad596-e33a-42f2-b146-28e0087bee86.png)
 
 You’re ready to continue when you have:
 
@@ -39,4 +39,4 @@ You’re ready to continue when you have:
 
 Click **Start searching** to run your first extended JQL search and see how JSE expands what you can find in Jira. Visit the [Run an extended JQL search](/cms_trial/space/JQLSEARCH/3680174082/Run+an+extended+JQL+search/) page for an example.
 
-![Click Start searching to get started with JQL Search Extensions.](/cms_trial/assets/ac940eab-4e49-4f94-9a92-d8d90f4dc079.png)
+![Click Start searching to get started with JQL Search Extensions.](/cms_trial/assets/d62e2493-9532-45f6-9fb2-21fcf2ab61be.png)

@@ -1,6 +1,6 @@
 # Detailed feature comparison
 
-The information on this page was last updated on July 8, 2026.
+The information on this page was last updated on November 20, 2026.
 
 ## Intro
 
@@ -80,6 +80,7 @@ This is the home page for SLA admins to perform essential tasks, such as listing
 | Priority | ✅ | ✅ |  |
 | Issue Type | ❌ | ✅ |  |
 | Request Type | ❌ | ✅ |  |
+| Organization | ❌ | ✅\* | Filter SLA goals by JSM organization using *Contains any of* or *Contains all of*. Available for JSM work items only. |
 | Assignee | ❌ | ✅ |  |
 | Issue Filter | ❌ | ✅ |  |
 | Goal (type) |  | ✅ | ✅ |  |
@@ -150,6 +151,7 @@ This is the main function to allows users to set their business working hours. T
 | View | ✅ | ✅ |  |
 | Edit | ✅ | ✅ |  |
 | Delete | ✅ | ✅ |  |
+| Clone | ❌ | ✅ |  |
 | **Add New Calendar** |  | ✅ | ✅ | The calendar experience in Cloud has been redesigned to simplify configuring business hours, breaks, and holidays. |
 | Name | ✅ | ✅ |  |
 | Region | ✅ | ✅ | In Cloud, Region and Time Zone form a single UI component rather than two. |
@@ -411,6 +413,11 @@ Post functions are used to execute automated actions after the transition is per
 | TTS - SLA Success/Fail Rates Chart | ✅ | ❌ |  |
 | TTS - SLA Working Duration Analysis | ✅ | ❌ |  |
 | TTS - SLA/Assignee Performance Gadget | ❌ | ✅ |  |
+| Duration report as gadget | ❌ | ✅ |  |
+| Status report as gadget | ❌ | ✅ |  |
+| Summary report as gadget | ❌ | ✅ |  |
+| Detail report as gadget | ❌ | ✅ |  |
+| Duration report as gadget | ❌ | ✅ |  |
 
 ## Features in issue search
 
@@ -476,6 +483,7 @@ This allows programmatic access to SLA data.
 | Reports | ✅ | ✅ |  |
 | Permissions | ✅ | ✅ |  |
 | Notifiers | ✅ | ✅ |  |
+| SLA contract extension | ❌ | ✅ |  |
 
 ## Integrations
 

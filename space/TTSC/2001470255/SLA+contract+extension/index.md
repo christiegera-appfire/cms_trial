@@ -94,3 +94,9 @@ All SLA extension activity is recorded in the **SLA History** tab:
 - You’ll see when the SLA was started, entered critical zone, breached, extended, and by whom.
 
   ![Time to SLA SLA contract extension final settings review](/cms_trial/assets/b47c1bea-742a-4982-b8a5-8dbc59e9ce6a.png)
+
+## Extend an SLA through the REST API
+
+You can also extend an SLA for a specific Jira work item using the Time to SLA REST API. This lets you manage SLA deadline extensions programmatically without opening the SLA panel.
+
+For authentication instructions and endpoint details, see [REST APIs](/cms_trial/space/TTSC/36209134/REST+APIs/).

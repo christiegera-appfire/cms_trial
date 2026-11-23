@@ -13,5 +13,3 @@ Currently, there are no specific search templates for custom fields created with
 - **Time in Status** can only be searched by number of seconds.
 
 Search template flexibility will be expanded in later versions of **JMCF for Jira Cloud** as the Forge team introduces more capabilities for search.
-
-You are viewing the documentation for **Jira Cloud**.

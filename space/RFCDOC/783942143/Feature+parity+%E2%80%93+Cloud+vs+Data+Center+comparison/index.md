@@ -1,6 +1,6 @@
 # Feature parity – Cloud vs Data Center comparison
 
-Last updated onFebruary 11, 2026.
+Last updated onNovember 23, 2026.
 
 This page compares the functional coverage of the Cloud and Data Center (DC) versions of the Rich Filters for the Jira Dashboards app. Below, we list the major functional blocks and their current availability status. Note that some features were added on Cloud first and don't yet exist on DC.
 
@@ -47,6 +47,7 @@ We will continue to update this page as we progress. If you plan to migrate from
 | - Navigate between filter states | ✅ | ❌ |  |
 | **Rich Filter Results** | ✅ | ✅ |  |
 | - Queues & views display | ✅ | ✅ |  |
+| - Hierarchies | ✅ | ❌ |  |
 | - Issue actions | ✅ | ✅ | On Cloud, this functionality is provided by the Issue Actions Dialog. |
 | - Bulk change issues | ✅ | ✅ |  |
 | - Export to Excel | ✅ | ✅ |  |

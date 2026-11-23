@@ -1,8 +1,6 @@
 # Error Logs
 
-**Note**: Version 2.0 of JMCF for Jira Cloud includes the release of [Scripted Fields](https://appfire.atlassian.net/wiki/spaces/MCFCS/pages/713588743). *This feature is currently in* ***limited release***.
-
-Full availability of Scripted Fields will occur in a future release.
+![contentId-465436864](/cms_trial/assets/9707f9ab-1fec-47cc-8e87-b8f83aa603ff.png)
 
 The **Error logs** page (Figure 1, right) displays a paginated list of any errors that have occurred with **JMCF for Jira Cloud** custom fields. Potential errors could include:
 
@@ -45,9 +43,3 @@ Additionally, the error table consists of the following columns:
 - **Acknowledged On** - *Only visible when the* ***Acknowledged*** *checkbox is checked at the top of the page.* The date and time when the error log was acknowledged.
 - **Acknowledged** - Check this box to acknowledge the error. Acknowledged errors remain in the error list table, but are hidden by default. Uncheck this box to mark the error as unacknowledged.
 - **Delete** - Completely remove the error log. **This action cannot be undone!**
-
-You are viewing the documentation for **Jira Cloud**.
-
-### On This Page
-
-![Jira Misc Custom Fields (JMCF) Cloud error logs administration page](/cms_trial/assets/8afe2a05-0c9e-4005-99d4-63bb5d834c40.png)

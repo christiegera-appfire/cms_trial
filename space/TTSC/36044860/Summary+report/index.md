@@ -51,13 +51,7 @@ About SLA status and duration, refer to this information:
 
 You can display a saved Summary report as a Jira dashboard gadget or widget.
 
-In compact view, the report displays an overview of SLA performance and up to five work items, including their SLA statuses. Select **Open full report** to access the complete report.
-
-In expanded view, the report displays a detailed table using the saved configuration, including column order and time format. You can use pagination and sorting to explore the results.
-
-Dashboard views are read-only. To modify the report configuration or export the results, open the report in Time to SLA.
-
-For instructions on adding reports to dashboards, see [Reports](/cms_trial/space/TTSC/36012079/Reports/).
+For setup instructions and important information about dashboard permissions, see [**Display SLA reports on Jira dashboards**](/cms_trial/space/TTSC/3869049192/Display+SLA+reports+on+Jira+dashboards/).
 
 ## Export the report
 
