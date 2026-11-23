@@ -16,7 +16,7 @@ In this module, you can quickly access various boxes, modules, and their configu
 
 - Quick access to the [box hierarchy](/cms_trial/space/SPM/1918535907/Box+hierarchy/)
 - Convenient access to [box lifecycle](/cms_trial/space/SPM/1918829911/Box+lifecycle/) management
-- Customizable [filters](/cms_trial/space/SPM/1918503449/Filters+and+search/) and [column views](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404907)
+- Customizable [filters](/cms_trial/space/SPM/1918503449/Filters+and+search/) and [column views](/cms_trial/space/SPM/1918404907/Column+views/)
 - Three distinctive [view modes](/cms_trial/space/SPM/1918831037/Navigation+and+interface+(Overview+module)/): Hierarchy, Timeline, and Kanban board
 
 See the video
@@ -30,7 +30,7 @@ It offers flexible features like drag-and-drop scheduling, resource capacity ove
 **Notable features:**
 
 - Customizable [task hierarchy](/cms_trial/space/SPM/1918667217/Manage+task+structure/)
-- Customizable [filters](/cms_trial/space/SPM/1918503449/Filters+and+search/) and [column views](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404907)
+- Customizable [filters](/cms_trial/space/SPM/1918503449/Filters+and+search/) and [column views](/cms_trial/space/SPM/1918404907/Column+views/)
 - Various [data aggregations](/cms_trial/space/SPM/1918636993/Column+data+aggregation+methods/) on column views
 - [Gantt timeline](/cms_trial/space/SPM/1918701893/Timeline+(Gantt+chart)/) with markers, [milestones](/cms_trial/space/SPM/1918537479/Milestones/), and [critical path](/cms_trial/space/SPM/1918405060/Critical+path/)
 - Project and cross-project [dependencies](/cms_trial/space/SPM/1918538718/Display+dependencies/)
@@ -45,7 +45,7 @@ The Scope module helps you define and manage the boundaries of your projects, in
 **Notable features**:
 
 - Customizable [task hierarchy](/cms_trial/space/SPM/1918667217/Manage+task+structure/)
-- Customizable [filters](/cms_trial/space/SPM/1918503449/Filters+and+search/) and [column views](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404907)
+- Customizable [filters](/cms_trial/space/SPM/1918503449/Filters+and+search/) and [column views](/cms_trial/space/SPM/1918404907/Column+views/)
 - Various [data aggregations](/cms_trial/space/SPM/1918636993/Column+data+aggregation+methods/) on column views
 - [Detail view](/cms_trial/space/SPM/1918503360/Detail+view+panel/) for quick access to Jira work item details
 
@@ -68,7 +68,7 @@ It's especially useful during planning sessions, like Program Increment (PI) Pla
 
 See the video
 
-### [Goals](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918535323)
+### [Goals](/cms_trial/space/SPM/1918535323/Goals+module/)
 
 The Goals module is a high-level board based on agile Program Increments that focuses on high-level planning, including forecasts and commitments, rather than particular tasks. You can configure it for specific durations, set goals for the upcoming PI, and then use it to review and change the status of the goals.
 
@@ -135,7 +135,7 @@ The Risks module is where you can assess the risk probability and consequence an
 - Customizable [risk heatmap](/cms_trial/space/SPM/1918767574/Heatmap+mode+(Risks+module)/)
 - Customizable [risk table](/cms_trial/space/SPM/1918407329/Risks+table+(Risks)/) (register)
 - Display of [work items as risks and risks as work items](/cms_trial/space/SPM/1918701278/Manage+risks/)
-- Customizable risk register [column view](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918504788)
+- Customizable risk register [column view](/cms_trial/space/SPM/1918504788/Customize+column+views/)
 
 ### [Reports](/cms_trial/space/SPM/1918502811/Reports+module/)
 

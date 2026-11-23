@@ -31,7 +31,7 @@ With the editor slider, you can carry out several different bulk operations on t
   - [a milestone to task](/cms_trial/space/SPM/1918863029/Convert+milestone+to+task/).
   - [a basic task to Jira issue](/cms_trial/space/SPM/1918863006/Convert+basic+task+to+Jira+work+item+%2F+Convert+BigPicture+task+to+Jira+work+item/).
 - Manually select the [task color](/cms_trial/space/SPM/1918636160/Task+color/).
-- [Delete](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406592) it.
+- [Delete](/cms_trial/space/SPM/1918406592/Delete+task/) it.
 
 ![Editor slider options for bulk operations on tasks in the Gantt module.](/cms_trial/assets/1858776c-1daf-4b71-a51e-cf80839f263a.png)
 
@@ -80,7 +80,7 @@ With the editor slider, you can carry out several different bulk operations on t
   - [a milestone to task](/cms_trial/space/SPM/1918863029/Convert+milestone+to+task/).
   - [a BigPicture task to Jira work item](/cms_trial/space/SPM/1918863006/Convert+basic+task+to+Jira+work+item+%2F+Convert+BigPicture+task+to+Jira+work+item/).
 - Manually select the [task color](/cms_trial/space/SPM/1918636160/Task+color/).
-- [Delete](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406592) it.
+- [Delete](/cms_trial/space/SPM/1918406592/Delete+task/) it.
 
 If you select a single task that has no tasks nested under it, the editor slider additionally displays:
 

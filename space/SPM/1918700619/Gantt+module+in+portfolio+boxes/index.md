@@ -95,7 +95,7 @@ The following modules are available for portfolio boxes by default:
 
 ![portfolio-box-available-modules.png](/cms_trial/assets/3fd15299-a407-4096-9891-cb4fb801006a.png)
 
-### [Column views](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404907)
+### [Column views](/cms_trial/space/SPM/1918404907/Column+views/)
 
 The following column views are available for portfolio boxes by default:
 
@@ -244,7 +244,7 @@ The following [modules](/cms_trial/space/SPM/1918503298/Define+available+modules
 
 ### Column views
 
-The following [column views](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404907) are available for portfolio boxes by default:
+The following [column views](/cms_trial/space/SPM/1918404907/Column+views/) are available for portfolio boxes by default:
 
 - Essentials Portfolio
 - Agile Portfolio

@@ -61,7 +61,7 @@ The new navigation provides a clearer structure and more intuitive access to key
 
 ![Screenshot of the new navigation changes in the Board module.](/cms_trial/assets/a322e988-8c75-4053-ab87-092e8fd06026.png)
 
-[Objectives module](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918535323)
+[Objectives module](/cms_trial/space/SPM/1918535323/Goals+module/)
 
 - Use the arrow next to the module name to access the **Swimlanes** or **Reports view**.
 - Features have been reorganized into logical categories to make navigation more intuitive.

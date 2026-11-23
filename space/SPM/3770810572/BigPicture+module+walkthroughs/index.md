@@ -8,7 +8,7 @@ Watch videos about BigPicture modules and learn about their key features and cap
 | [Gantt](/cms_trial/space/SPM/1918797129/Gantt+module/) |  |
 | [Scope](/cms_trial/space/SPM/1918666763/Scope+module/) |  |
 | [Board](/cms_trial/space/SPM/1918796888/Board+module/) |  |
-| [Goals](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918535323) |  |
+| [Goals](/cms_trial/space/SPM/1918535323/Goals+module/) |  |
 | [Resources](/cms_trial/space/SPM/1918535629/Resources+module/) |  |
 | [Teams](/cms_trial/space/SPM/1918829775/Teams+module/) |  |
 | [Risk Management](/cms_trial/space/SPM/1918699171/Risk+management+module+(NEW)/) |  |

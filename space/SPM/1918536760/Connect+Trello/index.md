@@ -52,7 +52,7 @@ This means that when you change the dates of your Trello tasks in BigPicture, th
 
 The mappings need to be set manually when connecting with Trello.
 
-You can leave the '[Not Synchronized](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918507050)' status if you don't want to set dates from the BigPicture level.
+You can leave the '[Not Synchronized](/cms_trial/space/SPM/1918507050/Start%2Fend+date+fields/)' status if you don't want to set dates from the BigPicture level.
 
 ![contentId-1918536760](/cms_trial/assets/afddad82-ddf4-405b-aa25-ccbed56639f3.png)
 
@@ -160,7 +160,7 @@ This means that when you change the dates of your Trello tasks in BigPicture, th
 
 The mappings need to be set manually when connecting with Trello.
 
-You can leave the '[Not Synchronized](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918507050)' status if you don't want to set dates from the BigPicture level.
+You can leave the '[Not Synchronized](/cms_trial/space/SPM/1918507050/Start%2Fend+date+fields/)' status if you don't want to set dates from the BigPicture level.
 
 ![contentId-1918536760](/cms_trial/assets/afddad82-ddf4-405b-aa25-ccbed56639f3.png)
 

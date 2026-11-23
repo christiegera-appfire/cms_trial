@@ -149,7 +149,7 @@ Create a [BigPicture task](/cms_trial/space/SPM/1918405930/Basic+tasks+%2F+BigPi
 
 ### Task templates
 
-This requires you to create a template first, using the [task template](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918503892) creation menu in the box configuration.
+This requires you to create a template first, using the [task template](/cms_trial/space/SPM/1918503892/Manage+task+templates/) creation menu in the box configuration.
 
 ### Import from file
 

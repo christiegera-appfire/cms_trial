@@ -36,5 +36,5 @@ In this scenario, the Start date is field-mapped to the start date, while the en
 Map the start/end dates to different fields in Jira (video)
 
 - [Progress field](/cms_trial/space/SPM/1918669957/Progress+field/)
-- <https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918507050>
+- [Start/end date fields](/cms_trial/space/SPM/1918507050/Start%2Fend+date+fields/)
 - [Synchronize task start and end dates with Jira](/cms_trial/space/SPM/2400780594/Synchronize+task+start+and+end+dates+with+Jira/)

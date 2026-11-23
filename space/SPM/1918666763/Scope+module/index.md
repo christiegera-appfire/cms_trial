@@ -6,7 +6,7 @@ Click to expand the guide
 
 ## About the Scope module
 
-The **Scope module** is a customizable task list. It lets you freely [arrange columns](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918504788), switch between views, and show aggregated values. Double-click on a column's edge to adjust its width to the longest record in the current view.
+The **Scope module** is a customizable task list. It lets you freely [arrange columns](/cms_trial/space/SPM/1918504788/Customize+column+views/), switch between views, and show aggregated values. Double-click on a column's edge to adjust its width to the longest record in the current view.
 
 You can also [edit task details inline](/cms_trial/space/SPM/1918637324/Inline+edit/) and [export](https://appfire.atlassian.net/wiki/spaces/BTc/pages/3536519213) the view for reporting.
 
@@ -26,9 +26,9 @@ See the video to learn more about the module.
 | [Filters](/cms_trial/space/SPM/1918503449/Filters+and+search/) | Mark your favorite filters and filter the list of tasks to see only the items that you are interested in. There are two types of filters:   - Quick Filters - Narrows down the visible scope based on JQL statements. - Date range - Narrows down the visible scope to the defined period. - Custom - Combine two values from the dropdowns. |
 | Search box | The search box works in two modes:   - TXT - Simple text search based on the **Summary** field. - JQL - Advanced search using JQL with additional JQL commands added by the App. |
 | View | Change the view options:   - Layout:    - Compact   - Normal   - Wide - WBS Lines:    - Horizontal   - Vertical |
-| [Column views](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404907) | Add or remove the columns in the current view, then save the changes as a new view. |
+| [Column views](/cms_trial/space/SPM/1918404907/Column+views/) | Add or remove the columns in the current view, then save the changes as a new view. |
 | [Edit task](/cms_trial/space/SPM/1918765477/Edit+task/) | **Right-click** a task to prompt a context menu letting you edit, reposition, and delete a task. Screenshot showing the context menu options Edit, Position, Delete. |
-| [Delete task](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406592) | To delete a task, **right-click** on it and select **Delete** from the context menu. Confirm action with **Delete**. Context menu with the Delete option selected. Alternatively, click a task and then click the **bin** icon. To confirm, click **Delete** again. delete-task-scope.png Remember that once you delete a task in BigPicture, it will also be removed from Jira. |
+| [Delete task](/cms_trial/space/SPM/1918406592/Delete+task/) | To delete a task, **right-click** on it and select **Delete** from the context menu. Confirm action with **Delete**. Context menu with the Delete option selected. Alternatively, click a task and then click the **bin** icon. To confirm, click **Delete** again. delete-task-scope.png Remember that once you delete a task in BigPicture, it will also be removed from Jira. |
 | [Live sync](/cms_trial/space/SPM/1918404058/Data+synchronization+with+connected+tools/) | Jira admins can enable the Live sync feature. It lets you see data changes without refreshing a page. With live sync, your data will be instantly updated when users update their tasks. |
 | [Detail view panel](/cms_trial/space/SPM/1918503360/Detail+view+panel/) | Displays task details similarly to the Jira issue details page. |
 
@@ -49,7 +49,7 @@ Click to expand the guide
 
 ## About the Scope module
 
-The **Scope module** is a customizable task list. It lets you freely [arrange columns](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918504788), switch between views, and show aggregated values. Double-click on a column's edge to adjust its width to the longest record in the current view.
+The **Scope module** is a customizable task list. It lets you freely [arrange columns](/cms_trial/space/SPM/1918504788/Customize+column+views/), switch between views, and show aggregated values. Double-click on a column's edge to adjust its width to the longest record in the current view.
 
 You can also [edit task details inline](/cms_trial/space/SPM/1918637324/Inline+edit/) and [export](https://appfire.atlassian.net/wiki/spaces/BTc/pages/3536519213) the view for reporting.
 
@@ -67,9 +67,9 @@ See the video to learn more about the module.
 | [Manual task structure](/cms_trial/space/SPM/1918669003/Manual+task+structure/) | You can manually change the position of your tasks. The following options are available from the top menu and by right-clicking on a task.   - Move to top - Move to bottom - Move up - Move down - Outdent - Indent  Screenshot of the buttons available in the Scope module that allows you to manually structure tasks. |
 | [Filters](/cms_trial/space/SPM/1918503449/Filters+and+search/) | Mark your favorite filters and filter the list of tasks to see only the items that you are interested in. There are two types of filters:   - Quick Filters - Narrows down the visible scope based on JQL statements. - Date range - Narrows down the visible scope to the defined period. - Custom - Combine two values from the dropdowns. |
 | Search box | The search box works in two modes:   - TXT - Simple text search based on the **Summary** field. - JQL - Advanced search using JQL with additional JQL commands added by the App. |
-| [Column views](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918404907) | Add or remove the columns in the current view, then save the changes as a new view. |
+| [Column views](/cms_trial/space/SPM/1918404907/Column+views/) | Add or remove the columns in the current view, then save the changes as a new view. |
 | [Edit task](/cms_trial/space/SPM/1918765477/Edit+task/) | **Right-click** a task to open a context menu that lets you open a Jira window to edit, reposition, and delete the task. Screenshot of the task in the Scope module after right-clicking on the task. |
-| [Delete task](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406592) | To delete a task, **right-click** on it and select **Delete** from the context menu. Confirm action with **Delete**. Screenshot of the right-click Delete on a task in the Scope module. Alternatively, click a task and then click the **bin** icon. To confirm, click **Delete** again. Screenshot of deleting a Jira work item in the Scope module. Remember that once you delete a work item in BigPicture, it will also be removed from Jira. |
+| [Delete task](/cms_trial/space/SPM/1918406592/Delete+task/) | To delete a task, **right-click** on it and select **Delete** from the context menu. Confirm action with **Delete**. Screenshot of the right-click Delete on a task in the Scope module. Alternatively, click a task and then click the **bin** icon. To confirm, click **Delete** again. Screenshot of deleting a Jira work item in the Scope module. Remember that once you delete a work item in BigPicture, it will also be removed from Jira. |
 | [Live sync](/cms_trial/space/SPM/1918404058/Data+synchronization+with+connected+tools/) | Jira admins can enable the Live sync feature. It lets you see data changes without refreshing a page. With live sync, your data will be instantly updated when users update their tasks. |
 | [Detail view panel](/cms_trial/space/SPM/1918503360/Detail+view+panel/) | Displays task details similarly to the Jira work item details page. |
 

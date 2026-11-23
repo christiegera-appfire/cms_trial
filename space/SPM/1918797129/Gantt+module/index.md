@@ -42,7 +42,7 @@ The table below lists the main features of the Gantt module:
 | [Timeline](/cms_trial/space/SPM/1918701893/Timeline+(Gantt+chart)/) zoom | Zoom in and out, move to the current date, or scale to fit all your tasks on the timeline. |
 | Timeline settings | Show additional elements on the timeline:   - Markers. - Timeboxes. - Week numbers. |
 | [Task structure](/cms_trial/space/SPM/1918667217/Manage+task+structure/) | You can manually indent and outdent your tasks or move them up and down the task hierarchy. The [manual task structure](/cms_trial/space/SPM/1918669003/Manual+task+structure/) might conflict with the active structure builders, in which case a warning will be displayed. |
-| [Delete task](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406592) | You can delete tasks from the list, in which case they will also be removed from the Host and External platforms (in case of connecting with other External Platforms such as Trello or other Jira instances). |
+| [Delete task](/cms_trial/space/SPM/1918406592/Delete+task/) | You can delete tasks from the list, in which case they will also be removed from the Host and External platforms (in case of connecting with other External Platforms such as Trello or other Jira instances). |
 | [Infobar](/cms_trial/space/SPM/1918799264/Infobar+(Gantt)/) | Show more information about your tasks:   - Change history - Critical path - Dependencies - Milestones - Overdue tasks - Bulk change |
 | Mini-map | Enable a mini-map to navigate through the whole timeline with a single click. |
 
@@ -131,7 +131,7 @@ The table below lists the main features of the Gantt module:
 | [Timeline](/cms_trial/space/SPM/1918701893/Timeline+(Gantt+chart)/) zoom | Zoom in and out, move to the current date, or scale to fit all your tasks on the timeline. |
 | Timeline settings | Show additional elements on the timeline:   - Markers. - Timeboxes. - Week numbers. |
 | [Task structure](/cms_trial/space/SPM/1918667217/Manage+task+structure/) | You can manually indent and outdent your tasks or move them up and down the task hierarchy. The [manual task structure](/cms_trial/space/SPM/1918669003/Manual+task+structure/) might conflict with the active structure builders, in which case a warning will be displayed. |
-| [Delete task](https://appfire.atlassian.net/wiki/spaces/SPM/pages/1918406592) | You can delete tasks from the list, in which case they will also be removed from the Host and External platforms (in case of connecting with other External Platforms such as Trello or other Jira instances). |
+| [Delete task](/cms_trial/space/SPM/1918406592/Delete+task/) | You can delete tasks from the list, in which case they will also be removed from the Host and External platforms (in case of connecting with other External Platforms such as Trello or other Jira instances). |
 | [Infobar](/cms_trial/space/SPM/1918799264/Infobar+(Gantt)/) | Show more information about your tasks:   - Dependencies - Overdue tasks - Milestones - Critical path - Change history - Bulk change - Reports |
 | Mini-map | Enable a mini-map to navigate through the whole timeline with a single click. |
 | Editor slider | The **editor slider** provides similar options to the right-click contextual menu. It appears at the border between the task structure and Gantt timeline sections.  See more on the [Editor slider](/cms_trial/space/SPM/1918635307/Editor+slider/) page. |
