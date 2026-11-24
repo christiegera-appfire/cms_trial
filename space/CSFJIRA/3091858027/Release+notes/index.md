@@ -4,6 +4,7 @@ We have a short release lifecycle so that we can always try to improve our produ
 
 | **Title** | **Highlights** | **Platform** | **Release date** |
 | --- | --- | --- | --- |
+| [Release notes 24 November 2026](/cms_trial/space/CSFJIRA/3847716868/Release+notes+24+November+2026/) | - Support data residency migration | Jira Cloud | November 24, 2026 |
 | [Release notes 23 November 2026](/cms_trial/space/CSFJIRA/3871047814/Release+notes+23+November+2026/) | - Security fixes | Jira Cloud | November 23, 2026 |
 | [Release notes 16 November 2026](/cms_trial/space/CSFJIRA/3855253538/Release+notes+16+November+2026/) | - Enhanced UI | Jira Cloud | November 16, 2026 |
 | [Release notes 12 November 2026](/cms_trial/space/CSFJIRA/3850993673/Release+notes+12+November+2026/) | - Bug fixes | Jira Cloud | November 12, 2026 |

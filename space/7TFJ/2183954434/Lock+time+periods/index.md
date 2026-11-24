@@ -1,10 +1,8 @@
 # Lock time periods
 
-![TryItButton (2).png](/cms_trial/assets/91af365a-9ef6-4af0-93ba-d3cfff585846.png)
+An essential aspect of time tracking from a manager’s perspective is the ability to lock past periods for editing. This feature allows managers to prevent modifications, such as adding, changing, or deleting worklogs for specific historical time periods. This is critical for ensuring accurate and consistent time reporting. Once you finalize data, for example, by generating an invoice or exporting time entries to an HR system, restrict further changes to maintain reliable data.
 
-An essential aspect of time tracking from a manager’s perspective is the ability to lock past periods for editing. This feature allows managers to prevent modifications, such as adding, changing, or deleting worklogs for specific historical time periods. This is critical for ensuring accurate and consistent time reporting. Once data has been finalized, for example by generating an invoice or exporting time entries to an HR system, further changes should be restricted to maintain reliable data.
-
-You must be an Admin to lock time periods.
+You must be a Jira admin to configure and lock time periods. This setting affects all projects in your Jira instance.
 
 ## Watch the video
 
@@ -18,7 +16,7 @@ An essential aspect of time tracking from a manager’s perspective is the abili
 
 Use the following steps to define a time period:
 
-1. Click the **Approval Periods** link in the left-hand pane.
+1. In 7pace TimeTracker, go to **App Settings** > **Approval Periods** in the left sidebar.
 2. A message displays alerting you that time periods have not been defined. Click **Go to App Settings**.
 
    ![The first time you click the Time Periods link, a message displays alerting you that time periods haven't been created. Click the Go to App Settings link.](/cms_trial/assets/8e8e3560-798b-409b-9421-6dc2012a0996.png)
@@ -35,7 +33,7 @@ Use the following steps to define a time period:
 
 A monthly cadence cannot begin on the 29th, 30th, or 31st of the month, since these dates don’t exist in every month of the year.
 
-After saving the time period, a summary is displayed.
+After saving, the *Manage Time Periods* page displays a summary of your new time period.
 
 ![After clicking save, a summary of the time period displays.](/cms_trial/assets/67968748-e252-4c37-8b36-bf0c84297c38.png)
 
@@ -49,12 +47,11 @@ After defining a time period using the steps above, it can be locked and unlocke
 
 Use the following steps to lock a time period:
 
-1. Click the **Lock time** button.  
-   The *Lock time* window displays and alerts you that time will be locked for everyone.
+1. In the *Time Periods* page, click **Lock time**. The *Lock time* dialog displays, confirming that time will be locked for everyone.
 
    ![The Lock time window that includes a note alerting you that time will be locked for everyone.](/cms_trial/assets/fbf736b3-fa91-4f42-8168-891954ebd67d.png)
 2. Click **Yes, lock time**.  
-   The Time Periods page displays the period as locked, the date it was locked, and the admin who locked the time. Now, time is locked in every view, including *Monthly*, *Weekly*, *Timesheet*, the *Times Explorer*, and *Item View*. Worklogs can no longer be edited.
+   The Time Periods page displays the period as locked, the date it was locked, and the admin who locked the time. Now, time is locked in every view, including *Monthly*, *Weekly*, *Timesheet*, the *Times Explorer*, and *Item View*. Worklogs can no longer be edited. To verify, navigate to any worklog in the locked period; the edit controls are disabled.
 
    ![A locked worklog - time cannot be edited.](/cms_trial/assets/e5815bce-3365-4047-8e0e-d3b444700f49.png)
 
@@ -73,6 +70,6 @@ Use the following steps to unlock a time period:
 
 ## Split time periods
 
-The Split time periods feature is beneficial to teams who require weekly time period locking, but operate on a monthly billing cycle. In this scenario, a weekly time period that begins on Monday can be automatically split at the end of the month. For example, the weekly time period would begin on Monday, July 28th, but would be automatically split on the last day of the month, a Thursday.
+The Split time periods feature is beneficial to teams who require weekly time period locking, but operate on a monthly billing cycle. In this scenario, a weekly time period that begins on Monday can be automatically split at the end of the month. For example, a weekly time period beginning on Monday, July 28th splits automatically on the last day of the month, which falls on a Thursday.
 
 ![A completed weekly time period that is automatically split on the last day of the month.](/cms_trial/assets/ec3ec161-9e48-4fad-b74f-a04cd77577a3.png)![A calendar showing that July 28th is a Monday and the last day of the month, July 31st, is a Thursday.](/cms_trial/assets/ed3993b3-a338-449b-9832-38e144705f0b.png)

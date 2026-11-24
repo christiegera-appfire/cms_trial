@@ -4,6 +4,7 @@ This page provides a brief overview of the release notes for individual releases
 
 | **Title** | **Release date** | **Highlights** |
 | --- | --- | --- |
+| [Release notes 24 November 2026](/cms_trial/space/TTSC/3877339146/Release+notes+24+November+2026/) | 24 November 2026 | - Bug fixes |
 | [Release notes 23 November 2026](/cms_trial/space/TTSC/3864494201/Release+notes+23+November+2026/) | 23 November 2026 | - Clone calendars - Extend SLA contracts through REST API - Improved custom field values in SLA history - Bug fixes |
 | [Release notes 11 November 2026](/cms_trial/space/TTSC/3842637883/Release+notes+11+November+2026/) | 11 November 2026 | - Define SLA goals using Atlassian Assets - Compare dates when configuring SLA goals - View Time in Status directly on work items - Display SLAs from linked work items - Improved REST API reference - Improved API token management |
 | [Release notes 26 October 2026](/cms_trial/space/TTSC/3803086934/Release+notes+26+October+2026/) | 26 October 2026 | - View SLA information directly in Salesforce - Customize SLA Indicator fields - Set SLA targets relative to a date field - Start SLAs relative to a date field - Enhancements - Bug fixes |

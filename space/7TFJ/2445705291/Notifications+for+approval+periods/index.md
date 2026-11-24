@@ -1,12 +1,10 @@
 # Notifications for approval periods
 
-![TryItButton (2).png](/cms_trial/assets/0db34827-4702-4b93-b757-7474f349d6e4.png)
-
 ## Reminders
 
 ![7pace-reminders.png](/cms_trial/assets/83eb50b3-98c3-4819-8f28-f5fba5b6bf07.png)
 
-To assist in timely and accurate worklogs, **7pace Timetracker** includes the option to send email notifications to team members, reminding them of upcoming deadlines to submit their worklogs for approval. Enabling notifications requires the following:
+**7pace Timetracker** can send email notifications to team members about upcoming worklog submission deadlines. This helps ensure timely and accurate worklogs. Enabling notifications requires the following:
 
 - You must create and enable [Approval periods](/cms_trial/space/7TFJ/2290122780/Time+approvals+for+Managers/).
 - You must enable [Time approvals](/cms_trial/space/7TFJ/2290122780/Time+approvals+for+Managers/).
@@ -16,7 +14,7 @@ Once you’ve enabled both approval periods and time approvals for managers, not
 1. In Jira, click **Apps** in the left-hand panel. Click **7pace Timetracker**.
 2. Click **Settings**.
 3. Click **Approval periods**.
-4. In the **Approval periods management** settings, confirm that you have created an approvals schedule and that **Time approval** is enabled.
+4. In the **Approval periods management** settings, confirm that you've created an approvals schedule and that **Time approval** is enabled.
 5. Enable **Reminders** using the toggle.
 
 ### Reminder configuration
@@ -27,7 +25,7 @@ Notifications
 
 ### Email delivery and privacy settings
 
-If email notifications are not being received by a team member, they may have their email address privacy settings too restricted!
+If a team member isn't receiving email notifications, they may have their email address privacy settings too restricted.
 
 **7pace Timetracker** notifications must respect the privacy settings of individual users; if email notifications are not being received by a specific team member, it is likely that they have set their email address visibility to private ('**Only you and Admins**') in their profile settings. This setting might prevent 7pace from accessing that team member’s email address, and notifications will not be sent.
 
@@ -45,7 +43,7 @@ Updating this setting to a less restrictive value should enable notifications to
 
 You can set up daily email notifications:
 
-- to notify managers about new submissions
-- to notify contributors about submission status changes.
+- To notify managers about new submissions
+- To notify contributors about submission status changes.
 
 You can choose either or both options and set a time of sending the notifications.

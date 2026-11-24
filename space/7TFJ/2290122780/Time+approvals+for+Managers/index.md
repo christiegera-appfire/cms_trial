@@ -6,7 +6,7 @@ Managers and Global Approval Managers can approve team members' time in the firs
 
 - Streamlined approval process - Managers can quickly review, approve, or reject team members’ timesheets directly within Jira, reducing administrative overhead and keeping projects on track.
 - Improved accuracy and accountability - By verifying worklogs before they are finalized, managers ensure time entries are accurate, leading to more reliable reporting and billing.
-- Centralized team oversight - Managers gain a consolidated view of their team’s timesheets, including status indicators and filtering by person, making it easier to monitor workloads and spot issues early.
+- Centralized team oversight - You gain a consolidated view of your team's timesheets, with status indicators and filtering by person. This makes it easier to monitor workloads and spot issues early.
 - Customizable approval periods - Organizations can define approval schedules that fit their reporting cycles, helping align timesheet reviews with payroll, invoicing, or project milestone needs.
 
 ## Verify and approve time
@@ -18,11 +18,11 @@ After team members create worklogs in 7pace Timetracker for Jira, managers can:
 - View time for team members
 - Approve or reject time
 - Check each team member’s timesheet status
-- Check the user’s capacity from BigPicture (if the BigPicture integration is turned on) displayed next to a user’s name, along with a warning icon when capacity is too low or too high, and color-coded cells:
+- Check your team member's capacity from BigPicture (if the BigPicture integration is turned on) displayed next to their name, along with a warning icon when capacity is too low or too high, and color-coded cells:
 
-  - yellow - below or above capacity (even if capacity was 0)
-  - green - the capacity is OK
-  - gray - capacity is 0.
+  - Yellow - below or above capacity (even if capacity was 0)
+  - Green - the capacity is OK
+  - Gray - capacity is 0.
 
     ![Approval capacity for a single user in Approval Periods.](/cms_trial/assets/e7faba60-8d75-4913-b154-bb34c3fc2cbb.png)
 

@@ -6,17 +6,15 @@ To get started,
 
 1. Click **Get Started** on the following screen after you [install](/cms_trial/space/CDMC/2192870167/Installation/) the app.
 
-![Comala onboarding welcome screen with setup options](/cms_trial/assets/a4ec6a69-7afd-48f9-bb01-faf49de4631d.png)
+   ![image-20261124-143516.png](/cms_trial/assets/d6785dee-073a-4613-b4ab-14abe4a05d4b.png)
 
 1. Select a space where you want to configure the app. Click **Next**.
 
-![Comala onboarding popular use cases selection](/cms_trial/assets/b7e88e97-f64f-40d3-85ad-d342d70b3e54.png)
+![image-20261124-143005.png](/cms_trial/assets/c5934c77-b870-4d94-8256-300b73836fde.png)
 
 1. Choose an option in the onboarding screen to explore the app or apply an example workflow. Quickly apply the workflow on this screen, or go to the space settings to select a workflow that suits your needs.
 
-![Comala onboarding workflow setup guide](/cms_trial/assets/a505afbd-b346-4c26-8f0b-3f49aef7bd13.png)
-
-Learn more about [workflows](https://appfire.atlassian.net/wiki/spaces/CDMC/pages/2192676962) here.
+![image-20261124-143044.png](/cms_trial/assets/4b068881-7ce8-4759-8640-9cefaaf630ad.png)
 
 The onboarding page also gives other options, including
 
@@ -28,16 +26,16 @@ The onboarding page also gives other options, including
 
 Explore this interactive demo to see the app in action and applied to real-world documents.
 
-<https://demo.arcade.software/Fk9RjIC3U6gH1IraFy3g>
+<https://app.arcade.software/share/PYogkPkdcrq7vbwR3F9z>
 
 ### **Popular use cases**
 
-Use the links to view some use cases for Comala Document Management and apply an example workflow to illustrate each use case.
+Use the links to view use cases for Comala Document Management and an example workflow to illustrate each.
 
-![Comala onboarding use case cards](/cms_trial/assets/ad474c8a-488f-47f6-be8c-f836d501e635.png)
+![image-20261124-143215.png](/cms_trial/assets/80a03866-9981-4aa5-ab9d-029452168ff0.png)
 
 ### Further support or questions
 
 Use the links to our [support team](http://appf.re/support) and product documentation to help answer any questions about Comala Document Management or provide feedback.
 
-![Comala onboarding workflow template selection](/cms_trial/assets/851059e5-9bc6-45c3-a972-3f95902e6e9d.png)
+![Comala onboarding workflow template selection](/cms_trial/assets/563fa7c4-dc6c-4b6e-8686-40bc490988be.png)

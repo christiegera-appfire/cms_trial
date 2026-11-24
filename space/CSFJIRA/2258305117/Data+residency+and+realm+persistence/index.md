@@ -1,22 +1,17 @@
 # Data residency and realm persistence
 
-Atlassian data residency allows choosing where the app data is stored geographically. If you have security needs or contractual obligations that require your data to be held in a particular geographical location, you have a choice over where your data can be held. This feature helps organizations meet compliance requirements by specifying which geographic regions host their data. To learn more, see [Data residency](https://developer.atlassian.com/cloud/jira/platform/data-residency/#realm-persistence) and [Understand data residency](https://support.atlassian.com/security-and-access-policies/docs/understand-data-residency/).
-
-Currently, Connector for Salesforce & Jira doesn’t support migration from one data location to another. If you have your Connector already installed, you can’t change its location for the moment.
+Atlassian data residency lets you to choose where your app data is stored. If security needs or contractual obligations require your data to be held in a particular geographic location, you can choose where it's stored. This feature helps organizations meet compliance requirements by specifying which geographic regions host their data. To learn more, see [Data residency](https://developer.atlassian.com/cloud/jira/platform/data-residency/#realm-persistence) and [Understand data residency](https://support.atlassian.com/security-and-access-policies/docs/understand-data-residency/).  
+Connector for Salesforce & Jira supports data residency for new installations and for migrating existing installations from one data location to another. If you already have the Connector installed, you can now move its data to a different location.
 
 ## Set your data location
 
-For new installations of Connector, you can set your Jira instance data residency location in Atlassian Administration.
+For new Connector for Salesforce & Jira installations, set the data residency location for your Jira instance in Atlassian Administration. Atlassian's instructions cover the steps: [Set the default data residency location](https://support.atlassian.com/security-and-access-policies/docs/set-the-default-data-residency-location/).
 
-1. Go to **Atlassian Administration**.
-2. Select your organization if you have more than one.
-3. Select **Data management** > **Data residency.**
-4. Click **Set location**.
-5. Review information about the steps involved. Select **Next**.
-6. Select the location from the menu where you want to move your app. Select **Next**.
-7. Select a move window. Select **Next**.
-8. Install the Connector.  
-   It will automatically use the same location as your Jira instance.
+Once the location is set, install the Connector. It will automatically use the same location as your Jira instance.
+
+## Migrate existing Connector data to another location
+
+If the Connector is already installed, you can move its data to another location. You request the move in Atlassian Administration, and you need organization administrator permissions to do it. For the steps, see Atlassian's guides to [moving Atlassian app data](https://support.atlassian.com/security-and-access-policies/docs/move-data-to-another-location/) and [moving your Marketplace apps data](https://support.atlassian.com/security-and-access-policies/docs/moving-your-marketplace-apps-data-to-another-location).
 
 ## Realms and regions
 
@@ -28,9 +23,7 @@ Each realm represents a geographical area containing specific Amazon Web Service
 
 ## Realm persistence
 
-Realm persistence ensures continuity for your app's data location when reinstalling the Connector for Salesforce & Jira. Meaning, if you uninstall and then reinstall the Connector for Salesforce & Jira within the **persistence period of 30 days**, the app will be installed in the same realm it was previously, preserving access to your existing data. This prevents data loss or access issues when temporarily uninstalling the app.
-
-If you uninstall and then reinstall the app after the 30-day persistence window, your app might be assigned to a different region than before, and you can lose access to your previous data.
+Realm persistence ensures continuity for your app's data location when reinstalling the Connector for Salesforce & Jira. If you uninstall and then reinstall the Connector for Salesforce & Jira within the **persistence period of 30 days**, the app will be installed in the same realm it was previously, preserving access to your existing data. This prevents data loss or access issues when temporarily uninstalling the app.
 
 ## View where your data is hosted
 
@@ -44,7 +37,7 @@ To view where your Connector for Salesforce & Jira data is hosted, you must have
 4. Click **Menu** (▢) > **View app details** for the Jira instance where you have the Connector installed.
 
    ![2026-01-29_14-59-56.png](/cms_trial/assets/e725ba8f-f89e-46ab-b9c6-cb9ab3119849.png)
-5. You can search for Connector for Jira & Salesforce.
+5. Search for Connector for Jira & Salesforce.
 
    If the location is set, you will see the name of the location.
 
