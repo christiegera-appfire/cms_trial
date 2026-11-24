@@ -2,24 +2,30 @@
 
 ## About the plans
 
-Each plan offers a different set of features and capabilities, so you can choose the option that best fits your organization's needs, team size, and level of maturity.
+Each plan offers a different set of features and capabilities, so you can choose the option that best fits your organization's needs, team size, and maturity level.
 
 - The **Standard** plan includes the core Project Portfolio Management (PPM) features you need for day-to-day work, such as portfolio planning, timeline scheduling, resource and capacity management, dependency tracking, risk management, and cross-team coordination.
 - The **Advanced** plan includes everything in the Standard plan, plus additional features for Strategic Portfolio Management (SPM). It helps you connect strategy with execution through strategic objective management, initiative prioritization, financial management, and executive portfolio visibility.
 
 As your needs evolve, you can easily upgrade between plans to access additional value.
 
-Learn the pricing and use cases differences on the [Marketplace page](https://marketplace.atlassian.com/apps/1212259/bigpicture-portfolio-resource-management-for-jira?hosting=cloud&tab=pricing).
+To choose the right tier for your team, review pricing on the [Marketplace page](https://marketplace.atlassian.com/apps/1212259/bigpicture-portfolio-resource-management-for-jira?hosting=cloud&tab=pricing) and watch this short video breakdown comparing BigPicture Standard and BigPicture Advanced.
 
 ## Feature comparison
 
-The table presents the differences between BigPicture Standard and Advanced plans for Jira Cloud. To learn more about the BigPicture modules, see the [Explore BigPicture modules](/cms_trial/space/SPM/3460661282/Explore+BigPicture+modules/) page.
+Want to see BigPicture Advanced capabilities in action?
+
+Browse the module overviews linked below. Each short video highlights key features and practical use cases, making it easy to choose the configuration that best supports your team’s delivery model.
+
+You can also visit the [Explore BigPicture modules](/cms_trial/space/SPM/3460661282/Explore+BigPicture+modules/) page for more details.
+
+The table presents the differences between BigPicture Standard and Advanced plans for Jira Cloud.
 
 | **Modules/Features** | **BigPicture** STANDARD | **BigPicture** ADVANCED |
 | --- | --- | --- |
 | [Financials module](https://appfire.atlassian.net/wiki/spaces/SPM/pages/2269806655)  Track project finances with confidence. Monitor budgets, actuals, and forecast future costs based on team rates, estimated time, and effort. Visualize trends, drill into initiatives, and automate calculations with Jira data. Categorize expenses as CapEx or OpEx to get clear, accurate financial visibility. | ❌ Unavailable | ✅ Available |
 | [OKR module](/cms_trial/space/SPM/1918535397/OKR+module/)  Turn strategy into measurable progress. Define objectives and key results, link them to work items, visualize progress on Gantt charts and dedicated dashboards with clear statistics. Keep teams aligned and make informed decisions based on real progress data. | ❌ Unavailable | ✅ Available |
-| [Priorities module](/cms_trial/space/SPM/1918829653/Priorities+module/)  Align teams around what matters most. Prioritize ideas, work items, entire projects, and OKRs to ensure resources are focused on high-impact work. Start fast with ready-to-use frameworks like ICE, RICE, WSJF, Eisenhower Matrix, Balanced Scorecard, or use your own. | ❌ Unavailable | ✅ Available |
+| [Priorities module](/cms_trial/space/SPM/1918829653/Priorities+module/)  Align teams around what matters most. Prioritize ideas, work items, projects, and OKRs to keep resources focused on high-impact work. Start fast with ready-to-use frameworks like ICE, RICE, WSJF, Eisenhower Matrix, Balanced Scorecard, or use your own. | ❌ Unavailable | ✅ Available |
 | [Advanced reporting](/cms_trial/space/SPM/2481848664/Contextual+reports/)  Get instant insights without manual setup. Automatic, advanced, context-aware reports for a quick overview of core metrics for projects, programs, portfolios, and iterations. Key reports include progress and effort, box status, team capacity, OKR status, and overall project health. | ❌ Unavailable | ✅ Available |
 | [Overview module](/cms_trial/space/SPM/1918502655/Overview+module/)  Get a high-level summary of your projects, programs, and portfolios in one place. Visualize structure, aggregate data from multiple initiatives, and choose from Hierarchy, Timeline, and Kanban views to match your planning style. | ✅ Available | ✅ Available |
 | [Gantt module](/cms_trial/space/SPM/1918797129/Gantt+module/)  Your go-to module for managing projects and portfolios. Create timeline charts for initiatives, from roadmaps to schedules, and monitor execution with clarity and confidence. Key features include customizable task structure, milestones, dependencies, critical paths, resources, and what-if scenarios. | ✅ Available | ✅ Available |
@@ -28,7 +34,7 @@ The table presents the differences between BigPicture Standard and Advanced plan
 | [Board module](/cms_trial/space/SPM/1918796888/Board+module/)  Manage backlog and delivery across teams. Plan work according to your methodology, track progress and cross-team dependencies, and coordinate tasks for both agile and non-agile teams. Monitor execution with built-in reports, milestones, and progress bars that will help you and your team stay on track. | ✅ Available | ✅ Available |
 | [Risk Management module](/cms_trial/space/SPM/1918699171/Risk+management+module+(NEW)/)\*  Identify, assess, and manage risks across your initiatives with customizable risk management frameworks. Evaluate probability and impact to calculate risk scores, automatically assign risk levels using a risk matrix, and track risk analytics and KPIs over time.  *\***Some clients may temporarily see the legacy* [*Risks*](/cms_trial/space/SPM/1918666681/Risks+module/) *module instead of this one. We plan to roll out the new module to all clients shortly.* | ✅ Available | ✅ Available |
 | [Goals module](/cms_trial/space/SPM/1918535323/Goals+module/)  Track sprint, program increment, or iteration goals to drive delivery. Define team goals and monitor completed work and progress across large initiatives in real time against your goals. | ✅ Available | ✅ Available |
-| [Teams module](/cms_trial/space/SPM/1918829775/Teams+module/)  Group users into teams to enable effort-based planning. Set skills and availability of each team member to ensure successful project outcomes. | ✅ Available | ✅ Available |
+| [Teams module](/cms_trial/space/SPM/1918829775/Teams+module/)  Group users into teams to enable effort-based planning. Set each team member's skills and availability to support successful project outcomes. | ✅ Available | ✅ Available |
 | [Calendar module](/cms_trial/space/SPM/1918699000/Calendar+module/)  Visualize your initiatives on a neat, customizable calendar grid. Add, filter, and search tasks right in the Calendar view. Schedule work with a simple drag & drop, and share all the live changes with your teams. | ✅ Available | ✅ Available |
 | [Reports module](/cms_trial/space/SPM/1918502811/Reports+module/)  Turn data into actionable insights. Generate clear, informative project management reports at any granularity. Visualize cross-team dependencies, milestones, risk matrix, velocity, plan delays, and team capacity in one view. | ✅ Available | ✅ Available |
 
