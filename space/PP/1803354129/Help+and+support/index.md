@@ -4,6 +4,7 @@ This page applies to both **Planning Poker for Jira Cloud** and **Jira Data Cent
 
 This section includes information and links related to error messages, troubleshooting, data collection and storage, privacy, end-user license agreements, and how to get help from Appfire support.
 
+- [Data residency and retention (Cloud)](/cms_trial/space/PP/3869507713/Data+residency+and+retention+(Cloud)/)
 - [FAQ: Planning Poker for Jira](/cms_trial/space/PP/9568458/FAQ%3A+Planning+Poker+for+Jira/)
 - [Data security & Privacy statement v3](/cms_trial/space/PP/9568600/Data+security+%26+Privacy+statement+v3/)
   - [List of changes in Data security & Privacy statement (v1 to v2)](/cms_trial/space/PP/9568607/List+of+changes+in+Data+security+%26+Privacy+statement+(v1+to+v2)/)

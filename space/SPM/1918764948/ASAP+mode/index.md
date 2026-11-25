@@ -1,7 +1,7 @@
 # ASAP mode
 
-You can enable the ASAP mode for strong dependencies. In such case, the scheduling mechanism will try to reduce the gap between dependent tasks to a minimum. When you set this switch to active, the app remembers the settings, and all future dependencies will be created with the ASAP mode.
+You can enable the ASAP mode for individual strong dependencies. In this case, the scheduling mechanism will try to minimize the gap between dependent tasks to a minimum. When you enable this switch, the app remembers the setting, and all future dependencies will be created in ASAP mode.
 
-The ASAP mode is activated on the **App Configuration** > **General** > **Dependencies page**.
+You can also enable the default ASAP mode on the **App Configuration** > **General** > **Dependencies page**. When the default ASAP mode is enabled, the ASAP mode is active for all newly-created strong dependencies.
 
-To learn more about the ASAP mode, see [the Strong dependencies (global configuration) page](/cms_trial/space/SPM/1918865340/Strong+dependencies+(App+configuration)/).
+To learn more about the default ASAP mode, see the [Strong dependencies (global configuration)](/cms_trial/space/SPM/1918865340/Strong+dependencies+(App+configuration)/) page.

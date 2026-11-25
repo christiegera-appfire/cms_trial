@@ -4,6 +4,7 @@ Watch quick video guides and tutorials to get started with Advanced Tables macro
 
 | **Macro feature/Use case** | **Video** |
 | --- | --- |
+| Import data in Confluence fast with [Advanced Table Viewer](/cms_trial/space/TBL/1531117698/Advanced+Table+Viewer+macro/) |  |
 | Advanced Tables Configuration - [Global configuration and Profiles](/cms_trial/space/TBL/74812041/Configuration+-+Cloud/) |  |
 | Advanced Table Viewer macro - [CSV data source](/cms_trial/space/TBL/1782972884/Configure+CSV+data+source+in+Advanced+Table+Viewer+macro/) |  |
 | Advanced Table Viewer macro - [Excel data source](/cms_trial/space/TBL/3122888898/Configure+Excel+data+source+in+Advanced+Table+Viewer+macro/) |  |

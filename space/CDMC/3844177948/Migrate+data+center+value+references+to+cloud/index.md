@@ -1,4 +1,4 @@
-# Migrate data center variables to cloud
+# Migrate data center value references to cloud
 
 ## Overview
 
@@ -29,7 +29,7 @@ During migration, Data Center value references can have one of the following res
 - **Unchanged:** The value reference remains unchanged and is not reported during migration. Cloud typically resolves it as a CDM metadata value at runtime.
 - **Not supported:** The value reference remains unchanged and is reported as an unmapped value reference. Review the workflow and replace or remove the unsupported reference.
 
-Some value references depend on the trigger event in which they are used. For example, `@comment@` is translated in an approval trigger but is not supported in a state message. See the [Event](https://appfire.atlassian.net/wiki/spaces/CDMCCD/pages/3842048384/Migrate+data+center+variables+to+cloud#Event) section for details.
+Some value references depend on the trigger event in which they are used. For example, `@comment@` is translated in an approval trigger but is not supported in a state message. See the [Event](https://appfire.atlassian.net/wiki/spaces/CDMCCD/pages/3842048384/Migrate+data+center+value+references+to+cloud#Event) section for details.
 
 ## Differences in returned values
 
@@ -55,7 +55,7 @@ During migration, Data Center value references that match workflow parameter nam
 
 | **Data Center** | **Cloud** |
 | --- | --- |
-| `@Parameter Name@` | `@Parameter['Parameter Name']@` |
+| `@Owner@` | `@Parameter['Owner']@` |
 
 For example, if a workflow contains a parameter named **Owner**, `@Owner@` is translated to `@Parameter['Owner']@`.
 
@@ -186,7 +186,7 @@ For example, `@DEMO:Target Page:region@` is translated to `@SpaceKey['DEMO']:Con
 
 References containing more than three parts or an empty part, such as `@DEMO::region@`, are not supported.
 
-A two-part reference beginning with `workflow`, `content`, `space`, `user`, or `page` is treated as a Reporting supplier chain rather than a page reference. See [Reporting supplier chains](https://appfire.atlassian.net/wiki/spaces/CDMCCD/pages/3842048384/Migrate+data+center+variables+to+cloud#Reporting-supplier-chains) for details.
+A two-part reference beginning with `workflow`, `content`, `space`, `user`, or `page` is treated as a Reporting supplier chain rather than a page reference. See [Reporting supplier chains](https://appfire.atlassian.net/wiki/spaces/CDMCCD/pages/3842048384/Migrate+data+center+value+references+to+cloud#Reporting-supplier-chains) for details.
 
 ## Confluence Page Properties
 
@@ -276,10 +276,10 @@ Review these references in your migrated workflow and replace or remove them as 
 | `@type@`, `@attachment > type@` in attachment triggers | No equivalent attachment type variable. `@Content.Type@` returns the page content type, not the attachment type. |
 | `@task@`, `@taskname@`, `@taskassignee@`, `@taskassigner@`, `@taskcompleter@`, `@taskcreator@`, `@taskcomment@` | No Cloud equivalent. |
 | `@errormessage@` | No Cloud equivalent. |
-| `@comment@`, `@approvaluser@`, `@label@`, `@addedlabel@`, `@removedlabel@` outside the supported trigger contexts | These references are supported only in the trigger contexts listed in the [Event](https://appfire.atlassian.net/wiki/spaces/CDMCCD/pages/3842048384/Migrate+data+center+variables+to+cloud#Event) section. |
-| Approval chains with modifiers other than `wiki-link` or `fullname` | See [Name modifiers](https://appfire.atlassian.net/wiki/spaces/CDMCCD/pages/3842048384/Migrate+data+center+variables+to+cloud#Name-modifiers) under Approval. |
-| Reporting supplier chains not listed in [Reporting supplier chains](https://appfire.atlassian.net/wiki/spaces/CDMCCD/pages/3842048384/Migrate+data+center+variables+to+cloud#Reporting-supplier-chains) | No Cloud equivalent. |
-| Cross-page references containing more than three parts or an empty part | See [Metadata from another page](https://appfire.atlassian.net/wiki/spaces/CDMCCD/pages/3842048384/Migrate+data+center+variables+to+cloud#Metadata-from-another-page) for supported formats. |
+| `@comment@`, `@approvaluser@`, `@label@`, `@addedlabel@`, `@removedlabel@` outside the supported trigger contexts | These references are supported only in the trigger contexts listed in the [Event](https://appfire.atlassian.net/wiki/spaces/CDMCCD/pages/3842048384/Migrate+data+center+value+references+to+cloud#Event) section. |
+| Approval chains with modifiers other than `wiki-link` or `fullname` | See [Name modifiers](https://appfire.atlassian.net/wiki/spaces/CDMCCD/pages/3842048384/Migrate+data+center+value+references+to+cloud#Name-modifiers) under Approval. |
+| Reporting supplier chains not listed in [Reporting supplier chains](https://appfire.atlassian.net/wiki/spaces/CDMCCD/pages/3842048384/Migrate+data+center+value+references+to+cloud#Reporting-supplier-chains) | No Cloud equivalent. |
+| Cross-page references containing more than three parts or an empty part | See [Metadata from another page](https://appfire.atlassian.net/wiki/spaces/CDMCCD/pages/3842048384/Migrate+data+center+value+references+to+cloud#Metadata-from-another-page) for supported formats. |
 
 ## Check your workflow after migration
 

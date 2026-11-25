@@ -15,31 +15,31 @@ When a milestone is a target of a dependency:
 | Start → end | **Milestone date <= Task Start Date** | **Milestone date = Task Start Date** |
 | Start → start | regular dependency behavior | regular dependency behavior |
 
-"**End to start**" dependencies are adjusted to account for a milestone being a point in time (has a single date).
+**End to start** dependencies are adjusted to account for a milestone being a point in time (milestones have only one date).
 
 When a milestone is a target:
 
 - ASAP - the milestone date has to be the same as the source end date
 - non-ASAP - the milestone date has to be the same or later than the source end date
 
-![contentId-1918537271](/cms_trial/assets/c9a80829-7e8e-49c6-966f-2aa4fc0da58a.png)![contentId-1918537271](/cms_trial/assets/c77763b9-f168-4d47-b886-46f3e5f613c6.png)
+![contentId-1918537271](/cms_trial/assets/3d0ad36b-951c-4735-a2d9-b18677624913.png)![contentId-1918537271](/cms_trial/assets/aa6b2698-e06e-4f9b-88b2-79da05c7df9b.png)
 
-"**Start to end**" dependencies are adjusted to account for a milestone being a point in time (has a single date).
+**Start to end** dependencies are adjusted to account for a milestone being a point in time (milestones have only one date).
 
 When a milestone is a target:
 
 - ASAP - the milestone date has to be the same as the source start date
 - non-ASAP - the milestone date has to be the same or later than the source start date
 
-![contentId-1918537271](/cms_trial/assets/30fdb622-884c-4d61-980c-fed2e1699b59.png)![contentId-1918537271](/cms_trial/assets/23c2644b-ac82-40c3-a487-f22fe77cdcab.png)
+![contentId-1918537271](/cms_trial/assets/ba32b572-73dd-4cc6-9ebd-351d02d2984f.png)![contentId-1918537271](/cms_trial/assets/9cb47e92-d7e3-4f02-8403-dd521057af87.png)
 
-"**End to end**" dependencies behave normally.
+**End to end** dependencies behave normally.
 
-![contentId-1918537271](/cms_trial/assets/8ac4347f-0892-4ae8-beff-8b9235bd5c1e.png)
+![contentId-1918537271](/cms_trial/assets/51346cb6-35ae-4bf0-9fef-4d30ef6860d3.png)
 
-"**Start to start**" dependencies behave normally.
+**Start to start** dependencies behave normally.
 
-![contentId-1918537271](/cms_trial/assets/364fb17f-e063-4fa8-a6ba-e3e8407f7251.png)
+![contentId-1918537271](/cms_trial/assets/af4943c3-f49d-4d7c-afe5-ae47bc755098.png)
 
 ### Dependencies from milestone to task
 

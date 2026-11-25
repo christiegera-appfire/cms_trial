@@ -4,9 +4,11 @@
 
 Dashboard Hub is a visualization tool and a central hub for your organization's data. Create and share powerful dashboards and charts that display metrics and key performance indicators (KPIs) using gadgets. This lets teams centralize data from different products and instances for a unified view.
 
-**Customer story**
+**Case studies**
 
-Find out how [Success Solutions](https://appfire.com/resources/resource-library/customer-stories/success-solutions-saves-150-hours-jsm?utm_source=appfire.atlassian.net&utm_medium=appdocs&utm_campaign=grw_mustapps&utm_content=customer-story-sucess-sol) is using Dashboard Hub!
+See how real teams use Dashboard Hub for Jira to save time and scale their Jira and JSM reporting.
+
+[Case studies](https://support.appfire.com/space/RDD/3877601674/Case+studies)
 
 ## Key features
 

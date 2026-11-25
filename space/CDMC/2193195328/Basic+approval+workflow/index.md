@@ -20,7 +20,7 @@ For example,
 - Once the assignee/reviewer approves, the document moves from *Review* to *Approved* state.
 - The page automatically moves from *Review* to *Rejected* statewhen the reviewer rejects the document.
 
-![Comala basic approval workflow state diagram](/cms_trial/assets/3ec5bee6-1720-40f7-b6a5-0e29861d8049.png)
+![Comala basic approval workflow state diagram](/cms_trial/assets/2600eb9e-fa7f-4281-b090-5ace4b80b8db.png)
 
 The workflow transitions back to the **Review** state when a page editor updates a page in either the *Approved* or *Rejected* state.
 
