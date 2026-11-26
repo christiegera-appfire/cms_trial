@@ -11,6 +11,40 @@ The Advanced Table Viewer macro enables you to import and display CSV, Excel, JS
 
 ### Watch the Video to quickly get started with the Advanced Table Viewer macro
 
+Video transcript
+
+**Import data from various sources using the Advanced Table Viewer macro**
+
+Your data lives in many places. With Advanced Table Viewer, you can bring it all into one Confluence page and turn it into a table that works for your team.
+
+Let’s start with where your data can come from. The Advanced Table Viewer macro supports five data sources.
+
+To import CSV data, you can upload a file, select an attachment, provide a URL, insert CSV code, or use a saved profile.
+
+To bring in your Excel spreadsheet data, upload a file, select an attachment, or provide a URL, so there’s no need to recreate your tables.
+
+Working with JSON? Load it and view it as a clean, readable table with options to upload a file, select an attachment, provide a URL, or insert JSON code.
+
+Need to see your Jira data in context? Import Jira work items using a JQL query.
+
+And with Page properties, you can pull data from the Page properties macro on multiple Confluence pages into a single table using labels.
+
+To configure each data source, you can refer to the documentation or the Advanced Tables for Confluence video tutorials.
+
+Let's upload a CSV file.
+
+Once your data is in, you can configure table features in setup mode.
+
+Apply the feature configurations you need, save the macro, and publish the page.
+
+Now, in view mode, use the search bar and column filters to find what you need. Group columns to organize table data. View group calculations for quick summaries. And for AI-driven data analysis, use Ask Rovo.
+
+Whatever your data source, the Advanced Table Viewer macro helps you turn it into a table that works for you.
+
+If you found this video helpful, like it and subscribe to Appfire's YouTube channel for more Advanced Tables for Confluence tutorials.
+
+Thanks for watching!
+
 ## Enhance your table with Advanced Table Viewer macro features
 
 |  |  |  |
