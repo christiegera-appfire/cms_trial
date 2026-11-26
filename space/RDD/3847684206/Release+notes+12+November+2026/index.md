@@ -8,7 +8,7 @@ This page outlines the updates included in the latest release of the Dashboard H
 
 ## Improved datasource token management
 
-Administrators can now revoke or rotate stored datasource tokens without deleting the datasource record. This gives you more control over stored credentials and supports a faster response if a token is compromised.
+Administrators can now revoke or rotate stored datasource tokens without deleting the datasource record. This gives you more control over stored credentials and supports a faster response if a token is compromised. See [Datasource encryption](https://support.appfire.com/space/RDD/3882025115/Datasource+encryption) to learn more.
 
 ---
 

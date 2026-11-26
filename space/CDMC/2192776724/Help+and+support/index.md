@@ -7,3 +7,4 @@
 - [Why is my document state name in the workflows document report appended with "...(Obsolete)"?](/cms_trial/space/CDMC/2193097214/Why+is+my+document+state+name+in+the+workflows+document+report+appended+with+%22...(Obsolete)%22%3F/)
 - [Use the Comala Document Management App with Confluence Live Pages](/cms_trial/space/CDMC/2420670735/Use+the+Comala+Document+Management+App+with+Confluence+Live+Pages/)
 - [End of support for the Connect framework](/cms_trial/space/CDMC/3412264373/End+of+support+for+the+Connect+framework/)
+- [Workflow trigger action failures – error codes and solutions](/cms_trial/space/CDMC/3881926679/Workflow+trigger+action+failures+%E2%80%93+error+codes+and+solutions/)

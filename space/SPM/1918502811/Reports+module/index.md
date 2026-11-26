@@ -8,7 +8,7 @@ Click to expand the guide
 
 With the **Reports module**, you can generate various reports to provide you with the data necessary for the project management process.
 
-![contentId-1918502811](/cms_trial/assets/50e93d50-518c-4098-bdaf-050094b25b3b.png)
+![contentId-1918502811](/cms_trial/assets/be0b467d-22da-4952-b3b3-dd29c8fb51bf.png)
 
 ## Main features
 
@@ -43,7 +43,7 @@ Click to expand the guide
 
 With the **Reports module**, you can generate various reports to provide you with the data necessary for the project management process.
 
-![Screenshot of the Reports module in BigPicture.](/cms_trial/assets/0a36ef4a-74ed-4e82-ab89-9753708da194.png)
+![Screenshot of the Reports module in BigPicture.](/cms_trial/assets/a5e28acc-8897-4f25-b74d-4f6cdb043e76.png)
 
 See the video to learn more.
 
@@ -63,7 +63,8 @@ The table presents a list of available actions and reports that can be generated
 | [Velocity](/cms_trial/space/SPM/1918833281/Velocity+report/) | Counts and presents the amount of planned and done story points for subsequent iterations. |
 | [Plan delays](/cms_trial/space/SPM/1918765989/Plan+delay+report/) | Provides a quick view of delayed tasks of a given project or portfolio. |
 | [Capacity per period](/cms_trial/space/SPM/1918765199/Capacity+per+period+report/) | Generates a capacity report for a given time period (total, distributed workload, remaining - for a skill, user, team, or total). |
-| [Project health](https://appfire.atlassian.net/wiki/pages/createpage.action?spaceKey=spm&title=Project%20health%20%28Red%2C%20Aamger%2C%20Green%29&linkCreation=true&fromPageId=1918502811) | Visualizes project health using the RAG (Red-Amber-Green) system. |
+| [Project health](/cms_trial/space/SPM/2988179457/Project+health/) | Visualizes project health using the RAG (Red-Amber-Green) system. |
+| [OKR report](/cms_trial/space/SPM/3881566462/OKR+report/) | Overview of Objectives and Key Results (OKRs) within a selected box.  The OKR report is available onlyin [**BigPicture Advanced**](/cms_trial/space/SPM/3451617346/BigPicture+Standard+vs+Advanced/). |
 | Default reports | The standard BigPicture App includes five pre-configured reports. |
 | **Actions** | **Description** |
 | Report configuration | You can add, edit, and delete reports. |

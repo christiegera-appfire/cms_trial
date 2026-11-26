@@ -6,15 +6,15 @@ When an organization provides premium support services through Jira Service Mana
 
 Dashboard Hub lets your administrator share your JSM portal's specific reporting dashboards with customers and organizations.
 
-## Global settings - global access restrictions
+## Global Settings
 
-Go to **Admin configuration** > **Dashboard Hub** > **Global Settings**. In the *Global Access Restriction* section. Turn on the toggle for **Restrict Access in the Customer Portal**.
+Go to **Dashboard Hub** > **App Settings** > **Global Access Restrictions**. Turn on **Restrict Access to the Customer Portal**.
 
-![The Restrict Access in the Customer Portal options in Dashboard Hub Global Settings.](/cms_trial/assets/3d5f630c-20e7-441a-97e6-a016a15421ad.png)
+![The Restrict Access to the Customer Portal option turned on in Global Settings](/cms_trial/assets/2776d7de-d34d-476b-8b49-2161629bea69.png)
 
 Customers and organizations can be added to view dashboards through the JSM Customer Portal. Customer portal users can’t be granted Edit permissions. In the [next section](/cms_trial/space/RDD/146309699/Manage+access+to+the+Jira+Service+Management+Customer+Portal/), we’ll explain how to grant access to dashboards to users of the JSM Customer Portal.
 
-### Issue Link Policy
+### Work Item link policy
 
 You can control how links behave in the dashboards shared through the JSM Customer Portal:
 
@@ -25,7 +25,7 @@ Only users with access to the Jira instance will be able to see this list. If th
 - **Users are redirected to the list of requests in their service desk:** When a user clicks a link or chart section, they are redirected to the list of requests they have raised in the Customer Portal.
 - **Not presented with the option to click through issue keys, charts, and graphs**: Users cannot click links or chart sections.
 
-## Permissions for customers and organizations at the dashboard level
+## Permissions for the Customer Portal
 
 Customers and organizations can be granted access to view dashboards. Customers and organizations can be selected in the Customer Portal section of the dashboard settings.
 
