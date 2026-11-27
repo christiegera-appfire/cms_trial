@@ -12,21 +12,15 @@ For example, when a Salesforce agent needs to escalate a Case to the development
 
 ## Before you start
 
-- Your administrator has completed a [project binding](/cms_trial/space/CSFJIRA/1873379785/Bind+a+space+to+a+connection+(Jira+Cloud)/) as well as [entity, field and value mappings](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field%2C+and+value+mappings/) in Jira.
+- Your administrator has completed a [project binding](/cms_trial/space/CSFJIRA/1873379785/Bind+a+space+to+a+connection+(Jira+Cloud)/) as well as [entity, field and value mappings](/cms_trial/space/CSFJIRA/1854180614/Configure+entity%2C+field%2C+and+value+mappings/) in Jira.
 - Your administrator has [configured the Visualforce pages](/cms_trial/space/CSFJIRA/1873511459/Use+Jira+Issues+(NextGen)+with+Visualforce/) required for the Object.
 
 ## Create a Jira work item
 
 1. In a Salesforce record, click **Associate/Create.**
-
-   ![2026-01-16_09-52-17.png](/cms_trial/assets/e33fc791-bce2-431e-8ce5-18ad01aa2896.png)
-2. The **Associate/Create Jira Issue** pop-up window appears.
-
-   ![Associate or Create Jira Issue .png](/cms_trial/assets/2430ed4c-c55d-45e8-b463-9a8997723dd2.png)
-3. Click **Create Jira Issue**and the **Create Jira Issue** pop-up window will appear.
-
-   ![2026-01-16_09-54-12.png](/cms_trial/assets/ca561512-6617-47b2-937e-40783b2e994d.png)
-4. Choose the desired **Jira Project** and **Issue Type**. All field and value mappings set by your administrator will be used to create the Jira work item.
+2. The **Associate/Create Jira Issue** pop-up window appears.
+3. Click **Create Jira Issue**. The **Create Jira Issue** pop-up window appears.
+4. Choose the desired **Jira Project** and **Issue Type**. All field and value mappings set by your administrator will be used to create the Jira work item.
 
    You can choose to toggle the following options:
 
@@ -36,14 +30,12 @@ For example, when a Salesforce agent needs to escalate a Case to the development
 
 Some combinations are not possible and cannot be selected. Refer to the help provided under the *What Will Happen?* panel.
 
-1. You can also choose what to do after the Jira issue is created by choosing from the following options:
+1. You can also choose what to do after the Jira issue is created by choosing from the following options:
 
    1. **Do nothing**
-   2. **Pull from Jira**
+   2. **Pull from Jira**
 
-      ![image-20250605-055954.png](/cms_trial/assets/ec53862b-9aeb-498c-a4a6-eebd3cc66eb1.png)
-
-You can always add, edit, or delete the values if you need. See [Notes on Supported Fields](/cms_trial/space/CSFJIRA/3092088339/Create+a+Jira+work+item+from+Salesforce+with+Jira+Issues+(NextGen)/) for more information.
+You can always add, edit, or delete the values if you need. See [Notes on Supported Fields](/cms_trial/space/CSFJIRA/3092088339/Create+a+Jira+work+item+from+Salesforce+with+Jira+Issues+(NextGen)/) for more information.
 
 Upon successful creation, an *Issue created successfully* message is shown.
 
@@ -70,7 +62,7 @@ The following field types are rendered in the *Review & Create* window:
 
 - Text fields like *Summary*
 
-  - Rich text fields *like Description* (If enabled in [connection settings](/cms_trial/space/CSFJIRA/1853653945/Configure+connection+settings/), Jira multiline fields will use rich text fields; otherwise, plain text formatting will be applied.)
+  - Rich text fields like *Description* (if enabled in [connection settings](/cms_trial/space/CSFJIRA/1853653945/Configure+connection+settings/), Jira multiline fields use rich text fields; otherwise, plain text formatting applies)
   - *Request type (only for JSM)*
   - *Priority*
   - *Components*
@@ -82,7 +74,7 @@ The following field types are rendered in the *Review & Create* window:
   - *Radio buttons*
   - *Date*
   - *Date Time*
-- The following fields are rendered in this order (after which, any other fields would be rendered in no specific order):
+- The following fields are rendered first, in this order:
 
   - *summary*
   - *description*
@@ -93,6 +85,9 @@ The following field types are rendered in the *Review & Create* window:
   - *labels*
   - *epic name*
   - *sprint*
+- Any other fields are rendered after these, in descending order by custom field ID (from highest to lowest).
+
+You can't reorder or customize the field layout in the *Review & Create* window. This is a limitation of the Lightning Web Component that renders the form.
 
 ## Related information
 

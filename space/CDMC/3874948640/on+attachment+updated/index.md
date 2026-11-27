@@ -6,7 +6,7 @@ The `on-attachment-updated` trigger event runs when a new version of an existing
 
 You can add the **File Name** condition to restrict the trigger to specific attachments.
 
-![image-20261124-122431.png](/cms_trial/assets/393e578b-72e4-4a8e-b682-9e33ad008232.png)
+![image-20261124-122431.png](/cms_trial/assets/67e5909b-c014-4eac-919a-0cb8fd845b6a.png)
 
 ## Example: `on-attachment-updated` event
 

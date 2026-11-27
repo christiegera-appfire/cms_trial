@@ -1,4 +1,4 @@
-# Solutions and Integrations
+# Integrations with other apps
 
 The Comala Document Management app is generally compatible with most apps available on Confluence Cloud. If you encounter an app that is not compatible, we recommend contacting the app vendor and asking them to reach out to our [support](http://appf.re/support) team for assistance.
 

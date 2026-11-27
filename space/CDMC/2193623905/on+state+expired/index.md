@@ -36,6 +36,6 @@ There are two actions in the above example
 - the `"change-state"` action to transition the workflow to the **Review** state, and
 - `"set-message"` notification action
 
-![Comala onexpire event warning notification message](/cms_trial/assets/aeb05058-074d-4b56-946c-077decd26a39.png)
+![Comala onexpire event warning notification message](/cms_trial/assets/90901588-af2b-49ba-a414-56e347623034.png)
 
 If a trigger action is present, it can include one or more conditions. If no conditions are added, the trigger listens for an expiration event for any state.

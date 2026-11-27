@@ -19,13 +19,13 @@ You can edit an existing custom workflow or create a new one and edit it with th
 2. Choose **Comala document management** under *Space Apps*.
 3. Click **Create New Workflow**.
 
-   ![Create New Workflow button on the Comala Document Management workflows page.](/cms_trial/assets/b2659de3-3357-46b4-af13-e3eed5f4b94e.png)
+   ![Create New Workflow button on the Comala Document Management workflows page.](/cms_trial/assets/0924a8cb-e04b-4248-894d-38326c3f146c.png)
 4. The visual builder is displayed by default. Click the `{}` icon to open the JSON code editor.
 
-   ![Visual workflow builder with the JSON code editor button indicated.](/cms_trial/assets/31935280-0370-4681-ac2e-638e99101e59.png)
+   ![Visual workflow builder with the JSON code editor button indicated.](/cms_trial/assets/2ebadae6-3005-42bc-8c5c-745d66dc7258.png)
 5. The workflow template JSON code is displayed in the workflow schema box and can be edited directly in the editor.
 
-   ![JSON Code Editor displaying the workflow template JSON schema.](/cms_trial/assets/31799914-f786-41cd-b895-473b9a096688.png)
+   ![JSON Code Editor displaying the workflow template JSON schema.](/cms_trial/assets/93a8a33f-dd12-481d-8283-13edc95339aa.png)
 6. Click **Save** to save your code.
 
 The JSON code editor includes the following:

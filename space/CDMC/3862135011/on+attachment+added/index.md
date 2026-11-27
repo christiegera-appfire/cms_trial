@@ -6,7 +6,7 @@ The `on-attachment-added` trigger event runs when an attachment is uploaded or r
 
 You can add the **File Name** condition to restrict the trigger to specific attachments.
 
-![image-20261117-151804.png](/cms_trial/assets/a00cfefd-8ad4-4c9d-bde6-94d26413d2fd.png)
+![image-20261117-151804.png](/cms_trial/assets/e1d5f397-cc2b-41a7-8e94-90e3c09ce7f9.png)
 
 ## Example: `on-attachment-added` event
 
